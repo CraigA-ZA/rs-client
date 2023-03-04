@@ -7,12 +7,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="MyClient" />
+        <module name="Loader" />
+        <module name="Downloader" />
+        <module name="Shared-Utils" />
+        <module name="Deobfuscator" />
+        <module name="Updater" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="MyClient" target="1.8" />
-      <module name="MyClient" target="1.8" />
+      <module name="rs-client" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
