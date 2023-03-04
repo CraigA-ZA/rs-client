@@ -23,6 +23,9 @@ public class MyClient {
 
             Applet applet = loadClient(classLoader, config);
 
+
+            //Cov method
+
             // Create our stub so we can set the AppletStub of the Applet and pass in the parsed parameters
             CovRSAppletStub appletStub = new CovRSAppletStub(config);
             // Use our setter to set the Applet in the AppletContext
@@ -31,19 +34,27 @@ public class MyClient {
             applet.setStub(appletStub);
             // Turn the key and start the Applet up
             applet.init();
-            // Set the size, this can also be done by reading the parameters, but I was too lazy to parse the Int's
-            applet.setSize(765, 503);
-            // Using our setter, make it so everything knows the Applet is active
-            appletStub.setActive(true);
 
-            // Create a JFrame and add the Applet to it
-            JFrame frame = new JFrame("Runescape");
-            frame.setSize(800, 600);
-            JPanel panel = new JPanel();
-            frame.add(panel);
-            panel.add(applet);
-            frame.pack();
-            frame.setVisible(true);
+
+            //Runelite method
+            applet.setStub(new RuneLiteRSAppletStub(config));
+            applet.init();
+
+
+
+            // Set the size, this can also be done by reading the parameters, but I was too lazy to parse the Int's
+//            applet.setSize(765, 503);
+//            // Using our setter, make it so everything knows the Applet is active
+//            appletStub.setActive(true);
+//
+//            // Create a JFrame and add the Applet to it
+//            JFrame frame = new JFrame("Runescape");
+//            frame.setSize(800, 600);
+//            JPanel panel = new JPanel();
+//            frame.add(panel);
+//            panel.add(applet);
+//            frame.pack();
+//            frame.setVisible(true);
         } catch (IOException ex) {
             System.out.println(ex);
         }
@@ -58,8 +69,6 @@ public class MyClient {
             String initialClassName = config.get(Constants.INITIAL_CLASS);
             Class<?> initialClass = classLoader.loadClass(initialClassName.substring(0, initialClassName.length() - 6));
             Applet applet = (Applet) initialClass.newInstance();
-
-//            applet.setStub(new RuneLiteRSAppletStub(config));
 
             return applet;
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
