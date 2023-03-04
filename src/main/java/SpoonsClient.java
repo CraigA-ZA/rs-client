@@ -1,8 +1,12 @@
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import constants.Constants;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import javax.swing.*;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.applet.Applet;
 import java.io.*;
 import java.net.URL;
@@ -11,57 +15,46 @@ import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-public class MyClient {
+@Singleton
+public class SpoonsClient {
+    @Inject
+    private ClientUI clientUI;
+
+    @Inject
+    private Applet applet;
+
+    private static Injector injector;
 
     public static void main(String[] args) {
         try {
             Map<String, String> config = readConfig();
 
-            fetchGamepack(config.get(Constants.CODEBASE_PROPERTY) + config.get(Constants.INITIAL_JAR));
+//            fetchGamepack(config.get(Constants.CODEBASE_PROPERTY) + config.get(Constants.INITIAL_JAR));
 
             ClassLoader classLoader = loadClassesFromJar();
 
             Applet applet = loadClient(classLoader, config);
 
-
-            //Cov method
-
-            // Create our stub so we can set the AppletStub of the Applet and pass in the parsed parameters
-            CovRSAppletStub appletStub = new CovRSAppletStub(config);
-            // Use our setter to set the Applet in the AppletContext
-            appletStub.getAppletContext().setApplet(applet);
-            // Set the AppletStub of the Applet
-            applet.setStub(appletStub);
-            // Turn the key and start the Applet up
-            applet.init();
-
-
-            //Runelite method
             applet.setStub(new RuneLiteRSAppletStub(config));
-            applet.init();
 
+            injector = Guice.createInjector(new SpoonsClientModule(applet));
 
-
-            // Set the size, this can also be done by reading the parameters, but I was too lazy to parse the Int's
-//            applet.setSize(765, 503);
-//            // Using our setter, make it so everything knows the Applet is active
-//            appletStub.setActive(true);
-//
-//            // Create a JFrame and add the Applet to it
-//            JFrame frame = new JFrame("Runescape");
-//            frame.setSize(800, 600);
-//            JPanel panel = new JPanel();
-//            frame.add(panel);
-//            panel.add(applet);
-//            frame.pack();
-//            frame.setVisible(true);
-        } catch (IOException ex) {
-            System.out.println(ex);
+            injector.getInstance(SpoonsClient.class).start();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    private static void startClient(Applet applet) {
+    private void start() throws Exception {
+        injector.injectMembers(applet);
 
+        applet.setSize(Constants.GAME_FIXED_WIDTH, Constants.GAME_FIXED_HEIGHT);
+
+        applet.init();
+        applet.start();
+
+        clientUI.init();
+        clientUI.show();
     }
 
     private static Applet loadClient(ClassLoader classLoader, Map<String, String> config) {
@@ -122,8 +115,17 @@ public class MyClient {
         try (Scanner scanner = new Scanner(new StringReader(rawResponse))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
+
+                line = line.replace("param=", "").replace("msg=", "");
+
+                // Split the string on the "=" sign and limit the split to 2 in case some of the parameters use the "=" sign
                 String[] splitLine = line.split("=", 2);
-                parsedConfig.put(splitLine[0], splitLine[1]);
+                // Check if the value is empty and add an empty parameter with the name
+                if (splitLine.length == 1)
+                    parsedConfig.put(splitLine[0], "");
+                // Check there is a value and add the parameter with the value
+                if (splitLine.length == 2)
+                    parsedConfig.put(splitLine[0], splitLine[1]);
             }
         }
         return parsedConfig;

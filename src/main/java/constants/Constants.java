@@ -1,3 +1,5 @@
+package constants;
+
 import java.awt.*;
 
 public class Constants {
