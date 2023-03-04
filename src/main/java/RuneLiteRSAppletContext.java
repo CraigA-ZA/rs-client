@@ -1,6 +1,5 @@
 import lombok.RequiredArgsConstructor;
 
-import javax.swing.*;
 import java.applet.Applet;
 import java.applet.AppletContext;
 import java.applet.AudioClip;
@@ -14,7 +13,7 @@ import java.util.Iterator;
 
 
 @RequiredArgsConstructor
-public class RSAppletContext implements AppletContext {
+public class RuneLiteRSAppletContext implements AppletContext {
     @Override
     public AudioClip getAudioClip(URL url) {
         return null;

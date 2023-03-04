@@ -4,15 +4,15 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
 
-public class RSAppletStub implements AppletStub {
+public class CovRSAppletStub implements AppletStub {
 
     private final Map<String, String> parameters;
-    private final RSAppletContext appletContext;
+    private final CovRSAppletContext appletContext;
     private boolean active = false;
 
-    public RSAppletStub(Map<String, String> parameters) {
+    public CovRSAppletStub(Map<String, String> parameters) {
         this.parameters = parameters;
-        appletContext = new RSAppletContext();
+        appletContext = new CovRSAppletContext();
     }
 
     @Override
@@ -55,7 +55,7 @@ public class RSAppletStub implements AppletStub {
     }
 
     @Override
-    public RSAppletContext getAppletContext() {
+    public CovRSAppletContext getAppletContext() {
         // Return our instance of RSAppletContext so we can fake the environment
         return appletContext;
     }
