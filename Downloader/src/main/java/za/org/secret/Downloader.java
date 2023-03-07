@@ -15,12 +15,12 @@ public class Downloader {
         InputStream bodyByteStream = UtilFunctions.fetch(gamepackUrl).body().byteStream();
 
         // Save the JAR file to disk
-        File folder = new File(Paths.get(System.getProperty("user.home"), "gamepack").toString());
+        File folder = new File(Constants.GAMEPACK_OUTPUT_DIR);
         if (!folder.exists())
         {
             folder.mkdir();
         }
-        FileOutputStream outputStream = new FileOutputStream( folder + File.separator + Constants.OUTPUT_FILE_NAME); // Replace with your file path
+        FileOutputStream outputStream = new FileOutputStream( folder + Constants.OUTPUT_FILE_NAME); // Replace with your file path
         byte[] buffer = new byte[4096];
         int bytesRead;
         while ((bytesRead = bodyByteStream.read(buffer)) != -1) {

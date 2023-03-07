@@ -4,7 +4,6 @@ ClientUI.class
 SpoonsClientModule.class
 ClientUI$1.class
 util\ImageUtil.class
-constants\Constants.class
 RSAppletStub.class
 RSAppletStub$1.class
 SpoonsClient.class
