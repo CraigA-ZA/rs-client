@@ -20,7 +20,6 @@ public class Deobfuscator {
 
         Map<String, CtClass> classMapJavassist = loadJarJavassist(Constants.GAMEPACK_OUTPUT_DIR + Constants.OUTPUT_FILE_NAME);
         HashMap<String, ClassNode> classMapASM = loadJarASM(Constants.GAMEPACK_OUTPUT_DIR + Constants.OUTPUT_FILE_NAME);
-
         findRedundantMethodsJavassist(classMapJavassist);
         System.out.println("\n\n\n\n\n");
         findRedundantMethodsASM(classMapASM);
@@ -32,7 +31,7 @@ public class Deobfuscator {
         ArrayList<FoundMethod> allMethods = new ArrayList<>();
 
         //Loop over each class
-//        CtClass analysedClass = classMap.get("at");
+//        CtClass analysedClass = classMap.get("id");
         for (CtClass analysedClass : classMap.values()) {
 //            System.out.println("Scanning class: " + analysedClass.getName());
             //TODO this interfaces section is just missing the 5 <clinit> functions that get picked up in the ASM version. I assume this doesnt really matter though
@@ -44,13 +43,19 @@ public class Deobfuscator {
 
             scanConstructorsAndMarkInvokedMethodsAsUsed(classMap, usedMethods, analysedClass);
 
+            scanClinitAndMarkInvokedMethodsAsUsed(classMap, usedMethods, analysedClass);
+
             // Loop through each method in the class
             //TODO I think I need to loop over all constructors as well and find all methods called within them
             for (CtMethod ctMethod : analysedClass.getDeclaredMethods()) {
-//                System.out.println("\t\tScanning Method: " + ctMethod.getName());
+//            System.out.println("\t\tScanning Method: " + ctMethod.getName());
                 MethodInfo methodInfo = ctMethod.getMethodInfo();
 
                 FoundMethod foundMethod = new FoundMethod(analysedClass.getName(), methodInfo.getName(), methodInfo.getDescriptor());
+
+//                if (methodInfo.getName().equals("n")) {
+//                    System.out.println("teetus");
+//                }
 
 //                if(!allMethods.contains(foundMethod)) {
 //                    allMethods.add(foundMethod);
@@ -79,8 +84,17 @@ public class Deobfuscator {
         System.out.println(usedMethods.stream().sorted(Comparator.comparing(FoundMethod::getClassName).thenComparing(FoundMethod::getName).thenComparing(FoundMethod::getDesc)).collect(Collectors.toList()));
     }
 
+    private static void scanClinitAndMarkInvokedMethodsAsUsed(Map<String, CtClass> classMap, ArrayList<FoundMethod> usedMethods, CtClass analysedClass) {
+        CtConstructor classInitializer = analysedClass.getClassInitializer();
+        if (classInitializer != null) {
+            MethodInfo methodInfo = classInitializer.getMethodInfo();
+            findAllMethodCallsWithinCode(classMap, usedMethods, analysedClass, methodInfo);
+        }
+    }
+
     private static void scanConstructorsAndMarkInvokedMethodsAsUsed(Map<String, CtClass> classMap, ArrayList<FoundMethod> usedMethods, CtClass analysedClass) {
         for (CtConstructor ctConstructor : analysedClass.getDeclaredConstructors()) {
+//            System.out.println("\t\tScanning Method: " + ctConstructor.getName());
             findAllMethodCallsWithinCode(classMap, usedMethods, analysedClass, ctConstructor.getMethodInfo());
         }
     }
@@ -151,14 +165,14 @@ public class Deobfuscator {
                     if (!methodClassName.contains("java") && !methodName.contains("init")) {
 
 
-//                                System.out.println("\t\t\t\tCalling method: " + methodName);
+//                        System.out.println("\t\t\t\tCalling method: " + methodName);
                         //Save the used method
                         if (classContainsMethodJavassist(classMap.get(methodClassName), methodName, methodDescription)) {
                             checkAndAdd(new FoundMethod(methodClassName, methodName, methodDescription), usedMethods);
                         } else {
 //                                System.out.println("Class: " + analysedClass.getName() + " didn't contain " + methodName + methodDescription);
                             try {
-                                CtClass superClass = analysedClass.getSuperclass();
+                                CtClass superClass = classMap.get(methodClassName).getSuperclass();
 
                                 while (superClass != null && !superClass.getName().contains("java")) {
                                     if (classContainsMethodJavassist(superClass, methodName, methodDescription)) {
@@ -184,7 +198,7 @@ public class Deobfuscator {
         ArrayList<FoundMethod> allMethods = new ArrayList<FoundMethod>();
         ArrayList<FoundMethod> usedMethods = new ArrayList<FoundMethod>();
         /* loop through each node */
-//        ClassNode classNode = classes.get("at"); //also do hr
+//        ClassNode classNode = classes.get("id"); //also do hr
 //        System.out.println("Scanning class: " + classNode.name);
         for (ClassNode classNode : classes.values()) {
             /* check if the node has interfaces */
@@ -218,7 +232,7 @@ public class Deobfuscator {
             Iterator methodNodesIterator = classNode.methods.iterator();
             while (methodNodesIterator.hasNext()) {
                 MethodNode methodNode = (MethodNode) methodNodesIterator.next();
-//            System.out.println("\t\tScanning Method: " + methodNode.name);
+//                System.out.println("\t\tScanning Method: " + methodNode.name);
 //                FoundMethod FoundMethod = new FoundMethod(classNode.name, methodNode.name, methodNode.desc);
 //                if (!allMethods.contains(FoundMethod)) {
 //                    allMethods.add(FoundMethod);
@@ -296,6 +310,7 @@ public class Deobfuscator {
                 }
             }
         }
+//
 //        ArrayList<FoundMethod> methodsToRemove = new ArrayList<>();
 //        for (FoundMethod mi : allMethods) {
 //            if (!usedMethods.contains(mi)) {
@@ -352,6 +367,9 @@ public class Deobfuscator {
     }
 
     private static void checkAndAdd(FoundMethod info, ArrayList<FoundMethod> usedMethods) {
+//        if (info.className.equals("e") && info.name.equals("f")) {
+//            System.out.println("Yeet");
+//        }
         if (!info.className.contains("java") && !usedMethods.contains(info)) {
             usedMethods.add(info);
         }

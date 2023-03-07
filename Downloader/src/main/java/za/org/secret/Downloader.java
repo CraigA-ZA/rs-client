@@ -20,7 +20,7 @@ public class Downloader {
         {
             folder.mkdir();
         }
-        FileOutputStream outputStream = new FileOutputStream( folder + Constants.OUTPUT_FILE_NAME); // Replace with your file path
+        FileOutputStream outputStream = new FileOutputStream( folder + File.separator+ Constants.OUTPUT_FILE_NAME); // Replace with your file path
         byte[] buffer = new byte[4096];
         int bytesRead;
         while ((bytesRead = bodyByteStream.read(buffer)) != -1) {
