@@ -12,6 +12,8 @@ import java.util.jar.JarOutputStream;
 import java.util.stream.Collectors;
 
 public class Deobfuscator {
+    static ArrayList<FoundMethod> usedMethods = new ArrayList<>();
+    static ArrayList<FoundMethod> allMethods = new ArrayList<>();
     public static void main(String[] args) throws IOException {
         Map<String, CtClass> classMapJavassist = loadJar(Constants.GAMEPACK_OUTPUT_DIR + Constants.OUTPUT_FILE_NAME);
 
@@ -21,11 +23,13 @@ public class Deobfuscator {
         while (methodsToRemove.size() > 0) {
             totalRemovedMethods.addAll(methodsToRemove);
             removeMethods(methodsToRemove, classMapJavassist);
+            usedMethods = new ArrayList<>();
+            allMethods = new ArrayList<>();
             methodsToRemove = findRedundantMethods(classMapJavassist);
         }
 
-        System.out.println(totalRemovedMethods.stream().sorted(Comparator.comparing(FoundMethod::getClassName).thenComparing(FoundMethod::getName).thenComparing(FoundMethod::getDesc)).collect(Collectors.toList()));
-//        System.out.println("Total removed methods: " + totalRemovedMethods.size());
+//        System.out.println(totalRemovedMethods.stream().sorted(Comparator.comparing(FoundMethod::getClassName).thenComparing(FoundMethod::getName).thenComparing(FoundMethod::getDesc)).collect(Collectors.toList()));
+        System.out.println("Total removed methods: " + totalRemovedMethods.size());
 
         try {
             writeJarToDisk(classMapJavassist);
@@ -63,19 +67,18 @@ public class Deobfuscator {
 
     private static List<FoundMethod> findRedundantMethods(Map<String, CtClass> classMap) {
         // Create a set to store used method names
-        ArrayList<FoundMethod> usedMethods = new ArrayList<>();
-        ArrayList<FoundMethod> allMethods = new ArrayList<>();
+
 
         //Loop over each class
         for (CtClass analysedClass : classMap.values()) {
             //This looks at all methods that are declared in the classes interfaces, and marks them as used in this class (note that it doesnt mark them as used in the interface, just in this class)
             //This is needed because we cant remove methods from this class if theyre in the interface. Even if the method isnt actually used.
             //After removing all unused methods the first time, the method in the interface class will be removed if it was never called, in which case if the method isnt used in the child, it will get deleted the second time around.
-            scanInterfacesAndMarkAllMethodsAsUsed(usedMethods, analysedClass);
+            scanInterfacesAndMarkAllMethodsAsUsed(analysedClass);
 
             //These 2 methods are obviously needed and should be straight forward
-            scanConstructorsAndMarkInvokedMethodsAsUsed(classMap, usedMethods, analysedClass);
-            scanClinitAndMarkItAndItsInvokedMethodsAsUsed(classMap, usedMethods, analysedClass, allMethods);
+            scanConstructorsAndMarkInvokedMethodsAsUsed(classMap, analysedClass);
+            scanClinitAndMarkItAndItsInvokedMethodsAsUsed(classMap, analysedClass);
 
             // Loop through each method in the class
             for (CtMethod ctMethod : analysedClass.getDeclaredMethods()) {
@@ -95,9 +98,9 @@ public class Deobfuscator {
 //                }
 
                 //This function looks at the current classes superclass. If the superclass contains the ctMethod that we're inspecting, then mark it as used in this class and its superclass
-                markInheritedMethodsAsUsed(usedMethods, analysedClass, methodInfo);
+                markInheritedMethodsAsUsed(analysedClass, methodInfo);
 
-                findAllMethodCallsWithinCode(classMap, usedMethods, analysedClass, methodInfo);
+                findAllMethodCallsWithinCode(classMap, methodInfo);
             }
         }
 
@@ -113,7 +116,7 @@ public class Deobfuscator {
         return methodsToRemove;
     }
 
-    private static void scanClinitAndMarkItAndItsInvokedMethodsAsUsed(Map<String, CtClass> classMap, ArrayList<FoundMethod> usedMethods, CtClass analysedClass, ArrayList<FoundMethod> allMethods) {
+    private static void scanClinitAndMarkItAndItsInvokedMethodsAsUsed(Map<String, CtClass> classMap, CtClass analysedClass) {
         CtConstructor classInitializer = analysedClass.getClassInitializer();
         if (classInitializer != null) {
             MethodInfo methodInfo = classInitializer.getMethodInfo();
@@ -122,33 +125,26 @@ public class Deobfuscator {
             allMethods.add(new FoundMethod(analysedClass.getName(), classInitializer.getName(), methodInfo.getDescriptor()));
 
             //Add this class initializer itself to the used methods. All clinits are going to be used by default. Because they are used when the class is initialized
-            checkAndAdd(new FoundMethod(analysedClass.getName(), classInitializer.getName(), classInitializer.getMethodInfo().getDescriptor()), usedMethods);
+            checkAndAdd(new FoundMethod(analysedClass.getName(), classInitializer.getName(), classInitializer.getMethodInfo().getDescriptor()));
 
             //Mark all invoked methods as used
-            findAllMethodCallsWithinCode(classMap, usedMethods, analysedClass, methodInfo);
+            findAllMethodCallsWithinCode(classMap, methodInfo);
         }
     }
 
-    private static void scanConstructorsAndMarkInvokedMethodsAsUsed(Map<String, CtClass> classMap, ArrayList<FoundMethod> usedMethods, CtClass analysedClass) {
+    private static void scanConstructorsAndMarkInvokedMethodsAsUsed(Map<String, CtClass> classMap, CtClass analysedClass) {
         for (CtConstructor ctConstructor : analysedClass.getDeclaredConstructors()) {
-            findAllMethodCallsWithinCode(classMap, usedMethods, analysedClass, ctConstructor.getMethodInfo());
+            findAllMethodCallsWithinCode(classMap, ctConstructor.getMethodInfo());
         }
     }
 
-    private static void markAllConstructorsAsUsed(ArrayList<FoundMethod> usedMethods, CtClass analysedClass, ArrayList<FoundMethod> allMethods) {
-        for (CtConstructor ctConstructor : analysedClass.getDeclaredConstructors()) {
-            allMethods.add(new FoundMethod(analysedClass.getName(), ctConstructor.getMethodInfo().getName(), ctConstructor.getMethodInfo().getDescriptor()));
-            checkAndAdd(new FoundMethod(analysedClass.getName(), ctConstructor.getMethodInfo().getName(), ctConstructor.getMethodInfo().getDescriptor()), usedMethods);
-        }
-    }
-
-    private static void scanInterfacesAndMarkAllMethodsAsUsed(ArrayList<FoundMethod> usedMethods, CtClass analysedClass) {
+    private static void scanInterfacesAndMarkAllMethodsAsUsed(CtClass analysedClass) {
         try {
             //For each interface that this class implements
             for (CtClass analysedClassesInterface : analysedClass.getInterfaces()) {
                 //Iterate over every method declared in the interface
                 for (CtMethod interfaceMethod : analysedClassesInterface.getMethods()) {
-                    checkAndAdd(new FoundMethod(analysedClass.getName(), interfaceMethod.getName(), interfaceMethod.getMethodInfo().getDescriptor()), usedMethods);
+                    checkAndAdd(new FoundMethod(analysedClass.getName(), interfaceMethod.getName(), interfaceMethod.getMethodInfo().getDescriptor()));
                 }
             }
         } catch (NotFoundException e) {
@@ -156,14 +152,14 @@ public class Deobfuscator {
         }
     }
 
-    private static void markInheritedMethodsAsUsed(ArrayList<FoundMethod> usedMethods, CtClass analysedClass, MethodInfo methodInfo) {
+    private static void markInheritedMethodsAsUsed(CtClass analysedClass, MethodInfo methodInfo) {
         try {
             CtClass superClass = analysedClass.getSuperclass();
             while (superClass != null) {
 
                 if (classContainsMethodEitherDeclaredOrInherited(superClass, methodInfo.getName(), methodInfo.getDescriptor())) {
-                    checkAndAdd(new FoundMethod(analysedClass.getName(), methodInfo.getName(), methodInfo.getDescriptor()), usedMethods);
-                    checkAndAdd(new FoundMethod(superClass.getName(), methodInfo.getName(), methodInfo.getDescriptor()), usedMethods);
+                    checkAndAdd(new FoundMethod(analysedClass.getName(), methodInfo.getName(), methodInfo.getDescriptor()));
+                    checkAndAdd(new FoundMethod(superClass.getName(), methodInfo.getName(), methodInfo.getDescriptor()));
                 }
                 superClass = superClass.getSuperclass();
             }
@@ -172,7 +168,7 @@ public class Deobfuscator {
         }
     }
 
-    private static void findAllMethodCallsWithinCode(Map<String, CtClass> classMap, ArrayList<FoundMethod> usedMethods, CtClass analysedClass, MethodInfo methodInfo) {
+    private static void findAllMethodCallsWithinCode(Map<String, CtClass> classMap, MethodInfo methodInfo) {
         CodeAttribute codeAttribute = methodInfo.getCodeAttribute();
 
         if (codeAttribute != null) {
@@ -201,14 +197,14 @@ public class Deobfuscator {
                     if (!methodClassName.contains("java") && !methodName.contains("init>")) {
                         //Save the used method
                         if (classContainsDeclaredMethod(classMap.get(methodClassName), methodName, methodDescription)) {
-                            checkAndAdd(new FoundMethod(methodClassName, methodName, methodDescription), usedMethods);
+                            checkAndAdd(new FoundMethod(methodClassName, methodName, methodDescription));
                         } else {
                             try {
                                 CtClass superClass = classMap.get(methodClassName).getSuperclass();
 
                                 while (superClass != null && !superClass.getName().contains("java")) {
                                     if (classContainsDeclaredMethod(superClass, methodName, methodDescription)) {
-                                        checkAndAdd(new FoundMethod(superClass.getName(), methodName, methodDescription), usedMethods);
+                                        checkAndAdd(new FoundMethod(superClass.getName(), methodName, methodDescription));
                                         break;
                                     }
                                     superClass = superClass.getSuperclass();
@@ -245,10 +241,7 @@ public class Deobfuscator {
         return nodes;
     }
 
-    private static void checkAndAdd(FoundMethod info, ArrayList<FoundMethod> usedMethods) {
-        if(info.className.equals("aj") && info.name.equals("dp")) {
-            System.out.println();
-        }
+    private static void checkAndAdd(FoundMethod info) {
         if (!info.className.contains("java") && !usedMethods.contains(info)) {
             usedMethods.add(info);
         }
