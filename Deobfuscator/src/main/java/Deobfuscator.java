@@ -14,15 +14,18 @@ import java.util.stream.Collectors;
 public class Deobfuscator {
     public static void main(String[] args) throws IOException {
         Map<String, CtClass> classMapJavassist = loadJar(Constants.GAMEPACK_OUTPUT_DIR + Constants.OUTPUT_FILE_NAME);
-        int removedMethods = 0;
-        List<FoundMethod> methodsToRemove = findRedundantMethods(classMapJavassist);
-//        while (methodsToRemove.size() > 0) {
-//            removedMethods += methodsToRemove.size();
-            removeMethods(methodsToRemove, classMapJavassist);
-//            methodsToRemove = findRedundantMethods(classMapJavassist);
-//        }
 
-//        System.out.println("Total removed methods: " + removedMethods);
+        List<FoundMethod> totalRemovedMethods = new ArrayList<>();
+
+        List<FoundMethod> methodsToRemove = findRedundantMethods(classMapJavassist);
+        while (methodsToRemove.size() > 0) {
+            totalRemovedMethods.addAll(methodsToRemove);
+            removeMethods(methodsToRemove, classMapJavassist);
+            methodsToRemove = findRedundantMethods(classMapJavassist);
+        }
+
+        System.out.println(totalRemovedMethods.stream().sorted(Comparator.comparing(FoundMethod::getClassName).thenComparing(FoundMethod::getName).thenComparing(FoundMethod::getDesc)).collect(Collectors.toList()));
+//        System.out.println("Total removed methods: " + totalRemovedMethods.size());
 
         try {
             writeJarToDisk(classMapJavassist);
@@ -87,9 +90,9 @@ public class Deobfuscator {
                 //Mark all abstract methods as used.
                 // I'm assuming that all abstract methods will always be used, because any concrete class that extends an abstract class is forced to implement it.
                 // Therefore we wouldnt want to remove it from the base abstract class
-                if (Modifier.isAbstract(methodInfo.getAccessFlags())) {
-                    checkAndAdd(foundMethod, usedMethods);
-                }
+//                if (Modifier.isAbstract(methodInfo.getAccessFlags()) && !analysedClass.isInterface()) {
+//                    checkAndAdd(foundMethod, usedMethods);
+//                }
 
                 //This function looks at the current classes superclass. If the superclass contains the ctMethod that we're inspecting, then mark it as used in this class and its superclass
                 markInheritedMethodsAsUsed(usedMethods, analysedClass, methodInfo);
@@ -98,15 +101,15 @@ public class Deobfuscator {
             }
         }
 
-        ArrayList<FoundMethod> methodsToRemove = new ArrayList<>();
+        List<FoundMethod> methodsToRemove = new ArrayList<>();
         for (FoundMethod mi : allMethods) {
             if (!usedMethods.contains(mi)) {
                 methodsToRemove.add(mi);
             }
         }
 
-//        System.out.println("Removed : " + methodsToRemove.size() + "/" + allMethods.size());
-        System.out.println(methodsToRemove.stream().sorted(Comparator.comparing(FoundMethod::getClassName).thenComparing(FoundMethod::getName).thenComparing(FoundMethod::getDesc)).collect(Collectors.toList()));
+        methodsToRemove = methodsToRemove.stream().filter(foundMethod -> foundMethod.className.length() <= 2 || foundMethod.className.equals("client")).collect(Collectors.toList());
+
         return methodsToRemove;
     }
 
@@ -224,13 +227,13 @@ public class Deobfuscator {
     public static Map<String, CtClass> loadJar(String gamepackPath) {
         File jar = new File(gamepackPath);
         ClassPool classPool = ClassPool.getDefault();
-        final Map<String, CtClass> nodes = new HashMap<>();
+        Map<String, CtClass> nodes = new HashMap<>();
         try {
-            final JarFile jarFile = new JarFile(jar);
-            final Enumeration<JarEntry> entries = jarFile.entries();
+            JarFile jarFile = new JarFile(jar);
+            Enumeration<JarEntry> entries = jarFile.entries();
             while (entries.hasMoreElements()) {
-                final JarEntry jarEntry = entries.nextElement();
-                final String name = jarEntry.getName();
+                JarEntry jarEntry = entries.nextElement();
+                String name = jarEntry.getName();
                 if (name.endsWith(".class")) {
                     CtClass ctClassFromStream = classPool.makeClass(jarFile.getInputStream(jarEntry));
                     nodes.put(ctClassFromStream.getName(), ctClassFromStream);
@@ -243,6 +246,9 @@ public class Deobfuscator {
     }
 
     private static void checkAndAdd(FoundMethod info, ArrayList<FoundMethod> usedMethods) {
+        if(info.className.equals("aj") && info.name.equals("dp")) {
+            System.out.println();
+        }
         if (!info.className.contains("java") && !usedMethods.contains(info)) {
             usedMethods.add(info);
         }
