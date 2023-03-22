@@ -1,0 +1,6 @@
+deobfuscator\deobs\impl\UnusedMethod.class
+deobfuscator\Deobfuscator.class
+deobfuscator\models\FoundMethod.class
+deobfuscator\deobs\AbstractDeob.class
+deobfuscator\deobs\impl\UnusedFields.class
+deobfuscator\deobs\impl\UnusedMethod$1.class
