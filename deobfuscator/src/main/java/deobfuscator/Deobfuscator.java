@@ -1,9 +1,12 @@
 package deobfuscator;
 
 import deobfuscator.deobs.AbstractDeob;
+import deobfuscator.deobs.impl.ChatGPTDeob;
+import deobfuscator.deobs.impl.ControlFlowDeob;
 import deobfuscator.deobs.impl.UnusedParams;
 import deobfuscator.deobs.impl.UnusedMethod;
 import javassist.*;
+import javassist.bytecode.analysis.ControlFlow;
 import za.org.secret.Constants;
 
 import java.io.File;
@@ -18,7 +21,7 @@ import java.util.stream.Stream;
 
 public final class Deobfuscator {
     public static Map<String, CtClass> classMap = loadJar(Constants.GAMEPACK_OUTPUT_DIR + Constants.OUTPUT_FILE_NAME);
-    private static List<AbstractDeob> activeDeobs = Stream.of(new UnusedMethod(), new UnusedParams()).collect(Collectors.toList());
+    private static List<AbstractDeob> activeDeobs = Stream.of(new ChatGPTDeob()).collect(Collectors.toList());
 
     public static void main(String[] args) throws IOException {
         for(AbstractDeob deob: activeDeobs) {
