@@ -1,17 +1,14 @@
 package deobfuscator.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public class FoundMethod {
     public final String className;
     public final String name;
     public final String desc;
-    public FoundMethod(String className, String name, String desc) {
-        this.className = className;
-        this.name = name;
-        this.desc = desc;
-    }
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof FoundMethod) {

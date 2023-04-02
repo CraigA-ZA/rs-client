@@ -76,7 +76,7 @@ public class ChatGPTDeob extends AbstractDeob {
 
         for (ControlFlow.Block currentVertex : originalOrder) {
             if (!indexList.containsKey(currentVertex)) {
-                visit(currentVertex, Collections.emptyList());
+                visit(currentVertex);
             }
         }
     }
@@ -104,7 +104,7 @@ public class ChatGPTDeob extends AbstractDeob {
         ctMethod.setBody(newMethod, null);
     }
 
-    private List<ControlFlow.Block> visit(ControlFlow.Block currentVertex, List<ControlFlow.Block> scc) {
+    private void visit(ControlFlow.Block currentVertex) {
         indexList.put(currentVertex, currentDFSNum);
         lowLink.put(currentVertex, currentDFSNum);
         currentDFSNum++;
@@ -114,7 +114,7 @@ public class ChatGPTDeob extends AbstractDeob {
         for (int i = 0; i < currentVertex.exits(); i++) {
             ControlFlow.Block child = currentVertex.exit(i);
             if (!indexList.containsKey(child)) {
-                visit(child, scc);
+                visit(child);
                 lowLink.put(currentVertex, Math.min(lowLink.get(currentVertex), lowLink.get(child)));
             } else if (onStack.contains(child)) {
                 lowLink.put(currentVertex, Math.min(lowLink.get(currentVertex), indexList.get(child)));
@@ -122,24 +122,29 @@ public class ChatGPTDeob extends AbstractDeob {
         }
 
         if (lowLink.get(currentVertex) == indexList.get(currentVertex)) {
-            List<ControlFlow.Block> orderedSCC = new ArrayList<>();
+            List<ControlFlow.Block> scc = new ArrayList<>();
             ControlFlow.Block popped;
             do {
                 popped = stack.pop();
-                orderedSCC.add(popped);
+                scc.add(popped);
                 onStack.remove(popped);
             } while (popped != currentVertex);
 
-            if (orderedSCC.size() == 1) {
+            //In this implementation we do a search into any SCCs found to topologically sort these as well.
+            // But ChatGPT reckons we can just generate the SCCs in reverse topological order without this step. So I'm trying that
+//            if (scc.size() == 1) {
+//                finalOrder.addFirst(currentVertex);
+//            } else {
+//                scc = visit(chooseFirst(scc), scc);
+//                finalOrder.addAll(0, scc);
+//            }
+
+            if (scc.size() == 1) {
                 finalOrder.addFirst(currentVertex);
             } else {
-                orderedSCC = visit(chooseFirst(orderedSCC), orderedSCC);
-                finalOrder.addAll(0, orderedSCC);
+                finalOrder.addAll(0, scc);
             }
-            return orderedSCC;
         }
-
-        return Collections.emptyList();
     }
 
     private ControlFlow.Block chooseFirst(List<ControlFlow.Block> scc) {
