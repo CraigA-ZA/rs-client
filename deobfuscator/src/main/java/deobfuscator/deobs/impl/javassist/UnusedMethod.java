@@ -1,4 +1,4 @@
-package deobfuscator.deobs.impl;
+package deobfuscator.deobs.impl.javassist;
 
 import deobfuscator.Deobfuscator;
 import deobfuscator.deobs.AbstractDeob;

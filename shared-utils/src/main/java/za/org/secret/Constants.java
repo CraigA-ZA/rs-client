@@ -27,4 +27,6 @@ public class Constants {
     public static final String INITIAL_CLASS = "initial_class";
     public static final String GAMEPACK_OUTPUT_DIR = Paths.get(System.getProperty("user.home"), "gamepack") + "\\";
     public static final String DEOB_OUTPUT_JAR_PATH = Paths.get(System.getProperty("user.home"), "gamepack") + "\\" + "deob_gamepack.jar";
+
+    public static final String DEOB_IN_PROGRESS_PATH = Paths.get(System.getProperty("user.home"), "gamepack") + "\\" + "deob_gamepack.jar.part";
 }
