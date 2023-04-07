@@ -5,6 +5,7 @@ import deobfuscator.deobs.impl.ASM.OpaquePredicates;
 import deobfuscator.deobs.impl.ASM.UnusedParams;
 import deobfuscator.deobs.impl.javassist.UnusedFields;
 import deobfuscator.deobs.impl.javassist.UnusedMethod;
+import deobfuscator.models.FoundMethod;
 import javassist.*;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
@@ -25,6 +26,8 @@ public final class Deobfuscator {
     public static Map<String, ClassNode> classMapASM;
     private static List<AbstractDeob> javassistDeobs = Stream.of(new UnusedMethod(), new UnusedFields()).collect(Collectors.toList());
     private static List<AbstractDeob> ASMDeobs = Stream.of(new OpaquePredicates(), new UnusedParams()).collect(Collectors.toList());
+
+    public static List<FoundMethod> methodsWithOpaques = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
         //Load JAR using Javassist

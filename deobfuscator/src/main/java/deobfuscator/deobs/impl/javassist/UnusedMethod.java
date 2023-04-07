@@ -7,6 +7,7 @@ import javassist.*;
 import javassist.bytecode.MethodInfo;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
+import za.org.secret.UtilFunctions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +75,7 @@ public class UnusedMethod extends AbstractDeob {
             }
         }
 
-        methodsToRemove = methodsToRemove.stream().filter(foundMethod -> foundMethod.className.length() <= 2 || foundMethod.className.equals("client")).collect(Collectors.toList());
+        methodsToRemove = methodsToRemove.stream().filter(foundMethod -> UtilFunctions.isObfuscated(foundMethod.className)).collect(Collectors.toList());
 
         return methodsToRemove;
     }

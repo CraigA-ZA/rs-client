@@ -42,4 +42,8 @@ public class UtilFunctions {
 
         return client.newCall(request).execute();
     }
+
+    public static boolean isObfuscated(String fileName) {
+        return fileName.length() <= 2 || fileName.equals("client");
+    }
 }

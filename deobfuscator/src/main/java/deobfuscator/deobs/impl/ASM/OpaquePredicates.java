@@ -2,6 +2,7 @@ package deobfuscator.deobs.impl.ASM;
 
 import deobfuscator.Deobfuscator;
 import deobfuscator.deobs.AbstractDeob;
+import deobfuscator.models.FoundMethod;
 import javassist.bytecode.Opcode;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
@@ -16,17 +17,16 @@ public class OpaquePredicates extends AbstractDeob {
     @Override
     public void run() {
         int fixed = 0;
+        int methodCount = 0;
 
         //Iterate over every class
         for (ClassNode classNode : Deobfuscator.classMapASM.values()) {
-//            if (classNode.name.equals("client")) {
 
-
+            boolean flaggedMethod = false;
             List<MethodNode> methodList = classNode.methods;
 
             //Iterate over every method
             for (MethodNode methodNode : methodList) {
-//                    if (methodNode.name.equals("ba")) {
                 List<AbstractInsnNode> instructions = Arrays.stream(methodNode.instructions.toArray()).toList();
 
                 //Iterate over every instruction
@@ -43,25 +43,31 @@ public class OpaquePredicates extends AbstractDeob {
                         AbstractInsnNode firstOperand = secondOperand.getPrevious();
 
                         if (isLoadOfLastParameter(firstOperand, loadNum) && isConstantOperand(secondOperand)) {
-                            if (isIllegalStateException(instruction.getNext()) || isReturn(instruction.getNext().getOpcode())) {
+                            if (isIllegalStateException(instruction.getNext()) || isReturn(instruction.getNext())) {
                                 removeInstructionsAndInsertJump(instruction, methodNode.instructions);
                                 fixed++;
+                                flaggedMethod = true;
                             }
                         } else if (isLoadOfLastParameter(secondOperand, loadNum) && isConstantOperand(firstOperand)) {
-                            if (isIllegalStateException(instruction.getNext()) || isReturn(instruction.getNext().getOpcode())) {
+                            if (isIllegalStateException(instruction.getNext()) || isReturn(instruction.getNext())) {
                                 removeInstructionsAndInsertJump(instruction, methodNode.instructions);
                                 fixed++;
+                                flaggedMethod = true;
                             }
                         }
 
                     }
                 }
-//            }
-//        }
+
+                if (flaggedMethod) {
+                    methodCount++;
+                    flaggedMethod = false;
+//                    System.out.println(classNode.name + "." + methodNode.name + methodNode.desc);
+                    Deobfuscator.methodsWithOpaques.add(new FoundMethod(classNode.name, methodNode.name, methodNode.desc));
+                }
             }
         }
-
-        System.out.println("Opaque predicates: " + fixed);
+        System.out.println("Opaque predicates: " + fixed + " in " + methodCount + " methods");
     }
 
 
@@ -81,8 +87,8 @@ public class OpaquePredicates extends AbstractDeob {
         }
     }
 
-    private boolean isReturn(int opcode) {
-        return opcode == Opcodes.RETURN;
+    private boolean isReturn(AbstractInsnNode insnNode) {
+        return insnNode.getOpcode() == Opcodes.RETURN || insnNode instanceof LabelNode && isReturn(insnNode.getNext());
     }
 
     private static boolean isCompareWithTwoOperands(int opcode) {
@@ -102,6 +108,6 @@ public class OpaquePredicates extends AbstractDeob {
     }
 
     private boolean isIllegalStateException(AbstractInsnNode insnNode) {
-        return insnNode.getOpcode() == Opcodes.NEW && ((TypeInsnNode) insnNode).desc.equals("java/lang/IllegalStateException");
+        return insnNode.getOpcode() == Opcodes.NEW && ((TypeInsnNode) insnNode).desc.equals("java/lang/IllegalStateException") || insnNode instanceof LabelNode && isIllegalStateException(insnNode.getNext());
     }
 }
