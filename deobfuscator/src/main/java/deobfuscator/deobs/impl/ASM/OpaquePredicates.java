@@ -62,8 +62,6 @@ public class OpaquePredicates extends AbstractDeob {
                 if (flaggedMethod) {
                     methodCount++;
                     flaggedMethod = false;
-//                    System.out.println(classNode.name + "." + methodNode.name + methodNode.desc);
-                    Deobfuscator.methodsWithOpaques.add(new FoundMethod(classNode.name, methodNode.name, methodNode.desc));
                 }
             }
         }
@@ -93,10 +91,6 @@ public class OpaquePredicates extends AbstractDeob {
 
     private static boolean isCompareWithTwoOperands(int opcode) {
         return opcode >= Opcodes.IF_ICMPEQ && opcode <= Opcodes.IF_ICMPLE;
-    }
-
-    private static boolean isACompareWithOneOperand(int opcode) {
-        return opcode >= Opcodes.IFEQ && opcode <= Opcodes.IFLE;
     }
 
     private boolean isLoadOfLastParameter(AbstractInsnNode insnNode, int lastIndex) {

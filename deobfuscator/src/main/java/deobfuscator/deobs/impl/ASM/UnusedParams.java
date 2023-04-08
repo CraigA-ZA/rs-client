@@ -28,7 +28,6 @@ public class UnusedParams extends AbstractDeob {
             //Iterate over every method
             for (MethodNode methodNode : classNode.methods) {
                 boolean methodUsesLastParam = false;
-                List<AbstractInsnNode> instructions = Arrays.stream(methodNode.instructions.toArray()).toList();
 
                 //Get load number for the last param in the method
                 Type[] types = Type.getArgumentTypes(methodNode.desc);
@@ -44,6 +43,8 @@ public class UnusedParams extends AbstractDeob {
                 if ((methodNode.access & ACC_ABSTRACT) != 0) {
                     continue;
                 }
+
+                List<AbstractInsnNode> instructions =  List.of(methodNode.instructions.toArray());
 
                 //Iterate over every instruction
                 for (AbstractInsnNode instruction : instructions) {

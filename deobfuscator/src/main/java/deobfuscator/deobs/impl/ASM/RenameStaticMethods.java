@@ -12,10 +12,9 @@ import za.org.secret.UtilFunctions;
 
 import java.util.*;
 
-import static org.objectweb.asm.Opcodes.ACC_ABSTRACT;
 import static org.objectweb.asm.Opcodes.ACC_STATIC;
 
-public class RenameDuplicateMethods extends AbstractDeob {
+public class RenameStaticMethods extends AbstractDeob {
     List<FoundMethod> methodsToRename = new ArrayList<>();
     private final String SUFFIX = "_renamed";
 
