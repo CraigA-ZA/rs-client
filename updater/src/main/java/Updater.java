@@ -34,7 +34,6 @@ public class Updater {
             new GameShell(),
             new FaceNormal(),
             new Actor(),
-            new WorldMapManager(),
             new Player(),
             new PlayerAppearance(),
             new AbstractFont(),
