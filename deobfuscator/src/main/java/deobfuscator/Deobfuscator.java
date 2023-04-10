@@ -26,7 +26,7 @@ public final class Deobfuscator {
 
     public static void main(String[] args) throws IOException {
         //Load JAR using Javassist
-        classMap = UtilFunctions.loadJar(Constants.GAMEPACK_OUTPUT_DIR + Constants.OUTPUT_FILE_NAME);
+        classMap = UtilFunctions.loadJar(Constants.GAMEPACK_OUTPUT_DIR + File.separator + Constants.OUTPUT_FILE_NAME);
 
         //Run all javassist based Deobs
         for (AbstractDeob deob : javassistDeobs) {
