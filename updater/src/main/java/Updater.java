@@ -33,7 +33,18 @@ public class Updater {
             new IndexedSprite(),
             new GameShell(),
             new FaceNormal(),
-            new WorldMapManager());
+            new WorldMapManager(),
+            new Canvas(),
+            new Wrapper(),
+            new WorldMap(),
+            new StudioGame(),
+            new Enumerated(),
+            new WorldMapSectionType(),
+            new SpotType(),
+            new Wall(),
+            new WallDecoration(),
+            new Varcs(),
+            new Varps_broken());
 
     public static void main(String[] args) {
         //TODO I'm pretty sure that while I'm writing this, I'm using a pack that I didn't deob. But thats fine for now
@@ -46,8 +57,10 @@ public class Updater {
                 .collect(Collectors.toMap(classNode -> classNode.name, node -> new ClassWrapper(node)));
 
         for (AbstractIdentifier identifier : identifiers) {
-//            if()
             for (ClassWrapper classNode : classMap.values()) {
+//                if(classNode.getName().equals("jv") && identifier.getClass().getSimpleName().equals("WorldMapSectionType")) {
+//                    System.out.println("Yeet");
+//                }
                 identifier.identify(classNode);
             }
         }

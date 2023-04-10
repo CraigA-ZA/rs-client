@@ -83,4 +83,8 @@ public class ClassWrapper {
     public List<MethodNode> getStaticMethods() {
         return classNode.methods.stream().filter(method -> Modifier.isStatic(method.access)).collect(Collectors.toList());
     }
+
+    public MethodNode getClassInitializer() {
+        return classNode.methods.stream().filter(methodNode -> methodNode.name.equals("<clinit>")).findFirst().orElse(null);
+    }
 }
