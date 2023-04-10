@@ -48,7 +48,19 @@ public class Updater {
             new ArchiveDisk(),
             new ArchiveDiskAction_broken(),
             new ArchiveDiskActionHandler(),
-            new ArchiveLoader());
+            new ArchiveLoader(),
+            new WorldMapManager(),
+            new Canvas(),
+            new Wrapper(),
+            new WorldMap(),
+            new StudioGame(),
+            new Enumerated(),
+            new WorldMapSectionType(),
+            new SpotType(),
+            new Wall(),
+            new WallDecoration(),
+            new Varcs(),
+            new Varps_broken());
 
     public static void main(String[] args) {
         //TODO I'm pretty sure that while I'm writing this, I'm using a pack that I didn't deob. But thats fine for now
@@ -62,6 +74,9 @@ public class Updater {
 
         for (AbstractIdentifier identifier : identifiers) {
             for (ClassWrapper classNode : classMap.values()) {
+//                if(classNode.getName().equals("jv") && identifier.getClass().getSimpleName().equals("WorldMapSectionType")) {
+//                    System.out.println("Yeet");
+//                }
                 identifier.identify(classNode);
             }
         }

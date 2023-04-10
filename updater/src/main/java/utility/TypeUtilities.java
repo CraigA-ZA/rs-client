@@ -1,5 +1,7 @@
 package utility;
 
+import identifiers.AbstractIdentifier;
+import org.jetbrains.annotations.NotNull;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.MethodNode;
 
@@ -20,5 +22,9 @@ public class TypeUtilities {
 
     public static List<Type> getArguments(MethodNode methodNode) {
         return Arrays.stream(Type.getArgumentTypes(methodNode.desc)).toList();
+    }
+
+    public static Type getTypeOfIdentifiedClass(String className) {
+        return Type.getObjectType(AbstractIdentifier.identifiedClasses.get(className).getName());
     }
 }
