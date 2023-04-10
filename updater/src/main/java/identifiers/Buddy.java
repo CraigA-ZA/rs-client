@@ -4,7 +4,7 @@ import utility.ClassWrapper;
 public class Buddy extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {
-        return classNode.getSuperclass().equals(identifiedClasses.get("User")) &&
+        return classNode.isSuperClassEquals("User") &&
                 classNode.getInstanceFields().size() >= 3;
     }
 }

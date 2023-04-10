@@ -79,4 +79,8 @@ public class ClassWrapper {
     public List<MethodNode> getConstructors() {
         return classNode.methods.stream().filter(methodNode -> methodNode.name.equals("<init>")).collect(Collectors.toList());
     }
+
+    public List<MethodNode> getStaticMethods() {
+        return classNode.methods.stream().filter(method -> Modifier.isStatic(method.access)).collect(Collectors.toList());
+    }
 }

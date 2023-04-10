@@ -12,6 +12,6 @@ public class ByteArrayNode extends AbstractIdentifier {
                 classNode.getInstanceFields().size() == 1 &&
                 classNode.getInstanceMethods().isEmpty() &&
                 classNode.getFields().stream().allMatch(fieldNode -> Type.getType(fieldNode.desc).equals(TypeUtilities.withDimensions(Type.BYTE_TYPE, 1))) &&
-                classNode.getSuperclass().equals(identifiedClasses.get("Node"));
+                classNode.isSuperClassEquals("Node");
     }
 }
