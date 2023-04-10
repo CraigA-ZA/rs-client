@@ -1,5 +1,6 @@
 package utility;
 
+import identifiers.AbstractIdentifier;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -72,6 +73,10 @@ public class ClassWrapper {
     }
 
     public boolean isSuperClassEquals(String className) {
-        return classNode.superName.equals(AbstractIdentifier.identifiedClasses.get(className));
+        return classNode.superName.equals(AbstractIdentifier.identifiedClasses.get(className).getName());
+    }
+
+    public List<MethodNode> getConstructors() {
+        return classNode.methods.stream().filter(methodNode -> methodNode.name.equals("<init>")).collect(Collectors.toList());
     }
 }

@@ -1,7 +1,6 @@
 package identifiers;
 
 import org.objectweb.asm.Type;
-import utility.AbstractIdentifier;
 import utility.ClassWrapper;
 
 public class ClientError extends AbstractIdentifier {

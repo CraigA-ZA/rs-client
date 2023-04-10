@@ -1,9 +1,7 @@
 package identifiers;
 
 import org.objectweb.asm.Type;
-import utility.AbstractIdentifier;
 import utility.ClassWrapper;
-import utility.TypeUtilities;
 
 import java.lang.reflect.Modifier;
 

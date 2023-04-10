@@ -1,6 +1,6 @@
 import identifiers.*;
 import org.objectweb.asm.tree.ClassNode;
-import utility.AbstractIdentifier;
+import identifiers.AbstractIdentifier;
 import utility.ClassWrapper;
 import za.org.secret.Constants;
 import za.org.secret.UtilFunctions;
@@ -29,7 +29,10 @@ public class Updater {
             new AbstractRasterProvider(),
             new DualNode(),
             new Entity(),
-            new Rasterizer2D());
+            new Rasterizer2D(),
+            new IndexedSprite(),
+            new GameShell(),
+            new FaceNormal());
 
     public static void main(String[] args) {
         //TODO I'm pretty sure that while I'm writing this, I'm using a pack that I didn't deob. But thats fine for now
@@ -43,9 +46,6 @@ public class Updater {
 
         for (AbstractIdentifier identifier : identifiers) {
             for (ClassWrapper classNode : classMap.values()) {
-//                if(classNode.getName().equals("qk") && identifier.getClass().getSimpleName().equals("DualNode")) {
-//                    System.out.print("");
-//                }
                 identifier.identify(classNode);
             }
         }
