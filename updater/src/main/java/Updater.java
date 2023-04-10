@@ -1,26 +1,57 @@
-import javassist.CannotCompileException;
-import javassist.CtClass;
+import identifiers.*;
 import org.objectweb.asm.tree.ClassNode;
+import utility.AbstractIdentifier;
+import utility.ClassWrapper;
 import za.org.secret.Constants;
 import za.org.secret.UtilFunctions;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Updater {
-    public static Map<String, CtClass> classMap;
-    public static Map<String, ClassNode> classMapASM;
+    private static Map<String, ClassNode> classNodeMap;
+    public static Map<String, ClassWrapper> classMap;
 
-    public static void main(String[] args) throws IOException {
+    public static List<AbstractIdentifier> identifiers = List.of(
+            new Node(),
+            new ByteArrayNode(),
+            new AnimBase(),
+            new AbstractArchive(),
+            new AbstractByteArrayCopier(),
+            new Client(),
+            new ClientError(),
+            new World(),
+            new WorldMapArea(),
+            new Username(),
+            new User(),
+            new Buddy(),
+            new AbstractRasterProvider(),
+            new DualNode(),
+            new Entity(),
+            new Rasterizer2D());
+
+    public static void main(String[] args) {
+        //TODO I'm pretty sure that while I'm writing this, I'm using a pack that I didn't deob. But thats fine for now
+
+
         //Load the deobbed jar
-        classMapASM = UtilFunctions.loadJarASM(Constants.DEOB_OUTPUT_JAR_PATH);
+        classNodeMap = UtilFunctions.loadJarASM(Constants.DEOB_OUTPUT_JAR_PATH);
 
+        classMap = classNodeMap.values().stream().filter(classnode -> UtilFunctions.isObfuscated(classnode.name))
+                .collect(Collectors.toMap(classNode -> classNode.name, node -> new ClassWrapper(node)));
 
+        for (AbstractIdentifier identifier : identifiers) {
+            for (ClassWrapper classNode : classMap.values()) {
+//                if(classNode.getName().equals("qk") && identifier.getClass().getSimpleName().equals("DualNode")) {
+//                    System.out.print("");
+//                }
+                identifier.identify(classNode);
+            }
+        }
 
-//        UtilFunctions.writeJarToDiskASM(classMapASM);
+//        if(new ByteArrayNode().identify(classMap.get("qc"))) {
+//            System.out.println("Fuckin gottem");
+//        }
     }
 }
