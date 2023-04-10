@@ -4,7 +4,6 @@ import org.objectweb.asm.Type;
 import utility.ClassWrapper;
 import utility.TypeUtilities;
 
-//TODO she broken
 public class AnimBase extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {

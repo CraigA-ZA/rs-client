@@ -60,7 +60,7 @@ public class Updater {
             new Wall(),
             new WallDecoration(),
             new Varcs(),
-            new Varps_broken());
+            new Varps());
 
     public static void main(String[] args) {
         //TODO I'm pretty sure that while I'm writing this, I'm using a pack that I didn't deob. But thats fine for now
@@ -79,7 +79,11 @@ public class Updater {
 //                }
                 identifier.identify(classNode);
             }
+            if(AbstractIdentifier.identifiedClasses.get(identifier.getClass().getSimpleName()) == null) {
+                System.out.println("\tFUCK. " + identifier.getClass().getSimpleName() + " didn't work.");
+            }
         }
+        System.out.println("Ran " + identifiers.size() + " identifiers. " + AbstractIdentifier.identifiedClasses.size() + " worked successfully");
 
 //        if(new ByteArrayNode().identify(classMap.get("qc"))) {
 //            System.out.println("Fuckin gottem");

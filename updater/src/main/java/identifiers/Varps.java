@@ -8,7 +8,7 @@ import utility.TypeUtilities;
 
 import java.util.Arrays;
 
-public class Varps_broken extends AbstractIdentifier {
+public class Varps extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {
         return classNode.getInterfaces().isEmpty() &&

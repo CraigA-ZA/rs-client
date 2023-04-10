@@ -10,6 +10,6 @@ public class AnimFrameset extends AbstractIdentifier {
         return classNode.isSuperClassEquals("DualNode") &&
                 classNode.getInstanceFields().size() == 1 &&
                 classNode.getInstanceFields().stream().anyMatch(field -> Type.getObjectType(field.desc)
-                        .equals(TypeUtilities.withDimensions(Type.getObjectType(identifiedClasses.get("AnimFrame").getName()), 1)));
+                        .equals(TypeUtilities.withDimensions(TypeUtilities.getTypeOfIdentifiedClass("AnimFrame"), 1)));
     }
 }

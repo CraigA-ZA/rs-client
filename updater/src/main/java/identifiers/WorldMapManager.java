@@ -10,7 +10,7 @@ public class WorldMapManager extends AbstractIdentifier {
         return !classNode.getConstructors().isEmpty() &&
                 TypeUtilities.getArguments(classNode.getConstructors().get(0)).stream()
                         .anyMatch(type ->
-                                type.equals(TypeUtilities.withDimensions(Type.getObjectType(identifiedClasses.get("IndexedSprite").getName()), 1))) &&
+                                type.equals(TypeUtilities.withDimensions(TypeUtilities.getTypeOfIdentifiedClass("IndexedSprite"), 1))) &&
                 TypeUtilities.getArguments(classNode.getConstructors().get(0)).stream()
                         .anyMatch(type ->
                                 type.equals(Type.getObjectType("java/util/HashMap")));
