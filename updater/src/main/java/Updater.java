@@ -71,7 +71,16 @@ public class Updater {
             new WorldMapIcon2(),
             new WorldMapLabelSize(),
             new WorldMapLabel(),
-            new WorldMapEvent());
+            new WorldMapEvent(),
+            new WorldMapRegion(),
+            new GrandExchangeOffer(),
+            new GrandExchangeEvent(),
+            new GrandExchangeEvents(),
+            new WorldMapSection(),
+            new WorldMapSection0(),
+            new WorldMapSection2(),
+            new VorbisSample(),
+            new VorbisResidue());
 
     public static void main(String[] args) {
         //TODO I'm pretty sure that while I'm writing this, I'm using a pack that I didn't deob. But thats fine for now
