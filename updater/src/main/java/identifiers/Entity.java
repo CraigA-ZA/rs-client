@@ -2,10 +2,11 @@ package identifiers;
 
 import org.objectweb.asm.Type;
 import utility.ClassWrapper;
+import utility.DependsOn;
 
 import java.lang.reflect.Modifier;
 
-//@DependsOn("DualNode")
+@DependsOn(DualNode.class)
 public class Entity extends AbstractIdentifier {
 
     @Override

@@ -6,11 +6,11 @@ import utility.DependsOn;
 import utility.TypeUtilities;
 
 @DependsOn(Node.class)
-public class VorbisSample extends AbstractIdentifier {
+public class MusicPatch extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {
         return classNode.isSuperClassEquals("Node") &&
-                classNode.getCountFieldsOfType(TypeUtilities.withDimensions(Type.BYTE_TYPE, 1)) == 1 &&
-                classNode.getCountFieldsOfType(TypeUtilities.withDimensions(Type.BYTE_TYPE, 2)) == 1;
+                classNode.getCountFieldsOfType(TypeUtilities.withDimensions(Type.BYTE_TYPE, 1)) == 3 &&
+                classNode.getCountFieldsOfType(TypeUtilities.withDimensions(Type.SHORT_TYPE, 1)) == 1;
     }
 }

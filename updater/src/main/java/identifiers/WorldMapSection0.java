@@ -2,7 +2,9 @@ package identifiers;
 
 import org.objectweb.asm.Type;
 import utility.ClassWrapper;
+import utility.DependsOn;
 
+@DependsOn(WorldMapSection.class)
 public class WorldMapSection0 extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {

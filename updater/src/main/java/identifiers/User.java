@@ -2,9 +2,10 @@ package identifiers;
 
 import org.objectweb.asm.Type;
 import utility.ClassWrapper;
+import utility.DependsOn;
 import utility.TypeUtilities;
 
-//@DependsOn(Username)
+@DependsOn(Username.class)
 public class User extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {

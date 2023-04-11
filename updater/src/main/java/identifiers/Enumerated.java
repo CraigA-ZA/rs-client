@@ -1,7 +1,9 @@
 package identifiers;
 
 import utility.ClassWrapper;
+import utility.DependsOn;
 
+@DependsOn(StudioGame.class)
 public class Enumerated extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {

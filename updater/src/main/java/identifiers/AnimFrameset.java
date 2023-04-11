@@ -2,8 +2,10 @@ package identifiers;
 
 import org.objectweb.asm.Type;
 import utility.ClassWrapper;
+import utility.DependsOn;
 import utility.TypeUtilities;
 
+@DependsOn({DualNode.class, AnimFrame.class})
 public class AnimFrameset extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {

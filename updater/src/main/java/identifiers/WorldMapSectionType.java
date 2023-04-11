@@ -2,7 +2,9 @@ package identifiers;
 
 import org.objectweb.asm.Type;
 import utility.ClassWrapper;
+import utility.DependsOn;
 
+@DependsOn(Enumerated.class)
 public class WorldMapSectionType extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {

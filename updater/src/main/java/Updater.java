@@ -1,86 +1,40 @@
 import identifiers.*;
 import org.objectweb.asm.tree.ClassNode;
 import identifiers.AbstractIdentifier;
+import org.reflections.Reflections;
 import utility.ClassWrapper;
+import utility.IdentifierSorter;
 import za.org.secret.Constants;
 import za.org.secret.UtilFunctions;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Updater {
     private static Map<String, ClassNode> classNodeMap;
     public static Map<String, ClassWrapper> classMap;
 
-    public static List<AbstractIdentifier> identifiers = List.of(
-            new Node(),
-            new ByteArrayNode(),
-            new AnimBase(),
-            new AbstractArchive(),
-            new AbstractByteArrayCopier(),
-            new Client(),
-            new ClientError(),
-            new World(),
-            new WorldMapArea(),
-            new Username(),
-            new User(),
-            new Buddy(),
-            new AbstractRasterProvider(),
-            new DualNode(),
-            new Entity(),
-            new Rasterizer2D(),
-            new IndexedSprite(),
-            new GameShell(),
-            new FaceNormal(),
-            new Actor(),
-            new Player(),
-            new PlayerAppearance(),
-            new AbstractFont(),
-            new NetSocket_Broken(),
-            new AbstractSound(),
-            new AccessFile(),
-            new AnimFrame(),
-            new AnimFrameset(),
-            new Archive(),
-            new BufferedFile(),
-            new ArchiveDisk(),
-            new ArchiveDiskAction_broken(),
-            new ArchiveDiskActionHandler(),
-            new ArchiveLoader(),
-            new WorldMapManager(),
-            new Canvas(),
-            new Wrapper(),
-            new WorldMap(),
-            new StudioGame(),
-            new Enumerated(),
-            new WorldMapSectionType(),
-            new SpotType(),
-            new Wall(),
-            new WallDecoration(),
-            new Varcs(),
-            new Varps(),
-            new VertexNormal(),
-            new WorldMapArchiveLoader(),
-            new WorldMapAreaData(),
-            new WorldComparator_broken(),
-            new WorldMapCacheName(),
-            new Coord(),
-            new AbstractWorldMapIcon(),
-            new WorldMapIcon1(),
-            new WorldMapIcon2(),
-            new WorldMapLabelSize(),
-            new WorldMapLabel(),
-            new WorldMapEvent(),
-            new WorldMapRegion(),
-            new GrandExchangeOffer(),
-            new GrandExchangeEvent(),
-            new GrandExchangeEvents(),
-            new WorldMapSection(),
-            new WorldMapSection0(),
-            new WorldMapSection2(),
-            new VorbisSample(),
-            new VorbisResidue());
+
+    static Reflections reflections = new Reflections("identifiers");
+    static List<Class<? extends AbstractIdentifier>> sortedIdentifierClasses = IdentifierSorter.sort(reflections.getSubTypesOf(AbstractIdentifier.class).stream().toList());
+
+    static List<AbstractIdentifier> identifiers = sortedIdentifierClasses.stream().map(aClass -> {
+        try {
+            return aClass.getDeclaredConstructor().newInstance();
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
+    }).collect(Collectors.toList());
 
     public static void main(String[] args) {
         //TODO I'm pretty sure that while I'm writing this, I'm using a pack that I didn't deob. But thats fine for now
@@ -99,14 +53,10 @@ public class Updater {
 //                }
                 identifier.identify(classNode);
             }
-            if(AbstractIdentifier.identifiedClasses.get(identifier.getClass().getSimpleName()) == null) {
+            if (AbstractIdentifier.identifiedClasses.get(identifier.getClass().getSimpleName()) == null) {
                 System.out.println("\tFUCK. " + identifier.getClass().getSimpleName() + " didn't work.");
             }
         }
-        System.out.println("Ran " + identifiers.size() + " identifiers. " + AbstractIdentifier.identifiedClasses.size() + " worked successfully");
-
-//        if(new ByteArrayNode().identify(classMap.get("qc"))) {
-//            System.out.println("Fuckin gottem");
-//        }
+        System.out.println("Ran " + identifiers.size() + " identifiers. " + AbstractIdentifier.identifiedClasses.values().stream().filter(classWrapper -> classWrapper != null).collect(Collectors.toList()).size() + " worked successfully");
     }
 }

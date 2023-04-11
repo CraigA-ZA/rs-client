@@ -17,7 +17,11 @@ public abstract class AbstractIdentifier {
 
     public void identify(ClassWrapper classNode) {
         if(isMatch(classNode)) {
-            identifiedClasses.put(this.getClass().getSimpleName(), classNode);
+            if(identifiedClasses.containsKey(this.getClass().getSimpleName())) {
+                identifiedClasses.put(this.getClass().getSimpleName(), null);
+            } else {
+                identifiedClasses.put(this.getClass().getSimpleName(), classNode);
+            }
             System.out.println("Found: " + this.getClass().getSimpleName() + " @ " + classNode.getName());
         }
     }
