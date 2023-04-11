@@ -18,6 +18,7 @@ public abstract class AbstractIdentifier {
     public void identify(ClassWrapper classNode) {
         if(isMatch(classNode)) {
             if(identifiedClasses.containsKey(this.getClass().getSimpleName())) {
+                System.out.println(this.getClass().getSimpleName() + " hit a duplicate." + classNode.getName());
                 identifiedClasses.put(this.getClass().getSimpleName(), null);
             } else {
                 identifiedClasses.put(this.getClass().getSimpleName(), classNode);

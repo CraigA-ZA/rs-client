@@ -10,7 +10,7 @@ public class MusicPatch extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {
         return classNode.isSuperClassEquals("Node") &&
-                classNode.getCountFieldsOfType(TypeUtilities.withDimensions(Type.BYTE_TYPE, 1)) == 3 &&
-                classNode.getCountFieldsOfType(TypeUtilities.withDimensions(Type.SHORT_TYPE, 1)) == 1;
+                classNode.getCountFieldsOfType(TypeUtilities.BYTE_ARRAY) == 3 &&
+                classNode.getCountFieldsOfType(TypeUtilities.SHORT_ARRAY) == 1;
     }
 }

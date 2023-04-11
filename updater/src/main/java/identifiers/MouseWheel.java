@@ -1,7 +1,9 @@
 package identifiers;
 
 import utility.ClassWrapper;
+import utility.DependsOn;
 
+@DependsOn(MouseWheelHandler.class)
 public class MouseWheel extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {

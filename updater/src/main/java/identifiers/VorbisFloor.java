@@ -9,6 +9,6 @@ public class VorbisFloor extends AbstractIdentifier {
     public boolean isMatch(ClassWrapper classNode) {
         return classNode.isOwnerless() &&
                 classNode.getCountFieldsOfType(Type.INT_TYPE) == 1 &&
-                classNode.getCountFieldsOfType(TypeUtilities.withDimensions(Type.INT_TYPE, 1)) == 5;
+                classNode.getCountFieldsOfType(TypeUtilities.INT_ARRAY) == 5;
     }
 }

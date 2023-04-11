@@ -11,7 +11,7 @@ public class AbstractByteArrayCopier extends AbstractIdentifier {
                 classNode.isAbstract() &&
                 !classNode.isInterface() &&
                 classNode.getInstanceFields().isEmpty() &&
-                classNode.getInstanceMethods().stream().anyMatch(methodNode -> TypeUtilities.returnType(methodNode).equals(TypeUtilities.withDimensions(Type.BYTE_TYPE, 1)));
+                classNode.getInstanceMethods().stream().anyMatch(methodNode -> TypeUtilities.returnType(methodNode).equals(TypeUtilities.BYTE_ARRAY));
                 //classNode.getInstanceMethods().size() == 2; //TODO original finder checked for this, but it doesnt appear to be true
     }
 }

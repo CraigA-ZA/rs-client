@@ -12,7 +12,7 @@ public class ByteArrayNode extends AbstractIdentifier {
         return classNode.getInterfaces().isEmpty() &&
                 classNode.getInstanceFields().size() == 1 &&
                 classNode.getInstanceMethods().isEmpty() &&
-                classNode.getFields().stream().allMatch(fieldNode -> Type.getType(fieldNode.desc).equals(TypeUtilities.withDimensions(Type.BYTE_TYPE, 1))) &&
+                classNode.getFields().stream().allMatch(fieldNode -> Type.getType(fieldNode.desc).equals(TypeUtilities.BYTE_ARRAY)) &&
                 classNode.isSuperClassEquals("Node");
     }
 }

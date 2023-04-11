@@ -48,7 +48,7 @@ public class Updater {
 
         for (AbstractIdentifier identifier : identifiers) {
             for (ClassWrapper classNode : classMap.values()) {
-//                if(classNode.getName().equals("jb") && identifier.getClass().getSimpleName().equals("WorldMapLabel")) {
+//                if(classNode.getName().equals("qy") && identifier.getClass().getSimpleName().equals("Bounds")) {
 //                    System.out.println("Yeet");
 //                }
                 identifier.identify(classNode);

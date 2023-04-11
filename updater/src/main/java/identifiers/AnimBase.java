@@ -11,7 +11,7 @@ public class AnimBase extends AbstractIdentifier {
     public boolean isMatch(ClassWrapper classNode) {
         return classNode.isSuperClassEquals("Node") &&
                 classNode.getCountFieldsOfType(Type.INT_TYPE) == 2 &&
-                classNode.getCountFieldsOfType(TypeUtilities.withDimensions(Type.INT_TYPE, 1)) == 1 &&
+                classNode.getCountFieldsOfType(TypeUtilities.INT_ARRAY) == 1 &&
                 classNode.getCountFieldsOfType(TypeUtilities.withDimensions(Type.INT_TYPE, 2)) == 1;
     }
 }

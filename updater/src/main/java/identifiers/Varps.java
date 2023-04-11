@@ -14,7 +14,7 @@ public class Varps extends AbstractIdentifier {
         return classNode.getInterfaces().isEmpty() &&
                 classNode.getInstanceFields().isEmpty() &&
                 classNode.getInstanceMethods().isEmpty() &&
-                classNode.getCountStaticFieldsOfType(TypeUtilities.withDimensions(Type.INT_TYPE, 1)) >= 3 &&
+                classNode.getCountStaticFieldsOfType(TypeUtilities.INT_ARRAY) >= 3 &&
                 classNode.getClassInitializer() != null &&
                 Arrays.stream(classNode.getClassInitializer().instructions.toArray()).anyMatch(abstractInsnNode -> abstractInsnNode.getOpcode() == Opcodes.BIPUSH && ((IntInsnNode) abstractInsnNode).operand == 32) &&
                 Arrays.stream(classNode.getClassInitializer().instructions.toArray()).anyMatch(abstractInsnNode -> abstractInsnNode.getOpcode() == Opcodes.SIPUSH && ((IntInsnNode) abstractInsnNode).operand >= 2000);

@@ -9,6 +9,6 @@ public class AbstractRasterProvider extends AbstractIdentifier {
     public boolean isMatch(ClassWrapper classNode) {
         return classNode.isAbstract() &&
                 classNode.getInterfaces().isEmpty() &&
-                classNode.getCountFieldsOfType(TypeUtilities.withDimensions(Type.INT_TYPE, 1)) == 1;
+                classNode.getCountFieldsOfType(TypeUtilities.INT_ARRAY) == 1;
     }
 }

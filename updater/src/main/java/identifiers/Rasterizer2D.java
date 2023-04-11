@@ -13,7 +13,7 @@ public class Rasterizer2D extends AbstractIdentifier {
                 classNode.getInterfaces().isEmpty() &&
                 classNode.getInstanceMethods().isEmpty() &&
                 classNode.getInstanceFields().isEmpty() &&
-                classNode.getCountStaticFieldsOfType(TypeUtilities.withDimensions(Type.INT_TYPE, 1)) == 1 &&
+                classNode.getCountStaticFieldsOfType(TypeUtilities.INT_ARRAY) == 1 &&
                 classNode.getCountStaticFieldsOfType(Type.INT_TYPE) == 6;
     }
 }
