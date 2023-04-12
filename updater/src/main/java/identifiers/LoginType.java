@@ -1,8 +1,8 @@
 package identifiers;
 
 import org.objectweb.asm.Type;
+import utility.AbstractIdentifier;
 import utility.ClassWrapper;
-import utility.DependsOn;
 import utility.TypeUtilities;
 
 public class LoginType extends AbstractIdentifier {

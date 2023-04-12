@@ -1,10 +1,9 @@
 package identifiers;
 
 import org.objectweb.asm.Type;
+import utility.AbstractIdentifier;
 import utility.ClassWrapper;
 import utility.DependsOn;
-
-import java.lang.reflect.Modifier;
 
 @DependsOn(DualNode.class)
 public class Wrapper extends AbstractIdentifier {

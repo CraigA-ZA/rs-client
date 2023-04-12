@@ -1,6 +1,5 @@
 package utility;
 
-import identifiers.AbstractIdentifier;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

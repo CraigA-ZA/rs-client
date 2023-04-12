@@ -2,6 +2,7 @@ package identifiers;
 
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.LdcInsnNode;
+import utility.AbstractIdentifier;
 import utility.ClassWrapper;
 
 import java.util.Arrays;

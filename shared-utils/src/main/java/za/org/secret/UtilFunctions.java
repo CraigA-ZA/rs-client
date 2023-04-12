@@ -53,7 +53,7 @@ public class UtilFunctions {
     }
 
     public static boolean isObfuscated(String fileName) {
-        return fileName.length() <= 2 || fileName.equals("client");
+        return fileName.length() <= 2 || fileName.equals("client") || fileName.contains("_renamed");
     }
 
     public static Map<String, ClassNode> loadJarASM(String gamepackPath) {

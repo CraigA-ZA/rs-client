@@ -1,7 +1,5 @@
 package utility;
 
-import identifiers.AbstractIdentifier;
-import org.jetbrains.annotations.NotNull;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.MethodNode;
 

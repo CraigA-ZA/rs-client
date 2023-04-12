@@ -1,18 +1,12 @@
-import identifiers.*;
 import org.objectweb.asm.tree.ClassNode;
-import identifiers.AbstractIdentifier;
+import utility.*;
 import org.reflections.Reflections;
-import utility.ClassWrapper;
-import utility.IdentifierSorter;
 import za.org.secret.Constants;
 import za.org.secret.UtilFunctions;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.function.Function;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Updater {
@@ -37,10 +31,7 @@ public class Updater {
         }
     }).collect(Collectors.toList());
 
-    public static void main(String[] args) {
-        //TODO I'm pretty sure that while I'm writing this, I'm using a pack that I didn't deob. But thats fine for now
-
-
+    public static void main(String[] args) throws IOException {
         //Load the deobbed jar
         classNodeMap = UtilFunctions.loadJarASM(Constants.DEOB_OUTPUT_JAR_PATH);
 
@@ -69,5 +60,40 @@ public class Updater {
             System.out.println("Error, duplicate class match found: " + duplicate);
             System.exit(0);
         }
+
+        renameClasses();
+
+        UtilFunctions.writeJarToDiskASM(classNodeMap);
     }
+
+    private static void renameClasses() {
+        Map<String, String> classNameMap = AbstractIdentifier.identifiedClasses.entrySet()
+                .stream()
+                .collect(Collectors.toMap(
+                        entry -> entry.getValue().getName(),
+                        Map.Entry::getKey
+                ));
+
+        NameMapperV2 nameMapper = new NameMapperV2(classNameMap, new HashMap<>(), new HashMap<>());
+        List<ClassNode> newClasses = new ArrayList<>();
+        for(ClassNode classNode: classNodeMap.values()) {
+            classNodeMap.put(classNode.name, nameMapper.mapNames(classNode));
+//            newClasses.add();
+        }
+        System.out.println("poes");
+
+//        classNodeMap = newClasses;
+//        for(ClassNode classNode: classNodeMap.values()) {
+//            Optional<String> matchingKey = AbstractIdentifier.identifiedClasses.entrySet()
+//                    .stream()
+//                    .filter(entry -> entry.getValue().getName().equals(classNode.name))
+//                    .map(Map.Entry::getKey)
+//                    .findFirst();
+//            if(matchingKey.isPresent()) {
+//                classNode.name = matchingKey.get();
+//            }
+//        }
+    }
+
+
 }

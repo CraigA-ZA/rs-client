@@ -1,9 +1,9 @@
 package identifiers;
 
 import org.objectweb.asm.Type;
+import utility.AbstractIdentifier;
 import utility.ClassWrapper;
 import utility.DependsOn;
-import utility.TypeUtilities;
 
 @DependsOn(WorldMapSection.class)
 public class WorldMapSection2 extends AbstractIdentifier {

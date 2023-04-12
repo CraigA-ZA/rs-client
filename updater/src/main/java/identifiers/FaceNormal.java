@@ -2,6 +2,7 @@ package identifiers;
 
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.FieldInsnNode;
+import utility.AbstractIdentifier;
 import utility.ClassWrapper;
 
 import java.util.Arrays;

@@ -1,7 +1,5 @@
 package utility;
 
-import identifiers.AbstractIdentifier;
-
 import java.lang.annotation.*;
 
 @Inherited

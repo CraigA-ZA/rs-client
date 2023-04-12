@@ -1,9 +1,9 @@
 package identifiers;
 
 import org.objectweb.asm.Type;
+import utility.AbstractIdentifier;
 import utility.ClassWrapper;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ClientPreferences extends AbstractIdentifier {

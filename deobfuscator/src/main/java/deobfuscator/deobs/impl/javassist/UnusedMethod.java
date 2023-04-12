@@ -54,13 +54,6 @@ public class UnusedMethod extends AbstractDeob {
                     allMethods.add(foundMethod);
                 }
 
-                //Mark all abstract methods as used.
-                // I'm assuming that all abstract methods will always be used, because any concrete class that extends an abstract class is forced to implement it.
-                // Therefore we wouldnt want to remove it from the base abstract class
-//                if (Modifier.isAbstract(methodInfo.getAccessFlags()) && !analysedClass.isInterface()) {
-//                    checkAndAdd(foundMethod, usedMethods);
-//                }
-
                 //This function looks at the current classes superclass. If the superclass contains the ctMethod that we're inspecting, then mark it as used in this class and its superclass
                 markInheritedMethodsAsUsed(analysedClass, methodInfo);
 
@@ -167,7 +160,7 @@ public class UnusedMethod extends AbstractDeob {
 
                 if (classContainsMethodEitherDeclaredOrInherited(superClass, methodInfo.getName(), methodInfo.getDescriptor())) {
                     checkAndAdd(new FoundMethod(analysedClass.getName(), methodInfo.getName(), methodInfo.getDescriptor()));
-                    checkAndAdd(new FoundMethod(superClass.getName(), methodInfo.getName(), methodInfo.getDescriptor()));
+//                    checkAndAdd(new FoundMethod(superClass.getName(), methodInfo.getName(), methodInfo.getDescriptor()));
                 }
                 superClass = superClass.getSuperclass();
             }
@@ -177,6 +170,9 @@ public class UnusedMethod extends AbstractDeob {
     }
 
     private static void checkAndAdd(FoundMethod info) {
+        if(info.className.equals("bh") && info.name.equals("w")) {
+            System.out.println("Poes");
+        }
         if (!info.className.contains("java") && !usedMethods.contains(info)) {
             usedMethods.add(info);
         }
