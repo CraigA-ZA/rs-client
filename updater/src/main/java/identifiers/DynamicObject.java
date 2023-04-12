@@ -1,5 +1,6 @@
 package identifiers;
 
+import org.objectweb.asm.Type;
 import utility.ClassWrapper;
 import utility.DependsOn;
 import utility.TypeUtilities;
@@ -9,7 +10,8 @@ public class DynamicObject extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {
         return classNode.isSuperClassEquals("Entity") &&
-                classNode.getInstanceMethods().size() == 4 &&
+                classNode.getCountFieldsOfType(Type.BOOLEAN_TYPE) == 0 &&
+                classNode.getCountFieldsOfType(Type.INT_TYPE) == 8 &&
                 classNode.getCountFieldsOfType(TypeUtilities.getTypeOfIdentifiedClass("SeqType")) == 1;
     }
 }

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Updater {
@@ -48,9 +49,6 @@ public class Updater {
 
         for (AbstractIdentifier identifier : identifiers) {
             for (ClassWrapper classNode : classMap.values()) {
-//                if(classNode.getName().equals("qy") && identifier.getClass().getSimpleName().equals("Bounds")) {
-//                    System.out.println("Yeet");
-//                }
                 identifier.identify(classNode);
             }
             if (AbstractIdentifier.identifiedClasses.get(identifier.getClass().getSimpleName()) == null) {
@@ -58,5 +56,18 @@ public class Updater {
             }
         }
         System.out.println("Ran " + identifiers.size() + " identifiers. " + AbstractIdentifier.identifiedClasses.values().stream().filter(classWrapper -> classWrapper != null).collect(Collectors.toList()).size() + " worked successfully");
+
+        List<String> duplicates = AbstractIdentifier.identifiedClasses.entrySet().stream()
+                .collect(Collectors.groupingBy(Map.Entry::getValue,
+                        Collectors.mapping(Map.Entry::getKey, Collectors.toList())))
+                .entrySet().stream()
+                .filter(entry -> entry.getValue().size() > 1)
+                .flatMap(entry -> entry.getValue().stream())
+                .collect(Collectors.toList());
+
+        for (String duplicate : duplicates) {
+            System.out.println("Error, duplicate class match found: " + duplicate);
+            System.exit(0);
+        }
     }
 }
