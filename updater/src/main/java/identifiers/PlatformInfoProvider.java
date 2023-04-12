@@ -10,7 +10,7 @@ public class PlatformInfoProvider extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {
         return classNode.isInterface() &&
-                classNode.getInstanceMethods().size() == 5 &&
+                classNode.getInstanceMethods().size() == 1 &&
                 classNode.getInstanceMethods().stream().allMatch(methodNode -> Type.getReturnType(methodNode.desc).equals(TypeUtilities.getTypeOfIdentifiedClass("PlatformInfo")));
     }
 }

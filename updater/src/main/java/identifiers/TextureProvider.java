@@ -7,7 +7,6 @@ import utility.DependsOn;
 public class TextureProvider extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {
-        return false;
-//        return classNode.getInterfaces().stream().anyMatch(s -> s.equals(identifiedClasses.get("TextureLoader").getName()));
+        return classNode.getInterfaces().stream().anyMatch(s -> s.equals(identifiedClasses.get("TextureLoader").getName()));
     }
 }

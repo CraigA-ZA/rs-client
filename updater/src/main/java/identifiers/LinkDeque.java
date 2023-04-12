@@ -3,6 +3,7 @@ package identifiers;
 import org.objectweb.asm.Type;
 import utility.ClassWrapper;
 import utility.DependsOn;
+import utility.TypeUtilities;
 
 @DependsOn(Link.class)
 public class LinkDeque extends AbstractIdentifier {
@@ -11,6 +12,6 @@ public class LinkDeque extends AbstractIdentifier {
         return classNode.getInterfaces().isEmpty() &&
                 !classNode.getName().equals(identifiedClasses.get("Link").getName()) && //TODO this line is questionable
                 classNode.getInstanceFields().size() == 2 &&
-                classNode.getCountFieldsOfType(Type.getObjectType(classNode.getName())) == 2;
+                classNode.getCountFieldsOfType(TypeUtilities.getTypeOfIdentifiedClass("Link")) == 2;
     }
 }

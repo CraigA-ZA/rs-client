@@ -8,9 +8,7 @@ import utility.TypeUtilities;
 public class FriendSystem extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {
-        return false;
-        //TODO didnt work because LoginType no worky
-//        return classNode.isOwnerless() &&
-//                classNode.getCountFieldsOfType(TypeUtilities.getTypeOfIdentifiedClass("LoginType")) >= 1;
+        return classNode.isOwnerless() &&
+                classNode.getCountFieldsOfType(TypeUtilities.getTypeOfIdentifiedClass("LoginType")) >= 1;
     }
 }

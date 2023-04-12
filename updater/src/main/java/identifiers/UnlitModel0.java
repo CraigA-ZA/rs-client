@@ -12,6 +12,7 @@ public class UnlitModel0 extends AbstractIdentifier {
                 classNode.getInstanceMethods().isEmpty() &&
                 classNode.getConstructors().size() == 1 &&
                 classNode.getInterfaces().isEmpty() &&
+                classNode.getStaticFields().size() == 1 &&
                 classNode.getStaticFields().stream().noneMatch(fieldNode -> Type.getType(fieldNode.desc).equals(Type.getObjectType(classNode.getName()))) &&
                 classNode.getStaticFields().stream().anyMatch(fieldNode -> Type.getType(fieldNode.desc).equals(TypeUtilities.withDimensions(Type.INT_TYPE, 2)));
     }

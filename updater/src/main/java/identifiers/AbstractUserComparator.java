@@ -13,7 +13,7 @@ public class AbstractUserComparator extends AbstractIdentifier {
                 classNode.getInterfaces().stream().anyMatch(s -> s.equals("java/util/Comparator")) &&
                 classNode.getInstanceMethods().stream()
                         .map(methodNode -> Type.getArgumentTypes(methodNode.desc))
-                        .filter(types -> types.length < 2)
+                        .filter(types -> types.length >= 2)
                         .anyMatch(types ->
                                 types[0].equals(TypeUtilities.getTypeOfIdentifiedClass("User")) &&
                                         types[1].equals(TypeUtilities.getTypeOfIdentifiedClass("User")));

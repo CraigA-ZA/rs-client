@@ -10,8 +10,8 @@ public class MiniMenuEntry extends AbstractIdentifier {
         return classNode.isOwnerless() &&
                 classNode.getInterfaces().isEmpty() &&
                 classNode.getInstanceMethods().isEmpty() &&
-                classNode.getCountFieldsOfType(TypeUtilities.STRING_TYPE) == 1 &&
-                classNode.getCountFieldsOfType(Type.INT_TYPE) == 4 &&
-                classNode.getInstanceFields().size() == 5;
+                classNode.getCountFieldsOfType(TypeUtilities.STRING_TYPE) == 2 &&
+                classNode.getCountFieldsOfType(Type.INT_TYPE) == 5 &&
+                classNode.getInstanceFields().size() == 7;
     }
 }

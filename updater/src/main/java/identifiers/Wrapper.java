@@ -1,5 +1,6 @@
 package identifiers;
 
+import org.objectweb.asm.Type;
 import utility.ClassWrapper;
 import utility.DependsOn;
 
@@ -9,7 +10,8 @@ import java.lang.reflect.Modifier;
 public class Wrapper extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {
-        return classNode.isAbstract() && classNode.isSuperClassEquals("DualNode") &&
-                !classNode.getInstanceMethods().stream().allMatch(methodNode -> Modifier.isAbstract(methodNode.access));
+        return classNode.isAbstract() &&
+                classNode.isSuperClassEquals("DualNode") &&
+                classNode.getInstanceMethods().stream().anyMatch(methodNode -> Type.getReturnType(methodNode.desc).equals(Type.getType(Object.class)));
     }
 }

@@ -9,6 +9,7 @@ public class PlayerType extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {
         return classNode.getInterfaces().stream().anyMatch(s -> s.equals(identifiedClasses.get("Enumerated").getName())) &&
-                classNode.getCountFieldsOfType(Type.BOOLEAN_TYPE) == 2;
+                classNode.getCountFieldsOfType(Type.BOOLEAN_TYPE) == 2 &&
+                classNode.getCountFieldsOfType(Type.INT_TYPE) == 2;
     }
 }

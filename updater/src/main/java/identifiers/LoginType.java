@@ -12,7 +12,7 @@ public class LoginType extends AbstractIdentifier {
                 classNode.getInterfaces().isEmpty() &&
                 classNode.getInstanceFields().size() == 2 &&
                 classNode.getCountFieldsOfType(Type.INT_TYPE) == 1 &&
-                classNode.getCountFieldsOfType(TypeUtilities.STRING_ARRAY) == 1 &&
+                classNode.getCountFieldsOfType(TypeUtilities.STRING_TYPE) == 1 &&
                 classNode.getInstanceMethods().size() == 1;
     }
 }
