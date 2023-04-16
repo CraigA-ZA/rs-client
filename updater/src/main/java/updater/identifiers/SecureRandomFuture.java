@@ -16,10 +16,5 @@ public class SecureRandomFuture extends AbstractIdentifier {
                 classNode.getInstanceMethods().stream().anyMatch(methodNode -> Type.getReturnType(methodNode.desc).equals(Type.getType(SecureRandom.class)));
     }
 
-    public class future extends FieldIdentifier {
-        @Override
-        public boolean isMatch(FieldWrapper fieldNode) {
-            return fieldNode.isOfType(Type.getType(Future.class));
-        }
-    }
+    public FieldIdentifier future = fieldIdentifier(fieldWrapper -> fieldWrapper.isOfType(Type.getType(Future.class)));
 }

@@ -1,5 +1,6 @@
 package updater.utility;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.objectweb.asm.Type;
@@ -17,52 +18,49 @@ public abstract class AbstractIdentifier {
     public static Map<String, FieldNode> identifiedFields = new HashMap<>();
     public static Map<String, MethodNode> identifiedMethods = new HashMap<>();
 
-    private List<MethodIdentifier> methodIdentifiers = Arrays.stream(this.getClass().getDeclaredClasses())
-            .filter(MethodIdentifier.class::isAssignableFrom)
-            .map(declaredClass -> {
-                try {
-                    return (MethodIdentifier) declaredClass.getDeclaredConstructor(this.getClass()).newInstance(AbstractIdentifier.this);
-                } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
-                         NoSuchMethodException e) {
-                    throw new RuntimeException(e);
-                }
-            })
-            .toList();
+    private List<MethodIdentifier> methodIdentifiers;
 
-    private List<FieldIdentifier> fieldIdentifiers = Arrays.stream(this.getClass().getDeclaredClasses())
-            .filter(FieldIdentifier.class::isAssignableFrom)
-            .map(declaredClass -> {
-                try {
-                    return (FieldIdentifier) declaredClass.getDeclaredConstructor(this.getClass()).newInstance(AbstractIdentifier.this);
-                } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
-                         NoSuchMethodException e) {
-                    throw new RuntimeException(e);
-                }
-            })
-            .toList();
+    private List<FieldIdentifier> fieldIdentifiers;
 
-//    private List<FieldInConstructorIdentifier> constructorIdentifiers = Arrays.stream(this.getClass().getDeclaredFields())
-//            .filter(field -> field.getType() == FieldInConstructorIdentifier.class)
-//            .map(field -> {
-//                try {
-//                    return (FieldInConstructorIdentifier) field.get(this);
-//                } catch (IllegalAccessException e) {
-//                    throw new RuntimeException(e);
-//                }
-//            }).toList();
+    private List<FieldInConstructorIdentifier> fieldInConstructorIdentifiers;
 
-    private List<FieldInConstructorIdentifier> constructorIdentifiers = Arrays.stream(this.getClass().getDeclaredClasses())
-            .filter(FieldInConstructorIdentifier.class::isAssignableFrom)
-            .map(declaredClass -> {
-                try {
-                    return (FieldInConstructorIdentifier) declaredClass.getDeclaredConstructor(this.getClass()).newInstance(AbstractIdentifier.this);
-                } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
-                         NoSuchMethodException e) {
-                    e.printStackTrace();
-                    throw new RuntimeException(e);
-                }
-            }).toList();
+    public void initialize() {
+        methodIdentifiers = Arrays.stream(this.getClass().getDeclaredFields())
+                .filter(field -> MethodIdentifier.class.isAssignableFrom(field.getType()))
+                .map(field -> {
+                    try {
+                        MethodIdentifier methodIdentifier = (MethodIdentifier) field.get(this);
+                        methodIdentifier.methodName = field.getName();
+                        return methodIdentifier;
+                    } catch (IllegalAccessException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).toList();
 
+        fieldIdentifiers = Arrays.stream(this.getClass().getDeclaredFields())
+                .filter(field -> FieldIdentifier.class.isAssignableFrom(field.getType()))
+                .map(field -> {
+                    try {
+                        FieldIdentifier fieldIdentifier = (FieldIdentifier) field.get(this);
+                        fieldIdentifier.fieldName = field.getName();
+                        return fieldIdentifier;
+                    } catch (IllegalAccessException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).toList();
+
+        fieldInConstructorIdentifiers = Arrays.stream(this.getClass().getDeclaredFields())
+                .filter(field -> FieldInConstructorIdentifier.class.isAssignableFrom(field.getType()))
+                .map(field -> {
+                    try {
+                        FieldInConstructorIdentifier fieldInConstructorIdentifier = (FieldInConstructorIdentifier) field.get(this);
+                        fieldInConstructorIdentifier.fieldName = field.getName();
+                        return fieldInConstructorIdentifier;
+                    } catch (IllegalAccessException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).toList();
+    }
 
     public void identify(ClassWrapper classNode) {
         //Check if class matches
@@ -82,7 +80,7 @@ public abstract class AbstractIdentifier {
                     for (MethodNode methodNode : classNode.getMethods()) {
                         if (methodIdentifier.isMatch(new MethodWrapper(methodNode))) {
 //                            identifiedMethods.put(methodNode.getName(), methodNode);
-                            System.out.println("\tFound method: " + methodIdentifier.getClass().getSimpleName() + " @ " + methodNode.name);
+                            System.out.println("\tFound method: " + methodIdentifier.methodName + " @ " + methodNode.name);
                         }
                     }
                 }
@@ -92,13 +90,13 @@ public abstract class AbstractIdentifier {
                     for (FieldNode fieldNode : classNode.getFields()) {
                         if (fieldIdentifier.isMatch(new FieldWrapper(fieldNode))) {
 //                            identifiedFields.put(fieldNode.getName(), fieldNode);
-                            System.out.println("\tFound field: " + fieldIdentifier.getClass().getSimpleName() + " @ " + fieldNode.name);
+                            System.out.println("\tFound field: " + fieldIdentifier.fieldName + " @ " + fieldNode.name);
                         }
                     }
                 }
 
                 //Iterate through each constructor identifier
-                for (FieldInConstructorIdentifier constructorIdentifier : constructorIdentifiers) {
+                for (FieldInConstructorIdentifier constructorIdentifier : fieldInConstructorIdentifiers) {
                     MethodNode constructor = classNode.getClassNode().methods.stream().filter(methodNode -> methodNode.name.equals("<init>")).collect(Collectors.toList()).stream().findFirst().orElse(null);
 
                     if (constructor == null) {
@@ -109,7 +107,7 @@ public abstract class AbstractIdentifier {
 
                     int position = constructorIdentifier.position >= 0 ? constructorIdentifier.position : matchedInstructions.size() + constructorIdentifier.position;
 
-                    System.out.println("\tFound field: " + constructorIdentifier.getClass().getSimpleName() + " @ " + matchedInstructions.get(position).name);
+                    System.out.println("\tFound field: " + constructorIdentifier.fieldName + " @ " + matchedInstructions.get(position).name);
                 }
             }
         }
@@ -117,11 +115,17 @@ public abstract class AbstractIdentifier {
 
     public abstract boolean isMatch(ClassWrapper classNode);
 
+    @AllArgsConstructor
     public abstract class MethodIdentifier {
+        public String methodName;
+
         public abstract boolean isMatch(MethodWrapper methodNode);
     }
 
+    @AllArgsConstructor
     public abstract class FieldIdentifier {
+
+        public String fieldName;
 
         public abstract boolean isMatch(FieldWrapper fieldNode);
     }
@@ -131,19 +135,44 @@ public abstract class AbstractIdentifier {
         public abstract boolean isMatch(FieldWrapper fieldNode);
     }
 
+    public abstract class MethodInvokedInConstructor {
+        public abstract boolean isMatch(MethodWrapper methodNode);
+    }
+
     @Setter
+    @AllArgsConstructor
     public abstract class FieldInConstructorIdentifier {
         public int position;
-
-        public FieldInConstructorIdentifier(int position) {
-            this.position = position;
-        }
+        public String fieldName;
 
         public abstract boolean isMatch(FieldInsnNode instruction);
     }
 
-    public abstract class MethodInvokedInConstructor {
-        public abstract boolean isMatch(MethodWrapper methodNode);
+    public MethodIdentifier methodIdentifier(java.util.function.Function<MethodWrapper, Boolean> isMatch) {
+        return new MethodIdentifier("") {
+            @Override
+            public boolean isMatch(MethodWrapper methodWrapper) {
+                return isMatch.apply(methodWrapper);
+            }
+        };
+    }
+
+    public FieldIdentifier fieldIdentifier(java.util.function.Function<FieldWrapper, Boolean> isMatch) {
+        return new FieldIdentifier("") {
+            @Override
+            public boolean isMatch(FieldWrapper fieldNode) {
+                return isMatch.apply(fieldNode);
+            }
+        };
+    }
+
+    public FieldInConstructorIdentifier fieldInConstructorId(int position, java.util.function.Function<FieldInsnNode, Boolean> isMatch) {
+        return new FieldInConstructorIdentifier(position, "") {
+            @Override
+            public boolean isMatch(FieldInsnNode instruction) {
+                return isMatch.apply(instruction);
+            }
+        };
     }
 
     public static <T> boolean startsWith(List<T> list, List<T> sublist) {
@@ -156,14 +185,5 @@ public abstract class AbstractIdentifier {
             }
         }
         return true;
-    }
-
-    public FieldInConstructorIdentifier fieldInConstructorId(int position, java.util.function.Function<FieldInsnNode, Boolean> isMatch) {
-        return new FieldInConstructorIdentifier(position) {
-            @Override
-            public boolean isMatch(FieldInsnNode instruction) {
-                return isMatch.apply(instruction);
-            }
-        };
     }
 }

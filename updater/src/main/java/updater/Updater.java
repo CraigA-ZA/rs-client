@@ -1,7 +1,9 @@
 package updater;
 
 import org.objectweb.asm.tree.ClassNode;
+import updater.identifiers.Node;
 import updater.identifiers.Scene;
+import updater.identifiers.Scenery;
 import updater.utility.AbstractIdentifier;
 import updater.utility.ClassWrapper;
 import updater.utility.IdentifierSorter;
@@ -35,7 +37,6 @@ public class Updater {
             throw new RuntimeException(e);
         }
     }).collect(Collectors.toList());
-//    static List<AbstractIdentifier> identifiers = List.of(new Scene());
 
     public static void main(String[] args) throws IOException {
         //Load the deobbed jar
@@ -45,6 +46,7 @@ public class Updater {
                 .collect(Collectors.toMap(classNode -> classNode.name, node -> new ClassWrapper(node)));
 
         for (AbstractIdentifier identifier : identifiers) {
+            identifier.initialize();
             for (ClassWrapper classNode : classMap.values()) {
                 identifier.identify(classNode);
             }

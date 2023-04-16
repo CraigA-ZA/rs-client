@@ -5,6 +5,7 @@ import updater.utility.AbstractIdentifier;
 import updater.utility.ClassWrapper;
 
 public class Node extends AbstractIdentifier {
+
     @Override
     public boolean isMatch(ClassWrapper classNode) {
         return classNode.getInstanceFields().size() == 3 &&
@@ -12,4 +13,6 @@ public class Node extends AbstractIdentifier {
                 classNode.getCountFieldsOfType(Type.getObjectType(classNode.getName())) == 2 &&
                 classNode.isOwnerless();
     }
+
+    public MethodIdentifier hasNext = methodIdentifier(methodWrapper -> methodWrapper.returnTypeEquals(Type.BOOLEAN_TYPE));
 }
