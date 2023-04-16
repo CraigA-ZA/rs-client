@@ -44,13 +44,49 @@ public class Scene extends AbstractIdentifier {
 
     public class planes extends FieldInConstructorIdentifier {
         public planes() {
-            super(0);
+            super(-3);
         }
 
 
         @Override
         public boolean isMatch(FieldInsnNode instruction) {
             return instruction.getOpcode() == Opcodes.PUTFIELD && Type.getType(instruction.desc).equals(Type.INT_TYPE);
+        }
+    }
+
+    public class xSize extends FieldInConstructorIdentifier {
+        public xSize() {
+            super(-2);
+        }
+
+
+        @Override
+        public boolean isMatch(FieldInsnNode instruction) {
+            return instruction.getOpcode() == Opcodes.PUTFIELD && Type.getType(instruction.desc).equals(Type.INT_TYPE);
+        }
+    }
+
+    public class ySize extends FieldInConstructorIdentifier {
+        public ySize() {
+            super(-1);
+        }
+
+
+        @Override
+        public boolean isMatch(FieldInsnNode instruction) {
+            return instruction.getOpcode() == Opcodes.PUTFIELD && Type.getType(instruction.desc).equals(Type.INT_TYPE);
+        }
+    }
+
+    public class tileHeights extends FieldInConstructorIdentifier {
+        public tileHeights() {
+            super(-1);
+        }
+
+
+        @Override
+        public boolean isMatch(FieldInsnNode instruction) {
+            return instruction.getOpcode() == Opcodes.PUTFIELD && Type.getType(instruction.desc).equals(TypeUtilities.withDimensions(Type.INT_TYPE, 3));
         }
     }
 }

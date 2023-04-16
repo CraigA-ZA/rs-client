@@ -2,6 +2,7 @@ package updater.utility;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.*;
 
 import java.lang.reflect.InvocationTargetException;
@@ -39,6 +40,16 @@ public abstract class AbstractIdentifier {
                 }
             })
             .toList();
+
+//    private List<FieldInConstructorIdentifier> constructorIdentifiers = Arrays.stream(this.getClass().getDeclaredFields())
+//            .filter(field -> field.getType() == FieldInConstructorIdentifier.class)
+//            .map(field -> {
+//                try {
+//                    return (FieldInConstructorIdentifier) field.get(this);
+//                } catch (IllegalAccessException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }).toList();
 
     private List<FieldInConstructorIdentifier> constructorIdentifiers = Arrays.stream(this.getClass().getDeclaredClasses())
             .filter(FieldInConstructorIdentifier.class::isAssignableFrom)
@@ -98,7 +109,7 @@ public abstract class AbstractIdentifier {
 
                     int position = constructorIdentifier.position >= 0 ? constructorIdentifier.position : matchedInstructions.size() + constructorIdentifier.position;
 
-                    System.out.println(matchedInstructions.get(position).name);
+                    System.out.println("\tFound field: " + constructorIdentifier.getClass().getSimpleName() + " @ " + matchedInstructions.get(position).name);
                 }
             }
         }
@@ -120,6 +131,7 @@ public abstract class AbstractIdentifier {
         public abstract boolean isMatch(FieldWrapper fieldNode);
     }
 
+    @Setter
     public abstract class FieldInConstructorIdentifier {
         public int position;
 
@@ -144,5 +156,14 @@ public abstract class AbstractIdentifier {
             }
         }
         return true;
+    }
+
+    public FieldInConstructorIdentifier fieldInConstructorId(int position, java.util.function.Function<FieldInsnNode, Boolean> isMatch) {
+        return new FieldInConstructorIdentifier(position) {
+            @Override
+            public boolean isMatch(FieldInsnNode instruction) {
+                return isMatch.apply(instruction);
+            }
+        };
     }
 }

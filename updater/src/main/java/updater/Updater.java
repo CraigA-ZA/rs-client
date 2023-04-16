@@ -1,6 +1,7 @@
 package updater;
 
 import org.objectweb.asm.tree.ClassNode;
+import updater.identifiers.Scene;
 import updater.utility.AbstractIdentifier;
 import updater.utility.ClassWrapper;
 import updater.utility.IdentifierSorter;
@@ -34,6 +35,7 @@ public class Updater {
             throw new RuntimeException(e);
         }
     }).collect(Collectors.toList());
+//    static List<AbstractIdentifier> identifiers = List.of(new Scene());
 
     public static void main(String[] args) throws IOException {
         //Load the deobbed jar
@@ -66,7 +68,7 @@ public class Updater {
         }
 
 //        renameClasses();
-//
+
 //        UtilFunctions.writeJarToDiskASM(classNodeMap);
     }
 
@@ -79,7 +81,7 @@ public class Updater {
                 ));
 
         NameMapper nameMapper = new NameMapper(classNameMap, new HashMap<>(), new HashMap<>());
-        for(ClassNode classNode: classNodeMap.values()) {
+        for (ClassNode classNode : classNodeMap.values()) {
             classNodeMap.put(classNode.name, nameMapper.mapNames(classNode));
         }
     }
