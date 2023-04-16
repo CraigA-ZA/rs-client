@@ -2,7 +2,7 @@ package deobfuscator.deobs.impl.javassist;
 
 import deobfuscator.Deobfuscator;
 import deobfuscator.deobs.AbstractDeob;
-import deobfuscator.models.FoundMethod;
+import za.org.secret.FoundMethod;
 import javassist.*;
 import javassist.bytecode.MethodInfo;
 import javassist.expr.ExprEditor;

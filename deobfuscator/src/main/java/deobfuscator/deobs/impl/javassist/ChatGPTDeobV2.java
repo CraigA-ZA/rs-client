@@ -2,9 +2,12 @@ package deobfuscator.deobs.impl.javassist;
 
 import deobfuscator.Deobfuscator;
 import deobfuscator.deobs.AbstractDeob;
+import deobfuscator.deobs.impl.ASMBlock;
 import javassist.*;
-import javassist.bytecode.*;
 import javassist.bytecode.analysis.ControlFlow;
+import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.tree.*;
+import za.org.secret.UtilFunctions;
 
 import java.util.*;
 
@@ -16,19 +19,32 @@ public class ChatGPTDeobV2 extends AbstractDeob {
     @Override
     public void run() {
         try {
-//            CtClass ctClass = Deobfuscator.classMap.get("client");
             for (CtClass ctClass : Deobfuscator.classMap.values()) {
-                for (CtMethod ctMethod : ctClass.getDeclaredMethods()) {
-//            CtMethod ctMethod = ctClass.getDeclaredMethod("pr");
 
+                for (CtConstructor ctConstructor : ctClass.getDeclaredConstructors()) {
+//                    if (ctClass.getName().equals("ir") && ctConstructor.getName().equals("ir")) {
+                    CtMethod ctMethod = ctConstructor.toMethod("<init>", ctClass);
                     ControlFlow cf = new ControlFlow(ctMethod);
                     List<ControlFlow.Block> originalOrder = Arrays.stream(cf.basicBlocks()).toList();
+                    if (originalOrder.size() == 1) {
+                        continue;
+                    }
+                    if (!UtilFunctions.isObfuscated(ctClass.getName())) {
+                        continue;
+                    }
 
-//                List<ControlFlow.Block> sorted = topoSort(originalOrder);
-//                System.out.println(ctMethod.getName());
-//                System.out.println(printBlockOrder(originalOrder));
-//                System.out.println(printBlockOrder(sorted));
-                    writeNewMethod(ctClass, ctMethod, originalOrder);
+                    ClassNode classNode = Deobfuscator.classMapASM.get(ctClass.getName());
+                    MethodNode methodNode = classNode.methods.stream().filter(mthNode -> mthNode.name.equals(ctMethod.getName()) && mthNode.desc.equals(ctMethod.getMethodInfo().getDescriptor())).findFirst().orElseThrow();
+
+                    List<ASMBlock> blocksToSort = splitIntoBlocksASM(methodNode);
+                    if (blocksToSort.size() != originalOrder.size()) {
+                        System.out.println("FUCK");
+                    }
+//                        List<ASMBlock> sorted = topoSort(originalOrder, blocksToSort);
+//
+//
+//                        writeNewMethod(classNode, methodNode, sorted);
+//                    }
                 }
             }
         } catch (Exception ex) {
@@ -36,32 +52,48 @@ public class ChatGPTDeobV2 extends AbstractDeob {
         }
     }
 
-    private void writeNewMethod(CtClass ctClass, CtMethod ctMethod, List<ControlFlow.Block> finalOrder) throws CannotCompileException, BadBytecode, NotFoundException {
-        MethodInfo oldMethodInfo = ctMethod.getMethodInfo();
-        CodeAttribute oldCodeAttribute = oldMethodInfo.getCodeAttribute();
+    private static List<ASMBlock> splitIntoBlocksASM(MethodNode methodNode) {
 
-        if (oldCodeAttribute == null) {
-            return;
-        }
-        CodeIterator iterator = oldCodeAttribute.iterator();
-
-        Bytecode newCode = new Bytecode(
-                oldMethodInfo.getConstPool(),
-                oldCodeAttribute.getMaxLocals(),
-                oldCodeAttribute.getMaxStack());
-        for (ControlFlow.Block block : finalOrder) {
-            for (int i = block.position(); i < block.position() + block.length(); i++) {
-                newCode.add(iterator.byteAt(i));
+        List<ASMBlock> blocks = new ArrayList<>();
+        ASMBlock block = new ASMBlock();
+        int blockNumber = 0;
+        for (AbstractInsnNode insnNode : methodNode.instructions) {
+            block.addInstruction(insnNode);
+            if (insnNode instanceof JumpInsnNode ||
+                    insnNode instanceof TableSwitchInsnNode ||
+                    insnNode instanceof LookupSwitchInsnNode ||
+                    insnNode instanceof InsnNode && (insnNode.getOpcode() >= Opcodes.IRETURN && insnNode.getOpcode() <= Opcodes.RETURN || insnNode.getOpcode() == Opcodes.ATHROW) ||
+                    insnNode instanceof LabelNode && insnNode.getNext() == null) {
+                block.index = blockNumber;
+                blocks.add(block);
+                block = new ASMBlock();
+                blockNumber++;
             }
         }
 
-        MethodInfo newMethodInfo = new MethodInfo(oldMethodInfo.getConstPool(), ctMethod.getName(), oldMethodInfo, null);
-        newMethodInfo.setCodeAttribute(newCode.toCodeAttribute());
-//        newMethodInfo.setExceptionsAttribute()
-        CtMethod newMethod = CtMethod.make(newMethodInfo, ctClass);
-        ctMethod.setBody(newMethod, null);
-//        ctClass.removeMethod(ctMethod);
-//        ctClass.addMethod(newMethod);
+
+        for (ASMBlock thisBlock : blocks) {
+            AbstractInsnNode lastInstruction = thisBlock.instructions.get(thisBlock.instructions.size() - 1);
+            if (lastInstruction instanceof JumpInsnNode) {
+                LabelNode labelTarget = ((JumpInsnNode) lastInstruction).label;
+                ASMBlock jumpTarget = blocks.stream().filter(asmBlock -> asmBlock.instructions.stream().anyMatch(abstractInsnNode -> abstractInsnNode.equals(labelTarget))).findFirst().orElseThrow();
+                thisBlock.addExit(jumpTarget.index);
+                jumpTarget.addIncoming(thisBlock.index);
+            }
+        }
+        return blocks;
+    }
+
+    private void writeNewMethod(ClassNode classNode, MethodNode methodNode, List<ASMBlock> finalOrder) {
+        methodNode.instructions.clear();
+        for (ASMBlock block : finalOrder) {
+            for (AbstractInsnNode insn : block.instructions) {
+                methodNode.instructions.add(insn);
+//                if(insn.getOpcode() != -1) {
+//                    System.out.println(Printer.OPCODES[insn.getOpcode()]);
+//                }
+            }
+        }
     }
 
     private String printBlockOrder(List<ControlFlow.Block> originalOrder) {
@@ -72,7 +104,7 @@ public class ChatGPTDeobV2 extends AbstractDeob {
         return sb.toString();
     }
 
-    public static List<ControlFlow.Block> topoSort(List<ControlFlow.Block> blocks) {
+    public static List<ASMBlock> topoSort(List<ControlFlow.Block> blocks, List<ASMBlock> blocksToSort) {
         // Initialize data structures
         index = 0;
         stack = new Stack<>();
@@ -96,16 +128,17 @@ public class ChatGPTDeobV2 extends AbstractDeob {
         Collections.reverse(sccList);
 
         // Create the final sorted list
-        List<ControlFlow.Block> sorted = new ArrayList<>();
+        List<ASMBlock> sorted = new ArrayList<>();
         for (List<Integer> scc : sccList) {
             for (int i : scc) {
-                sorted.add(blocks.get(i));
+                sorted.add(blocksToSort.get(i));
             }
         }
         return sorted;
     }
 
-    private static void dfs(ControlFlow.Block block, Map<ControlFlow.Block, Integer> indices, Map<ControlFlow.Block, Integer> lowLink,
+    private static void dfs(ControlFlow.Block
+                                    block, Map<ControlFlow.Block, Integer> indices, Map<ControlFlow.Block, Integer> lowLink,
                             List<ControlFlow.Block> blocks) {
         // Initialize the indices and low link value for this block
         indices.put(block, index);

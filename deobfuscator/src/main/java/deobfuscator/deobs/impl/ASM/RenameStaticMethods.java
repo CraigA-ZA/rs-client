@@ -2,7 +2,7 @@ package deobfuscator.deobs.impl.ASM;
 
 import deobfuscator.Deobfuscator;
 import deobfuscator.deobs.AbstractDeob;
-import deobfuscator.models.FoundMethod;
+import za.org.secret.FoundMethod;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;

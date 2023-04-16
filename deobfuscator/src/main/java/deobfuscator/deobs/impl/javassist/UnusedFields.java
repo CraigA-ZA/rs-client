@@ -2,15 +2,11 @@ package deobfuscator.deobs.impl.javassist;
 
 import deobfuscator.Deobfuscator;
 import deobfuscator.deobs.AbstractDeob;
-import deobfuscator.models.FoundField;
-import deobfuscator.models.FoundMethod;
 import javassist.*;
-import javassist.bytecode.MethodInfo;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class UnusedFields extends AbstractDeob {
     static Set<CtField> usedFields = new HashSet<>();

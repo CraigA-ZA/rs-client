@@ -4,16 +4,14 @@ import deobfuscator.deobs.AbstractDeob;
 import deobfuscator.deobs.impl.ASM.OpaquePredicates;
 import deobfuscator.deobs.impl.ASM.RenameStaticMethods;
 import deobfuscator.deobs.impl.ASM.UnusedParams;
+import deobfuscator.deobs.impl.javassist.ChatGPTDeobV2;
 import deobfuscator.deobs.impl.javassist.UnusedFields;
 import deobfuscator.deobs.impl.javassist.UnusedMethod;
-import deobfuscator.models.FoundMethod;
 import javassist.*;
 import za.org.secret.Constants;
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.objectweb.asm.tree.ClassNode;
 import za.org.secret.UtilFunctions;
@@ -21,12 +19,13 @@ import za.org.secret.UtilFunctions;
 public final class Deobfuscator {
     public static Map<String, CtClass> classMap;
     public static Map<String, ClassNode> classMapASM;
-    private static List<AbstractDeob> javassistDeobs = List.of(new UnusedMethod(), new UnusedFields());
-    private static List<AbstractDeob> ASMDeobs = List.of(new RenameStaticMethods(), new OpaquePredicates(), new UnusedParams());
+    private static List<AbstractDeob> javassistDeobs = List.of(new UnusedMethod(), new UnusedFields(), new ChatGPTDeobV2());
+    private static List<AbstractDeob> ASMDeobs = List.of( new RenameStaticMethods(), new OpaquePredicates(), new UnusedParams());
 
     public static void main(String[] args) throws IOException {
         //Load JAR using Javassist
         classMap = UtilFunctions.loadJar(Constants.GAMEPACK_OUTPUT_DIR + File.separator + Constants.OUTPUT_FILE_NAME);
+        classMapASM = UtilFunctions.loadJarASM(Constants.GAMEPACK_OUTPUT_DIR + File.separator + Constants.OUTPUT_FILE_NAME);
 
         //Run all javassist based Deobs
         for (AbstractDeob deob : javassistDeobs) {
