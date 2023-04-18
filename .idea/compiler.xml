@@ -12,6 +12,7 @@
         <module name="loader" />
         <module name="downloader" />
         <module name="updater" />
+        <module name="updater-runestar" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
