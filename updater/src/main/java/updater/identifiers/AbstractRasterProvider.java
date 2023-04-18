@@ -7,7 +7,8 @@ import updater.utility.TypeUtilities;
 public class AbstractRasterProvider extends AbstractIdentifier {
     @Override
     public boolean isMatch(ClassWrapper classNode) {
-        return classNode.isAbstract() &&
+        return classNode.isOwnerless() &&
+                classNode.isAbstract() &&
                 classNode.getInterfaces().isEmpty() &&
                 classNode.getCountFieldsOfType(TypeUtilities.INT_ARRAY) == 1;
     }

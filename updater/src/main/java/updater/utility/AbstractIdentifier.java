@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.*;
+import updater.Updater;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
@@ -23,6 +24,8 @@ public abstract class AbstractIdentifier {
     private List<FieldIdentifier> fieldIdentifiers;
 
     private List<FieldInConstructorIdentifier> fieldInConstructorIdentifiers;
+
+    private List<FieldInMethodIdentifier> fieldInMethodIdentifiers;
 
     public void initialize() {
         methodIdentifiers = Arrays.stream(this.getClass().getDeclaredFields())
@@ -56,6 +59,18 @@ public abstract class AbstractIdentifier {
                         FieldInConstructorIdentifier fieldInConstructorIdentifier = (FieldInConstructorIdentifier) field.get(this);
                         fieldInConstructorIdentifier.fieldName = field.getName();
                         return fieldInConstructorIdentifier;
+                    } catch (IllegalAccessException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).toList();
+
+        fieldInMethodIdentifiers = Arrays.stream(this.getClass().getDeclaredFields())
+                .filter(field -> FieldInMethodIdentifier.class.isAssignableFrom(field.getType()))
+                .map(field -> {
+                    try {
+                        FieldInMethodIdentifier fieldInMethodIdentifier = (FieldInMethodIdentifier) field.get(this);
+                        fieldInMethodIdentifier.fieldName = field.getName();
+                        return fieldInMethodIdentifier;
                     } catch (IllegalAccessException e) {
                         throw new RuntimeException(e);
                     }
@@ -97,7 +112,7 @@ public abstract class AbstractIdentifier {
 
                 //Iterate through each constructor identifier
                 for (FieldInConstructorIdentifier constructorIdentifier : fieldInConstructorIdentifiers) {
-                    MethodNode constructor = classNode.getClassNode().methods.stream().filter(methodNode -> methodNode.name.equals("<init>")).collect(Collectors.toList()).stream().findFirst().orElse(null);
+                    MethodNode constructor = classNode.getClassNode().methods.stream().filter(methodNode -> methodNode.name.equals("<init>")).toList().stream().findFirst().orElse(null);
 
                     if (constructor == null) {
                         continue;
@@ -109,6 +124,20 @@ public abstract class AbstractIdentifier {
 
                     System.out.println("\tFound field: " + constructorIdentifier.fieldName + " @ " + matchedInstructions.get(position).name);
                 }
+
+//                for (FieldInMethodIdentifier fieldInMethodIdentifier : fieldInMethodIdentifiers) {
+//                    ClassNode classToSearch = Updater.classMap.values().stream().filter(classWrapper -> classWrapper.getName().equals(fieldInMethodIdentifier.className)).findFirst().orElseThrow();
+//                    MethodNode method = classToSearch.methods.stream().filter(methodNode -> methodNode.name.equals(fieldInMethodIdentifier.methodName)).toList().stream().findFirst().orElse(null);
+//
+//                    if (method == null) {
+//                        continue;
+//                    }
+//                    List<FieldInsnNode> matchedInstructions = Arrays.stream(method.instructions.toArray()).filter(abstractInsnNode -> abstractInsnNode instanceof FieldInsnNode && fieldInMethodIdentifier.isMatch((FieldInsnNode) abstractInsnNode)).map(abstractInsnNode -> (FieldInsnNode) abstractInsnNode).collect(Collectors.toList());
+//
+//                    int position = fieldInMethodIdentifier.position >= 0 ? fieldInMethodIdentifier.position : matchedInstructions.size() + fieldInMethodIdentifier.position;
+//
+//                    System.out.println("\tFound field: " + fieldInMethodIdentifier.fieldName + " @ " + matchedInstructions.get(position).name);
+//                }
             }
         }
     }
@@ -148,6 +177,18 @@ public abstract class AbstractIdentifier {
         public abstract boolean isMatch(FieldInsnNode instruction);
     }
 
+    @Setter
+    @AllArgsConstructor
+    public abstract class FieldInMethodIdentifier {
+        public int position;
+        public String fieldName;
+
+        public String className;
+        public String methodName;
+
+        public abstract boolean isMatch(FieldInsnNode instruction);
+    }
+
     public MethodIdentifier methodIdentifier(java.util.function.Function<MethodWrapper, Boolean> isMatch) {
         return new MethodIdentifier("") {
             @Override
@@ -168,6 +209,15 @@ public abstract class AbstractIdentifier {
 
     public FieldInConstructorIdentifier fieldInConstructorId(int position, java.util.function.Function<FieldInsnNode, Boolean> isMatch) {
         return new FieldInConstructorIdentifier(position, "") {
+            @Override
+            public boolean isMatch(FieldInsnNode instruction) {
+                return isMatch.apply(instruction);
+            }
+        };
+    }
+
+    public FieldInMethodIdentifier fieldInMethodIdentifier(String className, String methodName, int position, java.util.function.Function<FieldInsnNode, Boolean> isMatch) {
+        return new FieldInMethodIdentifier(position, "", className, methodName) {
             @Override
             public boolean isMatch(FieldInsnNode instruction) {
                 return isMatch.apply(instruction);

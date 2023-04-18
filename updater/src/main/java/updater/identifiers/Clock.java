@@ -11,6 +11,7 @@ public class Clock extends AbstractIdentifier {
                 !classNode.isInterface() &&
                 classNode.isAbstract() &&
                 classNode.getInstanceFields().isEmpty() &&
+                classNode.getInstanceMethods().size() == 2 &&
                 classNode.getInstanceMethods().stream().noneMatch(methodNode -> methodNode.exceptions.stream().anyMatch(s -> s.equals("java/io/IOException"))) &&
                 classNode.getInstanceMethods().stream().anyMatch(methodNode -> Type.getReturnType(methodNode.desc).equals(Type.INT_TYPE));
     }
