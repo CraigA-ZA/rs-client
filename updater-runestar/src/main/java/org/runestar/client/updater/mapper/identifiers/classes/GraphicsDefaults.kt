@@ -1,11 +1,13 @@
-package org.runestar.client.updater.mapper.identifiers.disabled
+package org.runestar.client.updater.mapper.identifiers.classes
 
 import org.objectweb.asm.Type
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
+import org.runestar.client.updater.mapper.annotations.MethodParameters
 import org.runestar.client.updater.mapper.predicateutilities.and
 import org.runestar.client.updater.mapper.predicateutilities.predicateOf
 import org.runestar.client.updater.mapper.predicateutilities.type
 import org.runestar.client.updater.mapper.wrappers.Class2
+import org.runestar.client.updater.mapper.wrappers.Method2
 
 class GraphicsDefaults : IdentityMapper.Class() {
 
@@ -14,11 +16,11 @@ class GraphicsDefaults : IdentityMapper.Class() {
             .and { it.instanceFields.all { it.type == Type.INT_TYPE } }
             .and { it.instanceMethods.size == 1 }
 
-//    @MethodParameters("archive")
-//    class decode : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { true }
-//    }
-//
+    @MethodParameters("archive")
+    class decode : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { true }
+    }
+//TODO
 //    class compass : SpriteIdsField(0)
 //    class mapedge : SpriteIdsField(1)
 //    class mapscene : SpriteIdsField(2)

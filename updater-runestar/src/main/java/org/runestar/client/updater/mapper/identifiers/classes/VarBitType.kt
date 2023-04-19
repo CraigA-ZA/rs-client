@@ -1,12 +1,16 @@
-package org.runestar.client.updater.mapper.identifiers.disabled
+package org.runestar.client.updater.mapper.identifiers.classes
 
+import org.objectweb.asm.Opcodes
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
 import org.runestar.client.updater.mapper.annotations.DependsOn
 import org.runestar.client.updater.mapper.predicateutilities.and
 import org.runestar.client.updater.mapper.predicateutilities.predicateOf
 import org.runestar.client.updater.mapper.wrappers.Class2
 import org.objectweb.asm.Type.INT_TYPE
-import org.runestar.client.updater.mapper.identifiers.classes.DualNode
+import org.objectweb.asm.Type.VOID_TYPE
+import org.runestar.client.updater.mapper.abstractclasses.OrderMapper
+import org.runestar.client.updater.mapper.wrappers.Instruction2
+import org.runestar.client.updater.mapper.wrappers.Method2
 
 @DependsOn(DualNode::class)
 class VarBitType : IdentityMapper.Class() {
@@ -17,26 +21,27 @@ class VarBitType : IdentityMapper.Class() {
 
 //    class decode : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.instructions.any { it.opcode == GOTO } }
+//                .and { it.instructions.any { it.opcode == Opcodes.GOTO } }
 //    }
-//
+    //TODO fix
+
 //    class decode0 : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.instructions.none { it.opcode == GOTO } }
+//                .and { it.instructions.none { it.opcode == Opcodes.GOTO } }
 //    }
 //
 //    @DependsOn(decode0::class)
 //    class baseVar : OrderMapper.InMethod.Field(decode0::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(decode0::class)
 //    class startBit : OrderMapper.InMethod.Field(decode0::class, 1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(decode0::class)
 //    class endBit : OrderMapper.InMethod.Field(decode0::class, 2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
 //    }
 }

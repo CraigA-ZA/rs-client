@@ -1,4 +1,4 @@
-package org.runestar.client.updater.mapper.identifiers.disabled
+package org.runestar.client.updater.mapper.identifiers.classes
 
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.BOOLEAN_TYPE
@@ -7,8 +7,10 @@ import org.runestar.client.updater.mapper.*
 import org.runestar.client.updater.mapper.annotations.DependsOn
 import org.runestar.client.updater.mapper.wrappers.Class2
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
-import org.runestar.client.updater.mapper.identifiers.classes.Node
+import org.runestar.client.updater.mapper.abstractclasses.StaticUniqueMapper
 import org.runestar.client.updater.mapper.predicateutilities.*
+import org.runestar.client.updater.mapper.wrappers.Field2
+import org.runestar.client.updater.mapper.wrappers.Instruction2
 
 @DependsOn(Node::class)
 class InterfaceParent : IdentityMapper.Class() {
@@ -24,13 +26,14 @@ class InterfaceParent : IdentityMapper.Class() {
 //                .nextWithin(23) { it.opcode == ICONST_3 }
 //                .prevWithin(10) { it.opcode == GETFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<InterfaceParent>() }
 //    }
-//
+
 //    @DependsOn(type::class)
 //    class itf : IdentityMapper.InstanceField() {
 //        override val predicate = predicateOf<Field2> { it.type == INT_TYPE && it != field<type>() }
 //    }
-//
-//    class keep : IdentityMapper.InstanceField() {
-//        override val predicate = predicateOf<Field2> { it.type == BOOLEAN_TYPE }
-//    }
+    //TODO
+
+    class keep : IdentityMapper.InstanceField() {
+        override val predicate = predicateOf<Field2> { it.type == BOOLEAN_TYPE }
+    }
 }

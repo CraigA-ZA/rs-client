@@ -25,6 +25,7 @@ class JarMapper(vararg val classMappers: KClass<out Mapper<Class2>>) {
 
     fun map(jar: Path, context: Mapper.Context) {
         val jar2 = Jar2(jar)
+        var count = 0;
         @Suppress("UNCHECKED_CAST")
         val unordered = classMappers.asSequence()
                 .flatMap { it.nestedClasses.asSequence().plus(it) }
@@ -34,7 +35,9 @@ class JarMapper(vararg val classMappers: KClass<out Mapper<Class2>>) {
             println(it.javaClass)
             it.context = context
             it.map(jar2)
+            count++;
         }
+        println(count++)
     }
 
     private fun orderDependencies(unordered: Sequence<KClass<out Mapper<*>>>): Sequence<KClass<out Mapper<*>>> {

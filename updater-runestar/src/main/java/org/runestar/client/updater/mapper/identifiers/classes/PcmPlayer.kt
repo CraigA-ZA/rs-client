@@ -1,4 +1,4 @@
-package org.runestar.client.updater.mapper.identifiers.disabled
+package org.runestar.client.updater.mapper.identifiers.classes
 
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
 import org.runestar.client.updater.mapper.annotations.DependsOn
@@ -12,6 +12,7 @@ import org.runestar.client.updater.mapper.predicateutilities.predicateOf
 class PcmPlayer : IdentityMapper.Class() {
     override val predicate = predicateOf<Class2> { klass<DevicePcmPlayer>().superType == it.type }
 
+    //TODO
 //    @MethodParameters()
 //    @DependsOn(DevicePcmPlayer.discard::class)
 //    class discard : IdentityMapper.InstanceMethod() {
