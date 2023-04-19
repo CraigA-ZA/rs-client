@@ -1,4 +1,4 @@
-package org.runestar.client.updater.mapper.identifiers.disabled
+package org.runestar.client.updater.mapper.identifiers.classes
 
 import org.objectweb.asm.Opcodes
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper

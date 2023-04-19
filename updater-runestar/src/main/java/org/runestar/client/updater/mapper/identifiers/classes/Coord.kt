@@ -1,4 +1,4 @@
-package org.runestar.client.updater.mapper.identifiers.disabled
+package org.runestar.client.updater.mapper.identifiers.classes
 
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -23,11 +23,17 @@ class Coord : IdentityMapper.Class() {
             .and { it.instanceFields.all { it.type == INT_TYPE } }
             .and { it.instanceMethods.any { it.mark == Any::hashCode.mark } }
 
-    class set : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE) }
-                .and { it.arguments.size in 3..4 }
-    }
+//    class set : IdentityMapper.InstanceMethod() {
+//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+//                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE) }
+//                .and { it.arguments.size in 3..4 }
+//    }
+    //    @MethodParameters()
+//    class packed : IdentityMapper.InstanceMethod() {
+//        override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
+//                .and { it.instructions.any { it.opcode == Opcodes.IOR } }
+//    }
+    //TODO
 
     @DependsOn(toString0::class)
     class y : OrderMapper.InMethod.Field(toString0::class, 0) {
@@ -56,9 +62,5 @@ class Coord : IdentityMapper.Class() {
                 .and { it.arguments == listOf(type<Coord>()) }
     }
 
-    @MethodParameters()
-    class packed : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
-                .and { it.instructions.any { it.opcode == Opcodes.IOR } }
-    }
+
 }

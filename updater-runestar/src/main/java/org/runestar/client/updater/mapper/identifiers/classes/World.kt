@@ -1,4 +1,4 @@
-package org.runestar.client.updater.mapper.identifiers.disabled
+package org.runestar.client.updater.mapper.identifiers.classes
 
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
 import org.runestar.client.updater.mapper.predicateutilities.and
@@ -48,4 +48,5 @@ class World : IdentityMapper.Class() {
 //    class activity : OrderMapper.InMethod.Field(Client.loadWorlds::class, 1) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
 //    }
+    //TODO
 }
