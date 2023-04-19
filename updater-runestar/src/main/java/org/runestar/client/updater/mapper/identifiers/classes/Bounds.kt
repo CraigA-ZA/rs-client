@@ -28,23 +28,23 @@ class Bounds : IdentityMapper.Class() {
 //        override val constructorPredicate = predicateOf<Method2> { it.arguments.size == 4 }
 //        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.INVOKEVIRTUAL }
 //    }
-
+//
 //    @MethodParameters("width", "height")
 //    class setSize : OrderMapper.InConstructor.Method(Bounds::class, 1, 2) {
 //        override val constructorPredicate = predicateOf<Method2> { it.arguments.size == 4 }
 //        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.INVOKEVIRTUAL }
 //    }
-
+//
 //    @DependsOn(setLocation::class)
 //    class x : OrderMapper.InMethod.Field(setLocation::class, 0, 2) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD }
 //    }
-
+//
 //    @DependsOn(setLocation::class)
 //    class y : OrderMapper.InMethod.Field(setLocation::class, 1, 2) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD }
 //    }
-
+//
 //    @DependsOn(setSize::class)
 //    class width : OrderMapper.InMethod.Field(setSize::class, 0, 2) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD }

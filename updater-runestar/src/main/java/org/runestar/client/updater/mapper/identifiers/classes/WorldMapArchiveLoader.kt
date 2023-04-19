@@ -35,6 +35,7 @@ class WorldMapArchiveLoader : IdentityMapper.Class() {
         override val predicate = predicateOf<Field2> { it.type == type<AbstractArchive>() }
     }
 
+    //TODO
 //    @MethodParameters()
 //    class load : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }

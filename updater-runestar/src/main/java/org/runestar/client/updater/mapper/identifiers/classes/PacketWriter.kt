@@ -50,6 +50,7 @@ class PacketWriter : IdentityMapper.Class() {
 //                .and { it.instructions.any { it.opcode == Opcodes.ACONST_NULL } }
 //                .and { it.instructions.none { it.isMethod } }
 //    }
+    //TODO
 
     @DependsOn(Packet::class)
     class packet : IdentityMapper.InstanceField() {

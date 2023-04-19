@@ -5,6 +5,7 @@ import org.objectweb.asm.Type.INT_TYPE
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
 import org.runestar.client.updater.mapper.annotations.DependsOn
 import org.runestar.client.updater.mapper.annotations.MethodParameters
+import org.runestar.client.updater.mapper.identifiers.SpriteMaskConstructorField
 import org.runestar.client.updater.mapper.predicateutilities.and
 import org.runestar.client.updater.mapper.predicateutilities.predicateOf
 import org.runestar.client.updater.mapper.predicateutilities.type
@@ -18,12 +19,10 @@ class SpriteMask : IdentityMapper.Class() {
             .and { it.instanceFields.count { it.type == IntArray::class.type } == 2 }
             .and { it.instanceFields.count { it.type == INT_TYPE } == 2 }
             .and { it.instanceMethods.size == 1 }
-
-    //TODO
-//    class width : SpriteMaskConstructorField(INT_TYPE, 0)
-//    class height : SpriteMaskConstructorField(INT_TYPE, 1)
-//    class xWidths : SpriteMaskConstructorField(IntArray::class.type, 0)
-//    class xStarts : SpriteMaskConstructorField(IntArray::class.type, 1)
+    class width : SpriteMaskConstructorField(INT_TYPE, 0)
+    class height : SpriteMaskConstructorField(INT_TYPE, 1)
+    class xWidths : SpriteMaskConstructorField(IntArray::class.type, 0)
+    class xStarts : SpriteMaskConstructorField(IntArray::class.type, 1)
 
     @MethodParameters("x", "y")
     class contains : IdentityMapper.InstanceMethod() {

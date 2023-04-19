@@ -71,12 +71,12 @@ class ClanChat : IdentityMapper.Class() {
 //        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE && it.arguments.isEmpty() }
 //                .and { it.instructions.any { it.isMethod && it.methodId == method<ClanMate.clearIsFriend>().id } }
 //    }
-
+//
 //    @MethodParameters()
 //    @DependsOn(ClanMate.clearIsIgnored::class)
 //    class clearIgnoreds : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE && it.arguments.isEmpty() }
 //                .and { it.instructions.any { it.isMethod && it.methodId == method<ClanMate.clearIsIgnored>().id } }
 //    }
-    //TODO
+//    TODO
 }

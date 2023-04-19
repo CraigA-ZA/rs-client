@@ -31,17 +31,18 @@ class DemotingHashTable : IdentityMapper.Class() {
         override val predicate = predicateOf<Field2> { it.type == type<IterableDualNodeQueue>() }
     }
 
+    //TODO
 //    @MethodParameters()
 //    @DependsOn(IterableDualNodeQueue.clear::class)
 //    class clear : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
 //                .and { it.instructions.any { it.isMethod && it.methodId == method<IterableDualNodeQueue.clear>().id } }
 //    }
-
+//
 //    class capacity : OrderMapper.InConstructor.Field(DemotingHashTable::class, 0, 2) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
 //    }
-
+//
 //    class remaining : OrderMapper.InConstructor.Field(DemotingHashTable::class, 1, 2) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
 //    }

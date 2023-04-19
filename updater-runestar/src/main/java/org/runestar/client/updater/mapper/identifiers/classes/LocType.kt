@@ -19,6 +19,7 @@ import org.runestar.client.updater.mapper.wrappers.Instruction2
 import org.runestar.client.updater.mapper.wrappers.Method2
 import java.lang.reflect.Modifier
 
+//TODO
 //@DependsOn(DualNode::class, NPCType::class)
 //class LocType : IdentityMapper.Class() {
 //    override val predicate = predicateOf<Class2> { it.superType == type<DualNode>() }

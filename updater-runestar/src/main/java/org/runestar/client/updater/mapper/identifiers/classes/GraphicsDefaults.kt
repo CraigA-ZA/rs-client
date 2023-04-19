@@ -3,6 +3,7 @@ package org.runestar.client.updater.mapper.identifiers.classes
 import org.objectweb.asm.Type
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
 import org.runestar.client.updater.mapper.annotations.MethodParameters
+import org.runestar.client.updater.mapper.identifiers.SpriteIdsField
 import org.runestar.client.updater.mapper.predicateutilities.and
 import org.runestar.client.updater.mapper.predicateutilities.predicateOf
 import org.runestar.client.updater.mapper.predicateutilities.type
@@ -20,16 +21,16 @@ class GraphicsDefaults : IdentityMapper.Class() {
     class decode : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<Method2> { true }
     }
-//TODO
-//    class compass : SpriteIdsField(0)
-//    class mapedge : SpriteIdsField(1)
-//    class mapscene : SpriteIdsField(2)
-//    class headiconspk : SpriteIdsField(3)
-//    class headiconsprayer : SpriteIdsField(4)
-//    class headiconshint : SpriteIdsField(5)
-//    class mapmarker : SpriteIdsField(6)
-//    class cross : SpriteIdsField(7)
-//    class mapdots : SpriteIdsField(8)
-//    class scrollbar : SpriteIdsField(9)
-//    class modicons : SpriteIdsField(10)
+
+    class compass : SpriteIdsField(0)
+    class mapedge : SpriteIdsField(1)
+    class mapscene : SpriteIdsField(2)
+    class headiconspk : SpriteIdsField(3)
+    class headiconsprayer : SpriteIdsField(4)
+    class headiconshint : SpriteIdsField(5)
+    class mapmarker : SpriteIdsField(6)
+    class cross : SpriteIdsField(7)
+    class mapdots : SpriteIdsField(8)
+    class scrollbar : SpriteIdsField(9)
+    class modicons : SpriteIdsField(10)
 }

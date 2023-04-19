@@ -17,14 +17,15 @@ import org.runestar.client.updater.mapper.wrappers.Method2
 
 class ClientPreferences : IdentityMapper.Class() {
     override val predicate = predicateOf<Class2> { it.superType == Any::class.type }
-            .and {it.name == "du"}
+            .and { it.name == "du" }
             .and { it.instanceFields.count { it.type == INT_TYPE } == 6 }
             .and { it.instanceFields.count { it.type == Map::class.type } == 1 }
 
+    //TODO
 //    class windowMode : InstanceField() {
 //        override val predicate = predicateOf<Field2> { it.type == INT_TYPE }
 //    }
-    //TODO
+
 
 //    class parameters : InstanceField() {
 //        override val predicate = predicateOf<Field2> { it.type == LinkedHashMap::class.type }

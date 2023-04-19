@@ -8,6 +8,7 @@ import org.runestar.client.updater.mapper.annotations.DependsOn
 import org.runestar.client.updater.mapper.wrappers.Class2
 import org.runestar.client.updater.mapper.abstractclasses.*
 import org.runestar.client.updater.mapper.annotations.MethodParameters
+import org.runestar.client.updater.mapper.identifiers.ActorHitmarkField
 import org.runestar.client.updater.mapper.identifiers.ConstructorPutField
 import org.runestar.client.updater.mapper.predicateutilities.*
 import org.runestar.client.updater.mapper.wrappers.Field2
@@ -138,6 +139,7 @@ class Actor : IdentityMapper.Class() {
         override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
+    //TODO whole fucking file
 //    class x : StaticUniqueMapper.Field() {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3308 }
 //                .nextWithin(15) { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
@@ -192,12 +194,11 @@ class Actor : IdentityMapper.Class() {
                 .and { it.instructions.any { it.opcode == CHECKCAST && it.typeType == type<Headbar>() } }
     }
 
-    //TODO
-//    class hitmarkTypes : ActorHitmarkField(0)
-//    class hitmarkValues : ActorHitmarkField(1)
-//    class hitmarkCycles : ActorHitmarkField(2)
-//    class hitmarkTypes2 : ActorHitmarkField(3)
-//    class hitmarkValues2 : ActorHitmarkField(4)
+    class hitmarkTypes : ActorHitmarkField(0)
+    class hitmarkValues : ActorHitmarkField(1)
+    class hitmarkCycles : ActorHitmarkField(2)
+    class hitmarkTypes2 : ActorHitmarkField(3)
+    class hitmarkValues2 : ActorHitmarkField(4)
 
     @MethodParameters("type", "value", "type2", "value2", "cycle", "cycle2")
     class addHitmark : IdentityMapper.InstanceMethod() {

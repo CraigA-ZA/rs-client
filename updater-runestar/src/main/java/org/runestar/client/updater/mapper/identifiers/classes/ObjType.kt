@@ -27,6 +27,7 @@ class ObjType : IdentityMapper.Class() {
 //    class getModel : InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
 //    }
+    //TODO
 
     class name : InstanceField() {
         override val predicate = predicateOf<Field2> { it.type == String::class.type }

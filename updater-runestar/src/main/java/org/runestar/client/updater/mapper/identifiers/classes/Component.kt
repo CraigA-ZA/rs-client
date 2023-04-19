@@ -2,16 +2,15 @@ package org.runestar.client.updater.mapper.identifiers.classes
 
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
+import org.runestar.client.common.startsWith
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
 import org.runestar.client.updater.mapper.abstractclasses.OrderMapper
 import org.runestar.client.updater.mapper.abstractclasses.UniqueMapper
 import org.runestar.client.updater.mapper.annotations.DependsOn
 import org.runestar.client.updater.mapper.annotations.MethodParameters
-import org.runestar.client.updater.mapper.predicateutilities.and
-import org.runestar.client.updater.mapper.predicateutilities.predicateOf
+import org.runestar.client.updater.mapper.identifiers.*
+import org.runestar.client.updater.mapper.predicateutilities.*
 import org.runestar.client.updater.mapper.wrappers.Class2
-import org.runestar.client.updater.mapper.predicateutilities.type
-import org.runestar.client.updater.mapper.predicateutilities.withDimensions
 import org.runestar.client.updater.mapper.wrappers.Field2
 import org.runestar.client.updater.mapper.wrappers.Instruction2
 import org.runestar.client.updater.mapper.wrappers.Method2
@@ -326,18 +325,18 @@ class Component : IdentityMapper.Class() {
         override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
     }
 
-    //TODO
-//    @MethodParameters()
-//    @DependsOn(Font::class)
-//    class getFont : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Font>() }
-//    }
-//
+    @MethodParameters()
+    @DependsOn(Font::class)
+    class getFont : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == type<Font>() }
+    }
+
 //    @DependsOn(getFont::class)
 //    class fontId : OrderMapper.InMethod.Field(getFont::class, 0) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
 //    }
-//
+
+    //TODO
 //    @MethodParameters("sequence", "frame", "b", "appearance")
 //    @DependsOn(Model::class)
 //    class getModel : IdentityMapper.InstanceMethod() {
@@ -353,115 +352,112 @@ class Component : IdentityMapper.Class() {
 //    class modelId : OrderMapper.InMethod.Field(getModel::class, 1) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
 //    }
-//
-//    @MethodParameters("index", "s")
-//    class setAction : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.startsWith(INT_TYPE, String::class.type) }
-//    }
-//
-//    @DependsOn(setAction::class)
-//    class ops : UniqueMapper.InMethod.Field(setAction::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == String::class.type.withDimensions(1) }
-//    }
-//
-////    @MethodParameters("packet")
-////    @DependsOn(Packet::class, Client.Strings_continue::class)
-////    class decodeLegacy : IdentityMapper.InstanceMethod() {
-////        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-////                .and { it.arguments.size in 1..2 }
-////                .and { it.arguments.startsWith(type<Packet>()) }
-////                .and { it.instructions.any { it.opcode == GETSTATIC && it.fieldId == field<Client.Strings_continue>().id } }
-////    }
-////
-////    @MethodParameters("packet")
-////    @DependsOn(Packet::class, Client.Strings_continue::class)
-////    class decode : IdentityMapper.InstanceMethod() {
-////        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-////                .and { it.arguments.size in 1..2 }
-////                .and { it.arguments.startsWith(type<Packet>()) }
-////                .and { it.instructions.none { it.opcode == GETSTATIC && it.fieldId == field<Client.Strings_continue>().id } }
-////    }
-//
-//    @MethodParameters("indexA", "indexB")
-//    class swapItems : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.size in 2..3 }
-//                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE) }
-//    }
-//
+
+    @MethodParameters("index", "s")
+    class setAction : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+                .and { it.arguments.startsWith(INT_TYPE, String::class.type) }
+    }
+
+    @DependsOn(setAction::class)
+    class ops : UniqueMapper.InMethod.Field(setAction::class) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == String::class.type.withDimensions(1) }
+    }
+
+    @MethodParameters("packet")
+    @DependsOn(Packet::class, Client.Strings_continue::class)
+    class decodeLegacy : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+                .and { it.arguments.size in 1..2 }
+                .and { it.arguments.startsWith(type<Packet>()) }
+                .and { it.instructions.any { it.opcode == GETSTATIC && it.fieldId == field<Client.Strings_continue>().id } }
+    }
+
+    @MethodParameters("packet")
+    @DependsOn(Packet::class, Client.Strings_continue::class)
+    class decode : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+                .and { it.arguments.size in 1..2 }
+                .and { it.arguments.startsWith(type<Packet>()) }
+                .and { it.instructions.none { it.opcode == GETSTATIC && it.fieldId == field<Client.Strings_continue>().id } }
+    }
+
+    @MethodParameters("indexA", "indexB")
+    class swapItems : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+                .and { it.arguments.size in 2..3 }
+                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE) }
+    }
+
 //    @DependsOn(swapItems::class)
 //    class itemIds : OrderMapper.InMethod.Field(swapItems::class, 0) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == IntArray::class.type }
 //    }
-//
-////    @DependsOn(swapItems::class)
-////    class itemQuantities : OrderMapper.InMethod.Field(swapItems::class, -1) {
-////        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == IntArray::class.type }
-////    }
-//
-////    @DependsOn(decodeLegacy::class)
-////    class type : OrderMapper.InMethod.Field(decodeLegacy::class, 0) {
-////        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
-////    }
-//
-//    @MethodParameters("packet")
-//    @DependsOn(Packet::class)
-//    class readListenerTriggers : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == IntArray::class.type }
-//                .and { it.arguments.startsWith(type<Packet>()) }
+
+//    @DependsOn(swapItems::class)
+//    class itemQuantities : OrderMapper.InMethod.Field(swapItems::class, -1) {
+//        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == IntArray::class.type }
 //    }
-//
-//    @MethodParameters("packet")
-//    @DependsOn(Packet::class)
-//    class readListener : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == Array<Any?>::class.type }
-//                .and { it.arguments.startsWith(type<Packet>()) }
+
+//    @DependsOn(decodeLegacy::class)
+//    class type : OrderMapper.InMethod.Field(decodeLegacy::class, 0) {
+//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
 //    }
-//
+
+    @MethodParameters("packet")
+    @DependsOn(Packet::class)
+    class readListenerTriggers : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == IntArray::class.type }
+                .and { it.arguments.startsWith(type<Packet>()) }
+    }
+
+    @MethodParameters("packet")
+    @DependsOn(Packet::class)
+    class readListener : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == Array<Any?>::class.type }
+                .and { it.arguments.startsWith(type<Packet>()) }
+    }
+
+    @MethodParameters("b")
+    @DependsOn(SpriteMask::class)
+    class getSpriteMask : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == type<SpriteMask>() }
+    }
+
+
+//    @DependsOn(Sprite::class)
+//    class getInventorySprite : IdentityMapper.InstanceMethod() {
+//        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
+//                .and { it.arguments == listOf(INT_TYPE) }
+//    }
+
 //    @MethodParameters("b")
-//    @DependsOn(SpriteMask::class)
-//    class getSpriteMask : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<SpriteMask>() }
+//    @DependsOn(Sprite::class)
+//    class getSprite : IdentityMapper.InstanceMethod() {
+//        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
+//                .and { it.arguments == listOf(BOOLEAN_TYPE) }
 //    }
-//
 
-//
-//
-////    @DependsOn(Sprite::class)
-////    class getInventorySprite : IdentityMapper.InstanceMethod() {
-////        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
-////                .and { it.arguments == listOf(INT_TYPE) }
-////    }
-//
-////    @MethodParameters("b")
-////    @DependsOn(Sprite::class)
-////    class getSprite : IdentityMapper.InstanceMethod() {
-////        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
-////                .and { it.arguments == listOf(BOOLEAN_TYPE) }
-////    }
-//
 
-    //
-//    class rectangleMode : IdentityMapper.InstanceField() {
+    //    class rectangleMode : IdentityMapper.InstanceField() {
 //        override val predicate = predicateOf<Field2> { it.type.arrayDimensions == 0 }
 //                .and { it.type != it.klass.type }
 //                .and { it.type in it.jar }
 //    }
-//    @DependsOn(readListener::class)
-//    class hasListener : UniqueMapper.InMethod.Field(readListener::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == BOOLEAN_TYPE }
-//    }
-//
-//    class cs1Instructions : IdentityMapper.InstanceField() {
-//        override val predicate = predicateOf<Field2> { it.type == INT_TYPE.withDimensions(2) }
-//    }
-//
+    @DependsOn(readListener::class)
+    class hasListener : UniqueMapper.InMethod.Field(readListener::class) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == BOOLEAN_TYPE }
+    }
+
+    class cs1Instructions : IdentityMapper.InstanceField() {
+        override val predicate = predicateOf<Field2> { it.type == INT_TYPE.withDimensions(2) }
+    }
+
 //    @DependsOn(decodeLegacy::class)
 //    class itemActions : UniqueMapper.InMethod.Field(decodeLegacy::class) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == Array<String>::class.type }
 //    }
-//
+
 //    @DependsOn(getSprite::class)
 //    class spriteFlipV : OrderMapper.InMethod.Field(getSprite::class, 0) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == BOOLEAN_TYPE }
@@ -472,43 +468,43 @@ class Component : IdentityMapper.Class() {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == BOOLEAN_TYPE }
 //    }
 
-    ////    class inventoryXOffsets : WidgetInvArray(0)
-////    class inventoryYOffsets : WidgetInvArray(1)
-////    class inventorySprites : WidgetInvArray(2)
+//    class inventoryXOffsets : WidgetInvArray(0)
+//    class inventoryYOffsets : WidgetInvArray(1)
+//    class inventorySprites : WidgetInvArray(2)
 
-    ////    class cs1Comparisons : Widget10Array(0)
-////    class cs1ComparisonValues : Widget10Array(1)
-//
-////    class onLoad : WidgetListener(0)
-////    class onMouseOver : WidgetListener(1)
-////    class onMouseLeave : WidgetListener(2)
-////    class onTargetLeave : WidgetListener(3)
-////    class onTargetEnter : WidgetListener(4)
-////    class onVarTransmit : WidgetListener(5)
-////    class onInvTransmit : WidgetListener(6)
-////    class onStatTransmit : WidgetListener(7)
-////    class onTimer : WidgetListener(8)
-////    class onOp : WidgetListener(9)
-////    class onMouseRepeat : WidgetListener(10)
-////    class onClick : WidgetListener(11)
-////    class onClickRepeat : WidgetListener(12)
-////    class onRelease : WidgetListener(13)
-////    class onHold : WidgetListener(14)
-////    class onDrag : WidgetListener(15)
-////    class onDragComplete : WidgetListener(16)
-////    class onScrollWheel : WidgetListener(17)
-////
-////    class onChatTransmit : WidgetListener2(17)
-////    class onKey : WidgetListener2(18)
-////    class onFriendTransmit : WidgetListener2(19)
-////    class onClanTransmit : WidgetListener2(20)
-////    class onMiscTransmit : WidgetListener2(21)
-////    class onDialogAbort : WidgetListener2(22)
-////    class onSubChange : WidgetListener2(23)
-////    class onStockTransmit : WidgetListener2(24)
-////
-////    class varTransmitTriggers : WidgetListenerTriggers(0)
-////    class invTransmitTriggers : WidgetListenerTriggers(1)
-////    class statTransmitTriggers : WidgetListenerTriggers(2)
-//
+    class cs1Comparisons : Widget10Array(0)
+    class cs1ComparisonValues : Widget10Array(1)
+
+    class onLoad : WidgetListener(0)
+    class onMouseOver : WidgetListener(1)
+    class onMouseLeave : WidgetListener(2)
+    class onTargetLeave : WidgetListener(3)
+    class onTargetEnter : WidgetListener(4)
+    class onVarTransmit : WidgetListener(5)
+    class onInvTransmit : WidgetListener(6)
+    class onStatTransmit : WidgetListener(7)
+    class onTimer : WidgetListener(8)
+    class onOp : WidgetListener(9)
+    class onMouseRepeat : WidgetListener(10)
+    class onClick : WidgetListener(11)
+    class onClickRepeat : WidgetListener(12)
+    class onRelease : WidgetListener(13)
+    class onHold : WidgetListener(14)
+    class onDrag : WidgetListener(15)
+    class onDragComplete : WidgetListener(16)
+    class onScrollWheel : WidgetListener(17)
+
+//    class onChatTransmit : WidgetListener2(17)
+//    class onKey : WidgetListener2(18)
+//    class onFriendTransmit : WidgetListener2(19)
+//    class onClanTransmit : WidgetListener2(20)
+//    class onMiscTransmit : WidgetListener2(21)
+//    class onDialogAbort : WidgetListener2(22)
+//    class onSubChange : WidgetListener2(23)
+//    class onStockTransmit : WidgetListener2(24)
+
+    class varTransmitTriggers : WidgetListenerTriggers(0)
+    class invTransmitTriggers : WidgetListenerTriggers(1)
+    class statTransmitTriggers : WidgetListenerTriggers(2)
+
 }

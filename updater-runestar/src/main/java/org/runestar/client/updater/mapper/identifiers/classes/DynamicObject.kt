@@ -41,9 +41,9 @@ class DynamicObject : IdentityMapper.Class() {
         override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
-    class x : OrderMapper.InConstructor.Field(DynamicObject::class, 4) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
-    }
+//    class x : OrderMapper.InConstructor.Field(DynamicObject::class, 4) {
+//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+//    }
 
 //    class y : OrderMapper.InConstructor.Field(DynamicObject::class, 5) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }

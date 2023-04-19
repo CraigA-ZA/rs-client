@@ -22,6 +22,7 @@ import java.lang.reflect.Modifier
 class GameShell : IdentityMapper.Class() {
     override val predicate = predicateOf<Class2> { klass<Client>().superType == it.type }
 
+    //TODO
 //    class canvas : InstanceField() {
 //        override val predicate = predicateOf<Field2> { it.type == Canvas::class.type }
 //    }

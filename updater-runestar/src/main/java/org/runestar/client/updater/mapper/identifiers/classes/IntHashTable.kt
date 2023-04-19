@@ -1,5 +1,6 @@
 package org.runestar.client.updater.mapper.identifiers.classes
 
+import org.objectweb.asm.Opcodes
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
 import org.runestar.client.updater.mapper.abstractclasses.OrderMapper
 import org.runestar.client.updater.mapper.annotations.DependsOn
@@ -21,3 +22,4 @@ import org.runestar.client.updater.mapper.wrappers.Method2
 //        override val predicate = predicateOf<Method2> { true }
 //    }
 //}
+//TODO

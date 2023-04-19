@@ -15,6 +15,7 @@ import org.runestar.client.updater.mapper.wrappers.Field2
 import org.runestar.client.updater.mapper.wrappers.Instruction2
 import org.runestar.client.updater.mapper.wrappers.Method2
 
+//TODO
 //@DependsOn(Node::class, LocType::class)
 //class LocSound : IdentityMapper.Class() {
 //
