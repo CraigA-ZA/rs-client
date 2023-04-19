@@ -6,6 +6,7 @@ import org.runestar.client.updater.mapper.*
 import org.runestar.client.updater.mapper.annotations.DependsOn
 import org.runestar.client.updater.mapper.wrappers.Class2
 import org.runestar.client.updater.mapper.abstractclasses.*
+import org.runestar.client.updater.mapper.identifiers.classes.Entity
 import org.runestar.client.updater.mapper.predicateutilities.*
 import java.lang.reflect.Modifier
 

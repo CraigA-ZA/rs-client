@@ -6,6 +6,7 @@ import org.runestar.client.updater.mapper.predicateutilities.and
 import org.runestar.client.updater.mapper.predicateutilities.predicateOf
 import org.runestar.client.updater.mapper.wrappers.Class2
 import org.objectweb.asm.Type.INT_TYPE
+import org.runestar.client.updater.mapper.identifiers.classes.Entity
 
 @DependsOn(Entity::class)
 class Obj : IdentityMapper.Class() {

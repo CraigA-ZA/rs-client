@@ -1,4 +1,4 @@
-package org.runestar.client.updater.mapper.identifiers.disabled
+package org.runestar.client.updater.mapper.identifiers.classes
 
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
 //import org.runestar.client.updater.mapper.identifiers.disabled.IntHashTable
@@ -11,6 +11,7 @@ class AbstractArchive : IdentityMapper.Class() {
             .and { Modifier.isAbstract(it.access) }
             .and { it.instanceFields.count { it.type == Any::class.type.withDimensions(2) } == 1 }
 
+    //TODO
 //    class decodeIndex : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
 //                .and { it.arguments.startsWith(ByteArray::class.type) }

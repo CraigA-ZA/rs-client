@@ -1,4 +1,4 @@
-package org.runestar.client.updater.mapper.identifiers.disabled
+package org.runestar.client.updater.mapper.identifiers.classes
 
 import org.objectweb.asm.Type.*
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
@@ -7,15 +7,14 @@ import org.runestar.client.updater.mapper.predicateutilities.predicateOf
 import org.runestar.client.updater.mapper.predicateutilities.type
 import org.runestar.client.updater.mapper.wrappers.Class2
 
-class DefaultsGroup : IdentityMapper.Class() {
+class FaceNormal : IdentityMapper.Class() {
 
     override val predicate = predicateOf<Class2> { it.superType == Any::class.type }
-            .and { it.instanceFields.size == 1 }
+            .and { it.interfaces.isEmpty() }
+            .and { it.instanceFields.count() == 3 }
             .and { it.instanceFields.all { it.type == INT_TYPE } }
             .and { it.instanceMethods.isEmpty() }
-            .and { c -> c.staticFields.count { it.type == c.type } == 1 }
-
-//    class group : IdentityMapper.InstanceField() {
-//        override val predicate = predicateOf<Field2> { it.type == INT_TYPE }
-//    }
+            .and { it.constructors.size == 1 }
+            .and { it.constructors.first().instructions.none { it.isField } }
+            .and { it.staticMethods.size == 1}
 }
