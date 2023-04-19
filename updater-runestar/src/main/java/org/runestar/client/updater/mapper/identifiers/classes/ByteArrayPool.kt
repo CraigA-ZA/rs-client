@@ -11,5 +11,5 @@ class ByteArrayPool : IdentityMapper.Class() {
 
     override val predicate = predicateOf<Class2> { it.instanceFields.isEmpty() }
             .and { it.instanceMethods.isEmpty() }
-            .and { it.staticFields.count { it.type == BYTE_TYPE.withDimensions(2) } == 3}
+            .and { it.staticFields.count { it.type == BYTE_TYPE.withDimensions(2) } >= 3}
 }

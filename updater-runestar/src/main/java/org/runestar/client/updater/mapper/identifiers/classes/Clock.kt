@@ -17,7 +17,6 @@ class Clock : IdentityMapper.Class() {
             .and { Modifier.isAbstract(it.access) }
             .and { it.instanceFields.isEmpty() }
             .and { it.instanceMethods.size == 2 }
-            .and { it.instanceMethods.any { it.exceptions.any { it == "java/io/IOException"}}}
             .and { it.instanceMethods.any { it.returnType == INT_TYPE } }
 
 

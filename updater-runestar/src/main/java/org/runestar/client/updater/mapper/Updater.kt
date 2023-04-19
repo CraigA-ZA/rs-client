@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.runestar.client.updater.mapper.abstractclasses.Mapper
 import org.runestar.client.updater.mapper.identifiers.classes.Client
-import java.io.File
 import java.nio.file.Path
 import java.nio.file.Paths
 

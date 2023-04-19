@@ -1,9 +1,8 @@
 package org.runestar.client.updater.mapper.identifiers.classes
 
+import org.objectweb.asm.Opcodes
+import org.objectweb.asm.Type
 import org.runestar.client.common.startsWith
-import org.objectweb.asm.Opcodes.PUTFIELD
-import org.objectweb.asm.Type.INT_TYPE
-import org.objectweb.asm.Type.VOID_TYPE
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
 import org.runestar.client.updater.mapper.abstractclasses.OrderMapper
 import org.runestar.client.updater.mapper.annotations.DependsOn
@@ -23,24 +22,24 @@ class User : IdentityMapper.Class() {
 
     @MethodParameters("other")
     class compareTo0 : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
+        override val predicate = predicateOf<Method2> { it.returnType == Type.INT_TYPE }
                 .and { it.arguments.startsWith(type<User>()) }
     }
 
     @MethodParameters("username", "previousUsername")
     class set : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
                 .and { it.arguments.startsWith(type<Username>(), type<Username>()) }
     }
 
     @DependsOn(set::class)
     class username0 : OrderMapper.InMethod.Field(set::class, 0) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == type<Username>() }
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Username>() }
     }
 
     @DependsOn(set::class)
     class previousUsername : OrderMapper.InMethod.Field(set::class, 1) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == type<Username>() }
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Username>() }
     }
 
     @MethodParameters()

@@ -1,14 +1,7 @@
 package org.runestar.client.updater.mapper.identifiers.classes
 
-import org.objectweb.asm.Opcodes.GETFIELD
-import org.objectweb.asm.Opcodes.IDIV
-import org.objectweb.asm.Opcodes.IINC
-import org.objectweb.asm.Opcodes.ISUB
-import org.objectweb.asm.Opcodes.LDC
-import org.objectweb.asm.Opcodes.PUTFIELD
-import org.objectweb.asm.Type.CHAR_TYPE
-import org.objectweb.asm.Type.INT_TYPE
-import org.objectweb.asm.Type.VOID_TYPE
+import org.objectweb.asm.Opcodes
+import org.objectweb.asm.Type.*
 import org.runestar.client.common.startsWith
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
 import org.runestar.client.updater.mapper.abstractclasses.OrderMapper
@@ -26,6 +19,7 @@ class AbstractFont : IdentityMapper.Class() {
 
     override val predicate = predicateOf<Class2> { Modifier.isAbstract(it.access) }
             .and { it.superType == type<Rasterizer2D>() }
+            .and { it.instanceFields.count { it.type == BYTE_TYPE.withDimensions(2) } >= 1 }
 
     class pixels  : IdentityMapper.InstanceField() {
         override val predicate = predicateOf<Field2> { it.type == Array<ByteArray>::class.type }
@@ -39,7 +33,7 @@ class AbstractFont : IdentityMapper.Class() {
     @MethodParameters("s")
     class decodeTag : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<Method2> { it.arguments.size in 1..2 }
-                .and { it.instructions.any { it.opcode == LDC && it.ldcCst == "/shad" } }
+                .and { it.instructions.any { it.opcode == Opcodes.LDC && it.ldcCst == "/shad" } }
     }
 
     @MethodParameters("s")
@@ -47,7 +41,7 @@ class AbstractFont : IdentityMapper.Class() {
         override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
                 .and { it.arguments.size in 1..2 }
                 .and { it.arguments.startsWith(String::class.type) }
-                .and { it.instructions.any { it.opcode == LDC && it.ldcCst == "img=" } }
+                .and { it.instructions.any { it.opcode == Opcodes.LDC && it.ldcCst == "img=" } }
     }
 
     @MethodParameters("c")
@@ -76,7 +70,7 @@ class AbstractFont : IdentityMapper.Class() {
         override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
                 .and { it.arguments.size in 2..3 }
                 .and { it.arguments.startsWith(String::class.type, INT_TYPE) }
-                .and { it.instructions.any { it.opcode == IINC } }
+                .and { it.instructions.any { it.opcode == Opcodes.IINC } }
     }
 
     @MethodParameters("s", "lineWidth")
@@ -84,53 +78,53 @@ class AbstractFont : IdentityMapper.Class() {
         override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
                 .and { it.arguments.size in 2..3 }
                 .and { it.arguments.startsWith(String::class.type, INT_TYPE) }
-                .and { it.instructions.none { it.opcode == IINC } }
+                .and { it.instructions.none { it.opcode == Opcodes.IINC } }
     }
 
     @DependsOn(stringWidth::class)
     class advances : OrderMapper.InMethod.Field(stringWidth::class, 0) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
     }
 
     class widths : OrderMapper.InConstructor.Field(AbstractFont::class, 2) {
         override val constructorPredicate = predicateOf<Method2> { it.arguments.size > 2 }
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     class heights : OrderMapper.InConstructor.Field(AbstractFont::class, 3) {
         override val constructorPredicate = predicateOf<Method2> { it.arguments.size > 2 }
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     class leftBearings : OrderMapper.InConstructor.Field(AbstractFont::class, 0) {
         override val constructorPredicate = predicateOf<Method2> { it.arguments.size > 2 }
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     class topBearings : OrderMapper.InConstructor.Field(AbstractFont::class, 1) {
         override val constructorPredicate = predicateOf<Method2> { it.arguments.size > 2 }
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     // p11: this = 10, max descent = 3, height = 12, max ascent = 9, main ascent = 8
     // p12: this = 12, max descent = 4, height = 16, max ascent = 12, main ascent = 11
     class ascent : OrderMapper.InConstructor.Field(AbstractFont::class, 0) {
         override val constructorPredicate = predicateOf<Method2> { it.arguments.size > 2 }
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     // p11: 10
     // p12: 12
     class maxAscent : OrderMapper.InConstructor.Field(AbstractFont::class, -2) {
         override val constructorPredicate = predicateOf<Method2> { it.arguments.size > 2 }
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     // p11: 2
     // p12: 4
     class maxDescent : OrderMapper.InConstructor.Field(AbstractFont::class, -1) {
         override val constructorPredicate = predicateOf<Method2> { it.arguments.size > 2 }
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     @MethodParameters("pixels", "x", "y", "width", "height", "color")
@@ -155,30 +149,30 @@ class AbstractFont : IdentityMapper.Class() {
     class draw : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
                 .and { it.arguments == listOf(String::class.type, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE) }
-                .and { it.instructions.none { it.opcode == ISUB } }
+                .and { it.instructions.none { it.opcode == Opcodes.ISUB } }
     }
 
     @MethodParameters("s", "x", "y", "color", "shadow")
     class drawRightAligned : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
                 .and { it.arguments == listOf(String::class.type, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE) }
-                .and { it.instructions.any { it.opcode == ISUB } }
-                .and { it.instructions.none { it.opcode == IDIV } }
+                .and { it.instructions.any { it.opcode == Opcodes.ISUB } }
+                .and { it.instructions.none { it.opcode == Opcodes.IDIV } }
     }
 
     @MethodParameters("s", "x", "y", "color", "shadow")
     class drawCentered : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
                 .and { it.arguments == listOf(String::class.type, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE) }
-                .and { it.instructions.any { it.opcode == ISUB } }
-                .and { it.instructions.any { it.opcode == IDIV } }
+                .and { it.instructions.any { it.opcode == Opcodes.ISUB } }
+                .and { it.instructions.any { it.opcode == Opcodes.IDIV } }
     }
 
     @MethodParameters("s", "x", "y", "color", "shadow", "alpha")
     class drawAlpha : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
                 .and { it.arguments == listOf(String::class.type, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE) }
-                .and { it.instructions.none { it.opcode == IINC } }
+                .and { it.instructions.none { it.opcode == Opcodes.IINC } }
     }
 
     @MethodParameters("s", "x", "y", "xs", "ys")
@@ -211,14 +205,14 @@ class AbstractFont : IdentityMapper.Class() {
     class drawCenteredWave2 : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
                 .and { it.arguments == listOf(String::class.type, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE) }
-                .and { it.instructions.any { it.opcode == LDC && it.ldcCst == 3.0 } }
+                .and { it.instructions.any { it.opcode == Opcodes.LDC && it.ldcCst == 3.0 } }
     }
 
     @MethodParameters("s", "x", "y", "color", "shadow", "seed")
     class drawCenteredWave : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
                 .and { it.arguments == listOf(String::class.type, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE) }
-                .and { it.instructions.any { it.opcode == LDC && it.ldcCst == 2.0 } }
+                .and { it.instructions.any { it.opcode == Opcodes.LDC && it.ldcCst == 2.0 } }
     }
 
     @MethodParameters("s", "x", "y", "color", "shadow", "seed", "seed2")

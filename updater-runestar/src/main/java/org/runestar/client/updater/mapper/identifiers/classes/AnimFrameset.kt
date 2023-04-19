@@ -1,6 +1,6 @@
 package org.runestar.client.updater.mapper.identifiers.classes
 
-import org.objectweb.asm.Type.BOOLEAN_TYPE
+import org.objectweb.asm.Type
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
 import org.runestar.client.updater.mapper.annotations.DependsOn
 import org.runestar.client.updater.mapper.annotations.MethodParameters
@@ -25,6 +25,6 @@ class AnimFrameset : IdentityMapper.Class() {
 
     @MethodParameters("frame")
     class hasAlphaTransform : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == BOOLEAN_TYPE }
+        override val predicate = predicateOf<Method2> { it.returnType == Type.BOOLEAN_TYPE }
     }
 }

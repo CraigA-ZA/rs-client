@@ -1,17 +1,13 @@
 package org.runestar.client.updater.mapper.identifiers.classes
 
-import org.objectweb.asm.Opcodes.AALOAD
-import org.objectweb.asm.Opcodes.AASTORE
-import org.objectweb.asm.Opcodes.PUTFIELD
-import org.objectweb.asm.Type.BOOLEAN_TYPE
-import org.objectweb.asm.Type.INT_TYPE
-import org.objectweb.asm.Type.LONG_TYPE
-import org.objectweb.asm.Type.VOID_TYPE
+import org.objectweb.asm.Opcodes
+import org.objectweb.asm.Type
 import org.runestar.client.common.startsWith
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
 import org.runestar.client.updater.mapper.abstractclasses.OrderMapper
 import org.runestar.client.updater.mapper.annotations.DependsOn
 import org.runestar.client.updater.mapper.annotations.MethodParameters
+import org.runestar.client.updater.mapper.identifiers.disabled.AccessFile
 import org.runestar.client.updater.mapper.predicateutilities.and
 import org.runestar.client.updater.mapper.predicateutilities.predicateOf
 import org.runestar.client.updater.mapper.predicateutilities.type
@@ -35,88 +31,90 @@ class Varcs : IdentityMapper.Class() {
         override val predicate = predicateOf<Field2> { it.type == Map::class.type }
     }
 
-    @DependsOn(AccessFile::class)
-    class getPreferencesFile : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == type<AccessFile>() }
-    }
+//    @DependsOn(AccessFile::class)
+//    class getPreferencesFile : IdentityMapper.InstanceMethod() {
+//        override val predicate = predicateOf<Method2> { it.returnType == type<AccessFile>() }
+//    }
 
-    @DependsOn(AccessFile.read::class)
-    class read : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.instructions.any { it.isMethod && it.methodId == method<AccessFile.read>().id } }
-    }
-
-    @DependsOn(AccessFile.write::class)
-    class write : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.instructions.any { it.isMethod && it.methodId == method<AccessFile.write>().id } }
-    }
+//    @DependsOn(AccessFile.read::class)
+//    class read : IdentityMapper.InstanceMethod() {
+//        override val predicate = predicateOf<Method2> { it.instructions.any { it.isMethod && it.methodId == method<AccessFile.read>().id } }
+//    }
+//
+//    @DependsOn(AccessFile.write::class)
+//    class write : IdentityMapper.InstanceMethod() {
+//        override val predicate = predicateOf<Method2> { it.instructions.any { it.isMethod && it.methodId == method<AccessFile.write>().id } }
+//    }
+    //TODO
 
     class intsPersistence : OrderMapper.InConstructor.Field(Varcs::class, 0, 2) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == BooleanArray::class.type }
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == BooleanArray::class.type }
     }
 
     class unwrittenChanges : IdentityMapper.InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == BOOLEAN_TYPE }
+        override val predicate = predicateOf<Field2> { it.type == Type.BOOLEAN_TYPE }
     }
 
     class lastWriteTimeMs : IdentityMapper.InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == LONG_TYPE }
+        override val predicate = predicateOf<Field2> { it.type == Type.LONG_TYPE }
     }
 
     @MethodParameters("index")
     class getStringOld : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<Method2> { it.returnType == String::class.type }
-                .and { it.instructions.any { it.opcode == AALOAD } }
+                .and { it.instructions.any { it.opcode == Opcodes.AALOAD } }
     }
 
     @MethodParameters("index")
     class getString : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<Method2> { it.returnType == String::class.type }
-                .and { it.instructions.none { it.opcode == AALOAD } }
+                .and { it.instructions.none { it.opcode == Opcodes.AALOAD } }
     }
 
     @MethodParameters("index")
     class getInt : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
+        override val predicate = predicateOf<Method2> { it.returnType == Type.INT_TYPE }
     }
 
     @MethodParameters()
     class hasUnwrittenChanges : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == BOOLEAN_TYPE }
+        override val predicate = predicateOf<Method2> { it.returnType == Type.BOOLEAN_TYPE }
     }
 
     @MethodParameters("index", "s")
     class setStringOld : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-                .and { it.arguments.startsWith(INT_TYPE, String::class.type) }
-                .and { it.instructions.any { it.opcode == AASTORE } }
+        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
+                .and { it.arguments.startsWith(Type.INT_TYPE, String::class.type) }
+                .and { it.instructions.any { it.opcode == Opcodes.AASTORE } }
     }
 
     @MethodParameters("index", "s")
     class setString : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-                .and { it.arguments.startsWith(INT_TYPE, String::class.type) }
-                .and { it.instructions.none { it.opcode == AASTORE } }
+        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
+                .and { it.arguments.startsWith(Type.INT_TYPE, String::class.type) }
+                .and { it.instructions.none { it.opcode == Opcodes.AASTORE } }
     }
 
     @MethodParameters("index", "n")
     class setInt : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE) }
+        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
+                .and { it.arguments.startsWith(Type.INT_TYPE, Type.INT_TYPE) }
     }
 
-    @MethodParameters()
-    class clearTransient : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-                .and { it.arguments.size in 0..1 }
-                .and { it.node.tryCatchBlocks.isEmpty() }
-                .and { it.instructions.any { it.opcode == AASTORE } }
-    }
+//    @MethodParameters()
+//    class clearTransient : IdentityMapper.InstanceMethod() {
+//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
+//                .and { it.arguments.size in 0..1 }
+//                .and { it.node.tryCatchBlocks.isEmpty() }
+//                .and { it.instructions.any { it.opcode == Opcodes.AASTORE } }
+//    }
 
-    @MethodParameters()
-    class tryWrite : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-                .and { it.arguments.size in 0..1 }
-                .and { it.node.tryCatchBlocks.isEmpty() }
-                .and { it.instructions.none { it.opcode == AASTORE } }
-    }
+//    @MethodParameters()
+//    class tryWrite : IdentityMapper.InstanceMethod() {
+//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
+//                .and { it.arguments.size in 0..1 }
+//                .and { it.node.tryCatchBlocks.isEmpty() }
+//                .and { it.instructions.none { it.opcode == Opcodes.AASTORE } }
+//    }
+    //TODO
 }
