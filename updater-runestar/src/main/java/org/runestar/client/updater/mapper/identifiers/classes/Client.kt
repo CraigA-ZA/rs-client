@@ -12,7 +12,7 @@ import org.runestar.client.updater.mapper.wrappers.Field2
 import org.runestar.client.updater.mapper.wrappers.Instruction2
 import org.runestar.client.updater.mapper.wrappers.Method2
 import org.runestar.client.updater.mapper.abstractclasses.*
-//import org.runestar.client.updater.mapper.identifiers.disabled.VarType
+//import org.runestar.client.updater.mapper.identifiers.classes.VarType
 //import org.runestar.client.updater.mapper.identifiers.disabled.ViewportMouse
 import org.runestar.client.updater.mapper.predicateutilities.*
 import java.applet.Applet
