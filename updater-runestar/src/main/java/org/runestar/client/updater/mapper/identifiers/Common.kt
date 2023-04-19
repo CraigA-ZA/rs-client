@@ -11,7 +11,6 @@ import org.runestar.client.updater.mapper.wrappers.Class2
 import org.runestar.client.updater.mapper.wrappers.Instruction2
 import org.runestar.client.updater.mapper.wrappers.Method2
 import org.runestar.client.updater.mapper.abstractclasses.*
-import org.runestar.client.updater.mapper.identifiers.classes.disabled.*
 import org.runestar.client.updater.mapper.predicateutilities.*
 import kotlin.reflect.KClass
 
