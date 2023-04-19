@@ -10,6 +10,11 @@
         <module name="deobfuscator" />
         <module name="shared-utils" />
         <module name="loader" />
+        <module name="Updater" />
+        <module name="Downloader" />
+        <module name="Loader" />
+        <module name="Shared-Utils" />
+        <module name="Deobfuscator" />
         <module name="downloader" />
         <module name="updater" />
         <module name="updater-runestar" />
