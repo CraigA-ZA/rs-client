@@ -6,6 +6,7 @@ import org.runestar.client.updater.mapper.annotations.DependsOn
 import org.runestar.client.updater.mapper.predicateutilities.predicateOf
 import org.runestar.client.updater.mapper.wrappers.Class2
 import org.objectweb.asm.Type.*
+import org.runestar.client.updater.mapper.identifiers.classes.Packet
 
 @DependsOn(Packet::class)
 class PacketBit : IdentityMapper.Class() {

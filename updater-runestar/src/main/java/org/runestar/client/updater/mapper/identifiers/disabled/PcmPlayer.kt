@@ -5,6 +5,7 @@ import org.runestar.client.updater.mapper.annotations.DependsOn
 import org.runestar.client.updater.mapper.wrappers.Class2
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
+import org.runestar.client.updater.mapper.identifiers.classes.DevicePcmPlayer
 import org.runestar.client.updater.mapper.predicateutilities.predicateOf
 
 @DependsOn(DevicePcmPlayer::class)
