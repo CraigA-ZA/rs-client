@@ -1,4 +1,4 @@
-package org.runestar.client.updater.mapper.identifiers.disabled
+package org.runestar.client.updater.mapper.identifiers.classes
 
 import org.objectweb.asm.Type
 import org.runestar.client.updater.mapper.abstractclasses.IdentityMapper
@@ -12,6 +12,7 @@ class Occluder : IdentityMapper.Class() {
             .and { it.instanceFields.size == 18 }
             .and { it.instanceFields.all { it.type == Type.INT_TYPE } }
 
+    //TODO
 //    class minTileX : OccluderField(0)
 //    class maxTileX : OccluderField(1)
 //    class minTileY : OccluderField(2)

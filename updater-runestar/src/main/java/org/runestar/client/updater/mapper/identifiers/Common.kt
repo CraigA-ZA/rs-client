@@ -2,11 +2,6 @@ package org.runestar.client.updater.mapper.identifiers
 
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type
-import org.objectweb.asm.Type.BYTE_TYPE
-import org.objectweb.asm.Type.INT_TYPE
-import org.runestar.client.updater.mapper.*
-import org.runestar.client.updater.mapper.annotations.DependsOn
-import org.runestar.client.updater.mapper.identifiers.classes.*
 import org.runestar.client.updater.mapper.wrappers.Class2
 import org.runestar.client.updater.mapper.wrappers.Instruction2
 import org.runestar.client.updater.mapper.wrappers.Method2
