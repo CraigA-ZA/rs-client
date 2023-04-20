@@ -1,92 +1,62 @@
 package updater;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.val;
 import org.objectweb.asm.tree.ClassNode;
-import updater.identifiers.Node;
-import updater.identifiers.Scene;
-import updater.identifiers.Scenery;
-import updater.utility.AbstractIdentifier;
-import updater.utility.ClassWrapper;
-import updater.utility.IdentifierSorter;
-import updater.utility.NameMapper;
-import org.reflections.Reflections;
+import updater.model.IdClass;
+import updater.model.IdClassList;
 import za.org.secret.Constants;
 import za.org.secret.UtilFunctions;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Updater {
     private static Map<String, ClassNode> classNodeMap;
-    public static Map<String, ClassWrapper> classMap;
 
-    static Reflections reflections = new Reflections("updater.identifiers");
-    static List<Class<? extends AbstractIdentifier>> sortedIdentifierClasses = IdentifierSorter.sort(reflections.getSubTypesOf(AbstractIdentifier.class).stream().toList());
+    private static Path namesJson = Paths.get(System.getProperty("user.dir"), "gamepack", "names.json");
 
-    static List<AbstractIdentifier> identifiers = sortedIdentifierClasses.stream().map(aClass -> {
-        try {
-            return aClass.getDeclaredConstructor().newInstance();
-        } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        } catch (InvocationTargetException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchMethodException e) {
-            throw new RuntimeException(e);
-        }
-    }).collect(Collectors.toList());
+    private static ObjectMapper jsonMapper = new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL)
+            .setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE)
+            .setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
     public static void main(String[] args) throws IOException {
         //Load the deobbed jar
         classNodeMap = UtilFunctions.loadJarASM(Constants.DEOB_OUTPUT_JAR_PATH);
 
-        classMap = classNodeMap.values().stream().filter(classnode -> UtilFunctions.isObfuscated(classnode.name))
-                .collect(Collectors.toMap(classNode -> classNode.name, node -> new ClassWrapper(node)));
+        renameClasses();
 
-        for (AbstractIdentifier identifier : identifiers) {
-            identifier.initialize();
-            for (ClassWrapper classNode : classMap.values()) {
-                identifier.identify(classNode);
-            }
-            if (AbstractIdentifier.identifiedClasses.get(identifier.getClass().getSimpleName()) == null) {
-                System.out.println("\tFUCK. " + identifier.getClass().getSimpleName() + " didn't work.");
-            }
-        }
-        System.out.println("Ran " + identifiers.size() + " identifiers. " + AbstractIdentifier.identifiedClasses.values().stream().filter(classWrapper -> classWrapper != null).collect(Collectors.toList()).size() + " worked successfully");
-
-        List<String> duplicates = AbstractIdentifier.identifiedClasses.entrySet().stream()
-                .collect(Collectors.groupingBy(Map.Entry::getValue,
-                        Collectors.mapping(Map.Entry::getKey, Collectors.toList())))
-                .entrySet().stream()
-                .filter(entry -> entry.getValue().size() > 1)
-                .flatMap(entry -> entry.getValue().stream())
-                .collect(Collectors.toList());
-
-        for (String duplicate : duplicates) {
-            System.out.println("Error, duplicate class match found: " + duplicate);
-            System.exit(0);
-        }
-
-//        renameClasses();
-
-//        UtilFunctions.writeJarToDiskASM(classNodeMap);
+        UtilFunctions.writeJarToDiskASM(classNodeMap);
     }
 
-    private static void renameClasses() {
-        Map<String, String> classNameMap = AbstractIdentifier.identifiedClasses.entrySet()
-                .stream()
-                .collect(Collectors.toMap(
-                        entry -> entry.getValue().getName(),
-                        Map.Entry::getKey
-                ));
+    private static void renameClasses() throws IOException {
+        List<IdClass> classes = jsonMapper.readValue(namesJson.toFile(), new TypeReference<>(){});
+        System.out.println(classes);
 
-        NameMapper nameMapper = new NameMapper(classNameMap, new HashMap<>(), new HashMap<>());
+        NewNameMapper newNameMapper = new NewNameMapper(classes);
+
         for (ClassNode classNode : classNodeMap.values()) {
-            classNodeMap.put(classNode.name, nameMapper.mapNames(classNode));
+//            IdClass newNames = classes.stream().filter(idClass -> idClass.name.equals(classNode.name)).findFirst().orElseThrow(() -> new RuntimeException("Class not found"));
+//            NameMapper nameMapper = new NameMapper(newNames);
+//            ClassNode remappedClass = new NewNameMapper().remap(classNode);
+//            System.out.println(remappedClass);
+            if(classNode.name.equals("ni")) {
+                System.out.println("poes");
+            }
+            ClassNode remap = newNameMapper.remap(classNode);
+
+            classNodeMap.put(classNode.name, remap);
         }
     }
-
-
 }

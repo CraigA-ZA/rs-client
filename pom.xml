@@ -9,11 +9,11 @@
     <packaging>pom</packaging>
     <modules>
         <module>loader</module>
-        <module>updater</module>
         <module>deobfuscator</module>
         <module>downloader</module>
         <module>shared-utils</module>
-        <module>updater-runestar</module>
+        <module>find-names</module>
+        <module>updater</module>
     </modules>
 
     <properties>
@@ -21,6 +21,9 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <asm.version>9.2</asm.version>
+
+        <kotlin.version>1.8.20</kotlin.version>
+        <version.jackson>2.10.4</version.jackson>
     </properties>
 
     <dependencies>

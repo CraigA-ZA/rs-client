@@ -1,10 +1,7 @@
 package deobfuscator;
 
 import deobfuscator.deobs.AbstractDeob;
-import deobfuscator.deobs.impl.ASM.ControlFlowFixer;
-import deobfuscator.deobs.impl.ASM.OpaquePredicates;
-import deobfuscator.deobs.impl.ASM.RenameStaticMethods;
-import deobfuscator.deobs.impl.ASM.UnusedParams;
+import deobfuscator.deobs.impl.ASM.*;
 import deobfuscator.deobs.impl.javassist.ChatGPTDeobV2;
 import deobfuscator.deobs.impl.javassist.UnusedFields;
 import deobfuscator.deobs.impl.javassist.UnusedMethod;
@@ -21,7 +18,7 @@ public final class Deobfuscator {
     public static Map<String, CtClass> classMap;
     public static Map<String, ClassNode> classMapASM;
     private static List<AbstractDeob> javassistDeobs = List.of(new UnusedMethod(), new UnusedFields());
-    private static List<AbstractDeob> ASMDeobs = List.of(new ControlFlowFixer(), new RenameStaticMethods(), new OpaquePredicates(), new UnusedParams());
+    private static List<AbstractDeob> ASMDeobs = List.of(new ControlFlowFixer(), new RenameStaticMethods(), new OpaquePredicates(), new UnusedParams(), new UnusedTryCatchRemover());
 
     public static void main(String[] args) throws IOException {
         //Load JAR using Javassist
