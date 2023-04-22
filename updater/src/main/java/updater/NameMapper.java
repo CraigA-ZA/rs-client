@@ -78,9 +78,6 @@ public class NameMapper {
 
         @Override
         public String mapMethodName(String owner, String name, String descriptor) {
-            if (owner.equals("lc") && name.equals("ab")) {
-                System.out.println("poes");
-            }
             if (!UtilFunctions.isObfuscated(owner)) {
                 return name;
             }
@@ -137,6 +134,23 @@ public class NameMapper {
                 if (!visitedNodes.contains(child.name)) {
                     visitedNodes.add(child.name);
                     String childNewName = getNewNameFromHierarchy(child.name, name, descriptor, visitedNodes);
+                    if (childNewName != null) {
+                        return childNewName;
+                    }
+                }
+            }
+
+            //Search all interfaces
+            List<ClassNode> interfaces = builder.getClassNode(owner).interfaces.stream().filter(UtilFunctions::isObfuscated).map(s -> builder.getClassNode(s)).toList();
+            for (ClassNode interfaceNode : interfaces) {
+                //Check if this interface is in map
+                if (hasNewName(interfaceNode.name, name, descriptor)) {
+                    return methodMap.get(new Pair(interfaceNode.name, name + descriptor));
+                }
+
+                if (!visitedNodes.contains(interfaceNode.name)) {
+                    visitedNodes.add(interfaceNode.name);
+                    String childNewName = getNewNameFromHierarchy(interfaceNode.name, name, descriptor, visitedNodes);
                     if (childNewName != null) {
                         return childNewName;
                     }
