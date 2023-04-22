@@ -2,6 +2,10 @@ package deobfuscator;
 
 import deobfuscator.deobs.AbstractDeob;
 import deobfuscator.deobs.impl.ASM.*;
+<<<<<<< HEAD
+=======
+import deobfuscator.deobs.impl.javassist.ChatGPTDeobV2;
+>>>>>>> ae13dfe (Added simple deobs)
 import deobfuscator.deobs.impl.javassist.UnusedFields;
 import deobfuscator.deobs.impl.javassist.UnusedMethod;
 import javassist.*;
@@ -17,7 +21,11 @@ public final class Deobfuscator {
     public static Map<String, CtClass> classMap;
     public static Map<String, ClassNode> classMapASM;
     private static List<AbstractDeob> javassistDeobs = List.of(new UnusedMethod(), new UnusedFields());
+<<<<<<< HEAD
     private static List<AbstractDeob> ASMDeobs = List.of(new ControlFlowFixer(), new RenameStaticMethods(), new OpaquePredicates(), new UnusedParams(), new UnusedTryCatchRemover());
+=======
+    private static List<AbstractDeob> ASMDeobs = List.of(new ControlFlowFixer(), new RenameStaticMethods(), new OpaquePredicates(), new UnusedParams(), new SortFieldsByModifiers(), new SortMethodsByLineNumber());
+>>>>>>> ae13dfe (Added simple deobs)
 
     public static void main(String[] args) throws IOException {
         //Load JAR using Javassist
