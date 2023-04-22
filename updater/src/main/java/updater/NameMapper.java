@@ -60,20 +60,83 @@ public class NameMapper {
             if (!UtilFunctions.isObfuscated(owner)) {
                 return name;
             }
-            Pair pairToSearch = new Pair(owner, name);
-            String newName = fieldMap.get(pairToSearch);
 
-            while (newName == null) {
-                String classToSearch = pairToSearch.getFirst().toString();
-                IdClass thisClass = classes.stream().filter(idClass -> idClass.name.equals(classToSearch)).findFirst().orElse(null);
-                if (thisClass == null || thisClass.superName.equals("java/lang/Object")) {
-                    return name;
+            String newName = getNewFieldNameFromHierarchy(owner, name, descriptor, new HashSet<>());
+            if (newName != null) {
+                return newName;
+            }
+
+            return name;
+        }
+
+        private String getNewFieldNameFromHierarchy(String owner, String name, String descriptor, Set<String> visitedNodes) {
+            if (!UtilFunctions.isObfuscated(owner)) {
+                return null;
+            }
+
+            // Check if this class has a mapping in the file
+            if (hasNewFieldName(owner, name, descriptor)) {
+                return fieldMap.get(new Pair(owner, name + descriptor));
+            }
+
+            // Search in all parent classes
+            String parentName = builder.getClassNode(owner).superName;
+            while (UtilFunctions.isObfuscated(parentName) && parentName != null && !parentName.equals("java/lang/Object")) {
+                if (hasNewFieldName(parentName, name, descriptor)) {
+                    return fieldMap.get(new Pair(parentName, name + descriptor));
                 }
 
-                pairToSearch = new Pair(thisClass.superName, name);
-                newName = fieldMap.get(pairToSearch);
+                // Search in all child classes of the parent class
+                Set<ClassNode> children = builder.getChildClassNodes(builder.getClassNode(parentName));
+                for (ClassNode child : children) {
+                    if (hasNewFieldName(child.name, name, descriptor)) {
+                        return fieldMap.get(new Pair(child.name, name + descriptor));
+                    }
+                    if (!visitedNodes.contains(child.name)) {
+                        visitedNodes.add(child.name);
+                        String childNewName = getNewFieldNameFromHierarchy(child.name, name, descriptor, visitedNodes);
+                        if (childNewName != null) {
+                            return childNewName;
+                        }
+                    }
+                }
+
+                parentName = builder.getClassNode(parentName).superName;
             }
-            return newName;
+
+            // Search in all child classes
+            Set<ClassNode> children = builder.getChildClassNodes(builder.getClassNode(owner));
+            for (ClassNode child : children) {
+                if (hasNewName(child.name, name, descriptor)) {
+                    return methodMap.get(new Pair(child.name, name + descriptor));
+                }
+                if (!visitedNodes.contains(child.name)) {
+                    visitedNodes.add(child.name);
+                    String childNewName = getNewMethodNameFromHierarchy(child.name, name, descriptor, visitedNodes);
+                    if (childNewName != null) {
+                        return childNewName;
+                    }
+                }
+            }
+
+            //Search all interfaces
+            List<ClassNode> interfaces = builder.getClassNode(owner).interfaces.stream().filter(UtilFunctions::isObfuscated).map(s -> builder.getClassNode(s)).toList();
+            for (ClassNode interfaceNode : interfaces) {
+                //Check if this interface is in map
+                if (hasNewName(interfaceNode.name, name, descriptor)) {
+                    return methodMap.get(new Pair(interfaceNode.name, name + descriptor));
+                }
+
+                if (!visitedNodes.contains(interfaceNode.name)) {
+                    visitedNodes.add(interfaceNode.name);
+                    String childNewName = getNewMethodNameFromHierarchy(interfaceNode.name, name, descriptor, visitedNodes);
+                    if (childNewName != null) {
+                        return childNewName;
+                    }
+                }
+            }
+
+            return null;
         }
 
         @Override
@@ -82,7 +145,7 @@ public class NameMapper {
                 return name;
             }
 
-            String newName = getNewNameFromHierarchy(owner, name, descriptor, new HashSet<>());
+            String newName = getNewMethodNameFromHierarchy(owner, name, descriptor, new HashSet<>());
             if (newName != null) {
                 return newName;
             }
@@ -90,7 +153,7 @@ public class NameMapper {
             return name;
         }
 
-        private String getNewNameFromHierarchy(String owner, String name, String descriptor, Set<String> visitedNodes) {
+        private String getNewMethodNameFromHierarchy(String owner, String name, String descriptor, Set<String> visitedNodes) {
             if (!UtilFunctions.isObfuscated(owner)) {
                 return null;
             }
@@ -115,7 +178,7 @@ public class NameMapper {
                     }
                     if (!visitedNodes.contains(child.name)) {
                         visitedNodes.add(child.name);
-                        String childNewName = getNewNameFromHierarchy(child.name, name, descriptor, visitedNodes);
+                        String childNewName = getNewMethodNameFromHierarchy(child.name, name, descriptor, visitedNodes);
                         if (childNewName != null) {
                             return childNewName;
                         }
@@ -133,7 +196,7 @@ public class NameMapper {
                 }
                 if (!visitedNodes.contains(child.name)) {
                     visitedNodes.add(child.name);
-                    String childNewName = getNewNameFromHierarchy(child.name, name, descriptor, visitedNodes);
+                    String childNewName = getNewMethodNameFromHierarchy(child.name, name, descriptor, visitedNodes);
                     if (childNewName != null) {
                         return childNewName;
                     }
@@ -150,7 +213,7 @@ public class NameMapper {
 
                 if (!visitedNodes.contains(interfaceNode.name)) {
                     visitedNodes.add(interfaceNode.name);
-                    String childNewName = getNewNameFromHierarchy(interfaceNode.name, name, descriptor, visitedNodes);
+                    String childNewName = getNewMethodNameFromHierarchy(interfaceNode.name, name, descriptor, visitedNodes);
                     if (childNewName != null) {
                         return childNewName;
                     }
@@ -162,6 +225,10 @@ public class NameMapper {
 
         private boolean hasNewName(String owner, String name, String descriptor) {
             return UtilFunctions.isObfuscated(owner) && methodMap.containsKey(new Pair(owner, name + descriptor));
+        }
+
+        private boolean hasNewFieldName(String owner, String name, String descriptor) {
+            return UtilFunctions.isObfuscated(owner) && fieldMap.containsKey(new Pair(owner, name + descriptor));
         }
     }
 }
