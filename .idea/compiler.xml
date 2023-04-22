@@ -24,6 +24,7 @@
       <module name="find-names-deprecated" target="17" />
       <module name="MyClient" target="1.8" />
       <module name="rs-client" target="1.8" />
+      <module name="updater-runestar" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

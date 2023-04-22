@@ -9,6 +9,7 @@ import updater.model.ClassHierarchyBuilder;
 import updater.model.IdClass;
 import za.org.secret.UtilFunctions;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -56,7 +57,7 @@ public class NameMapper {
 
         @Override
         public String mapFieldName(String owner, String name, String descriptor) {
-            if (owner.contains("bouncycastle") || owner.contains("java/") || owner.contains("org/") || owner.contains("com/")) {
+            if (!UtilFunctions.isObfuscated(owner)) {
                 return name;
             }
             Pair pairToSearch = new Pair(owner, name);
@@ -77,20 +78,14 @@ public class NameMapper {
 
         @Override
         public String mapMethodName(String owner, String name, String descriptor) {
+            if (owner.equals("lc") && name.equals("ab")) {
+                System.out.println("poes");
+            }
             if (!UtilFunctions.isObfuscated(owner)) {
                 return name;
             }
-            if ((owner.equals("bm") || owner.equals("GameShell")) && name.equals("bt")) {
-                System.out.println("Poes");
-            }
 
-            //Find if the method was renamed in any parent, if so, use that name here.
-            String newName = getNewNameFromParentClass(owner, name, descriptor);
-            if (newName != null) {
-                return newName;
-            }
-
-            newName = getNewNameFromChildClasses(owner, name, descriptor);
+            String newName = getNewNameFromHierarchy(owner, name, descriptor, new HashSet<>());
             if (newName != null) {
                 return newName;
             }
@@ -98,44 +93,61 @@ public class NameMapper {
             return name;
         }
 
-        private String getNewNameFromChildClasses(String owner, String name, String descriptor) {
-            //Find if the method was renamed in any child, if so, return the renamed name
-            Set<ClassNode> children = builder.getChildClassNodes(builder.getClassNode(owner));
-//            System.out.println(children);
-
-
-            for (ClassNode child : children) {
-                String newName = methodMap.get(new Pair(child.name, name + descriptor));
-                if (newName != null) {
-                    return newName;
-                }
-                // Recursive search on the child's children
-                String childNewName = getNewNameFromChildClasses(child.name, name, descriptor);
-                if (childNewName != null) {
-                    return childNewName;
-                }
+        private String getNewNameFromHierarchy(String owner, String name, String descriptor, Set<String> visitedNodes) {
+            if (!UtilFunctions.isObfuscated(owner)) {
+                return null;
             }
 
+            // Check if this class has a mapping in the file
+            if (hasNewName(owner, name, descriptor)) {
+                return methodMap.get(new Pair(owner, name + descriptor));
+            }
+
+            // Search in all parent classes
+            String parentName = builder.getClassNode(owner).superName;
+            while (UtilFunctions.isObfuscated(parentName) && parentName != null && !parentName.equals("java/lang/Object")) {
+                if (hasNewName(parentName, name, descriptor)) {
+                    return methodMap.get(new Pair(parentName, name + descriptor));
+                }
+
+                // Search in all child classes of the parent class
+                Set<ClassNode> children = builder.getChildClassNodes(builder.getClassNode(parentName));
+                for (ClassNode child : children) {
+                    if (hasNewName(child.name, name, descriptor)) {
+                        return methodMap.get(new Pair(child.name, name + descriptor));
+                    }
+                    if (!visitedNodes.contains(child.name)) {
+                        visitedNodes.add(child.name);
+                        String childNewName = getNewNameFromHierarchy(child.name, name, descriptor, visitedNodes);
+                        if (childNewName != null) {
+                            return childNewName;
+                        }
+                    }
+                }
+
+                parentName = builder.getClassNode(parentName).superName;
+            }
+
+            // Search in all child classes
+            Set<ClassNode> children = builder.getChildClassNodes(builder.getClassNode(owner));
+            for (ClassNode child : children) {
+                if (hasNewName(child.name, name, descriptor)) {
+                    return methodMap.get(new Pair(child.name, name + descriptor));
+                }
+                if (!visitedNodes.contains(child.name)) {
+                    visitedNodes.add(child.name);
+                    String childNewName = getNewNameFromHierarchy(child.name, name, descriptor, visitedNodes);
+                    if (childNewName != null) {
+                        return childNewName;
+                    }
+                }
+            }
 
             return null;
         }
 
-        private String getNewNameFromParentClass(String owner, String name, String descriptor) {
-            Pair pairToSearch = new Pair(owner, name + descriptor);
-            String newName = methodMap.get(pairToSearch);
-
-            while (newName == null) {
-                String classToSearch = pairToSearch.getFirst().toString();
-                IdClass thisClass = classes.stream().filter(idClass -> idClass.name.equals(classToSearch)).findFirst().orElse(null);
-                if (thisClass == null || thisClass.superName.equals("java/lang/Object")) {
-                    return null;
-                }
-
-                pairToSearch = new Pair(thisClass.superName, name + descriptor);
-                newName = methodMap.get(pairToSearch);
-            }
-
-            return newName;
+        private boolean hasNewName(String owner, String name, String descriptor) {
+            return UtilFunctions.isObfuscated(owner) && methodMap.containsKey(new Pair(owner, name + descriptor));
         }
     }
 }
