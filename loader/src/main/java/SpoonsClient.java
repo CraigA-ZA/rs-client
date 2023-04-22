@@ -64,7 +64,7 @@ public class SpoonsClient {
     private static ClassLoader loadClassesFromJar() throws IOException {
         try {
             // Replace the path with the actual path to your Jar file
-            File jarFile =  new File(Constants.DEOB_OUTPUT_JAR_PATH);
+            File jarFile =  new File(Constants.MAPPED_OUTPUT_JAR_PATH);
             URL jarUrl = jarFile.toURI().toURL();
             URLClassLoader classLoader = URLClassLoader.newInstance(new URL[]{jarUrl});
 

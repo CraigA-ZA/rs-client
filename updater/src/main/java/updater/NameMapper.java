@@ -80,18 +80,18 @@ public class NameMapper {
             if (!UtilFunctions.isObfuscated(owner)) {
                 return name;
             }
-            if((owner.equals("bm") || owner.equals("GameShell")) && name.equals("bt")) {
+            if ((owner.equals("bm") || owner.equals("GameShell")) && name.equals("bt")) {
                 System.out.println("Poes");
             }
 
             //Find if the method was renamed in any parent, if so, use that name here.
             String newName = getNewNameFromParentClass(owner, name, descriptor);
-            if(newName != null) {
+            if (newName != null) {
                 return newName;
             }
 
             newName = getNewNameFromChildClasses(owner, name, descriptor);
-            if(newName != null) {
+            if (newName != null) {
                 return newName;
             }
 
@@ -103,35 +103,21 @@ public class NameMapper {
             Set<ClassNode> children = builder.getChildClassNodes(builder.getClassNode(owner));
 //            System.out.println(children);
 
-            List<Pair> pairs = children.stream().map(classNode -> new Pair(classNode.name, name+descriptor)).toList();
 
-            for(Pair pair: pairs) {
-                String newName = methodMap.get(pair);
-
-                if(newName != null) {
+            for (ClassNode child : children) {
+                String newName = methodMap.get(new Pair(child.name, name + descriptor));
+                if (newName != null) {
                     return newName;
                 }
-                //Check recursively
-//                while (newName == null) {
-//                    //if newname is null, check all children of this pair to see if the method was renamed in any child???
-//                    children = builder.getChildClassNodes(builder.getClassNode(pair.getFirst().toString()));
-//                    pairs = children.stream().map(classNode -> new Pair(classNode.name, name+descriptor)).toList();
-//
-//                    for(Pair nestedPair: pairs) {
-//
-//                    }
-//                    IdClass thisClass = classes.stream().filter(idClass -> idClass.name.equals(classToSearch)).findFirst().orElse(null);
-//                    if (thisClass == null || thisClass.superName.equals("java/lang/Object")) {
-//                        break;
-//                    }
-//
-//                    pairToSearch = new Pair(thisClass.superName, name + descriptor);
-//                    newName = methodMap.get(pairToSearch);
-//                }
+                // Recursive search on the child's children
+                String childNewName = getNewNameFromChildClasses(child.name, name, descriptor);
+                if (childNewName != null) {
+                    return childNewName;
+                }
             }
 
 
-            return name;
+            return null;
         }
 
         private String getNewNameFromParentClass(String owner, String name, String descriptor) {

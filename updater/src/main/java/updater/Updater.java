@@ -41,7 +41,7 @@ public class Updater {
 //        ClassNode parentClassNode = builder.getParentClassNode(classNode);
 //        Set<ClassNode> childClassNodes = builder.getChildClassNodes(classNode);
 
-        UtilFunctions.writeJarToDiskASM(classNodeMap);
+        UtilFunctions.writeJarToDiskASM(classNodeMap, Constants.MAPPED_OUTPUT_JAR_PATH);
     }
 
     private static void renameClasses() throws IOException {

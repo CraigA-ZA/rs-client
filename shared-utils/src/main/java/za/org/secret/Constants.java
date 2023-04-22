@@ -30,4 +30,5 @@ public class Constants {
     public static final String DEOB_OUTPUT_JAR_PATH = Paths.get(System.getProperty("user.dir"), "gamepack") + File.separator+ "deob_gamepack.jar";
 
     public static final String DEOB_IN_PROGRESS_PATH = Paths.get(System.getProperty("user.dir"), "gamepack") + File.separator + "deob_gamepack.jar.part";
+    public static final String MAPPED_OUTPUT_JAR_PATH = Paths.get(System.getProperty("user.dir"), "gamepack") + File.separator+ "updated_gamepack.jar";;
 }

@@ -117,8 +117,8 @@ public class UtilFunctions {
         fos.close();
     }
 
-    public static void writeJarToDiskASM(Map<String, ClassNode> classMapASM) throws IOException {
-        FileOutputStream fos = new FileOutputStream(Constants.DEOB_OUTPUT_JAR_PATH);
+    public static void writeJarToDiskASM(Map<String, ClassNode> classMapASM, String pathToWrite) throws IOException {
+        FileOutputStream fos = new FileOutputStream(pathToWrite);
         JarOutputStream jos = new JarOutputStream(fos);
 
         for (ClassNode ctClass : classMapASM.values()) {

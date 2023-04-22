@@ -42,6 +42,6 @@ public final class Deobfuscator {
             deob.run();
         }
 
-        UtilFunctions.writeJarToDiskASM(classMapASM);
+        UtilFunctions.writeJarToDiskASM(classMapASM, Constants.DEOB_OUTPUT_JAR_PATH);
     }
 }
