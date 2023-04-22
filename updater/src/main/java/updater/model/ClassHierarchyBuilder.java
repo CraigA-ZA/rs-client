@@ -20,6 +20,11 @@ public class ClassHierarchyBuilder {
         classes.put(classNode.name, classNode);
         subClasses.putIfAbsent(classNode.superName, new HashSet<>());
         subClasses.get(classNode.superName).add(classNode);
+
+        classNode.interfaces.forEach(s -> {
+            subClasses.putIfAbsent(s, new HashSet<>());
+            subClasses.get(s).add(classNode);
+        });
     }
 
     public ClassNode getClassNode(String className) {

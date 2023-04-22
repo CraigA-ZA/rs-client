@@ -154,6 +154,7 @@ public class NameMapper {
         }
 
         private String getNewMethodNameFromHierarchy(String owner, String name, String descriptor, Set<String> visitedNodes) {
+            //Interface textureprovider (not sure of obfuscated name), method ab is called.
             if (!UtilFunctions.isObfuscated(owner)) {
                 return null;
             }
