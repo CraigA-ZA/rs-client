@@ -2,7 +2,6 @@ package deobfuscator;
 
 import deobfuscator.deobs.AbstractDeob;
 import deobfuscator.deobs.impl.ASM.*;
-import deobfuscator.deobs.impl.javassist.ChatGPTDeobV2;
 import deobfuscator.deobs.impl.javassist.UnusedFields;
 import deobfuscator.deobs.impl.javassist.UnusedMethod;
 import javassist.*;

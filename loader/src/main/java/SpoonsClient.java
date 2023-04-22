@@ -51,7 +51,7 @@ public class SpoonsClient {
     private static Applet loadClient(ClassLoader classLoader, Map<String, String> config) {
         try {
             String initialClassName = config.get(Constants.INITIAL_CLASS);
-            Class<?> initialClass = classLoader.loadClass(initialClassName.substring(0, initialClassName.length() - 6));
+            Class<?> initialClass = classLoader.loadClass("Client");
             Applet applet = (Applet) initialClass.newInstance();
 
             return applet;

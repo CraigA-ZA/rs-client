@@ -170,9 +170,6 @@ public class UnusedMethod extends AbstractDeob {
     }
 
     private static void checkAndAdd(FoundMethod info) {
-        if(info.className.equals("bh") && info.name.equals("w")) {
-            System.out.println("Poes");
-        }
         if (!info.className.contains("java") && !usedMethods.contains(info)) {
             usedMethods.add(info);
         }

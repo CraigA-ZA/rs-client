@@ -1,95 +1,155 @@
 package updater;
 
 import kotlin.Pair;
-import org.objectweb.asm.*;
+import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.commons.ClassRemapper;
-import org.objectweb.asm.commons.MethodRemapper;
 import org.objectweb.asm.commons.Remapper;
-import org.objectweb.asm.commons.SimpleRemapper;
 import org.objectweb.asm.tree.ClassNode;
+import updater.model.ClassHierarchyBuilder;
 import updater.model.IdClass;
-import updater.model.IdField;
-import updater.model.IdMethod;
+import za.org.secret.UtilFunctions;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class NameMapper {
-    private String newClassName;
+
+    List<IdClass> classes;
+
+    //Map<OriginalClass, NewClass>
+    private Map<String, String> classMap;
+
+    //Map<Pair<OriginalClass, OriginalMethodName+Descriptor>, NewMethodName>
     private Map<Pair<String, String>, String> methodMap;
+
+    //Map<Pair<OriginalClass, OriginalFieldName>, NewFieldName>
     private Map<Pair<String, String>, String> fieldMap;
 
-    public NameMapper(IdClass idClass) {
-        newClassName = idClass.className;
+    ClassHierarchyBuilder builder;
 
-        fieldMap = idClass.fields.stream()
-                .collect(Collectors.toMap(
-                        field -> new Pair(field.name, field.descriptor),
-                        IdField::getField
-                ));
+    public NameMapper(List<IdClass> classes, ClassHierarchyBuilder builder) {
+        this.classes = classes;
+        this.builder = builder;
 
-        methodMap = idClass.methods.stream()
-                .collect(Collectors.toMap(
-                        method -> new Pair(method.name, method.descriptor),
-                        IdMethod::getMethod
-                ));
+        classMap = classes.stream().collect(Collectors.toMap(IdClass::getName, IdClass::getClassName));
+
+        methodMap = classes.stream().flatMap(idClass -> idClass.methods.stream()).collect(Collectors.toList()).stream().collect(Collectors.toMap(idMethod -> new Pair(idMethod.owner, idMethod.name + idMethod.descriptor), idMethod -> idMethod.method));
+
+        fieldMap = classes.stream().flatMap(idClass -> idClass.fields.stream()).collect(Collectors.toList()).stream().collect(Collectors.toMap(idField -> new Pair(idField.owner, idField.name), idField -> idField.field));
     }
 
-    public ClassNode mapNames(ClassNode obfuscatedClass) {
-        ClassNode deobfuscatedClass = new ClassNode();
-//        Remapper remapper = new SimpleRemapper(classMap);
-//        obfuscatedClass.accept(new RemappingClassAdapter(deobfuscatedClass, remapper));
-        return deobfuscatedClass;
+    public ClassNode remap(ClassNode classToRename) {
+        ClassNode remappedClass = new ClassNode();
+        ClassVisitor remapper = new ClassRemapper(remappedClass, new RSClientRemapper());
+        classToRename.accept(remapper);
+        return remappedClass;
     }
 
-    private class RemappingMethodVisitor extends MethodRemapper {
+    class RSClientRemapper extends Remapper {
 
-        private RemappingMethodVisitor(MethodVisitor mv, Remapper remapper) {
-            super(mv, remapper);
-        }
-
-//        @Override
-//        public void visitMethodInsn(int opcode, String owner, String name, String descriptor, boolean isInterface) {
-//            String newOwner = remapper.mapType(owner);
-//            String newName = remapper.mapMethodName(owner, name, descriptor);
-//            String newDescriptor = remapper.mapMethodDesc(descriptor);
-//            super.visitMethodInsn(opcode, newOwner, newName, newDescriptor, isInterface);
-//        }
-
-//        @Override
-//        public void visitFieldInsn(int opcode, String owner, String name, String descriptor) {
-//            String newOwner = remapper.mapType(owner);
-//            String newName = remapper.mapFieldName(owner, name, descriptor);
-//            String newDescriptor = remapper.mapDesc(descriptor);
-//            super.visitFieldInsn(opcode, newOwner, newName, newDescriptor);
-//        }
-
-//        @Override
-//        public void visitLocalVariable(String name, String descriptor, String signature, Label start, Label end, int index) {
-//            String newDescriptor = remapper.mapDesc(descriptor);
-//            super.visitLocalVariable(name, newDescriptor, signature, start, end, index);
-//        }
-    }
-
-    private class RemappingClassAdapter extends ClassRemapper {
-
-        private RemappingClassAdapter(ClassVisitor cv, Remapper remapper) {
-            super(cv, remapper);
+        @Override
+        public String map(String typeName) {
+            return classMap.getOrDefault(typeName, typeName);
         }
 
         @Override
-        public FieldVisitor visitField(int access, String name, String descriptor, String signature, Object value) {
-            String newDescriptor = remapper.mapDesc(descriptor);
-            String newFieldName = remapper.mapFieldName(className, name, descriptor);
-            return super.visitField(access, newFieldName, newDescriptor, signature, value);
+        public String mapFieldName(String owner, String name, String descriptor) {
+            if (owner.contains("bouncycastle") || owner.contains("java/") || owner.contains("org/") || owner.contains("com/")) {
+                return name;
+            }
+            Pair pairToSearch = new Pair(owner, name);
+            String newName = fieldMap.get(pairToSearch);
+
+            while (newName == null) {
+                String classToSearch = pairToSearch.getFirst().toString();
+                IdClass thisClass = classes.stream().filter(idClass -> idClass.name.equals(classToSearch)).findFirst().orElse(null);
+                if (thisClass == null || thisClass.superName.equals("java/lang/Object")) {
+                    return name;
+                }
+
+                pairToSearch = new Pair(thisClass.superName, name);
+                newName = fieldMap.get(pairToSearch);
+            }
+            return newName;
         }
 
-//        @Override
-//        public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
-//            MethodVisitor mv = super.visitMethod(access, name, descriptor, signature, exceptions);
-//            return new RemappingMethodVisitor(mv, remapper);
-//        }
+        @Override
+        public String mapMethodName(String owner, String name, String descriptor) {
+            if (!UtilFunctions.isObfuscated(owner)) {
+                return name;
+            }
+            if((owner.equals("bm") || owner.equals("GameShell")) && name.equals("bt")) {
+                System.out.println("Poes");
+            }
+
+            //Find if the method was renamed in any parent, if so, use that name here.
+            String newName = getNewNameFromParentClass(owner, name, descriptor);
+            if(newName != null) {
+                return newName;
+            }
+
+            newName = getNewNameFromChildClasses(owner, name, descriptor);
+            if(newName != null) {
+                return newName;
+            }
+
+            return name;
+        }
+
+        private String getNewNameFromChildClasses(String owner, String name, String descriptor) {
+            //Find if the method was renamed in any child, if so, return the renamed name
+            Set<ClassNode> children = builder.getChildClassNodes(builder.getClassNode(owner));
+//            System.out.println(children);
+
+            List<Pair> pairs = children.stream().map(classNode -> new Pair(classNode.name, name+descriptor)).toList();
+
+            for(Pair pair: pairs) {
+                String newName = methodMap.get(pair);
+
+                if(newName != null) {
+                    return newName;
+                }
+                //Check recursively
+//                while (newName == null) {
+//                    //if newname is null, check all children of this pair to see if the method was renamed in any child???
+//                    children = builder.getChildClassNodes(builder.getClassNode(pair.getFirst().toString()));
+//                    pairs = children.stream().map(classNode -> new Pair(classNode.name, name+descriptor)).toList();
+//
+//                    for(Pair nestedPair: pairs) {
+//
+//                    }
+//                    IdClass thisClass = classes.stream().filter(idClass -> idClass.name.equals(classToSearch)).findFirst().orElse(null);
+//                    if (thisClass == null || thisClass.superName.equals("java/lang/Object")) {
+//                        break;
+//                    }
+//
+//                    pairToSearch = new Pair(thisClass.superName, name + descriptor);
+//                    newName = methodMap.get(pairToSearch);
+//                }
+            }
+
+
+            return name;
+        }
+
+        private String getNewNameFromParentClass(String owner, String name, String descriptor) {
+            Pair pairToSearch = new Pair(owner, name + descriptor);
+            String newName = methodMap.get(pairToSearch);
+
+            while (newName == null) {
+                String classToSearch = pairToSearch.getFirst().toString();
+                IdClass thisClass = classes.stream().filter(idClass -> idClass.name.equals(classToSearch)).findFirst().orElse(null);
+                if (thisClass == null || thisClass.superName.equals("java/lang/Object")) {
+                    return null;
+                }
+
+                pairToSearch = new Pair(thisClass.superName, name + descriptor);
+                newName = methodMap.get(pairToSearch);
+            }
+
+            return newName;
+        }
     }
 }
