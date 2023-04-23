@@ -3,40 +3,40 @@ import java.util.Comparator;
 import java.util.HashMap;
 
 public abstract class UserList {
-   int size0 = 0;
-   Comparator comparator = null;
-   HashMap usernamesMap;
-   HashMap previousUsernamesMap;
-   User[] array;
-   final int capacity;
+   int aa = 0;
+   Comparator ai = null;
+   HashMap ao;
+   HashMap ax;
+   User[] ay;
+   final int at;
 
    UserList(int var1) {
-      this.capacity = var1 * 450790185;
-      this.array = this.newTypedArray(var1);
-      this.usernamesMap = new HashMap(var1 / 8);
-      this.previousUsernamesMap = new HashMap(var1 / 8);
+      this.at = var1 * 450790185;
+      this.ay = this.newTypedArray(var1);
+      this.ao = new HashMap(var1 / 8);
+      this.ax = new HashMap(var1 / 8);
    }
 
    public void clear() {
-      this.size0 = 0;
-      Arrays.fill(this.array, (Object)null);
-      this.usernamesMap.clear();
-      this.previousUsernamesMap.clear();
+      this.aa = 0;
+      Arrays.fill(this.ay, (Object)null);
+      this.ao.clear();
+      this.ax.clear();
    }
 
    public int size() {
-      return this.size0 * -940640785;
+      return this.aa * -940640785;
    }
 
    public boolean isFull() {
-      return -734344935 * this.capacity == -940640785 * this.size0;
+      return -734344935 * this.at == -940640785 * this.aa;
    }
 
    public boolean contains(Username var1) {
       if (!var1.hasCleanName()) {
          return false;
       } else {
-         return this.usernamesMap.containsKey(var1) ? true : this.previousUsernamesMap.containsKey(var1);
+         return this.ao.containsKey(var1) ? true : this.ax.containsKey(var1);
       }
    }
 
@@ -46,11 +46,11 @@ public abstract class UserList {
    }
 
    User getByCurrentUsername(Username var1) {
-      return !var1.hasCleanName() ? null : (User)this.usernamesMap.get(var1);
+      return !var1.hasCleanName() ? null : (User)this.ao.get(var1);
    }
 
    User getByPreviousUsername(Username var1) {
-      return !var1.hasCleanName() ? null : (User)this.previousUsernamesMap.get(var1);
+      return !var1.hasCleanName() ? null : (User)this.ax.get(var1);
    }
 
    public final boolean removeByUsername(Username var1) {
@@ -88,18 +88,18 @@ public abstract class UserList {
    }
 
    public final User get(int var1) {
-      if (var1 >= 0 && var1 < this.size0 * -940640785) {
-         return this.array[var1];
+      if (var1 >= 0 && var1 < this.aa * -940640785) {
+         return this.ay[var1];
       } else {
          throw new ArrayIndexOutOfBoundsException(var1);
       }
    }
 
    public final void sort() {
-      if (null == this.comparator) {
-         Arrays.sort(this.array, 0, -940640785 * this.size0);
+      if (null == this.ai) {
+         Arrays.sort(this.ay, 0, -940640785 * this.aa);
       } else {
-         Arrays.sort(this.array, 0, -940640785 * this.size0, this.comparator);
+         Arrays.sort(this.ay, 0, -940640785 * this.aa, this.ai);
       }
 
    }
@@ -111,8 +111,8 @@ public abstract class UserList {
    }
 
    final int indexOf(User var1) {
-      for(int var3 = 0; var3 < -940640785 * this.size0; ++var3) {
-         if (this.array[var3] == var1) {
+      for(int var3 = 0; var3 < -940640785 * this.aa; ++var3) {
+         if (this.ay[var3] == var1) {
             return var3;
          }
       }
@@ -121,48 +121,48 @@ public abstract class UserList {
    }
 
    final void mapRemove(User var1) {
-      if (this.usernamesMap.remove(var1.previousUsername) == null) {
+      if (this.ao.remove(var1.aw) == null) {
          throw new IllegalStateException();
       } else {
-         if (var1.username0 != null) {
-            this.previousUsernamesMap.remove(var1.username0);
+         if (var1.ac != null) {
+            this.ax.remove(var1.ac);
          }
 
       }
    }
 
    final void bc(User var1) {
-      this.array[(this.size0 += 905500943) * -940640785 - 1] = var1;
+      this.ay[(this.aa += 905500943) * -940640785 - 1] = var1;
    }
 
    final void mapPut(User var1) {
-      this.usernamesMap.put(var1.previousUsername, var1);
-      if (var1.username0 != null) {
-         User var3 = (User)this.previousUsernamesMap.put(var1.username0, var1);
+      this.ao.put(var1.aw, var1);
+      if (var1.ac != null) {
+         User var3 = (User)this.ax.put(var1.ac, var1);
          if (null != var3 && var3 != var1) {
-            var3.username0 = null;
+            var3.ac = null;
          }
       }
 
    }
 
    final void arrayRemove(int var1) {
-      this.size0 -= 905500943;
-      if (var1 < -940640785 * this.size0) {
-         System.arraycopy(this.array, 1 + var1, this.array, var1, -940640785 * this.size0 - var1);
+      this.aa -= 905500943;
+      if (var1 < -940640785 * this.aa) {
+         System.arraycopy(this.ay, 1 + var1, this.ay, var1, -940640785 * this.aa - var1);
       }
 
    }
 
    public final void removeComparator() {
-      this.comparator = null;
+      this.ai = null;
    }
 
    public final void addComparator(Comparator var1) {
-      if (this.comparator == null) {
-         this.comparator = var1;
-      } else if (this.comparator instanceof AbstractUserComparator) {
-         ((AbstractUserComparator)this.comparator).ay(var1);
+      if (this.ai == null) {
+         this.ai = var1;
+      } else if (this.ai instanceof AbstractUserComparator) {
+         ((AbstractUserComparator)this.ai).ay(var1);
       }
 
    }

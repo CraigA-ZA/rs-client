@@ -1,8 +1,8 @@
 import java.net.URL;
 
 public abstract class ia {
-   public static MusicTrack musicTrack;
-   public static AbstractRasterProvider rasterProvider;
+   public static MusicTrack ao;
+   public static AbstractRasterProvider bn;
    public int ac;
    public int af;
    public int an;
@@ -136,7 +136,7 @@ public abstract class ia {
 
    static final void jc_renamed(boolean var0) {
       for(int var2 = 0; var2 < 265474485 * Client.iw; ++var2) {
-         Npc var3 = Client.npcs[Client.iy[var2]];
+         Npc var3 = Client.iu[Client.iy[var2]];
          if (var3 != null && var3.isVisible() && var0 == var3.af.bm && var3.af.aa()) {
             int var4 = var3.bx * 1144428983 >> 7;
             int var5 = var3.bo * -411750205 >> 7;
@@ -151,7 +151,7 @@ public abstract class ia {
 
                long var6 = ir.aa_renamed(0, 0, 1, !var3.af.bg, Client.iy[var2]);
                var3.bd = -14183397 * Client.ep;
-               bx.scene.ao(GameShell.plane * -1727408401, 1144428983 * var3.bx, -411750205 * var3.bo, fq.getTileHeight(1119756096 * var3.bm - 64 + 1144428983 * var3.bx, 1119756096 * var3.bm - 64 + var3.bo * -411750205, -1727408401 * GameShell.plane), 60 + (1119756096 * var3.bm - 64), var3, var3.bz * -1703696531, var6, var3.an);
+               bx.js.ao(GameShell.mh * -1727408401, 1144428983 * var3.bx, -411750205 * var3.bo, fq.getTileHeight(1119756096 * var3.bm - 64 + 1144428983 * var3.bx, 1119756096 * var3.bm - 64 + var3.bo * -411750205, -1727408401 * GameShell.mh), 60 + (1119756096 * var3.bm - 64), var3, var3.bz * -1703696531, var6, var3.an);
             }
          }
       }

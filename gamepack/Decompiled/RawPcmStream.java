@@ -1,6 +1,6 @@
 public class RawPcmStream extends PcmStream {
    boolean ay;
-   int end;
+   int aa;
    int ab;
    int ac;
    int af;
@@ -10,7 +10,7 @@ public class RawPcmStream extends PcmStream {
    int an;
    int ao;
    int aq;
-   int start;
+   int at;
    int au;
    int aw;
    int ax;
@@ -27,47 +27,47 @@ public class RawPcmStream extends PcmStream {
       int var1 = this.au * 3 >> 6;
       var1 = (var1 ^ var1 >> 31) + (var1 >>> 31);
       if (this.al == 0) {
-         var1 -= var1 * this.af / (((RawSound)this.sound).samples.length << 8);
+         var1 -= var1 * this.af / (((RawSound)this.ar).an.length << 8);
       } else if (this.al >= 0) {
-         var1 -= var1 * this.start / ((RawSound)this.sound).samples.length;
+         var1 -= var1 * this.at / ((RawSound)this.ar).an.length;
       }
 
       return var1 > 255 ? 255 : var1;
    }
 
    RawPcmStream(RawSound var1, int var2, int var3) {
-      this.sound = var1;
-      this.start = var1.start;
-      this.end = var1.end;
+      this.ar = var1;
+      this.at = var1.aw;
+      this.aa = var1.ac;
       this.ay = var1.au;
       this.an = var2;
       this.aw = var3;
       this.ac = 8192;
       this.af = 0;
-      this.au();
+      this.removeAll();
    }
 
    RawPcmStream(RawSound var1, int var2, int var3, int var4) {
-      this.sound = var1;
-      this.start = var1.start;
-      this.end = var1.end;
+      this.ar = var1;
+      this.at = var1.aw;
+      this.aa = var1.ac;
       this.ay = var1.au;
       this.an = var2;
       this.aw = var3;
       this.ac = var4;
       this.af = 0;
-      this.au();
+      this.removeAll();
    }
 
    public static RawPcmStream aw_renamed(RawSound var0, int var1, int var2) {
-      return var0.samples != null && var0.samples.length != 0 ? new RawPcmStream(var0, (int)((long)var0.sampleRate * 256L * (long)var1 / (long)(PcmPlayer.au * 1511829972)), var2 << 6) : null;
+      return var0.an != null && var0.an.length != 0 ? new RawPcmStream(var0, (int)((long)var0.af * 256L * (long)var1 / (long)(PcmPlayer.au * 1511829972)), var2 << 6) : null;
    }
 
    public static RawPcmStream ac_renamed(RawSound var0, int var1, int var2, int var3) {
-      return var0.samples != null && var0.samples.length != 0 ? new RawPcmStream(var0, var1, var2, var3) : null;
+      return var0.an != null && var0.an.length != 0 ? new RawPcmStream(var0, var1, var2, var3) : null;
    }
 
-   void au() {
+   void removeAll() {
       this.au = this.aw;
       this.ab = af_renamed(this.aw, this.ac);
       this.aq = an_renamed(this.aw, this.ac);
@@ -77,31 +77,31 @@ public class RawPcmStream extends PcmStream {
       this.al = var1;
    }
 
-   public synchronized void ao(int var1) {
-      this.ai(var1 << 6, this.ah());
+   public synchronized void skipSubStreams(int var1) {
+      this.ai(var1 << 6, this.transformedSize());
    }
 
    synchronized void ax(int var1) {
-      this.ai(var1, this.ah());
+      this.ai(var1, this.transformedSize());
    }
 
    synchronized void ai(int var1, int var2) {
       this.aw = var1;
       this.ac = var2;
       this.ao = 0;
-      this.au();
+      this.removeAll();
    }
 
    public synchronized int ag() {
       return this.aw == Integer.MIN_VALUE ? 0 : this.aw;
    }
 
-   public synchronized int ah() {
+   public synchronized int transformedSize() {
       return this.ac < 0 ? -1 : this.ac;
    }
 
    public synchronized void av(int var1) {
-      int var2 = ((RawSound)this.sound).samples.length << 8;
+      int var2 = ((RawSound)this.ar).an.length << 8;
       if (var1 < -1) {
          var1 = -1;
       }
@@ -128,13 +128,13 @@ public class RawPcmStream extends PcmStream {
          }
 
          this.ao = 0;
-         this.au();
+         this.removeAll();
       }
 
    }
 
    public synchronized void as(int var1, int var2) {
-      this.aj(var1, var2, this.ah());
+      this.aj(var1, var2, this.transformedSize());
    }
 
    public synchronized void aj(int var1, int var2, int var3) {
@@ -238,7 +238,7 @@ public class RawPcmStream extends PcmStream {
    }
 
    public boolean ae() {
-      return this.af < 0 || this.af >= ((RawSound)this.sound).samples.length << 8;
+      return this.af < 0 || this.af >= ((RawSound)this.ar).an.length << 8;
    }
 
    public boolean ap() {
@@ -261,10 +261,10 @@ public class RawPcmStream extends PcmStream {
       if (this.aw == 0 && this.ao == 0) {
          this.skip(var3);
       } else {
-         RawSound var4 = (RawSound)this.sound;
-         int var5 = this.start << 8;
-         int var6 = this.end << 8;
-         int var7 = var4.samples.length << 8;
+         RawSound var4 = (RawSound)this.ar;
+         int var5 = this.at << 8;
+         int var6 = this.aa << 8;
+         int var7 = var4.an.length << 8;
          int var8 = var6 - var5;
          if (var8 <= 0) {
             this.al = 0;
@@ -295,7 +295,7 @@ public class RawPcmStream extends PcmStream {
          if (this.al < 0) {
             if (this.ay) {
                if (this.an < 0) {
-                  var9 = this.bn(var1, var2, var5, var3, var4.samples[this.start]);
+                  var9 = this.bn(var1, var2, var5, var3, var4.an[this.at]);
                   if (this.af >= var5) {
                      return;
                   }
@@ -305,14 +305,14 @@ public class RawPcmStream extends PcmStream {
                }
 
                while(true) {
-                  var9 = this.by(var1, var9, var6, var3, var4.samples[this.end - 1]);
+                  var9 = this.by(var1, var9, var6, var3, var4.an[this.aa - 1]);
                   if (this.af < var6) {
                      return;
                   }
 
                   this.af = var6 + var6 - 1 - this.af;
                   this.an = -this.an;
-                  var9 = this.bn(var1, var9, var5, var3, var4.samples[this.start]);
+                  var9 = this.bn(var1, var9, var5, var3, var4.an[this.at]);
                   if (this.af >= var5) {
                      return;
                   }
@@ -322,7 +322,7 @@ public class RawPcmStream extends PcmStream {
                }
             } else if (this.an < 0) {
                while(true) {
-                  var9 = this.bn(var1, var9, var5, var3, var4.samples[this.end - 1]);
+                  var9 = this.bn(var1, var9, var5, var3, var4.an[this.aa - 1]);
                   if (this.af >= var5) {
                      return;
                   }
@@ -331,7 +331,7 @@ public class RawPcmStream extends PcmStream {
                }
             } else {
                while(true) {
-                  var9 = this.by(var1, var9, var6, var3, var4.samples[this.start]);
+                  var9 = this.by(var1, var9, var6, var3, var4.an[this.at]);
                   if (this.af < var6) {
                      return;
                   }
@@ -344,7 +344,7 @@ public class RawPcmStream extends PcmStream {
                if (this.ay) {
                   label185: {
                      if (this.an < 0) {
-                        var9 = this.bn(var1, var2, var5, var3, var4.samples[this.start]);
+                        var9 = this.bn(var1, var2, var5, var3, var4.an[this.at]);
                         if (this.af >= var5) {
                            return;
                         }
@@ -357,7 +357,7 @@ public class RawPcmStream extends PcmStream {
                      }
 
                      do {
-                        var9 = this.by(var1, var9, var6, var3, var4.samples[this.end - 1]);
+                        var9 = this.by(var1, var9, var6, var3, var4.an[this.aa - 1]);
                         if (this.af < var6) {
                            return;
                         }
@@ -368,7 +368,7 @@ public class RawPcmStream extends PcmStream {
                            break;
                         }
 
-                        var9 = this.bn(var1, var9, var5, var3, var4.samples[this.start]);
+                        var9 = this.bn(var1, var9, var5, var3, var4.an[this.at]);
                         if (this.af >= var5) {
                            return;
                         }
@@ -381,7 +381,7 @@ public class RawPcmStream extends PcmStream {
                   int var10;
                   if (this.an < 0) {
                      while(true) {
-                        var9 = this.bn(var1, var9, var5, var3, var4.samples[this.end - 1]);
+                        var9 = this.bn(var1, var9, var5, var3, var4.an[this.aa - 1]);
                         if (this.af >= var5) {
                            return;
                         }
@@ -398,7 +398,7 @@ public class RawPcmStream extends PcmStream {
                      }
                   } else {
                      while(true) {
-                        var9 = this.by(var1, var9, var6, var3, var4.samples[this.start]);
+                        var9 = this.by(var1, var9, var6, var3, var4.an[this.at]);
                         if (this.af < var6) {
                            return;
                         }
@@ -450,7 +450,7 @@ public class RawPcmStream extends PcmStream {
             }
 
             this.ao = 0;
-            this.au();
+            this.removeAll();
          } else {
             this.au += this.ax * var1;
             this.ab += this.ai * var1;
@@ -459,10 +459,10 @@ public class RawPcmStream extends PcmStream {
          }
       }
 
-      RawSound var2 = (RawSound)this.sound;
-      int var3 = this.start << 8;
-      int var4 = this.end << 8;
-      int var5 = var2.samples.length << 8;
+      RawSound var2 = (RawSound)this.ar;
+      int var3 = this.at << 8;
+      int var4 = this.aa << 8;
+      int var5 = var2.an.length << 8;
       int var6 = var4 - var3;
       if (var6 <= 0) {
          this.al = 0;
@@ -622,14 +622,14 @@ public class RawPcmStream extends PcmStream {
             this.ao += var2;
             if (this.an == 256 && (this.af & 255) == 0) {
                if (PcmPlayer.ab) {
-                  var2 = ci(0, ((RawSound)this.sound).samples, var1, this.af, var2, this.ab, this.aq, this.ai, this.ag, 0, var6, var3, this);
+                  var2 = ci(0, ((RawSound)this.ar).an, var1, this.af, var2, this.ab, this.aq, this.ai, this.ag, 0, var6, var3, this);
                } else {
-                  var2 = ce(((RawSound)this.sound).samples, var1, this.af, var2, this.au, this.ax, 0, var6, var3, this);
+                  var2 = ce(((RawSound)this.ar).an, var1, this.af, var2, this.au, this.ax, 0, var6, var3, this);
                }
             } else if (PcmPlayer.ab) {
-               var2 = ca_renamed(0, 0, ((RawSound)this.sound).samples, var1, this.af, var2, this.ab, this.aq, this.ai, this.ag, 0, var6, var3, this, this.an, var5);
+               var2 = ca_renamed(0, 0, ((RawSound)this.ar).an, var1, this.af, var2, this.ab, this.aq, this.ai, this.ag, 0, var6, var3, this, this.an, var5);
             } else {
-               var2 = cn_renamed(0, 0, ((RawSound)this.sound).samples, var1, this.af, var2, this.au, this.ax, 0, var6, var3, this, this.an, var5);
+               var2 = cn_renamed(0, 0, ((RawSound)this.ar).an, var1, this.af, var2, this.au, this.ax, 0, var6, var3, this, this.an, var5);
             }
 
             this.ao -= var2;
@@ -646,17 +646,17 @@ public class RawPcmStream extends PcmStream {
 
          if (this.an == 256 && (this.af & 255) == 0) {
             if (PcmPlayer.ab) {
-               return bq(0, ((RawSound)this.sound).samples, var1, this.af, var2, this.ab, this.aq, 0, var4, var3, this);
+               return bq(0, ((RawSound)this.ar).an, var1, this.af, var2, this.ab, this.aq, 0, var4, var3, this);
             }
 
-            return br(((RawSound)this.sound).samples, var1, this.af, var2, this.au, 0, var4, var3, this);
+            return br(((RawSound)this.ar).an, var1, this.af, var2, this.au, 0, var4, var3, this);
          }
 
          if (PcmPlayer.ab) {
-            return bc_renamed(0, 0, ((RawSound)this.sound).samples, var1, this.af, var2, this.ab, this.aq, 0, var4, var3, this, this.an, var5);
+            return bc_renamed(0, 0, ((RawSound)this.ar).an, var1, this.af, var2, this.ab, this.aq, 0, var4, var3, this, this.an, var5);
          }
 
-         return bp_renamed(0, 0, ((RawSound)this.sound).samples, var1, this.af, var2, this.au, 0, var4, var3, this, this.an, var5);
+         return bp_renamed(0, 0, ((RawSound)this.ar).an, var1, this.af, var2, this.au, 0, var4, var3, this, this.an, var5);
       }
    }
 
@@ -671,14 +671,14 @@ public class RawPcmStream extends PcmStream {
             this.ao += var2;
             if (this.an == -256 && (this.af & 255) == 0) {
                if (PcmPlayer.ab) {
-                  var2 = cc(0, ((RawSound)this.sound).samples, var1, this.af, var2, this.ab, this.aq, this.ai, this.ag, 0, var6, var3, this);
+                  var2 = cc(0, ((RawSound)this.ar).an, var1, this.af, var2, this.ab, this.aq, this.ai, this.ag, 0, var6, var3, this);
                } else {
-                  var2 = cs(((RawSound)this.sound).samples, var1, this.af, var2, this.au, this.ax, 0, var6, var3, this);
+                  var2 = cs(((RawSound)this.ar).an, var1, this.af, var2, this.au, this.ax, 0, var6, var3, this);
                }
             } else if (PcmPlayer.ab) {
-               var2 = ck_renamed(0, 0, ((RawSound)this.sound).samples, var1, this.af, var2, this.ab, this.aq, this.ai, this.ag, 0, var6, var3, this, this.an, var5);
+               var2 = ck_renamed(0, 0, ((RawSound)this.ar).an, var1, this.af, var2, this.ab, this.aq, this.ai, this.ag, 0, var6, var3, this, this.an, var5);
             } else {
-               var2 = cu_renamed(0, 0, ((RawSound)this.sound).samples, var1, this.af, var2, this.au, this.ax, 0, var6, var3, this, this.an, var5);
+               var2 = cu_renamed(0, 0, ((RawSound)this.ar).an, var1, this.af, var2, this.au, this.ax, 0, var6, var3, this, this.an, var5);
             }
 
             this.ao -= var2;
@@ -695,17 +695,17 @@ public class RawPcmStream extends PcmStream {
 
          if (this.an == -256 && (this.af & 255) == 0) {
             if (PcmPlayer.ab) {
-               return bl(0, ((RawSound)this.sound).samples, var1, this.af, var2, this.ab, this.aq, 0, var4, var3, this);
+               return bl(0, ((RawSound)this.ar).an, var1, this.af, var2, this.ab, this.aq, 0, var4, var3, this);
             }
 
-            return bv(((RawSound)this.sound).samples, var1, this.af, var2, this.au, 0, var4, var3, this);
+            return bv(((RawSound)this.ar).an, var1, this.af, var2, this.au, 0, var4, var3, this);
          }
 
          if (PcmPlayer.ab) {
-            return bw_renamed(0, 0, ((RawSound)this.sound).samples, var1, this.af, var2, this.ab, this.aq, 0, var4, var3, this, this.an, var5);
+            return bw_renamed(0, 0, ((RawSound)this.ar).an, var1, this.af, var2, this.ab, this.aq, 0, var4, var3, this, this.an, var5);
          }
 
-         return bh_renamed(0, 0, ((RawSound)this.sound).samples, var1, this.af, var2, this.au, 0, var4, var3, this, this.an, var5);
+         return bh_renamed(0, 0, ((RawSound)this.ar).an, var1, this.af, var2, this.au, 0, var4, var3, this, this.an, var5);
       }
    }
 
@@ -731,7 +731,7 @@ public class RawPcmStream extends PcmStream {
             this.remove();
             return true;
          } else {
-            this.au();
+            this.removeAll();
             return false;
          }
       } else {

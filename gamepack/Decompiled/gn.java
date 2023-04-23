@@ -11,14 +11,14 @@ public abstract class gn {
             Packet var2 = new Packet(4);
             var2.bu(var0 ? 2 : 3);
             var2.bq(0);
-            NetCache.af.ab(var2.array, 0, 4);
+            NetCache.af.ab(var2.al, 0, 4);
          } catch (IOException var5) {
             try {
                NetCache.af.aq();
             } catch (Exception var4) {
             }
 
-            NetCache.NetCache_ioExceptions += -161323731;
+            NetCache.ap += -161323731;
             NetCache.af = null;
          }
 

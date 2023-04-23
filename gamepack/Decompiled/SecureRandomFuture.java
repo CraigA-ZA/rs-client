@@ -5,25 +5,25 @@ import java.util.concurrent.Future;
 
 public class SecureRandomFuture {
    static int oo;
-   ExecutorService executor = Executors.newSingleThreadExecutor();
-   Future future;
+   ExecutorService af = Executors.newSingleThreadExecutor();
+   Future an;
 
    SecureRandomFuture() {
-      this.future = this.executor.submit(new SecureRandomCallable());
+      this.an = this.af.submit(new SecureRandomCallable());
    }
 
    void shutdown() {
-      this.executor.shutdown();
-      this.executor = null;
+      this.af.shutdown();
+      this.af = null;
    }
 
    boolean isDone() {
-      return this.future.isDone();
+      return this.an.isDone();
    }
 
    SecureRandom get() {
       try {
-         return (SecureRandom)this.future.get();
+         return (SecureRandom)this.an.get();
       } catch (Exception var5) {
          SecureRandom var4 = new SecureRandom();
          var4.nextInt();
@@ -32,7 +32,7 @@ public class SecureRandomFuture {
    }
 
    public static int aw_renamed() {
-      return (MouseHandler.MouseHandler_idleCycles += -500489753) * -119381545 - 1;
+      return (MouseHandler.au += -500489753) * -119381545 - 1;
    }
 
    public static int au_renamed(CharSequence var0, int var1, boolean var2) {

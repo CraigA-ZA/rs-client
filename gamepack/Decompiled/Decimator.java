@@ -1,7 +1,7 @@
 public class Decimator {
-   int inputRate;
-   int outputRate;
-   int[][] table;
+   int ac;
+   int au;
+   int[][] ab;
 
    public Decimator(int var1, int var2) {
       if (var1 != var2) {
@@ -20,12 +20,12 @@ public class Decimator {
 
          var1 /= var4;
          var2 /= var4;
-         this.inputRate = -1129997997 * var1;
-         this.outputRate = 1881760051 * var2;
-         this.table = new int[var1][14];
+         this.ac = -1129997997 * var1;
+         this.au = 1881760051 * var2;
+         this.ab = new int[var1][14];
 
          for(int var7 = 0; var7 < var1; ++var7) {
-            int[] var8 = this.table[var7];
+            int[] var8 = this.ab[var7];
             double var9 = (double)var7 / (double)var1 + 6.0;
             int var11 = (int)Math.floor(var9 - 7.0 + 1.0);
             if (var11 < 0) {
@@ -53,8 +53,8 @@ public class Decimator {
    }
 
    byte[] resample(byte[] var1) {
-      if (this.table != null) {
-         int var3 = (int)((long)(this.outputRate * -2101247493) * (long)var1.length / (long)(2021266139 * this.inputRate)) + 14;
+      if (this.ab != null) {
+         int var3 = (int)((long)(this.au * -2101247493) * (long)var1.length / (long)(2021266139 * this.ac)) + 14;
          int[] var4 = new int[var3];
          int var5 = 0;
          int var6 = 0;
@@ -63,17 +63,17 @@ public class Decimator {
          int var8;
          for(var7 = 0; var7 < var1.length; ++var7) {
             var8 = var1[var7];
-            int[] var9 = this.table[var6];
+            int[] var9 = this.ab[var6];
 
             int var10;
             for(var10 = 0; var10 < 14; ++var10) {
                var4[var5 + var10] += var9[var10] * var8;
             }
 
-            var6 += -2101247493 * this.outputRate;
-            var10 = var6 / (2021266139 * this.inputRate);
+            var6 += -2101247493 * this.au;
+            var10 = var6 / (2021266139 * this.ac);
             var5 += var10;
-            var6 -= var10 * 2021266139 * this.inputRate;
+            var6 -= var10 * 2021266139 * this.ac;
          }
 
          var1 = new byte[var3];
@@ -94,16 +94,16 @@ public class Decimator {
    }
 
    int scaleRate(int var1) {
-      if (this.table != null) {
-         var1 = (int)((long)var1 * (long)(this.outputRate * -2101247493) / (long)(this.inputRate * 2021266139));
+      if (this.ab != null) {
+         var1 = (int)((long)var1 * (long)(this.au * -2101247493) / (long)(this.ac * 2021266139));
       }
 
       return var1;
    }
 
    int scalePosition(int var1) {
-      if (this.table != null) {
-         var1 = (int)((long)(this.outputRate * -2101247493) * (long)var1 / (long)(this.inputRate * 2021266139)) + 6;
+      if (this.ab != null) {
+         var1 = (int)((long)(this.au * -2101247493) * (long)var1 / (long)(this.ac * 2021266139)) + 6;
       }
 
       return var1;
@@ -117,7 +117,7 @@ public class Decimator {
       int var5;
       int var6;
       if (null == st.dr) {
-         Archive var4 = rr.archive7;
+         Archive var4 = rr.fv;
          Rasterizer3D[] var3;
          if (!var4.cv("sl_back", "")) {
             var3 = null;
@@ -131,23 +131,23 @@ public class Decimator {
       }
 
       if (null == av.dl) {
-         av.dl = mz.ac_renamed(rr.archive7, "sl_flags", "");
+         av.dl = mz.ac_renamed(rr.fv, "sl_flags", "");
       }
 
       if (DevicePcmPlayerProvider.dk == null) {
-         DevicePcmPlayerProvider.dk = mz.ac_renamed(rr.archive7, "sl_arrows", "");
+         DevicePcmPlayerProvider.dk = mz.ac_renamed(rr.fv, "sl_arrows", "");
       }
 
       if (World.dt == null) {
-         World.dt = mz.ac_renamed(rr.archive7, "sl_stars", "");
+         World.dt = mz.ac_renamed(rr.fv, "sl_stars", "");
       }
 
       if (PlayerType.dz == null) {
-         PlayerType.dz = MusicPatchNode2.au_renamed(rr.archive7, "leftarrow", "");
+         PlayerType.dz = MusicPatchNode2.au_renamed(rr.fv, "leftarrow", "");
       }
 
       if (ai.dg == null) {
-         ai.dg = MusicPatchNode2.au_renamed(rr.archive7, "rightarrow", "");
+         ai.dg = MusicPatchNode2.au_renamed(rr.fv, "rightarrow", "");
       }
 
       Rasterizer2D.Rasterizer2D_fillRectangle(cz.aw * 578342931, 23, 765, 480, 0);
@@ -221,7 +221,7 @@ public class Decimator {
       }
 
       Rasterizer2D.Rasterizer2D_fillRectangle(cz.aw * 578342931 + 708, 4, 50, 16, 0);
-      var1.drawCentered(Strings.Strings_cancel, 25 + 708 + cz.aw * 578342931, 16, 16777215, -1);
+      var1.drawCentered(Strings.jl, 25 + 708 + cz.aw * 578342931, 16, 16777215, -1);
       cz.de = 848889613;
       if (st.dr != null) {
          byte var24 = 88;
@@ -234,15 +234,15 @@ public class Decimator {
          do {
             var7 = var6;
             var8 = var5;
-            if (var6 * (var5 - 1) >= -734287707 * World.worldsCount) {
+            if (var6 * (var5 - 1) >= -734287707 * World.ab) {
                --var5;
             }
 
-            if (var5 * (var6 - 1) >= -734287707 * World.worldsCount) {
+            if (var5 * (var6 - 1) >= -734287707 * World.ab) {
                --var6;
             }
 
-            if ((var6 - 1) * var5 >= World.worldsCount * -734287707) {
+            if ((var6 - 1) * var5 >= World.ab * -734287707) {
                --var6;
             }
          } while(var6 != var7 || var8 != var5);
@@ -259,14 +259,14 @@ public class Decimator {
 
          int var9 = (765 - var24 * var5 - var7 * (var5 - 1)) / 2;
          int var10 = (480 - var26 * var6 - var8 * (var6 - 1)) / 2;
-         int var11 = (-734287707 * World.worldsCount + var6 - 1) / var6;
+         int var11 = (-734287707 * World.ab + var6 - 1) / var6;
          cz.dp = (var11 - var5) * 1853447421;
          if (PlayerType.dz != null && cz.dh * 1246310743 > 0) {
-            PlayerType.dz.aw(8, kd.ak * 1658005443 / 2 - PlayerType.dz.subHeight / 2);
+            PlayerType.dz.aw(8, kd.ak * 1658005443 / 2 - PlayerType.dz.ac / 2);
          }
 
          if (ai.dg != null && 1246310743 * cz.dh < cz.dp * 1959698517) {
-            ai.dg.aw(GameShell.aj * -1687260435 - ai.dg.subWidth - 8, 1658005443 * kd.ak / 2 - ai.dg.subHeight / 2);
+            ai.dg.aw(GameShell.aj * -1687260435 - ai.dg.aw - 8, 1658005443 * kd.ak / 2 - ai.dg.ac / 2);
          }
 
          int var12 = var10 + 23;
@@ -276,14 +276,14 @@ public class Decimator {
          int var16 = 1246310743 * cz.dh;
 
          int var17;
-         for(var17 = var6 * var16; var17 < World.worldsCount * -734287707 && var16 - 1246310743 * cz.dh < var5; ++var17) {
-            World var18 = bx.worlds[var17];
+         for(var17 = var6 * var16; var17 < World.ab * -734287707 && var16 - 1246310743 * cz.dh < var5; ++var17) {
+            World var18 = bx.au[var17];
             boolean var19 = true;
-            String var20 = Integer.toString(-1396846889 * var18.population);
-            if (-1 == -1396846889 * var18.population) {
+            String var20 = Integer.toString(-1396846889 * var18.ax);
+            if (-1 == -1396846889 * var18.ax) {
                var20 = Strings.my;
                var19 = false;
-            } else if (var18.population * -1396846889 > 1980) {
+            } else if (var18.ax * -1396846889 > 1980) {
                var20 = Strings.mk;
                var19 = false;
             }
@@ -320,10 +320,10 @@ public class Decimator {
             }
 
             if (null != av.dl) {
-               av.dl[(var18.at() ? 8 : 0) + var18.location * -665846519].aw(var13 + 29, var12);
+               av.dl[(var18.at() ? 8 : 0) + var18.ah * -665846519].aw(var13 + 29, var12);
             }
 
-            var0.drawCentered(Integer.toString(-2091224171 * var18.id), 15 + var13, 5 + var26 / 2 + var12, var22, -1);
+            var0.drawCentered(Integer.toString(-2091224171 * var18.ay), 15 + var13, 5 + var26 / 2 + var12, var22, -1);
             var1.drawCentered(var20, var13 + 60, 5 + var26 / 2 + var12, 268435455, -1);
             var12 += var8 + var26;
             ++var14;
@@ -336,8 +336,8 @@ public class Decimator {
          }
 
          if (var15) {
-            var17 = var1.stringWidth(bx.worlds[cz.de * 248569915].activity) + 6;
-            int var27 = 8 + var1.ascent;
+            var17 = var1.stringWidth(bx.au[cz.de * 248569915].ag) + 6;
+            int var27 = 8 + var1.al;
             int var28 = MouseHandler.ao * -1224153235 + 25;
             if (var27 + var28 > 480) {
                var28 = -1224153235 * MouseHandler.ao - 25 - var27;
@@ -345,11 +345,11 @@ public class Decimator {
 
             Rasterizer2D.Rasterizer2D_fillRectangle(MouseHandler.ay * -2063363905 - var17 / 2, var28, var17, var27, 16777120);
             Rasterizer2D.Rasterizer2D_drawRectangle(MouseHandler.ay * -2063363905 - var17 / 2, var28, var17, var27, 0);
-            var1.drawCentered(bx.worlds[cz.de * 248569915].activity, -2063363905 * MouseHandler.ay, 4 + var1.ascent + var28, 0, -1);
+            var1.drawCentered(bx.au[cz.de * 248569915].ag, -2063363905 * MouseHandler.ay, 4 + var1.al + var28, 0, -1);
          }
       }
 
-      ia.rasterProvider.drawFull(0, 0);
+      ia.bn.drawFull(0, 0);
    }
 
    static void ir_renamed(int var0) {
@@ -361,9 +361,9 @@ public class Decimator {
       }
 
       if (na.iv_renamed() == 1) {
-         ClientScriptFrame.client.setMaxCanvasSize(765, 503);
+         ClientScriptFrame.bc.setMaxCanvasSize(765, 503);
       } else {
-         ClientScriptFrame.client.setMaxCanvasSize(7680, 2160);
+         ClientScriptFrame.bc.setMaxCanvasSize(7680, 2160);
       }
 
       if (-1275976559 * Client.dw >= 25) {
@@ -377,7 +377,7 @@ public class Decimator {
          bi.ji = 1006050753 * var0;
          qj.jg = var1 * -193171501;
          fd.hi_renamed(25);
-         jl.ij_renamed(Strings.Strings_loadingPleaseWait, true);
+         jl.ij_renamed(Strings.ao, true);
          int var4 = jm.ib * -1232093375;
          int var5 = 827352769 * Scenery.jc;
          jm.ib = (var0 - 6) * -102332920;
@@ -391,12 +391,12 @@ public class Decimator {
          int var10;
          int[] var10000;
          for(var8 = 0; var8 < 65536; ++var8) {
-            Npc var9 = Client.npcs[var8];
+            Npc var9 = Client.iu[var8];
             if (null != var9) {
                for(var10 = 0; var10 < 10; ++var10) {
-                  var10000 = var9.pathX;
+                  var10000 = var9.dy;
                   var10000[var10] -= var6;
-                  var10000 = var9.pathY;
+                  var10000 = var9.ds;
                   var10000[var10] -= var7;
                }
 
@@ -406,12 +406,12 @@ public class Decimator {
          }
 
          for(var8 = 0; var8 < 2048; ++var8) {
-            Player var20 = Client.players[var8];
+            Player var20 = Client.mc[var8];
             if (var20 != null) {
                for(var10 = 0; var10 < 10; ++var10) {
-                  var10000 = var20.pathX;
+                  var10000 = var20.dy;
                   var10000[var10] -= var6;
-                  var10000 = var20.pathY;
+                  var10000 = var20.ds;
                   var10000[var10] -= var7;
                }
 
@@ -446,9 +446,9 @@ public class Decimator {
 
                for(int var18 = 0; var18 < 4; ++var18) {
                   if (var16 >= 0 && var17 >= 0 && var16 < 104 && var17 < 104) {
-                     Client.objStacks[var18][var14][var15] = Client.objStacks[var18][var16][var17];
+                     Client.nr[var18][var14][var15] = Client.nr[var18][var16][var17];
                   } else {
-                     Client.objStacks[var18][var14][var15] = null;
+                     Client.nr[var18][var14][var15] = null;
                   }
                }
             }
@@ -467,26 +467,26 @@ public class Decimator {
             Client.th -= 875414437 * var7;
          }
 
-         Client.soundEffectCount = 0;
+         Client.tl = 0;
          Client.uj = false;
          bt.kx -= (var6 << 7) * -1682679895;
          ly.ke -= 46344275 * (var7 << 7);
          bz.lg -= (var6 << 7) * 1293848551;
          fw.lf -= (var7 << 7) * 892004233;
          Client.sp = 1715437485;
-         Client.graphicsObjects.af();
-         Client.projectiles.af();
+         Client.np.af();
+         Client.na.af();
 
          for(var15 = 0; var15 < 4; ++var15) {
-            Client.collisionMaps[var15].clear();
+            Client.jr[var15].clear();
          }
 
       }
    }
 
    static final void kq_renamed(Player var0, int var1, int var2, iu var3) {
-      int var5 = var0.pathX[0];
-      int var6 = var0.pathY[0];
+      int var5 = var0.dy[0];
+      int var6 = var0.ds[0];
       int var7 = var0.transformedSize();
       if (var5 >= var7 && var5 < 104 - var7 && var6 >= var7 && var6 < 104 - var7) {
          if (var1 >= var7 && var1 < 104 - var7 && var2 >= var7 && var2 < 104 - var7) {
@@ -496,7 +496,7 @@ public class Decimator {
             Client.xr.aw = -2134236799;
             Client.xr.ac = -1188140267;
             cm var11 = Client.xr;
-            int var12 = fw.af_renamed(var5, var6, var10, var11, Client.collisionMaps[-1900490645 * var0.ad], true, Client.xm, Client.xn);
+            int var12 = fw.af_renamed(var5, var6, var10, var11, Client.jr[-1900490645 * var0.ad], true, Client.xm, Client.xn);
             if (var12 >= 1) {
                for(int var13 = 0; var13 < var12 - 1; ++var13) {
                   var0.am(Client.xm[var13], Client.xn[var13], var3);

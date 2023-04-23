@@ -1,33 +1,33 @@
 public class User implements Comparable {
-   Username username0;
-   Username previousUsername;
+   Username ac;
+   Username aw;
 
    User() {
    }
 
    public Username username() {
-      return this.previousUsername;
+      return this.aw;
    }
 
    public String previousName() {
-      return null == this.previousUsername ? "" : this.previousUsername.af();
+      return null == this.aw ? "" : this.aw.af();
    }
 
    public String name() {
-      return null == this.username0 ? "" : this.username0.af();
+      return null == this.ac ? "" : this.ac.af();
    }
 
    void set(Username var1, Username var2) {
       if (null == var1) {
          throw new NullPointerException();
       } else {
-         this.previousUsername = var1;
-         this.username0 = var2;
+         this.aw = var1;
+         this.ac = var2;
       }
    }
 
    public int compareTo0(User var1) {
-      return this.previousUsername.compareTo0(var1.previousUsername);
+      return this.aw.compareTo0(var1.aw);
    }
 
    public int compareTo(Object var1) {
@@ -35,7 +35,7 @@ public class User implements Comparable {
    }
 
    static void ab_renamed(int var0) {
-      Inventory var2 = (Inventory)Inventory.itemContainers.get((long)var0);
+      Inventory var2 = (Inventory)Inventory.af.get((long)var0);
       if (null != var2) {
          var2.remove();
       }

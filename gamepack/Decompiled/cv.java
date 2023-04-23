@@ -21,14 +21,14 @@ public class cv {
 
          for(int var7 = 0; var7 < 1606065339 * tx.af; ++var7) {
             IndexedSprite var8 = var6[var7] = new IndexedSprite();
-            var8.width = tx.an * -822007097;
-            var8.height = 378525975 * tx.aw;
-            var8.xOffset = tx.ac[var7];
-            var8.yOffset = ar.au[var7];
-            var8.subWidth = dd.ab[var7];
-            var8.subHeight = fd.aq[var7];
-            var8.palette = pc.al;
-            var8.pixels = VarBitType.at[var7];
+            var8.aq = tx.an * -822007097;
+            var8.al = 378525975 * tx.aw;
+            var8.au = tx.ac[var7];
+            var8.ab = ar.au[var7];
+            var8.aw = dd.ab[var7];
+            var8.ac = fd.aq[var7];
+            var8.an = pc.al;
+            var8.af = VarBitType.at[var7];
          }
 
          pk.ay_renamed();
@@ -56,7 +56,7 @@ public class cv {
 
       for(int var5 = 0; var5 < -1485716275 * MouseRecorder.at; ++var5) {
          ObjType var6 = HeadbarUpdate.getObjType(var5);
-         if ((!var1 || var6.members) && var6.resizez * -1375068187 == -1 && var6.name.toLowerCase().indexOf(var0) != -1) {
+         if ((!var1 || var6.cf) && var6.ci * -1375068187 == -1 && var6.ah.toLowerCase().indexOf(var0) != -1) {
             if (var4 >= 250) {
                kt.wu = 316033701;
                pj.wm = null;
@@ -83,7 +83,7 @@ public class cv {
       String[] var9 = new String[kt.wu * 1764192979];
 
       for(int var10 = 0; var10 < kt.wu * 1764192979; ++var10) {
-         var9[var10] = HeadbarUpdate.getObjType(var3[var10]).name;
+         var9[var10] = HeadbarUpdate.getObjType(var3[var10]).ah;
       }
 
       GrandExchangeOffer.af_renamed(var9, pj.wm);

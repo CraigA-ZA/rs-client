@@ -6,12 +6,12 @@ public class mj {
    }
 
    static final void hz_renamed() {
-      if (hd.pcmPlayer1 != null) {
-         hd.pcmPlayer1.ak();
+      if (hd.tt != null) {
+         hd.tt.ak();
       }
 
-      if (null != bi.pcmPlayer0) {
-         bi.pcmPlayer0.ak();
+      if (null != bi.to) {
+         bi.to.ak();
       }
 
    }

@@ -8,7 +8,7 @@ public class GrandExchangeEvents {
    public static Comparator an = new np();
    public static Comparator au;
    public static Comparator aw;
-   public final List events;
+   public final List af;
 
    static {
       new WorldComparator();
@@ -18,7 +18,7 @@ public class GrandExchangeEvents {
    }
 
    static final void an_renamed(PacketBit var0, int var1) {
-      int var3 = var0.index * -1633313603;
+      int var3 = var0.at * -1633313603;
       ds.ax = 0;
       int var4 = 0;
       var0.importIndex();
@@ -137,7 +137,7 @@ public class GrandExchangeEvents {
                   for(var5 = 1; var5 < 2048; ++var5) {
                      var10000 = ds.aw;
                      var10000[var5] = (byte)(var10000[var5] >> 1);
-                     Player var8 = Client.players[var5];
+                     Player var8 = Client.mc[var5];
                      if (var8 != null) {
                         ds.aq[(ds.ab += 511936671) * -2010934433 - 1] = var5;
                      } else {
@@ -146,8 +146,8 @@ public class GrandExchangeEvents {
                   }
 
                   WorldMapLabelSize.ab_renamed(var0);
-                  if (-1633313603 * var0.index - var3 != var1) {
-                     throw new RuntimeException(var0.index * -1633313603 - var3 + " " + var1);
+                  if (-1633313603 * var0.at - var3 != var1) {
+                     throw new RuntimeException(var0.at * -1633313603 - var3 + " " + var1);
                   }
                }
             }
@@ -166,19 +166,19 @@ public class GrandExchangeEvents {
       }
 
       int var6 = var1.cl();
-      this.events = new ArrayList(var6);
+      this.af = new ArrayList(var6);
 
       for(int var7 = 0; var7 < var6; ++var7) {
-         this.events.add(new GrandExchangeEvent(var1, var5, var3));
+         this.af.add(new GrandExchangeEvent(var1, var5, var3));
       }
 
    }
 
    public void sort(Comparator var1, boolean var2) {
       if (var2) {
-         Collections.sort(this.events, var1);
+         Collections.sort(this.af, var1);
       } else {
-         Collections.sort(this.events, Collections.reverseOrder(var1));
+         Collections.sort(this.af, Collections.reverseOrder(var1));
       }
 
    }

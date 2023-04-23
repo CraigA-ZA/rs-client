@@ -64,8 +64,8 @@ public class jm extends jz {
    }
 
    static final void nr_renamed() {
-      PacketBitNode var1 = mi.an_renamed(ClientProt.aa, Client.packetWriter.au);
-      var1.bit.bu(0);
-      Client.packetWriter.aw(var1);
+      PacketBitNode var1 = mi.an_renamed(ClientProt.aa, Client.in.au);
+      var1.aw.bu(0);
+      Client.in.aw(var1);
    }
 }

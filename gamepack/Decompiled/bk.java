@@ -189,7 +189,7 @@ public class bk {
 
          for(var3 = 0; var3 < var2; ++var3) {
             int var4 = Client.iy[var3];
-            Npc var5 = Client.npcs[var4];
+            Npc var5 = Client.iu[var4];
             int var6 = var0.gBit(1);
             if (var6 == 0) {
                Client.iy[(Client.iw += 1796101277) * 265474485 - 1] = var4;

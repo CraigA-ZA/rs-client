@@ -14,20 +14,20 @@ public class WorldMapSection1 implements WorldMapSection {
    }
 
    public void expandBounds(WorldMapArea var1) {
-      if (var1.minX0 * 77939951 > 646918937 * this.au) {
-         var1.minX0 = -694790025 * this.au;
+      if (var1.aq * 77939951 > 646918937 * this.au) {
+         var1.aq = -694790025 * this.au;
       }
 
-      if (1854846129 * var1.maxX0 < 646918937 * this.au) {
-         var1.maxX0 = this.au * 92282601;
+      if (1854846129 * var1.al < 646918937 * this.au) {
+         var1.al = this.au * 92282601;
       }
 
-      if (var1.minY0 * 2059655157 > -2085428027 * this.ab) {
-         var1.minY0 = this.ab * 1075472273;
+      if (var1.at * 2059655157 > -2085428027 * this.ab) {
+         var1.at = this.ab * 1075472273;
       }
 
-      if (var1.maxY0 * -1086956513 < -2085428027 * this.ab) {
-         var1.maxY0 = this.ab * 1758667419;
+      if (var1.aa * -1086956513 < -2085428027 * this.ab) {
+         var1.aa = this.ab * 1758667419;
       }
 
    }
@@ -37,8 +37,8 @@ public class WorldMapSection1 implements WorldMapSection {
       int var3 = var2.aw * 470400793;
       int var4 = 1050888611 * var2.ac;
       int var5 = var2.au * 1130237503;
-      int var6 = Varps.Varps_masks[var5 - var4];
-      return Varps.Varps_main[var3] >> var4 & var6;
+      int var6 = Varps.af[var5 - var4];
+      return Varps.aw[var3] >> var4 & var6;
    }
 
    public boolean containsCoord(int var1, int var2, int var3) {
@@ -125,13 +125,13 @@ public class WorldMapSection1 implements WorldMapSection {
          return null;
       } else {
          Rasterizer3D var22 = null;
-         if (-1 != var10.resizez * -1375068187) {
-            var22 = ay_renamed(var10.certtemplate * 1399852547, 10, 1, 0, 0, true);
+         if (-1 != var10.ci * -1375068187) {
+            var22 = ay_renamed(var10.ce * 1399852547, 10, 1, 0, 0, true);
             if (null == var22) {
                return null;
             }
          } else if (-1276549997 * var10.cg != -1) {
-            var22 = ay_renamed(var10.placeholdertemplate * -1273418661, var1, var2, var3, 0, false);
+            var22 = ay_renamed(var10.cl * -1273418661, var1, var2, var3, 0, false);
             if (null == var22) {
                return null;
             }
@@ -142,9 +142,9 @@ public class WorldMapSection1 implements WorldMapSection {
             }
          }
 
-         int[] var13 = Rasterizer2D.Rasterizer2D_pixels;
-         int var14 = Rasterizer2D.Rasterizer2D_width;
-         int var15 = Rasterizer2D.Rasterizer2D_height;
+         int[] var13 = Rasterizer2D.ad;
+         int var14 = Rasterizer2D.ae;
+         int var15 = Rasterizer2D.ap;
          float[] var16 = Rasterizer2D.by;
          int[] var17 = new int[4];
          Rasterizer2D.Rasterizer2D_getClipArray(var17);
@@ -165,10 +165,10 @@ public class WorldMapSection1 implements WorldMapSection {
             var18 = (int)((double)var18 * 1.04);
          }
 
-         int var19 = var18 * in.ac[415331477 * var10.yan2d] >> 16;
-         int var20 = var18 * in.au[415331477 * var10.yan2d] >> 16;
+         int var19 = var18 * in.ac[415331477 * var10.ak] >> 16;
+         int var20 = var18 * in.au[415331477 * var10.ak] >> 16;
          var21.ai();
-         var21.bx(0, -2044433177 * var10.manwear2, var10.xof2d * 450595207, var10.yan2d * 415331477, var10.manwearyoff * 151912273, 1550732737 * var21.height / 2 + var19 + -271411709 * var10.yof2d, var20 + var10.yof2d * -271411709);
+         var21.bx(0, -2044433177 * var10.az, var10.ad * 450595207, var10.ak * 415331477, var10.ae * 151912273, 1550732737 * var21.et / 2 + var19 + -271411709 * var10.ap, var20 + var10.ap * -271411709);
          if (-1276549997 * var10.cg != -1) {
             var22.ax(0, 0);
          }
@@ -186,11 +186,11 @@ public class WorldMapSection1 implements WorldMapSection {
          }
 
          an.ay_renamed(var9.af, 36, 32, (float[])null);
-         if (var10.resizez * -1375068187 != -1) {
+         if (var10.ci * -1375068187 != -1) {
             var22.ax(0, 0);
          }
 
-         if (var4 == 1 || var4 == 2 && 1 == var10.stackable * 1552863327) {
+         if (var4 == 1 || var4 == 2 && 1 == var10.bi * 1552863327) {
             eh.ax.draw(dy.ao_renamed(var1), 0, 9, 16776960, 1);
          }
 

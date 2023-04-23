@@ -1,13 +1,13 @@
 public final class Wall {
-   int orientationA;
-   int tileHeight;
-   int x;
-   int flags = 0;
-   int orientationB;
-   int y;
-   public Entity entity1;
-   public Entity entity2;
-   public long tag = 0L;
+   int ac;
+   int af;
+   int an;
+   int at = 0;
+   int au;
+   int aw;
+   public Entity ab;
+   public Entity aq;
+   public long al = 0L;
 
    Wall() {
    }

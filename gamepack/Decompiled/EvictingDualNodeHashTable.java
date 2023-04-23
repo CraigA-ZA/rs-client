@@ -1,62 +1,62 @@
 public final class EvictingDualNodeHashTable {
-   int capacity;
-   int remainingCapacity;
-   IterableDualNodeQueue deque = new IterableDualNodeQueue();
+   int an;
+   int aw;
+   IterableDualNodeQueue au = new IterableDualNodeQueue();
    DualNode af = new DualNode();
-   IterableNodeHashTable hashTable;
+   IterableNodeHashTable ac;
 
    public EvictingDualNodeHashTable(int var1) {
-      this.capacity = var1;
-      this.remainingCapacity = var1;
+      this.an = var1;
+      this.aw = var1;
 
       int var2;
       for(var2 = 1; var2 + var2 < var1; var2 += var2) {
       }
 
-      this.hashTable = new IterableNodeHashTable(var2);
+      this.ac = new IterableNodeHashTable(var2);
    }
 
    public DualNode get(long var1) {
-      DualNode var3 = (DualNode)this.hashTable.get(var1);
+      DualNode var3 = (DualNode)this.ac.get(var1);
       if (var3 != null) {
-         this.deque.an(var3);
+         this.au.an(var3);
       }
 
       return var3;
    }
 
    public void remove(long var1) {
-      DualNode var3 = (DualNode)this.hashTable.get(var1);
+      DualNode var3 = (DualNode)this.ac.get(var1);
       if (var3 != null) {
          var3.remove();
          var3.removeDual();
-         ++this.remainingCapacity;
+         ++this.aw;
       }
 
    }
 
    public void put(DualNode var1, long var2) {
-      if (this.remainingCapacity == 0) {
-         DualNode var4 = this.deque.ac();
+      if (this.aw == 0) {
+         DualNode var4 = this.au.ac();
          var4.remove();
          var4.removeDual();
          if (var4 == this.af) {
-            var4 = this.deque.ac();
+            var4 = this.au.ac();
             var4.remove();
             var4.removeDual();
          }
       } else {
-         --this.remainingCapacity;
+         --this.aw;
       }
 
-      this.hashTable.put(var1, var2);
-      this.deque.an(var1);
+      this.ac.put(var1, var2);
+      this.au.an(var1);
    }
 
    public void clear() {
-      this.deque.af();
-      this.hashTable.clear();
+      this.au.af();
+      this.ac.clear();
       this.af = new DualNode();
-      this.remainingCapacity = this.capacity;
+      this.aw = this.an;
    }
 }

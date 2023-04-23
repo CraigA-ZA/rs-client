@@ -17,12 +17,12 @@ public class cz {
    static int dh;
    static int dm;
    static int dp;
-   static String Login_loadingText;
+   static String ae;
    static String ca;
-   static String Login_response2;
-   static String Login_response0;
-   static String Login_response3;
-   static String Login_response1;
+   static String cc;
+   static String ci;
+   static String cn;
+   static String cs;
    static String cu;
    static String cy;
    static String dc;
@@ -33,7 +33,7 @@ public class cz {
    static String[] dq;
    static long db;
    static long df;
-   static Packet NetCache_reference;
+   static Packet as;
    static IndexedSprite ah;
    static IndexedSprite ai;
    static IndexedSprite au;
@@ -42,14 +42,14 @@ public class cz {
    static {
       ak = 2036160930 + 794898887 * aw;
       ad = -2126902070;
-      Login_loadingText = "";
+      ae = "";
       ba = 1919975363;
       bp = -1552230487;
       ce = 0;
-      Login_response0 = "";
-      Login_response1 = "";
-      Login_response2 = "";
-      Login_response3 = "";
+      ci = "";
+      cs = "";
+      cc = "";
+      cn = "";
       ca = "";
       cu = "";
       cq = 0;
@@ -82,7 +82,7 @@ public class cz {
       byte var2 = 0;
       if (!fl.oi_renamed()) {
          var2 = 12;
-      } else if (ClientScriptFrame.client.gn() || ClientScriptFrame.client.gx() || ClientScriptFrame.client.gv()) {
+      } else if (ClientScriptFrame.bc.gn() || ClientScriptFrame.bc.gx() || ClientScriptFrame.bc.gv()) {
          var2 = 10;
       }
 
@@ -114,8 +114,8 @@ public class cz {
 
    static final void nd_renamed() {
       eh.at_renamed();
-      if (null != es.clanChat) {
-         es.clanChat.ag();
+      if (null != es.sb) {
+         es.sb.ag();
       }
 
    }

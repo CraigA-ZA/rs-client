@@ -1,12 +1,12 @@
 import java.io.File;
 
 public class gc {
-   public static int idxCount;
+   public static int ab;
    public static int ah;
-   public static BufferedFile idx255File = null;
-   public static BufferedFile randomDat = null;
-   public static BufferedFile dat2File = null;
-   static File clDat;
+   public static BufferedFile ai = null;
+   public static BufferedFile ao = null;
+   public static BufferedFile ax = null;
+   static File ac;
 
    gc() throws Throwable {
       throw new Error();

@@ -2,14 +2,14 @@ public class Formatting {
    public static String[] ar;
    static int ls;
    static int qe;
-   static String Formatting_rightArrow = "->";
-   static String Formatting_spaceLeftParenthesis = " (";
-   static String Formatting_true = "true";
-   static String Formatting_colorEndTag = "</col>";
-   static String Formatting_comma = ",";
-   static String Formatting_lineBreakTag = "<br>";
-   static String Formatting_rightParenthesis = ")";
-   static String Formatting_pipe = "|";
+   static String ab = "->";
+   static String ac = " (";
+   static String af = "true";
+   static String al = "</col>";
+   static String an = ",";
+   static String aq = "<br>";
+   static String au = ")";
+   static String aw = "|";
    static Bounds bh;
 
    Formatting() throws Throwable {

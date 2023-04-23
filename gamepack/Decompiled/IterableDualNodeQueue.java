@@ -1,46 +1,46 @@
 import java.util.Iterator;
 
 public class IterableDualNodeQueue implements Iterable {
-   DualNode head;
-   public DualNode sentinel = new DualNode();
+   DualNode an;
+   public DualNode af = new DualNode();
 
    public IterableDualNodeQueue() {
-      this.sentinel.previousDual = this.sentinel;
-      this.sentinel.nextDual = this.sentinel;
+      this.af.ez = this.af;
+      this.af.ej = this.af;
    }
 
    public void af() {
-      while(this.sentinel.previousDual != this.sentinel) {
-         this.sentinel.previousDual.removeDual();
+      while(this.af.ez != this.af) {
+         this.af.ez.removeDual();
       }
 
    }
 
    public void an(DualNode var1) {
-      if (var1.nextDual != null) {
+      if (var1.ej != null) {
          var1.removeDual();
       }
 
-      var1.nextDual = this.sentinel.nextDual;
-      var1.previousDual = this.sentinel;
-      var1.nextDual.previousDual = var1;
-      var1.previousDual.nextDual = var1;
+      var1.ej = this.af.ej;
+      var1.ez = this.af;
+      var1.ej.ez = var1;
+      var1.ez.ej = var1;
    }
 
    public static void aw(DualNode var0, DualNode var1) {
-      if (var0.nextDual != null) {
+      if (var0.ej != null) {
          var0.removeDual();
       }
 
-      var0.nextDual = var1;
-      var0.previousDual = var1.previousDual;
-      var0.nextDual.previousDual = var0;
-      var0.previousDual.nextDual = var0;
+      var0.ej = var1;
+      var0.ez = var1.ez;
+      var0.ej.ez = var0;
+      var0.ez.ej = var0;
    }
 
    public DualNode ac() {
-      DualNode var1 = this.sentinel.previousDual;
-      if (var1 == this.sentinel) {
+      DualNode var1 = this.af.ez;
+      if (var1 == this.af) {
          return null;
       } else {
          var1.removeDual();
@@ -55,27 +55,27 @@ public class IterableDualNodeQueue implements Iterable {
    DualNode ab(DualNode var1) {
       DualNode var2;
       if (var1 == null) {
-         var2 = this.sentinel.previousDual;
+         var2 = this.af.ez;
       } else {
          var2 = var1;
       }
 
-      if (var2 == this.sentinel) {
-         this.head = null;
+      if (var2 == this.af) {
+         this.an = null;
          return null;
       } else {
-         this.head = var2.previousDual;
+         this.an = var2.ez;
          return var2;
       }
    }
 
    public DualNode aq() {
-      DualNode var1 = this.head;
-      if (var1 == this.sentinel) {
-         this.head = null;
+      DualNode var1 = this.an;
+      if (var1 == this.af) {
+         this.an = null;
          return null;
       } else {
-         this.head = var1.previousDual;
+         this.an = var1.ez;
          return var1;
       }
    }

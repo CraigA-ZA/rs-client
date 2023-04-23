@@ -158,7 +158,7 @@ public class da {
    }
 
    static final int mh_renamed() {
-      float var1 = 200.0F * ((float)aj.clientPreferences.av() - 0.5F);
+      float var1 = 200.0F * ((float)aj.vb.av() - 0.5F);
       return 100 - Math.round(var1);
    }
 }

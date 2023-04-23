@@ -1,29 +1,29 @@
 public abstract class AbstractArchive {
    static int bz = 0;
-   static GzipDecompressor gzipDecompressor = new GzipDecompressor();
-   boolean shallowFiles;
-   boolean releaseGroups;
-   int groupCount;
-   int[] fileCounts;
-   int[] groupIds;
-   int[] groupCrcs;
-   int[] groupNameHashes;
-   int[] groupVersions;
-   int[][] fileNameHashes;
-   int[][] fileIds;
-   Object[] groups;
-   Object[][] files;
+   static GzipDecompressor be = new GzipDecompressor();
+   boolean bo;
+   boolean bx;
+   int ar;
+   int[] ad;
+   int[] ak;
+   int[] am;
+   int[] as;
+   int[] az;
+   int[][] ae;
+   int[][] ap;
+   Object[] bb;
+   Object[][] bi;
    td aj;
    td[] by;
-   public int hash;
+   public int bk;
 
    AbstractArchive(boolean var1, boolean var2) {
-      this.releaseGroups = var1;
-      this.shallowFiles = var2;
+      this.bx = var1;
+      this.bo = var2;
    }
 
    void decodeIndex(byte[] var1) {
-      this.hash = ii.br_renamed(var1, var1.length) * -175856763;
+      this.bk = ii.br_renamed(var1, var1.length) * -175856763;
       Packet var3 = new Packet(ai.ch_renamed(var1));
       int var4 = var3.g1();
       if (var4 >= 5 && var4 <= 7) {
@@ -33,57 +33,57 @@ public abstract class AbstractArchive {
 
          int var5 = var3.g1();
          if (var4 >= 7) {
-            this.groupCount = var3.dc() * 1692969259;
+            this.ar = var3.dc() * 1692969259;
          } else {
-            this.groupCount = var3.cl() * 1692969259;
+            this.ar = var3.cl() * 1692969259;
          }
 
          int var6 = 0;
          int var7 = -1;
-         this.groupCrcs = new int[this.groupCount * -1754346109];
+         this.am = new int[this.ar * -1754346109];
          int var8;
          if (var4 >= 7) {
-            for(var8 = 0; var8 < -1754346109 * this.groupCount; ++var8) {
-               this.groupCrcs[var8] = var6 += var3.dc();
-               if (this.groupCrcs[var8] > var7) {
-                  var7 = this.groupCrcs[var8];
+            for(var8 = 0; var8 < -1754346109 * this.ar; ++var8) {
+               this.am[var8] = var6 += var3.dc();
+               if (this.am[var8] > var7) {
+                  var7 = this.am[var8];
                }
             }
          } else {
-            for(var8 = 0; var8 < this.groupCount * -1754346109; ++var8) {
-               this.groupCrcs[var8] = var6 += var3.cl();
-               if (this.groupCrcs[var8] > var7) {
-                  var7 = this.groupCrcs[var8];
+            for(var8 = 0; var8 < this.ar * -1754346109; ++var8) {
+               this.am[var8] = var6 += var3.cl();
+               if (this.am[var8] > var7) {
+                  var7 = this.am[var8];
                }
             }
          }
 
-         this.groupIds = new int[1 + var7];
-         this.groupVersions = new int[1 + var7];
-         this.fileCounts = new int[var7 + 1];
-         this.fileNameHashes = new int[var7 + 1][];
-         this.groups = new Object[1 + var7];
-         this.files = new Object[1 + var7][];
+         this.ak = new int[1 + var7];
+         this.az = new int[1 + var7];
+         this.ad = new int[var7 + 1];
+         this.ae = new int[var7 + 1][];
+         this.bb = new Object[1 + var7];
+         this.bi = new Object[1 + var7][];
          if (0 != var5) {
-            this.groupNameHashes = new int[var7 + 1];
+            this.as = new int[var7 + 1];
 
-            for(var8 = 0; var8 < -1754346109 * this.groupCount; ++var8) {
-               this.groupNameHashes[this.groupCrcs[var8]] = var3.g4s();
+            for(var8 = 0; var8 < -1754346109 * this.ar; ++var8) {
+               this.as[this.am[var8]] = var3.g4s();
             }
 
-            this.aj = new td(this.groupNameHashes);
+            this.aj = new td(this.as);
          }
 
-         for(var8 = 0; var8 < this.groupCount * -1754346109; ++var8) {
-            this.groupIds[this.groupCrcs[var8]] = var3.g4s();
+         for(var8 = 0; var8 < this.ar * -1754346109; ++var8) {
+            this.ak[this.am[var8]] = var3.g4s();
          }
 
-         for(var8 = 0; var8 < this.groupCount * -1754346109; ++var8) {
-            this.groupVersions[this.groupCrcs[var8]] = var3.g4s();
+         for(var8 = 0; var8 < this.ar * -1754346109; ++var8) {
+            this.az[this.am[var8]] = var3.g4s();
          }
 
-         for(var8 = 0; var8 < this.groupCount * -1754346109; ++var8) {
-            this.fileCounts[this.groupCrcs[var8]] = var3.cl();
+         for(var8 = 0; var8 < this.ar * -1754346109; ++var8) {
+            this.ad[this.am[var8]] = var3.cl();
          }
 
          int var9;
@@ -92,55 +92,55 @@ public abstract class AbstractArchive {
          int var12;
          int var13;
          if (var4 >= 7) {
-            for(var8 = 0; var8 < -1754346109 * this.groupCount; ++var8) {
-               var9 = this.groupCrcs[var8];
-               var10 = this.fileCounts[var9];
+            for(var8 = 0; var8 < -1754346109 * this.ar; ++var8) {
+               var9 = this.am[var8];
+               var10 = this.ad[var9];
                var6 = 0;
                var11 = -1;
-               this.fileNameHashes[var9] = new int[var10];
+               this.ae[var9] = new int[var10];
 
                for(var12 = 0; var12 < var10; ++var12) {
-                  var13 = this.fileNameHashes[var9][var12] = var6 += var3.dc();
+                  var13 = this.ae[var9][var12] = var6 += var3.dc();
                   if (var13 > var11) {
                      var11 = var13;
                   }
                }
 
-               this.files[var9] = new Object[1 + var11];
+               this.bi[var9] = new Object[1 + var11];
             }
          } else {
-            for(var8 = 0; var8 < -1754346109 * this.groupCount; ++var8) {
-               var9 = this.groupCrcs[var8];
-               var10 = this.fileCounts[var9];
+            for(var8 = 0; var8 < -1754346109 * this.ar; ++var8) {
+               var9 = this.am[var8];
+               var10 = this.ad[var9];
                var6 = 0;
                var11 = -1;
-               this.fileNameHashes[var9] = new int[var10];
+               this.ae[var9] = new int[var10];
 
                for(var12 = 0; var12 < var10; ++var12) {
-                  var13 = this.fileNameHashes[var9][var12] = var6 += var3.cl();
+                  var13 = this.ae[var9][var12] = var6 += var3.cl();
                   if (var13 > var11) {
                      var11 = var13;
                   }
                }
 
-               this.files[var9] = new Object[var11 + 1];
+               this.bi[var9] = new Object[var11 + 1];
             }
          }
 
          if (var5 != 0) {
-            this.fileIds = new int[1 + var7][];
+            this.ap = new int[1 + var7][];
             this.by = new td[1 + var7];
 
-            for(var8 = 0; var8 < this.groupCount * -1754346109; ++var8) {
-               var9 = this.groupCrcs[var8];
-               var10 = this.fileCounts[var9];
-               this.fileIds[var9] = new int[this.files[var9].length];
+            for(var8 = 0; var8 < this.ar * -1754346109; ++var8) {
+               var9 = this.am[var8];
+               var10 = this.ad[var9];
+               this.ap[var9] = new int[this.bi[var9].length];
 
                for(var11 = 0; var11 < var10; ++var11) {
-                  this.fileIds[var9][this.fileNameHashes[var9][var11]] = var3.g4s();
+                  this.ap[var9][this.ae[var9][var11]] = var3.g4s();
                }
 
-               this.by[var9] = new td(this.fileIds[var9]);
+               this.by[var9] = new td(this.ap[var9]);
             }
          }
 
@@ -158,10 +158,10 @@ public abstract class AbstractArchive {
          var2 = new hs();
          var2.ab = -1772751813 * var0;
          if (null != var3) {
-            var2.ac(new Packet(var3));
+            var2.decode(new Packet(var3));
          }
 
-         var2.aw();
+         var2.postDecode();
          hs.ac.put(var2, (long)var0);
          return var2;
       }
@@ -257,8 +257,8 @@ public abstract class AbstractArchive {
    }
 
    public byte[] takeFileEncrypted(int var1, int var2, int[] var3) {
-      if (var1 >= 0 && var1 < this.files.length && this.files[var1] != null && var2 >= 0 && var2 < this.files[var1].length) {
-         if (null == this.files[var1][var2]) {
+      if (var1 >= 0 && var1 < this.bi.length && this.bi[var1] != null && var2 >= 0 && var2 < this.bi[var1].length) {
+         if (null == this.bi[var1][var2]) {
             boolean var5 = this.buildFiles(var1, var3);
             if (!var5) {
                this.ac(var1);
@@ -269,9 +269,9 @@ public abstract class AbstractArchive {
             }
          }
 
-         byte[] var6 = HeadbarType.byteArrayFromObject(this.files[var1][var2], false);
-         if (this.shallowFiles) {
-            this.files[var1][var2] = null;
+         byte[] var6 = HeadbarType.byteArrayFromObject(this.bi[var1][var2], false);
+         if (this.bo) {
+            this.bi[var1][var2] = null;
          }
 
          return var6;
@@ -281,14 +281,14 @@ public abstract class AbstractArchive {
    }
 
    public boolean tryLoadFile(int var1, int var2) {
-      if (var1 >= 0 && var1 < this.files.length && null != this.files[var1] && var2 >= 0 && var2 < this.files[var1].length) {
-         if (null != this.files[var1][var2]) {
+      if (var1 >= 0 && var1 < this.bi.length && null != this.bi[var1] && var2 >= 0 && var2 < this.bi[var1].length) {
+         if (null != this.bi[var1][var2]) {
             return true;
-         } else if (null != this.groups[var1]) {
+         } else if (null != this.bb[var1]) {
             return true;
          } else {
             this.ac(var1);
-            return null != this.groups[var1];
+            return null != this.bb[var1];
          }
       } else {
          return false;
@@ -296,9 +296,9 @@ public abstract class AbstractArchive {
    }
 
    public boolean ci(int var1) {
-      if (this.files.length == 1) {
+      if (this.bi.length == 1) {
          return this.tryLoadFile(0, var1);
-      } else if (1 == this.files[var1].length) {
+      } else if (1 == this.bi[var1].length) {
          return this.tryLoadFile(var1, 0);
       } else {
          throw new RuntimeException();
@@ -306,22 +306,22 @@ public abstract class AbstractArchive {
    }
 
    public boolean tryLoadGroup(int var1) {
-      if (this.groups[var1] != null) {
+      if (this.bb[var1] != null) {
          return true;
       } else {
          this.ac(var1);
-         return null != this.groups[var1];
+         return null != this.bb[var1];
       }
    }
 
    public boolean cc() {
       boolean var2 = true;
 
-      for(int var3 = 0; var3 < this.groupCrcs.length; ++var3) {
-         int var4 = this.groupCrcs[var3];
-         if (null == this.groups[var4]) {
+      for(int var3 = 0; var3 < this.am.length; ++var3) {
+         int var4 = this.am[var3];
+         if (null == this.bb[var4]) {
             this.ac(var4);
-            if (null == this.groups[var4]) {
+            if (null == this.bb[var4]) {
                var2 = false;
             }
          }
@@ -331,13 +331,13 @@ public abstract class AbstractArchive {
    }
 
    int groupLoadPercent(int var1) {
-      return null != this.groups[var1] ? 100 : 0;
+      return null != this.bb[var1] ? 100 : 0;
    }
 
    public byte[] takeFileFlat(int var1) {
-      if (this.files.length == 1) {
+      if (this.bi.length == 1) {
          return this.takeFile(0, var1);
-      } else if (this.files[var1].length == 1) {
+      } else if (this.bi[var1].length == 1) {
          return this.takeFile(var1, 0);
       } else {
          throw new RuntimeException();
@@ -345,8 +345,8 @@ public abstract class AbstractArchive {
    }
 
    public byte[] getFile(int var1, int var2) {
-      if (var1 >= 0 && var1 < this.files.length && null != this.files[var1] && var2 >= 0 && var2 < this.files[var1].length) {
-         if (this.files[var1][var2] == null) {
+      if (var1 >= 0 && var1 < this.bi.length && null != this.bi[var1] && var2 >= 0 && var2 < this.bi[var1].length) {
+         if (this.bi[var1][var2] == null) {
             boolean var4 = this.buildFiles(var1, (int[])null);
             if (!var4) {
                this.ac(var1);
@@ -357,7 +357,7 @@ public abstract class AbstractArchive {
             }
          }
 
-         byte[] var5 = HeadbarType.byteArrayFromObject(this.files[var1][var2], false);
+         byte[] var5 = HeadbarType.byteArrayFromObject(this.bi[var1][var2], false);
          return var5;
       } else {
          return null;
@@ -365,9 +365,9 @@ public abstract class AbstractArchive {
    }
 
    public byte[] getFileFlat(int var1) {
-      if (1 == this.files.length) {
+      if (1 == this.bi.length) {
          return this.getFile(0, var1);
-      } else if (1 == this.files[var1].length) {
+      } else if (1 == this.bi[var1].length) {
          return this.getFile(var1, 0);
       } else {
          throw new RuntimeException();
@@ -378,36 +378,36 @@ public abstract class AbstractArchive {
    }
 
    public int[] ck(int var1) {
-      return var1 >= 0 && var1 < this.fileNameHashes.length ? this.fileNameHashes[var1] : null;
+      return var1 >= 0 && var1 < this.ae.length ? this.ae[var1] : null;
    }
 
    public int cq(int var1) {
-      return this.files != null && var1 < this.files.length && null != this.files[var1] ? this.files[var1].length : 0;
+      return this.bi != null && var1 < this.bi.length && null != this.bi[var1] ? this.bi[var1].length : 0;
    }
 
    public int cm() {
-      return this.files.length;
+      return this.bi.length;
    }
 
    public void cf() {
-      for(int var2 = 0; var2 < this.groups.length; ++var2) {
-         this.groups[var2] = null;
+      for(int var2 = 0; var2 < this.bb.length; ++var2) {
+         this.bb[var2] = null;
       }
 
    }
 
    public void cl(int var1) {
-      for(int var3 = 0; var3 < this.files[var1].length; ++var3) {
-         this.files[var1][var3] = null;
+      for(int var3 = 0; var3 < this.bi[var1].length; ++var3) {
+         this.bi[var1][var3] = null;
       }
 
    }
 
    public void cg() {
-      for(int var2 = 0; var2 < this.files.length; ++var2) {
-         if (this.files[var2] != null) {
-            for(int var3 = 0; var3 < this.files[var2].length; ++var3) {
-               this.files[var2][var3] = null;
+      for(int var2 = 0; var2 < this.bi.length; ++var2) {
+         if (this.bi[var2] != null) {
+            for(int var3 = 0; var3 < this.bi[var2].length; ++var3) {
+               this.bi[var2][var3] = null;
             }
          }
       }
@@ -415,12 +415,12 @@ public abstract class AbstractArchive {
    }
 
    boolean buildFiles(int var1, int[] var2) {
-      if (this.groups[var1] == null) {
+      if (this.bb[var1] == null) {
          return false;
       } else {
-         int var4 = this.fileCounts[var1];
-         int[] var5 = this.fileNameHashes[var1];
-         Object[] var6 = this.files[var1];
+         int var4 = this.ad[var1];
+         int[] var5 = this.ae[var1];
+         Object[] var6 = this.bi[var1];
          boolean var7 = true;
 
          for(int var8 = 0; var8 < var4; ++var8) {
@@ -435,16 +435,16 @@ public abstract class AbstractArchive {
          } else {
             byte[] var19;
             if (var2 == null || 0 == var2[0] && 0 == var2[1] && 0 == var2[2] && var2[3] == 0) {
-               var19 = HeadbarType.byteArrayFromObject(this.groups[var1], false);
+               var19 = HeadbarType.byteArrayFromObject(this.bb[var1], false);
             } else {
-               var19 = HeadbarType.byteArrayFromObject(this.groups[var1], true);
+               var19 = HeadbarType.byteArrayFromObject(this.bb[var1], true);
                Packet var9 = new Packet(var19);
-               var9.tinyKeyDecrypt(var2, 5, var9.array.length);
+               var9.tinyKeyDecrypt(var2, 5, var9.al.length);
             }
 
             byte[] var20 = ai.ch_renamed(var19);
-            if (this.releaseGroups) {
-               this.groups[var1] = null;
+            if (this.bx) {
+               this.bb[var1] = null;
             }
 
             if (var4 > 1) {
@@ -454,7 +454,7 @@ public abstract class AbstractArchive {
                var10 -= 4 * var4 * var11;
                Packet var12 = new Packet(var20);
                int[] var13 = new int[var4];
-               var12.index = -1516355947 * var10;
+               var12.at = -1516355947 * var10;
 
                int var15;
                int var16;
@@ -474,7 +474,7 @@ public abstract class AbstractArchive {
                   var13[var15] = 0;
                }
 
-               var12.index = var10 * -1516355947;
+               var12.at = var10 * -1516355947;
                var15 = 0;
 
                for(var16 = 0; var16 < var11; ++var16) {
@@ -489,13 +489,13 @@ public abstract class AbstractArchive {
                }
 
                for(var16 = 0; var16 < var4; ++var16) {
-                  if (!this.shallowFiles) {
+                  if (!this.bo) {
                      var6[var5[var16]] = ef.byteArrayToObject(var21[var16], false);
                   } else {
                      var6[var5[var16]] = var21[var16];
                   }
                }
-            } else if (!this.shallowFiles) {
+            } else if (!this.bo) {
                var6[var5[0]] = ef.byteArrayToObject(var20, false);
             } else {
                var6[var5[0]] = var20;

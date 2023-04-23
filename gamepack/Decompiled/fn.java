@@ -13,7 +13,7 @@ public class fn extends fb {
       this.af = -209663463;
    }
 
-   void af(Packet var1) {
+   void write(Packet var1) {
       this.af = var1.cl() * 209663463;
       this.an = var1.g1() == 1;
    }

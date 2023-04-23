@@ -1,11 +1,11 @@
 public class VorbisSample extends Node {
-   static VorbisMapping[] VorbisSample_mappings;
-   static VorbisFloor[] VorbisSample_floors;
-   static boolean VorbisSample_setupHeaderLoaded = false;
+   static VorbisMapping[] ag;
+   static VorbisFloor[] ax;
+   static boolean ar = false;
    static boolean[] ah;
-   static VorbisResidue[] VorbisSample_residues;
-   static VorbisCodebook[] VorbisSample_codebooks;
-   static byte[] VorbisSample_stream;
+   static VorbisResidue[] ai;
+   static VorbisCodebook[] ao;
+   static byte[] aq;
    static float[] ad;
    static float[] ae;
    static float[] ap;
@@ -13,24 +13,24 @@ public class VorbisSample extends Node {
    static float[] bb;
    static float[] bi;
    static float[] by;
-   static int VorbisSample_blocksize0;
-   static int VorbisSample_bytePos;
-   static int VorbisSample_bitPos;
-   static int VorbisSample_blocksize1;
+   static int aa;
+   static int al;
+   static int at;
+   static int ay;
    static int[] av;
    static int[] be;
    static int[] bk;
    boolean ab;
    boolean ak;
-   byte[] samples;
-   byte[][] audioBlocks;
+   byte[] bx;
+   byte[][] af;
    float[] am;
-   int start;
+   int ac;
    int aj;
-   int sampleRate;
+   int an;
    int as;
-   int end;
-   int sampleCount;
+   int au;
+   int aw;
    int bo;
    int bz;
 
@@ -46,16 +46,16 @@ public class VorbisSample extends Node {
    }
 
    static void VorbisSample_setStream(byte[] var0, int var1) {
-      VorbisSample_stream = var0;
-      VorbisSample_bytePos = var1;
-      VorbisSample_bitPos = 0;
+      aq = var0;
+      al = var1;
+      at = 0;
    }
 
    static int VorbisSample_readBit() {
-      int var0 = VorbisSample_stream[VorbisSample_bytePos] >> VorbisSample_bitPos & 1;
-      ++VorbisSample_bitPos;
-      VorbisSample_bytePos += VorbisSample_bitPos >> 3;
-      VorbisSample_bitPos &= 7;
+      int var0 = aq[al] >> at & 1;
+      ++at;
+      al += at >> 3;
+      at &= 7;
       return var0;
    }
 
@@ -64,19 +64,19 @@ public class VorbisSample extends Node {
 
       int var2;
       int var3;
-      for(var2 = 0; var0 >= 8 - VorbisSample_bitPos; var0 -= var3) {
-         var3 = 8 - VorbisSample_bitPos;
+      for(var2 = 0; var0 >= 8 - at; var0 -= var3) {
+         var3 = 8 - at;
          int var4 = (1 << var3) - 1;
-         var1 += (VorbisSample_stream[VorbisSample_bytePos] >> VorbisSample_bitPos & var4) << var2;
-         VorbisSample_bitPos = 0;
-         ++VorbisSample_bytePos;
+         var1 += (aq[al] >> at & var4) << var2;
+         at = 0;
+         ++al;
          var2 += var3;
       }
 
       if (var0 > 0) {
          var3 = (1 << var0) - 1;
-         var1 += (VorbisSample_stream[VorbisSample_bytePos] >> VorbisSample_bitPos & var3) << var2;
-         VorbisSample_bitPos += var0;
+         var1 += (aq[al] >> at & var3) << var2;
+         at += var0;
       }
 
       return var1;
@@ -84,17 +84,17 @@ public class VorbisSample extends Node {
 
    void decodeMeta(byte[] var1) {
       Packet var2 = new Packet(var1);
-      this.sampleRate = var2.g4s();
-      this.sampleCount = var2.g4s();
-      this.start = var2.g4s();
-      this.end = var2.g4s();
-      if (this.end < 0) {
-         this.end = ~this.end;
+      this.an = var2.g4s();
+      this.aw = var2.g4s();
+      this.ac = var2.g4s();
+      this.au = var2.g4s();
+      if (this.au < 0) {
+         this.au = ~this.au;
          this.ab = true;
       }
 
       int var3 = var2.g4s();
-      this.audioBlocks = new byte[var3][];
+      this.af = new byte[var3][];
 
       for(int var4 = 0; var4 < var3; ++var4) {
          int var5 = 0;
@@ -107,16 +107,16 @@ public class VorbisSample extends Node {
 
          byte[] var9 = new byte[var5];
          var2.ct(var9, 0, var5);
-         this.audioBlocks[var4] = var9;
+         this.af[var4] = var9;
       }
 
    }
 
    static void VorbisSample_decodeSetupHeader(byte[] var0) {
       VorbisSample_setStream(var0, 0);
-      VorbisSample_blocksize0 = 1 << VorbisSample_readBits(4);
-      VorbisSample_blocksize1 = 1 << VorbisSample_readBits(4);
-      az = new float[VorbisSample_blocksize1];
+      aa = 1 << VorbisSample_readBits(4);
+      ay = 1 << VorbisSample_readBits(4);
+      az = new float[ay];
 
       int var1;
       int var2;
@@ -124,7 +124,7 @@ public class VorbisSample extends Node {
       int var4;
       int var5;
       for(var1 = 0; var1 < 2; ++var1) {
-         var2 = var1 != 0 ? VorbisSample_blocksize1 : VorbisSample_blocksize0;
+         var2 = var1 != 0 ? ay : aa;
          var3 = var2 >> 1;
          var4 = var2 >> 2;
          var5 = var2 >> 3;
@@ -179,10 +179,10 @@ public class VorbisSample extends Node {
       }
 
       var1 = VorbisSample_readBits(8) + 1;
-      VorbisSample_codebooks = new VorbisCodebook[var1];
+      ao = new VorbisCodebook[var1];
 
       for(var2 = 0; var2 < var1; ++var2) {
-         VorbisSample_codebooks[var2] = new VorbisCodebook();
+         ao[var2] = new VorbisCodebook();
       }
 
       var2 = VorbisSample_readBits(6) + 1;
@@ -192,24 +192,24 @@ public class VorbisSample extends Node {
       }
 
       var2 = VorbisSample_readBits(6) + 1;
-      VorbisSample_floors = new VorbisFloor[var2];
+      ax = new VorbisFloor[var2];
 
       for(var3 = 0; var3 < var2; ++var3) {
-         VorbisSample_floors[var3] = new VorbisFloor();
+         ax[var3] = new VorbisFloor();
       }
 
       var3 = VorbisSample_readBits(6) + 1;
-      VorbisSample_residues = new VorbisResidue[var3];
+      ai = new VorbisResidue[var3];
 
       for(var4 = 0; var4 < var3; ++var4) {
-         VorbisSample_residues[var4] = new VorbisResidue();
+         ai[var4] = new VorbisResidue();
       }
 
       var4 = VorbisSample_readBits(6) + 1;
-      VorbisSample_mappings = new VorbisMapping[var4];
+      ag = new VorbisMapping[var4];
 
       for(var5 = 0; var5 < var4; ++var5) {
-         VorbisSample_mappings[var5] = new VorbisMapping();
+         ag[var5] = new VorbisMapping();
       }
 
       var5 = VorbisSample_readBits(6) + 1;
@@ -226,11 +226,11 @@ public class VorbisSample extends Node {
    }
 
    float[] decodeAudio(int var1) {
-      VorbisSample_setStream(this.audioBlocks[var1], 0);
+      VorbisSample_setStream(this.af[var1], 0);
       VorbisSample_readBit();
       int var2 = VorbisSample_readBits(LoginProt.aq_renamed(av.length - 1));
       boolean var3 = ah[var2];
-      int var4 = var3 ? VorbisSample_blocksize1 : VorbisSample_blocksize0;
+      int var4 = var3 ? ay : aa;
       boolean var5 = false;
       boolean var6 = false;
       if (var3) {
@@ -243,9 +243,9 @@ public class VorbisSample extends Node {
       int var9;
       int var10;
       if (var3 && !var5) {
-         var8 = (var4 >> 2) - (VorbisSample_blocksize0 >> 2);
-         var9 = (var4 >> 2) + (VorbisSample_blocksize0 >> 2);
-         var10 = VorbisSample_blocksize0 >> 1;
+         var8 = (var4 >> 2) - (aa >> 2);
+         var9 = (var4 >> 2) + (aa >> 2);
+         var10 = aa >> 1;
       } else {
          var8 = 0;
          var9 = var7;
@@ -256,32 +256,32 @@ public class VorbisSample extends Node {
       int var12;
       int var13;
       if (var3 && !var6) {
-         var11 = var4 - (var4 >> 2) - (VorbisSample_blocksize0 >> 2);
-         var12 = var4 - (var4 >> 2) + (VorbisSample_blocksize0 >> 2);
-         var13 = VorbisSample_blocksize0 >> 1;
+         var11 = var4 - (var4 >> 2) - (aa >> 2);
+         var12 = var4 - (var4 >> 2) + (aa >> 2);
+         var13 = aa >> 1;
       } else {
          var11 = var7;
          var12 = var4;
          var13 = var4 >> 1;
       }
 
-      VorbisMapping var14 = VorbisSample_mappings[av[var2]];
-      int var16 = var14.mappingMux;
-      int var17 = var14.submapFloor[var16];
-      boolean var15 = !VorbisSample_floors[var17].ab();
+      VorbisMapping var14 = ag[av[var2]];
+      int var16 = var14.an;
+      int var17 = var14.aw[var16];
+      boolean var15 = !ax[var17].ab();
       boolean var40 = var15;
 
-      for(var17 = 0; var17 < var14.submaps; ++var17) {
-         VorbisResidue var18 = VorbisSample_residues[var14.submapResidue[var17]];
+      for(var17 = 0; var17 < var14.af; ++var17) {
+         VorbisResidue var18 = ai[var14.ac[var17]];
          float[] var19 = az;
          var18.af(var19, var4 >> 1, var40);
       }
 
       int var41;
       if (!var15) {
-         var17 = var14.mappingMux;
-         var41 = var14.submapFloor[var17];
-         VorbisSample_floors[var41].aq(az, var4 >> 1);
+         var17 = var14.an;
+         var41 = var14.aw[var17];
+         ax[var41].aq(az, var4 >> 1);
       }
 
       int var42;
@@ -479,14 +479,14 @@ public class VorbisSample extends Node {
    }
 
    static boolean VorbisSample_loadSetupHeader(AbstractArchive var0) {
-      if (!VorbisSample_setupHeaderLoaded) {
+      if (!ar) {
          byte[] var1 = var0.takeFile(0, 0);
          if (var1 == null) {
             return false;
          }
 
          VorbisSample_decodeSetupHeader(var1);
-         VorbisSample_setupHeaderLoaded = true;
+         ar = true;
       }
 
       return true;
@@ -510,15 +510,15 @@ public class VorbisSample extends Node {
       if (var1 != null && var1[0] <= 0) {
          return null;
       } else {
-         if (this.samples == null) {
+         if (this.bx == null) {
             this.as = 0;
-            this.am = new float[VorbisSample_blocksize1];
-            this.samples = new byte[this.sampleCount];
+            this.am = new float[ay];
+            this.bx = new byte[this.aw];
             this.bo = 0;
             this.bz = 0;
          }
 
-         for(; this.bz < this.audioBlocks.length; ++this.bz) {
+         for(; this.bz < this.af.length; ++this.bz) {
             if (var1 != null && var1[0] <= 0) {
                return null;
             }
@@ -527,8 +527,8 @@ public class VorbisSample extends Node {
             if (var2 != null) {
                int var3 = this.bo;
                int var4 = var2.length;
-               if (var4 > this.sampleCount - var3) {
-                  var4 = this.sampleCount - var3;
+               if (var4 > this.aw - var3) {
+                  var4 = this.aw - var3;
                }
 
                for(int var5 = 0; var5 < var4; ++var5) {
@@ -537,7 +537,7 @@ public class VorbisSample extends Node {
                      var6 = ~var6 >> 31;
                   }
 
-                  this.samples[var3++] = (byte)(var6 - 128);
+                  this.bx[var3++] = (byte)(var6 - 128);
                }
 
                if (var1 != null) {
@@ -549,9 +549,9 @@ public class VorbisSample extends Node {
          }
 
          this.am = null;
-         byte[] var11 = this.samples;
-         this.samples = null;
-         return new RawSound(this.sampleRate, var11, this.start, this.end, this.ab);
+         byte[] var11 = this.bx;
+         this.bx = null;
+         return new RawSound(this.an, var11, this.ac, this.au, this.ab);
       }
    }
 }

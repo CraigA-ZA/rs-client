@@ -2,18 +2,18 @@ import java.awt.Graphics;
 
 public final class Canvas extends java.awt.Canvas {
    static IndexedSprite ay;
-   java.awt.Component component;
+   java.awt.Component af;
 
    Canvas(java.awt.Component var1) {
-      this.component = var1;
+      this.af = var1;
    }
 
    public final void update(Graphics var1) {
-      this.component.update(var1);
+      this.af.update(var1);
    }
 
    public final void paint(Graphics var1) {
-      this.component.paint(var1);
+      this.af.paint(var1);
    }
 
    public static int ac_renamed(int var0, int var1, int var2) {
@@ -23,7 +23,7 @@ public final class Canvas extends java.awt.Canvas {
    }
 
    static void ne_renamed() {
-      Client.packetWriter.aw(mi.an_renamed(ClientProt.ac, Client.packetWriter.au));
+      Client.in.aw(mi.an_renamed(ClientProt.ac, Client.in.au));
       Client.lv = 0;
    }
 }

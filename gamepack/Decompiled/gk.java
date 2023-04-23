@@ -2,7 +2,7 @@ import java.security.SecureRandom;
 
 public class gk extends gn {
    static int kv;
-   static SecureRandom secureRandom;
+   static SecureRandom hz;
    int af;
    // $FF: synthetic field
    final gy this$0;

@@ -3,12 +3,12 @@ public class WorldMapIcon1 extends AbstractWorldMapIcon {
    final int ac;
    final int af;
    final int aw;
-   final WorldMapLabel label0;
+   final WorldMapLabel an;
 
    WorldMapIcon1(Coord var1, Coord var2, int var3, WorldMapLabel var4) {
       super(var1, var2);
       this.af = -1078535861 * var3;
-      this.label0 = var4;
+      this.an = var4;
       MapElementType var5 = nf.getMapElementType(this.element());
       Rasterizer3D var6 = var5.ab(false);
       if (var6 != null) {
@@ -26,7 +26,7 @@ public class WorldMapIcon1 extends AbstractWorldMapIcon {
    }
 
    WorldMapLabel label() {
-      return this.label0;
+      return this.an;
    }
 
    int ac() {

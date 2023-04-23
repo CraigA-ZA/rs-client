@@ -4,7 +4,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class ag {
-   static UrlRequester urlRequester;
+   static UrlRequester iq;
    final int af;
    final String an;
    final ThreadFactory aw;
@@ -75,7 +75,7 @@ public class ag {
       if (var0) {
          Client.gh = cz.cd ? fp.an : fp.ac;
       } else {
-         Client.gh = aj.clientPreferences.bk(cz.ca) ? fp.af : fp.aw;
+         Client.gh = aj.vb.bk(cz.ca) ? fp.af : fp.aw;
       }
 
    }

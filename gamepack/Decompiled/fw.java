@@ -47,7 +47,7 @@ public class fw extends fb {
          var18 = 0;
          iw.al[var17] = var0;
          iw.at[var17++] = var1;
-         int[][] var19 = var4.flags;
+         int[][] var19 = var4.bj;
 
          boolean var29;
          while(true) {
@@ -271,10 +271,10 @@ public class fw extends fb {
          var2 = new hq();
          var2.at = var0 * -1113054781;
          if (var3 != null) {
-            var2.ac(new Packet(var3));
+            var2.decode(new Packet(var3));
          }
 
-         var2.aw();
+         var2.postDecode();
          if (var2.br) {
             var2.am = 0;
             var2.as = false;
@@ -286,12 +286,12 @@ public class fw extends fb {
    }
 
    public static void ac_renamed() {
-      synchronized(ArchiveDiskActionHandler.ArchiveDiskActionHandler_lock) {
+      synchronized(ArchiveDiskActionHandler.ac) {
          if (0 != -1248352937 * ArchiveDiskActionHandler.aw) {
             ArchiveDiskActionHandler.aw = 1527846503;
 
             try {
-               ArchiveDiskActionHandler.ArchiveDiskActionHandler_lock.wait();
+               ArchiveDiskActionHandler.ac.wait();
             } catch (InterruptedException var4) {
             }
          }
@@ -307,7 +307,7 @@ public class fw extends fb {
       this.this$0 = var1;
    }
 
-   void af(Packet var1) {
+   void write(Packet var1) {
       this.af = var1.g4s() * 1125554619;
       this.ac = var1.g4s() * -1773346325;
       this.an = var1.g1() * 1126530805;
@@ -329,10 +329,10 @@ public class fw extends fb {
             int var21;
             int var23;
             if (var0 == 7502) {
-               Interpreter.Interpreter_intStackSize -= 1281407919;
-               var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-               var21 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
-               var6 = Interpreter.Interpreter_intStack[2 + -964267539 * Interpreter.Interpreter_intStackSize];
+               Interpreter.at -= 1281407919;
+               var4 = Interpreter.al[Interpreter.at * -964267539];
+               var21 = Interpreter.al[1 + -964267539 * Interpreter.at];
+               var6 = Interpreter.al[2 + -964267539 * Interpreter.at];
                var23 = oy.af_renamed(var21);
                var8 = BufferedSink.an_renamed(var21);
                int var25 = fv.aw_renamed(var21);
@@ -362,9 +362,9 @@ public class fw extends fb {
                      var17 = var28[var16];
                      sh var29 = da.an_renamed(var17);
                      if (sh.aw == var29) {
-                        Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
+                        Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = "";
                      } else {
-                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = nt.af_renamed(var17);
+                        Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = nt.af_renamed(var17);
                      }
                   }
 
@@ -376,9 +376,9 @@ public class fw extends fb {
                         int var18 = var17 + var6 * var28.length;
                         sh var19 = da.an_renamed(var28[var17]);
                         if (sh.aw == var19) {
-                           Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = (String)var15[var18];
+                           Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = (String)var15[var18];
                         } else {
-                           Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (Integer)var15[var18];
+                           Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = (Integer)var15[var18];
                         }
                      }
 
@@ -388,9 +388,9 @@ public class fw extends fb {
                   }
                }
             } else if (var0 == 7503) {
-               Interpreter.Interpreter_intStackSize -= 854271946;
-               var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-               var21 = Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539];
+               Interpreter.at -= 854271946;
+               var4 = Interpreter.al[Interpreter.at * -964267539];
+               var21 = Interpreter.al[1 + Interpreter.at * -964267539];
                var6 = 0;
                var23 = oy.af_renamed(var21);
                var8 = BufferedSink.an_renamed(var21);
@@ -406,29 +406,29 @@ public class fw extends fb {
                   var6 = var12.length / var11.length;
                }
 
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var6;
+               Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var6;
                return 1;
             } else if (7504 != var0 && 7510 != var0) {
                if (7505 == var0) {
-                  var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                   sz var22 = ek.an_renamed(var4);
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 468764621 * var22.au;
+                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 468764621 * var22.au;
                   return 1;
                } else if (var0 == 7506) {
-                  var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                   var21 = -1;
                   if (aa.wf != null && var4 >= 0 && var4 < aa.wf.size()) {
                      var21 = (Integer)aa.wf.get(var4);
                   }
 
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var21;
+                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var21;
                   return 1;
                } else if (7507 != var0 && 7509 != var0) {
                   return 2;
                } else {
-                  var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                   var5 = ClientScriptEvent.cn_renamed(var4);
-                  var6 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var6 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                   var7 = hf.ov_renamed(var6);
                   if (var7 == null) {
                      throw new RuntimeException();
@@ -448,15 +448,15 @@ public class fw extends fb {
 
                      an.wa = aa.wf.iterator();
                      if (var0 == 7507) {
-                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = aa.wf.size();
+                        Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = aa.wf.size();
                      }
 
                      return 1;
                   }
                }
             } else {
-               Interpreter.Interpreter_intStackSize -= 427135973;
-               var4 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+               Interpreter.at -= 427135973;
+               var4 = Interpreter.al[-964267539 * Interpreter.at];
                sk var20 = ay.od_renamed(var4);
                if (null == var20) {
                   throw new RuntimeException();
@@ -470,7 +470,7 @@ public class fw extends fb {
                   }
 
                   if (var0 == 7504) {
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var6;
+                     Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var6;
                   }
 
                   return 1;
@@ -478,17 +478,17 @@ public class fw extends fb {
             }
          } else {
             if (null != an.wa && an.wa.hasNext()) {
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (Integer)an.wa.next();
+               Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = (Integer)an.wa.next();
             } else {
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
+               Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = -1;
             }
 
             return 1;
          }
       } else {
-         var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
          var5 = ClientScriptEvent.cn_renamed(var4);
-         var6 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         var6 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
          var7 = hf.ov_renamed(var6);
          if (null == var7) {
             throw new RuntimeException();
@@ -499,13 +499,13 @@ public class fw extends fb {
                Client.wi = oy.af_renamed(var6) * 978308099;
                an.wa = aa.wf.iterator();
                if (7500 == var0) {
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = aa.wf.size();
+                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = aa.wf.size();
                }
             } else {
                Client.wi = -978308099;
                an.wa = null;
                if (var0 == 7500) {
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
+                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 0;
                }
             }
 
@@ -515,8 +515,8 @@ public class fw extends fb {
    }
 
    public static void ma_renamed(Component var0) {
-      if (var0 != null && 207148199 * Client.rs == -1197721959 * var0.cycle) {
-         Client.rf[372799529 * var0.rootIndex] = true;
+      if (var0 != null && 207148199 * Client.rs == -1197721959 * var0.hv) {
+         Client.rf[372799529 * var0.hd] = true;
       }
 
    }

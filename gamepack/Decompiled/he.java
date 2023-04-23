@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 public class he implements be {
-   static Archive archive13;
+   static Archive gr;
    boolean an = false;
    boolean aw = false;
    Component af = null;
@@ -258,7 +258,7 @@ public class he implements be {
       ClientPreferences var2 = new ClientPreferences();
 
       try {
-         var1 = in.getPreferencesFile("", Client.studioGame.name, false);
+         var1 = in.getPreferencesFile("", Client.cc.aq, false);
          byte[] var3 = new byte[(int)var1.length()];
 
          int var5;
@@ -284,8 +284,8 @@ public class he implements be {
    }
 
    static void ax_renamed(String var0, String var1, String var2) {
-      cz.Login_response1 = var0;
-      cz.Login_response2 = var1;
-      cz.Login_response3 = var2;
+      cz.cs = var0;
+      cz.cc = var1;
+      cz.cn = var2;
    }
 }

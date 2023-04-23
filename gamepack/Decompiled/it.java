@@ -287,7 +287,7 @@ public class it extends Entity {
                }
             } else {
                for(var12 = 0; var12 < var11.al; ++var12) {
-                  var13 = (-this.aa[var12] << 16) / (this.height * 1550732737);
+                  var13 = (-this.aa[var12] << 16) / (this.et * 1550732737);
                   if (var13 < var6) {
                      var14 = this.at[var12] + var2;
                      var15 = this.ay[var12] + var4;
@@ -445,7 +445,7 @@ public class it extends Entity {
    public void ai() {
       if (this.bo != 1) {
          this.bo = 1;
-         this.height = 0;
+         this.et = 0;
          this.bz = 0;
          this.bm = 0;
 
@@ -453,8 +453,8 @@ public class it extends Entity {
             int var2 = this.at[var1];
             int var3 = this.aa[var1];
             int var4 = this.ay[var1];
-            if (-var3 > this.height * 1550732737) {
-               this.height = -var3 * -644693439;
+            if (-var3 > this.et * 1550732737) {
+               this.et = -var3 * -644693439;
             }
 
             if (var3 > this.bz) {
@@ -468,7 +468,7 @@ public class it extends Entity {
          }
 
          this.bm = (int)(Math.sqrt((double)this.bm) + 0.99);
-         this.bt = (int)(Math.sqrt((double)(this.bm * this.bm + this.height * 1550732737 * this.height * 1550732737)) + 0.99);
+         this.bt = (int)(Math.sqrt((double)(this.bm * this.bm + this.et * 1550732737 * this.et * 1550732737)) + 0.99);
          this.bd = this.bt + (int)(Math.sqrt((double)(this.bm * this.bm + this.bz * this.bz)) + 0.99);
       }
    }
@@ -494,7 +494,7 @@ public class it extends Entity {
       }
    }
 
-   public int ah() {
+   public int transformedSize() {
       this.ai();
       return this.bm;
    }
@@ -507,15 +507,15 @@ public class it extends Entity {
    public void ar(AnimFrameset var1, int var2) {
       if (this.bb != null) {
          if (var2 != -1) {
-            AnimFrame var3 = var1.frames[var2];
-            AnimBase var4 = var3.base;
+            AnimFrame var3 = var1.af[var2];
+            AnimBase var4 = var3.au;
             cq = 0;
             cm = 0;
             cf = 0;
 
-            for(int var5 = 0; var5 < var3.transformCount; ++var5) {
-               int var6 = var3.transforms[var5];
-               this.ae(var4.transformTypes[var6], var4.transformLabels[var6], var3.xs[var5], var3.ys[var5], var3.zs[var5]);
+            for(int var5 = 0; var5 < var3.ab; ++var5) {
+               int var6 = var3.aq[var5];
+               this.ae(var4.al[var6], var4.at[var6], var3.al[var5], var3.at[var5], var3.aa[var5]);
             }
 
             this.av();
@@ -528,10 +528,10 @@ public class it extends Entity {
       ic var4 = var3.an();
       if (var4 != null) {
          var3.an().au(var1, var2);
-         this.aj(var3.an(), var1.ac());
+         this.aj(var3.an(), var1.gIsaac1());
       }
 
-      if (var1.au()) {
+      if (var1.loadModel()) {
          this.as(var1, var2);
       }
 
@@ -541,11 +541,11 @@ public class it extends Entity {
    void as(fh var1, int var2) {
       AnimBase var3 = var1.ac;
 
-      for(int var4 = 0; var4 < var3.id * 1158767581; ++var4) {
-         int var5 = var3.transformTypes[var4];
+      for(int var4 = 0; var4 < var3.aq * 1158767581; ++var4) {
+         int var5 = var3.al[var4];
          if (var5 == 5 && var1.an != null && var1.an[var4] != null && var1.an[var4][0] != null && this.bi != null && this.as != null) {
             ek var6 = var1.an[var4][0];
-            int[] var7 = var3.transformLabels[var4];
+            int[] var7 = var3.at[var4];
             int var8 = var7.length;
 
             for(int var9 = 0; var9 < var8; ++var9) {
@@ -578,9 +578,9 @@ public class it extends Entity {
    public void ak(AnimFrameset var1, int var2, AnimFrameset var3, int var4, int[] var5) {
       if (var2 != -1) {
          if (var5 != null && var4 != -1) {
-            AnimFrame var6 = var1.frames[var2];
-            AnimFrame var7 = var3.frames[var4];
-            AnimBase var8 = var6.base;
+            AnimFrame var6 = var1.af[var2];
+            AnimFrame var7 = var3.af[var4];
+            AnimBase var8 = var6.au;
             cq = 0;
             cm = 0;
             cf = 0;
@@ -589,12 +589,12 @@ public class it extends Entity {
 
             int var11;
             int var12;
-            for(var11 = 0; var11 < var6.transformCount; ++var11) {
-               for(var12 = var6.transforms[var11]; var12 > var10; var10 = var5[var9++]) {
+            for(var11 = 0; var11 < var6.ab; ++var11) {
+               for(var12 = var6.aq[var11]; var12 > var10; var10 = var5[var9++]) {
                }
 
-               if (var12 != var10 || var8.transformTypes[var12] == 0) {
-                  this.ae(var8.transformTypes[var12], var8.transformLabels[var12], var6.xs[var11], var6.ys[var11], var6.zs[var11]);
+               if (var12 != var10 || var8.al[var12] == 0) {
+                  this.ae(var8.al[var12], var8.at[var12], var6.al[var11], var6.at[var11], var6.aa[var11]);
                }
             }
 
@@ -605,12 +605,12 @@ public class it extends Entity {
             var9 = var14 + 1;
             var10 = var5[var14];
 
-            for(var11 = 0; var11 < var7.transformCount; ++var11) {
-               for(var12 = var7.transforms[var11]; var12 > var10; var10 = var5[var9++]) {
+            for(var11 = 0; var11 < var7.ab; ++var11) {
+               for(var12 = var7.aq[var11]; var12 > var10; var10 = var5[var9++]) {
                }
 
-               if (var12 == var10 || var8.transformTypes[var12] == 0) {
-                  this.ae(var8.transformTypes[var12], var8.transformLabels[var12], var7.xs[var11], var7.ys[var11], var7.zs[var11]);
+               if (var12 == var10 || var8.al[var12] == 0) {
+                  this.ae(var8.al[var12], var8.at[var12], var7.al[var11], var7.at[var11], var7.aa[var11]);
                }
             }
 
@@ -626,11 +626,11 @@ public class it extends Entity {
       if (var7 != null) {
          var7.ab(var2, var3, var4, var5);
          if (var6) {
-            this.aj(var7, var2.ac());
+            this.aj(var7, var2.gIsaac1());
          }
       }
 
-      if (!var5 && var2.au()) {
+      if (!var5 && var2.loadModel()) {
          this.as(var2, var3);
       }
 
@@ -640,25 +640,25 @@ public class it extends Entity {
       if (var3 == null) {
          this.ar(var1, var2);
       } else {
-         AnimFrame var5 = var1.frames[var2];
-         AnimBase var6 = var5.base;
+         AnimFrame var5 = var1.af[var2];
+         AnimBase var6 = var5.au;
          int var7 = 0;
          int var8 = var3[var7++];
          cq = 0;
          cm = 0;
          cf = 0;
 
-         for(int var9 = 0; var9 < var5.transformCount; ++var9) {
+         for(int var9 = 0; var9 < var5.ab; ++var9) {
             int var10;
-            for(var10 = var5.transforms[var9]; var10 > var8; var8 = var3[var7++]) {
+            for(var10 = var5.aq[var9]; var10 > var8; var8 = var3[var7++]) {
             }
 
             if (var4) {
-               if (var10 == var8 || var6.transformTypes[var10] == 0) {
-                  this.ae(var6.transformTypes[var10], var6.transformLabels[var10], var5.xs[var9], var5.ys[var9], var5.zs[var9]);
+               if (var10 == var8 || var6.al[var10] == 0) {
+                  this.ae(var6.al[var10], var6.at[var10], var5.al[var9], var5.at[var9], var5.aa[var9]);
                }
-            } else if (var10 != var8 || var6.transformTypes[var10] == 0) {
-               this.ae(var6.transformTypes[var10], var6.transformLabels[var10], var5.xs[var9], var5.ys[var9], var5.zs[var9]);
+            } else if (var10 != var8 || var6.al[var10] == 0) {
+               this.ae(var6.al[var10], var6.at[var10], var5.al[var9], var5.at[var9], var5.aa[var9]);
             }
          }
 
@@ -1047,10 +1047,10 @@ public class it extends Entity {
                int var24 = var23 / var14;
                int var25 = in.ab.am * 1380452969;
                if (var24 > var25) {
-                  int var26 = var21 + (this.height * 1550732737 * var3 >> 16);
+                  int var26 = var21 + (this.et * 1550732737 * var3 >> 16);
                   int var27 = (var20 - var26) * eu.at_renamed();
                   if (var27 / var14 < fa.al_renamed()) {
-                     int var28 = var13 + (this.height * 1550732737 * var2 >> 16);
+                     int var28 = var13 + (this.et * 1550732737 * var2 >> 16);
                      boolean var29 = false;
                      boolean var30 = false;
                      if (var12 - var28 <= 50) {

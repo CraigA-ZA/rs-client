@@ -1,5 +1,5 @@
 public class InterfaceParent extends Node {
-   boolean keep = false;
+   boolean aw = false;
    int af;
    int an;
 
@@ -15,12 +15,12 @@ public class InterfaceParent extends Node {
    }
 
    public static synchronized void ByteArrayPool_release(byte[] var0) {
-      if (var0.length == 100 && -300357261 * ByteArrayPool.ByteArrayPool_smallCount < ByteArrayPool.at * 255163693) {
-         ByteArrayPool.ByteArrayPool_small[(ByteArrayPool.ByteArrayPool_smallCount += -1092459589) * -300357261 - 1] = var0;
-      } else if (5000 == var0.length && 481846585 * ByteArrayPool.ByteArrayPool_mediumCount < 1720410087 * ByteArrayPool.aa) {
-         ByteArrayPool.ByteArrayPool_medium[(ByteArrayPool.ByteArrayPool_mediumCount += 1267792137) * 481846585 - 1] = var0;
-      } else if (10000 == var0.length && -926544205 * ByteArrayPool.ByteArrayPool_largeCount < ByteArrayPool.ay * -1922603885) {
-         ByteArrayPool.ByteArrayPool_large[(ByteArrayPool.ByteArrayPool_largeCount += -1706733445) * -926544205 - 1] = var0;
+      if (var0.length == 100 && -300357261 * ByteArrayPool.au < ByteArrayPool.at * 255163693) {
+         ByteArrayPool.ax[(ByteArrayPool.au += -1092459589) * -300357261 - 1] = var0;
+      } else if (5000 == var0.length && 481846585 * ByteArrayPool.ab < 1720410087 * ByteArrayPool.aa) {
+         ByteArrayPool.ai[(ByteArrayPool.ab += 1267792137) * 481846585 - 1] = var0;
+      } else if (10000 == var0.length && -926544205 * ByteArrayPool.aq < ByteArrayPool.ay * -1922603885) {
+         ByteArrayPool.ag[(ByteArrayPool.aq += -1706733445) * -926544205 - 1] = var0;
       } else if (30000 == var0.length && ByteArrayPool.al * 767381159 < -1866109675 * ByteArrayPool.ao) {
          ByteArrayPool.ah[(ByteArrayPool.al += 1254586647) * 767381159 - 1] = var0;
       } else {

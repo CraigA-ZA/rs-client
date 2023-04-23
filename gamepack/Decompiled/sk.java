@@ -9,15 +9,15 @@ public class sk extends DualNode {
 
    public sk(AbstractArchive var1, int var2, int var3) {
       byte[] var4 = var1.takeFile(var2, var3 + 1);
-      this.af(new Packet(var4));
+      this.decode(new Packet(var4));
    }
 
    public sk(AbstractArchive var1, int var2) {
       byte[] var3 = var1.takeFile(var2, 0);
-      this.af(new Packet(var3));
+      this.decode(new Packet(var3));
    }
 
-   void af(Packet var1) {
+   void decode(Packet var1) {
       int var3 = var1.dr((byte)-7);
       this.ac = new sh[var3];
       this.au = new ArrayList(var3);

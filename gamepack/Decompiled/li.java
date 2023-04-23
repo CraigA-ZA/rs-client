@@ -1,7 +1,7 @@
 import java.lang.management.GarbageCollectorMXBean;
 
 public class li {
-   static GarbageCollectorMXBean garbageCollector;
+   static GarbageCollectorMXBean ba;
 
    li() throws Throwable {
       throw new Error();

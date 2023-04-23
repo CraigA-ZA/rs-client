@@ -29,12 +29,12 @@ public class jg {
 
    static void an_renamed(int var0, ArchiveDisk var1, Archive var2) {
       ArchiveDiskAction var4 = new ArchiveDiskAction();
-      var4.type = -1330450855;
-      var4.key = (long)var0;
-      var4.archiveDisk = var1;
-      var4.archive = var2;
-      synchronized(ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue) {
-         ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue.addFirst(var4);
+      var4.af = -1330450855;
+      var4.hr = (long)var0;
+      var4.aw = var1;
+      var4.ac = var2;
+      synchronized(ArchiveDiskActionHandler.af) {
+         ArchiveDiskActionHandler.af.addFirst(var4);
       }
 
       eh.aw_renamed();

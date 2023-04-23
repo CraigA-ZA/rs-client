@@ -1,5 +1,5 @@
 public class bt {
-   public static IterableNodeDeque reflectionChecks = new IterableNodeDeque();
+   public static IterableNodeDeque af = new IterableNodeDeque();
    static int kx;
    static Rasterizer3D[] jl;
 
@@ -8,9 +8,9 @@ public class bt {
    }
 
    static void ie_renamed() {
-      if (null != ey.worldMap0) {
-         ey.worldMap0.ao(GameShell.plane * -1727408401, (1144428983 * MusicPatchNode.localPlayer.bx >> 7) + -1232093375 * jm.ib, 827352769 * Scenery.jc + (MusicPatchNode.localPlayer.bo * -411750205 >> 7), false);
-         ey.worldMap0.bb();
+      if (null != ey.wt) {
+         ey.wt.ao(GameShell.mh * -1727408401, (1144428983 * MusicPatchNode.mi.bx >> 7) + -1232093375 * jm.ib, 827352769 * Scenery.jc + (MusicPatchNode.mi.bo * -411750205 >> 7), false);
+         ey.wt.bb();
       }
 
    }
@@ -72,8 +72,8 @@ public class bt {
          }
       }
 
-      Client.viewportZoom = -787687633 * (var3 * var7 / 334);
-      if (var2 != Client.viewportHeight * 433849721 || 2042096749 * Client.viewportWidth != var3) {
+      Client.vi = -787687633 * (var3 * var7 / 334);
+      if (var2 != Client.vp * 433849721 || 2042096749 * Client.vy != var3) {
          int[] var18 = new int[9];
 
          for(var10 = 0; var10 < var18.length; ++var10) {
@@ -97,8 +97,8 @@ public class bt {
 
       Client.vd = var0 * -1528400137;
       Client.vx = var1 * 2017169511;
-      Client.viewportHeight = var2 * -350989111;
-      Client.viewportWidth = var3 * -538378907;
+      Client.vp = var2 * -350989111;
+      Client.vy = var3 * -538378907;
    }
 
    static final void la_renamed(int var0, int var1, int var2, int var3, int var4, int var5) {
@@ -124,8 +124,8 @@ public class bt {
          int var15 = 1 + var13 * var5 >> 17;
          int var16 = var12 * var5 >> 17;
          int var17 = var5 * var12 + 1 >> 17;
-         var0 -= Rasterizer2D.Rasterizer2D_xClipStart;
-         var1 -= Rasterizer2D.Rasterizer2D_yClipStart;
+         var0 -= Rasterizer2D.bk;
+         var1 -= Rasterizer2D.bi;
          int var18 = var0 + var14;
          int var19 = var0 - var15;
          int var20 = var7 + var0 - var15;

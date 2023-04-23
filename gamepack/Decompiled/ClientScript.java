@@ -1,6 +1,6 @@
 public class ClientScript extends DualNode {
-   public static NetFileRequest NetCache_currentResponse;
-   static EvictingDualNodeHashTable ClientScript_cached = new EvictingDualNodeHashTable(128);
+   public static NetFileRequest ai;
+   static EvictingDualNodeHashTable af = new EvictingDualNodeHashTable(128);
    int ab;
    int al;
    int aq;
@@ -8,8 +8,8 @@ public class ClientScript extends DualNode {
    int[] ac;
    int[] aw;
    String an;
-   String[] stringOperands;
-   IterableNodeHashTable[] switches;
+   String[] au;
+   IterableNodeHashTable[] aa;
 
    ClientScript() {
    }

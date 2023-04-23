@@ -1,24 +1,24 @@
 public class CollisionMap {
-   int yInset;
+   int bd;
    int bm = 0;
-   int xInset;
+   int bt;
    int bz = 0;
-   public int[][] flags;
+   public int[][] bj;
 
    public CollisionMap(int var1, int var2) {
-      this.yInset = var1 * 1684986745;
-      this.xInset = -2120741623 * var2;
-      this.flags = new int[this.yInset * 1145675465][this.xInset * -1150578375];
+      this.bd = var1 * 1684986745;
+      this.bt = -2120741623 * var2;
+      this.bj = new int[this.bd * 1145675465][this.bt * -1150578375];
       this.clear();
    }
 
    public void clear() {
-      for(int var2 = 0; var2 < 1145675465 * this.yInset; ++var2) {
-         for(int var3 = 0; var3 < this.xInset * -1150578375; ++var3) {
-            if (var2 != 0 && 0 != var3 && var2 < this.yInset * 1145675465 - 5 && var3 < this.xInset * -1150578375 - 5) {
-               this.flags[var2][var3] = 16777216;
+      for(int var2 = 0; var2 < 1145675465 * this.bd; ++var2) {
+         for(int var3 = 0; var3 < this.bt * -1150578375; ++var3) {
+            if (var2 != 0 && 0 != var3 && var2 < this.bd * 1145675465 - 5 && var3 < this.bt * -1150578375 - 5) {
+               this.bj[var2][var3] = 16777216;
             } else {
-               this.flags[var2][var3] = 16777215;
+               this.bj[var2][var3] = 16777215;
             }
          }
       }
@@ -182,9 +182,9 @@ public class CollisionMap {
       var2 -= -216630539 * this.bm;
 
       for(int var8 = var1; var8 < var1 + var3; ++var8) {
-         if (var8 >= 0 && var8 < 1145675465 * this.yInset) {
+         if (var8 >= 0 && var8 < 1145675465 * this.bd) {
             for(int var9 = var2; var9 < var4 + var2; ++var9) {
-               if (var9 >= 0 && var9 < -1150578375 * this.xInset) {
+               if (var9 >= 0 && var9 < -1150578375 * this.bt) {
                   this.ab(var8, var9, var7);
                }
             }
@@ -196,19 +196,19 @@ public class CollisionMap {
    public void ac(int var1, int var2) {
       var1 -= this.bz * 1724654229;
       var2 -= -216630539 * this.bm;
-      int[] var10000 = this.flags[var1];
+      int[] var10000 = this.bj[var1];
       var10000[var2] |= 2097152;
    }
 
    public void au(int var1, int var2) {
       var1 -= 1724654229 * this.bz;
       var2 -= this.bm * -216630539;
-      int[] var10000 = this.flags[var1];
+      int[] var10000 = this.bj[var1];
       var10000[var2] |= 262144;
    }
 
    void ab(int var1, int var2, int var3) {
-      int[] var10000 = this.flags[var1];
+      int[] var10000 = this.bj[var1];
       var10000[var2] |= var3;
    }
 
@@ -375,9 +375,9 @@ public class CollisionMap {
       }
 
       for(var9 = var1; var9 < var3 + var1; ++var9) {
-         if (var9 >= 0 && var9 < this.yInset * 1145675465) {
+         if (var9 >= 0 && var9 < this.bd * 1145675465) {
             for(int var10 = var2; var10 < var4 + var2; ++var10) {
-               if (var10 >= 0 && var10 < -1150578375 * this.xInset) {
+               if (var10 >= 0 && var10 < -1150578375 * this.bt) {
                   this.at(var9, var10, var8);
                }
             }
@@ -387,20 +387,20 @@ public class CollisionMap {
    }
 
    void at(int var1, int var2, int var3) {
-      int[] var10000 = this.flags[var1];
+      int[] var10000 = this.bj[var1];
       var10000[var2] &= ~var3;
    }
 
    public void aa(int var1, int var2) {
       var1 -= 1724654229 * this.bz;
       var2 -= -216630539 * this.bm;
-      int[] var10000 = this.flags[var1];
+      int[] var10000 = this.bj[var1];
       var10000[var2] &= -262145;
    }
 
    static void hy_renamed(int var0, int var1) {
-      if (aj.clientPreferences.am() != 0 && -1 != var0) {
-         Message.aw_renamed(hc.archive10, var0, 0, aj.clientPreferences.am(), false);
+      if (aj.vb.am() != 0 && -1 != var0) {
+         Message.aw_renamed(hc.ff, var0, 0, aj.vb.am(), false);
          Client.tf = true;
       }
 

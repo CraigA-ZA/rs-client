@@ -51,11 +51,11 @@ public final class dg extends Node {
    dg() {
    }
 
-   void af(int var1) {
+   void advance(int var1) {
       this.ax = -1874637045 * var1;
    }
 
-   boolean an(int var1) {
+   boolean hasAlphaTransform(int var1) {
       if (var1 >= 0 && var1 <= 4) {
          return 0 != (-1693875037 * this.ax & 1 << var1);
       } else {

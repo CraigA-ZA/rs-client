@@ -67,7 +67,7 @@ public class KeyHandler implements KeyListener, FocusListener {
       label29: {
          var2 = var1.getKeyCode();
          if (var2 >= 0) {
-            int var4 = bi.KeyHandler_keyCodes.length;
+            int var4 = bi.dt.length;
             if (var2 < var4) {
                var2 = ix.an_renamed(var2);
                boolean var5 = 0 != (var2 & 128);
@@ -95,7 +95,7 @@ public class KeyHandler implements KeyListener, FocusListener {
       label20: {
          var2 = var1.getKeyCode();
          if (var2 >= 0) {
-            int var4 = bi.KeyHandler_keyCodes.length;
+            int var4 = bi.dt.length;
             if (var2 < var4) {
                var2 = ix.an_renamed(var2) & -129;
                break label20;
@@ -205,8 +205,8 @@ public class KeyHandler implements KeyListener, FocusListener {
          cz.ai = MusicPatchNode2.au_renamed(var1, "options_radio_buttons,4", "");
          gs.ag = MusicPatchNode2.au_renamed(var1, "options_radio_buttons,2", "");
          cz.ah = MusicPatchNode2.au_renamed(var1, "options_radio_buttons,6", "");
-         ChatChannel.cz = 1622050401 * cz.ax.subWidth;
-         FloorUnderlayType.cw = cz.ax.subHeight * 905476585;
+         ChatChannel.cz = 1622050401 * cz.ax.aw;
+         FloorUnderlayType.cw = cz.ax.ac * 905476585;
          em.av = new dp(py.ac);
          if (var2) {
             cz.ca = "";
@@ -219,15 +219,15 @@ public class KeyHandler implements KeyListener, FocusListener {
          Messages.cp = "";
          cz.cd = true;
          cz.di = false;
-         if (!aj.clientPreferences.aa()) {
-            ks.ab_renamed(2, pj.archive6, "scape main", "", 255, false);
+         if (!aj.vb.aa()) {
+            ks.ab_renamed(2, pj.fw, "scape main", "", 255, false);
          } else {
             ly.au = -626822165;
             ly.ab = null;
             oq.aq = 1643562499;
             gz.al = -1823837761;
             dn.at = 0;
-            ev.musicTrackBoolean = false;
+            ev.ay = false;
             ga.aa = 440964570;
          }
 
@@ -238,12 +238,12 @@ public class KeyHandler implements KeyListener, FocusListener {
          fy.az = -1036961612 + cz.ak * -949768875;
          ex.at.ay(578342931 * cz.aw, 0);
          ParamType.aa.ay(382 + cz.aw * 578342931, 0);
-         Canvas.ay.aw(382 + cz.aw * 578342931 - Canvas.ay.subWidth / 2, 18);
+         Canvas.ay.aw(382 + cz.aw * 578342931 - Canvas.ay.aw / 2, 18);
       }
    }
 
    static void ha_renamed(SeqType var0, int var1, int var2, int var3) {
-      if (-297150195 * Client.soundEffectCount < 50 && aj.clientPreferences.az() != 0) {
+      if (-297150195 * Client.tl < 50 && aj.vb.az() != 0) {
          if (var0.ao != null && var0.ao.containsKey(var1)) {
             ge.hp_renamed((Integer)var0.ao.get(var1), var2, var3);
          }
@@ -263,7 +263,7 @@ public class KeyHandler implements KeyListener, FocusListener {
    }
 
    static int getComponentClickMask(Component var0) {
-      IntegerNode var2 = (IntegerNode)Client.componentClickMasks.get((long)(var0.childIndex * 55577617) + ((long)(1713081171 * var0.id) << 32));
-      return var2 != null ? var2.integer : var0.clickMask * 1652991301;
+      IntegerNode var2 = (IntegerNode)Client.rv.get((long)(var0.br * 55577617) + ((long)(1713081171 * var0.bs) << 32));
+      return var2 != null ? var2.af : var0.eb * 1652991301;
    }
 }

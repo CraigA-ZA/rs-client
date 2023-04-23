@@ -3,7 +3,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class al {
-   static TextureProvider textureProvider;
+   static TextureProvider mp;
    static int gm;
    ExecutorService af = Executors.newSingleThreadExecutor();
    Future an;
@@ -196,7 +196,7 @@ public class al {
       am.an_renamed();
       int var2 = GraphicsDefaults.af_renamed(var0).ac * -1911979431;
       if (0 != var2) {
-         int var3 = Varps.Varps_main[var0];
+         int var3 = Varps.aw[var0];
          if (1 == var2) {
             if (1 == var3) {
                ClientScriptFrame.mg(0.9);

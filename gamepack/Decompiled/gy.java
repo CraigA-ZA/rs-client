@@ -317,10 +317,10 @@ public class gy {
    static void kp_renamed() {
       if (Client.om) {
          Component var1 = SoundSystem.getComponentChild(96656415 * jg.ou, 145251849 * Client.oa);
-         if (var1 != null && null != var1.onLoad) {
+         if (var1 != null && null != var1.fy) {
             ClientScriptEvent var2 = new ClientScriptEvent();
             var2.aw = var1;
-            var2.args0 = var1.onLoad;
+            var2.af = var1.fy;
             HeadbarUpdate.af_renamed(var2);
          }
 
@@ -339,12 +339,12 @@ public class gy {
 
       Client.ki = false;
       int var8;
-      if (114417019 * MouseHandler.MouseHandler_currentButton == 1 || !su.ev && 114417019 * MouseHandler.MouseHandler_currentButton == 4) {
+      if (114417019 * MouseHandler.aa == 1 || !su.ev && 114417019 * MouseHandler.aa == 4) {
          if (var5 >= var1 && var5 < var1 + 16 && var6 >= var2 && var6 < 16 + var2) {
-            var0.scrollY -= -510215044;
+            var0.cm -= -510215044;
             fw.ma_renamed(var0);
          } else if (var5 >= var1 && var5 < 16 + var1 && var6 >= var3 + var2 - 16 && var6 < var3 + var2) {
-            var0.scrollY += -510215044;
+            var0.cm += -510215044;
             fw.ma_renamed(var0);
          } else if (var5 >= var1 - Client.ko * -1434295667 && var5 < -1434295667 * Client.ko + 16 + var1 && var6 >= var2 + 16 && var6 < var2 + var3 - 16) {
             var8 = (var3 - 32) * var3 / var4;
@@ -354,16 +354,16 @@ public class gy {
 
             int var9 = var6 - var2 - 16 - var8 / 2;
             int var10 = var3 - 32 - var8;
-            var0.scrollY = 946188063 * (var9 * (var4 - var3) / var10);
+            var0.cm = 946188063 * (var9 * (var4 - var3) / var10);
             fw.ma_renamed(var0);
             Client.ki = true;
          }
       }
 
-      if (-121753353 * Client.mouseWheelRotation != 0) {
-         var8 = var0.width * -794961409;
+      if (-121753353 * Client.rd != 0) {
+         var8 = var0.cs * -794961409;
          if (var5 >= var1 - var8 && var6 >= var2 && var5 < 16 + var1 && var6 <= var3 + var2) {
-            var0.scrollY += Client.mouseWheelRotation * -908462347;
+            var0.cm += Client.rd * -908462347;
             fw.ma_renamed(var0);
          }
       }

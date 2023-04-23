@@ -1,6 +1,6 @@
 public class fq extends fu {
    static gj av;
-   static int menuX;
+   static int nv;
    int af;
    // $FF: synthetic field
    final gr this$0;
@@ -10,18 +10,18 @@ public class fq extends fu {
       this.af = 1937399629;
    }
 
-   void af(Packet var1) {
+   void write(Packet var1) {
       this.af = var1.cl() * -1937399629;
       var1.g1();
       if (var1.g1() != 255) {
-         var1.index -= -1516355947;
+         var1.at -= -1516355947;
          var1.g8s();
       }
 
    }
 
    void an(gj var1) {
-      var1.aw(-1141502341 * this.af);
+      var1.animate(-1141502341 * this.af);
    }
 
    static final void at_renamed(byte[] var0, int var1, int var2, Scene var3, CollisionMap[] var4) {
@@ -54,7 +54,7 @@ public class fq extends fu {
             int var18 = var11 + var2;
             if (var17 > 0 && var18 > 0 && var17 < 103 && var18 < 103) {
                int var19 = var13;
-               if (2 == (Tiles.Tiles_renderFlags[1][var17][var18] & 2)) {
+               if (2 == (Tiles.an[1][var17][var18] & 2)) {
                   var19 = var13 - 1;
                }
 
@@ -74,14 +74,14 @@ public class fq extends fu {
       int var5 = var1 >> 7;
       if (var4 >= 0 && var5 >= 0 && var4 <= 103 && var5 <= 103) {
          int var6 = var2;
-         if (var2 < 3 && 2 == (Tiles.Tiles_renderFlags[1][var4][var5] & 2)) {
+         if (var2 < 3 && 2 == (Tiles.an[1][var4][var5] & 2)) {
             var6 = var2 + 1;
          }
 
          int var7 = var0 & 127;
          int var8 = var1 & 127;
-         int var9 = var7 * Tiles.Tiles_heights[var6][1 + var4][var5] + Tiles.Tiles_heights[var6][var4][var5] * (128 - var7) >> 7;
-         int var10 = var7 * Tiles.Tiles_heights[var6][var4 + 1][var5 + 1] + Tiles.Tiles_heights[var6][var4][1 + var5] * (128 - var7) >> 7;
+         int var9 = var7 * Tiles.af[var6][1 + var4][var5] + Tiles.af[var6][var4][var5] * (128 - var7) >> 7;
+         int var10 = var7 * Tiles.af[var6][var4 + 1][var5 + 1] + Tiles.af[var6][var4][1 + var5] * (128 - var7) >> 7;
          return var8 * var10 + var9 * (128 - var8) >> 7;
       } else {
          return 0;

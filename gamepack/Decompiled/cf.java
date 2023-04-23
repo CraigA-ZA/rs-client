@@ -33,20 +33,20 @@ public class cf implements Comparator {
    }
 
    int af(GrandExchangeEvent var1, GrandExchangeEvent var2) {
-      if (-39392873 * var1.world == -39392873 * var2.world) {
+      if (-39392873 * var1.af == -39392873 * var2.af) {
          return 0;
       } else {
          if (this.af) {
-            if (-453810525 * Client.bw == var1.world * -39392873) {
+            if (-453810525 * Client.bw == var1.af * -39392873) {
                return -1;
             }
 
-            if (Client.bw * -453810525 == var2.world * -39392873) {
+            if (Client.bw * -453810525 == var2.af * -39392873) {
                return 1;
             }
          }
 
-         return -39392873 * var1.world < -39392873 * var2.world ? -1 : 1;
+         return -39392873 * var1.af < -39392873 * var2.af ? -1 : 1;
       }
    }
 

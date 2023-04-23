@@ -3,8 +3,8 @@ public class MidiPcmStream extends PcmStream {
    boolean bi;
    int an = 673362688;
    int aw = -1778707904;
-   int trackLength;
-   int track;
+   int be;
+   int bk;
    int[] aa = new int[16];
    int[] ab = new int[16];
    int[] ac = new int[16];
@@ -20,41 +20,41 @@ public class MidiPcmStream extends PcmStream {
    int[] au = new int[16];
    int[] ay = new int[16];
    int[] az = new int[16];
-   MusicPatchPcmStream patchStream = new MusicPatchPcmStream(this);
+   MusicPatchPcmStream bz = new MusicPatchPcmStream(this);
    long bo;
    long bx;
    MusicPatchNode[][] ap = new MusicPatchNode[16][128];
    MusicPatchNode[][] by = new MusicPatchNode[16][128];
-   MidiFileReader midiFile = new MidiFileReader();
-   NodeHashTable musicPatches = new NodeHashTable(128);
+   MidiFileReader bb = new MidiFileReader();
+   NodeHashTable af = new NodeHashTable(128);
 
    public static void af_renamed(AbstractArchive var0) {
-      EnumType.EnumType_archive = var0;
+      EnumType.af = var0;
    }
 
    public MidiPcmStream() {
       this.ap();
    }
 
-   public synchronized void af(int var1) {
+   public synchronized void advance(int var1) {
       this.an = 1881678515 * var1;
    }
 
-   public int an() {
+   public int size() {
       return 1380277371 * this.an;
    }
 
    public synchronized boolean loadMusicTrack(MusicTrack var1, AbstractArchive var2, SoundCache var3, int var4) {
-      var1.an();
+      var1.clear();
       boolean var6 = true;
       int[] var7 = null;
       if (var4 > 0) {
          var7 = new int[]{var4};
       }
 
-      for(ByteArrayNode var8 = (ByteArrayNode)var1.table.first(); null != var8; var8 = (ByteArrayNode)var1.table.next()) {
-         int var9 = (int)var8.key;
-         MusicPatch var10 = (MusicPatch)this.musicPatches.get((long)var9);
+      for(ByteArrayNode var8 = (ByteArrayNode)var1.af.first(); null != var8; var8 = (ByteArrayNode)var1.af.next()) {
+         int var9 = (int)var8.hr;
+         MusicPatch var10 = (MusicPatch)this.af.get((long)var9);
          if (null == var10) {
             byte[] var12 = var2.takeFileFlat(var9);
             MusicPatch var11;
@@ -70,10 +70,10 @@ public class MidiPcmStream extends PcmStream {
                continue;
             }
 
-            this.musicPatches.put(var11, (long)var9);
+            this.af.put(var11, (long)var9);
          }
 
-         if (!var10.af(var3, var8.byteArray, var7)) {
+         if (!var10.af(var3, var8.af, var7)) {
             var6 = false;
          }
       }
@@ -86,14 +86,14 @@ public class MidiPcmStream extends PcmStream {
    }
 
    public synchronized void clearAll() {
-      for(MusicPatch var2 = (MusicPatch)this.musicPatches.first(); var2 != null; var2 = (MusicPatch)this.musicPatches.next()) {
+      for(MusicPatch var2 = (MusicPatch)this.af.first(); var2 != null; var2 = (MusicPatch)this.af.next()) {
          var2.clear();
       }
 
    }
 
    public synchronized void removeAll() {
-      for(MusicPatch var2 = (MusicPatch)this.musicPatches.first(); null != var2; var2 = (MusicPatch)this.musicPatches.next()) {
+      for(MusicPatch var2 = (MusicPatch)this.af.first(); null != var2; var2 = (MusicPatch)this.af.next()) {
          var2.remove();
       }
 
@@ -101,29 +101,29 @@ public class MidiPcmStream extends PcmStream {
 
    public synchronized void setMusicTrack(MusicTrack var1, boolean var2) {
       this.ao();
-      this.midiFile.parse(var1.midi);
+      this.bb.parse(var1.an);
       this.bi = var2;
       this.bx = 0L;
-      int var4 = this.midiFile.trackCount();
+      int var4 = this.bb.trackCount();
 
       for(int var5 = 0; var5 < var4; ++var5) {
-         this.midiFile.gotoTrack(var5);
-         this.midiFile.readTrackLength(var5);
-         this.midiFile.markTrackPosition(var5);
+         this.bb.gotoTrack(var5);
+         this.bb.readTrackLength(var5);
+         this.bb.markTrackPosition(var5);
       }
 
-      this.trackLength = this.midiFile.getPrioritizedTrack() * 911615763;
-      this.track = this.midiFile.trackLengths[this.trackLength * -2130330853] * -1172591539;
-      this.bo = this.midiFile.ao(this.track * 2049666181) * -5361838125554816559L;
+      this.be = this.bb.getPrioritizedTrack() * 911615763;
+      this.bk = this.bb.au[this.be * -2130330853] * -1172591539;
+      this.bo = this.bb.ao(this.bk * 2049666181) * -5361838125554816559L;
    }
 
    public synchronized void ao() {
-      this.midiFile.clear();
+      this.bb.clear();
       this.ap();
    }
 
    public synchronized boolean isReady() {
-      return this.midiFile.isReady();
+      return this.bb.isReady();
    }
 
    public synchronized void ai(int var1, int var2) {
@@ -150,7 +150,7 @@ public class MidiPcmStream extends PcmStream {
    void av(int var1, int var2, int var3) {
       this.am(var1, var2, 64);
       if (0 != (this.as[var1] & 2)) {
-         for(MusicPatchNode var5 = (MusicPatchNode)this.patchStream.queue.first(); var5 != null; var5 = (MusicPatchNode)this.patchStream.queue.next()) {
+         for(MusicPatchNode var5 = (MusicPatchNode)this.bz.an.first(); var5 != null; var5 = (MusicPatchNode)this.bz.an.next()) {
             if (var1 == var5.af * 1021419297 && var5.ag * -602614853 < 0) {
                this.ap[var1][var5.ab * -630482265] = null;
                this.ap[var1][var2] = var5;
@@ -164,14 +164,14 @@ public class MidiPcmStream extends PcmStream {
          }
       }
 
-      MusicPatch var9 = (MusicPatch)this.musicPatches.get((long)this.al[var1]);
+      MusicPatch var9 = (MusicPatch)this.af.get((long)this.al[var1]);
       if (var9 != null) {
-         RawSound var10 = var9.rawSounds[var2];
+         RawSound var10 = var9.an[var2];
          if (null != var10) {
             MusicPatchNode var7 = new MusicPatchNode();
             var7.af = var1 * -2055035679;
-            var7.patch = var9;
-            var7.rawSound = var10;
+            var7.an = var9;
+            var7.aw = var10;
             var7.ac = var9.ab[var2];
             var7.au = -1957781017 * var9.aq[var2];
             var7.ab = -1339790057 * var2;
@@ -184,14 +184,14 @@ public class MidiPcmStream extends PcmStream {
             var7.ag = -81590643;
             var7.ah = 0;
             if (this.az[var1] == 0) {
-               var7.stream = RawPcmStream.ac_renamed(var10, this.bq(var7), this.bv(var7), this.bl(var7));
+               var7.am = RawPcmStream.ac_renamed(var10, this.bq(var7), this.bv(var7), this.bl(var7));
             } else {
-               var7.stream = RawPcmStream.ac_renamed(var10, this.bq(var7), 0, this.bl(var7));
+               var7.am = RawPcmStream.ac_renamed(var10, this.bq(var7), 0, this.bl(var7));
                this.ar(var7, var9.aw[var2] < 0);
             }
 
             if (var9.aw[var2] < 0) {
-               var7.stream.aa(-1);
+               var7.am.aa(-1);
             }
 
             if (1959190999 * var7.au >= 0) {
@@ -204,28 +204,28 @@ public class MidiPcmStream extends PcmStream {
                this.by[var1][var7.au * 1959190999] = var7;
             }
 
-            this.patchStream.queue.addFirst(var7);
+            this.bz.an.addFirst(var7);
             this.ap[var1][var2] = var7;
          }
       }
    }
 
    void ar(MusicPatchNode var1, boolean var2) {
-      int var4 = var1.rawSound.samples.length;
+      int var4 = var1.aw.an.length;
       int var5;
-      if (var2 && var1.rawSound.au) {
-         int var6 = var4 + var4 - var1.rawSound.start;
+      if (var2 && var1.aw.au) {
+         int var6 = var4 + var4 - var1.aw.aw;
          var5 = (int)((long)this.az[1021419297 * var1.af] * (long)var6 >> 6);
          var4 <<= 8;
          if (var5 >= var4) {
             var5 = var4 + var4 - 1 - var5;
-            var1.stream.ar(true);
+            var1.am.ar(true);
          }
       } else {
          var5 = (int)((long)this.az[var1.af * 1021419297] * (long)var4 >> 6);
       }
 
-      var1.stream.av(var5);
+      var1.am.av(var5);
    }
 
    void am(int var1, int var2, int var3) {
@@ -233,7 +233,7 @@ public class MidiPcmStream extends PcmStream {
       if (null != var5) {
          this.ap[var1][var2] = null;
          if (0 != (this.as[var1] & 2)) {
-            for(MusicPatchNode var6 = (MusicPatchNode)this.patchStream.queue.last(); null != var6; var6 = (MusicPatchNode)this.patchStream.queue.previous()) {
+            for(MusicPatchNode var6 = (MusicPatchNode)this.bz.an.last(); null != var6; var6 = (MusicPatchNode)this.bz.an.previous()) {
                if (1021419297 * var6.af == 1021419297 * var5.af && var6.ag * -602614853 < 0 && var6 != var5) {
                   var5.ag = 0;
                   break;
@@ -257,15 +257,15 @@ public class MidiPcmStream extends PcmStream {
    }
 
    void az(int var1) {
-      for(MusicPatchNode var3 = (MusicPatchNode)this.patchStream.queue.last(); null != var3; var3 = (MusicPatchNode)this.patchStream.queue.previous()) {
+      for(MusicPatchNode var3 = (MusicPatchNode)this.bz.an.last(); null != var3; var3 = (MusicPatchNode)this.bz.an.previous()) {
          if (var1 < 0 || 1021419297 * var3.af == var1) {
-            if (null != var3.stream) {
-               var3.stream.ak(PcmPlayer.au * -1359271235 / 100);
-               if (var3.stream.ap()) {
-                  this.patchStream.mixer.addSubStream(var3.stream);
+            if (null != var3.am) {
+               var3.am.ak(PcmPlayer.au * -1359271235 / 100);
+               if (var3.am.ap()) {
+                  this.bz.aw.addSubStream(var3.am);
                }
 
-               var3.af();
+               var3.remove2();
             }
 
             if (var3.ag * -602614853 < 0) {
@@ -302,7 +302,7 @@ public class MidiPcmStream extends PcmStream {
    }
 
    void ae(int var1) {
-      for(MusicPatchNode var3 = (MusicPatchNode)this.patchStream.queue.last(); null != var3; var3 = (MusicPatchNode)this.patchStream.queue.previous()) {
+      for(MusicPatchNode var3 = (MusicPatchNode)this.bz.an.last(); null != var3; var3 = (MusicPatchNode)this.bz.an.previous()) {
          if ((var1 < 0 || var1 == var3.af * 1021419297) && var3.ag * -602614853 < 0) {
             this.ap[1021419297 * var3.af][-630482265 * var3.ab] = null;
             var3.ag = 0;
@@ -328,7 +328,7 @@ public class MidiPcmStream extends PcmStream {
 
    void by(int var1) {
       if (0 != (this.as[var1] & 2)) {
-         for(MusicPatchNode var3 = (MusicPatchNode)this.patchStream.queue.last(); var3 != null; var3 = (MusicPatchNode)this.patchStream.queue.previous()) {
+         for(MusicPatchNode var3 = (MusicPatchNode)this.bz.an.last(); var3 != null; var3 = (MusicPatchNode)this.bz.an.previous()) {
             if (1021419297 * var3.af == var1 && this.ap[var1][var3.ab * -630482265] == null && -602614853 * var3.ag < 0) {
                var3.ag = 0;
             }
@@ -339,7 +339,7 @@ public class MidiPcmStream extends PcmStream {
 
    void bn(int var1) {
       if (0 != (this.as[var1] & 4)) {
-         for(MusicPatchNode var3 = (MusicPatchNode)this.patchStream.queue.last(); var3 != null; var3 = (MusicPatchNode)this.patchStream.queue.previous()) {
+         for(MusicPatchNode var3 = (MusicPatchNode)this.bz.an.last(); var3 != null; var3 = (MusicPatchNode)this.bz.an.previous()) {
             if (var3.af * 1021419297 == var1) {
                var3.ak = 0;
             }
@@ -559,7 +559,7 @@ public class MidiPcmStream extends PcmStream {
          var3 += (int)(var7 * (double)var5);
       }
 
-      var5 = (int)((double)(256 * var1.rawSound.sampleRate) * Math.pow(2.0, 3.255208333333333E-4 * (double)var3) / (double)(PcmPlayer.au * -1359271235) + 0.5);
+      var5 = (int)((double)(256 * var1.aw.af) * Math.pow(2.0, 3.255208333333333E-4 * (double)var3) / (double)(PcmPlayer.au * -1359271235) + 0.5);
       return var5 < 1 ? 1 : var5;
    }
 
@@ -610,7 +610,7 @@ public class MidiPcmStream extends PcmStream {
    }
 
    protected synchronized PcmStream firstSubStream() {
-      return this.patchStream;
+      return this.bz;
    }
 
    protected synchronized PcmStream nextSubStream() {
@@ -622,8 +622,8 @@ public class MidiPcmStream extends PcmStream {
    }
 
    protected synchronized void fill(int[] var1, int var2, int var3) {
-      if (this.midiFile.isReady()) {
-         int var4 = this.midiFile.division * this.aw * 437930689 / (-1359271235 * PcmPlayer.au);
+      if (this.bb.isReady()) {
+         int var4 = this.bb.an * this.aw * 437930689 / (-1359271235 * PcmPlayer.au);
 
          do {
             long var5 = (long)var3 * (long)var4 + this.bx * 8370013022464380265L;
@@ -634,19 +634,19 @@ public class MidiPcmStream extends PcmStream {
 
             int var7 = (int)((-8691691867109044431L * this.bo - 8370013022464380265L * this.bx + (long)var4 - 1L) / (long)var4);
             this.bx += (long)var4 * (long)var7 * 389160967981716185L;
-            this.patchStream.fill(var1, var2, var7);
+            this.bz.fill(var1, var2, var7);
             var2 += var7;
             var3 -= var7;
             this.bp();
-         } while(this.midiFile.isReady());
+         } while(this.bb.isReady());
       }
 
-      this.patchStream.fill(var1, var2, var3);
+      this.bz.fill(var1, var2, var3);
    }
 
    protected synchronized void skip(int var1) {
-      if (this.midiFile.isReady()) {
-         int var2 = this.midiFile.division * 437930689 * this.aw / (-1359271235 * PcmPlayer.au);
+      if (this.bb.isReady()) {
+         int var2 = this.bb.an * 437930689 * this.aw / (-1359271235 * PcmPlayer.au);
 
          do {
             long var3 = 8370013022464380265L * this.bx + (long)var2 * (long)var1;
@@ -657,35 +657,35 @@ public class MidiPcmStream extends PcmStream {
 
             int var5 = (int)((this.bo * -8691691867109044431L - 8370013022464380265L * this.bx + (long)var2 - 1L) / (long)var2);
             this.bx += (long)var5 * (long)var2 * 389160967981716185L;
-            this.patchStream.skip(var5);
+            this.bz.skip(var5);
             var1 -= var5;
             this.bp();
-         } while(this.midiFile.isReady());
+         } while(this.bb.isReady());
       }
 
-      this.patchStream.skip(var1);
+      this.bz.skip(var1);
    }
 
    void bp() {
-      int var2 = this.trackLength * -2130330853;
-      int var3 = this.track * 2049666181;
+      int var2 = this.be * -2130330853;
+      int var3 = this.bk * 2049666181;
 
       long var4;
-      for(var4 = this.bo * -8691691867109044431L; this.track * 2049666181 == var3; var4 = this.midiFile.ao(var3)) {
-         while(this.midiFile.trackLengths[var2] == var3) {
-            this.midiFile.gotoTrack(var2);
-            int var6 = this.midiFile.readMessage(var2);
+      for(var4 = this.bo * -8691691867109044431L; this.bk * 2049666181 == var3; var4 = this.bb.ao(var3)) {
+         while(this.bb.au[var2] == var3) {
+            this.bb.gotoTrack(var2);
+            int var6 = this.bb.readMessage(var2);
             if (1 == var6) {
-               this.midiFile.aq();
-               this.midiFile.markTrackPosition(var2);
-               if (this.midiFile.isDone()) {
+               this.bb.aq();
+               this.bb.markTrackPosition(var2);
+               if (this.bb.isDone()) {
                   if (!this.bi || var3 == 0) {
                      this.ap();
-                     this.midiFile.clear();
+                     this.bb.clear();
                      return;
                   }
 
-                  this.midiFile.reset(var4);
+                  this.bb.reset(var4);
                }
                break;
             }
@@ -694,21 +694,21 @@ public class MidiPcmStream extends PcmStream {
                this.bs(var6);
             }
 
-            this.midiFile.readTrackLength(var2);
-            this.midiFile.markTrackPosition(var2);
+            this.bb.readTrackLength(var2);
+            this.bb.markTrackPosition(var2);
          }
 
-         var2 = this.midiFile.getPrioritizedTrack();
-         var3 = this.midiFile.trackLengths[var2];
+         var2 = this.bb.getPrioritizedTrack();
+         var3 = this.bb.au[var2];
       }
 
-      this.trackLength = 911615763 * var2;
-      this.track = -1172591539 * var3;
+      this.be = 911615763 * var2;
+      this.bk = -1172591539 * var3;
       this.bo = -5361838125554816559L * var4;
    }
 
    boolean bc(MusicPatchNode var1) {
-      if (var1.stream == null) {
+      if (var1.am == null) {
          if (var1.ag * -602614853 >= 0) {
             var1.remove();
             if (1959190999 * var1.au > 0 && this.by[var1.af * 1021419297][var1.au * 1959190999] == var1) {
@@ -724,7 +724,7 @@ public class MidiPcmStream extends PcmStream {
 
    boolean bh(MusicPatchNode var1, int[] var2, int var3, int var4) {
       var1.as = 652897503 * (PcmPlayer.au * -1359271235 / 100);
-      if (-602614853 * var1.ag < 0 || var1.stream != null && !var1.stream.ae()) {
+      if (-602614853 * var1.ag < 0 || var1.am != null && !var1.am.ae()) {
          int var6 = var1.ay * -1077015879;
          if (var6 > 0) {
             var6 -= (int)(16.0 * Math.pow(2.0, (double)this.ao[1021419297 * var1.af] * 4.921259842519685E-4) + 0.5);
@@ -735,7 +735,7 @@ public class MidiPcmStream extends PcmStream {
             var1.ay = var6 * -871310455;
          }
 
-         var1.stream.az(this.bq(var1));
+         var1.am.az(this.bq(var1));
          MusicPatchNode2 var7 = var1.ac;
          boolean var8 = false;
          var1.av += -1164121829;
@@ -782,18 +782,18 @@ public class MidiPcmStream extends PcmStream {
          }
 
          if (var8) {
-            var1.stream.ak(-1971564769 * var1.as);
+            var1.am.ak(-1971564769 * var1.as);
             if (null != var2) {
-               var1.stream.fill(var2, var3, var4);
+               var1.am.fill(var2, var3, var4);
             } else {
-               var1.stream.skip(var4);
+               var1.am.skip(var4);
             }
 
-            if (var1.stream.ap()) {
-               this.patchStream.mixer.addSubStream(var1.stream);
+            if (var1.am.ap()) {
+               this.bz.aw.addSubStream(var1.am);
             }
 
-            var1.af();
+            var1.remove2();
             if (var1.ag * -602614853 >= 0) {
                var1.remove();
                if (1959190999 * var1.au > 0 && this.by[1021419297 * var1.af][1959190999 * var1.au] == var1) {
@@ -803,11 +803,11 @@ public class MidiPcmStream extends PcmStream {
 
             return true;
          } else {
-            var1.stream.aj(var1.as * -1971564769, this.bv(var1), this.bl(var1));
+            var1.am.aj(var1.as * -1971564769, this.bv(var1), this.bl(var1));
             return false;
          }
       } else {
-         var1.af();
+         var1.remove2();
          var1.remove();
          if (1959190999 * var1.au > 0 && var1 == this.by[var1.af * 1021419297][var1.au * 1959190999]) {
             this.by[1021419297 * var1.af][var1.au * 1959190999] = null;

@@ -38,7 +38,7 @@ public class hp {
    }
 
    static void mx_renamed(int var0, int var1) {
-      fd.kv_renamed(Language.tempMenuAction, var0, var1);
-      Language.tempMenuAction = null;
+      fd.kv_renamed(Language.ot, var0, var1);
+      Language.ot = null;
    }
 }

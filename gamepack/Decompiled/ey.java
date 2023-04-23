@@ -1,7 +1,7 @@
 public class ey implements Enumerated {
-   static Archive archive16;
+   static Archive fj;
    static Archive fm;
-   static WorldMap worldMap0;
+   static WorldMap wt;
    static final ey ab = new ey(5, 5, (String)null, 3);
    static final ey ac = new ey(3, 3, (String)null, 6);
    static final ey af = new ey(0, 0, (String)null, 0);
@@ -28,7 +28,7 @@ public class ey implements Enumerated {
 
    static int bh_renamed(int var0, ClientScript var1, boolean var2) {
       if (7463 == var0) {
-         boolean var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+         boolean var4 = Interpreter.al[(at -= 427135973) * -964267539] == 1;
          cf.ox_renamed(var4);
          return 1;
       } else {

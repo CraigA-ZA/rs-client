@@ -47,7 +47,7 @@ public class hs extends DualNode {
    public short[] by;
 
    hs() {
-      this.aq = Strings.Strings_null;
+      this.aq = Strings.at;
       this.al = -1159021589;
       this.ay = -1304162881;
       this.ao = -1526449071;
@@ -86,21 +86,21 @@ public class hs extends DualNode {
       return (int)(var0 >>> 7 & 127L);
    }
 
-   void aw() {
+   void postDecode() {
    }
 
-   void ac(Packet var1) {
+   void decode(Packet var1) {
       while(true) {
          int var3 = var1.g1();
          if (0 == var3) {
             return;
          }
 
-         this.au(var1, var3);
+         this.decode0(var1, var3);
       }
    }
 
-   void au(Packet var1, int var2) {
+   void decode0(Packet var1, int var2) {
       int var4;
       int var5;
       if (1 == var2) {
@@ -131,7 +131,7 @@ public class hs extends DualNode {
          var1.cl();
       } else if (var2 >= 30 && var2 < 35) {
          this.be[var2 - 30] = var1.cw();
-         if (this.be[var2 - 30].equalsIgnoreCase(Strings.Strings_hidden)) {
+         if (this.be[var2 - 30].equalsIgnoreCase(Strings.ac)) {
             this.be[var2 - 30] = null;
          }
       } else if (40 == var2) {
@@ -375,7 +375,7 @@ public class hs extends DualNode {
       if (-1 != 1781845069 * this.bs) {
          var2 = WorldMapSection1.af_renamed(1781845069 * this.bs);
       } else if (2051988897 * this.br != -1) {
-         var2 = Varps.Varps_main[this.br * 2051988897];
+         var2 = Varps.aw[this.br * 2051988897];
       }
 
       int var3;
@@ -396,7 +396,7 @@ public class hs extends DualNode {
          if (-1 != this.bs * 1781845069) {
             var2 = WorldMapSection1.af_renamed(this.bs * 1781845069);
          } else if (-1 != 2051988897 * this.br) {
-            var2 = Varps.Varps_main[2051988897 * this.br];
+            var2 = Varps.aw[2051988897 * this.br];
          }
 
          if (var2 >= 0 && var2 < this.bn.length) {
@@ -417,7 +417,7 @@ public class hs extends DualNode {
          if (null == var6) {
             var4 = var2;
          } else {
-            var4 = var6.integer;
+            var4 = var6.af;
          }
       }
 

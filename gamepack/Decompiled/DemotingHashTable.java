@@ -2,15 +2,15 @@ public final class DemotingHashTable {
    int af;
    int an;
    kv au;
-   IterableDualNodeQueue queue;
-   IterableNodeHashTable hashTable;
+   IterableDualNodeQueue ac;
+   IterableNodeHashTable aw;
 
    public DemotingHashTable(int var1) {
       this(var1, var1);
    }
 
    public DemotingHashTable(int var1, int var2) {
-      this.queue = new IterableDualNodeQueue();
+      this.ac = new IterableDualNodeQueue();
       this.af = var1;
       this.an = var1;
 
@@ -18,11 +18,11 @@ public final class DemotingHashTable {
       for(var3 = 1; var3 + var3 < var1 && var3 < var2; var3 += var3) {
       }
 
-      this.hashTable = new IterableNodeHashTable(var3);
+      this.aw = new IterableNodeHashTable(var3);
    }
 
    public Object get(long var1) {
-      Wrapper var3 = (Wrapper)this.hashTable.get(var1);
+      Wrapper var3 = (Wrapper)this.aw.get(var1);
       if (var3 == null) {
          return null;
       } else {
@@ -30,19 +30,19 @@ public final class DemotingHashTable {
          if (var4 == null) {
             var3.remove();
             var3.removeDual();
-            this.an += var3.size;
+            this.an += var3.an;
             return null;
          } else {
             if (var3.isSoft()) {
-               DirectWrapper var5 = new DirectWrapper(var4, var3.size);
-               this.hashTable.put(var5, var3.key);
-               this.queue.an(var5);
-               var5.keyDual = 0L;
+               DirectWrapper var5 = new DirectWrapper(var4, var3.an);
+               this.aw.put(var5, var3.hr);
+               this.ac.an(var5);
+               var5.ef = 0L;
                var3.remove();
                var3.removeDual();
             } else {
-               this.queue.an(var3);
-               var3.keyDual = 0L;
+               this.ac.an(var3);
+               var3.ef = 0L;
             }
 
             return var4;
@@ -51,7 +51,7 @@ public final class DemotingHashTable {
    }
 
    void remove(long var1) {
-      Wrapper var3 = (Wrapper)this.hashTable.get(var1);
+      Wrapper var3 = (Wrapper)this.aw.get(var1);
       this.removeWrapper(var3);
    }
 
@@ -59,7 +59,7 @@ public final class DemotingHashTable {
       if (var1 != null) {
          var1.remove();
          var1.removeDual();
-         this.an += var1.size;
+         this.an += var1.an;
       }
 
    }
@@ -76,7 +76,7 @@ public final class DemotingHashTable {
          this.an -= var4;
 
          while(this.an < 0) {
-            Wrapper var5 = (Wrapper)this.queue.ac();
+            Wrapper var5 = (Wrapper)this.ac.ac();
             if (var5 == null) {
                throw new RuntimeException("");
             }
@@ -91,23 +91,23 @@ public final class DemotingHashTable {
          }
 
          DirectWrapper var6 = new DirectWrapper(var1, var4);
-         this.hashTable.put(var6, var2);
-         this.queue.an(var6);
-         var6.keyDual = 0L;
+         this.aw.put(var6, var2);
+         this.ac.an(var6);
+         var6.ef = 0L;
       }
    }
 
    public void demote(int var1) {
-      for(Wrapper var2 = (Wrapper)this.queue.au(); var2 != null; var2 = (Wrapper)this.queue.aq()) {
+      for(Wrapper var2 = (Wrapper)this.ac.au(); var2 != null; var2 = (Wrapper)this.ac.aq()) {
          if (var2.isSoft()) {
             if (var2.get() == null) {
                var2.remove();
                var2.removeDual();
-               this.an += var2.size;
+               this.an += var2.an;
             }
-         } else if (++var2.keyDual > (long)var1) {
-            SoftWrapper var3 = new SoftWrapper(var2.get(), var2.size);
-            this.hashTable.put(var3, var2.key);
+         } else if (++var2.ef > (long)var1) {
+            SoftWrapper var3 = new SoftWrapper(var2.get(), var2.an);
+            this.aw.put(var3, var2.hr);
             IterableDualNodeQueue.aw(var3, var2);
             var2.remove();
             var2.removeDual();
@@ -117,8 +117,8 @@ public final class DemotingHashTable {
    }
 
    public void aq() {
-      this.queue.af();
-      this.hashTable.clear();
+      this.ac.af();
+      this.aw.clear();
       this.an = this.af;
    }
 }

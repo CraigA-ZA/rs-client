@@ -18,13 +18,13 @@ public class ks {
 
    public static void ba_renamed(Component var0, int var1) {
       ObjType var3 = HeadbarUpdate.getObjType(var1);
-      var0.dd.an[-1935812527 * var3.womanwearyoff] = 512 + var1;
-      if (-1719338253 * var3.manwear != -1) {
-         var0.dd.an[var3.manwear * -1719338253] = 0;
+      var0.dd.an[-1935812527 * var3.bk] = 512 + var1;
+      if (-1719338253 * var3.bx != -1) {
+         var0.dd.an[var3.bx * -1719338253] = 0;
       }
 
-      if (var3.contrast * 723093341 != -1) {
-         var0.dd.an[var3.contrast * 723093341] = 0;
+      if (var3.bo * 723093341 != -1) {
+         var0.dd.an[var3.bo * 723093341] = 0;
       }
 
       var0.dd.ax();
@@ -32,22 +32,22 @@ public class ks {
 
    static int bq_renamed(int var0, ClientScript var1, boolean var2) {
       if (var0 == 6754) {
-         int var6 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         int var6 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
          hs var7 = AbstractArchive.an_renamed(var6);
-         Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = null != var7 ? var7.aq : "";
+         Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = null != var7 ? var7.aq : "";
          return 1;
       } else {
          hs var4;
          if (6764 == var0) {
-            Interpreter.Interpreter_intStackSize -= 854271946;
-            var4 = AbstractArchive.an_renamed(Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize]);
-            int var5 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4.ah(var5);
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4.ar(var5);
+            Interpreter.at -= 854271946;
+            var4 = AbstractArchive.an_renamed(Interpreter.al[-964267539 * Interpreter.at]);
+            int var5 = Interpreter.al[1 + -964267539 * Interpreter.at];
+            Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var4.ah(var5);
+            Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var4.ar(var5);
             return 1;
          } else if (var0 == 6765) {
-            var4 = AbstractArchive.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4 != null ? 2062903815 * var4.bx : 0;
+            var4 = AbstractArchive.an_renamed(Interpreter.al[(Interpreter.at -= 427135973) * -964267539]);
+            Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var4 != null ? 2062903815 * var4.bx : 0;
             return 1;
          } else {
             return 2;

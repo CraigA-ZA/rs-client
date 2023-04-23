@@ -2,52 +2,52 @@ import java.util.Collection;
 import java.util.Iterator;
 
 public class IterableNodeDeque implements Iterable, Collection {
-   Node sentinel = new Node();
-   Node current;
+   Node af = new Node();
+   Node an;
 
    public IterableNodeDeque() {
-      this.sentinel.previous = this.sentinel;
-      this.sentinel.next = this.sentinel;
+      this.af.hc = this.af;
+      this.af.hg = this.af;
    }
 
    public void clear0() {
-      while(this.sentinel.previous != this.sentinel) {
-         this.sentinel.previous.remove();
+      while(this.af.hc != this.af) {
+         this.af.hc.remove();
       }
 
    }
 
    public void addFirst(Node var1) {
-      if (var1.next != null) {
+      if (var1.hg != null) {
          var1.remove();
       }
 
-      var1.next = this.sentinel.next;
-      var1.previous = this.sentinel;
-      var1.next.previous = var1;
-      var1.previous.next = var1;
+      var1.hg = this.af.hg;
+      var1.hc = this.af;
+      var1.hg.hc = var1;
+      var1.hc.hg = var1;
    }
 
    public void addLast(Node var1) {
-      if (var1.next != null) {
+      if (var1.hg != null) {
          var1.remove();
       }
 
-      var1.next = this.sentinel;
-      var1.previous = this.sentinel.previous;
-      var1.next.previous = var1;
-      var1.previous.next = var1;
+      var1.hg = this.af;
+      var1.hc = this.af.hc;
+      var1.hg.hc = var1;
+      var1.hc.hg = var1;
    }
 
    public static void IterableNodeDeque_addBefore(Node var0, Node var1) {
-      if (var0.next != null) {
+      if (var0.hg != null) {
          var0.remove();
       }
 
-      var0.next = var1;
-      var0.previous = var1.previous;
-      var0.next.previous = var0;
-      var0.previous.next = var0;
+      var0.hg = var1;
+      var0.hc = var1.hc;
+      var0.hg.hc = var0;
+      var0.hc.hg = var0;
    }
 
    public Node last() {
@@ -57,27 +57,27 @@ public class IterableNodeDeque implements Iterable, Collection {
    Node previousOrLast(Node var1) {
       Node var2;
       if (var1 == null) {
-         var2 = this.sentinel.previous;
+         var2 = this.af.hc;
       } else {
          var2 = var1;
       }
 
-      if (var2 == this.sentinel) {
-         this.current = null;
+      if (var2 == this.af) {
+         this.an = null;
          return null;
       } else {
-         this.current = var2.previous;
+         this.an = var2.hc;
          return var2;
       }
    }
 
    public Node previous() {
-      Node var1 = this.current;
-      if (var1 == this.sentinel) {
-         this.current = null;
+      Node var1 = this.an;
+      if (var1 == this.af) {
+         this.an = null;
          return null;
       } else {
-         this.current = var1.previous;
+         this.an = var1.hc;
          return var1;
       }
    }
@@ -85,7 +85,7 @@ public class IterableNodeDeque implements Iterable, Collection {
    int al() {
       int var1 = 0;
 
-      for(Node var2 = this.sentinel.previous; var2 != this.sentinel; var2 = var2.previous) {
+      for(Node var2 = this.af.hc; var2 != this.af; var2 = var2.hc) {
          ++var1;
       }
 
@@ -93,14 +93,14 @@ public class IterableNodeDeque implements Iterable, Collection {
    }
 
    public boolean at() {
-      return this.sentinel.previous == this.sentinel;
+      return this.af.hc == this.af;
    }
 
    Node[] aa() {
       Node[] var1 = new Node[this.al()];
       int var2 = 0;
 
-      for(Node var3 = this.sentinel.previous; var3 != this.sentinel; var3 = var3.previous) {
+      for(Node var3 = this.af.hc; var3 != this.af; var3 = var3.hc) {
          var1[var2++] = var3;
       }
 
@@ -130,7 +130,7 @@ public class IterableNodeDeque implements Iterable, Collection {
    public Object[] toArray(Object[] var1) {
       int var2 = 0;
 
-      for(Node var3 = this.sentinel.previous; var3 != this.sentinel; var3 = var3.previous) {
+      for(Node var3 = this.af.hc; var3 != this.af; var3 = var3.hc) {
          var1[var2++] = var3;
       }
 

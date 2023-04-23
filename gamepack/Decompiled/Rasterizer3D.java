@@ -65,11 +65,11 @@ public final class Rasterizer3D extends Rasterizer2D {
       return var1;
    }
 
-   public void ac() {
+   public void clearAll() {
       Rasterizer2D_replace(this.af, this.an, this.aw, (float[])null);
    }
 
-   public void au() {
+   public void removeAll() {
       if (this.an != this.ab || this.aw != this.aq) {
          int[] var1 = new int[this.ab * this.aq];
 
@@ -141,7 +141,7 @@ public final class Rasterizer3D extends Rasterizer2D {
       this.ac = this.ab - this.an - this.ac;
    }
 
-   public void al() {
+   public void fillSenderUsername() {
       int[] var1 = new int[this.an * this.aw];
       int var2 = 0;
 
@@ -197,44 +197,44 @@ public final class Rasterizer3D extends Rasterizer2D {
    public void ay(int var1, int var2) {
       var1 += this.ac;
       var2 += this.au;
-      int var3 = var1 + var2 * Rasterizer2D_width;
+      int var3 = var1 + var2 * ae;
       int var4 = 0;
       int var5 = this.aw;
       int var6 = this.an;
-      int var7 = Rasterizer2D_width - var6;
+      int var7 = ae - var6;
       int var8 = 0;
       int var9;
-      if (var2 < Rasterizer2D_yClipStart) {
-         var9 = Rasterizer2D_yClipStart - var2;
+      if (var2 < bi) {
+         var9 = bi - var2;
          var5 -= var9;
-         var2 = Rasterizer2D_yClipStart;
+         var2 = bi;
          var4 += var9 * var6;
-         var3 += var9 * Rasterizer2D_width;
+         var3 += var9 * ae;
       }
 
-      if (var2 + var5 > Rasterizer2D_yClipEnd) {
-         var5 -= var2 + var5 - Rasterizer2D_yClipEnd;
+      if (var2 + var5 > be) {
+         var5 -= var2 + var5 - be;
       }
 
-      if (var1 < Rasterizer2D_xClipStart) {
-         var9 = Rasterizer2D_xClipStart - var1;
+      if (var1 < bk) {
+         var9 = bk - var1;
          var6 -= var9;
-         var1 = Rasterizer2D_xClipStart;
+         var1 = bk;
          var4 += var9;
          var3 += var9;
          var8 += var9;
          var7 += var9;
       }
 
-      if (var1 + var6 > Rasterizer2D_xClipEnd) {
-         var9 = var1 + var6 - Rasterizer2D_xClipEnd;
+      if (var1 + var6 > bx) {
+         var9 = var1 + var6 - bx;
          var6 -= var9;
          var8 += var9;
          var7 += var9;
       }
 
       if (var6 > 0 && var5 > 0) {
-         ao_renamed(Rasterizer2D_pixels, this.af, var4, var3, var6, var5, var7, var8);
+         ao_renamed(ad, this.af, var4, var3, var6, var5, var7, var8);
       }
    }
 
@@ -259,44 +259,44 @@ public final class Rasterizer3D extends Rasterizer2D {
    public void ax(int var1, int var2) {
       var1 += this.ac;
       var2 += this.au;
-      int var3 = var1 + var2 * Rasterizer2D_width;
+      int var3 = var1 + var2 * ae;
       int var4 = 0;
       int var5 = this.aw;
       int var6 = this.an;
-      int var7 = Rasterizer2D_width - var6;
+      int var7 = ae - var6;
       int var8 = 0;
       int var9;
-      if (var2 < Rasterizer2D_yClipStart) {
-         var9 = Rasterizer2D_yClipStart - var2;
+      if (var2 < bi) {
+         var9 = bi - var2;
          var5 -= var9;
-         var2 = Rasterizer2D_yClipStart;
+         var2 = bi;
          var4 += var9 * var6;
-         var3 += var9 * Rasterizer2D_width;
+         var3 += var9 * ae;
       }
 
-      if (var2 + var5 > Rasterizer2D_yClipEnd) {
-         var5 -= var2 + var5 - Rasterizer2D_yClipEnd;
+      if (var2 + var5 > be) {
+         var5 -= var2 + var5 - be;
       }
 
-      if (var1 < Rasterizer2D_xClipStart) {
-         var9 = Rasterizer2D_xClipStart - var1;
+      if (var1 < bk) {
+         var9 = bk - var1;
          var6 -= var9;
-         var1 = Rasterizer2D_xClipStart;
+         var1 = bk;
          var4 += var9;
          var3 += var9;
          var8 += var9;
          var7 += var9;
       }
 
-      if (var1 + var6 > Rasterizer2D_xClipEnd) {
-         var9 = var1 + var6 - Rasterizer2D_xClipEnd;
+      if (var1 + var6 > bx) {
+         var9 = var1 + var6 - bx;
          var6 -= var9;
          var8 += var9;
          var7 += var9;
       }
 
       if (var6 > 0 && var5 > 0) {
-         ai_renamed(Rasterizer2D_pixels, this.af, 0, var4, var3, var6, var5, var7, var8);
+         ai_renamed(ad, this.af, 0, var4, var3, var6, var5, var7, var8);
       }
    }
 
@@ -382,35 +382,35 @@ public final class Rasterizer3D extends Rasterizer2D {
             var4 = ((var6 << 16) - var8 + var12 - 1) / var12;
          }
 
-         var13 = var1 + var2 * Rasterizer2D_width;
-         int var14 = Rasterizer2D_width - var3;
-         if (var2 + var4 > Rasterizer2D_yClipEnd) {
-            var4 -= var2 + var4 - Rasterizer2D_yClipEnd;
+         var13 = var1 + var2 * ae;
+         int var14 = ae - var3;
+         if (var2 + var4 > be) {
+            var4 -= var2 + var4 - be;
          }
 
          int var15;
-         if (var2 < Rasterizer2D_yClipStart) {
-            var15 = Rasterizer2D_yClipStart - var2;
+         if (var2 < bi) {
+            var15 = bi - var2;
             var4 -= var15;
-            var13 += var15 * Rasterizer2D_width;
+            var13 += var15 * ae;
             var8 += var12 * var15;
          }
 
-         if (var1 + var3 > Rasterizer2D_xClipEnd) {
-            var15 = var1 + var3 - Rasterizer2D_xClipEnd;
+         if (var1 + var3 > bx) {
+            var15 = var1 + var3 - bx;
             var3 -= var15;
             var14 += var15;
          }
 
-         if (var1 < Rasterizer2D_xClipStart) {
-            var15 = Rasterizer2D_xClipStart - var1;
+         if (var1 < bk) {
+            var15 = bk - var1;
             var3 -= var15;
             var13 += var15;
             var7 += var11 * var15;
             var14 += var15;
          }
 
-         ah_renamed(Rasterizer2D_pixels, this.af, 0, var7, var8, var13, var14, var3, var4, var11, var12, var5);
+         ah_renamed(ad, this.af, 0, var7, var8, var13, var14, var3, var4, var11, var12, var5);
       }
    }
 
@@ -444,44 +444,44 @@ public final class Rasterizer3D extends Rasterizer2D {
       } else {
          var1 += this.ac;
          var2 += this.au;
-         int var5 = var1 + var2 * Rasterizer2D_width;
+         int var5 = var1 + var2 * ae;
          int var6 = 0;
          int var7 = this.aw;
          int var8 = this.an;
-         int var9 = Rasterizer2D_width - var8;
+         int var9 = ae - var8;
          int var10 = 0;
          int var11;
-         if (var2 < Rasterizer2D_yClipStart) {
-            var11 = Rasterizer2D_yClipStart - var2;
+         if (var2 < bi) {
+            var11 = bi - var2;
             var7 -= var11;
-            var2 = Rasterizer2D_yClipStart;
+            var2 = bi;
             var6 += var11 * var8;
-            var5 += var11 * Rasterizer2D_width;
+            var5 += var11 * ae;
          }
 
-         if (var2 + var7 > Rasterizer2D_yClipEnd) {
-            var7 -= var2 + var7 - Rasterizer2D_yClipEnd;
+         if (var2 + var7 > be) {
+            var7 -= var2 + var7 - be;
          }
 
-         if (var1 < Rasterizer2D_xClipStart) {
-            var11 = Rasterizer2D_xClipStart - var1;
+         if (var1 < bk) {
+            var11 = bk - var1;
             var8 -= var11;
-            var1 = Rasterizer2D_xClipStart;
+            var1 = bk;
             var6 += var11;
             var5 += var11;
             var10 += var11;
             var9 += var11;
          }
 
-         if (var1 + var8 > Rasterizer2D_xClipEnd) {
-            var11 = var1 + var8 - Rasterizer2D_xClipEnd;
+         if (var1 + var8 > bx) {
+            var11 = var1 + var8 - bx;
             var8 -= var11;
             var10 += var11;
             var9 += var11;
          }
 
          if (var8 > 0 && var7 > 0) {
-            ar_renamed(Rasterizer2D_pixels, this.af, 0, var6, var5, var8, var7, var9, var10, var3, var4);
+            ar_renamed(ad, this.af, 0, var6, var5, var8, var7, var9, var10, var3, var4);
          }
       }
    }
@@ -513,44 +513,44 @@ public final class Rasterizer3D extends Rasterizer2D {
    public void am(int var1, int var2, int var3) {
       var1 += this.ac;
       var2 += this.au;
-      int var4 = var1 + var2 * Rasterizer2D_width;
+      int var4 = var1 + var2 * ae;
       int var5 = 0;
       int var6 = this.aw;
       int var7 = this.an;
-      int var8 = Rasterizer2D_width - var7;
+      int var8 = ae - var7;
       int var9 = 0;
       int var10;
-      if (var2 < Rasterizer2D_yClipStart) {
-         var10 = Rasterizer2D_yClipStart - var2;
+      if (var2 < bi) {
+         var10 = bi - var2;
          var6 -= var10;
-         var2 = Rasterizer2D_yClipStart;
+         var2 = bi;
          var5 += var10 * var7;
-         var4 += var10 * Rasterizer2D_width;
+         var4 += var10 * ae;
       }
 
-      if (var2 + var6 > Rasterizer2D_yClipEnd) {
-         var6 -= var2 + var6 - Rasterizer2D_yClipEnd;
+      if (var2 + var6 > be) {
+         var6 -= var2 + var6 - be;
       }
 
-      if (var1 < Rasterizer2D_xClipStart) {
-         var10 = Rasterizer2D_xClipStart - var1;
+      if (var1 < bk) {
+         var10 = bk - var1;
          var7 -= var10;
-         var1 = Rasterizer2D_xClipStart;
+         var1 = bk;
          var5 += var10;
          var4 += var10;
          var9 += var10;
          var8 += var10;
       }
 
-      if (var1 + var7 > Rasterizer2D_xClipEnd) {
-         var10 = var1 + var7 - Rasterizer2D_xClipEnd;
+      if (var1 + var7 > bx) {
+         var10 = var1 + var7 - bx;
          var7 -= var10;
          var9 += var10;
          var8 += var10;
       }
 
       if (var7 > 0 && var6 > 0) {
-         as_renamed(Rasterizer2D_pixels, this.af, 0, var5, var4, var7, var6, var8, var9, var3);
+         as_renamed(ad, this.af, 0, var5, var4, var7, var6, var8, var9, var3);
       }
    }
 
@@ -605,35 +605,35 @@ public final class Rasterizer3D extends Rasterizer2D {
             var4 = ((var7 << 16) - var9 + var13 - 1) / var13;
          }
 
-         var14 = var1 + var2 * Rasterizer2D_width;
-         int var15 = Rasterizer2D_width - var3;
-         if (var2 + var4 > Rasterizer2D_yClipEnd) {
-            var4 -= var2 + var4 - Rasterizer2D_yClipEnd;
+         var14 = var1 + var2 * ae;
+         int var15 = ae - var3;
+         if (var2 + var4 > be) {
+            var4 -= var2 + var4 - be;
          }
 
          int var16;
-         if (var2 < Rasterizer2D_yClipStart) {
-            var16 = Rasterizer2D_yClipStart - var2;
+         if (var2 < bi) {
+            var16 = bi - var2;
             var4 -= var16;
-            var14 += var16 * Rasterizer2D_width;
+            var14 += var16 * ae;
             var9 += var13 * var16;
          }
 
-         if (var1 + var3 > Rasterizer2D_xClipEnd) {
-            var16 = var1 + var3 - Rasterizer2D_xClipEnd;
+         if (var1 + var3 > bx) {
+            var16 = var1 + var3 - bx;
             var3 -= var16;
             var15 += var16;
          }
 
-         if (var1 < Rasterizer2D_xClipStart) {
-            var16 = Rasterizer2D_xClipStart - var1;
+         if (var1 < bk) {
+            var16 = bk - var1;
             var3 -= var16;
             var14 += var16;
             var8 += var12 * var16;
             var15 += var16;
          }
 
-         ak_renamed(Rasterizer2D_pixels, this.af, 0, var8, var9, var14, var15, var3, var4, var12, var13, var6, var5);
+         ak_renamed(ad, this.af, 0, var8, var9, var14, var15, var3, var4, var12, var13, var6, var5);
       }
    }
 
@@ -666,37 +666,37 @@ public final class Rasterizer3D extends Rasterizer2D {
    public void az(int var1, int var2, int var3) {
       var1 += this.ac;
       var2 += this.au;
-      int var4 = var1 + var2 * Rasterizer2D_width;
+      int var4 = var1 + var2 * ae;
       int var5 = 0;
       int var6 = this.aw;
       int var7 = this.an;
-      int var8 = Rasterizer2D_width - var7;
+      int var8 = ae - var7;
       int var9 = 0;
       int var10;
-      if (var2 < Rasterizer2D_yClipStart) {
-         var10 = Rasterizer2D_yClipStart - var2;
+      if (var2 < bi) {
+         var10 = bi - var2;
          var6 -= var10;
-         var2 = Rasterizer2D_yClipStart;
+         var2 = bi;
          var5 += var10 * var7;
-         var4 += var10 * Rasterizer2D_width;
+         var4 += var10 * ae;
       }
 
-      if (var2 + var6 > Rasterizer2D_yClipEnd) {
-         var6 -= var2 + var6 - Rasterizer2D_yClipEnd;
+      if (var2 + var6 > be) {
+         var6 -= var2 + var6 - be;
       }
 
-      if (var1 < Rasterizer2D_xClipStart) {
-         var10 = Rasterizer2D_xClipStart - var1;
+      if (var1 < bk) {
+         var10 = bk - var1;
          var7 -= var10;
-         var1 = Rasterizer2D_xClipStart;
+         var1 = bk;
          var5 += var10;
          var4 += var10;
          var9 += var10;
          var8 += var10;
       }
 
-      if (var1 + var7 > Rasterizer2D_xClipEnd) {
-         var10 = var1 + var7 - Rasterizer2D_xClipEnd;
+      if (var1 + var7 > bx) {
+         var10 = var1 + var7 - bx;
          var7 -= var10;
          var9 += var10;
          var8 += var10;
@@ -704,9 +704,9 @@ public final class Rasterizer3D extends Rasterizer2D {
 
       if (var7 > 0 && var6 > 0) {
          if (var3 == 256) {
-            ad_renamed(0, 0, 0, Rasterizer2D_pixels, this.af, var5, 0, var4, 0, var7, var6, var8, var9);
+            ad_renamed(0, 0, 0, ad, this.af, var5, 0, var4, 0, var7, var6, var8, var9);
          } else {
-            ae_renamed(0, 0, 0, Rasterizer2D_pixels, this.af, var5, 0, var4, 0, var7, var6, var8, var9, var3);
+            ae_renamed(0, 0, 0, ad, this.af, var5, 0, var4, 0, var7, var6, var8, var9, var3);
          }
 
       }
@@ -787,28 +787,28 @@ public final class Rasterizer3D extends Rasterizer2D {
             var4 = ((var7 << 16) - var9 + var13 - 1) / var13;
          }
 
-         var14 = var1 + var2 * Rasterizer2D_width;
-         int var15 = Rasterizer2D_width - var3;
-         if (var2 + var4 > Rasterizer2D_yClipEnd) {
-            var4 -= var2 + var4 - Rasterizer2D_yClipEnd;
+         var14 = var1 + var2 * ae;
+         int var15 = ae - var3;
+         if (var2 + var4 > be) {
+            var4 -= var2 + var4 - be;
          }
 
          int var16;
-         if (var2 < Rasterizer2D_yClipStart) {
-            var16 = Rasterizer2D_yClipStart - var2;
+         if (var2 < bi) {
+            var16 = bi - var2;
             var4 -= var16;
-            var14 += var16 * Rasterizer2D_width;
+            var14 += var16 * ae;
             var9 += var13 * var16;
          }
 
-         if (var1 + var3 > Rasterizer2D_xClipEnd) {
-            var16 = var1 + var3 - Rasterizer2D_xClipEnd;
+         if (var1 + var3 > bx) {
+            var16 = var1 + var3 - bx;
             var3 -= var16;
             var15 += var16;
          }
 
-         if (var1 < Rasterizer2D_xClipStart) {
-            var16 = Rasterizer2D_xClipStart - var1;
+         if (var1 < bk) {
+            var16 = bk - var1;
             var3 -= var16;
             var14 += var16;
             var8 += var12 * var16;
@@ -816,9 +816,9 @@ public final class Rasterizer3D extends Rasterizer2D {
          }
 
          if (var5 == 256) {
-            by_renamed(0, 0, 0, var8, this.af, Rasterizer2D_pixels, 0, 0, -var4, var9, var14, var15, var3, var12, var13, var6);
+            by_renamed(0, 0, 0, var8, this.af, ad, 0, 0, -var4, var9, var14, var15, var3, var12, var13, var6);
          } else {
-            bb_renamed(0, 0, 0, var8, this.af, Rasterizer2D_pixels, 0, 0, -var4, var9, var14, var15, var3, var12, var13, var6, var5);
+            bb_renamed(0, 0, 0, var8, this.af, ad, 0, 0, -var4, var9, var14, var15, var3, var12, var13, var6, var5);
          }
 
       }
@@ -889,7 +889,7 @@ public final class Rasterizer3D extends Rasterizer2D {
          var10000 = var5 - var1;
       }
 
-      int var13 = var3 + var1 + var11 + (var4 + var2 + var9) * Rasterizer2D_width;
+      int var13 = var3 + var1 + var11 + (var4 + var2 + var9) * ae;
       int var14 = var2 + var9;
 
       for(int var15 = var9; var15 < var10; ++var15) {
@@ -914,13 +914,13 @@ public final class Rasterizer3D extends Rasterizer2D {
          for(int var20 = var19; var20 < var12; ++var20) {
             int var21 = this.af[var20 + var15 * this.an];
             if (var21 != 0) {
-               Rasterizer2D_pixels[var18++] = var21;
+               ad[var18++] = var21;
             } else {
                ++var18;
             }
          }
 
-         var13 += Rasterizer2D_width;
+         var13 += ae;
       }
 
    }
@@ -935,7 +935,7 @@ public final class Rasterizer3D extends Rasterizer2D {
          var14 = var14 * var8 >> 8;
          int var15 = (var5 << 16) + var12 * var13 + var11 * var14;
          int var16 = (var6 << 16) + (var12 * var14 - var11 * var13);
-         int var17 = var1 + var2 * Rasterizer2D_width;
+         int var17 = var1 + var2 * ae;
 
          for(var2 = 0; var2 < var4; ++var2) {
             int var18 = var9[var2];
@@ -944,14 +944,14 @@ public final class Rasterizer3D extends Rasterizer2D {
             int var21 = var16 - var13 * var18;
 
             for(var1 = -var10[var2]; var1 < 0; ++var1) {
-               Rasterizer2D_pixels[var19++] = this.af[(var20 >> 16) + (var21 >> 16) * this.an];
+               ad[var19++] = this.af[(var20 >> 16) + (var21 >> 16) * this.an];
                var20 += var14;
                var21 -= var13;
             }
 
             var15 += var13;
             var16 += var14;
-            var17 += Rasterizer2D_width;
+            var17 += ae;
          }
       } catch (Exception var22) {
       }
@@ -968,7 +968,7 @@ public final class Rasterizer3D extends Rasterizer2D {
          var13 = var13 * var9 >> 8;
          int var14 = (var5 << 16) + var11 * var12 + var10 * var13;
          int var15 = (var6 << 16) + (var11 * var13 - var10 * var12);
-         int var16 = var1 + var2 * Rasterizer2D_width;
+         int var16 = var1 + var2 * ae;
 
          for(var2 = 0; var2 < var4; ++var2) {
             int var17 = var16;
@@ -978,7 +978,7 @@ public final class Rasterizer3D extends Rasterizer2D {
             for(var1 = -var3; var1 < 0; ++var1) {
                int var20 = this.af[(var18 >> 16) + (var19 >> 16) * this.an];
                if (var20 != 0) {
-                  Rasterizer2D_pixels[var17++] = var20;
+                  ad[var17++] = var20;
                } else {
                   ++var17;
                }
@@ -989,7 +989,7 @@ public final class Rasterizer3D extends Rasterizer2D {
 
             var14 += var12;
             var15 += var13;
-            var16 += Rasterizer2D_width;
+            var16 += ae;
          }
       } catch (Exception var21) {
       }
@@ -1079,27 +1079,27 @@ public final class Rasterizer3D extends Rasterizer2D {
          var20 = var20 + 15 >> 4;
          var21 >>= 4;
          var22 = var22 + 15 >> 4;
-         if (var19 < Rasterizer2D_xClipStart) {
-            var19 = Rasterizer2D_xClipStart;
+         if (var19 < bk) {
+            var19 = bk;
          }
 
-         if (var20 > Rasterizer2D_xClipEnd) {
-            var20 = Rasterizer2D_xClipEnd;
+         if (var20 > bx) {
+            var20 = bx;
          }
 
-         if (var21 < Rasterizer2D_yClipStart) {
-            var21 = Rasterizer2D_yClipStart;
+         if (var21 < bi) {
+            var21 = bi;
          }
 
-         if (var22 > Rasterizer2D_yClipEnd) {
-            var22 = Rasterizer2D_yClipEnd;
+         if (var22 > be) {
+            var22 = be;
          }
 
          var20 = var19 - var20;
          if (var20 < 0) {
             var22 = var21 - var22;
             if (var22 < 0) {
-               int var23 = var21 * Rasterizer2D_width + var19;
+               int var23 = var21 * ae + var19;
                double var24 = 1.6777216E7 / (double)var6;
                int var26 = (int)Math.floor(Math.sin(var7) * var24 + 0.5);
                int var27 = (int)Math.floor(Math.cos(var7) * var24 + 0.5);
@@ -1116,7 +1116,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                int var38;
                if (var27 == 0) {
                   if (var26 == 0) {
-                     for(var33 = var22; var33 < 0; var23 += Rasterizer2D_width) {
+                     for(var33 = var22; var33 < 0; var23 += ae) {
                         var34 = var23;
                         var35 = var30;
                         var36 = var31;
@@ -1125,7 +1125,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                            for(; var37 < 0; ++var37) {
                               var38 = this.af[(var36 >> 12) * this.an + (var35 >> 12)];
                               if (var38 != 0) {
-                                 Rasterizer2D_pixels[var34++] = var38;
+                                 ad[var34++] = var38;
                               } else {
                                  ++var34;
                               }
@@ -1135,7 +1135,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                         ++var33;
                      }
                   } else if (var26 < 0) {
-                     for(var33 = var22; var33 < 0; var23 += Rasterizer2D_width) {
+                     for(var33 = var22; var33 < 0; var23 += ae) {
                         var34 = var23;
                         var35 = var30;
                         var36 = var31 + (var28 * var26 >> 4);
@@ -1155,7 +1155,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                            while(var37 < 0) {
                               var38 = this.af[(var36 >> 12) * this.an + (var35 >> 12)];
                               if (var38 != 0) {
-                                 Rasterizer2D_pixels[var34++] = var38;
+                                 ad[var34++] = var38;
                               } else {
                                  ++var34;
                               }
@@ -1169,7 +1169,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                         var30 -= var26;
                      }
                   } else {
-                     for(var33 = var22; var33 < 0; var23 += Rasterizer2D_width) {
+                     for(var33 = var22; var33 < 0; var23 += ae) {
                         var34 = var23;
                         var35 = var30;
                         var36 = var31 + (var28 * var26 >> 4);
@@ -1189,7 +1189,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                            while(var37 < 0) {
                               var38 = this.af[(var36 >> 12) * this.an + (var35 >> 12)];
                               if (var38 != 0) {
-                                 Rasterizer2D_pixels[var34++] = var38;
+                                 ad[var34++] = var38;
                               } else {
                                  ++var34;
                               }
@@ -1205,7 +1205,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                   }
                } else if (var27 < 0) {
                   if (var26 == 0) {
-                     for(var33 = var22; var33 < 0; var23 += Rasterizer2D_width) {
+                     for(var33 = var22; var33 < 0; var23 += ae) {
                         var34 = var23;
                         var35 = var30 + (var28 * var27 >> 4);
                         var36 = var31;
@@ -1225,7 +1225,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                            while(var37 < 0) {
                               var38 = this.af[(var36 >> 12) * this.an + (var35 >> 12)];
                               if (var38 != 0) {
-                                 Rasterizer2D_pixels[var34++] = var38;
+                                 ad[var34++] = var38;
                               } else {
                                  ++var34;
                               }
@@ -1239,7 +1239,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                         var31 += var27;
                      }
                   } else if (var26 < 0) {
-                     for(var33 = var22; var33 < 0; var23 += Rasterizer2D_width) {
+                     for(var33 = var22; var33 < 0; var23 += ae) {
                         var34 = var23;
                         var35 = var30 + (var28 * var27 >> 4);
                         var36 = var31 + (var28 * var26 >> 4);
@@ -1271,7 +1271,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                         while(var37 < 0) {
                            var38 = this.af[(var36 >> 12) * this.an + (var35 >> 12)];
                            if (var38 != 0) {
-                              Rasterizer2D_pixels[var34++] = var38;
+                              ad[var34++] = var38;
                            } else {
                               ++var34;
                            }
@@ -1286,7 +1286,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                         var31 += var27;
                      }
                   } else {
-                     for(var33 = var22; var33 < 0; var23 += Rasterizer2D_width) {
+                     for(var33 = var22; var33 < 0; var23 += ae) {
                         var34 = var23;
                         var35 = var30 + (var28 * var27 >> 4);
                         var36 = var31 + (var28 * var26 >> 4);
@@ -1318,7 +1318,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                         while(var37 < 0) {
                            var38 = this.af[(var36 >> 12) * this.an + (var35 >> 12)];
                            if (var38 != 0) {
-                              Rasterizer2D_pixels[var34++] = var38;
+                              ad[var34++] = var38;
                            } else {
                               ++var34;
                            }
@@ -1334,7 +1334,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                      }
                   }
                } else if (var26 == 0) {
-                  for(var33 = var22; var33 < 0; var23 += Rasterizer2D_width) {
+                  for(var33 = var22; var33 < 0; var23 += ae) {
                      var34 = var23;
                      var35 = var30 + (var28 * var27 >> 4);
                      var36 = var31;
@@ -1354,7 +1354,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                         while(var37 < 0) {
                            var38 = this.af[(var36 >> 12) * this.an + (var35 >> 12)];
                            if (var38 != 0) {
-                              Rasterizer2D_pixels[var34++] = var38;
+                              ad[var34++] = var38;
                            } else {
                               ++var34;
                            }
@@ -1368,7 +1368,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                      var31 += var27;
                   }
                } else if (var26 < 0) {
-                  for(var33 = var22; var33 < 0; var23 += Rasterizer2D_width) {
+                  for(var33 = var22; var33 < 0; var23 += ae) {
                      var34 = var23;
                      var35 = var30 + (var28 * var27 >> 4);
                      var36 = var31 + (var28 * var26 >> 4);
@@ -1400,7 +1400,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                      while(var37 < 0) {
                         var38 = this.af[(var36 >> 12) * this.an + (var35 >> 12)];
                         if (var38 != 0) {
-                           Rasterizer2D_pixels[var34++] = var38;
+                           ad[var34++] = var38;
                         } else {
                            ++var34;
                         }
@@ -1415,7 +1415,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                      var31 += var27;
                   }
                } else {
-                  for(var33 = var22; var33 < 0; var23 += Rasterizer2D_width) {
+                  for(var33 = var22; var33 < 0; var23 += ae) {
                      var34 = var23;
                      var35 = var30 + (var28 * var27 >> 4);
                      var36 = var31 + (var28 * var26 >> 4);
@@ -1447,7 +1447,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                      while(var37 < 0) {
                         var38 = this.af[(var36 >> 12) * this.an + (var35 >> 12)];
                         if (var38 != 0) {
-                           Rasterizer2D_pixels[var34++] = var38;
+                           ad[var34++] = var38;
                         } else {
                            ++var34;
                         }
@@ -1474,26 +1474,26 @@ public final class Rasterizer3D extends Rasterizer2D {
          int var6 = var1 + ((this.ac + this.an) * var3 + this.ab - 1) / this.ab;
          int var7 = var2 + this.au * var4 / this.aq;
          int var8 = var2 + ((this.au + this.aw) * var4 + this.aq - 1) / this.aq;
-         if (var5 < Rasterizer2D_xClipStart) {
-            var5 = Rasterizer2D_xClipStart;
+         if (var5 < bk) {
+            var5 = bk;
          }
 
-         if (var6 > Rasterizer2D_xClipEnd) {
-            var6 = Rasterizer2D_xClipEnd;
+         if (var6 > bx) {
+            var6 = bx;
          }
 
-         if (var7 < Rasterizer2D_yClipStart) {
-            var7 = Rasterizer2D_yClipStart;
+         if (var7 < bi) {
+            var7 = bi;
          }
 
-         if (var8 > Rasterizer2D_yClipEnd) {
-            var8 = Rasterizer2D_yClipEnd;
+         if (var8 > be) {
+            var8 = be;
          }
 
          if (var5 < var6 && var7 < var8) {
-            int var9 = var7 * Rasterizer2D_width + var5;
-            int var10 = Rasterizer2D_width - (var6 - var5);
-            if (var9 < Rasterizer2D_pixels.length) {
+            int var9 = var7 * ae + var5;
+            int var10 = ae - (var6 - var5);
+            if (var9 < ad.length) {
                for(int var11 = var7; var11 < var8; ++var11) {
                   for(int var12 = var5; var12 < var6; ++var12) {
                      int var13 = var12 - var1 << 4;
@@ -1572,7 +1572,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                               var28 = 1;
                            }
 
-                           Rasterizer2D_pixels[var9] = var28;
+                           ad[var9] = var28;
                         }
 
                         ++var9;

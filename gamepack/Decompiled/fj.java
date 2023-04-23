@@ -36,26 +36,26 @@ public class fj {
 
    public static File af_renamed(String var0, String var1, int var2) {
       String var4 = var2 == 0 ? "" : "" + var2;
-      gc.clDat = new File(hd.userHomeDirectory, "jagex_cl_" + var0 + "_" + var1 + var4 + ".dat");
+      gc.ac = new File(hd.az, "jagex_cl_" + var0 + "_" + var1 + var4 + ".dat");
       String var5 = null;
       String var6 = null;
       boolean var7 = false;
       Packet var9;
       int var12;
       File var23;
-      if (gc.clDat.exists()) {
+      if (gc.ac.exists()) {
          try {
-            AccessFile var8 = new AccessFile(gc.clDat, "rw", 10000L);
+            AccessFile var8 = new AccessFile(gc.ac, "rw", 10000L);
 
             int var10;
-            for(var9 = new Packet((int)var8.length()); var9.index * -1633313603 < var9.array.length; var9.index += -1516355947 * var10) {
-               var10 = var8.read(var9.array, -1633313603 * var9.index, var9.array.length - var9.index * -1633313603);
+            for(var9 = new Packet((int)var8.length()); var9.at * -1633313603 < var9.al.length; var9.at += -1516355947 * var10) {
+               var10 = var8.read(var9.al, -1633313603 * var9.at, var9.al.length - var9.at * -1633313603);
                if (-1 == var10) {
                   throw new IOException();
                }
             }
 
-            var9.index = 0;
+            var9.at = 0;
             var10 = var9.g1();
             if (var10 < 1 || var10 > 3) {
                throw new IOException("" + var10);
@@ -116,8 +116,8 @@ public class fj {
       if (var5 == null && var2 == 0) {
          label155:
          for(int var21 = 0; var21 < Formatting.ar.length; ++var21) {
-            for(int var24 = 0; var24 < fe.cacheDirectoryLocations.length; ++var24) {
-               File var26 = new File(fe.cacheDirectoryLocations[var24] + Formatting.ar[var21] + File.separatorChar + var0 + File.separatorChar);
+            for(int var24 = 0; var24 < fe.av.length; ++var24) {
+               File var26 = new File(fe.av[var24] + Formatting.ar[var21] + File.separatorChar + var0 + File.separatorChar);
                if (var26.exists()) {
                   File var29 = new File(var26, "test.dat");
 
@@ -146,7 +146,7 @@ public class fj {
       }
 
       if (var5 == null) {
-         var5 = hd.userHomeDirectory + File.separatorChar + "jagexcache" + var4 + File.separatorChar + var0 + File.separatorChar + var1 + File.separatorChar;
+         var5 = hd.az + File.separatorChar + "jagexcache" + var4 + File.separatorChar + var0 + File.separatorChar + var1 + File.separatorChar;
          var7 = true;
       }
 
@@ -179,7 +179,7 @@ public class fj {
          var9 = null;
 
          try {
-            AccessFile var30 = new AccessFile(gc.clDat, "rw", 10000L);
+            AccessFile var30 = new AccessFile(gc.ac, "rw", 10000L);
             Packet var34 = new Packet(500);
             var34.bu(3);
             var34.bu(null != var9 ? 1 : 0);
@@ -188,7 +188,7 @@ public class fj {
                var34.ci(var9.getPath());
             }
 
-            var30.write(var34.array, 0, -1633313603 * var34.index);
+            var30.write(var34.al, 0, -1633313603 * var34.at);
             var30.close();
          } catch (IOException var16) {
             var16.printStackTrace();
@@ -288,7 +288,7 @@ public class fj {
          return null;
       } else {
          Node var3 = this.ap.get((long)var1);
-         return var3 != null && var3 instanceof IntegerNode ? new Integer(((IntegerNode)var3).integer) : null;
+         return var3 != null && var3 instanceof IntegerNode ? new Integer(((IntegerNode)var3).af) : null;
       }
    }
 
@@ -668,11 +668,11 @@ public class fj {
          if (var4 != null) {
             if (var4 instanceof IntegerNode) {
                IntegerNode var5 = (IntegerNode)var4;
-               if (var2 == var5.integer) {
+               if (var2 == var5.af) {
                   return false;
                }
 
-               var5.integer = var2;
+               var5.af = var2;
                return true;
             }
 
@@ -697,12 +697,12 @@ public class fj {
          if (var9 != null) {
             if (var9 instanceof IntegerNode) {
                IntegerNode var10 = (IntegerNode)var9;
-               if ((var10.integer & var8) == var2) {
+               if ((var10.af & var8) == var2) {
                   return false;
                }
 
-               var10.integer &= ~var8;
-               var10.integer |= var2;
+               var10.af &= ~var8;
+               var10.af |= var2;
                return true;
             }
 
@@ -752,13 +752,13 @@ public class fj {
          if (null != var4) {
             if (var4 instanceof ObjectNode) {
                ObjectNode var5 = (ObjectNode)var4;
-               if (var5.obj instanceof String) {
-                  if (var2.equals(var5.obj)) {
+               if (var5.af instanceof String) {
+                  if (var2.equals(var5.af)) {
                      return false;
                   }
 
                   var5.remove();
-                  this.ap.put(new ObjectNode(var2), var5.key);
+                  this.ap.put(new ObjectNode(var2), var5.hr);
                   return true;
                }
             }

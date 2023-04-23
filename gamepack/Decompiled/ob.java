@@ -34,7 +34,7 @@ public class ob {
             return;
          }
 
-         URL var4 = new URL(dn.af.getCodeBase(), "clienterror.ws?cv=" + 2027530319 * ClientError.aw + "&cs=" + qh.ac * 1574980473 + "&u=" + ClientError.localPlayerName + "&v1=" + TaskHandler.javaVendor + "&v2=" + TaskHandler.javaVersion + "&ct=" + ClientError.au * -891448341 + "&e=" + var3);
+         URL var4 = new URL(dn.af.getCodeBase(), "clienterror.ws?cv=" + 2027530319 * ClientError.aw + "&cs=" + qh.ac * 1574980473 + "&u=" + ClientError.an + "&v1=" + TaskHandler.af + "&v2=" + TaskHandler.an + "&ct=" + ClientError.au * -891448341 + "&e=" + var3);
          DataInputStream var5 = new DataInputStream(var4.openStream());
          var5.read();
          var5.close();

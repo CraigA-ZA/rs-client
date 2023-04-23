@@ -34,7 +34,7 @@ public class ef extends UrlRequester {
             try {
                label135: {
                   var10 = true;
-                  String var4 = var1.url.getProtocol();
+                  String var4 = var1.af.getProtocol();
                   if (var4.equals("http")) {
                      var3 = this.ad(var1);
                   } else {
@@ -89,13 +89,13 @@ public class ef extends UrlRequester {
    }
 
    URLConnection ad(UrlRequest var1) throws IOException {
-      URLConnection var3 = var1.url.openConnection();
+      URLConnection var3 = var1.af.openConnection();
       this.aw(var3);
       return var3;
    }
 
    URLConnection ae(UrlRequest var1) throws IOException {
-      HttpsURLConnection var3 = (HttpsURLConnection)var1.url.openConnection();
+      HttpsURLConnection var3 = (HttpsURLConnection)var1.af.openConnection();
       if (!this.au) {
          if (ah.an == null) {
             ah.an = new ah();

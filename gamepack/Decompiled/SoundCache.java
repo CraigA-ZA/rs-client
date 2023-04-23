@@ -26,7 +26,7 @@ public class SoundCache {
             var8 = var9.toRawSound();
             this.ac.put(var8, var6);
             if (var3 != null) {
-               var3[0] -= var8.samples.length;
+               var3[0] -= var8.an.length;
             }
 
             return var8;

@@ -22,7 +22,7 @@ public class gj extends Node {
    }
 
    public gj(Packet var1) {
-      this.ab(var1);
+      this.decode(var1);
    }
 
    public int[] af() {
@@ -46,12 +46,12 @@ public class gj extends Node {
       this.ac = null;
    }
 
-   void aw(int var1) {
+   void animate(int var1) {
       this.aw.remove(var1);
       this.ac = null;
    }
 
-   public int ac() {
+   public int gIsaac1() {
       return this.aw.size();
    }
 
@@ -69,7 +69,7 @@ public class gj extends Node {
       }
    }
 
-   void ab(Packet var1) {
+   void decode(Packet var1) {
       int var3 = var1.g1();
       if (0 != (var3 & 1)) {
          this.af = true;
@@ -84,7 +84,7 @@ public class gj extends Node {
          var4 = var1.g1();
       }
 
-      this.key = var1.g8s();
+      this.hr = var1.g8s();
       this.au = var1.g8s() * -5510785032985703105L;
       this.ab = var1.cw();
       var1.gbool();

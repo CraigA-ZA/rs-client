@@ -1,17 +1,17 @@
 public class PacketBitNode extends Node {
    static int ab = 0;
-   static PacketBitNode[] packetBitNodes = new PacketBitNode[300];
+   static PacketBitNode[] au = new PacketBitNode[300];
    int an;
    ClientProt af;
    public int ac;
-   public PacketBit bit;
+   public PacketBit aw;
 
    PacketBitNode() {
    }
 
-   public void ac() {
-      if (ab * 380401923 < packetBitNodes.length) {
-         packetBitNodes[(ab += -1882670677) * 380401923 - 1] = this;
+   public void clearAll() {
+      if (ab * 380401923 < au.length) {
+         au[(ab += -1882670677) * 380401923 - 1] = this;
       }
    }
 

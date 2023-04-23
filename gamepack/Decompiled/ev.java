@@ -1,5 +1,5 @@
 public class ev {
-   public static boolean musicTrackBoolean;
+   public static boolean ay;
    ev aq;
    float ab = Float.MAX_VALUE;
    float ac = Float.MAX_VALUE;

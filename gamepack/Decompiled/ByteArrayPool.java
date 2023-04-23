@@ -2,21 +2,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ByteArrayPool {
-   static byte[][] ByteArrayPool_large = new byte[100][];
+   static byte[][] ag = new byte[100][];
    static byte[][] ah = new byte[50][];
-   static byte[][] ByteArrayPool_medium = new byte[250][];
-   static byte[][] ByteArrayPool_small = new byte[1000][];
+   static byte[][] ai = new byte[250][];
+   static byte[][] ax = new byte[1000][];
    static int aa = 1002979318;
-   static int ByteArrayPool_mediumCount = 0;
+   static int ab = 0;
    static int al = 0;
    static int ao = -1364074518;
-   static int ByteArrayPool_largeCount = 0;
+   static int aq = 0;
    static int at = -1043983224;
-   static int ByteArrayPool_smallCount = 0;
+   static int au = 0;
    static int ay = 2094465164;
    static int ck;
    static ArrayList as = new ArrayList();
-   static WorldMapEvent worldMapEvent;
+   static WorldMapEvent aj;
 
    static {
       kr.an_renamed();
@@ -29,17 +29,17 @@ public class ByteArrayPool {
 
    public static synchronized byte[] ByteArrayPool_get(int var0, boolean var1) {
       byte[] var5;
-      if ((var0 == 100 || var0 < 100 && var1) && ByteArrayPool_smallCount * -300357261 > 0) {
-         var5 = ByteArrayPool_small[(ByteArrayPool_smallCount -= -1092459589) * -300357261];
-         ByteArrayPool_small[ByteArrayPool_smallCount * -300357261] = null;
+      if ((var0 == 100 || var0 < 100 && var1) && au * -300357261 > 0) {
+         var5 = ax[(au -= -1092459589) * -300357261];
+         ax[au * -300357261] = null;
          return var5;
-      } else if ((var0 == 5000 || var0 < 5000 && var1) && 481846585 * ByteArrayPool_mediumCount > 0) {
-         var5 = ByteArrayPool_medium[(ByteArrayPool_mediumCount -= 1267792137) * 481846585];
-         ByteArrayPool_medium[ByteArrayPool_mediumCount * 481846585] = null;
+      } else if ((var0 == 5000 || var0 < 5000 && var1) && 481846585 * ab > 0) {
+         var5 = ai[(ab -= 1267792137) * 481846585];
+         ai[ab * 481846585] = null;
          return var5;
-      } else if ((var0 == 10000 || var0 < 10000 && var1) && ByteArrayPool_largeCount * -926544205 > 0) {
-         var5 = ByteArrayPool_large[(ByteArrayPool_largeCount -= -1706733445) * -926544205];
-         ByteArrayPool_large[-926544205 * ByteArrayPool_largeCount] = null;
+      } else if ((var0 == 10000 || var0 < 10000 && var1) && aq * -926544205 > 0) {
+         var5 = ag[(aq -= -1706733445) * -926544205];
+         ag[-926544205 * aq] = null;
          return var5;
       } else if ((var0 == 30000 || var0 < 30000 && var1) && al * 767381159 > 0) {
          var5 = ah[(al -= 1254586647) * 767381159];
@@ -70,6 +70,6 @@ public class ByteArrayPool {
    }
 
    static final boolean kj_renamed() {
-      return Client.isMiniMenuOpen;
+      return Client.nt;
    }
 }

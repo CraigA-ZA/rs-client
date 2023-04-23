@@ -6,7 +6,7 @@ public class ft extends fb {
    final fa this$0;
 
    public static void af_renamed(Huffman var0) {
-      mv.huffman = var0;
+      mv.af = var0;
    }
 
    ft(fa var1) {
@@ -16,9 +16,9 @@ public class ft extends fb {
       this.aw = 0;
    }
 
-   void af(Packet var1) {
+   void write(Packet var1) {
       if (var1.g1() != 255) {
-         var1.index -= -1516355947;
+         var1.at -= -1516355947;
          this.af = var1.g8s() * 5362405580622353499L;
       }
 

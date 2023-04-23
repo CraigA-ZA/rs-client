@@ -344,32 +344,32 @@ public final class qj {
       while(!var1) {
          var1 = true;
 
-         for(int var2 = 0; var2 < 730065501 * Client.menuOptionsCount - 1; ++var2) {
-            if (Client.menuArguments1[var2] < 1000 && Client.menuArguments1[var2 + 1] > 1000) {
-               String var3 = Client.menuTargetNames[var2];
-               Client.menuTargetNames[var2] = Client.menuTargetNames[1 + var2];
-               Client.menuTargetNames[var2 + 1] = var3;
-               String var4 = Client.menuActions[var2];
-               Client.menuActions[var2] = Client.menuActions[1 + var2];
-               Client.menuActions[var2 + 1] = var4;
-               int var5 = Client.menuArguments1[var2];
-               Client.menuArguments1[var2] = Client.menuArguments1[var2 + 1];
-               Client.menuArguments1[var2 + 1] = var5;
-               var5 = Client.menuArguments0[var2];
-               Client.menuArguments0[var2] = Client.menuArguments0[1 + var2];
-               Client.menuArguments0[1 + var2] = var5;
-               var5 = Client.menuArguments2[var2];
-               Client.menuArguments2[var2] = Client.menuArguments2[var2 + 1];
-               Client.menuArguments2[1 + var2] = var5;
-               var5 = Client.menuOpcodes[var2];
-               Client.menuOpcodes[var2] = Client.menuOpcodes[1 + var2];
-               Client.menuOpcodes[var2 + 1] = var5;
+         for(int var2 = 0; var2 < 730065501 * Client.ne - 1; ++var2) {
+            if (Client.nh[var2] < 1000 && Client.nh[var2 + 1] > 1000) {
+               String var3 = Client.ok[var2];
+               Client.ok[var2] = Client.ok[1 + var2];
+               Client.ok[var2 + 1] = var3;
+               String var4 = Client.og[var2];
+               Client.og[var2] = Client.og[1 + var2];
+               Client.og[var2 + 1] = var4;
+               int var5 = Client.nh[var2];
+               Client.nh[var2] = Client.nh[var2 + 1];
+               Client.nh[var2 + 1] = var5;
+               var5 = Client.nk[var2];
+               Client.nk[var2] = Client.nk[1 + var2];
+               Client.nk[1 + var2] = var5;
+               var5 = Client.ni[var2];
+               Client.ni[var2] = Client.ni[var2 + 1];
+               Client.ni[1 + var2] = var5;
+               var5 = Client.nq[var2];
+               Client.nq[var2] = Client.nq[1 + var2];
+               Client.nq[var2 + 1] = var5;
                var5 = Client.oi[var2];
                Client.oi[var2] = Client.oi[1 + var2];
                Client.oi[1 + var2] = var5;
-               boolean var6 = Client.menuShiftClick[var2];
-               Client.menuShiftClick[var2] = Client.menuShiftClick[1 + var2];
-               Client.menuShiftClick[1 + var2] = var6;
+               boolean var6 = Client.ox[var2];
+               Client.ox[var2] = Client.ox[1 + var2];
+               Client.ox[1 + var2] = var6;
                var1 = false;
             }
          }

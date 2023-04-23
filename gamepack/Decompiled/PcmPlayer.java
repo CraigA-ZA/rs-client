@@ -1,8 +1,8 @@
 public class PcmPlayer {
-   public static PcmPlayerProvider pcmPlayerProvider;
+   public static PcmPlayerProvider ax;
    public static boolean ab;
    public static int au;
-   static Archive archive14;
+   static Archive gs;
    boolean ap = true;
    PcmStream ag;
    PcmStream[] bo = new PcmStream[8];
@@ -131,7 +131,7 @@ public class PcmPlayer {
    }
 
    public final synchronized void ae(byte var1) {
-      if (nf.soundSystem != null) {
+      if (nf.aa != null) {
          if (var1 != -1) {
             return;
          }
@@ -143,15 +143,15 @@ public class PcmPlayer {
                return;
             }
 
-            if (this == nf.soundSystem.players[var3]) {
+            if (this == nf.aa.af[var3]) {
                if (var1 != -1) {
                   throw new IllegalStateException();
                }
 
-               nf.soundSystem.players[var3] = null;
+               nf.aa.af[var3] = null;
             }
 
-            if (null != nf.soundSystem.players[var3]) {
+            if (null != nf.aa.af[var3]) {
                var2 = false;
             }
          }
@@ -161,9 +161,9 @@ public class PcmPlayer {
                return;
             }
 
-            SoundSystem.soundSystemExecutor.shutdownNow();
-            SoundSystem.soundSystemExecutor = null;
-            nf.soundSystem = null;
+            SoundSystem.al.shutdownNow();
+            SoundSystem.al = null;
+            nf.aa = null;
          }
       }
 
@@ -225,17 +225,17 @@ public class PcmPlayer {
                            break label135;
                         }
 
-                        AbstractSound var12 = var11.sound;
-                        if (var12 != null && var12.position > var8) {
+                        AbstractSound var12 = var11.ar;
+                        if (var12 != null && var12.ab > var8) {
                            var5 |= 1 << var7;
                            var10 = var11;
-                           var11 = var11.after;
+                           var11 = var11.ah;
                         } else {
-                           var11.active = true;
+                           var11.am = true;
                            int var13 = var11.al();
                            var4 += var13;
                            if (null != var12) {
-                              var12.position += var13;
+                              var12.ab += var13;
                            }
 
                            if (var4 >= 1670800945 * this.ah) {
@@ -249,12 +249,12 @@ public class PcmPlayer {
                               }
                            }
 
-                           PcmStream var20 = var11.after;
-                           var11.after = null;
+                           PcmStream var20 = var11.ah;
+                           var11.ah = null;
                            if (null == var10) {
                               this.bo[var7] = var20;
                            } else {
-                              var10.after = var20;
+                              var10.ah = var20;
                            }
 
                            if (var20 == null) {
@@ -278,8 +278,8 @@ public class PcmPlayer {
             this.bz[var6] = null;
 
             for(var19[var6] = null; null != var18; var18 = var10) {
-               var10 = var18.after;
-               var18.after = null;
+               var10 = var18.ah;
+               var18.ah = null;
             }
          }
       }
@@ -301,7 +301,7 @@ public class PcmPlayer {
       if (var5 == null) {
          this.bo[var4] = var1;
       } else {
-         var5.after = var1;
+         var5.ah = var1;
       }
 
       this.bz[var4] = var1;
@@ -328,10 +328,10 @@ public class PcmPlayer {
    }
 
    static int ax_renamed(int var0, int var1, int var2) {
-      if ((Tiles.Tiles_renderFlags[var0][var1][var2] & 8) != 0) {
+      if ((Tiles.an[var0][var1][var2] & 8) != 0) {
          return 0;
       } else {
-         return var0 > 0 && 0 != (Tiles.Tiles_renderFlags[1][var1][var2] & 2) ? var0 - 1 : var0;
+         return var0 > 0 && 0 != (Tiles.an[1][var1][var2] & 2) ? var0 - 1 : var0;
       }
    }
 }

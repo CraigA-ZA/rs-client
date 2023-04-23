@@ -139,9 +139,9 @@ public class ay {
       for(var3 = 0; var3 < 4; ++var3) {
          for(var4 = 0; var4 < 104; ++var4) {
             for(var5 = 0; var5 < 104; ++var5) {
-               if ((Tiles.Tiles_renderFlags[var3][var4][var5] & 1) == 1) {
+               if ((Tiles.an[var3][var4][var5] & 1) == 1) {
                   var6 = var3;
-                  if (2 == (Tiles.Tiles_renderFlags[1][var4][var5] & 2)) {
+                  if (2 == (Tiles.an[1][var4][var5] & 2)) {
                      var6 = var3 - 1;
                   }
 
@@ -196,8 +196,8 @@ public class ay {
          int var21;
          for(var12 = 1; var12 < 103; ++var12) {
             for(var13 = 1; var13 < 103; ++var13) {
-               var14 = Tiles.Tiles_heights[var3][1 + var13][var12] - Tiles.Tiles_heights[var3][var13 - 1][var12];
-               var15 = Tiles.Tiles_heights[var3][var13][var12 + 1] - Tiles.Tiles_heights[var3][var13][var12 - 1];
+               var14 = Tiles.af[var3][1 + var13][var12] - Tiles.af[var3][var13 - 1][var12];
+               var15 = Tiles.af[var3][var13][var12 + 1] - Tiles.af[var3][var13][var12 - 1];
                var16 = (int)Math.sqrt((double)(var15 * var15 + 65536 + var14 * var14));
                var17 = (var14 << 8) / var16;
                var18 = 65536 / var16;
@@ -225,19 +225,19 @@ public class ay {
                   var16 = hu.ac[var3][var14][var13] & var15;
                   if (var16 > 0) {
                      var18 = var16 - 1;
-                     FloorUnderlayType var55 = (FloorUnderlayType)FloorUnderlayType.FloorUnderlayType_cached.get((long)var18);
+                     FloorUnderlayType var55 = (FloorUnderlayType)FloorUnderlayType.an.get((long)var18);
                      FloorUnderlayType var52;
                      if (null != var55) {
                         var52 = var55;
                      } else {
-                        byte[] var56 = FloorUnderlayType.FloorUnderlayType_archive.takeFile(1, var18);
+                        byte[] var56 = FloorUnderlayType.af.takeFile(1, var18);
                         var55 = new FloorUnderlayType();
                         if (null != var56) {
                            var55.decode(new Packet(var56), var18);
                         }
 
-                        var55.an();
-                        FloorUnderlayType.FloorUnderlayType_cached.put(var55, (long)var18);
+                        var55.clear();
+                        FloorUnderlayType.an.put(var55, (long)var18);
                         var52 = var55;
                      }
 
@@ -259,19 +259,19 @@ public class ay {
                   var17 = hu.ac[var3][var15][var13] & var16;
                   if (var17 > 0) {
                      var19 = var17 - 1;
-                     FloorUnderlayType var57 = (FloorUnderlayType)FloorUnderlayType.FloorUnderlayType_cached.get((long)var19);
+                     FloorUnderlayType var57 = (FloorUnderlayType)FloorUnderlayType.an.get((long)var19);
                      FloorUnderlayType var54;
                      if (var57 != null) {
                         var54 = var57;
                      } else {
-                        byte[] var58 = FloorUnderlayType.FloorUnderlayType_archive.takeFile(1, var19);
+                        byte[] var58 = FloorUnderlayType.af.takeFile(1, var19);
                         var57 = new FloorUnderlayType();
                         if (var58 != null) {
                            var57.decode(new Packet(var58), var19);
                         }
 
-                        var57.an();
-                        FloorUnderlayType.FloorUnderlayType_cached.put(var57, (long)var19);
+                        var57.clear();
+                        FloorUnderlayType.an.put(var57, (long)var19);
                         var54 = var57;
                      }
 
@@ -314,7 +314,7 @@ public class ay {
                      var17 -= bx.ai[var20];
                   }
 
-                  if (var18 >= 1 && var18 < 103 && (!Client.cu || (Tiles.Tiles_renderFlags[0][var12][var18] & 2) != 0 || 0 == (Tiles.Tiles_renderFlags[var3][var12][var18] & 16))) {
+                  if (var18 >= 1 && var18 < 103 && (!Client.cu || (Tiles.an[0][var12][var18] & 2) != 0 || 0 == (Tiles.an[var3][var12][var18] & 16))) {
                      if (var3 < Tiles.aw * 1401144457) {
                         Tiles.aw = var3 * -1087180359;
                      }
@@ -323,10 +323,10 @@ public class ay {
                      int var22 = hu.ac[var3][var12][var18] & var21;
                      int var23 = Tiles.au[var3][var12][var18] & var21;
                      if (var22 > 0 || var23 > 0) {
-                        int var24 = Tiles.Tiles_heights[var3][var12][var18];
-                        int var25 = Tiles.Tiles_heights[var3][var12 + 1][var18];
-                        int var26 = Tiles.Tiles_heights[var3][var12 + 1][1 + var18];
-                        int var27 = Tiles.Tiles_heights[var3][var12][var18 + 1];
+                        int var24 = Tiles.af[var3][var12][var18];
+                        int var25 = Tiles.af[var3][var12 + 1][var18];
+                        int var26 = Tiles.af[var3][var12 + 1][1 + var18];
+                        int var27 = Tiles.af[var3][var12][var18 + 1];
                         int var28 = Tiles.at[var12][var18];
                         int var29 = Tiles.at[1 + var12][var18];
                         int var30 = Tiles.at[var12 + 1][var18 + 1];
@@ -372,7 +372,7 @@ public class ay {
                                     var37.decode(new Packet(var38), var36);
                                  }
 
-                                 var37.an();
+                                 var37.clear();
                                  FloorOverlayType.an.put(var37, (long)var36);
                                  var60 = var37;
                               }
@@ -409,12 +409,12 @@ public class ay {
                                  var39.decode(new Packet(var40), var62);
                               }
 
-                              var39.an();
+                              var39.clear();
                               FloorOverlayType.an.put(var39, (long)var62);
                               var37 = var39;
                            }
 
-                           int var63 = var37.texture * -202963991;
+                           int var63 = var37.ac * -202963991;
                            int var41;
                            int var42;
                            int var43;
@@ -422,21 +422,21 @@ public class ay {
                            if (var63 >= 0) {
                               var42 = in.ab.aq.ac(var63);
                               var41 = -1;
-                           } else if (16711935 == 1889574527 * var37.rgb) {
+                           } else if (16711935 == 1889574527 * var37.aw) {
                               var41 = -2;
                               var63 = -1;
                               var42 = -2;
                            } else {
-                              var41 = ServerBuild.as_renamed(var37.saturation * 174415927, var37.hue * 470803713, var37.lightness * 532980473);
-                              var43 = -372405639 * Tiles.ae + var37.saturation * 174415927 & 255;
-                              var44 = var37.lightness * 532980473 + Tiles.ap * -647485415;
+                              var41 = ServerBuild.as_renamed(var37.aq * 174415927, var37.al * 470803713, var37.at * 532980473);
+                              var43 = -372405639 * Tiles.ae + var37.aq * 174415927 & 255;
+                              var44 = var37.at * 532980473 + Tiles.ap * -647485415;
                               if (var44 < 0) {
                                  var44 = 0;
                               } else if (var44 > 255) {
                                  var44 = 255;
                               }
 
-                              var42 = ServerBuild.as_renamed(var43, var37.hue * 470803713, var44);
+                              var42 = ServerBuild.as_renamed(var43, var37.al * 470803713, var44);
                            }
 
                            var43 = 0;
@@ -444,7 +444,7 @@ public class ay {
                               var43 = in.af[sh.am_renamed(var42, 96)];
                            }
 
-                           if (-1 != var37.rgb2 * -2085280195) {
+                           if (-1 != var37.ab * -2085280195) {
                               var44 = var37.aa * -187777599 + -372405639 * Tiles.ae & 255;
                               int var45 = Tiles.ap * -647485415 + var37.ao * -1379609783;
                               if (var45 < 0) {
@@ -482,7 +482,7 @@ public class ay {
 
       for(var3 = 0; var3 < 104; ++var3) {
          for(var4 = 0; var4 < 104; ++var4) {
-            if (2 == (Tiles.Tiles_renderFlags[1][var3][var4] & 2)) {
+            if (2 == (Tiles.an[1][var3][var4] & 2)) {
                var0.aw(var3, var4);
             }
          }
@@ -540,8 +540,8 @@ public class ay {
                      var14 = (1 + (var11 - var10)) * (var13 + 1 - var12);
                      if (var14 >= 8) {
                         var53 = 240;
-                        var16 = Tiles.Tiles_heights[var13][var51][var10] - var53;
-                        var17 = Tiles.Tiles_heights[var12][var51][var10];
+                        var16 = Tiles.af[var13][var51][var10] - var53;
+                        var17 = Tiles.af[var12][var51][var10];
                         Scene.Scene_addOccluder(var6, 1, var51 * 128, 128 * var51, 128 * var10, var11 * 128 + 128, var16, var17);
 
                         for(var18 = var12; var18 <= var13; ++var18) {
@@ -590,8 +590,8 @@ public class ay {
                      var14 = (1 + (var11 - var10)) * (var13 + 1 - var12);
                      if (var14 >= 8) {
                         var53 = 240;
-                        var16 = Tiles.Tiles_heights[var13][var10][var50] - var53;
-                        var17 = Tiles.Tiles_heights[var12][var10][var50];
+                        var16 = Tiles.af[var13][var10][var50] - var53;
+                        var17 = Tiles.af[var12][var10][var50];
                         Scene.Scene_addOccluder(var6, 2, var10 * 128, var11 * 128 + 128, 128 * var50, 128 * var50, var16, var17);
 
                         for(var18 = var12; var18 <= var13; ++var18) {
@@ -638,7 +638,7 @@ public class ay {
                      }
 
                      if ((var13 - var12 + 1) * (1 + (var11 - var10)) >= 4) {
-                        var14 = Tiles.Tiles_heights[var49][var10][var12];
+                        var14 = Tiles.af[var49][var10][var12];
                         Scene.Scene_addOccluder(var6, 4, var10 * 128, 128 + var11 * 128, 128 * var12, 128 + var13 * 128, var14, var14);
 
                         for(var15 = var10; var15 <= var11; ++var15) {
@@ -674,7 +674,7 @@ public class ay {
    static sk od_renamed(int var0) {
       sk var2 = (sk)Client.ww.get((long)var0);
       if (null == var2) {
-         var2 = new sk(PcmPlayer.archive14, var0);
+         var2 = new sk(PcmPlayer.gs, var0);
       }
 
       return var2;

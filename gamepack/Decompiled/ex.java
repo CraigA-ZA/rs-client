@@ -1,5 +1,5 @@
 public class ex implements Enumerated {
-   static MouseWheel mouseWheel;
+   static MouseWheel rk;
    static int uo;
    static Rasterizer3D at;
    static final ex ac = new ex(3, 3);
@@ -30,11 +30,11 @@ public class ex implements Enumerated {
 
                for(var11 = 0; var11 < 4; ++var11) {
                   if (var3[var11] == 2) {
-                     var12 = var0[var7].index * 1692771375;
-                     var13 = 1692771375 * var9.index;
+                     var12 = var0[var7].av * 1692771375;
+                     var13 = 1692771375 * var9.av;
                   } else if (1 == var3[var11]) {
-                     var12 = var0[var7].population * -1396846889;
-                     var13 = var9.population * -1396846889;
+                     var12 = var0[var7].ax * -1396846889;
+                     var13 = var9.ax * -1396846889;
                      if (var12 == -1 && var4[var11] == 1) {
                         var12 = 2001;
                      }
@@ -46,8 +46,8 @@ public class ex implements Enumerated {
                      var12 = var0[var7].at() ? 1 : 0;
                      var13 = var9.at() ? 1 : 0;
                   } else {
-                     var12 = var0[var7].id * -2091224171;
-                     var13 = -2091224171 * var9.id;
+                     var12 = var0[var7].ay * -2091224171;
+                     var13 = -2091224171 * var9.ay;
                   }
 
                   if (var13 != var12) {
@@ -70,11 +70,11 @@ public class ex implements Enumerated {
 
                for(var11 = 0; var11 < 4; ++var11) {
                   if (2 == var3[var11]) {
-                     var12 = 1692771375 * var0[var6].index;
-                     var13 = 1692771375 * var9.index;
+                     var12 = 1692771375 * var0[var6].av;
+                     var13 = 1692771375 * var9.av;
                   } else if (var3[var11] == 1) {
-                     var12 = var0[var6].population * -1396846889;
-                     var13 = -1396846889 * var9.population;
+                     var12 = var0[var6].ax * -1396846889;
+                     var13 = -1396846889 * var9.ax;
                      if (-1 == var12 && 1 == var4[var11]) {
                         var12 = 2001;
                      }
@@ -86,8 +86,8 @@ public class ex implements Enumerated {
                      var12 = var0[var6].at() ? 1 : 0;
                      var13 = var9.at() ? 1 : 0;
                   } else {
-                     var12 = var0[var6].id * -2091224171;
-                     var13 = var9.id * -2091224171;
+                     var12 = var0[var6].ay * -2091224171;
+                     var13 = var9.ay * -2091224171;
                   }
 
                   if (var12 != var13) {

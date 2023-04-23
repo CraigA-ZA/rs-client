@@ -1,16 +1,16 @@
 public final class WallDecoration {
-   static Font fontPlain12;
-   int int7;
-   int y;
-   int tileHeight;
-   int xOffset;
-   int yOffset;
-   int orientation;
-   int x;
-   int flags = 0;
-   public Entity entity1;
-   public Entity entity2;
-   public long tag = 0L;
+   static Font io;
+   int ab;
+   int ac;
+   int af;
+   int an;
+   int aq;
+   int au;
+   int aw;
+   int ay = 0;
+   public Entity al;
+   public Entity at;
+   public long aa = 0L;
 
    WallDecoration() {
    }
@@ -22,7 +22,7 @@ public final class WallDecoration {
          for(var8 = 0; var8 < 64; ++var8) {
             for(var9 = 0; var9 < 64; ++var9) {
                if (var1 + var8 > 0 && var1 + var8 < 103 && var9 + var2 > 0 && var9 + var2 < 103) {
-                  int[] var10000 = var5[var7].flags[var1 + var8];
+                  int[] var10000 = var5[var7].bj[var1 + var8];
                   var10000[var2 + var9] &= -16777217;
                }
             }
@@ -45,8 +45,8 @@ public final class WallDecoration {
 
    static void ac_renamed() {
       if (null == cz.ca || cz.ca.length() <= 0) {
-         if (aj.clientPreferences.ae() != null) {
-            cz.ca = aj.clientPreferences.ae();
+         if (aj.vb.ae() != null) {
+            cz.ca = aj.vb.ae();
             Client.hb = true;
          } else {
             Client.hb = false;
@@ -56,19 +56,19 @@ public final class WallDecoration {
    }
 
    static void lz_renamed(Component[] var0, Component var1, boolean var2) {
-      int var4 = var1.scrollWidth * -773060713 != 0 ? var1.scrollWidth * -773060713 : -794961409 * var1.width;
-      int var5 = 0 != var1.scrollHeight * -1273374131 ? -1273374131 * var1.scrollHeight : var1.height * 1473950221;
-      fp.ld_renamed(var0, 1713081171 * var1.id, var4, var5, var2);
-      if (var1.children != null) {
-         fp.ld_renamed(var1.children, 1713081171 * var1.id, var4, var5, var2);
+      int var4 = var1.cf * -773060713 != 0 ? var1.cf * -773060713 : -794961409 * var1.cs;
+      int var5 = 0 != var1.cl * -1273374131 ? -1273374131 * var1.cl : var1.cc * 1473950221;
+      fp.ld_renamed(var0, 1713081171 * var1.bs, var4, var5, var2);
+      if (var1.gz != null) {
+         fp.ld_renamed(var1.gz, 1713081171 * var1.bs, var4, var5, var2);
       }
 
-      InterfaceParent var6 = (InterfaceParent)Client.interfaceParents.get((long)(var1.id * 1713081171));
+      InterfaceParent var6 = (InterfaceParent)Client.oc.get((long)(var1.bs * 1713081171));
       if (null != var6) {
          SeqType.lc_renamed(var6.af * 944864121, var4, var5, var2);
       }
 
-      if (1337 == var1.clientCode * 1021339961) {
+      if (1337 == var1.bf * 1021339961) {
       }
 
    }

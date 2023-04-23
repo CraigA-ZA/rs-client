@@ -24,7 +24,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    public static int ly;
    public static int pu;
    public static int wn;
-   public static final PacketWriter packetWriter;
+   public static final PacketWriter in;
    static boolean bh = true;
    static boolean cu = false;
    static boolean cy = false;
@@ -33,7 +33,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static boolean ex;
    static boolean hb;
    static boolean ik;
-   static boolean isInInstance;
+   static boolean jv;
    static boolean ki;
    static boolean ln;
    static boolean lz;
@@ -41,7 +41,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static boolean mj;
    static boolean mx;
    static boolean nb;
-   static boolean isMiniMenuOpen;
+   static boolean nt;
    static boolean ol;
    static boolean om;
    static boolean ov;
@@ -58,24 +58,24 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static boolean uj;
    static boolean uk;
    static boolean[] no;
-   static boolean[] menuShiftClick;
+   static boolean[] ox;
    static boolean[] rf;
    static boolean[] rm;
    static boolean[] rw;
    static boolean[] ue;
-   static SoundEffect[] soundEffects;
+   static SoundEffect[] ti;
    static byte[] hf;
    static cf wg;
-   static SecureRandomFuture secureRandomFuture;
-   static Npc[] npcs;
+   static SecureRandomFuture hq;
+   static Npc[] iu;
    static dj em;
    static dj ew;
-   static Player[] players;
+   static Player[] mc;
    static fj[] sg;
    static fp gh;
    static gj[] so;
    static he si;
-   static CollisionMap[] collisionMaps;
+   static CollisionMap[] jr;
    static int ce = 0;
    static int cg = 240023661;
    static int cl = 1581503853;
@@ -99,8 +99,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int fo;
    static int fp;
    static int ga;
-   static int loginState;
-   static int js5Errors;
+   static int ge;
+   static int gj;
    static int gt;
    static int gu;
    static int ig;
@@ -125,7 +125,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int kz;
    static int la;
    static int lc;
-   static int overheadTextCount;
+   static int ld;
    static int li;
    static int lk;
    static int lm;
@@ -137,7 +137,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int ma;
    static int mb;
    static int me;
-   static int localPlayerIndex;
+   static int mg;
    static int mk;
    static int mm;
    static int mo;
@@ -146,7 +146,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int mv;
    static int mw;
    static int mz;
-   static int menuOptionsCount;
+   static int ne;
    static int nl;
    static int oa;
    static int oe;
@@ -181,7 +181,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int qx;
    static int qy;
    static int qz;
-   static int mouseWheelRotation;
+   static int rd;
    static int rg;
    static int rr;
    static int rs;
@@ -193,22 +193,22 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int su;
    static int te;
    static int th;
-   static int soundEffectCount;
+   static int tl;
    static int tp;
    static int tz;
    static int vd;
-   static int viewportZoom;
-   static int viewportHeight;
+   static int vi;
+   static int vp;
    static int vr;
    static int vu;
    static int vx;
-   static int viewportWidth;
+   static int vy;
    static int wi;
    static int ws;
    static int wy;
    static int[] ih;
    static int[] iy;
-   static int[] overheadTextXOffsets;
+   static int[] lb;
    static int[] le;
    static int[] lj;
    static int[] ll;
@@ -216,11 +216,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int[] lw;
    static int[] lx;
    static int[] ng;
-   static int[] menuArguments1;
-   static int[] menuArguments2;
-   static int[] menuArguments0;
+   static int[] nh;
+   static int[] ni;
+   static int[] nk;
    static int[] nm;
-   static int[] menuOpcodes;
+   static int[] nq;
    static int[] nu;
    static int[] ny;
    static int[] nz;
@@ -229,10 +229,10 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int[] qr;
    static int[] qs;
    static int[] qt;
-   static int[] rootComponentWidths;
+   static int[] ra;
    static int[] rb;
    static int[] rh;
-   static int[] rootComponentHeights;
+   static int[] ri;
    static int[] sk;
    static int[] sy;
    static int[] sz;
@@ -249,21 +249,21 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int[] xm;
    static int[] xn;
    static int[][] mt;
-   static int[][][] instanceChunkTemplates;
-   static String selectedItemName;
-   static String selectedSpellName;
+   static int[][][] jh;
+   static String it;
+   static String ob;
    static String oj;
    static String ss;
-   static String[] overheadText;
-   static String[] playerMenuActions;
-   static String[] menuActions;
-   static String[] menuTargetNames;
-   static ArrayList archiveLoaders;
+   static String[] lr;
+   static String[] nd;
+   static String[] og;
+   static String[] ok;
+   static ArrayList we;
    static HashMap im;
    static List wz;
    static EvictingDualNodeHashTable wq;
    static EvictingDualNodeHashTable ww;
-   static long mouseLastLastPressedTimeMillis = 3648848592458615261L;
+   static long eo = 3648848592458615261L;
    static long ez = -2560228884295272563L;
    static long mn;
    static long rj;
@@ -274,25 +274,25 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static Component pr;
    static Component ps;
    static Component pz;
-   static StudioGame studioGame;
+   static StudioGame cc;
    static PlayerAppearance vh;
-   static GrandExchangeOffer[] grandExchangeOffers;
-   static NodeDeque projectiles;
+   static GrandExchangeOffer[] vs;
+   static NodeDeque na;
    static NodeDeque nn;
-   static NodeDeque graphicsObjects;
+   static NodeDeque np;
    static NodeDeque re;
    static NodeDeque rp;
    static NodeDeque rq;
    static NodeDeque rt;
-   static NodeDeque[][][] objStacks;
-   static Timer timer;
+   static NodeDeque[][][] nr;
+   static Timer ie;
    static pk wx;
-   static NodeHashTable interfaceParents;
-   static NodeHashTable componentClickMasks;
+   static NodeHashTable oc;
+   static NodeHashTable rv;
    static rf ua;
    static rf uz;
    static rm ui;
-   static PlatformInfoProvider platformInfoProvider;
+   static PlatformInfoProvider vc;
    static short va;
    static short ve;
    static short vk;
@@ -306,7 +306,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static tz rl;
    static final cm xr;
    static final int[] jy;
-   static final int[] playerMenuOpcodes;
+   static final int[] ns;
    static final String hd;
    ag gl;
    al hp;
@@ -322,9 +322,9 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    Packet ha;
 
    public static void af_renamed(AbstractArchive var0, AbstractArchive var1) {
-      IDKType.IDKType_archive = var0;
+      IDKType.af = var0;
       IDKType.an = var1;
-      IDKType.aw = IDKType.IDKType_archive.cq(3) * 1501460151;
+      IDKType.aw = IDKType.af.cq(3) * 1501460151;
    }
 
    static {
@@ -334,8 +334,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       fi = 0;
       fp = 0;
       fo = 0;
-      js5Errors = 0;
-      loginState = 0;
+      gj = 0;
+      ge = 0;
       ga = 0;
       gt = 0;
       gu = 0;
@@ -343,26 +343,26 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       gy = sr.af;
       hd = WorldMapSectionType.af_renamed(PlayerAppearance.af_renamed("com_jagex_auth_desktop_osrs:public", (byte)-35));
       hb = false;
-      secureRandomFuture = new SecureRandomFuture();
+      hq = new SecureRandomFuture();
       hf = null;
-      npcs = new Npc[65536];
+      iu = new Npc[65536];
       iw = 0;
       iy = new int[65536];
       ig = 0;
       ih = new int[250];
-      packetWriter = new PacketWriter();
+      in = new PacketWriter();
       ii = 0;
       ik = false;
-      timer = new Timer();
+      ie = new Timer();
       im = new HashMap();
       jx = 0;
       jo = -1903772507;
       jk = 0;
       jq = -1711800473;
       je = 0;
-      collisionMaps = new CollisionMap[4];
-      isInInstance = false;
-      instanceChunkTemplates = new int[4][13][13];
+      jr = new CollisionMap[4];
+      jv = false;
+      jh = new int[4][13][13];
       jy = new int[]{0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3};
       ja = 0;
       kq = 914788991;
@@ -389,16 +389,16 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       lt = 0;
       lz = false;
       lc = 0;
-      overheadTextCount = 0;
+      ld = 0;
       lq = -763960690;
       lj = new int[lq * 1025553311];
       ll = new int[lq * 1025553311];
       le = new int[1025553311 * lq];
-      overheadTextXOffsets = new int[1025553311 * lq];
+      lb = new int[1025553311 * lq];
       lx = new int[1025553311 * lq];
       lo = new int[lq * 1025553311];
       lw = new int[1025553311 * lq];
-      overheadText = new String[lq * 1025553311];
+      lr = new String[lq * 1025553311];
       mt = new int[104][104];
       mw = 0;
       mz = 846498395;
@@ -410,37 +410,37 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       mx = true;
       ma = 0;
       mj = true;
-      players = new Player[2048];
-      localPlayerIndex = -255869677;
+      mc = new Player[2048];
+      mg = -255869677;
       mo = 0;
       mn = -1369385558963036297L;
       md = true;
       mk = 0;
       mb = 0;
       nz = new int[1000];
-      playerMenuOpcodes = new int[]{44, 45, 46, 47, 48, 49, 50, 51};
-      playerMenuActions = new String[8];
+      ns = new int[]{44, 45, 46, 47, 48, 49, 50, 51};
+      nd = new String[8];
       no = new boolean[8];
       nm = new int[]{768, 1024, 1280, 512, 1536, 256, 0, 1792};
       nl = -1035820595;
-      objStacks = new NodeDeque[4][104][104];
+      nr = new NodeDeque[4][104][104];
       nn = new NodeDeque();
-      projectiles = new NodeDeque();
-      graphicsObjects = new NodeDeque();
+      na = new NodeDeque();
+      np = new NodeDeque();
       ng = new int[25];
       ny = new int[25];
       nu = new int[25];
       nb = false;
-      isMiniMenuOpen = false;
-      menuOptionsCount = 0;
-      menuArguments0 = new int[500];
-      menuArguments2 = new int[500];
-      menuArguments1 = new int[500];
-      menuOpcodes = new int[500];
+      nt = false;
+      ne = 0;
+      nk = new int[500];
+      ni = new int[500];
+      nh = new int[500];
+      nq = new int[500];
       oi = new int[500];
-      menuActions = new String[500];
-      menuTargetNames = new String[500];
-      menuShiftClick = new boolean[500];
+      og = new String[500];
+      ok = new String[500];
+      ox = new boolean[500];
       ov = false;
       ol = false;
       oz = true;
@@ -449,14 +449,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       oe = 0;
       on = -315612066;
       oq = 0;
-      selectedItemName = null;
+      it = null;
       om = false;
       oa = 1204907975;
       op = -35668549;
       oj = null;
-      selectedSpellName = null;
+      ob = null;
       or = 32945189;
-      interfaceParents = new NodeHashTable(8);
+      oc = new NodeHashTable(8);
       pc = 0;
       pp = 757532791;
       py = 0;
@@ -496,13 +496,13 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       qq = 0;
       qv = 0;
       qa = 0;
-      mouseWheelRotation = 0;
+      rd = 0;
       rl = new tz();
       rq = new NodeDeque();
       rt = new NodeDeque();
       rp = new NodeDeque();
       re = new NodeDeque();
-      componentClickMasks = new NodeHashTable(512);
+      rv = new NodeHashTable(512);
       rr = 0;
       rs = -769599022;
       rf = new boolean[100];
@@ -510,8 +510,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       rw = new boolean[100];
       rh = new int[100];
       rb = new int[100];
-      rootComponentWidths = new int[100];
-      rootComponentHeights = new int[100];
+      ra = new int[100];
+      ri = new int[100];
       rg = 0;
       rj = 0L;
       ro = true;
@@ -539,12 +539,12 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       tp = 0;
       tz = -1225072817;
       tf = false;
-      soundEffectCount = 0;
+      tl = 0;
       tu = new int[50];
       tr = new int[50];
       tg = new int[50];
       tb = new int[50];
-      soundEffects = new SoundEffect[50];
+      ti = new SoundEffect[50];
       uj = false;
       ub = false;
       uc = false;
@@ -568,14 +568,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       vk = 32767;
       vd = 0;
       vx = 0;
-      viewportHeight = 0;
-      viewportWidth = 0;
-      viewportZoom = 0;
+      vp = 0;
+      vy = 0;
+      vi = 0;
       vh = new PlayerAppearance();
       vr = 962307691;
       vu = 929779017;
-      platformInfoProvider = new DesktopPlatformInfoProvider();
-      grandExchangeOffers = new GrandExchangeOffer[8];
+      vc = new DesktopPlatformInfoProvider();
+      vs = new GrandExchangeOffer[8];
       wg = new cf();
       wx = new pk(8, py.af);
       wq = new EvictingDualNodeHashTable(64);
@@ -583,7 +583,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       wi = -978308099;
       wn = -595673725;
       wz = new ArrayList();
-      archiveLoaders = new ArrayList(10);
+      we = new ArrayList(10);
       wy = 0;
       ws = 0;
       xr = new cm();
@@ -602,7 +602,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             if (null != var2) {
                switch (var1) {
                   case 3:
-                     if (var2.equalsIgnoreCase(Formatting.Formatting_true)) {
+                     if (var2.equalsIgnoreCase(Formatting.af)) {
                         ca = true;
                      } else {
                         ca = false;
@@ -620,21 +620,21 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                      fj.ck = Language.aq_renamed(Integer.parseInt(var2), (byte)-1);
                      break;
                   case 7:
-                     iq.serverBuild = fv.af_renamed(Integer.parseInt(var2));
+                     iq.ci = fv.af_renamed(Integer.parseInt(var2));
                      break;
                   case 8:
-                     if (var2.equalsIgnoreCase(Formatting.Formatting_true)) {
+                     if (var2.equalsIgnoreCase(Formatting.af)) {
                      }
                      break;
                   case 9:
                      ef.cm = var2;
                      break;
                   case 10:
-                     studioGame = (StudioGame)StructType.findEnumerated(TaskHandler.au_renamed(), Integer.parseInt(var2));
-                     if (studioGame == StudioGame.ab) {
-                        co.loginType = LoginType.af;
+                     cc = (StudioGame)StructType.findEnumerated(TaskHandler.au_renamed(), Integer.parseInt(var2));
+                     if (cc == StudioGame.ab) {
+                        co.cn = LoginType.af;
                      } else {
-                        co.loginType = LoginType.at;
+                        co.cn = LoginType.at;
                      }
                      break;
                   case 11:
@@ -659,7 +659,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                      cs = Integer.parseInt(var2) * -261185633;
                      break;
                   case 17:
-                     GrandExchangeOffer.worldsUrl = var2;
+                     GrandExchangeOffer.cq = var2;
                      break;
                   case 21:
                      cl = Integer.parseInt(var2) * -1581503853;
@@ -676,52 +676,52 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
          }
 
-         Scene.Scene_isLowDetail = false;
+         Scene.af = false;
          cu = false;
-         ea.worldHost = this.getCodeBase().getHost();
-         String var16 = iq.serverBuild.name;
+         ea.gd = this.getCodeBase().getHost();
+         String var16 = iq.ci.au;
          byte var17 = 0;
 
          try {
-            gc.idxCount = -327637298;
+            gc.ab = -327637298;
             gc.ah = var17 * 261077081;
 
             try {
-               ne.osName = System.getProperty("os.name");
+               ne.ak = System.getProperty("os.name");
             } catch (Exception var14) {
-               ne.osName = "Unknown";
+               ne.ak = "Unknown";
             }
 
-            WorldMapSectionType.osNameLowerCase = ne.osName.toLowerCase();
+            WorldMapSectionType.aj = ne.ak.toLowerCase();
 
             try {
-               hd.userHomeDirectory = System.getProperty("user.home");
-               if (null != hd.userHomeDirectory) {
-                  hd.userHomeDirectory = hd.userHomeDirectory + "/";
+               hd.az = System.getProperty("user.home");
+               if (null != hd.az) {
+                  hd.az = hd.az + "/";
                }
             } catch (Exception var13) {
             }
 
             try {
-               if (WorldMapSectionType.osNameLowerCase.startsWith("win")) {
-                  if (hd.userHomeDirectory == null) {
-                     hd.userHomeDirectory = System.getenv("USERPROFILE");
+               if (WorldMapSectionType.aj.startsWith("win")) {
+                  if (hd.az == null) {
+                     hd.az = System.getenv("USERPROFILE");
                   }
-               } else if (hd.userHomeDirectory == null) {
-                  hd.userHomeDirectory = System.getenv("HOME");
+               } else if (hd.az == null) {
+                  hd.az = System.getenv("HOME");
                }
 
-               if (null != hd.userHomeDirectory) {
-                  hd.userHomeDirectory = hd.userHomeDirectory + "/";
+               if (null != hd.az) {
+                  hd.az = hd.az + "/";
                }
             } catch (Exception var12) {
             }
 
-            if (hd.userHomeDirectory == null) {
-               hd.userHomeDirectory = "~/";
+            if (hd.az == null) {
+               hd.az = "~/";
             }
 
-            fe.cacheDirectoryLocations = new String[]{"c:/rscache/", "/rscache/", "c:/windows/", "c:/winnt/", "c:/", hd.userHomeDirectory, "/tmp/", ""};
+            fe.av = new String[]{"c:/rscache/", "/rscache/", "c:/windows/", "c:/winnt/", "c:/", hd.az, "/tmp/", ""};
             Formatting.ar = new String[]{".jagex_cache_" + -1325133847 * gc.ah, ".file_store_" + -1325133847 * gc.ah};
 
             label154:
@@ -775,18 +775,18 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
             gm.af = true;
             Tiles.aw_renamed();
-            gc.dat2File = new BufferedFile(new AccessFile(fd.af_renamed("main_file_cache.dat2"), "rw", 1048576000L), 5200, 0);
-            gc.idx255File = new BufferedFile(new AccessFile(fd.af_renamed("main_file_cache.idx255"), "rw", 1048576L), 6000, 0);
-            ol.idxFiles = new BufferedFile[gc.idxCount * 1064766397];
+            gc.ax = new BufferedFile(new AccessFile(fd.af_renamed("main_file_cache.dat2"), "rw", 1048576000L), 5200, 0);
+            gc.ai = new BufferedFile(new AccessFile(fd.af_renamed("main_file_cache.idx255"), "rw", 1048576L), 6000, 0);
+            ol.ag = new BufferedFile[gc.ab * 1064766397];
 
-            for(int var20 = 0; var20 < 1064766397 * gc.idxCount; ++var20) {
-               ol.idxFiles[var20] = new BufferedFile(new AccessFile(fd.af_renamed("main_file_cache.idx" + var20), "rw", 1048576L), 6000, 0);
+            for(int var20 = 0; var20 < 1064766397 * gc.ab; ++var20) {
+               ol.ag[var20] = new BufferedFile(new AccessFile(fd.af_renamed("main_file_cache.idx" + var20), "rw", 1048576L), 6000, 0);
             }
          } catch (Exception var15) {
             ob.af_renamed((String)null, var15);
          }
 
-         ClientScriptFrame.client = this;
+         ClientScriptFrame.bc = this;
          ClientError.au = cg * 1056936977;
          ne.gb = System.getenv("JX_ACCESS_TOKEN");
          Obj.gp = System.getenv("JX_REFRESH_TOKEN");
@@ -943,14 +943,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       PlayerAppearance.ao = mu.an;
       WorldMapIcon1.ax = mu.aw;
       qv.ai = mu.ac;
-      ag.urlRequester = new ef(this.hj, 213);
+      ag.iq = new ef(this.hj, 213);
       this.ai();
       this.av();
-      ex.mouseWheel = this.mouseWheel();
+      ex.rk = this.mouseWheel();
       this.ah(si, 0);
       this.ah(sh, 1);
-      kb.masterDisk = new ArchiveDisk(255, gc.dat2File, gc.idx255File, 500000);
-      aj.clientPreferences = he.readClientPreferences();
+      kb.wh = new ArchiveDisk(255, gc.ax, gc.ai, 500000);
+      aj.vb = he.readClientPreferences();
       this.setUpClipboard();
       String var3 = ReflectionCheck.bj;
       bx.af = this;
@@ -958,8 +958,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          bx.an = var3;
       }
 
-      Decimator.ir_renamed(aj.clientPreferences.bi());
-      World.friendSystem = new FriendSystem(co.loginType);
+      Decimator.ir_renamed(aj.vb.bi());
+      World.vt = new FriendSystem(co.cn);
       this.gl = new ag("tokenRequest", 1, 1);
    }
 
@@ -969,83 +969,83 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
       while(true) {
          ArchiveDiskAction var2;
-         synchronized(ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue) {
-            var2 = (ArchiveDiskAction)ArchiveDiskActionHandler.ArchiveDiskActionHandler_responseQueue.removeLast();
+         synchronized(ArchiveDiskActionHandler.af) {
+            var2 = (ArchiveDiskAction)ArchiveDiskActionHandler.an.removeLast();
          }
 
          if (null == var2) {
             int var9;
             try {
                if (1 == ly.au * 926096579) {
-                  var9 = sa.midiPcmStream.an();
-                  if (var9 > 0 && sa.midiPcmStream.isReady()) {
+                  var9 = sa.ac.size();
+                  if (var9 > 0 && sa.ac.isReady()) {
                      var9 -= -1128553755 * ga.aa;
                      if (var9 < 0) {
                         var9 = 0;
                      }
 
-                     sa.midiPcmStream.af(var9);
+                     sa.ac.advance(var9);
                   } else {
-                     sa.midiPcmStream.ao();
-                     sa.midiPcmStream.removeAll();
+                     sa.ac.ao();
+                     sa.ac.removeAll();
                      if (ly.ab != null) {
                         ly.au = -1253644330;
                      } else {
                         ly.au = 0;
                      }
 
-                     ia.musicTrack = null;
-                     ly.soundCache = null;
+                     ia.ao = null;
+                     ly.ax = null;
                   }
                }
             } catch (Exception var8) {
                var8.printStackTrace();
-               sa.midiPcmStream.ao();
+               sa.ac.ao();
                ly.au = 0;
-               ia.musicTrack = null;
-               ly.soundCache = null;
+               ia.ao = null;
+               ly.ax = null;
                ly.ab = null;
             }
 
             mj.hz_renamed();
             sh.ai();
             this.ag();
-            synchronized(MouseHandler.MouseHandler_instance) {
-               MouseHandler.MouseHandler_currentButton = MouseHandler.MouseHandler_currentButton0 * 908499211;
-               MouseHandler.ay = 1068258211 * MouseHandler.MouseHandler_y0;
-               MouseHandler.ao = -1918688485 * MouseHandler.MouseHandler_x0;
+            synchronized(MouseHandler.ac) {
+               MouseHandler.aa = MouseHandler.ab * 908499211;
+               MouseHandler.ay = 1068258211 * MouseHandler.aq;
+               MouseHandler.ao = -1918688485 * MouseHandler.al;
                MouseHandler.ax = MouseHandler.at * -4029881570118555541L;
-               MouseHandler.ar = MouseHandler.MouseHandler_lastPressedY0 * 199219569;
-               MouseHandler.MouseHandler_lastButton = MouseHandler.MouseHandler_lastButton0 * -1850432819;
-               MouseHandler.as = MouseHandler.MouseHandler_lastPressedX0 * -1699120075;
-               MouseHandler.MouseHandler_lastPressedTimeMillis = 3548908311918388543L * MouseHandler.MouseHandler_lastPressedTimeMillis0;
-               MouseHandler.MouseHandler_lastPressedY0 = 0;
+               MouseHandler.ar = MouseHandler.ai * 199219569;
+               MouseHandler.am = MouseHandler.ag * -1850432819;
+               MouseHandler.as = MouseHandler.ah * -1699120075;
+               MouseHandler.aj = 3548908311918388543L * MouseHandler.av;
+               MouseHandler.ai = 0;
             }
 
-            if (ex.mouseWheel != null) {
-               var9 = ex.mouseWheel.useRotation();
-               mouseWheelRotation = var9 * 1644925127;
+            if (ex.rk != null) {
+               var9 = ex.rk.useRotation();
+               rd = var9 * 1644925127;
             }
 
             if (dw * -1275976559 == 0) {
                DevicePcmPlayerProvider.hs_renamed();
                Npc.bz_renamed();
             } else if (dw * -1275976559 == 5) {
-               EnumType.ab_renamed(this, Language.fontPlain11, WallDecoration.fontPlain12);
+               EnumType.ab_renamed(this, Language.ir, WallDecoration.io);
                DevicePcmPlayerProvider.hs_renamed();
                Npc.bz_renamed();
             } else if (10 != -1275976559 * dw && 11 != -1275976559 * dw) {
                if (-1275976559 * dw == 20) {
-                  EnumType.ab_renamed(this, Language.fontPlain11, WallDecoration.fontPlain12);
+                  EnumType.ab_renamed(this, Language.ir, WallDecoration.io);
                   this.doCycleLoggedOut();
                } else if (dw * -1275976559 == 50) {
-                  EnumType.ab_renamed(this, Language.fontPlain11, WallDecoration.fontPlain12);
+                  EnumType.ab_renamed(this, Language.ir, WallDecoration.io);
                   this.doCycleLoggedOut();
                } else if (dw * -1275976559 == 25) {
                   bb.jh_renamed();
                }
             } else {
-               EnumType.ab_renamed(this, Language.fontPlain11, WallDecoration.fontPlain12);
+               EnumType.ab_renamed(this, Language.ir, WallDecoration.io);
             }
 
             if (-1275976559 * dw == 30) {
@@ -1057,7 +1057,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             return;
          }
 
-         var2.archive.load(var2.archiveDisk, (int)var2.key, var2.data, false);
+         var2.ac.load(var2.aw, (int)var2.hr, var2.an, false);
       }
    }
 
@@ -1066,25 +1066,25 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       label176: {
          try {
             if (926096579 * ly.au == 2) {
-               if (ia.musicTrack == null) {
-                  ia.musicTrack = MusicTrack.readTrack(ly.ab, oq.aq * -747672747, gz.al * 1412530625);
-                  if (ia.musicTrack == null) {
+               if (ia.ao == null) {
+                  ia.ao = MusicTrack.readTrack(ly.ab, oq.aq * -747672747, gz.al * 1412530625);
+                  if (ia.ao == null) {
                      var3 = false;
                      break label176;
                   }
                }
 
-               if (null == ly.soundCache) {
-                  ly.soundCache = new SoundCache(ly.aw, ly.an);
+               if (null == ly.ax) {
+                  ly.ax = new SoundCache(ly.aw, ly.an);
                }
 
-               if (sa.midiPcmStream.loadMusicTrack(ia.musicTrack, ly.af, ly.soundCache, 22050)) {
-                  sa.midiPcmStream.clearAll();
-                  sa.midiPcmStream.af(-280777997 * dn.at);
-                  sa.midiPcmStream.setMusicTrack(ia.musicTrack, ev.musicTrackBoolean);
+               if (sa.ac.loadMusicTrack(ia.ao, ly.af, ly.ax, 22050)) {
+                  sa.ac.clearAll();
+                  sa.ac.advance(-280777997 * dn.at);
+                  sa.ac.setMusicTrack(ia.ao, ev.ay);
                   ly.au = 0;
-                  ia.musicTrack = null;
-                  ly.soundCache = null;
+                  ia.ao = null;
+                  ly.ax = null;
                   ly.ab = null;
                   var3 = true;
                   break label176;
@@ -1092,18 +1092,18 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
          } catch (Exception var6) {
             var6.printStackTrace();
-            sa.midiPcmStream.ao();
+            sa.ac.ao();
             ly.au = 0;
-            ia.musicTrack = null;
-            ly.soundCache = null;
+            ia.ao = null;
+            ly.ax = null;
             ly.ab = null;
          }
 
          var3 = false;
       }
 
-      if (var3 && tf && null != bi.pcmPlayer0) {
-         bi.pcmPlayer0.ad();
+      if (var3 && tf && null != bi.to) {
+         bi.to.ad();
       }
 
       if ((-1275976559 * dw == 10 || -1275976559 * dw == 20 || 30 == dw * -1275976559) && -3223439394100928671L * rj != 0L && Formatting.af_renamed() > -3223439394100928671L * rj) {
@@ -1118,14 +1118,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       }
 
       if (-1275976559 * dw == 0) {
-         this.drawInitial(1158424865 * cz.ad, cz.Login_loadingText, var1);
+         this.drawInitial(1158424865 * cz.ad, cz.ae, var1);
       } else if (5 == dw * -1275976559) {
-         aq.drawTitle(fx.fontBold12, Language.fontPlain11, WallDecoration.fontPlain12);
+         aq.drawTitle(fx.ip, Language.ir, WallDecoration.io);
       } else if (dw * -1275976559 != 10 && -1275976559 * dw != 11) {
          if (-1275976559 * dw == 20) {
-            aq.drawTitle(fx.fontBold12, Language.fontPlain11, WallDecoration.fontPlain12);
+            aq.drawTitle(fx.ip, Language.ir, WallDecoration.io);
          } else if (dw * -1275976559 == 50) {
-            aq.drawTitle(fx.fontBold12, Language.fontPlain11, WallDecoration.fontPlain12);
+            aq.drawTitle(fx.ip, Language.ir, WallDecoration.io);
          } else if (25 == dw * -1275976559) {
             if (1 == je * -2139010133) {
                if (jx * -215929647 > jo * 817023789) {
@@ -1133,37 +1133,37 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                }
 
                var5 = (jo * -2098483510 - jx * 2088419538) / (jo * 817023789);
-               jl.ij_renamed(Strings.Strings_loadingPleaseWait + Formatting.Formatting_lineBreakTag + Formatting.Formatting_spaceLeftParenthesis + var5 + "%" + Formatting.Formatting_rightParenthesis, false);
+               jl.ij_renamed(Strings.ao + Formatting.aq + Formatting.ac + var5 + "%" + Formatting.au, false);
             } else if (-2139010133 * je == 2) {
                if (jk * 1372828241 > jq * 1233759319) {
                   jq = 1072852375 * jk;
                }
 
                var5 = (jq * 1558423806 - -78064686 * jk) / (jq * 1233759319) + 50;
-               jl.ij_renamed(Strings.Strings_loadingPleaseWait + Formatting.Formatting_lineBreakTag + Formatting.Formatting_spaceLeftParenthesis + var5 + "%" + Formatting.Formatting_rightParenthesis, false);
+               jl.ij_renamed(Strings.ao + Formatting.aq + Formatting.ac + var5 + "%" + Formatting.au, false);
             } else {
-               jl.ij_renamed(Strings.Strings_loadingPleaseWait, false);
+               jl.ij_renamed(Strings.ao, false);
             }
          } else if (dw * -1275976559 == 30) {
             this.drawLoggedIn();
          } else if (40 == dw * -1275976559) {
-            jl.ij_renamed(Strings.Strings_connectionLost + Formatting.Formatting_lineBreakTag + Strings.Strings_pleaseWaitAttemptingToReestablish, false);
+            jl.ij_renamed(Strings.ax + Formatting.aq + Strings.ai, false);
          } else if (45 == dw * -1275976559) {
-            jl.ij_renamed(Strings.Strings_pleaseWait, false);
+            jl.ij_renamed(Strings.gi, false);
          }
       } else {
-         aq.drawTitle(fx.fontBold12, Language.fontPlain11, WallDecoration.fontPlain12);
+         aq.drawTitle(fx.ip, Language.ir, WallDecoration.io);
       }
 
       if (-1275976559 * dw == 30 && 0 == rg * -1928160607 && !var1 && !ro) {
          for(var5 = 0; var5 < -356793645 * rr; ++var5) {
             if (rm[var5]) {
-               ia.rasterProvider.draw(rh[var5], rb[var5], rootComponentWidths[var5], rootComponentHeights[var5]);
+               ia.bn.draw(rh[var5], rb[var5], ra[var5], ri[var5]);
                rm[var5] = false;
             }
          }
       } else if (dw * -1275976559 > 0) {
-         ia.rasterProvider.drawFull(0, 0);
+         ia.bn.drawFull(0, 0);
 
          for(var5 = 0; var5 < rr * -356793645; ++var5) {
             rm[var5] = false;
@@ -1173,42 +1173,42 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    }
 
    protected final void kill0() {
-      if (oy.varcs.hasUnwrittenChanges()) {
-         oy.varcs.at();
+      if (oy.qo.hasUnwrittenChanges()) {
+         oy.qo.at();
       }
 
-      if (null != eg.mouseRecorder) {
-         eg.mouseRecorder.isRunning = false;
+      if (null != eg.eq) {
+         eg.eq.af = false;
       }
 
-      eg.mouseRecorder = null;
-      packetWriter.au();
+      eg.eq = null;
+      in.au();
       GraphicsObject.an_renamed();
-      ex.mouseWheel = null;
-      if (bi.pcmPlayer0 != null) {
-         bi.pcmPlayer0.ae((byte)-1);
+      ex.rk = null;
+      if (bi.to != null) {
+         bi.to.ae((byte)-1);
       }
 
-      if (hd.pcmPlayer1 != null) {
-         hd.pcmPlayer1.ae((byte)-1);
+      if (hd.tt != null) {
+         hd.tt.ae((byte)-1);
       }
 
       la.ab_renamed();
       fw.ac_renamed();
-      if (ag.urlRequester != null) {
-         ag.urlRequester.ab();
-         ag.urlRequester = null;
+      if (ag.iq != null) {
+         ag.iq.ab();
+         ag.iq = null;
       }
 
       try {
-         gc.dat2File.close();
+         gc.ax.close();
 
-         for(int var2 = 0; var2 < gc.idxCount * 1064766397; ++var2) {
-            ol.idxFiles[var2].close();
+         for(int var2 = 0; var2 < gc.ab * 1064766397; ++var2) {
+            ol.ag[var2].close();
          }
 
-         gc.idx255File.close();
-         gc.randomDat.close();
+         gc.ai.close();
+         gc.ao.close();
       } catch (Exception var3) {
       }
 
@@ -1226,11 +1226,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    }
 
    void doCycleJs5Connect() {
-      if (1551453085 * NetCache.NetCache_crcMismatches >= 4) {
+      if (1551453085 * NetCache.ae >= 4) {
          this.error("js5crc");
          fd.hi_renamed(1000);
       } else {
-         if (-1386597723 * NetCache.NetCache_ioExceptions >= 4) {
+         if (-1386597723 * NetCache.ap >= 4) {
             if (dw * -1275976559 <= 5) {
                this.error("js5io");
                fd.hi_renamed(1000);
@@ -1238,40 +1238,40 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
 
             fo = 1891795480;
-            NetCache.NetCache_ioExceptions = -483971193;
+            NetCache.ap = -483971193;
          }
 
          if ((fo -= -185484651) * -95141699 + 1 <= 0) {
             try {
                if (fp * -1348062367 == 0) {
-                  WorldMapSection0.js5SocketTask = taskHandler.newSocketTask(ea.worldHost, Inventory.gf * -1275160227);
+                  WorldMapSection0.fh = af.newSocketTask(ea.gd, Inventory.gf * -1275160227);
                   fp += 1300738209;
                }
 
                if (-1348062367 * fp == 1) {
-                  if (2 == WorldMapSection0.js5SocketTask.status) {
+                  if (2 == WorldMapSection0.fh.ac) {
                      this.js5Error(-1);
                      return;
                   }
 
-                  if (WorldMapSection0.js5SocketTask.status == 1) {
+                  if (WorldMapSection0.fh.ac == 1) {
                      fp += 1300738209;
                   }
                }
 
                if (2 == -1348062367 * fp) {
-                  IDKType.js5Socket = hu.af_renamed((Socket)WorldMapSection0.js5SocketTask.result, 40000, 5000);
+                  IDKType.fl = hu.af_renamed((Socket)WorldMapSection0.fh.al, 40000, 5000);
                   Packet var2 = new Packet(5);
                   var2.bu(15);
                   var2.ba(213);
-                  IDKType.js5Socket.ab(var2.array, 0, 5);
+                  IDKType.fl.ab(var2.al, 0, 5);
                   fp += 1300738209;
                   fi.fx = Formatting.af_renamed() * -51531514477814883L;
                }
 
                if (fp * -1348062367 == 3) {
-                  if (IDKType.js5Socket.aw() > 0) {
-                     int var10 = IDKType.js5Socket.ac();
+                  if (IDKType.fl.aw() > 0) {
+                     int var10 = IDKType.fl.ac();
                      if (var10 != 0) {
                         this.js5Error(var10);
                         return;
@@ -1285,7 +1285,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                }
 
                if (-1348062367 * fp == 4) {
-                  AbstractSocket var11 = IDKType.js5Socket;
+                  AbstractSocket var11 = IDKType.fl;
                   boolean var3 = dw * -1275976559 > 20;
                   if (NetCache.af != null) {
                      try {
@@ -1298,8 +1298,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                   NetCache.af = var11;
                   gn.an_renamed(var3);
-                  NetCache.ag.index = 0;
-                  ClientScript.NetCache_currentResponse = null;
+                  NetCache.ag.at = 0;
+                  ClientScript.ai = null;
                   NetCache.ah = null;
                   NetCache.av = 0;
 
@@ -1315,35 +1315,35 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                     var12.bu(4);
                                     var12.bu(NetCache.ad);
                                     var12.p2(0);
-                                    NetCache.af.ab(var12.array, 0, 4);
+                                    NetCache.af.ab(var12.al, 0, 4);
                                  } catch (IOException var7) {
                                     try {
                                        NetCache.af.aq();
                                     } catch (Exception var6) {
                                     }
 
-                                    NetCache.NetCache_ioExceptions += -161323731;
+                                    NetCache.ap += -161323731;
                                     NetCache.af = null;
                                  }
                               }
 
                               NetCache.an = 0;
                               NetCache.aw = Formatting.af_renamed() * -6047020038529116697L;
-                              WorldMapSection0.js5SocketTask = null;
-                              IDKType.js5Socket = null;
+                              WorldMapSection0.fh = null;
+                              IDKType.fl = null;
                               fp = 0;
-                              js5Errors = 0;
+                              gj = 0;
                               return;
                            }
 
                            NetCache.al.addLast(var4);
-                           NetCache.at.put(var4, var4.key);
+                           NetCache.at.put(var4, var4.hr);
                            NetCache.aa += -2069940741;
                            NetCache.ao -= -979537415;
                         }
                      }
 
-                     NetCache.ac.put(var4, var4.key);
+                     NetCache.ac.put(var4, var4.hr);
                      NetCache.au += -1320339335;
                      NetCache.aq -= -1677618233;
                   }
@@ -1357,8 +1357,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    }
 
    void js5Error(int var1) {
-      WorldMapSection0.js5SocketTask = null;
-      IDKType.js5Socket = null;
+      WorldMapSection0.fh = null;
+      IDKType.fl = null;
       fp = 0;
       if (1119961125 * ClanChat.gw == -1275160227 * Inventory.gf) {
          Inventory.gf = 293228307 * ec.gc;
@@ -1366,12 +1366,12 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          Inventory.gf = 518729065 * ClanChat.gw;
       }
 
-      js5Errors += 1159129441;
-      if (-1027638623 * js5Errors < 2 || 7 != var1 && var1 != 9) {
-         if (js5Errors * -1027638623 >= 2 && 6 == var1) {
+      gj += 1159129441;
+      if (-1027638623 * gj < 2 || 7 != var1 && var1 != 9) {
+         if (gj * -1027638623 >= 2 && 6 == var1) {
             this.error("js5connect_outofdate");
             fd.hi_renamed(1000);
-         } else if (-1027638623 * js5Errors >= 4) {
+         } else if (-1027638623 * gj >= 4) {
             if (dw * -1275976559 <= 5) {
                this.error("js5connect");
                fd.hi_renamed(1000);
@@ -1389,18 +1389,18 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    }
 
    final void doCycleLoggedOut() {
-      AbstractSocket var2 = packetWriter.getSocket();
-      PacketBit var3 = packetWriter.bit;
+      AbstractSocket var2 = in.getSocket();
+      PacketBit var3 = in.ab;
 
       try {
-         if (0 == loginState * 572310033) {
-            if (gk.secureRandom == null && (secureRandomFuture.isDone() || -1687986373 * ga > 250)) {
-               gk.secureRandom = secureRandomFuture.get();
-               secureRandomFuture.shutdown();
-               secureRandomFuture = null;
+         if (0 == ge * 572310033) {
+            if (gk.hz == null && (hq.isDone() || -1687986373 * ga > 250)) {
+               gk.hz = hq.get();
+               hq.shutdown();
+               hq = null;
             }
 
-            if (gk.secureRandom != null) {
+            if (gk.hz != null) {
                if (var2 != null) {
                   var2.aq();
                   var2 = null;
@@ -1441,7 +1441,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          }
 
          aj var22;
-         if (loginState * 572310033 == 21) {
+         if (ge * 572310033 == 21) {
             if (this.hx != null) {
                if (!this.hx.isDone()) {
                   return;
@@ -1512,7 +1512,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             kz.og_renamed(20);
          }
 
-         if (20 == loginState * 572310033) {
+         if (20 == ge * 572310033) {
             if (null != this.hi) {
                if (!this.hi.isDone()) {
                   return;
@@ -1587,52 +1587,52 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             kz.og_renamed(1);
          }
 
-         if (572310033 * loginState == 1) {
+         if (572310033 * ge == 1) {
             if (null == an.is) {
-               an.is = taskHandler.newSocketTask(ea.worldHost, Inventory.gf * -1275160227);
+               an.is = af.newSocketTask(ea.gd, Inventory.gf * -1275160227);
             }
 
-            if (an.is.status == 2) {
+            if (an.is.ac == 2) {
                throw new IOException();
             }
 
-            if (1 == an.is.status) {
-               var2 = hu.af_renamed((Socket)an.is.result, 40000, 5000);
-               packetWriter.setSocket(var2);
+            if (1 == an.is.ac) {
+               var2 = hu.af_renamed((Socket)an.is.al, 40000, 5000);
+               in.setSocket(var2);
                an.is = null;
                kz.og_renamed(2);
             }
          }
 
          PacketBitNode var24;
-         if (loginState * 572310033 == 2) {
-            packetWriter.af();
+         if (ge * 572310033 == 2) {
+            in.af();
             var24 = sh.aw_renamed();
-            var24.bit.bu(537668749 * LoginProt.af.id);
-            packetWriter.aw(var24);
-            packetWriter.an();
-            var3.index = 0;
+            var24.aw.bu(537668749 * LoginProt.af.aq);
+            in.aw(var24);
+            in.an();
+            var3.at = 0;
             kz.og_renamed(3);
          }
 
          int var27;
-         if (3 == loginState * 572310033) {
-            if (null != bi.pcmPlayer0) {
-               bi.pcmPlayer0.az();
+         if (3 == ge * 572310033) {
+            if (null != bi.to) {
+               bi.to.az();
             }
 
-            if (null != hd.pcmPlayer1) {
-               hd.pcmPlayer1.az();
+            if (null != hd.tt) {
+               hd.tt.az();
             }
 
             if (var2.an(1)) {
                var27 = var2.ac();
-               if (null != bi.pcmPlayer0) {
-                  bi.pcmPlayer0.az();
+               if (null != bi.to) {
+                  bi.to.az();
                }
 
-               if (null != hd.pcmPlayer1) {
-                  hd.pcmPlayer1.az();
+               if (null != hd.tt) {
+                  hd.tt.az();
                }
 
                if (var27 != 0) {
@@ -1640,38 +1640,38 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   return;
                }
 
-               var3.index = 0;
+               var3.at = 0;
                kz.og_renamed(4);
             }
          }
 
-         if (572310033 * loginState == 4) {
-            if (var3.index * -1633313603 < 8) {
+         if (572310033 * ge == 4) {
+            if (var3.at * -1633313603 < 8) {
                var27 = var2.aw();
-               if (var27 > 8 - var3.index * -1633313603) {
-                  var27 = 8 - var3.index * -1633313603;
+               if (var27 > 8 - var3.at * -1633313603) {
+                  var27 = 8 - var3.at * -1633313603;
                }
 
                if (var27 > 0) {
-                  var2.au(var3.array, -1633313603 * var3.index, var27);
-                  var3.index += var27 * -1516355947;
+                  var2.au(var3.al, -1633313603 * var3.at, var27);
+                  var3.at += var27 * -1516355947;
                }
             }
 
-            if (8 == var3.index * -1633313603) {
-               var3.index = 0;
+            if (8 == var3.at * -1633313603) {
+               var3.at = 0;
                GrandExchangeEvent.il = var3.g8s() * 6538327643922962445L;
                kz.og_renamed(5);
             }
          }
 
          int var7;
-         if (5 == 572310033 * loginState) {
-            packetWriter.bit.index = 0;
-            packetWriter.af();
+         if (5 == 572310033 * ge) {
+            in.ab.at = 0;
+            in.af();
             PacketBit var33 = new PacketBit(500);
-            int[] var26 = new int[]{gk.secureRandom.nextInt(), gk.secureRandom.nextInt(), gk.secureRandom.nextInt(), gk.secureRandom.nextInt()};
-            var33.index = 0;
+            int[] var26 = new int[]{gk.hz.nextInt(), gk.hz.nextInt(), gk.hz.nextInt(), gk.hz.nextInt()};
+            var33.at = 0;
             var33.bu(1);
             var33.ba(var26[0]);
             var33.ba(var26[1]);
@@ -1691,15 +1691,15 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var33.bu(gh.ordinal());
                   switch (gh.ab * 1915854149) {
                      case 0:
-                        var33.index += -1770456492;
+                        var33.at += -1770456492;
                         break;
                      case 1:
                      case 3:
                         var33.bq(1750214827 * hp.ct);
-                        var33.index += -1516355947;
+                        var33.at += -1516355947;
                         break;
                      case 2:
-                        var33.ba(aj.clientPreferences.bx(cz.ca));
+                        var33.ba(aj.vb.bx(cz.ca));
                   }
                }
 
@@ -1715,61 +1715,61 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             var33.rsaEncrypt(co.af, co.an);
             Huffman.hk = var26;
             PacketBitNode var29 = sh.aw_renamed();
-            var29.bit.index = 0;
+            var29.aw.at = 0;
             if (40 == dw * -1275976559) {
-               var29.bit.bu(537668749 * LoginProt.ac.id);
+               var29.aw.bu(537668749 * LoginProt.ac.aq);
             } else {
-               var29.bit.bu(537668749 * LoginProt.aw.id);
+               var29.aw.bu(537668749 * LoginProt.aw.aq);
             }
 
-            var29.bit.p2(0);
-            var7 = var29.bit.index * -1633313603;
-            var29.bit.ba(213);
-            var29.bit.ba(1);
-            var29.bit.bu(cg * -749752677);
-            var29.bit.bu(cr * 838232771);
+            var29.aw.p2(0);
+            var7 = var29.aw.at * -1633313603;
+            var29.aw.ba(213);
+            var29.aw.ba(1);
+            var29.aw.bu(cg * -749752677);
+            var29.aw.bu(cr * 838232771);
             byte var8 = 0;
-            var29.bit.bu(var8);
-            var29.bit.cs(var33.array, 0, var33.index * -1633313603);
-            int var9 = var29.bit.index * -1633313603;
-            var29.bit.bh(cz.ca);
-            var29.bit.bu((ro ? 1 : 0) << 1 | (cu ? 1 : 0));
-            var29.bit.p2(aj * -1687260435);
-            var29.bit.p2(1658005443 * kd.ak);
-            oa.nj_renamed(var29.bit);
-            var29.bit.bh(ef.cm);
-            var29.bit.ba(1640118701 * TriBool.cf);
-            Packet var10 = new Packet(en.platformInfo.size());
-            en.platformInfo.write(var10);
-            var29.bit.cs(var10.array, 0, var10.array.length);
-            var29.bit.bu(cg * -749752677);
-            var29.bit.ba(0);
-            var29.bit.el(DevicePcmPlayerProvider.archive0.hash * -159523507);
-            var29.bit.el(-159523507 * nt.archive11.hash);
-            var29.bit.p4ME(nn.archive5.hash * -159523507);
-            var29.bit.p4LE16(rr.archive7.hash * -159523507);
-            var29.bit.p4ME(-159523507 * ey.fm.hash);
-            var29.bit.p4LE16(-159523507 * NetFileRequest.archive9.hash);
-            var29.bit.ba(pj.archive6.hash * -159523507);
-            var29.bit.p4LE16(dk.archive2.hash * -159523507);
-            var29.bit.p4LE16(dk.archive3.hash * -159523507);
-            var29.bit.p4ME(-159523507 * bi.archive12.hash);
-            var29.bit.p4LE16(-159523507 * id.archive15.hash);
-            var29.bit.el(ei.fg.hash * -159523507);
-            var29.bit.el(WorldMapLabelSize.archive8.hash * -159523507);
-            var29.bit.p4LE16(-159523507 * FloorUnderlayType.fr.hash);
-            var29.bit.p4ME(-159523507 * gw.go.hash);
-            var29.bit.p4LE16(-159523507 * hc.archive10.hash);
-            var29.bit.p4LE16(-159523507 * ServerBuild.archive1.hash);
-            var29.bit.el(-159523507 * he.archive13.hash);
-            var29.bit.el(0);
-            var29.bit.p4ME(-159523507 * qc.archive4.hash);
-            var29.bit.el(ey.archive16.hash * -159523507);
-            var29.bit.tinyKeyEncrypt(var26, var9, -1633313603 * var29.bit.index);
-            var29.bit.ca(var29.bit.index * -1633313603 - var7);
-            packetWriter.aw(var29);
-            packetWriter.an();
-            packetWriter.au = new Isaac(var26);
+            var29.aw.bu(var8);
+            var29.aw.cs(var33.al, 0, var33.at * -1633313603);
+            int var9 = var29.aw.at * -1633313603;
+            var29.aw.bh(cz.ca);
+            var29.aw.bu((ro ? 1 : 0) << 1 | (cu ? 1 : 0));
+            var29.aw.p2(aj * -1687260435);
+            var29.aw.p2(1658005443 * kd.ak);
+            oa.nj_renamed(var29.aw);
+            var29.aw.bh(ef.cm);
+            var29.aw.ba(1640118701 * TriBool.cf);
+            Packet var10 = new Packet(en.vz.size());
+            en.vz.write(var10);
+            var29.aw.cs(var10.al, 0, var10.al.length);
+            var29.aw.bu(cg * -749752677);
+            var29.aw.ba(0);
+            var29.aw.el(DevicePcmPlayerProvider.fd.bk * -159523507);
+            var29.aw.el(-159523507 * nt.fu.bk);
+            var29.aw.p4ME(nn.fy.bk * -159523507);
+            var29.aw.p4LE16(rr.fv.bk * -159523507);
+            var29.aw.p4ME(-159523507 * ey.fm.bk);
+            var29.aw.p4LE16(-159523507 * NetFileRequest.fc.bk);
+            var29.aw.ba(pj.fw.bk * -159523507);
+            var29.aw.p4LE16(dk.fn.bk * -159523507);
+            var29.aw.p4LE16(dk.fz.bk * -159523507);
+            var29.aw.p4ME(-159523507 * bi.ft.bk);
+            var29.aw.p4LE16(-159523507 * id.fk.bk);
+            var29.aw.el(ei.fg.bk * -159523507);
+            var29.aw.el(WorldMapLabelSize.fq.bk * -159523507);
+            var29.aw.p4LE16(-159523507 * FloorUnderlayType.fr.bk);
+            var29.aw.p4ME(-159523507 * gw.go.bk);
+            var29.aw.p4LE16(-159523507 * hc.ff.bk);
+            var29.aw.p4LE16(-159523507 * ServerBuild.fb.bk);
+            var29.aw.el(-159523507 * he.gr.bk);
+            var29.aw.el(0);
+            var29.aw.p4ME(-159523507 * qc.fa.bk);
+            var29.aw.el(ey.fj.bk * -159523507);
+            var29.aw.tinyKeyEncrypt(var26, var9, -1633313603 * var29.aw.at);
+            var29.aw.ca(var29.aw.at * -1633313603 - var7);
+            in.aw(var29);
+            in.an();
+            in.au = new Isaac(var26);
             int[] var11 = new int[4];
 
             for(int var12 = 0; var12 < 4; ++var12) {
@@ -1781,7 +1781,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          }
 
          int var28;
-         if (6 == loginState * 572310033 && var2.aw() > 0) {
+         if (6 == ge * 572310033 && var2.aw() > 0) {
             var27 = var2.ac();
             if (var27 == 61) {
                var28 = var2.aw();
@@ -1794,7 +1794,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             } else if (var27 == 2) {
                kz.og_renamed(14);
             } else if (15 == var27 && dw * -1275976559 == 40) {
-               packetWriter.al = -1873812295;
+               in.al = -1873812295;
                kz.og_renamed(19);
             } else if (64 == var27) {
                kz.og_renamed(10);
@@ -1813,16 +1813,16 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
          }
 
-         if (572310033 * loginState == 7 && var2.aw() >= 2) {
-            var2.au(var3.array, 0, 2);
-            var3.index = 0;
+         if (572310033 * ge == 7 && var2.aw() >= 2) {
+            var2.au(var3.al, 0, 2);
+            var3.at = 0;
             ai.gk = var3.cl() * -1251228575;
             kz.og_renamed(8);
          }
 
-         if (572310033 * loginState == 8 && var2.aw() >= 935976865 * ai.gk) {
-            var3.index = 0;
-            var2.au(var3.array, var3.index * -1633313603, ai.gk * 935976865);
+         if (572310033 * ge == 8 && var2.aw() >= 935976865 * ai.gk) {
+            var3.at = 0;
+            var2.au(var3.al, var3.at * -1633313603, ai.gk * 935976865);
             aq[] var36 = new aq[]{aq.af};
             aq var30 = var36[var3.g1()];
 
@@ -1836,7 +1836,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
          }
 
-         if (loginState * 572310033 == 9 && this.hp.af()) {
+         if (ge * 572310033 == 9 && this.hp.af()) {
             this.ha = this.hp.aw();
             this.hp.an();
             this.hp = null;
@@ -1845,34 +1845,34 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                return;
             }
 
-            packetWriter.af();
+            in.af();
             var24 = sh.aw_renamed();
-            var24.bit.bu(LoginProt.au.id * 537668749);
-            var24.bit.p2(-1633313603 * this.ha.index);
-            var24.bit.cc(this.ha);
-            packetWriter.aw(var24);
-            packetWriter.an();
+            var24.aw.bu(LoginProt.au.aq * 537668749);
+            var24.aw.p2(-1633313603 * this.ha.at);
+            var24.aw.cc(this.ha);
+            in.aw(var24);
+            in.an();
             this.ha = null;
             kz.og_renamed(6);
          }
 
-         if (10 == 572310033 * loginState && var2.aw() > 0) {
+         if (10 == 572310033 * ge && var2.aw() > 0) {
             DevicePcmPlayerProvider.gi = var2.ac() * 1844861787;
             kz.og_renamed(11);
          }
 
-         if (loginState * 572310033 == 11 && var2.aw() >= 1874484435 * DevicePcmPlayerProvider.gi) {
-            var2.au(var3.array, 0, DevicePcmPlayerProvider.gi * 1874484435);
-            var3.index = 0;
+         if (ge * 572310033 == 11 && var2.aw() >= 1874484435 * DevicePcmPlayerProvider.gi) {
+            var2.au(var3.al, 0, DevicePcmPlayerProvider.gi * 1874484435);
+            var3.at = 0;
             kz.og_renamed(6);
          }
 
-         if (12 == loginState * 572310033 && var2.aw() > 0) {
+         if (12 == ge * 572310033 && var2.aw() > 0) {
             gu = (var2.ac() + 3) * -956596276;
             kz.og_renamed(13);
          }
 
-         if (loginState * 572310033 == 13) {
+         if (ge * 572310033 == 13) {
             ga = 0;
             he.ax_renamed(Strings.bf, Strings.bq, gu * 1922908789 / 60 + Strings.ba);
             if ((gu -= -2091844131) * 1922908789 <= 0) {
@@ -1880,81 +1880,81 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
 
          } else {
-            if (loginState * 572310033 == 14 && var2.aw() >= 1) {
+            if (ge * 572310033 == 14 && var2.aw() >= 1) {
                al.gm = var2.ac() * 296961217;
                kz.og_renamed(15);
             }
 
-            if (15 == 572310033 * loginState && var2.aw() >= al.gm * -1894298815) {
+            if (15 == 572310033 * ge && var2.aw() >= al.gm * -1894298815) {
                boolean var38 = var2.ac() == 1;
-               var2.au(var3.array, 0, 4);
-               var3.index = 0;
+               var2.au(var3.al, 0, 4);
+               var3.at = 0;
                boolean var32 = false;
                if (var38) {
                   var28 = var3.gIsaac1() << 24;
                   var28 |= var3.gIsaac1() << 16;
                   var28 |= var3.gIsaac1() << 8;
                   var28 |= var3.gIsaac1();
-                  aj.clientPreferences.be(cz.ca, var28);
+                  aj.vb.be(cz.ca, var28);
                }
 
                if (hb) {
-                  aj.clientPreferences.ad(cz.ca);
+                  aj.vb.ad(cz.ca);
                } else {
-                  aj.clientPreferences.ad((String)null);
+                  aj.vb.ad((String)null);
                }
 
                dn.ac_renamed();
                pu = var2.ac() * -345023019;
                po = var2.ac() == 1;
-               localPlayerIndex = var2.ac() * 255869677;
-               localPlayerIndex = 255869677 * (localPlayerIndex * -549033243 << 8);
-               localPlayerIndex += var2.ac() * 255869677;
+               mg = var2.ac() * 255869677;
+               mg = 255869677 * (mg * -549033243 << 8);
+               mg += var2.ac() * 255869677;
                mo = var2.ac() * 361347949;
-               var2.au(var3.array, 0, 8);
-               var3.index = 0;
+               var2.au(var3.al, 0, 8);
+               var3.at = 0;
                this.he = var3.g8s() * 714003291813872507L;
                if (-1894298815 * al.gm >= 29) {
-                  var2.au(var3.array, 0, 8);
-                  var3.index = 0;
+                  var2.au(var3.al, 0, 8);
+                  var3.at = 0;
                   mn = var3.g8s() * 1369385558963036297L;
                }
 
-               var2.au(var3.array, 0, 1);
-               var3.index = 0;
+               var2.au(var3.al, 0, 1);
+               var3.at = 0;
                ServerProt[] var34 = PacketBitNode.af_renamed();
                var7 = var3.gIsaacSmart1or2();
                if (var7 < 0 || var7 >= var34.length) {
-                  throw new IOException(var7 + " " + var3.index * -1633313603);
+                  throw new IOException(var7 + " " + var3.at * -1633313603);
                }
 
-               packetWriter.serverPacket0 = var34[var7];
-               packetWriter.al = packetWriter.serverPacket0.id * -1975731211;
-               var2.au(var3.array, 0, 2);
-               var3.index = 0;
-               packetWriter.al = var3.cl() * 1873812295;
+               in.aq = var34[var7];
+               in.al = in.aq.ev * -1975731211;
+               var2.au(var3.al, 0, 2);
+               var3.at = 0;
+               in.al = var3.cl() * 1873812295;
 
                try {
-                  by.an_renamed(ClientScriptFrame.client, "zap");
+                  by.an_renamed(ClientScriptFrame.bc, "zap");
                } catch (Throwable var13) {
                }
 
                kz.og_renamed(16);
             }
 
-            if (572310033 * loginState != 16) {
-               if (572310033 * loginState == 17 && var2.aw() >= 2) {
-                  var3.index = 0;
-                  var2.au(var3.array, 0, 2);
-                  var3.index = 0;
+            if (572310033 * ge != 16) {
+               if (572310033 * ge == 17 && var2.aw() >= 2) {
+                  var3.at = 0;
+                  var2.au(var3.al, 0, 2);
+                  var3.at = 0;
                   au.gq = var3.cl() * -76488733;
                   kz.og_renamed(18);
                }
 
-               if (572310033 * loginState == 18 && var2.aw() >= au.gq * -1182573109) {
-                  var3.index = 0;
-                  var2.au(var3.array, 0, au.gq * -1182573109);
-                  var3.index = 0;
+               if (572310033 * ge == 18 && var2.aw() >= au.gq * -1182573109) {
+                  var3.at = 0;
+                  var2.au(var3.al, 0, au.gq * -1182573109);
+                  var3.at = 0;
                   String var42 = var3.cw();
                   String var40 = var3.cw();
                   String var37 = var3.cw();
@@ -1965,25 +1965,25 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
                }
 
-               if (19 == loginState * 572310033) {
-                  if (889658999 * packetWriter.al == -1) {
+               if (19 == ge * 572310033) {
+                  if (889658999 * in.al == -1) {
                      if (var2.aw() < 2) {
                         return;
                      }
 
-                     var2.au(var3.array, 0, 2);
-                     var3.index = 0;
-                     packetWriter.al = var3.cl() * 1873812295;
+                     var2.au(var3.al, 0, 2);
+                     var3.at = 0;
+                     in.al = var3.cl() * 1873812295;
                   }
 
-                  if (var2.aw() >= packetWriter.al * 889658999) {
-                     var2.au(var3.array, 0, 889658999 * packetWriter.al);
-                     var3.index = 0;
-                     var27 = packetWriter.al * 889658999;
-                     timer.ab();
+                  if (var2.aw() >= in.al * 889658999) {
+                     var2.au(var3.al, 0, 889658999 * in.al);
+                     var3.at = 0;
+                     var27 = in.al * 889658999;
+                     ie.ab();
                      em.hh_renamed();
                      qi.updatePlayer(var3);
-                     if (var3.index * -1633313603 != var27) {
+                     if (var3.at * -1633313603 != var27) {
                         throw new RuntimeException();
                      }
                   }
@@ -2005,34 +2005,34 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
                }
             } else {
-               if (var2.aw() >= 889658999 * packetWriter.al) {
-                  var3.index = 0;
-                  var2.au(var3.array, 0, 889658999 * packetWriter.al);
-                  timer.ac();
-                  mouseLastLastPressedTimeMillis = 3648848592458615261L;
-                  eg.mouseRecorder.index = 0;
+               if (var2.aw() >= 889658999 * in.al) {
+                  var3.at = 0;
+                  var2.au(var3.al, 0, 889658999 * in.al);
+                  ie.ac();
+                  eo = 3648848592458615261L;
+                  eg.eq.aw = 0;
                   AbstractByteArrayCopier.bf = true;
                   ej = true;
                   sc = -4061967902176514943L;
-                  bt.reflectionChecks = new IterableNodeDeque();
-                  packetWriter.af();
-                  packetWriter.bit.index = 0;
-                  packetWriter.serverPacket0 = null;
-                  packetWriter.ao = null;
-                  packetWriter.ax = null;
-                  packetWriter.ai = null;
-                  packetWriter.al = 0;
-                  packetWriter.aa = 0;
+                  bt.af = new IterableNodeDeque();
+                  in.af();
+                  in.ab.at = 0;
+                  in.aq = null;
+                  in.ao = null;
+                  in.ax = null;
+                  in.ai = null;
+                  in.al = 0;
+                  in.aa = 0;
                   ea = 0;
                   ii = 0;
                   eu = 0;
-                  menuOptionsCount = 0;
-                  isMiniMenuOpen = false;
-                  MouseHandler.MouseHandler_idleCycles = 0;
+                  ne = 0;
+                  nt = false;
+                  MouseHandler.au = 0;
                   ga.aq_renamed();
                   oq = 0;
                   om = false;
-                  soundEffectCount = 0;
+                  tl = 0;
                   kf = 0;
                   lv = 0;
                   fi.wc = null;
@@ -2051,72 +2051,72 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
 
                   for(var27 = 0; var27 < 2048; ++var27) {
-                     players[var27] = null;
+                     mc[var27] = null;
                   }
 
                   for(var27 = 0; var27 < 65536; ++var27) {
-                     npcs[var27] = null;
+                     iu[var27] = null;
                   }
 
                   nl = -1035820595;
-                  projectiles.af();
-                  graphicsObjects.af();
+                  na.af();
+                  np.af();
 
                   for(var27 = 0; var27 < 4; ++var27) {
                      for(var28 = 0; var28 < 104; ++var28) {
                         for(int var35 = 0; var35 < 104; ++var35) {
-                           objStacks[var27][var28][var35] = null;
+                           nr[var27][var28][var35] = null;
                         }
                      }
                   }
 
                   nn = new NodeDeque();
-                  World.friendSystem.clear();
+                  World.vt.clear();
 
                   for(var27 = 0; var27 < gz.an * -774485467; ++var27) {
                      gz var39 = GraphicsDefaults.af_renamed(var27);
                      if (var39 != null) {
-                        Varps.Varps_temp[var27] = 0;
-                        Varps.Varps_main[var27] = 0;
+                        Varps.an[var27] = 0;
+                        Varps.aw[var27] = 0;
                      }
                   }
 
-                  oy.varcs.aq();
+                  oy.qo.aq();
                   pt = 1296642255;
                   if (or * -896157613 != -1) {
                      var27 = or * -896157613;
-                     if (var27 != -1 && kt.loadedInterfaces[var27]) {
-                        eb.Component_archive.cl(var27);
-                        if (hn.interfaceComponents[var27] != null) {
-                           for(var28 = 0; var28 < hn.interfaceComponents[var27].length; ++var28) {
-                              if (hn.interfaceComponents[var27][var28] != null) {
-                                 hn.interfaceComponents[var27][var28] = null;
+                     if (var27 != -1 && kt.by[var27]) {
+                        eb.bb.cl(var27);
+                        if (hn.ap[var27] != null) {
+                           for(var28 = 0; var28 < hn.ap[var27].length; ++var28) {
+                              if (hn.ap[var27][var28] != null) {
+                                 hn.ap[var27][var28] = null;
                               }
                            }
 
-                           hn.interfaceComponents[var27] = null;
-                           kt.loadedInterfaces[var27] = false;
+                           hn.ap[var27] = null;
+                           kt.by[var27] = false;
                         }
                      }
                   }
 
-                  for(InterfaceParent var41 = (InterfaceParent)interfaceParents.first(); null != var41; var41 = (InterfaceParent)interfaceParents.next()) {
+                  for(InterfaceParent var41 = (InterfaceParent)oc.first(); null != var41; var41 = (InterfaceParent)oc.next()) {
                      nv.closeInterface(var41, true);
                   }
 
                   or = 32945189;
-                  interfaceParents = new NodeHashTable(8);
+                  oc = new NodeHashTable(8);
                   pg = null;
-                  menuOptionsCount = 0;
-                  isMiniMenuOpen = false;
+                  ne = 0;
+                  nt = false;
                   vh.an((int[])null, (int[])null, new int[]{0, 0, 0, 0, 0}, 0, -1);
 
                   for(var27 = 0; var27 < 8; ++var27) {
-                     playerMenuActions[var27] = null;
+                     nd[var27] = null;
                      no[var27] = false;
                   }
 
-                  Inventory.itemContainers = new NodeHashTable(32);
+                  Inventory.af = new NodeHashTable(32);
                   da = true;
 
                   for(var27 = 0; var27 < 100; ++var27) {
@@ -2124,21 +2124,21 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
 
                   an.io_renamed();
-                  es.clanChat = null;
+                  es.sb = null;
                   ObjType.sq = null;
                   Arrays.fill(sg, (Object)null);
                   MouseHandler.sx = null;
                   Arrays.fill(so, (Object)null);
 
                   for(var27 = 0; var27 < 8; ++var27) {
-                     grandExchangeOffers[var27] = new GrandExchangeOffer();
+                     vs[var27] = new GrandExchangeOffer();
                   }
 
-                  oh.grandExchangeEvents = null;
+                  oh.vj = null;
                   qi.updatePlayer(var3);
                   bi.ji = -1006050753;
                   ec.loadRegions(false, var3);
-                  packetWriter.serverPacket0 = null;
+                  in.aq = null;
                }
 
             }
@@ -2172,17 +2172,17 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          ik = false;
          ng.ht_renamed();
       } else {
-         if (!isMiniMenuOpen) {
+         if (!nt) {
             gr.kw_renamed();
          }
 
          int var2;
-         for(var2 = 0; var2 < 100 && this.ja(packetWriter); ++var2) {
+         for(var2 = 0; var2 < 100 && this.ja(in); ++var2) {
          }
 
          if (30 == -1275976559 * dw) {
             while(true) {
-               ReflectionCheck var3 = (ReflectionCheck)bt.reflectionChecks.last();
+               ReflectionCheck var3 = (ReflectionCheck)bt.af.last();
                boolean var17;
                if (null == var3) {
                   var17 = false;
@@ -2195,14 +2195,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                if (!var17) {
                   PacketBitNode var19;
                   int var20;
-                  if (timer.aw) {
-                     var19 = mi.an_renamed(ClientProt.dz, packetWriter.au);
-                     var19.bit.bu(0);
-                     var20 = -1633313603 * var19.bit.index;
-                     timer.write(var19.bit);
-                     var19.bit.cu(-1633313603 * var19.bit.index - var20);
-                     packetWriter.aw(var19);
-                     timer.au();
+                  if (ie.aw) {
+                     var19 = mi.an_renamed(ClientProt.dz, in.au);
+                     var19.aw.bu(0);
+                     var20 = -1633313603 * var19.aw.at;
+                     ie.write(var19.aw);
+                     var19.aw.cu(-1633313603 * var19.aw.at - var20);
+                     in.aw(var19);
+                     ie.au();
                   }
 
                   int var5;
@@ -2214,26 +2214,26 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   int var11;
                   int var12;
                   int var13;
-                  synchronized(eg.mouseRecorder.lock) {
+                  synchronized(eg.eq.an) {
                      if (!bh) {
-                        eg.mouseRecorder.index = 0;
-                     } else if (0 != -1222491879 * MouseHandler.ar || 535437747 * eg.mouseRecorder.index >= 40) {
+                        eg.eq.aw = 0;
+                     } else if (0 != -1222491879 * MouseHandler.ar || 535437747 * eg.eq.aw >= 40) {
                         var18 = null;
                         var4 = 0;
                         var5 = 0;
                         var6 = 0;
                         var7 = 0;
 
-                        for(var8 = 0; var8 < 535437747 * eg.mouseRecorder.index && (var18 == null || -1633313603 * var18.bit.index - var4 < 246); ++var8) {
+                        for(var8 = 0; var8 < 535437747 * eg.eq.aw && (var18 == null || -1633313603 * var18.aw.at - var4 < 246); ++var8) {
                            var5 = var8;
-                           var9 = eg.mouseRecorder.ys[var8];
+                           var9 = eg.eq.au[var8];
                            if (var9 < -1) {
                               var9 = -1;
                            } else if (var9 > 65534) {
                               var9 = 65534;
                            }
 
-                           var10 = eg.mouseRecorder.xs[var8];
+                           var10 = eg.eq.ac[var8];
                            if (var10 < -1) {
                               var10 = -1;
                            } else if (var10 > 65534) {
@@ -2242,11 +2242,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                            if (et * -751176573 != var10 || ef * -2076298705 != var9) {
                               if (var18 == null) {
-                                 var18 = mi.an_renamed(ClientProt.df, packetWriter.au);
-                                 var18.bit.bu(0);
-                                 var4 = var18.bit.index * -1633313603;
-                                 PacketBit var10000 = var18.bit;
-                                 var10000.index += 1262255402;
+                                 var18 = mi.an_renamed(ClientProt.df, in.au);
+                                 var18.aw.bu(0);
+                                 var4 = var18.aw.at * -1633313603;
+                                 PacketBit var10000 = var18.aw;
+                                 var10000.at += 1262255402;
                                  var6 = 0;
                                  var7 = 0;
                               }
@@ -2254,8 +2254,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                               if (-1L != ez * 8511124946921102523L) {
                                  var11 = var10 - -751176573 * et;
                                  var12 = var9 - -2076298705 * ef;
-                                 var13 = (int)((eg.mouseRecorder.millis[var8] - ez * 8511124946921102523L) / 20L);
-                                 var6 = (int)((long)var6 + (eg.mouseRecorder.millis[var8] - ez * 8511124946921102523L) % 20L);
+                                 var13 = (int)((eg.eq.ab[var8] - ez * 8511124946921102523L) / 20L);
+                                 var6 = (int)((long)var6 + (eg.eq.ab[var8] - ez * 8511124946921102523L) % 20L);
                               } else {
                                  var11 = var10;
                                  var12 = var9;
@@ -2267,63 +2267,63 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                               if (var13 < 8 && var11 >= -32 && var11 <= 31 && var12 >= -32 && var12 <= 31) {
                                  var11 += 32;
                                  var12 += 32;
-                                 var18.bit.p2((var13 << 12) + (var11 << 6) + var12);
+                                 var18.aw.p2((var13 << 12) + (var11 << 6) + var12);
                               } else if (var13 < 32 && var11 >= -128 && var11 <= 127 && var12 >= -128 && var12 <= 127) {
                                  var11 += 128;
                                  var12 += 128;
-                                 var18.bit.bu(var13 + 128);
-                                 var18.bit.p2((var11 << 8) + var12);
+                                 var18.aw.bu(var13 + 128);
+                                 var18.aw.p2((var11 << 8) + var12);
                               } else if (var13 < 32) {
-                                 var18.bit.bu(var13 + 192);
+                                 var18.aw.bu(var13 + 192);
                                  if (var10 != -1 && var9 != -1) {
-                                    var18.bit.ba(var10 | var9 << 16);
+                                    var18.aw.ba(var10 | var9 << 16);
                                  } else {
-                                    var18.bit.ba(Integer.MIN_VALUE);
+                                    var18.aw.ba(Integer.MIN_VALUE);
                                  }
                               } else {
-                                 var18.bit.p2((var13 & 8191) + '\ue000');
+                                 var18.aw.p2((var13 & 8191) + '\ue000');
                                  if (var10 != -1 && var9 != -1) {
-                                    var18.bit.ba(var10 | var9 << 16);
+                                    var18.aw.ba(var10 | var9 << 16);
                                  } else {
-                                    var18.bit.ba(Integer.MIN_VALUE);
+                                    var18.aw.ba(Integer.MIN_VALUE);
                                  }
                               }
 
                               ++var7;
-                              ez = 2560228884295272563L * eg.mouseRecorder.millis[var8];
+                              ez = 2560228884295272563L * eg.eq.ab[var8];
                            }
                         }
 
                         if (null != var18) {
-                           var18.bit.cu(var18.bit.index * -1633313603 - var4);
-                           var8 = var18.bit.index * -1633313603;
-                           var18.bit.index = -1516355947 * var4;
-                           var18.bit.bu(var6 / var7);
-                           var18.bit.bu(var6 % var7);
-                           var18.bit.index = -1516355947 * var8;
-                           packetWriter.aw(var18);
+                           var18.aw.cu(var18.aw.at * -1633313603 - var4);
+                           var8 = var18.aw.at * -1633313603;
+                           var18.aw.at = -1516355947 * var4;
+                           var18.aw.bu(var6 / var7);
+                           var18.aw.bu(var6 % var7);
+                           var18.aw.at = -1516355947 * var8;
+                           in.aw(var18);
                         }
 
-                        if (var5 >= eg.mouseRecorder.index * 535437747) {
-                           eg.mouseRecorder.index = 0;
+                        if (var5 >= eg.eq.aw * 535437747) {
+                           eg.eq.aw = 0;
                         } else {
-                           MouseRecorder var46 = eg.mouseRecorder;
-                           var46.index -= -1762036357 * var5;
-                           System.arraycopy(eg.mouseRecorder.xs, var5, eg.mouseRecorder.xs, 0, eg.mouseRecorder.index * 535437747);
-                           System.arraycopy(eg.mouseRecorder.ys, var5, eg.mouseRecorder.ys, 0, 535437747 * eg.mouseRecorder.index);
-                           System.arraycopy(eg.mouseRecorder.millis, var5, eg.mouseRecorder.millis, 0, eg.mouseRecorder.index * 535437747);
+                           MouseRecorder var46 = eg.eq;
+                           var46.aw -= -1762036357 * var5;
+                           System.arraycopy(eg.eq.ac, var5, eg.eq.ac, 0, eg.eq.aw * 535437747);
+                           System.arraycopy(eg.eq.au, var5, eg.eq.au, 0, 535437747 * eg.eq.aw);
+                           System.arraycopy(eg.eq.ab, var5, eg.eq.ab, 0, eg.eq.aw * 535437747);
                         }
                      }
                   }
 
                   PacketBitNode var29;
                   if (1 == -1222491879 * MouseHandler.ar || !su.ev && 4 == MouseHandler.ar * -1222491879 || MouseHandler.ar * -1222491879 == 2) {
-                     long var21 = MouseHandler.MouseHandler_lastPressedTimeMillis * -1442809844282041895L - 2243792022961482123L * mouseLastLastPressedTimeMillis;
+                     long var21 = MouseHandler.aj * -1442809844282041895L - 2243792022961482123L * eo;
                      if (var21 > 32767L) {
                         var21 = 32767L;
                      }
 
-                     mouseLastLastPressedTimeMillis = 5332065808650620587L * MouseHandler.MouseHandler_lastPressedTimeMillis;
+                     eo = 5332065808650620587L * MouseHandler.aj;
                      var4 = 1163896205 * MouseHandler.as;
                      if (var4 < 0) {
                         var4 = 0;
@@ -2331,7 +2331,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                         var4 = kd.ak * 1658005443;
                      }
 
-                     var5 = 2020601481 * MouseHandler.MouseHandler_lastButton;
+                     var5 = 2020601481 * MouseHandler.am;
                      if (var5 < 0) {
                         var5 = 0;
                      } else if (var5 > -1687260435 * aj) {
@@ -2339,17 +2339,17 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                      }
 
                      var6 = (int)var21;
-                     var29 = mi.an_renamed(ClientProt.ai, packetWriter.au);
-                     var29.bit.p2((2 == MouseHandler.ar * -1222491879 ? 1 : 0) + (var6 << 1));
-                     var29.bit.p2(var5);
-                     var29.bit.p2(var4);
-                     packetWriter.aw(var29);
+                     var29 = mi.an_renamed(ClientProt.ai, in.au);
+                     var29.aw.p2((2 == MouseHandler.ar * -1222491879 ? 1 : 0) + (var6 << 1));
+                     var29.aw.p2(var5);
+                     var29.aw.p2(var4);
+                     in.aw(var29);
                   }
 
                   if (sh.ac * 1888573011 > 0) {
-                     var19 = mi.an_renamed(ClientProt.ab, packetWriter.au);
-                     var19.bit.p2(0);
-                     var20 = -1633313603 * var19.bit.index;
+                     var19 = mi.an_renamed(ClientProt.ab, in.au);
+                     var19.aw.p2(0);
+                     var20 = -1633313603 * var19.aw.at;
                      long var22 = Formatting.af_renamed();
 
                      for(var6 = 0; var6 < 1888573011 * sh.ac; ++var6) {
@@ -2359,12 +2359,12 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                         }
 
                         sc = var22 * 4061967902176514943L;
-                        var19.bit.ez((int)var32);
-                        var19.bit.bu(sh.aw[var6]);
+                        var19.aw.ez((int)var32);
+                        var19.aw.bu(sh.aw[var6]);
                      }
 
-                     var19.bit.ca(var19.bit.index * -1633313603 - var20);
-                     packetWriter.aw(var19);
+                     var19.aw.ca(var19.aw.at * -1633313603 - var20);
+                     in.aw(var19);
                   }
 
                   if (lt * -1504372859 > 0) {
@@ -2378,28 +2378,28 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   if (lz && lt * -1504372859 <= 0) {
                      lt = -523126268;
                      lz = false;
-                     var19 = mi.an_renamed(ClientProt.cd, packetWriter.au);
-                     var19.bit.p2(kf * 704283033);
-                     var19.bit.p2(-954734641 * kp);
-                     packetWriter.aw(var19);
+                     var19 = mi.an_renamed(ClientProt.cd, in.au);
+                     var19.aw.p2(kf * 704283033);
+                     var19.aw.p2(-954734641 * kp);
+                     in.aw(var19);
                   }
 
                   if (AbstractByteArrayCopier.bf && !ej) {
                      ej = true;
-                     var19 = mi.an_renamed(ClientProt.cy, packetWriter.au);
-                     var19.bit.bu(1);
-                     packetWriter.aw(var19);
+                     var19 = mi.an_renamed(ClientProt.cy, in.au);
+                     var19.aw.bu(1);
+                     in.aw(var19);
                   }
 
                   if (!AbstractByteArrayCopier.bf && ej) {
                      ej = false;
-                     var19 = mi.an_renamed(ClientProt.cy, packetWriter.au);
-                     var19.bit.bu(0);
-                     packetWriter.aw(var19);
+                     var19 = mi.an_renamed(ClientProt.cy, in.au);
+                     var19.aw.bu(0);
+                     in.aw(var19);
                   }
 
-                  if (null != ey.worldMap0) {
-                     ey.worldMap0.an();
+                  if (null != ey.wt) {
+                     ey.wt.an();
                   }
 
                   Coord.if_renamed();
@@ -2437,33 +2437,33 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
 
                   int var10002;
-                  for(var2 = 0; var2 < soundEffectCount * -297150195; ++var2) {
+                  for(var2 = 0; var2 < tl * -297150195; ++var2) {
                      var10002 = tg[var2]--;
                      if (tg[var2] >= -10) {
-                        SoundEffect var24 = soundEffects[var2];
+                        SoundEffect var24 = ti[var2];
                         if (null == var24) {
                            SoundEffect var47 = (SoundEffect)null;
-                           var24 = SoundEffect.readSoundEffect(qc.archive4, tu[var2], 0);
+                           var24 = SoundEffect.readSoundEffect(qc.fa, tu[var2], 0);
                            if (var24 == null) {
                               continue;
                            }
 
                            int[] var48 = tg;
                            var48[var2] += var24.aw();
-                           soundEffects[var2] = var24;
+                           ti[var2] = var24;
                         }
 
                         if (tg[var2] < 0) {
                            if (tb[var2] != 0) {
                               var5 = (tb[var2] & 255) * 128;
                               var6 = tb[var2] >> 16 & 255;
-                              var7 = 128 * var6 + 64 - MusicPatchNode.localPlayer.bx * 1144428983;
+                              var7 = 128 * var6 + 64 - MusicPatchNode.mi.bx * 1144428983;
                               if (var7 < 0) {
                                  var7 = -var7;
                               }
 
                               var8 = tb[var2] >> 8 & 255;
-                              var9 = 64 + var8 * 128 - -411750205 * MusicPatchNode.localPlayer.bo;
+                              var9 = 64 + var8 * 128 - -411750205 * MusicPatchNode.mi.bo;
                               if (var9 < 0) {
                                  var9 = -var9;
                               }
@@ -2478,26 +2478,26 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                  var10 = 0;
                               }
 
-                              var4 = (var5 - var10) * aj.clientPreferences.az() / var5;
+                              var4 = (var5 - var10) * aj.vb.az() / var5;
                            } else {
-                              var4 = aj.clientPreferences.aj();
+                              var4 = aj.vb.aj();
                            }
 
                            if (var4 > 0) {
-                              RawSound var25 = var24.toRawSound().resample(WorldMapSectionType.decimator);
+                              RawSound var25 = var24.toRawSound().resample(WorldMapSectionType.tj);
                               RawPcmStream var33 = RawPcmStream.aw_renamed(var25, 100, var4);
                               var33.aa(tr[var2] - 1);
-                              fe.pcmStreamMixer.addSubStream(var33);
+                              fe.td.addSubStream(var33);
                            }
 
                            tg[var2] = -100;
                         }
                      } else {
-                        soundEffectCount -= 831233477;
+                        tl -= 831233477;
 
-                        for(var20 = var2; var20 < soundEffectCount * -297150195; ++var20) {
+                        for(var20 = var2; var20 < tl * -297150195; ++var20) {
                            tu[var20] = tu[1 + var20];
-                           soundEffects[var20] = soundEffects[var20 + 1];
+                           ti[var20] = ti[var20 + 1];
                            tr[var20] = tr[1 + var20];
                            tg[var20] = tg[var20 + 1];
                            tb[var20] = tb[var20 + 1];
@@ -2508,16 +2508,16 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
 
                   if (tf && !au.al_renamed()) {
-                     if (aj.clientPreferences.am() != 0 && -1 != tz * 1976903761) {
-                        Message.aw_renamed(pj.archive6, 1976903761 * tz, 0, aj.clientPreferences.am(), false);
+                     if (aj.vb.am() != 0 && -1 != tz * 1976903761) {
+                        Message.aw_renamed(pj.fw, 1976903761 * tz, 0, aj.vb.am(), false);
                      }
 
                      tf = false;
                   }
 
-                  PacketWriter var49 = packetWriter;
+                  PacketWriter var49 = in;
                   var49.aa += -18974871;
-                  if (997558489 * packetWriter.aa > 750) {
+                  if (997558489 * in.aa > 750) {
                      ng.ht_renamed();
                      return;
                   }
@@ -2527,22 +2527,22 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   int[] var30 = ds.aq;
 
                   for(var20 = 0; var20 < -2010934433 * ds.ab; ++var20) {
-                     Player var26 = players[var30[var20]];
-                     if (null != var26 && var26.movementSequence * -536830723 > 0) {
-                        var26.movementSequence -= 1655791701;
-                        if (var26.movementSequence * -536830723 == 0) {
-                           var26.overheadText = null;
+                     Player var26 = mc[var30[var20]];
+                     if (null != var26 && var26.cs * -536830723 > 0) {
+                        var26.cs -= 1655791701;
+                        if (var26.cs * -536830723 == 0) {
+                           var26.bw = null;
                         }
                      }
                   }
 
                   for(var20 = 0; var20 < 265474485 * iw; ++var20) {
                      var4 = iy[var20];
-                     Npc var27 = npcs[var4];
-                     if (var27 != null && -536830723 * var27.movementSequence > 0) {
-                        var27.movementSequence -= 1655791701;
-                        if (var27.movementSequence * -536830723 == 0) {
-                           var27.overheadText = null;
+                     Npc var27 = iu[var4];
+                     if (var27 != null && -536830723 * var27.cs > 0) {
+                        var27.cs -= 1655791701;
+                        if (var27.cs * -536830723 == 0) {
+                           var27.bw = null;
                         }
                      }
                   }
@@ -2569,15 +2569,15 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                         StringBuilder var28 = new StringBuilder();
 
                         Message var41;
-                        for(Iterator var36 = Messages.Messages_hashTable.iterator(); var36.hasNext(); var28.append(var41.sender).append('\n')) {
+                        for(Iterator var36 = Messages.an.iterator(); var36.hasNext(); var28.append(var41.at).append('\n')) {
                            var41 = (Message)var36.next();
-                           if (null != var41.text && !var41.text.isEmpty()) {
-                              var28.append(var41.text).append(':');
+                           if (null != var41.ac && !var41.ac.isEmpty()) {
+                              var28.append(var41.ac).append(':');
                            }
                         }
 
                         String var31 = var28.toString();
-                        ClientScriptFrame.client.clipboardSetString(var31);
+                        ClientScriptFrame.bc.clipboardSetString(var31);
                      } else if (lv * 986256295 != 1 || sh.ax <= 0) {
                         sz[sm * -1685179677] = sh.ai * 546317845;
                         sk[sm * -1685179677] = sh.ax;
@@ -2587,26 +2587,26 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                   boolean var35 = pu * 324465533 >= 2;
                   PacketBitNode var38;
-                  if (var35 && sh.av(82) && sh.av(81) && -121753353 * mouseWheelRotation != 0) {
-                     var5 = -1900490645 * MusicPatchNode.localPlayer.ad - mouseWheelRotation * -121753353;
+                  if (var35 && sh.av(82) && sh.av(81) && -121753353 * rd != 0) {
+                     var5 = -1900490645 * MusicPatchNode.mi.ad - rd * -121753353;
                      if (var5 < 0) {
                         var5 = 0;
                      } else if (var5 > 3) {
                         var5 = 3;
                      }
 
-                     if (MusicPatchNode.localPlayer.ad * -1900490645 != var5) {
-                        var6 = jm.ib * -1232093375 + MusicPatchNode.localPlayer.pathX[0];
-                        var7 = 827352769 * Scenery.jc + MusicPatchNode.localPlayer.pathY[0];
-                        var38 = mi.an_renamed(ClientProt.cq, packetWriter.au);
-                        var38.bit.p4ME(0);
-                        var38.bit.dy(var6);
-                        var38.bit.dh(var5);
-                        var38.bit.ds(var7);
-                        packetWriter.aw(var38);
+                     if (MusicPatchNode.mi.ad * -1900490645 != var5) {
+                        var6 = jm.ib * -1232093375 + MusicPatchNode.mi.dy[0];
+                        var7 = 827352769 * Scenery.jc + MusicPatchNode.mi.ds[0];
+                        var38 = mi.an_renamed(ClientProt.cq, in.au);
+                        var38.aw.p4ME(0);
+                        var38.aw.dy(var6);
+                        var38.aw.dh(var5);
+                        var38.aw.ds(var7);
+                        in.aw(var38);
                      }
 
-                     mouseWheelRotation = 0;
+                     rd = 0;
                   }
 
                   if (1 == MouseHandler.ar * -1222491879) {
@@ -2644,16 +2644,16 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                                    }
 
                                                    if (Scene.bs()) {
-                                                      var5 = Scene.Scene_selectedX;
-                                                      var6 = Scene.Scene_selectedY;
-                                                      var29 = mi.an_renamed(ClientProt.ck, packetWriter.au);
-                                                      var29.bit.bu(5);
-                                                      var29.bit.ds(Scenery.jc * 827352769 + var6);
-                                                      var29.bit.p2LE(-1232093375 * jm.ib + var5);
-                                                      var29.bit.du(sh.av(82) ? (sh.av(81) ? 2 : 1) : 0);
-                                                      packetWriter.aw(var29);
+                                                      var5 = Scene.bd;
+                                                      var6 = Scene.bt;
+                                                      var29 = mi.an_renamed(ClientProt.ck, in.au);
+                                                      var29.aw.bu(5);
+                                                      var29.aw.ds(Scenery.jc * 827352769 + var6);
+                                                      var29.aw.p2LE(-1232093375 * jm.ib + var5);
+                                                      var29.aw.du(sh.av(82) ? (sh.av(81) ? 2 : 1) : 0);
+                                                      in.aw(var29);
                                                       Scene.br();
-                                                      mq = MouseHandler.MouseHandler_lastButton * -1884483333;
+                                                      mq = MouseHandler.am * -1884483333;
                                                       mm = 2130738719 * MouseHandler.as;
                                                       mv = -1453825313;
                                                       me = 0;
@@ -2693,8 +2693,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                                    }
 
                                                    if (lv * 986256295 == 0) {
-                                                      var5 = 1144428983 * MusicPatchNode.localPlayer.bx;
-                                                      var6 = MusicPatchNode.localPlayer.bo * -411750205;
+                                                      var5 = 1144428983 * MusicPatchNode.mi.bx;
+                                                      var6 = MusicPatchNode.mi.bo * -411750205;
                                                       if (-1958669353 * bz.lg - var5 < -500 || bz.lg * -1958669353 - var5 > 500 || fw.lf * -365969735 - var6 < -500 || -365969735 * fw.lf - var6 > 500) {
                                                          bz.lg = var5 * 1293848551;
                                                          fw.lf = 892004233 * var6;
@@ -2710,17 +2710,17 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                                                       var7 = bz.lg * -1958669353 >> 7;
                                                       var8 = fw.lf * -365969735 >> 7;
-                                                      var9 = fq.getTileHeight(bz.lg * -1958669353, -365969735 * fw.lf, -1727408401 * GameShell.plane);
+                                                      var9 = fq.getTileHeight(bz.lg * -1958669353, -365969735 * fw.lf, -1727408401 * GameShell.mh);
                                                       var10 = 0;
                                                       if (var7 > 3 && var8 > 3 && var7 < 100 && var8 < 100) {
                                                          for(var11 = var7 - 4; var11 <= var7 + 4; ++var11) {
                                                             for(var12 = var8 - 4; var12 <= 4 + var8; ++var12) {
-                                                               var13 = -1727408401 * GameShell.plane;
-                                                               if (var13 < 3 && 2 == (Tiles.Tiles_renderFlags[1][var11][var12] & 2)) {
+                                                               var13 = -1727408401 * GameShell.mh;
+                                                               if (var13 < 3 && 2 == (Tiles.an[1][var11][var12] & 2)) {
                                                                   ++var13;
                                                                }
 
-                                                               int var14 = var9 - Tiles.Tiles_heights[var13][var11][var12];
+                                                               int var14 = var9 - Tiles.af[var13][var11][var12];
                                                                if (var14 > var10) {
                                                                   var10 = var14;
                                                                }
@@ -2743,7 +2743,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                                          lc += 800423179 * ((var11 - 205350563 * lc) / 80);
                                                       }
 
-                                                      Formatting.ls = (fq.getTileHeight(MusicPatchNode.localPlayer.bx * 1144428983, MusicPatchNode.localPlayer.bo * -411750205, -1727408401 * GameShell.plane) - lm * 394960243) * -1138369095;
+                                                      Formatting.ls = (fq.getTileHeight(MusicPatchNode.mi.bx * 1144428983, MusicPatchNode.mi.bo * -411750205, -1727408401 * GameShell.mh) - lm * 394960243) * -1138369095;
                                                    } else if (1 == lv * 986256295) {
                                                       ms.ni_renamed();
                                                       short var45 = -1;
@@ -2821,7 +2821,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                                       }
                                                    }
 
-                                                   if (MouseHandler.MouseHandler_currentButton * 114417019 == 4 && su.ev) {
+                                                   if (MouseHandler.aa * 114417019 == 4 && su.ev) {
                                                       var5 = MouseHandler.ao * -1224153235 - 332197605 * km;
                                                       kn = 1932462086 * var5;
                                                       km = (var5 != -1 && var5 != 1 ? (332197605 * km + -1224153235 * MouseHandler.ao) / 2 : MouseHandler.ao * -1224153235) * 1302863597;
@@ -2865,7 +2865,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                                       if (!ub) {
                                                          var5 = 64 + gx.ut * 957080960;
                                                          var6 = 958794368 * ex.uo + 64;
-                                                         var7 = fq.getTileHeight(var5, var6, GameShell.plane * -1727408401) - av.uq * -887836823;
+                                                         var7 = fq.getTileHeight(var5, var6, GameShell.mh * -1727408401) - av.uq * -887836823;
                                                          fh.il_renamed(var5, var7, var6);
                                                       } else if (null != ui) {
                                                          bt.kx = ui.af() * -1682679895;
@@ -2873,7 +2873,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                                          if (ud) {
                                                             gk.kv = ui.aw() * -424093663;
                                                          } else {
-                                                            gk.kv = (fq.getTileHeight(bt.kx * -2100544359, -91399205 * ly.ke, GameShell.plane * -1727408401) - ui.aw()) * -424093663;
+                                                            gk.kv = (fq.getTileHeight(bt.kx * -2100544359, -91399205 * ly.ke, GameShell.mh * -1727408401) - ui.aw()) * -424093663;
                                                          }
 
                                                          ui.aa();
@@ -2882,7 +2882,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                                       if (!uc) {
                                                          var5 = FontName.um * 332584320 + 64;
                                                          var6 = -1804719232 * MilliClock.ux + 64;
-                                                         var7 = fq.getTileHeight(var5, var6, GameShell.plane * -1727408401) - ClientScriptFrame.ug * 1496735347;
+                                                         var7 = fq.getTileHeight(var5, var6, GameShell.mh * -1727408401) - ClientScriptFrame.ug * 1496735347;
                                                          var8 = var5 - -2100544359 * bt.kx;
                                                          var9 = var7 - 1772923873 * gk.kv;
                                                          var10 = var6 - -91399205 * ly.ke;
@@ -2908,17 +2908,17 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                                       var10002 = vg[var5]++;
                                                    }
 
-                                                   oy.varcs.ay();
+                                                   oy.qo.ay();
                                                    var5 = SecureRandomFuture.aw_renamed();
-                                                   var6 = KeyHandler_instance.an();
+                                                   var6 = bq.an();
                                                    if (var5 > 15000 && var6 > 15000) {
                                                       ii = 719725026;
-                                                      MouseHandler.MouseHandler_idleCycles = 1393311740;
-                                                      var38 = mi.an_renamed(ClientProt.aw, packetWriter.au);
-                                                      packetWriter.aw(var38);
+                                                      MouseHandler.au = 1393311740;
+                                                      var38 = mi.an_renamed(ClientProt.aw, in.au);
+                                                      in.aw(var38);
                                                    }
 
-                                                   World.friendSystem.ac();
+                                                   World.vt.ac();
 
                                                    for(var8 = 0; var8 < wz.size(); ++var8) {
                                                       if (aj.ag_renamed((Integer)wz.get(var8)) != 2) {
@@ -2927,15 +2927,15 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                                       }
                                                    }
 
-                                                   var49 = packetWriter;
+                                                   var49 = in;
                                                    var49.ay += -1313905755;
-                                                   if (1383386157 * packetWriter.ay > 50) {
-                                                      var38 = mi.an_renamed(ClientProt.by, packetWriter.au);
-                                                      packetWriter.aw(var38);
+                                                   if (1383386157 * in.ay > 50) {
+                                                      var38 = mi.an_renamed(ClientProt.by, in.au);
+                                                      in.aw(var38);
                                                    }
 
                                                    try {
-                                                      packetWriter.an();
+                                                      in.an();
                                                    } catch (IOException var15) {
                                                       ng.ht_renamed();
                                                    }
@@ -2948,47 +2948,47 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                           }
 
                                           var40 = var39.aw;
-                                          if (var40.childIndex * 55577617 < 0) {
+                                          if (var40.br * 55577617 < 0) {
                                              break;
                                           }
 
-                                          var43 = gh.an_renamed(var40.parentId * 913615679);
-                                       } while(var43 == null || var43.children == null || var40.childIndex * 55577617 >= var43.children.length || var40 != var43.children[var40.childIndex * 55577617]);
+                                          var43 = gh.an_renamed(var40.cu * 913615679);
+                                       } while(var43 == null || var43.gz == null || var40.br * 55577617 >= var43.gz.length || var40 != var43.gz[var40.br * 55577617]);
 
                                        HeadbarUpdate.af_renamed(var39);
                                     }
                                  }
 
                                  var40 = var39.aw;
-                                 if (55577617 * var40.childIndex < 0) {
+                                 if (55577617 * var40.br < 0) {
                                     break;
                                  }
 
-                                 var43 = gh.an_renamed(var40.parentId * 913615679);
-                              } while(var43 == null || var43.children == null || 55577617 * var40.childIndex >= var43.children.length || var40 != var43.children[var40.childIndex * 55577617]);
+                                 var43 = gh.an_renamed(var40.cu * 913615679);
+                              } while(var43 == null || var43.gz == null || 55577617 * var40.br >= var43.gz.length || var40 != var43.gz[var40.br * 55577617]);
 
                               HeadbarUpdate.af_renamed(var39);
                            }
                         }
 
                         var40 = var39.aw;
-                        if (55577617 * var40.childIndex < 0) {
+                        if (55577617 * var40.br < 0) {
                            break;
                         }
 
-                        var43 = gh.an_renamed(var40.parentId * 913615679);
-                     } while(null == var43 || null == var43.children || var40.childIndex * 55577617 >= var43.children.length || var40 != var43.children[var40.childIndex * 55577617]);
+                        var43 = gh.an_renamed(var40.cu * 913615679);
+                     } while(null == var43 || null == var43.gz || var40.br * 55577617 >= var43.gz.length || var40 != var43.gz[var40.br * 55577617]);
 
                      HeadbarUpdate.af_renamed(var39);
                   }
                }
 
-               var18 = mi.an_renamed(ClientProt.dk, packetWriter.au);
-               var18.bit.bu(0);
-               var4 = var18.bit.index * -1633313603;
-               qg.af_renamed(var18.bit);
-               var18.bit.cu(-1633313603 * var18.bit.index - var4);
-               packetWriter.aw(var18);
+               var18 = mi.an_renamed(ClientProt.dk, in.au);
+               var18.aw.bu(0);
+               var4 = var18.aw.at * -1633313603;
+               qg.af_renamed(var18.aw);
+               var18.aw.cu(-1633313603 * var18.aw.at - var4);
+               in.aw(var18);
             }
          }
       }
@@ -3006,17 +3006,17 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    void ip() {
       int var2 = -1687260435 * aj;
       int var3 = kd.ak * 1658005443;
-      if (-927540391 * this.contentWidth < var2) {
-         var2 = this.contentWidth * -927540391;
+      if (-927540391 * this.av < var2) {
+         var2 = this.av * -927540391;
       }
 
-      if (this.contentHeight * -1747234661 < var3) {
-         var3 = this.contentHeight * -1747234661;
+      if (this.ar * -1747234661 < var3) {
+         var3 = this.ar * -1747234661;
       }
 
-      if (aj.clientPreferences != null) {
+      if (aj.vb != null) {
          try {
-            by.aw_renamed(ClientScriptFrame.client, "resize", new Object[]{na.iv_renamed()});
+            by.aw_renamed(ClientScriptFrame.bc, "resize", new Object[]{na.iv_renamed()});
          } catch (Throwable var5) {
          }
       }
@@ -3028,7 +3028,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       if (-1 != or * -896157613) {
          var2 = or * -896157613;
          if (SoundSystem.loadInterface(var2)) {
-            Obj.ms_renamed(hn.interfaceComponents[var2], -1);
+            Obj.ms_renamed(hn.ap[var2], -1);
          }
       }
 
@@ -3060,47 +3060,47 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          }
       }
 
-      if (!isMiniMenuOpen) {
+      if (!nt) {
          if (-1 != of * -2086038621) {
             dk.kk_renamed(-2086038621 * of, oy * -870509993);
          }
       } else {
-         var2 = -1141903185 * hl.menuY;
-         int var3 = ArchiveLoader.menuWidth * -115281635;
-         int var4 = -960964385 * DesktopPlatformInfoProvider.menuHeight;
-         int var5 = 245252327 * fq.menuX;
+         var2 = -1141903185 * hl.nf;
+         int var3 = ArchiveLoader.nc * -115281635;
+         int var4 = -960964385 * DesktopPlatformInfoProvider.nj;
+         int var5 = 245252327 * fq.nv;
          int var6 = 6116423;
          Rasterizer2D.Rasterizer2D_fillRectangle(var2, var3, var4, var5, var6);
          Rasterizer2D.Rasterizer2D_fillRectangle(1 + var2, 1 + var3, var4 - 2, 16, 0);
          Rasterizer2D.Rasterizer2D_drawRectangle(1 + var2, var3 + 18, var4 - 2, var5 - 19, 0);
-         fx.fontBold12.draw(Strings.Strings_chooseOption, 3 + var2, 14 + var3, var6, -1);
+         fx.ip.draw(Strings.gd, 3 + var2, 14 + var3, var6, -1);
          int var7 = -2063363905 * MouseHandler.ay;
          int var8 = MouseHandler.ao * -1224153235;
 
-         for(int var9 = 0; var9 < 730065501 * menuOptionsCount; ++var9) {
-            int var10 = var3 + 31 + 15 * (menuOptionsCount * 730065501 - 1 - var9);
+         for(int var9 = 0; var9 < 730065501 * ne; ++var9) {
+            int var10 = var3 + 31 + 15 * (ne * 730065501 - 1 - var9);
             int var11 = 16777215;
             if (var7 > var2 && var7 < var2 + var4 && var8 > var10 - 13 && var8 < var10 + 3) {
                var11 = 16776960;
             }
 
-            fx.fontBold12.draw(Friend.lg_renamed(var9), 3 + var2, var10, var11, 0);
+            fx.ip.draw(Friend.lg_renamed(var9), 3 + var2, var10, var11, 0);
          }
 
-         ClanChat.ki_renamed(-1141903185 * hl.menuY, -115281635 * ArchiveLoader.menuWidth, -960964385 * DesktopPlatformInfoProvider.menuHeight, fq.menuX * 245252327);
+         ClanChat.ki_renamed(-1141903185 * hl.nf, -115281635 * ArchiveLoader.nc, -960964385 * DesktopPlatformInfoProvider.nj, fq.nv * 245252327);
       }
 
       if (3 == -1928160607 * rg) {
          for(var2 = 0; var2 < rr * -356793645; ++var2) {
             if (rw[var2]) {
-               Rasterizer2D.ev_renamed(rh[var2], rb[var2], rootComponentWidths[var2], rootComponentHeights[var2], 16711935, 128);
+               Rasterizer2D.ev_renamed(rh[var2], rb[var2], ra[var2], ri[var2], 16711935, 128);
             } else if (rm[var2]) {
-               Rasterizer2D.ev_renamed(rh[var2], rb[var2], rootComponentWidths[var2], rootComponentHeights[var2], 16711680, 128);
+               Rasterizer2D.ev_renamed(rh[var2], rb[var2], ra[var2], ri[var2], 16711680, 128);
             }
          }
       }
 
-      ms.au_renamed(GameShell.plane * -1727408401, MusicPatchNode.localPlayer.bx * 1144428983, MusicPatchNode.localPlayer.bo * -411750205, ja * -1795081153);
+      ms.au_renamed(GameShell.mh * -1727408401, MusicPatchNode.mi.bx * 1144428983, MusicPatchNode.mi.bo * -411750205, ja * -1795081153);
       ja = 0;
    }
 
@@ -3115,35 +3115,35 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
    boolean jp(PacketWriter var1, int var2) {
       if (0 == var1.al * 889658999) {
-         es.clanChat = null;
+         es.sb = null;
       } else {
-         if (null == es.clanChat) {
-            es.clanChat = new ClanChat(co.loginType, ClientScriptFrame.client);
+         if (null == es.sb) {
+            es.sb = new ClanChat(co.cn, ClientScriptFrame.bc);
          }
 
-         es.clanChat.readUpdate(var1.bit, var2);
+         es.sb.readUpdate(var1.ab, var2);
       }
 
       qd = qu * 235003969;
       GraphicsObject.sl = true;
-      var1.serverPacket0 = null;
+      var1.aq = null;
       return true;
    }
 
    boolean jt(PacketWriter var1) {
-      if (es.clanChat != null) {
-         es.clanChat.ax(var1.bit);
+      if (es.sb != null) {
+         es.sb.ax(var1.ab);
       }
 
       qd = qu * 235003969;
       GraphicsObject.sl = true;
-      var1.serverPacket0 = null;
+      var1.aq = null;
       return true;
    }
 
    final boolean ja(PacketWriter var1) {
       AbstractSocket var3 = var1.getSocket();
-      PacketBit var4 = var1.bit;
+      PacketBit var4 = var1.ab;
       if (null == var3) {
          return false;
       } else {
@@ -3151,24 +3151,24 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          int var7;
          try {
             int var25;
-            if (var1.serverPacket0 == null) {
+            if (var1.aq == null) {
                if (var1.at) {
                   if (!var3.an(1)) {
                      return false;
                   }
 
-                  var3.au(var1.bit.array, 0, 1);
+                  var3.au(var1.ab.al, 0, 1);
                   var1.aa = 0;
                   var1.at = false;
                }
 
-               var4.index = 0;
+               var4.at = 0;
                if (var4.au((byte)55)) {
                   if (!var3.an(1)) {
                      return false;
                   }
 
-                  var3.au(var1.bit.array, 1, 1);
+                  var3.au(var1.ab.al, 1, 1);
                   var1.aa = 0;
                }
 
@@ -3176,11 +3176,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                ServerProt[] var5 = PacketBitNode.af_renamed();
                var25 = var4.gIsaacSmart1or2();
                if (var25 < 0 || var25 >= var5.length) {
-                  throw new IOException(var25 + " " + -1633313603 * var4.index);
+                  throw new IOException(var25 + " " + -1633313603 * var4.at);
                }
 
-               var1.serverPacket0 = var5[var25];
-               var1.al = -1975731211 * var1.serverPacket0.id;
+               var1.aq = var5[var25];
+               var1.al = -1975731211 * var1.aq.ev;
             }
 
             if (889658999 * var1.al == -1) {
@@ -3188,8 +3188,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   return false;
                }
 
-               var1.getSocket().au(var4.array, 0, 1);
-               var1.al = (var4.array[0] & 255) * 1873812295;
+               var1.getSocket().au(var4.al, 0, 1);
+               var1.al = (var4.al[0] & 255) * 1873812295;
             }
 
             if (889658999 * var1.al == -2) {
@@ -3197,8 +3197,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   return false;
                }
 
-               var1.getSocket().au(var4.array, 0, 2);
-               var4.index = 0;
+               var1.getSocket().au(var4.al, 0, 2);
+               var4.at = 0;
                var1.al = var4.cl() * 1873812295;
             }
 
@@ -3206,25 +3206,25 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                return false;
             }
 
-            var4.index = 0;
-            var3.au(var4.array, 0, var1.al * 889658999);
+            var4.at = 0;
+            var3.au(var4.al, 0, var1.al * 889658999);
             var1.aa = 0;
-            timer.af();
+            ie.af();
             var1.ai = var1.ax;
             var1.ax = var1.ao;
-            var1.ao = var1.serverPacket0;
+            var1.ao = var1.aq;
             int var23;
-            if (var1.serverPacket0 == ServerProt.al) {
+            if (var1.aq == ServerProt.al) {
                var23 = var4.g4s();
                var25 = var4.g4s();
                var7 = NetCache.bq_renamed();
-               PacketBitNode var85 = mi.an_renamed(ClientProt.cx, packetWriter.au);
-               var85.bit.dh(1913114939 * aa);
-               var85.bit.dp(var7);
-               var85.bit.el(var23);
-               var85.bit.el(var25);
-               packetWriter.aw(var85);
-               var1.serverPacket0 = null;
+               PacketBitNode var85 = mi.an_renamed(ClientProt.cx, in.au);
+               var85.aw.dh(1913114939 * aa);
+               var85.aw.dp(var7);
+               var85.aw.el(var23);
+               var85.aw.el(var25);
+               in.aw(var85);
+               var1.aq = null;
                return true;
             }
 
@@ -3236,7 +3236,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             boolean var42;
             String var49;
             int var61;
-            if (ServerProt.aj == var1.serverPacket0) {
+            if (ServerProt.aj == var1.aq) {
                var27 = var4.g1s();
                var28 = (long)var4.cl();
                var30 = (long)var4.cr();
@@ -3262,13 +3262,13 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   fo.addMessage(var61, "", var49, var67.ab);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
             int var8;
             int var9;
-            if (var1.serverPacket0 == ServerProt.an) {
+            if (var1.aq == ServerProt.an) {
                var23 = var4.er();
                var25 = var4.eg();
                var7 = var4.eo();
@@ -3283,115 +3283,115 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                for(var9 = var8; var9 <= var7; ++var9) {
                   var34 = ((long)var23 << 32) + (long)var9;
-                  Node var59 = componentClickMasks.get(var34);
+                  Node var59 = rv.get(var34);
                   if (var59 != null) {
                      var59.remove();
                   }
 
-                  componentClickMasks.put(new IntegerNode(var25), var34);
+                  rv.put(new IntegerNode(var25), var34);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
             Component var51;
-            if (ServerProt.bc == var1.serverPacket0) {
+            if (ServerProt.bc == var1.aq) {
                var23 = var4.et();
                var25 = var4.en();
                var7 = var4.eq();
                var51 = gh.an_renamed(var25);
-               if (var23 != var51.rawX * -115015413 || var7 != 1651158159 * var51.rawY || 0 != -1596536121 * var51.xAlignment || 0 != 1484444061 * var51.yAlignment) {
-                  var51.rawX = var23 * 1806877347;
-                  var51.rawY = var7 * 1231090287;
-                  var51.xAlignment = 0;
-                  var51.yAlignment = 0;
+               if (var23 != var51.bp * -115015413 || var7 != 1651158159 * var51.bc || 0 != -1596536121 * var51.bq || 0 != 1484444061 * var51.ba) {
+                  var51.bp = var23 * 1806877347;
+                  var51.bc = var7 * 1231090287;
+                  var51.bq = 0;
+                  var51.ba = 0;
                   fw.ma_renamed(var51);
                   this.alignComponent(var51);
                   if (883712245 * var51.bg == 0) {
-                     WallDecoration.lz_renamed(hn.interfaceComponents[var25 >> 16], var51, false);
+                     WallDecoration.lz_renamed(hn.ap[var25 >> 16], var51, false);
                   }
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.el == var1.serverPacket0) {
+            if (ServerProt.el == var1.aq) {
                var23 = var4.db();
                var25 = var4.g1n();
                var7 = var4.g4s();
                var51 = gh.an_renamed(var7);
                ChatChannel.bq_renamed(var51, var23, var25);
                fw.ma_renamed(var51);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.cb == var1.serverPacket0) {
+            if (ServerProt.cb == var1.aq) {
                var23 = var4.g1();
                lk.hg_renamed(var23);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return false;
             }
 
-            if (ServerProt.et == var1.serverPacket0) {
+            if (ServerProt.et == var1.aq) {
                var23 = var4.eo();
                var25 = var4.cl();
                var7 = var4.er();
                var51 = gh.an_renamed(var7);
                var51.dq = (var25 + (var23 << 16)) * -1510822541;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
             Npc var56;
-            if (ServerProt.dx == var1.serverPacket0) {
+            if (ServerProt.dx == var1.aq) {
                var23 = var4.cl();
-               var56 = npcs[var23];
+               var56 = iu[var23];
                var7 = var4.cl();
                var25 = var4.g4s();
                if (null != var56) {
                   var56.cj(0, var7, var25 >> 16, var25 & '\uffff');
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.cc) {
+            if (var1.aq == ServerProt.cc) {
                EnumType.jb_renamed(lm.aq);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.dl == var1.serverPacket0) {
-               var1.serverPacket0 = null;
+            if (ServerProt.dl == var1.aq) {
+               var1.aq = null;
                return true;
             }
 
             Npc var44;
-            if (var1.serverPacket0 == ServerProt.dy) {
+            if (var1.aq == ServerProt.dy) {
                var23 = var4.en();
                var25 = var4.ep();
                short var87 = (short)var4.eq();
                var8 = var4.g1n();
-               var44 = npcs[var25];
+               var44 = iu[var25];
                if (null != var44) {
                   var44.ai(var8, var23, var87);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.ab) {
+            if (var1.aq == ServerProt.ab) {
                var23 = var4.cl();
                Player var80;
-               if (var23 == localPlayerIndex * -549033243) {
-                  var80 = MusicPatchNode.localPlayer;
+               if (var23 == mg * -549033243) {
+                  var80 = MusicPatchNode.mi;
                } else {
-                  var80 = players[var23];
+                  var80 = mc[var23];
                }
 
                var25 = var4.cl();
@@ -3400,20 +3400,20 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var80.cj(0, var25, var7 >> 16, var7 & '\uffff');
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
             String var66;
             boolean var90;
-            if (ServerProt.bp == var1.serverPacket0) {
+            if (ServerProt.bp == var1.aq) {
                var23 = var4.cd();
                var90 = var4.g1() == 1;
                var66 = "";
                boolean var76 = false;
                if (var90) {
                   var66 = var4.cw();
-                  if (World.friendSystem.aq(new Username(var66, co.loginType))) {
+                  if (World.vt.aq(new Username(var66, co.cn))) {
                      var76 = true;
                   }
                }
@@ -3423,61 +3423,61 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   es.an_renamed(var23, var66, var68);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
             Component var26;
-            if (var1.serverPacket0 == ServerProt.eb) {
+            if (var1.aq == ServerProt.eb) {
                var23 = var4.eg();
                var25 = var4.eg();
                var26 = gh.an_renamed(var23);
                ks.ba_renamed(var26, var25);
                fw.ma_renamed(var26);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.az == var1.serverPacket0) {
+            if (ServerProt.az == var1.aq) {
                var23 = var4.g4s();
                var90 = var4.dq() == 1;
                var26 = gh.an_renamed(var23);
-               if (var26.isHidden != var90) {
-                  var26.isHidden = var90;
+               if (var26.ck != var90) {
+                  var26.ck = var90;
                   fw.ma_renamed(var26);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.cf == var1.serverPacket0) {
+            if (ServerProt.cf == var1.aq) {
                return this.jt(var1);
             }
 
-            if (var1.serverPacket0 == ServerProt.dt) {
+            if (var1.aq == ServerProt.dt) {
                EnumType.jb_renamed(lm.ab);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.br) {
+            if (var1.aq == ServerProt.br) {
                var23 = var4.en();
                var25 = var4.cl();
                var26 = gh.an_renamed(var23);
-               if (1 != -123768459 * var26.modelType || -168077555 * var26.modelId != var25) {
-                  var26.modelType = -1714481443;
-                  var26.modelId = 509431749 * var25;
+               if (1 != -123768459 * var26.dr || -168077555 * var26.dl != var25) {
+                  var26.dr = -1714481443;
+                  var26.dl = 509431749 * var25;
                   fw.ma_renamed(var26);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
             int var10;
             int var11;
-            if (ServerProt.ea == var1.serverPacket0) {
+            if (ServerProt.ea == var1.aq) {
                uj = true;
                uk = false;
                ub = true;
@@ -3493,47 +3493,47 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                boolean var73 = false;
                if (ud) {
                   var10 = gk.kv * 1772923873;
-                  var11 = fq.getTileHeight(var8, var9, -1727408401 * GameShell.plane) - var23;
+                  var11 = fq.getTileHeight(var8, var9, -1727408401 * GameShell.mh) - var23;
                } else {
-                  var10 = fq.getTileHeight(bt.kx * -2100544359, ly.ke * -91399205, GameShell.plane * -1727408401) - gk.kv * 1772923873;
+                  var10 = fq.getTileHeight(bt.kx * -2100544359, ly.ke * -91399205, GameShell.mh * -1727408401) - gk.kv * 1772923873;
                   var11 = var23;
                }
 
                ui = new rs(-2100544359 * bt.kx, ly.ke * -91399205, var10, var8, var9, var11, var25, var7);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.bm == var1.serverPacket0) {
+            if (ServerProt.bm == var1.aq) {
                return this.jp(var1, 2);
             }
 
-            if (var1.serverPacket0 == ServerProt.dp) {
+            if (var1.aq == ServerProt.dp) {
                FontName.jt = var4.g1n() * -522523151;
                aa.jp = var4.g1() * 671253333;
 
-               while(-1633313603 * var4.index < 889658999 * var1.al) {
+               while(-1633313603 * var4.at < 889658999 * var1.al) {
                   var23 = var4.g1();
                   lm var89 = Varcs.af_renamed()[var23];
                   EnumType.jb_renamed(var89);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
             Component var47;
-            if (ServerProt.aw == var1.serverPacket0) {
+            if (ServerProt.aw == var1.aq) {
                var23 = var4.en();
                var47 = gh.an_renamed(var23);
-               var47.modelType = -848477033;
-               var47.modelId = MusicPatchNode.localPlayer.appearance.getChatHeadId() * 509431749;
+               var47.dr = -848477033;
+               var47.dl = MusicPatchNode.mi.aw.getChatHeadId() * 509431749;
                fw.ma_renamed(var47);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.eo == var1.serverPacket0) {
+            if (ServerProt.eo == var1.aq) {
                var23 = var4.cl();
                if (65535 == var23) {
                   var23 = -1;
@@ -3548,43 +3548,43 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   rf[var25] = true;
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.de == var1.serverPacket0) {
-               World.friendSystem.aw(var4, var1.al * 889658999);
+            if (ServerProt.de == var1.aq) {
+               World.vt.aw(var4, var1.al * 889658999);
                qg = 1831095645 * qu;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.bl) {
+            if (var1.aq == ServerProt.bl) {
                tp = var4.g1() * -690225493;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.aa) {
+            if (var1.aq == ServerProt.aa) {
                EnumType.jb_renamed(lm.af);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.co) {
+            if (var1.aq == ServerProt.co) {
                ds.rx = null;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.bs == var1.serverPacket0) {
+            if (ServerProt.bs == var1.aq) {
                EnumType.jb_renamed(lm.aa);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
             String var24;
-            if (ServerProt.ai == var1.serverPacket0) {
+            if (ServerProt.ai == var1.aq) {
                var24 = var4.cw();
                Object[] var88 = new Object[var24.length() + 1];
 
@@ -3598,48 +3598,48 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                var88[0] = new Integer(var4.g4s());
                ClientScriptEvent var86 = new ClientScriptEvent();
-               var86.args0 = var88;
+               var86.af = var88;
                HeadbarUpdate.af_renamed(var86);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.ae == var1.serverPacket0) {
+            if (ServerProt.ae == var1.aq) {
                GrandExchangeEvents.an_renamed(var4, var1.al * 889658999);
                dk.nq_renamed();
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
             int var16;
             int var17;
             String var63;
-            Scenery var69;
-            if (ServerProt.dn == var1.serverPacket0) {
+            Scenery var70;
+            if (ServerProt.dn == var1.aq) {
                var27 = var4.g1s();
                var6 = var4.cw();
                long var83 = (long)var4.cl();
                long var65 = (long)var4.cr();
                PlayerType var71 = (PlayerType)StructType.findEnumerated(StudioGame.au_renamed(), var4.g1());
-               long var58 = var65 + (var83 << 32);
-               boolean var57 = false;
-               var69 = null;
+               long var57 = var65 + (var83 << 32);
+               boolean var58 = false;
+               var70 = null;
                gj var78 = var27 >= 0 ? so[var27] : MouseHandler.sx;
                if (var78 == null) {
-                  var57 = true;
+                  var58 = true;
                } else {
                   var16 = 0;
 
                   while(true) {
                      if (var16 >= 100) {
-                        if (var71.isUser && World.friendSystem.aq(new Username(var6, co.loginType))) {
-                           var57 = true;
+                        if (var71.aj && World.vt.aq(new Username(var6, co.cn))) {
+                           var58 = true;
                         }
                         break;
                      }
 
-                     if (st[var16] == var58) {
-                        var57 = true;
+                     if (st[var16] == var57) {
+                        var58 = true;
                         break;
                      }
 
@@ -3647,99 +3647,99 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
                }
 
-               if (!var57) {
-                  st[sf * 1960529059] = var58;
+               if (!var58) {
+                  st[sf * 1960529059] = var57;
                   sf = 1561052939 * ((sf * 1960529059 + 1) % 100);
                   var63 = AbstractFont.escapeBrackets(TilePaint.aw_renamed(var4));
                   var17 = var27 >= 0 ? 41 : 44;
-                  if (2138745227 * var71.id != -1) {
-                     fo.addMessage(var17, ArchiveDiskActionHandler.af_renamed(var71.id * 2138745227) + var6, var63, var78.ab);
+                  if (2138745227 * var71.am != -1) {
+                     fo.addMessage(var17, ArchiveDiskActionHandler.af_renamed(var71.am * 2138745227) + var6, var63, var78.ab);
                   } else {
                      fo.addMessage(var17, var6, var63, var78.ab);
                   }
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.ax) {
-               var4.index += 491706444;
+            if (var1.aq == ServerProt.ax) {
+               var4.at += 491706444;
                if (var4.de()) {
-                  ej.nc_renamed(var4, -1633313603 * var4.index - 28);
+                  ej.nc_renamed(var4, -1633313603 * var4.at - 28);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.af) {
-               ec.loadRegions(false, var1.bit);
-               var1.serverPacket0 = null;
+            if (var1.aq == ServerProt.af) {
+               ec.loadRegions(false, var1.ab);
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.am == var1.serverPacket0) {
+            if (ServerProt.am == var1.aq) {
                var23 = var4.g1();
                if (var4.g1() == 0) {
-                  grandExchangeOffers[var23] = new GrandExchangeOffer();
-                  var4.index += -1524603270;
+                  vs[var23] = new GrandExchangeOffer();
+                  var4.at += -1524603270;
                } else {
-                  var4.index -= -1516355947;
-                  grandExchangeOffers[var23] = new GrandExchangeOffer(var4, false);
+                  var4.at -= -1516355947;
+                  vs[var23] = new GrandExchangeOffer(var4, false);
                }
 
                qq = -1209118871 * qu;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.cu) {
+            if (var1.aq == ServerProt.cu) {
                var23 = var4.ef();
                var25 = var4.eg();
                var26 = gh.an_renamed(var25);
-               if (var23 != var26.sequenceId * -1526544909 || var23 == -1) {
-                  var26.sequenceId = -1195025605 * var23;
-                  var26.modelFrame = 0;
-                  var26.modelFrameCycle = 0;
+               if (var23 != var26.dv * -1526544909 || var23 == -1) {
+                  var26.dv = -1195025605 * var23;
+                  var26.gx = 0;
+                  var26.gl = 0;
                   fw.ma_renamed(var26);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
             boolean var36;
-            if (var1.serverPacket0 == ServerProt.es) {
+            if (var1.aq == ServerProt.es) {
                var36 = var4.g1() == 1;
                var25 = var4.g4s();
                var26 = gh.an_renamed(var25);
-               SecureRandomCallable.bv_renamed(var26, MusicPatchNode.localPlayer.appearance, var36);
+               SecureRandomCallable.bv_renamed(var26, MusicPatchNode.mi.aw, var36);
                fw.ma_renamed(var26);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.cs == var1.serverPacket0) {
+            if (ServerProt.cs == var1.aq) {
                var23 = var4.da();
                var25 = var4.eg();
                var7 = var23 >> 10 & 31;
                var8 = var23 >> 5 & 31;
                var9 = var23 & 31;
                var10 = (var7 << 19) + (var8 << 11) + (var9 << 3);
-               Component var70 = gh.an_renamed(var25);
-               if (1409091639 * var70.color != var10) {
-                  var70.color = var10 * -1604768377;
-                  fw.ma_renamed(var70);
+               Component var69 = gh.an_renamed(var25);
+               if (1409091639 * var69.cg != var10) {
+                  var69.cg = var10 * -1604768377;
+                  fw.ma_renamed(var69);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
             int var12;
             int var54;
-            if (var1.serverPacket0 == ServerProt.bk) {
+            if (var1.aq == ServerProt.bk) {
                var16 = var4.cl();
                var61 = var4.g1n() * 4;
                int var19 = var4.dq();
@@ -3762,32 +3762,32 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var9 = 128 * var9 + 64;
                   var10 = 128 * var10 + 64;
                   var11 = 128 * var11 + 64;
-                  Projectile var20 = new Projectile(var54, GameShell.plane * -1727408401, var8, var9, fq.getTileHeight(var8, var9, -1727408401 * GameShell.plane) - var14, var16 + ep * -1886224337, ep * -1886224337 + var17, var18, var19, var12, var61);
-                  var20.setDestination(var10, var11, fq.getTileHeight(var10, var11, -1727408401 * GameShell.plane) - var61, var16 + -1886224337 * ep);
-                  projectiles.addFirst(var20);
+                  Projectile var20 = new Projectile(var54, GameShell.mh * -1727408401, var8, var9, fq.getTileHeight(var8, var9, -1727408401 * GameShell.mh) - var14, var16 + ep * -1886224337, ep * -1886224337 + var17, var18, var19, var12, var61);
+                  var20.setDestination(var10, var11, fq.getTileHeight(var10, var11, -1727408401 * GameShell.mh) - var61, var16 + -1886224337 * ep);
+                  na.addFirst(var20);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.cd) {
+            if (var1.aq == ServerProt.cd) {
                EnumType.jb_renamed(lm.ac);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.ce == var1.serverPacket0) {
-               World.friendSystem.an();
+            if (ServerProt.ce == var1.aq) {
+               World.vt.an();
                qg = qu * 1831095645;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
             InterfaceParent var29;
             long var43;
-            if (ServerProt.dm == var1.serverPacket0) {
-               var23 = -1633313603 * var4.index + var1.al * 889658999;
+            if (ServerProt.dm == var1.aq) {
+               var23 = -1633313603 * var4.at + var1.al * 889658999;
                var25 = var4.cl();
                if (65535 == var25) {
                   var25 = -1;
@@ -3806,11 +3806,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                }
 
                InterfaceParent var50;
-               for(; var7-- > 0; var50.keep = true) {
+               for(; var7-- > 0; var50.aw = true) {
                   var8 = var4.g4s();
                   var9 = var4.cl();
                   var10 = var4.g1();
-                  var50 = (InterfaceParent)interfaceParents.get((long)var8);
+                  var50 = (InterfaceParent)oc.get((long)var8);
                   if (var50 != null && var9 != 944864121 * var50.af) {
                      nv.closeInterface(var50, true);
                      var50 = null;
@@ -3821,17 +3821,17 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
                }
 
-               for(var29 = (InterfaceParent)interfaceParents.first(); var29 != null; var29 = (InterfaceParent)interfaceParents.next()) {
-                  if (var29.keep) {
-                     var29.keep = false;
+               for(var29 = (InterfaceParent)oc.first(); var29 != null; var29 = (InterfaceParent)oc.next()) {
+                  if (var29.aw) {
+                     var29.aw = false;
                   } else {
                      nv.closeInterface(var29, true);
                   }
                }
 
-               componentClickMasks = new NodeHashTable(512);
+               rv = new NodeHashTable(512);
 
-               while(-1633313603 * var4.index < var23) {
+               while(-1633313603 * var4.at < var23) {
                   var8 = var4.g4s();
                   var9 = var4.cl();
                   var10 = var4.cl();
@@ -3839,15 +3839,15 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                   for(var12 = var9; var12 <= var10; ++var12) {
                      var43 = ((long)var8 << 32) + (long)var12;
-                     componentClickMasks.put(new IntegerNode(var11), var43);
+                     rv.put(new IntegerNode(var11), var43);
                   }
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.cz) {
+            if (var1.aq == ServerProt.cz) {
                var23 = var4.g1();
                var25 = var4.g1();
                var7 = var4.g1();
@@ -3857,11 +3857,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                vw[var23] = var7;
                vf[var23] = var8;
                vg[var23] = 0;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.dg == var1.serverPacket0) {
+            if (ServerProt.dg == var1.aq) {
                var23 = var4.ep();
                var7 = var4.db();
                var25 = var4.ep();
@@ -3869,69 +3869,69 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var25 = -1;
                }
 
-               var56 = npcs[var23];
+               var56 = iu[var23];
                if (null != var56) {
                   if (var25 == var56.ct * -1372355773 && var25 != -1) {
                      var9 = Inventory.getSeqType(var25, (byte)28).be * 789159225;
                      if (1 == var9) {
                         var56.cp = 0;
-                        var56.sequenceFrame = 0;
+                        var56.cd = 0;
                         var56.dm = -401806131 * var7;
                         var56.dw = 0;
                      } else if (var9 == 2) {
                         var56.dw = 0;
                      }
-                  } else if (var25 == -1 || -1 == -1372355773 * var56.ct || Inventory.getSeqType(var25, (byte)38).frameCount * -1932560049 >= Inventory.getSeqType(var56.ct * -1372355773, (byte)25).frameCount * -1932560049) {
+                  } else if (var25 == -1 || -1 == -1372355773 * var56.ct || Inventory.getSeqType(var25, (byte)38).az * -1932560049 >= Inventory.getSeqType(var56.ct * -1372355773, (byte)25).az * -1932560049) {
                      var56.ct = var25 * -1690721941;
                      var56.cp = 0;
-                     var56.sequenceFrame = 0;
+                     var56.cd = 0;
                      var56.dm = var7 * -401806131;
                      var56.dw = 0;
                      var56.eo = -1718989897 * var56.dn;
                   }
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.cj == var1.serverPacket0) {
+            if (ServerProt.cj == var1.aq) {
                eb.an_renamed(var4, 889658999 * var1.al);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.ci == var1.serverPacket0) {
-               for(var23 = 0; var23 < players.length; ++var23) {
-                  if (players[var23] != null) {
-                     players[var23].ct = 1690721941;
+            if (ServerProt.ci == var1.aq) {
+               for(var23 = 0; var23 < mc.length; ++var23) {
+                  if (mc[var23] != null) {
+                     mc[var23].ct = 1690721941;
                   }
                }
 
-               for(var23 = 0; var23 < npcs.length; ++var23) {
-                  if (null != npcs[var23]) {
-                     npcs[var23].ct = 1690721941;
+               for(var23 = 0; var23 < iu.length; ++var23) {
+                  if (null != iu[var23]) {
+                     iu[var23].ct = 1690721941;
                   }
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.by) {
+            if (var1.aq == ServerProt.by) {
                FontName.jt = var4.dq() * -522523151;
                aa.jp = var4.g1n() * 671253333;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.ep == var1.serverPacket0) {
+            if (ServerProt.ep == var1.aq) {
                EnumType.jb_renamed(lm.al);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.dv) {
+            if (var1.aq == ServerProt.dv) {
                var36 = var4.gbool();
                if (var36) {
                   if (null == fi.wc) {
@@ -3941,11 +3941,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   fi.wc = null;
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.ds) {
+            if (var1.aq == ServerProt.ds) {
                qz = 1358928753 * qu;
                var27 = var4.g1s();
                gr var84 = new gr(var4);
@@ -3957,35 +3957,35 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                }
 
                var84.an(var79);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.ar) {
+            if (var1.aq == ServerProt.ar) {
                var23 = var4.g4s();
                var25 = var4.ep();
-               Varps.Varps_temp[var25] = var23;
-               if (var23 != Varps.Varps_main[var25]) {
-                  Varps.Varps_main[var25] = var23;
+               Varps.an[var25] = var23;
+               if (var23 != Varps.aw[var25]) {
+                  Varps.aw[var25] = var23;
                }
 
                al.md_renamed(var25);
                qr[(qx += 165304329) * -261310919 - 1 & 31] = var25;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.en) {
+            if (var1.aq == ServerProt.en) {
                var23 = var4.g4s();
                var25 = var4.dq();
                var26 = gh.an_renamed(var23);
-               ga.bf_renamed(var26, 1693987821 * MusicPatchNode.localPlayer.appearance.au, var25);
+               ga.bf_renamed(var26, 1693987821 * MusicPatchNode.mi.aw.au, var25);
                fw.ma_renamed(var26);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.bo == var1.serverPacket0) {
+            if (ServerProt.bo == var1.aq) {
                uk = false;
                uj = false;
                ub = false;
@@ -4009,22 +4009,22 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   ue[var23] = false;
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.at == var1.serverPacket0) {
+            if (ServerProt.at == var1.aq) {
                var23 = var4.da();
                if (65535 == var23) {
                   var23 = -1;
                }
 
                an.hf_renamed(var23);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.dh) {
+            if (var1.aq == ServerProt.dh) {
                var23 = var4.cr();
                var25 = var4.da();
                if (var25 == 65535) {
@@ -4032,11 +4032,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                }
 
                CollisionMap.hy_renamed(var25, var23);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.dc == var1.serverPacket0) {
+            if (ServerProt.dc == var1.aq) {
                var23 = var4.eg();
                var25 = var4.en();
                var7 = var4.eo();
@@ -4046,51 +4046,51 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                var51 = gh.an_renamed(var23);
                ObjType var48;
-               if (!var51.isIf3) {
+               if (!var51.bn) {
                   if (-1 == var7) {
-                     var51.modelType = 0;
-                     var1.serverPacket0 = null;
+                     var51.dr = 0;
+                     var1.aq = null;
                      return true;
                   }
 
                   var48 = HeadbarUpdate.getObjType(var7);
-                  var51.modelType = 1732008820;
-                  var51.modelId = var7 * 509431749;
-                  var51.modelAngleX = 874786355 * var48.yan2d;
-                  var51.modelAngleY = var48.manwear2 * -2065246853;
-                  var51.modelZoom = -1582059804 * var48.aj / var25 * -467727501;
+                  var51.dr = 1732008820;
+                  var51.dl = var7 * 509431749;
+                  var51.dh = 874786355 * var48.ak;
+                  var51.dp = var48.az * -2065246853;
+                  var51.db = -1582059804 * var48.aj / var25 * -467727501;
                   fw.ma_renamed(var51);
                } else {
-                  var51.itemId = -1852876811 * var7;
-                  var51.itemQuantity = var25 * -568259577;
+                  var51.gn = -1852876811 * var7;
+                  var51.gv = var25 * -568259577;
                   var48 = HeadbarUpdate.getObjType(var7);
-                  var51.modelAngleX = 874786355 * var48.yan2d;
-                  var51.modelAngleY = -2065246853 * var48.manwear2;
-                  var51.modelAngleZ = 745454881 * var48.xof2d;
-                  var51.modelOffsetX = -183088313 * var48.manwearyoff;
-                  var51.modelOffsetY = var48.yof2d * -347855449;
-                  var51.modelZoom = var48.aj * 1614948179;
-                  if (var48.stackable * 1552863327 == 1) {
+                  var51.dh = 874786355 * var48.ak;
+                  var51.dp = -2065246853 * var48.az;
+                  var51.du = 745454881 * var48.ad;
+                  var51.dg = -183088313 * var48.ae;
+                  var51.de = var48.ap * -347855449;
+                  var51.db = var48.aj * 1614948179;
+                  if (var48.bi * 1552863327 == 1) {
                      var51.dn = -761533221;
                   } else {
                      var51.dn = -1523066442;
                   }
 
                   if (-289037969 * var51.df > 0) {
-                     var51.modelZoom = -467727501 * (100808544 * var51.modelZoom / (-289037969 * var51.df));
-                  } else if (var51.rawWidth * -1960603747 > 0) {
-                     var51.modelZoom = 100808544 * var51.modelZoom / (-1960603747 * var51.rawWidth) * -467727501;
+                     var51.db = -467727501 * (100808544 * var51.db / (-289037969 * var51.df));
+                  } else if (var51.bh * -1960603747 > 0) {
+                     var51.db = 100808544 * var51.db / (-1960603747 * var51.bh) * -467727501;
                   }
 
                   fw.ma_renamed(var51);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
             boolean var46;
-            if (var1.serverPacket0 == ServerProt.eu) {
+            if (var1.aq == ServerProt.eu) {
                uj = true;
                uk = false;
                ub = true;
@@ -4108,27 +4108,27 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var46 = false;
                if (ud) {
                   var12 = gk.kv * 1772923873;
-                  var54 = fq.getTileHeight(var10, var11, -1727408401 * GameShell.plane) - var23;
+                  var54 = fq.getTileHeight(var10, var11, -1727408401 * GameShell.mh) - var23;
                } else {
-                  var12 = fq.getTileHeight(-2100544359 * bt.kx, ly.ke * -91399205, GameShell.plane * -1727408401) - 1772923873 * gk.kv;
+                  var12 = fq.getTileHeight(-2100544359 * bt.kx, ly.ke * -91399205, GameShell.mh * -1727408401) - 1772923873 * gk.kv;
                   var54 = var23;
                }
 
                ui = new rr(bt.kx * -2100544359, ly.ke * -91399205, var12, var10, var11, var54, var25, var7, var8, var9);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.bt == var1.serverPacket0) {
+            if (ServerProt.bt == var1.aq) {
                if (-1 != -896157613 * or) {
                   ec.mu_renamed(-896157613 * or, 0);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.dz == var1.serverPacket0 && uj) {
+            if (ServerProt.dz == var1.aq && uj) {
                uk = true;
                uc = false;
                ub = false;
@@ -4137,11 +4137,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   ue[var23] = false;
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.ap) {
+            if (var1.aq == ServerProt.ap) {
                te = var4.g1() * -1970850269;
                if (1494100363 * te == 255) {
                   te = 0;
@@ -4152,11 +4152,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   th = 0;
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.ez == var1.serverPacket0) {
+            if (ServerProt.ez == var1.aq) {
                uj = true;
                uk = false;
                uc = true;
@@ -4168,27 +4168,27 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var10 = var4.g1();
                uz = new rf(WorldMapSectionType.ky * 1897923909, var7, var9, var10);
                ua = new rf(-1010818347 * ek.kh, var8, var9, var10);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.ak) {
+            if (var1.aq == ServerProt.ak) {
                ds.rx = new qt(MiniMenuEntry.qh);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.cq) {
+            if (var1.aq == ServerProt.cq) {
                byte[] var77 = new byte[889658999 * var1.al];
                var4.aq(var77, 0, var77.length);
                Packet var82 = new Packet(var77);
                var66 = var82.cw();
                Ignored.af_renamed(var66, true, false);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.dj == var1.serverPacket0) {
+            if (ServerProt.dj == var1.aq) {
                uj = true;
                uk = false;
                ub = false;
@@ -4200,14 +4200,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                if (fd.uu * -1514927571 >= 100) {
                   bt.kx = gx.ut * -1848049280 + -317330880;
                   ly.ke = ex.uo * 2021222272 + -1328933696;
-                  gk.kv = (fq.getTileHeight(bt.kx * -2100544359, ly.ke * -91399205, GameShell.plane * -1727408401) - av.uq * -887836823) * -424093663;
+                  gk.kv = (fq.getTileHeight(bt.kx * -2100544359, ly.ke * -91399205, GameShell.mh * -1727408401) - av.uq * -887836823) * -424093663;
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.cx == var1.serverPacket0) {
+            if (ServerProt.cx == var1.aq) {
                bt.no_renamed();
                var27 = var4.g1s();
                fa var81 = new fa(var4);
@@ -4219,75 +4219,75 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                }
 
                var81.an(var60);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.ad) {
+            if (var1.aq == ServerProt.ad) {
                var23 = var4.cl();
                var25 = var4.g1();
                var7 = var4.cl();
                fh.he_renamed(var23, var25, var7);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.cp == var1.serverPacket0) {
+            if (ServerProt.cp == var1.aq) {
                var23 = var4.g4s();
                if (var23 != 1263827259 * ly) {
                   ly = var23 * 1409021939;
                   gq.nk_renamed();
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.cn) {
+            if (var1.aq == ServerProt.cn) {
                ClientProt.mp_renamed();
                pk = var4.cl() * 440508051;
                qa = -235455367 * qu;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.dd == var1.serverPacket0) {
+            if (ServerProt.dd == var1.aq) {
                var23 = var4.eg();
                var25 = var4.eo();
                var26 = gh.an_renamed(var23);
                if (null != var26 && 0 == var26.bg * 883712245) {
-                  if (var25 > -1273374131 * var26.scrollHeight - var26.height * 1473950221) {
-                     var25 = -1273374131 * var26.scrollHeight - 1473950221 * var26.height;
+                  if (var25 > -1273374131 * var26.cl - var26.cc * 1473950221) {
+                     var25 = -1273374131 * var26.cl - 1473950221 * var26.cc;
                   }
 
                   if (var25 < 0) {
                      var25 = 0;
                   }
 
-                  if (var25 != var26.scrollY * 1223232735) {
-                     var26.scrollY = 946188063 * var25;
+                  if (var25 != var26.cm * 1223232735) {
+                     var26.cm = 946188063 * var25;
                      fw.ma_renamed(var26);
                   }
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.ca == var1.serverPacket0) {
+            if (ServerProt.ca == var1.aq) {
                var24 = var4.cw();
                var25 = var4.eg();
                var26 = gh.an_renamed(var25);
-               if (!var24.equals(var26.text)) {
-                  var26.text = var24;
+               if (!var24.equals(var26.ds)) {
+                  var26.ds = var24;
                   fw.ma_renamed(var26);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.db == var1.serverPacket0) {
+            if (ServerProt.db == var1.aq) {
                bt.no_renamed();
                var27 = var4.g1s();
                if (1 == var1.al * 889658999) {
@@ -4297,7 +4297,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                      ObjType.sq = null;
                   }
 
-                  var1.serverPacket0 = null;
+                  var1.aq = null;
                   return true;
                }
 
@@ -4307,38 +4307,38 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   ObjType.sq = new fj(var4);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.er) {
+            if (var1.aq == ServerProt.er) {
                var8 = var4.g1();
                var23 = var4.cl();
-               var44 = npcs[var23];
+               var44 = iu[var23];
                var7 = var4.cl();
                var25 = var4.g4s();
                if (null != var44) {
                   var44.cj(var8, var7, var25 >> 16, var25 & '\uffff');
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.bv) {
-               for(var23 = 0; var23 < Varps.Varps_main.length; ++var23) {
-                  if (Varps.Varps_temp[var23] != Varps.Varps_main[var23]) {
-                     Varps.Varps_main[var23] = Varps.Varps_temp[var23];
+            if (var1.aq == ServerProt.bv) {
+               for(var23 = 0; var23 < Varps.aw.length; ++var23) {
+                  if (Varps.an[var23] != Varps.aw[var23]) {
+                     Varps.aw[var23] = Varps.an[var23];
                      al.md_renamed(var23);
                      qr[(qx += 165304329) * -261310919 - 1 & 31] = var23;
                   }
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.du == var1.serverPacket0) {
+            if (ServerProt.du == var1.aq) {
                var23 = var4.g4s();
                var25 = var4.cl();
                if (var23 < -70000) {
@@ -4351,7 +4351,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var26 = null;
                }
 
-               for(; -1633313603 * var4.index < var1.al * 889658999; oy.itemContainerSetItem(var25, var8, var9 - 1, var10, (byte)96)) {
+               for(; -1633313603 * var4.at < var1.al * 889658999; oy.itemContainerSetItem(var25, var8, var9 - 1, var10, (byte)96)) {
                   var8 = var4.cd();
                   var9 = var4.cl();
                   var10 = 0;
@@ -4374,21 +4374,21 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                ClientProt.mp_renamed();
                qj[(qc += -565562765) * -710491461 - 1 & 31] = var25 & 32767;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.ac == var1.serverPacket0) {
+            if (ServerProt.ac == var1.aq) {
                bx.hc_renamed();
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return false;
             }
 
-            if (var1.serverPacket0 == ServerProt.cl) {
+            if (var1.aq == ServerProt.cl) {
                return this.jp(var1, 1);
             }
 
-            if (ServerProt.ej == var1.serverPacket0) {
+            if (ServerProt.ej == var1.aq) {
                uj = true;
                uk = false;
                uc = true;
@@ -4398,60 +4398,60 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var8 = var4.g1();
                uz = new rf(1897923909 * WorldMapSectionType.ky, var25, var7, var8);
                ua = new rf(-1010818347 * ek.kh, var23, var7, var8);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.di == var1.serverPacket0) {
+            if (ServerProt.di == var1.aq) {
                ClientProt.mp_renamed();
                pj = var4.cg() * 717110291;
                qa = qu * -235455367;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.bn) {
+            if (var1.aq == ServerProt.bn) {
                EnumType.jb_renamed(lm.at);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.dq) {
+            if (var1.aq == ServerProt.dq) {
                FontName.jt = var4.g1() * -522523151;
                aa.jp = var4.db() * 671253333;
 
                for(var23 = 1555915261 * aa.jp; var23 < 8 + aa.jp * 1555915261; ++var23) {
                   for(var25 = FontName.jt * -191732975; var25 < FontName.jt * -191732975 + 8; ++var25) {
-                     if (null != objStacks[GameShell.plane * -1727408401][var23][var25]) {
-                        objStacks[GameShell.plane * -1727408401][var23][var25] = null;
+                     if (null != nr[GameShell.mh * -1727408401][var23][var25]) {
+                        nr[GameShell.mh * -1727408401][var23][var25] = null;
                         em.kd_renamed(var23, var25);
                      }
                   }
                }
 
                for(dg var52 = (dg)nn.last(); null != var52; var52 = (dg)nn.previous()) {
-                  if (68300005 * var52.aw >= 1555915261 * aa.jp && var52.aw * 68300005 < 8 + 1555915261 * aa.jp && var52.ac * 800888185 >= -191732975 * FontName.jt && 800888185 * var52.ac < 8 + -191732975 * FontName.jt && var52.af * 593068225 == -1727408401 * GameShell.plane) {
+                  if (68300005 * var52.aw >= 1555915261 * aa.jp && var52.aw * 68300005 < 8 + 1555915261 * aa.jp && var52.ac * 800888185 >= -191732975 * FontName.jt && 800888185 * var52.ac < 8 + -191732975 * FontName.jt && var52.af * 593068225 == -1727408401 * GameShell.mh) {
                      var52.ag = 0;
                   }
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
             Component var35;
-            if (ServerProt.bh == var1.serverPacket0) {
+            if (ServerProt.bh == var1.aq) {
                var23 = var4.eg();
                var25 = var4.eg();
-               InterfaceParent var41 = (InterfaceParent)interfaceParents.get((long)var23);
-               var29 = (InterfaceParent)interfaceParents.get((long)var25);
+               InterfaceParent var41 = (InterfaceParent)oc.get((long)var23);
+               var29 = (InterfaceParent)oc.get((long)var25);
                if (var29 != null) {
                   nv.closeInterface(var29, var41 == null || var29.af * 944864121 != var41.af * 944864121);
                }
 
                if (var41 != null) {
                   var41.remove();
-                  interfaceParents.put(var41, (long)var25);
+                  oc.put(var41, (long)var25);
                }
 
                var35 = gh.an_renamed(var23);
@@ -4462,44 +4462,44 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var35 = gh.an_renamed(var25);
                if (var35 != null) {
                   fw.ma_renamed(var35);
-                  WallDecoration.lz_renamed(hn.interfaceComponents[1713081171 * var35.id >>> 16], var35, true);
+                  WallDecoration.lz_renamed(hn.ap[1713081171 * var35.bs >>> 16], var35, true);
                }
 
                if (-1 != or * -896157613) {
                   ec.mu_renamed(or * -896157613, 1);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.cr) {
+            if (var1.aq == ServerProt.cr) {
                World var45 = new World();
-               var45.host = var4.cw();
-               var45.id = var4.cl() * -2098511939;
+               var45.ai = var4.cw();
+               var45.ay = var4.cl() * -2098511939;
                var25 = var4.g4s();
-               var45.properties = var25 * 1038974297;
+               var45.ao = var25 * 1038974297;
                fd.hi_renamed(45);
                var3.aq();
                var3 = null;
                FloorOverlayType.ah_renamed(var45);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return false;
             }
 
-            if (ServerProt.cm == var1.serverPacket0) {
+            if (ServerProt.cm == var1.aq) {
                fv.kb_renamed(true, var4);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.aq == var1.serverPacket0) {
+            if (ServerProt.aq == var1.aq) {
                EnumType.jb_renamed(lm.ay);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.do) {
+            if (var1.aq == ServerProt.do) {
                var23 = var4.g4s();
                var47 = gh.an_renamed(var23);
 
@@ -4509,11 +4509,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                }
 
                fw.ma_renamed(var47);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.da == var1.serverPacket0) {
+            if (ServerProt.da == var1.aq) {
                uj = true;
                uk = false;
                uc = false;
@@ -4525,7 +4525,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                if (942361787 * MapElementType.uv >= 100) {
                   var23 = 64 + 332584320 * FontName.um;
                   var25 = 64 + MilliClock.ux * -1804719232;
-                  var7 = fq.getTileHeight(var23, var25, GameShell.plane * -1727408401) - ClientScriptFrame.ug * 1496735347;
+                  var7 = fq.getTileHeight(var23, var25, GameShell.mh * -1727408401) - ClientScriptFrame.ug * 1496735347;
                   var8 = var23 - -2100544359 * bt.kx;
                   var9 = var7 - gk.kv * 1772923873;
                   var10 = var25 - -91399205 * ly.ke;
@@ -4541,24 +4541,24 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.bf == var1.serverPacket0) {
+            if (ServerProt.bf == var1.aq) {
                ClientScriptFrame.nt_renamed(var4.cw());
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.eg == var1.serverPacket0) {
+            if (ServerProt.eg == var1.aq) {
                var8 = var4.g1();
                var23 = var4.cl();
                Player var38;
-               if (var23 == -549033243 * localPlayerIndex) {
-                  var38 = MusicPatchNode.localPlayer;
+               if (var23 == -549033243 * mg) {
+                  var38 = MusicPatchNode.mi;
                } else {
-                  var38 = players[var23];
+                  var38 = mc[var23];
                }
 
                var25 = var4.cl();
@@ -4567,17 +4567,17 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var38.cj(var8, var25, var7 >> 16, var7 & '\uffff');
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.ao) {
+            if (var1.aq == ServerProt.ao) {
                EnumType.jb_renamed(lm.au);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.ag == var1.serverPacket0) {
+            if (ServerProt.ag == var1.aq) {
                ClientProt.mp_renamed();
                var23 = var4.dq();
                var25 = var4.dq();
@@ -4593,34 +4593,34 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                }
 
                qs[(qf += 1059665337) * -744210295 - 1 & 31] = var23;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.bu) {
-               ec.loadRegions(true, var1.bit);
-               var1.serverPacket0 = null;
+            if (var1.aq == ServerProt.bu) {
+               ec.loadRegions(true, var1.ab);
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.ba == var1.serverPacket0) {
+            if (ServerProt.ba == var1.aq) {
                var23 = var4.eo();
                var25 = var4.ep();
                var7 = var4.er();
                var8 = var4.cl();
                var35 = gh.an_renamed(var7);
-               if (var25 != 797932055 * var35.modelAngleX || var35.modelAngleY * -480949115 != var23 || var8 != 942674363 * var35.modelZoom) {
-                  var35.modelAngleX = var25 * -142910041;
-                  var35.modelAngleY = -230241203 * var23;
-                  var35.modelZoom = var8 * -467727501;
+               if (var25 != 797932055 * var35.dh || var35.dp * -480949115 != var23 || var8 != 942674363 * var35.db) {
+                  var35.dh = var25 * -142910041;
+                  var35.dp = -230241203 * var23;
+                  var35.db = var8 * -467727501;
                   fw.ma_renamed(var35);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.cy == var1.serverPacket0) {
+            if (ServerProt.cy == var1.aq) {
                var10 = var4.g1();
                var11 = var10 >> 2;
                var12 = var10 & 3;
@@ -4633,82 +4633,82 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var14 = var4.da();
                if (var8 >= 0 && var9 >= 0 && var8 < 103 && var9 < 103) {
                   if (var54 == 0) {
-                     Wall var75 = bx.scene.az(GameShell.plane * -1727408401, var8, var9);
+                     Wall var75 = bx.js.az(GameShell.mh * -1727408401, var8, var9);
                      if (null != var75) {
-                        var16 = InterfaceParent.at(var75.tag * -4009183385476919801L);
+                        var16 = InterfaceParent.at(var75.al * -4009183385476919801L);
                         if (var11 == 2) {
-                           var75.entity1 = new DynamicObject(var16, 2, 4 + var12, GameShell.plane * -1727408401, var8, var9, var14, false, var75.entity1);
-                           var75.entity2 = new DynamicObject(var16, 2, var12 + 1 & 3, -1727408401 * GameShell.plane, var8, var9, var14, false, var75.entity2);
+                           var75.ab = new DynamicObject(var16, 2, 4 + var12, GameShell.mh * -1727408401, var8, var9, var14, false, var75.ab);
+                           var75.aq = new DynamicObject(var16, 2, var12 + 1 & 3, -1727408401 * GameShell.mh, var8, var9, var14, false, var75.aq);
                         } else {
-                           var75.entity1 = new DynamicObject(var16, var11, var12, -1727408401 * GameShell.plane, var8, var9, var14, false, var75.entity1);
+                           var75.ab = new DynamicObject(var16, var11, var12, -1727408401 * GameShell.mh, var8, var9, var14, false, var75.ab);
                         }
                      }
                   } else if (var54 == 1) {
-                     WallDecoration var74 = bx.scene.ad(GameShell.plane * -1727408401, var8, var9);
+                     WallDecoration var74 = bx.js.ad(GameShell.mh * -1727408401, var8, var9);
                      if (var74 != null) {
-                        var16 = InterfaceParent.at(var74.tag * -4691380879163567243L);
+                        var16 = InterfaceParent.at(var74.aa * -4691380879163567243L);
                         if (var11 != 4 && var11 != 5) {
                            if (6 == var11) {
-                              var74.entity1 = new DynamicObject(var16, 4, 4 + var12, GameShell.plane * -1727408401, var8, var9, var14, false, var74.entity1);
+                              var74.al = new DynamicObject(var16, 4, 4 + var12, GameShell.mh * -1727408401, var8, var9, var14, false, var74.al);
                            } else if (7 == var11) {
-                              var74.entity1 = new DynamicObject(var16, 4, 4 + (var12 + 2 & 3), -1727408401 * GameShell.plane, var8, var9, var14, false, var74.entity1);
+                              var74.al = new DynamicObject(var16, 4, 4 + (var12 + 2 & 3), -1727408401 * GameShell.mh, var8, var9, var14, false, var74.al);
                            } else if (8 == var11) {
-                              var74.entity1 = new DynamicObject(var16, 4, var12 + 4, GameShell.plane * -1727408401, var8, var9, var14, false, var74.entity1);
-                              var74.entity2 = new DynamicObject(var16, 4, (var12 + 2 & 3) + 4, GameShell.plane * -1727408401, var8, var9, var14, false, var74.entity2);
+                              var74.al = new DynamicObject(var16, 4, var12 + 4, GameShell.mh * -1727408401, var8, var9, var14, false, var74.al);
+                              var74.at = new DynamicObject(var16, 4, (var12 + 2 & 3) + 4, GameShell.mh * -1727408401, var8, var9, var14, false, var74.at);
                            }
                         } else {
-                           var74.entity1 = new DynamicObject(var16, 4, var12, GameShell.plane * -1727408401, var8, var9, var14, false, var74.entity1);
+                           var74.al = new DynamicObject(var16, 4, var12, GameShell.mh * -1727408401, var8, var9, var14, false, var74.al);
                         }
                      }
                   } else if (var54 == 2) {
-                     var69 = bx.scene.ae(-1727408401 * GameShell.plane, var8, var9);
+                     var70 = bx.js.ae(-1727408401 * GameShell.mh, var8, var9);
                      if (var11 == 11) {
                         var11 = 10;
                      }
 
-                     if (null != var69) {
-                        var69.entity = new DynamicObject(InterfaceParent.at(var69.ax * 5016412888503339625L), var11, var12, GameShell.plane * -1727408401, var8, var9, var14, false, var69.entity);
+                     if (null != var70) {
+                        var70.ab = new DynamicObject(InterfaceParent.at(var70.ax * 5016412888503339625L), var11, var12, GameShell.mh * -1727408401, var8, var9, var14, false, var70.ab);
                      }
                   } else if (var54 == 3) {
-                     FloorDecoration var72 = bx.scene.ap(GameShell.plane * -1727408401, var8, var9);
+                     FloorDecoration var72 = bx.js.ap(GameShell.mh * -1727408401, var8, var9);
                      if (var72 != null) {
-                        var72.entity = new DynamicObject(InterfaceParent.at(var72.tag * 3423223696102332293L), 22, var12, GameShell.plane * -1727408401, var8, var9, var14, false, var72.entity);
+                        var72.ac = new DynamicObject(InterfaceParent.at(var72.au * 3423223696102332293L), 22, var12, GameShell.mh * -1727408401, var8, var9, var14, false, var72.ac);
                      }
                   }
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.bg) {
+            if (var1.aq == ServerProt.bg) {
                EnumType.jb_renamed(lm.aw);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.cg == var1.serverPacket0) {
+            if (ServerProt.cg == var1.aq) {
                var23 = var4.g1();
                jn.nx_renamed(var23);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.ck == var1.serverPacket0) {
+            if (ServerProt.ck == var1.aq) {
                var36 = var4.g1() == 1;
                if (var36) {
                   mj.wd = (Formatting.af_renamed() - var4.g8s()) * 9023382677616235961L;
-                  oh.grandExchangeEvents = new GrandExchangeEvents(var4, true);
+                  oh.vj = new GrandExchangeEvents(var4, true);
                } else {
-                  oh.grandExchangeEvents = null;
+                  oh.vj = null;
                }
 
                qv = qu * -707539581;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.ef) {
+            if (var1.aq == ServerProt.ef) {
                uj = true;
                uk = false;
                uc = true;
@@ -4719,7 +4719,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var25 = var4.g1();
                var7 = 64 + 332584320 * FontName.um;
                var8 = -1804719232 * MilliClock.ux + 64;
-               var9 = fq.getTileHeight(var7, var8, GameShell.plane * -1727408401) - ClientScriptFrame.ug * 1496735347;
+               var9 = fq.getTileHeight(var7, var8, GameShell.mh * -1727408401) - ClientScriptFrame.ug * 1496735347;
                var10 = var7 - -2100544359 * bt.kx;
                var11 = var9 - gk.kv * 1772923873;
                var12 = var8 - ly.ke * -91399205;
@@ -4728,31 +4728,31 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var16 = qj.ig_renamed((int)(Math.atan2((double)var10, (double)var12) * -325.9490051269531) & 2047);
                uz = new rf(1897923909 * WorldMapSectionType.ky, var61, var23, var25);
                ua = new rf(-1010818347 * ek.kh, var16, var23, var25);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.au) {
+            if (var1.aq == ServerProt.au) {
                FloorUnderlayType.sn = pj.af_renamed(var4.g1());
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.ch) {
-               World.friendSystem.ignoreList.read(var4, 889658999 * var1.al);
+            if (var1.aq == ServerProt.ch) {
+               World.vt.ab.read(var4, 889658999 * var1.al);
                cz.nd_renamed();
                qg = 1831095645 * qu;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.bj) {
+            if (var1.aq == ServerProt.bj) {
                fv.kb_renamed(false, var4);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.bb == var1.serverPacket0) {
+            if (ServerProt.bb == var1.aq) {
                if (ds.rx == null) {
                   ds.rx = new qt(MiniMenuEntry.qh);
                }
@@ -4760,47 +4760,47 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                te var31 = MiniMenuEntry.qh.ac(var4);
                ds.rx.af.an(-52705447 * var31.af, var31.an);
                qt[(qn += -2007914853) * 2106773395 - 1 & 31] = var31.af * -52705447;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.dk) {
+            if (var1.aq == ServerProt.dk) {
                var27 = var4.dj();
                var25 = var4.cl();
-               Varps.Varps_temp[var25] = var27;
-               if (Varps.Varps_main[var25] != var27) {
-                  Varps.Varps_main[var25] = var27;
+               Varps.an[var25] = var27;
+               if (Varps.aw[var25] != var27) {
+                  Varps.aw[var25] = var27;
                }
 
                al.md_renamed(var25);
                qr[(qx += 165304329) * -261310919 - 1 & 31] = var25;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.ah) {
+            if (var1.aq == ServerProt.ah) {
                var23 = var4.ep();
                User.ab_renamed(var23);
                qj[(qc += -565562765) * -710491461 - 1 & 31] = var23 & 32767;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.bz == var1.serverPacket0) {
+            if (ServerProt.bz == var1.aq) {
                var23 = var4.eo();
                var25 = var4.en();
                var26 = gh.an_renamed(var25);
-               if (var26.modelType * -123768459 != 6 || var26.modelId * -168077555 != var23) {
-                  var26.modelType = -1696954066;
-                  var26.modelId = 509431749 * var23;
+               if (var26.dr * -123768459 != 6 || var26.dl * -168077555 != var23) {
+                  var26.dr = -1696954066;
+                  var26.dl = 509431749 * var23;
                   fw.ma_renamed(var26);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.bi) {
+            if (var1.aq == ServerProt.bi) {
                var24 = var4.cw();
                var28 = (long)var4.cl();
                var30 = (long)var4.cr();
@@ -4815,7 +4815,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
                }
 
-               if (World.friendSystem.aq(new Username(var24, co.loginType))) {
+               if (World.vt.aq(new Username(var24, co.cn))) {
                   var46 = true;
                }
 
@@ -4823,38 +4823,38 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   st[1960529059 * sf] = var40;
                   sf = (1 + sf * 1960529059) % 100 * 1561052939;
                   var49 = AbstractFont.escapeBrackets(er.ao_renamed(TilePaint.aw_renamed(var4)));
-                  if (var37.isPrivileged) {
+                  if (var37.as) {
                      var61 = 7;
                   } else {
                      var61 = 3;
                   }
 
-                  if (2138745227 * var37.id != -1) {
-                     es.an_renamed(var61, ArchiveDiskActionHandler.af_renamed(var37.id * 2138745227) + var24, var49);
+                  if (2138745227 * var37.am != -1) {
+                     es.an_renamed(var61, ArchiveDiskActionHandler.af_renamed(var37.am * 2138745227) + var24, var49);
                   } else {
                      es.an_renamed(var61, var24, var49);
                   }
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.bw == var1.serverPacket0) {
+            if (ServerProt.bw == var1.aq) {
                var23 = var4.eo();
                var25 = var4.er();
                var26 = gh.an_renamed(var25);
-               if (-123768459 * var26.modelType != 2 || var23 != var26.modelId * -168077555) {
-                  var26.modelType = 866004410;
-                  var26.modelId = 509431749 * var23;
+               if (-123768459 * var26.dr != 2 || var23 != var26.dl * -168077555) {
+                  var26.dr = 866004410;
+                  var26.dl = 509431749 * var23;
                   fw.ma_renamed(var26);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.dw == var1.serverPacket0) {
+            if (ServerProt.dw == var1.aq) {
                qz = qu * 1358928753;
                var27 = var4.g1s();
                if (1 == 889658999 * var1.al) {
@@ -4864,7 +4864,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                      MouseHandler.sx = null;
                   }
 
-                  var1.serverPacket0 = null;
+                  var1.aq = null;
                   return true;
                }
 
@@ -4874,28 +4874,28 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   MouseHandler.sx = new gj(var4);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.bq == var1.serverPacket0) {
+            if (ServerProt.bq == var1.aq) {
                for(var23 = 0; var23 < gz.an * -774485467; ++var23) {
                   gz var33 = GraphicsDefaults.af_renamed(var23);
                   if (null != var33) {
-                     Varps.Varps_temp[var23] = 0;
-                     Varps.Varps_main[var23] = 0;
+                     Varps.an[var23] = 0;
+                     Varps.aw[var23] = 0;
                   }
                }
 
                ClientProt.mp_renamed();
                qx += 994771232;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.av) {
+            if (var1.aq == ServerProt.av) {
                var23 = var4.g4s();
-               InterfaceParent var32 = (InterfaceParent)interfaceParents.get((long)var23);
+               InterfaceParent var32 = (InterfaceParent)oc.get((long)var23);
                if (var32 != null) {
                   nv.closeInterface(var32, true);
                }
@@ -4905,36 +4905,36 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   pg = null;
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.ay) {
+            if (var1.aq == ServerProt.ay) {
                var23 = var4.dq();
                var6 = var4.cw();
                var7 = var4.dq();
                if (var23 >= 1 && var23 <= 8) {
-                  if (var6.equalsIgnoreCase(Strings.Strings_null)) {
+                  if (var6.equalsIgnoreCase(Strings.at)) {
                      var6 = null;
                   }
 
-                  playerMenuActions[var23 - 1] = var6;
+                  nd[var23 - 1] = var6;
                   no[var23 - 1] = var7 == 0;
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.dr) {
+            if (var1.aq == ServerProt.dr) {
                var24 = var4.cw();
                var6 = AbstractFont.escapeBrackets(er.ao_renamed(TilePaint.aw_renamed(var4)));
                es.an_renamed(6, var24, var6);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.cv == var1.serverPacket0) {
+            if (ServerProt.cv == var1.aq) {
                var24 = var4.cw();
                var28 = var4.g8s();
                var30 = (long)var4.cl();
@@ -4950,7 +4950,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
                }
 
-               if (var39.isUser && World.friendSystem.aq(new Username(var24, co.loginType))) {
+               if (var39.aj && World.vt.aq(new Username(var24, co.cn))) {
                   var15 = true;
                }
 
@@ -4958,18 +4958,18 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   st[1960529059 * sf] = var43;
                   sf = 1561052939 * ((1 + 1960529059 * sf) % 100);
                   var63 = AbstractFont.escapeBrackets(er.ao_renamed(TilePaint.aw_renamed(var4)));
-                  if (-1 != var39.id * 2138745227) {
-                     fo.addMessage(9, ArchiveDiskActionHandler.af_renamed(var39.id * 2138745227) + var24, var63, FloorUnderlayType.longToTitleString(var28));
+                  if (-1 != var39.am * 2138745227) {
+                     fo.addMessage(9, ArchiveDiskActionHandler.af_renamed(var39.am * 2138745227) + var24, var63, FloorUnderlayType.longToTitleString(var28));
                   } else {
                      fo.addMessage(9, var24, var63, FloorUnderlayType.longToTitleString(var28));
                   }
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.eq) {
+            if (var1.aq == ServerProt.eq) {
                var11 = var4.g1();
                var12 = var4.eo();
                var7 = var4.ej();
@@ -4981,29 +4981,29 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                if (var8 >= 0 && var9 >= 0 && var8 < 104 && var9 < 104) {
                   var8 = 64 + var8 * 128;
                   var9 = var9 * 128 + 64;
-                  GraphicsObject var13 = new GraphicsObject(var10, -1727408401 * GameShell.plane, var8, var9, fq.getTileHeight(var8, var9, GameShell.plane * -1727408401) - var11, var12, ep * -1886224337);
-                  graphicsObjects.addFirst(var13);
+                  GraphicsObject var13 = new GraphicsObject(var10, -1727408401 * GameShell.mh, var8, var9, fq.getTileHeight(var8, var9, GameShell.mh * -1727408401) - var11, var12, ep * -1886224337);
+                  np.addFirst(var13);
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.ct) {
+            if (var1.aq == ServerProt.ct) {
                sj = var4.dq() * 1410976369;
                su = var4.g1() * -2053731769;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.cw == var1.serverPacket0) {
+            if (ServerProt.cw == var1.aq) {
                ea = var4.da() * 860606706;
                qa = -235455367 * qu;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.as == var1.serverPacket0) {
+            if (ServerProt.as == var1.aq) {
                eu = var4.g1() * -1378513753;
                if (1 == eu * 633821975) {
                   es = var4.cl() * -431692551;
@@ -5045,25 +5045,25 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   eb = var4.cl() * -1034603829;
                }
 
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.bx == var1.serverPacket0) {
+            if (ServerProt.bx == var1.aq) {
                var23 = var4.g1n();
                var25 = var4.da();
                var7 = var4.er();
-               var29 = (InterfaceParent)interfaceParents.get((long)var7);
+               var29 = (InterfaceParent)oc.get((long)var7);
                if (null != var29) {
                   nv.closeInterface(var29, var25 != 944864121 * var29.af);
                }
 
                dj.openInterface(var7, var25, var23);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.bd == var1.serverPacket0) {
+            if (ServerProt.bd == var1.aq) {
                var23 = var4.g4s();
                var25 = var4.cl();
                if (var23 < -70000) {
@@ -5107,25 +5107,25 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                ClientProt.mp_renamed();
                qj[(qc += -565562765) * -710491461 - 1 & 31] = var25 & 32767;
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            if (ServerProt.df == var1.serverPacket0) {
+            if (ServerProt.df == var1.aq) {
                EnumType.jb_renamed(lm.an);
-               var1.serverPacket0 = null;
+               var1.aq = null;
                return true;
             }
 
-            ob.af_renamed("" + (null != var1.serverPacket0 ? 1287795301 * var1.serverPacket0.length : -1) + Formatting.Formatting_comma + (null != var1.ax ? 1287795301 * var1.ax.length : -1) + Formatting.Formatting_comma + (null != var1.ai ? 1287795301 * var1.ai.length : -1) + Formatting.Formatting_comma + var1.al * 889658999, (Throwable)null);
+            ob.af_renamed("" + (null != var1.aq ? 1287795301 * var1.aq.ed : -1) + Formatting.an + (null != var1.ax ? 1287795301 * var1.ax.ed : -1) + Formatting.an + (null != var1.ai ? 1287795301 * var1.ai.ed : -1) + Formatting.an + var1.al * 889658999, (Throwable)null);
             bx.hc_renamed();
          } catch (IOException var21) {
             ng.ht_renamed();
          } catch (Exception var22) {
-            var6 = "" + (var1.serverPacket0 != null ? 1287795301 * var1.serverPacket0.length : -1) + Formatting.Formatting_comma + (var1.ax != null ? 1287795301 * var1.ax.length : -1) + Formatting.Formatting_comma + (null != var1.ai ? 1287795301 * var1.ai.length : -1) + Formatting.Formatting_comma + 889658999 * var1.al + Formatting.Formatting_comma + (MusicPatchNode.localPlayer.pathX[0] + -1232093375 * jm.ib) + Formatting.Formatting_comma + (Scenery.jc * 827352769 + MusicPatchNode.localPlayer.pathY[0]) + Formatting.Formatting_comma;
+            var6 = "" + (var1.aq != null ? 1287795301 * var1.aq.ed : -1) + Formatting.an + (var1.ax != null ? 1287795301 * var1.ax.ed : -1) + Formatting.an + (null != var1.ai ? 1287795301 * var1.ai.ed : -1) + Formatting.an + 889658999 * var1.al + Formatting.an + (MusicPatchNode.mi.dy[0] + -1232093375 * jm.ib) + Formatting.an + (Scenery.jc * 827352769 + MusicPatchNode.mi.ds[0]) + Formatting.an;
 
             for(var7 = 0; var7 < 889658999 * var1.al && var7 < 50; ++var7) {
-               var6 = var6 + var4.array[var7] + Formatting.Formatting_comma;
+               var6 = var6 + var4.al[var7] + Formatting.an;
             }
 
             ob.af_renamed(var6, var22);
@@ -5146,20 +5146,20 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          int var6;
          int var7;
          int var8;
-         if (isMiniMenuOpen) {
+         if (nt) {
             int var9;
             if (var2 != 1 && (su.ev || 4 != var2)) {
                var3 = MouseHandler.ay * -2063363905;
                var4 = MouseHandler.ao * -1224153235;
-               if (var3 < -1141903185 * hl.menuY - 10 || var3 > -960964385 * DesktopPlatformInfoProvider.menuHeight + -1141903185 * hl.menuY + 10 || var4 < ArchiveLoader.menuWidth * -115281635 - 10 || var4 > ArchiveLoader.menuWidth * -115281635 + fq.menuX * 245252327 + 10) {
-                  isMiniMenuOpen = false;
-                  var5 = hl.menuY * -1141903185;
-                  var6 = ArchiveLoader.menuWidth * -115281635;
-                  var7 = DesktopPlatformInfoProvider.menuHeight * -960964385;
-                  var8 = 245252327 * fq.menuX;
+               if (var3 < -1141903185 * hl.nf - 10 || var3 > -960964385 * DesktopPlatformInfoProvider.nj + -1141903185 * hl.nf + 10 || var4 < ArchiveLoader.nc * -115281635 - 10 || var4 > ArchiveLoader.nc * -115281635 + fq.nv * 245252327 + 10) {
+                  nt = false;
+                  var5 = hl.nf * -1141903185;
+                  var6 = ArchiveLoader.nc * -115281635;
+                  var7 = DesktopPlatformInfoProvider.nj * -960964385;
+                  var8 = 245252327 * fq.nv;
 
                   for(var9 = 0; var9 < -356793645 * rr; ++var9) {
-                     if (rootComponentWidths[var9] + rh[var9] > var5 && rh[var9] < var5 + var7 && rootComponentHeights[var9] + rb[var9] > var6 && rb[var9] < var8 + var6) {
+                     if (ra[var9] + rh[var9] > var5 && rh[var9] < var5 + var7 && ri[var9] + rb[var9] > var6 && rb[var9] < var8 + var6) {
                         rf[var9] = true;
                      }
                   }
@@ -5167,16 +5167,16 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
 
             if (var2 == 1 || !su.ev && var2 == 4) {
-               var3 = -1141903185 * hl.menuY;
-               var4 = ArchiveLoader.menuWidth * -115281635;
-               var5 = -960964385 * DesktopPlatformInfoProvider.menuHeight;
-               var6 = 2020601481 * MouseHandler.MouseHandler_lastButton;
+               var3 = -1141903185 * hl.nf;
+               var4 = ArchiveLoader.nc * -115281635;
+               var5 = -960964385 * DesktopPlatformInfoProvider.nj;
+               var6 = 2020601481 * MouseHandler.am;
                var7 = 1163896205 * MouseHandler.as;
                var8 = -1;
 
                int var10;
-               for(var9 = 0; var9 < menuOptionsCount * 730065501; ++var9) {
-                  var10 = (menuOptionsCount * 730065501 - 1 - var9) * 15 + 31 + var4;
+               for(var9 = 0; var9 < ne * 730065501; ++var9) {
+                  var10 = (ne * 730065501 - 1 - var9) * 15 + 31 + var4;
                   if (var6 > var3 && var6 < var3 + var5 && var7 > var10 - 13 && var7 < 3 + var10) {
                      var8 = var9;
                   }
@@ -5186,24 +5186,24 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                int var12;
                int var13;
                if (var8 != -1 && var8 >= 0) {
-                  var9 = menuArguments0[var8];
-                  var10 = menuArguments2[var8];
-                  var11 = menuArguments1[var8];
-                  var12 = menuOpcodes[var8];
+                  var9 = nk[var8];
+                  var10 = ni[var8];
+                  var11 = nh[var8];
+                  var12 = nq[var8];
                   var13 = oi[var8];
-                  String var14 = menuActions[var8];
-                  String var15 = menuTargetNames[var8];
-                  ar.ke_renamed(var9, var10, var11, var12, var13, var14, var15, 2020601481 * MouseHandler.MouseHandler_lastButton, MouseHandler.as * 1163896205);
+                  String var14 = og[var8];
+                  String var15 = ok[var8];
+                  ar.ke_renamed(var9, var10, var11, var12, var13, var14, var15, 2020601481 * MouseHandler.am, MouseHandler.as * 1163896205);
                }
 
-               isMiniMenuOpen = false;
-               var9 = hl.menuY * -1141903185;
-               var10 = -115281635 * ArchiveLoader.menuWidth;
-               var11 = DesktopPlatformInfoProvider.menuHeight * -960964385;
-               var12 = fq.menuX * 245252327;
+               nt = false;
+               var9 = hl.nf * -1141903185;
+               var10 = -115281635 * ArchiveLoader.nc;
+               var11 = DesktopPlatformInfoProvider.nj * -960964385;
+               var12 = fq.nv * 245252327;
 
                for(var13 = 0; var13 < rr * -356793645; ++var13) {
-                  if (rootComponentWidths[var13] + rh[var13] > var9 && rh[var13] < var11 + var9 && rb[var13] + rootComponentHeights[var13] > var10 && rb[var13] < var10 + var12) {
+                  if (ra[var13] + rh[var13] > var9 && rh[var13] < var11 + var9 && rb[var13] + ri[var13] > var10 && rb[var13] < var10 + var12) {
                      rf[var13] = true;
                   }
                }
@@ -5214,19 +5214,19 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var2 = 2;
             }
 
-            if ((var2 == 1 || !su.ev && var2 == 4) && menuOptionsCount * 730065501 > 0 && var3 >= 0) {
-               var4 = menuArguments0[var3];
-               var5 = menuArguments2[var3];
-               var6 = menuArguments1[var3];
-               var7 = menuOpcodes[var3];
+            if ((var2 == 1 || !su.ev && var2 == 4) && ne * 730065501 > 0 && var3 >= 0) {
+               var4 = nk[var3];
+               var5 = ni[var3];
+               var6 = nh[var3];
+               var7 = nq[var3];
                var8 = oi[var3];
-               String var16 = menuActions[var3];
-               String var17 = menuTargetNames[var3];
-               ar.ke_renamed(var4, var5, var6, var7, var8, var16, var17, 2020601481 * MouseHandler.MouseHandler_lastButton, MouseHandler.as * 1163896205);
+               String var16 = og[var3];
+               String var17 = ok[var3];
+               ar.ke_renamed(var4, var5, var6, var7, var8, var16, var17, 2020601481 * MouseHandler.am, MouseHandler.as * 1163896205);
             }
 
-            if (2 == var2 && menuOptionsCount * 730065501 > 0) {
-               this.openMiniMenu(2020601481 * MouseHandler.MouseHandler_lastButton, 1163896205 * MouseHandler.as);
+            if (2 == var2 && ne * 730065501 > 0) {
+               this.openMiniMenu(2020601481 * MouseHandler.am, 1163896205 * MouseHandler.as);
             }
          }
 
@@ -5235,13 +5235,13 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
    final boolean kr() {
       int var2 = DynamicObject.lm_renamed();
-      boolean var3 = nb && 730065501 * menuOptionsCount > 2;
+      boolean var3 = nb && 730065501 * ne > 2;
       if (!var3) {
          boolean var4;
          if (var2 < 0) {
             var4 = false;
          } else {
-            int var5 = menuArguments1[var2];
+            int var5 = nh[var2];
             if (var5 >= 2000) {
                var5 -= 2000;
             }
@@ -5256,15 +5256,15 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          var3 = var4;
       }
 
-      return var3 && !menuShiftClick[var2];
+      return var3 && !ox[var2];
    }
 
    final void openMiniMenu(int var1, int var2) {
       qb.openMenu0(var1, var2);
       var1 -= -82629945 * vd;
       var2 -= 1352043351 * vx;
-      bx.scene.menuOpen(GameShell.plane * -1727408401, var1, var2, false);
-      isMiniMenuOpen = true;
+      bx.js.menuOpen(GameShell.mh * -1727408401, var1, var2, false);
+      nt = true;
    }
 
    final void ln(boolean var1) {
@@ -5272,15 +5272,15 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    }
 
    void alignComponent(Component var1) {
-      Component var3 = -1 == 913615679 * var1.parentId ? null : gh.an_renamed(913615679 * var1.parentId);
+      Component var3 = -1 == 913615679 * var1.cu ? null : gh.an_renamed(913615679 * var1.cu);
       int var4;
       int var5;
       if (null == var3) {
          var4 = -1687260435 * aj;
          var5 = kd.ak * 1658005443;
       } else {
-         var4 = -794961409 * var3.width;
-         var5 = var3.height * 1473950221;
+         var4 = -794961409 * var3.cs;
+         var5 = var3.cc * 1473950221;
       }
 
       gs.alignComponentSize(var1, var4, var5, false);
@@ -5299,46 +5299,46 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             var2 = 1084046795 * pi;
          }
 
-         if (var2 + pr.width * -794961409 > -794961409 * pf.width + 1084046795 * pi) {
-            var2 = 1084046795 * pi + pf.width * -794961409 - -794961409 * pr.width;
+         if (var2 + pr.cs * -794961409 > -794961409 * pf.cs + 1084046795 * pi) {
+            var2 = 1084046795 * pi + pf.cs * -794961409 - -794961409 * pr.cs;
          }
 
          if (var3 < pb * -746723443) {
             var3 = pb * -746723443;
          }
 
-         if (var3 + 1473950221 * pr.height > pb * -746723443 + pf.height * 1473950221) {
-            var3 = -746723443 * pb + pf.height * 1473950221 - pr.height * 1473950221;
+         if (var3 + 1473950221 * pr.cc > pb * -746723443 + pf.cc * 1473950221) {
+            var3 = -746723443 * pb + pf.cc * 1473950221 - pr.cc * 1473950221;
          }
 
          int var4 = var2 - 565355253 * ph;
          int var5 = var3 - pv * 1136091355;
-         int var6 = pr.dragDeadZone * 154898553;
-         if (1993201275 * Formatting.qe > pr.dragDeadTime * -1849043027 && (var4 > var6 || var4 < -var6 || var5 > var6 || var5 < -var6)) {
+         int var6 = pr.ec * 154898553;
+         if (1993201275 * Formatting.qe > pr.ei * -1849043027 && (var4 > var6 || var4 < -var6 || var5 > var6 || var5 < -var6)) {
             pn = true;
          }
 
-         int var7 = var2 - pi * 1084046795 + pf.scrollX * -1469632775;
-         int var8 = pf.scrollY * 1223232735 + (var3 - -746723443 * pb);
+         int var7 = var2 - pi * 1084046795 + pf.cq * -1469632775;
+         int var8 = pf.cm * 1223232735 + (var3 - -746723443 * pb);
          ClientScriptEvent var9;
-         if (null != pr.onDragComplete && pn) {
+         if (null != pr.fn && pn) {
             var9 = new ClientScriptEvent();
             var9.aw = pr;
             var9.ac = var7 * -2011830585;
             var9.au = 1126405829 * var8;
-            var9.args0 = pr.onDragComplete;
+            var9.af = pr.fn;
             HeadbarUpdate.af_renamed(var9);
          }
 
-         if (0 == 114417019 * MouseHandler.MouseHandler_currentButton) {
+         if (0 == 114417019 * MouseHandler.aa) {
             if (pn) {
-               if (null != pr.onScrollWheel) {
+               if (null != pr.fz) {
                   var9 = new ClientScriptEvent();
                   var9.aw = pr;
                   var9.ac = -2011830585 * var7;
                   var9.au = 1126405829 * var8;
                   var9.aq = pz;
-                  var9.args0 = pr.onScrollWheel;
+                  var9.af = pr.fz;
                   HeadbarUpdate.af_renamed(var9);
                }
 
@@ -5357,7 +5357,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                            break;
                         }
 
-                        var10 = gh.an_renamed(913615679 * var10.parentId);
+                        var10 = gh.an_renamed(913615679 * var10.cu);
                         if (var10 == null) {
                            var13 = null;
                            break;
@@ -5368,19 +5368,19 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
 
                   if (null != var13) {
-                     PacketBitNode var14 = mi.an_renamed(ClientProt.bw, packetWriter.au);
-                     var14.bit.dy(-2006098851 * pz.itemId);
-                     var14.bit.p4LE16(pz.id * 1713081171);
-                     var14.bit.dy(55577617 * pz.childIndex);
-                     var14.bit.dy(pr.childIndex * 55577617);
-                     var14.bit.el(1713081171 * pr.id);
-                     var14.bit.p2(pr.itemId * -2006098851);
-                     packetWriter.aw(var14);
+                     PacketBitNode var14 = mi.an_renamed(ClientProt.bw, in.au);
+                     var14.aw.dy(-2006098851 * pz.gn);
+                     var14.aw.p4LE16(pz.bs * 1713081171);
+                     var14.aw.dy(55577617 * pz.br);
+                     var14.aw.dy(pr.br * 55577617);
+                     var14.aw.el(1713081171 * pr.bs);
+                     var14.aw.p2(pr.gn * -2006098851);
+                     in.aw(var14);
                   }
                }
             } else if (this.kr()) {
                this.openMiniMenu(ph * 565355253 + -1789924433 * pd, pw * 1902621241 + pv * 1136091355);
-            } else if (menuOptionsCount * 730065501 > 0) {
+            } else if (ne * 730065501 > 0) {
                hp.mx_renamed(565355253 * ph + pd * -1789924433, 1136091355 * pv + pw * 1902621241);
             }
 
@@ -5389,7 +5389,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
       } else {
          if (1993201275 * Formatting.qe > 1) {
-            if (!pn && menuOptionsCount * 730065501 > 0) {
+            if (!pn && ne * 730065501 > 0) {
                hp.mx_renamed(ph * 565355253 + pd * -1789924433, pv * 1136091355 + pw * 1902621241);
             }
 
@@ -5400,6 +5400,6 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    }
 
    public Username username() {
-      return null != MusicPatchNode.localPlayer ? MusicPatchNode.localPlayer.username : null;
+      return null != MusicPatchNode.mi ? MusicPatchNode.mi.af : null;
    }
 }

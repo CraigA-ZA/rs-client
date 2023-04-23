@@ -1,6 +1,6 @@
 public class hd implements Enumerated {
-   public static String userHomeDirectory;
-   static PcmPlayer pcmPlayer1;
+   public static String az;
+   static PcmPlayer tt;
    static final hd af = new hd(0, 0);
    static final hd an = new hd(2, 1);
    static final hd aw = new hd(1, 2);

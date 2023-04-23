@@ -31,9 +31,9 @@ public class ge extends fb {
       this.an = null;
    }
 
-   void af(Packet var1) {
+   void write(Packet var1) {
       if (var1.g1() != 255) {
-         var1.index -= -1516355947;
+         var1.at -= -1516355947;
          this.af = var1.g8s() * 3404272251065138399L;
       }
 
@@ -49,14 +49,14 @@ public class ge extends fb {
          int var4 = var0 >> 8;
          int var5 = var0 >> 4 & 7;
          int var6 = var0 & 15;
-         Client.tu[-297150195 * Client.soundEffectCount] = var4;
-         Client.tr[Client.soundEffectCount * -297150195] = var5;
-         Client.tg[-297150195 * Client.soundEffectCount] = 0;
-         Client.soundEffects[-297150195 * Client.soundEffectCount] = null;
+         Client.tu[-297150195 * Client.tl] = var4;
+         Client.tr[Client.tl * -297150195] = var5;
+         Client.tg[-297150195 * Client.tl] = 0;
+         Client.ti[-297150195 * Client.tl] = null;
          int var7 = (var1 - 64) / 128;
          int var8 = (var2 - 64) / 128;
-         Client.tb[Client.soundEffectCount * -297150195] = var6 + (var7 << 16) + (var8 << 8);
-         Client.soundEffectCount += 831233477;
+         Client.tb[Client.tl * -297150195] = var6 + (var7 << 16) + (var8 << 8);
+         Client.tl += 831233477;
       }
    }
 }

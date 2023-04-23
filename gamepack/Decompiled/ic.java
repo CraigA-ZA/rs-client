@@ -43,7 +43,7 @@ public class ic {
    }
 
    void ab(fh var1, int var2, boolean[] var3, boolean var4) {
-      int var6 = var1.ac();
+      int var6 = var1.gIsaac1();
       int var7 = 0;
       ew[] var8 = this.ac();
 

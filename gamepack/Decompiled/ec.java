@@ -36,8 +36,8 @@ public class ec implements Enumerated {
    }
 
    static void ac_renamed(int var0, boolean var1, int var2, boolean var3) {
-      if (bx.worlds != null) {
-         ai.au_renamed(0, bx.worlds.length - 1, var0, var1, var2, var3);
+      if (bx.au != null) {
+         ai.au_renamed(0, bx.au.length - 1, var0, var1, var2, var3);
       }
 
    }
@@ -47,21 +47,21 @@ public class ec implements Enumerated {
    }
 
    static final void loadRegions(boolean var0, PacketBit var1) {
-      Client.isInInstance = var0;
+      Client.jv = var0;
       int var3;
       int var5;
       int var6;
       int var7;
       int var8;
-      if (!Client.isInInstance) {
+      if (!Client.jv) {
          var3 = var1.da();
          int var4 = var1.da();
          var5 = var1.cl();
-         Scenery.xteaKeys = new int[var5][4];
+         Scenery.jd = new int[var5][4];
 
          for(var6 = 0; var6 < var5; ++var6) {
             for(var7 = 0; var7 < 4; ++var7) {
-               Scenery.xteaKeys[var6][var7] = var1.g4s();
+               Scenery.jd[var6][var7] = var1.g4s();
             }
          }
 
@@ -76,8 +76,8 @@ public class ec implements Enumerated {
             for(var7 = (var3 - 6) / 8; var7 <= (6 + var3) / 8; ++var7) {
                var8 = (var6 << 8) + var7;
                WorldMapAreaData.jj[var5] = var8;
-               FontName.jm[var5] = nn.archive5.getGroupId("m" + var6 + "_" + var7);
-               Archive.jn[var5] = nn.archive5.getGroupId("l" + var6 + "_" + var7);
+               FontName.jm[var5] = nn.fy.getGroupId("m" + var6 + "_" + var7);
+               Archive.jn[var5] = nn.fy.getGroupId("l" + var6 + "_" + var7);
                ++var5;
             }
          }
@@ -97,20 +97,20 @@ public class ec implements Enumerated {
                for(var9 = 0; var9 < 13; ++var9) {
                   var10 = var1.gBit(1);
                   if (var10 == 1) {
-                     Client.instanceChunkTemplates[var7][var8][var9] = var1.gBit(26);
+                     Client.jh[var7][var8][var9] = var1.gBit(26);
                   } else {
-                     Client.instanceChunkTemplates[var7][var8][var9] = -1;
+                     Client.jh[var7][var8][var9] = -1;
                   }
                }
             }
          }
 
          var1.exportIndex();
-         Scenery.xteaKeys = new int[var6][4];
+         Scenery.jd = new int[var6][4];
 
          for(var7 = 0; var7 < var6; ++var7) {
             for(var8 = 0; var8 < 4; ++var8) {
-               Scenery.xteaKeys[var7][var8] = var1.g4s();
+               Scenery.jd[var7][var8] = var1.g4s();
             }
          }
 
@@ -124,7 +124,7 @@ public class ec implements Enumerated {
          for(var7 = 0; var7 < 4; ++var7) {
             for(var8 = 0; var8 < 13; ++var8) {
                for(var9 = 0; var9 < 13; ++var9) {
-                  var10 = Client.instanceChunkTemplates[var7][var8][var9];
+                  var10 = Client.jh[var7][var8][var9];
                   if (-1 != var10) {
                      int var11 = var10 >> 14 & 1023;
                      int var12 = var10 >> 3 & 2047;
@@ -142,8 +142,8 @@ public class ec implements Enumerated {
                         WorldMapAreaData.jj[var6] = var13;
                         var14 = var13 >> 8 & 255;
                         int var15 = var13 & 255;
-                        FontName.jm[var6] = nn.archive5.getGroupId("m" + var14 + "_" + var15);
-                        Archive.jn[var6] = nn.archive5.getGroupId("l" + var14 + "_" + var15);
+                        FontName.jm[var6] = nn.fy.getGroupId("m" + var14 + "_" + var15);
+                        Archive.jn[var6] = nn.fy.getGroupId("l" + var14 + "_" + var15);
                         ++var6;
                      }
                   }
@@ -158,7 +158,7 @@ public class ec implements Enumerated {
 
    static final void mu_renamed(int var0, int var1) {
       if (SoundSystem.loadInterface(var0)) {
-         fy.mq_renamed(hn.interfaceComponents[var0], var1);
+         fy.mq_renamed(hn.ap[var0], var1);
       }
    }
 }

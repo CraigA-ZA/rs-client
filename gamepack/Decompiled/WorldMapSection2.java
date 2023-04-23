@@ -10,20 +10,20 @@ public class WorldMapSection2 implements WorldMapSection {
    }
 
    public void expandBounds(WorldMapArea var1) {
-      if (77939951 * var1.minX0 > 1109784749 * this.au) {
-         var1.minX0 = this.au * 759378979;
+      if (77939951 * var1.aq > 1109784749 * this.au) {
+         var1.aq = this.au * 759378979;
       }
 
-      if (1854846129 * var1.maxX0 < this.au * 1109784749) {
-         var1.maxX0 = -612355395 * this.au;
+      if (1854846129 * var1.al < this.au * 1109784749) {
+         var1.al = -612355395 * this.au;
       }
 
-      if (var1.minY0 * 2059655157 > this.ab * 1408900281) {
-         var1.minY0 = this.ab * 429878069;
+      if (var1.at * 2059655157 > this.ab * 1408900281) {
+         var1.at = this.ab * 429878069;
       }
 
-      if (var1.maxY0 * -1086956513 < this.ab * 1408900281) {
-         var1.maxY0 = this.ab * -510956505;
+      if (var1.aa * -1086956513 < this.ab * 1408900281) {
+         var1.aa = this.ab * -510956505;
       }
 
    }

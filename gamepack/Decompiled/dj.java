@@ -30,7 +30,7 @@ public class dj implements Enumerated {
       InterfaceParent var4 = new InterfaceParent();
       var4.af = var1 * 111476425;
       var4.an = 100799 * var2;
-      Client.interfaceParents.put(var4, (long)var0);
+      Client.oc.put(var4, (long)var0);
       lm.mj_renamed(var1);
       Component var5 = gh.an_renamed(var0);
       fw.ma_renamed(var5);
@@ -39,7 +39,7 @@ public class dj implements Enumerated {
          Client.pg = null;
       }
 
-      WallDecoration.lz_renamed(hn.interfaceComponents[var0 >> 16], var5, false);
+      WallDecoration.lz_renamed(hn.ap[var0 >> 16], var5, false);
       ax.ci_renamed(var1);
       if (-1 != Client.or * -896157613) {
          ec.mu_renamed(-896157613 * Client.or, 1);

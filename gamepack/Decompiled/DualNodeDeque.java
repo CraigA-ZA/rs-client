@@ -1,35 +1,35 @@
 public final class DualNodeDeque {
-   DualNode sentinel = new DualNode();
+   DualNode af = new DualNode();
 
    public DualNodeDeque() {
-      this.sentinel.previousDual = this.sentinel;
-      this.sentinel.nextDual = this.sentinel;
+      this.af.ez = this.af;
+      this.af.ej = this.af;
    }
 
    public void addFirst(DualNode var1) {
-      if (var1.nextDual != null) {
+      if (var1.ej != null) {
          var1.removeDual();
       }
 
-      var1.nextDual = this.sentinel.nextDual;
-      var1.previousDual = this.sentinel;
-      var1.nextDual.previousDual = var1;
-      var1.previousDual.nextDual = var1;
+      var1.ej = this.af.ej;
+      var1.ez = this.af;
+      var1.ej.ez = var1;
+      var1.ez.ej = var1;
    }
 
    public void addLast(DualNode var1) {
-      if (var1.nextDual != null) {
+      if (var1.ej != null) {
          var1.removeDual();
       }
 
-      var1.nextDual = this.sentinel;
-      var1.previousDual = this.sentinel.previousDual;
-      var1.nextDual.previousDual = var1;
-      var1.previousDual.nextDual = var1;
+      var1.ej = this.af;
+      var1.ez = this.af.ez;
+      var1.ej.ez = var1;
+      var1.ez.ej = var1;
    }
 
    public DualNode last() {
-      DualNode var1 = this.sentinel.previousDual;
-      return var1 == this.sentinel ? null : var1;
+      DualNode var1 = this.af.ez;
+      return var1 == this.af ? null : var1;
    }
 }

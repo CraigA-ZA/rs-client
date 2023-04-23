@@ -1,21 +1,21 @@
 public class MiniMenuEntry {
    static su qh;
    int ac;
-   int argument0;
-   int argument2;
+   int af;
+   int an;
    int au;
-   int argument1;
-   String action;
+   int aw;
+   String ab;
    String aq;
 
    static void af_renamed(int var0, byte[] var1, ArchiveDisk var2) {
       ArchiveDiskAction var4 = new ArchiveDiskAction();
-      var4.type = 0;
-      var4.key = (long)var0;
-      var4.data = var1;
-      var4.archiveDisk = var2;
-      synchronized(ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue) {
-         ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue.addFirst(var4);
+      var4.af = 0;
+      var4.hr = (long)var0;
+      var4.an = var1;
+      var4.aw = var2;
+      synchronized(ArchiveDiskActionHandler.af) {
+         ArchiveDiskActionHandler.af.addFirst(var4);
       }
 
       eh.aw_renamed();

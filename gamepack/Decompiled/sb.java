@@ -5,14 +5,14 @@ public class sb {
 
    public static void aa_renamed(byte[] var0) {
       Packet var2 = new Packet(var0);
-      var2.index = -1516355947 * (var0.length - 2);
+      var2.at = -1516355947 * (var0.length - 2);
       tx.af = var2.cl() * 1532315763;
       tx.ac = new int[tx.af * 1606065339];
       ar.au = new int[1606065339 * tx.af];
       dd.ab = new int[tx.af * 1606065339];
       fd.aq = new int[1606065339 * tx.af];
       VarBitType.at = new byte[tx.af * 1606065339][];
-      var2.index = (var0.length - 7 - tx.af * -36379176) * -1516355947;
+      var2.at = (var0.length - 7 - tx.af * -36379176) * -1516355947;
       tx.an = var2.cl() * -90671369;
       tx.aw = var2.cl() * -2145718617;
       int var3 = (var2.g1() & 255) + 1;
@@ -34,7 +34,7 @@ public class sb {
          fd.aq[var4] = var2.cl();
       }
 
-      var2.index = -1516355947 * (var0.length - 7 - tx.af * -36379176 - 3 * (var3 - 1));
+      var2.at = -1516355947 * (var0.length - 7 - tx.af * -36379176 - 3 * (var3 - 1));
       pc.al = new int[var3];
 
       for(var4 = 1; var4 < var3; ++var4) {
@@ -44,7 +44,7 @@ public class sb {
          }
       }
 
-      var2.index = 0;
+      var2.at = 0;
 
       for(var4 = 0; var4 < 1606065339 * tx.af; ++var4) {
          int var5 = dd.ab[var4];
@@ -78,11 +78,11 @@ public class sb {
          int var11 = var2 * var10 + var9 * var3 >> 16;
          int var12 = var10 * var3 - var9 * var2 >> 16;
          double var13 = Math.atan2((double)var11, (double)var12);
-         int var15 = var5.height * 1484188043 / 2 - 25;
+         int var15 = var5.af * 1484188043 / 2 - 25;
          int var16 = (int)(Math.sin(var13) * (double)var15);
          int var17 = (int)(Math.cos(var13) * (double)var15);
          byte var18 = 20;
-         dp.jz.bk(var5.height * 1484188043 / 2 + var0 - var18 / 2 + var16, var1 + 939947663 * var5.width / 2 - var18 / 2 - var17 - 10, var18, var18, 15, 15, var13, 256);
+         dp.jz.bk(var5.af * 1484188043 / 2 + var0 - var18 / 2 + var16, var1 + 939947663 * var5.an / 2 - var18 / 2 - var17 - 10, var18, var18, 15, 15, var13, 256);
       } else {
          qc.ns_renamed(var0, var1, var2, var3, var4, var5);
       }
