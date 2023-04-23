@@ -159,9 +159,9 @@ public class mz {
 
    public static void af_renamed(boolean var0) {
       if (var0 && null != Rasterizer2D.by) {
-         in.aq = in.at;
+         Rasterizer3D.aq = Rasterizer3D.at;
       } else {
-         in.aq = in.al;
+         Rasterizer3D.aq = Rasterizer3D.al;
       }
 
    }

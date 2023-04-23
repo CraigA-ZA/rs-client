@@ -1,7 +1,7 @@
 public class bt {
    public static IterableNodeDeque reflectionChecks = new IterableNodeDeque();
    static int kx;
-   static Rasterizer3D[] jl;
+   static Sprite[] jl;
 
    bt() throws Throwable {
       throw new Error();
@@ -79,7 +79,7 @@ public class bt {
          for(var10 = 0; var10 < var18.length; ++var10) {
             int var11 = var10 * 32 + 128 + 15;
             int var12 = jm.hv_renamed(var11);
-            int var13 = in.ac[var11];
+            int var13 = Rasterizer3D.ac[var11];
             int var15 = var3 - 334;
             if (var15 < 0) {
                var15 = 0;

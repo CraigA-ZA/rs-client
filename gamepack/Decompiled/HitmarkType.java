@@ -130,11 +130,11 @@ public class HitmarkType extends DualNode {
       }
    }
 
-   public Rasterizer3D ab() {
+   public Sprite ab() {
       if (728089333 * this.ag < 0) {
          return null;
       } else {
-         Rasterizer3D var2 = (Rasterizer3D)au.get((long)(728089333 * this.ag));
+         Sprite var2 = (Sprite)au.get((long)(728089333 * this.ag));
          if (var2 != null) {
             return var2;
          } else {
@@ -148,11 +148,11 @@ public class HitmarkType extends DualNode {
       }
    }
 
-   public Rasterizer3D aq() {
+   public Sprite aq() {
       if (-466249443 * this.ah < 0) {
          return null;
       } else {
-         Rasterizer3D var2 = (Rasterizer3D)au.get((long)(this.ah * -466249443));
+         Sprite var2 = (Sprite)au.get((long)(this.ah * -466249443));
          if (var2 != null) {
             return var2;
          } else {
@@ -166,11 +166,11 @@ public class HitmarkType extends DualNode {
       }
    }
 
-   public Rasterizer3D al() {
+   public Sprite al() {
       if (1100815213 * this.av < 0) {
          return null;
       } else {
-         Rasterizer3D var2 = (Rasterizer3D)au.get((long)(this.av * 1100815213));
+         Sprite var2 = (Sprite)au.get((long)(this.av * 1100815213));
          if (null != var2) {
             return var2;
          } else {
@@ -184,11 +184,11 @@ public class HitmarkType extends DualNode {
       }
    }
 
-   public Rasterizer3D at() {
+   public Sprite at() {
       if (170092719 * this.ar < 0) {
          return null;
       } else {
-         Rasterizer3D var2 = (Rasterizer3D)au.get((long)(this.ar * 170092719));
+         Sprite var2 = (Sprite)au.get((long)(this.ar * 170092719));
          if (var2 != null) {
             return var2;
          } else {

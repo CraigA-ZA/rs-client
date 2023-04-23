@@ -22,7 +22,7 @@ public class eb extends AbstractUserComparator {
       return this.af((Buddy)var1, (Buddy)var2);
    }
 
-   public static Rasterizer3D[] an_renamed(AbstractArchive var0, int var1, int var2) {
+   public static Sprite[] an_renamed(AbstractArchive var0, int var1, int var2) {
       byte[] var5 = var0.takeFile(var1, var2);
       boolean var4;
       if (null == var5) {
@@ -35,22 +35,22 @@ public class eb extends AbstractUserComparator {
       if (!var4) {
          return null;
       } else {
-         Rasterizer3D[] var6 = new Rasterizer3D[tx.af * 1606065339];
+         Sprite[] var6 = new Sprite[tx.af * 1606065339];
 
          for(int var7 = 0; var7 < 1606065339 * tx.af; ++var7) {
-            Rasterizer3D var8 = var6[var7] = new Rasterizer3D();
-            var8.ab = -822007097 * tx.an;
-            var8.aq = tx.aw * 378525975;
-            var8.ac = tx.ac[var7];
-            var8.au = ar.au[var7];
-            var8.an = dd.ab[var7];
-            var8.aw = fd.aq[var7];
-            int var9 = var8.aw * var8.an;
+            Sprite var8 = var6[var7] = new Sprite();
+            var8.width = -822007097 * tx.an;
+            var8.height = tx.aw * 378525975;
+            var8.yOffset = tx.ac[var7];
+            var8.xOffset = ar.au[var7];
+            var8.subWidth = dd.ab[var7];
+            var8.subHeight = fd.aq[var7];
+            int var9 = var8.subHeight * var8.subWidth;
             byte[] var10 = VarBitType.at[var7];
-            var8.af = new int[var9];
+            var8.pixels = new int[var9];
 
             for(int var11 = 0; var11 < var9; ++var11) {
-               var8.af[var11] = pc.al[var10[var11] & 255];
+               var8.pixels[var11] = pc.al[var10[var11] & 255];
             }
          }
 

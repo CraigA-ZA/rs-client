@@ -50,12 +50,12 @@ public class do {
             int var16 = InterfaceParent.at(var9);
             int var17 = var14 & 31;
             int var18 = var14 >> 6 & 3;
-            hq var15;
+            LocType var15;
             if (0 == var1) {
                bx.scene.ar(var0, var2, var3);
                var15 = fw.an_renamed(var16);
-               if (0 != var15.am * -973955889) {
-                  Client.collisionMaps[var0].aq(var2, var3, var17, var18, var15.as);
+               if (0 != var15.interactType * -973955889) {
+                  Client.collisionMaps[var0].aq(var2, var3, var17, var18, var15.boolean1);
                }
             }
 
@@ -66,19 +66,19 @@ public class do {
             if (var1 == 2) {
                bx.scene.as(var0, var2, var3);
                var15 = fw.an_renamed(var16);
-               if (-1339930361 * var15.av + var2 > 103 || -1339930361 * var15.av + var3 > 103 || var2 + var15.ar * -1659393955 > 103 || -1659393955 * var15.ar + var3 > 103) {
+               if (-1339930361 * var15.offsetZ + var2 > 103 || -1339930361 * var15.offsetZ + var3 > 103 || var2 + var15.width * -1659393955 > 103 || -1659393955 * var15.width + var3 > 103) {
                   return;
                }
 
-               if (-973955889 * var15.am != 0) {
-                  Client.collisionMaps[var0].al(var2, var3, -1339930361 * var15.av, var15.ar * -1659393955, var18, var15.as);
+               if (-973955889 * var15.interactType != 0) {
+                  Client.collisionMaps[var0].al(var2, var3, -1339930361 * var15.offsetZ, var15.width * -1659393955, var18, var15.boolean1);
                }
             }
 
             if (3 == var1) {
                bx.scene.aj(var0, var2, var3);
                var15 = fw.an_renamed(var16);
-               if (-973955889 * var15.am == 1) {
+               if (-973955889 * var15.interactType == 1) {
                   Client.collisionMaps[var0].aa(var2, var3);
                }
             }

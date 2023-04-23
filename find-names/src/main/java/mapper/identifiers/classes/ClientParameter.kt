@@ -1,4 +1,4 @@
-package mapper.identifiers.classes//package mapper.std.classes
+package mapper.identifiers.classes
 
 //TODO
 //class ClientParameter : IdentityMapper.Class() {

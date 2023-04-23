@@ -1,7 +1,7 @@
 public class ParamType extends DualNode {
    static EvictingDualNodeHashTable ParamType_cached = new EvictingDualNodeHashTable(64);
    static AbstractArchive af;
-   static Rasterizer3D aa;
+   static Sprite aa;
    boolean autodisable = true;
    char type;
    public int defaultint;

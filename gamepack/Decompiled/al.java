@@ -156,7 +156,7 @@ public class al {
                var23 = 1;
             }
 
-            in.af[var5++] = var23;
+            Rasterizer3D.af[var5++] = var23;
          }
       }
 

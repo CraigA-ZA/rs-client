@@ -59,7 +59,7 @@ public class WorldMap {
    Font font;
    WorldMapArchiveLoader cacheLoader;
    IndexedSprite[] mapSceneSprites;
-   Rasterizer3D cq;
+   Sprite cq;
    final int[] cs = new int[]{1008, 1009, 1010, 1011, 1012};
    public boolean ck = false;
 
@@ -384,7 +384,7 @@ public class WorldMap {
       Rasterizer2D.Rasterizer2D_fillRectangle(var1, var2, var3, var4, -16777216);
       int var8 = this.cacheLoader.ac();
       if (var8 < 100) {
-         this.ae(var1, var2, var3, var4, var8);
+         this.drawLoading(var1, var2, var3, var4, var8);
       } else {
          if (!this.worldMapManager.isLoaded()) {
             this.worldMapManager.load(this.aq, this.currentMapArea0.name(), Client.ca);
@@ -436,7 +436,7 @@ public class WorldMap {
    boolean aj(int var1, int var2, int var3, int var4, int var5, int var6) {
       if (null == this.cq) {
          return true;
-      } else if (this.cq.an == var1 && this.cq.aw == var2) {
+      } else if (this.cq.subWidth == var1 && this.cq.subHeight == var2) {
          if (-1655947893 * this.worldMapManager.ah != this.cm * 1547438523) {
             return true;
          } else if (this.cg * 2016965279 != -1680619819 * Client.wn) {
@@ -464,10 +464,10 @@ public class WorldMap {
          int var14 = var1 - this.worldMapManager.ah * -1655947893 * (var8 + var12 - this.cf * 334129421);
          int var15 = var2 - (var8 - (var13 - this.cl * 627335149)) * -1655947893 * this.worldMapManager.ah;
          if (this.aj(var9, var10, var14, var15, var3, var4)) {
-            if (this.cq != null && this.cq.an == var9 && var10 == this.cq.aw) {
-               Arrays.fill(this.cq.af, 0);
+            if (this.cq != null && this.cq.subWidth == var9 && var10 == this.cq.subHeight) {
+               Arrays.fill(this.cq.pixels, 0);
             } else {
-               this.cq = new Rasterizer3D(var9, var10);
+               this.cq = new Sprite(var9, var10);
             }
 
             this.cf = (this.bm() - var5 / 2 - var8) * -1316647483;
@@ -506,7 +506,7 @@ public class WorldMap {
       this.by = this.ap(var1);
    }
 
-   void ae(int var1, int var2, int var3, int var4, int var5) {
+   void drawLoading(int var1, int var2, int var3, int var4, int var5) {
       byte var7 = 20;
       int var8 = var1 + var3 / 2;
       int var9 = var2 + var4 / 2 - 18 - var7;

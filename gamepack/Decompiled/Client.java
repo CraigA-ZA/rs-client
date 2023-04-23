@@ -302,7 +302,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static short vo;
    static short vv;
    static sr gy;
-   static Rasterizer3D[] ts;
+   static Sprite[] ts;
    static tz rl;
    static final cm xr;
    static final int[] jy;
@@ -533,7 +533,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       sr = 0;
       tw = new int[1000];
       ty = new int[1000];
-      ts = new Rasterizer3D[1000];
+      ts = new Sprite[1000];
       te = 0;
       th = 0;
       tp = 0;
@@ -2799,8 +2799,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                                          var8 = li * -1277774705 / 16;
                                                          if (1382999863 * lu >= 0) {
                                                             var5 = lu * 1382999863 - ek.kh * -1010818347 & 2047;
-                                                            var9 = in.ac[var5];
-                                                            var10 = in.au[var5];
+                                                            var9 = Rasterizer3D.ac[var5];
+                                                            var10 = Rasterizer3D.au[var5];
                                                             bz.lg += var8 * var9 / 65536 * 1293848551;
                                                             fw.lf += 892004233 * (var10 * var8 / 65536);
                                                          }

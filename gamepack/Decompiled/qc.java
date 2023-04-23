@@ -97,19 +97,19 @@ public class qc {
       return this.af + "," + this.ac + "," + this.aq + "," + this.aa + "\n" + this.an + "," + this.au + "," + this.al + "," + this.ay + "\n" + this.aw + "," + this.ab + "," + this.at + "," + this.ao;
    }
 
-   static final void ns_renamed(int var0, int var1, int var2, int var3, Rasterizer3D var4, SpriteMask var5) {
+   static final void ns_renamed(int var0, int var1, int var2, int var3, Sprite var4, SpriteMask var5) {
       if (var4 != null) {
          int var7 = Client.kf * 704283033 & 2047;
          int var8 = var3 * var3 + var2 * var2;
          if (var8 <= 6400) {
-            int var9 = in.ac[var7];
-            int var10 = in.au[var7];
+            int var9 = Rasterizer3D.ac[var7];
+            int var10 = Rasterizer3D.au[var7];
             int var11 = var2 * var10 + var3 * var9 >> 16;
             int var12 = var3 * var10 - var9 * var2 >> 16;
             if (var8 > 2500) {
-               var4.bi(var5.height * 1484188043 / 2 + var11 - var4.ab / 2, var5.width * 939947663 / 2 - var12 - var4.aq / 2, var0, var1, 1484188043 * var5.height, 939947663 * var5.width, var5.xStarts, var5.xWidths);
+               var4.bi(var5.height * 1484188043 / 2 + var11 - var4.width / 2, var5.width * 939947663 / 2 - var12 - var4.height / 2, var0, var1, 1484188043 * var5.height, 939947663 * var5.width, var5.xStarts, var5.xWidths);
             } else {
-               var4.ax(var11 + var0 + var5.height * 1484188043 / 2 - var4.ab / 2, 939947663 * var5.width / 2 + var1 - var12 - var4.aq / 2);
+               var4.ax(var11 + var0 + var5.height * 1484188043 / 2 - var4.width / 2, 939947663 * var5.width / 2 + var1 - var12 - var4.height / 2);
             }
 
          }

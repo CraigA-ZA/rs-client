@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public abstract class UrlRequester implements Runnable {
-   static Rasterizer3D tk;
+   static Sprite tk;
    int ac;
    Queue requests = new LinkedList();
    final Thread thread = new Thread(this);

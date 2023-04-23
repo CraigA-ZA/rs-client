@@ -66,9 +66,9 @@ public class am {
    }
 
    static void an_renamed() {
-      for(cr var1 = (cr)cr.af.last(); var1 != null; var1 = (cr)cr.af.previous()) {
-         if (var1.ag != null) {
-            var1.aw();
+      for(LocSound var1 = (LocSound)LocSound.af.last(); var1 != null; var1 = (LocSound)LocSound.af.previous()) {
+         if (var1.obj != null) {
+            var1.set();
          }
       }
 
@@ -83,17 +83,17 @@ public class am {
       int var2 = Rasterizer2D.Rasterizer2D_yClipStart;
       int var3 = Rasterizer2D.Rasterizer2D_xClipEnd;
       int var4 = Rasterizer2D.Rasterizer2D_yClipEnd;
-      in.ab.ag = (var3 - var1) * 1163083059;
-      in.ab.ah = -508492839 * (var4 - var2);
+      Rasterizer3D.ab.ag = (var3 - var1) * 1163083059;
+      Rasterizer3D.ab.ah = -508492839 * (var4 - var2);
       Tiles.ax_renamed();
-      if (in.ab.aj.length < in.ab.ah * -1347859351) {
-         in.ab.aj = new int[co.ab_renamed(in.ab.ah * -1347859351)];
+      if (Rasterizer3D.ab.aj.length < Rasterizer3D.ab.ah * -1347859351) {
+         Rasterizer3D.ab.aj = new int[co.ab_renamed(Rasterizer3D.ab.ah * -1347859351)];
       }
 
       int var5 = var1 + Rasterizer2D.Rasterizer2D_width * var2;
 
-      for(int var6 = 0; var6 < in.ab.ah * -1347859351; ++var6) {
-         in.ab.aj[var6] = var5;
+      for(int var6 = 0; var6 < Rasterizer3D.ab.ah * -1347859351; ++var6) {
+         Rasterizer3D.ab.aj[var6] = var5;
          var5 += Rasterizer2D.Rasterizer2D_width;
       }
 
@@ -320,16 +320,16 @@ public class am {
       int var18;
       int var19;
       if (var12 != 0) {
-         var17 = in.ac[var12];
-         var18 = in.au[var12];
+         var17 = Rasterizer3D.ac[var12];
+         var18 = Rasterizer3D.au[var12];
          var19 = var18 * var15 - var17 * var11 >> 16;
          var16 = var17 * var15 + var11 * var18 >> 16;
          var15 = var19;
       }
 
       if (var13 != 0) {
-         var17 = in.ac[var13];
-         var18 = in.au[var13];
+         var17 = Rasterizer3D.ac[var13];
+         var18 = Rasterizer3D.au[var13];
          var19 = var14 * var18 + var17 * var16 >> 16;
          var16 = var16 * var18 - var17 * var14 >> 16;
          var14 = var19;
@@ -440,14 +440,14 @@ public class am {
       mj.hz_renamed();
       var19 = eu.at_renamed();
       mz.af_renamed(ClientScriptFrame.client.by);
-      in.ab.ab = Client.viewportZoom * 1241253503;
+      Rasterizer3D.ab.ab = Client.viewportZoom * 1241253503;
       bx.scene.draw(-2100544359 * bt.kx, 1772923873 * gk.kv, -91399205 * ly.ke, 1897923909 * WorldMapSectionType.ky, ek.kh * -1010818347, var11);
       mz.af_renamed(false);
       if (Client.ex) {
          Rasterizer2D.fb();
       }
 
-      in.ab.ab = var19 * 1001249361;
+      Rasterizer3D.ab.ab = var19 * 1001249361;
       mj.hz_renamed();
       bx.scene.ag();
       Client.overheadTextCount = 0;
@@ -602,7 +602,7 @@ public class am {
       }
 
       mm.jo_renamed(var0, var1);
-      ((TextureProvider)in.ab.aq).animate(Client.ja * -1795081153);
+      ((TextureProvider)Rasterizer3D.ab.aq).animate(Client.ja * -1795081153);
       Friend.jn_renamed();
       bt.kx = -1682679895 * var12;
       gk.kv = -424093663 * var13;

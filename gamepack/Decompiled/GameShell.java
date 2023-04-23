@@ -68,32 +68,32 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
    }
 
-   static void ac_renamed(int var0, int var1, int var2, hq var3, int var4) {
-      cr var6 = new cr();
+   static void ac_renamed(int var0, int var1, int var2, LocType var3, int var4) {
+      LocSound var6 = new LocSound();
       var6.an = var0 * 241949401;
       var6.aw = -255427968 * var1;
       var6.ac = -274968704 * var2;
-      int var7 = var3.av * -1339930361;
-      int var8 = var3.ar * -1659393955;
+      int var7 = var3.offsetZ * -1339930361;
+      int var8 = var3.width * -1659393955;
       if (1 == var4 || 3 == var4) {
-         var7 = -1659393955 * var3.ar;
-         var8 = -1339930361 * var3.av;
+         var7 = -1659393955 * var3.width;
+         var8 = -1339930361 * var3.offsetZ;
       }
 
       var6.au = (var1 + var7) * -1490504832;
       var6.ab = 905187968 * (var2 + var8);
-      var6.al = -853803453 * var3.ba;
-      var6.aq = var3.bv * -981504640;
-      var6.aa = var3.bl * -1756454329;
-      var6.ay = var3.bp * -1723341761;
-      var6.ao = var3.bc;
-      if (var3.bu != null) {
-         var6.ag = var3;
-         var6.aw();
+      var6.soundEffectId = -853803453 * var3.ba;
+      var6.aq = var3.int4 * -981504640;
+      var6.aa = var3.int5 * -1756454329;
+      var6.ay = var3.int6 * -1723341761;
+      var6.soundEffectIds = var3.bc;
+      if (var3.multi != null) {
+         var6.obj = var3;
+         var6.set();
       }
 
-      cr.af.addFirst(var6);
-      if (var6.ao != null) {
+      LocSound.af.addFirst(var6);
+      if (var6.soundEffectIds != null) {
          var6.ax = (var6.aa * -442346035 + (int)(Math.random() * (double)(var6.ay * -1018564833 - var6.aa * -442346035))) * -713890281;
       }
 
@@ -442,9 +442,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    void by() {
       Container var2 = this.container();
       long var3 = Formatting.af_renamed();
-      long var5 = ax[in.ai * -689745739];
-      ax[-689745739 * in.ai] = var3;
-      in.ai = -1417208419 * (1 + -689745739 * in.ai & 31);
+      long var5 = ax[Rasterizer3D.ai * -689745739];
+      ax[-689745739 * Rasterizer3D.ai] = var3;
+      Rasterizer3D.ai = -1417208419 * (1 + -689745739 * Rasterizer3D.ai & 31);
       if (0L != var5 && var3 > var5) {
          int var7 = (int)(var3 - var5);
          aa = (32000 + (var7 >> 1)) / var7 * 1691803635;

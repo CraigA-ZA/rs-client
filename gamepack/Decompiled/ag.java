@@ -60,10 +60,10 @@ public class ag {
    }
 
    public static void ag_renamed() {
-      hq.ac.clear();
-      hq.au.clear();
-      hq.ab.clear();
-      hq.aq.clear();
+      LocType.ac.clear();
+      LocType.au.clear();
+      LocType.ab.clear();
+      LocType.aq.clear();
    }
 
    static void av_renamed(int var0) {

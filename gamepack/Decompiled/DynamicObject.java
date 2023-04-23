@@ -82,9 +82,9 @@ public class DynamicObject extends Entity {
          this.frame = -1353577717 * (-1886224337 * Client.ep - var2);
       }
 
-      hq var13 = fw.an_renamed(618580957 * this.cycleStart);
-      if (var13.bu != null) {
-         var13 = var13.ao();
+      LocType var13 = fw.an_renamed(618580957 * this.cycleStart);
+      if (var13.multi != null) {
+         var13 = var13.multiLoc();
       }
 
       if (var13 == null) {
@@ -92,11 +92,11 @@ public class DynamicObject extends Entity {
       } else {
          int var4;
          if (this.type * 1904322241 != 1 && 3 != 1904322241 * this.type) {
-            var3 = -1339930361 * var13.av;
-            var4 = var13.ar * -1659393955;
+            var3 = -1339930361 * var13.offsetZ;
+            var4 = var13.width * -1659393955;
          } else {
-            var3 = var13.ar * -1659393955;
-            var4 = -1339930361 * var13.av;
+            var3 = var13.width * -1659393955;
+            var4 = -1339930361 * var13.offsetZ;
          }
 
          int var5 = 1815829493 * this.au + (var3 >> 1);

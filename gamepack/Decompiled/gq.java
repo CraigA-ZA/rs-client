@@ -1,5 +1,5 @@
 public class gq {
-   static Rasterizer3D[] kb;
+   static Sprite[] kb;
    // $FF: synthetic field
    final gy this$0;
    public float[] au;

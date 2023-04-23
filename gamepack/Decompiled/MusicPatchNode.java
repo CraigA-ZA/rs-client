@@ -55,8 +55,8 @@ public class MusicPatchNode extends Node {
                var5 -= var4.height * 1484188043 / 2;
                var6 -= var4.width * 939947663 / 2;
                int var7 = Client.kf * 704283033 & 2047;
-               int var8 = in.ac[var7];
-               int var9 = in.au[var7];
+               int var8 = Rasterizer3D.ac[var7];
+               int var9 = Rasterizer3D.au[var7];
                int var10 = var5 * var9 + var6 * var8 >> 11;
                int var11 = var6 * var9 - var5 * var8 >> 11;
                int var12 = 1144428983 * localPlayer.bx + var10 >> 7;

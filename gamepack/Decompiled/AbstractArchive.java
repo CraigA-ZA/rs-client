@@ -13,8 +13,8 @@ public abstract class AbstractArchive {
    int[][] fileIds;
    Object[] groups;
    Object[][] files;
-   td aj;
-   td[] by;
+   IntHashTable aj;
+   IntHashTable[] by;
    public int hash;
 
    AbstractArchive(boolean var1, boolean var2) {
@@ -71,7 +71,7 @@ public abstract class AbstractArchive {
                this.groupNameHashes[this.groupCrcs[var8]] = var3.g4s();
             }
 
-            this.aj = new td(this.groupNameHashes);
+            this.aj = new IntHashTable(this.groupNameHashes);
          }
 
          for(var8 = 0; var8 < this.groupCount * -1754346109; ++var8) {
@@ -129,7 +129,7 @@ public abstract class AbstractArchive {
 
          if (var5 != 0) {
             this.fileIds = new int[1 + var7][];
-            this.by = new td[1 + var7];
+            this.by = new IntHashTable[1 + var7];
 
             for(var8 = 0; var8 < this.groupCount * -1754346109; ++var8) {
                var9 = this.groupCrcs[var8];
@@ -140,7 +140,7 @@ public abstract class AbstractArchive {
                   this.fileIds[var9][this.fileNameHashes[var9][var11]] = var3.g4s();
                }
 
-               this.by[var9] = new td(this.fileIds[var9]);
+               this.by[var9] = new IntHashTable(this.fileIds[var9]);
             }
          }
 
@@ -508,22 +508,22 @@ public abstract class AbstractArchive {
 
    public int getGroupId(String var1) {
       var1 = var1.toLowerCase();
-      return this.aj.af(hn.aq_renamed(var1));
+      return this.aj.get(hn.aq_renamed(var1));
    }
 
    public int getFileId(int var1, String var2) {
       var2 = var2.toLowerCase();
-      return this.by[var1].af(hn.aq_renamed(var2));
+      return this.by[var1].get(hn.aq_renamed(var2));
    }
 
    public boolean cv(String var1, String var2) {
       var1 = var1.toLowerCase();
       var2 = var2.toLowerCase();
-      int var4 = this.aj.af(hn.aq_renamed(var1));
+      int var4 = this.aj.get(hn.aq_renamed(var1));
       if (var4 < 0) {
          return false;
       } else {
-         int var5 = this.by[var4].af(hn.aq_renamed(var2));
+         int var5 = this.by[var4].get(hn.aq_renamed(var2));
          return var5 >= 0;
       }
    }
@@ -531,28 +531,28 @@ public abstract class AbstractArchive {
    public byte[] takeFileByNames(String var1, String var2) {
       var1 = var1.toLowerCase();
       var2 = var2.toLowerCase();
-      int var4 = this.aj.af(hn.aq_renamed(var1));
-      int var5 = this.by[var4].af(hn.aq_renamed(var2));
+      int var4 = this.aj.get(hn.aq_renamed(var1));
+      int var5 = this.by[var4].get(hn.aq_renamed(var2));
       return this.takeFile(var4, var5);
    }
 
    public boolean tryLoadFileByNames(String var1, String var2) {
       var1 = var1.toLowerCase();
       var2 = var2.toLowerCase();
-      int var4 = this.aj.af(hn.aq_renamed(var1));
-      int var5 = this.by[var4].af(hn.aq_renamed(var2));
+      int var4 = this.aj.get(hn.aq_renamed(var1));
+      int var5 = this.by[var4].get(hn.aq_renamed(var2));
       return this.tryLoadFile(var4, var5);
    }
 
    public boolean tryLoadGroupByName(String var1) {
       var1 = var1.toLowerCase();
-      int var3 = this.aj.af(hn.aq_renamed(var1));
+      int var3 = this.aj.get(hn.aq_renamed(var1));
       return this.tryLoadGroup(var3);
    }
 
    public void cw(String var1) {
       var1 = var1.toLowerCase();
-      int var3 = this.aj.af(hn.aq_renamed(var1));
+      int var3 = this.aj.get(hn.aq_renamed(var1));
       if (var3 >= 0) {
          this.aw(var3);
       }
@@ -560,7 +560,7 @@ public abstract class AbstractArchive {
 
    public int groupLoadPercentByName(String var1) {
       var1 = var1.toLowerCase();
-      int var3 = this.aj.af(hn.aq_renamed(var1));
+      int var3 = this.aj.get(hn.aq_renamed(var1));
       return this.groupLoadPercent(var3);
    }
 }

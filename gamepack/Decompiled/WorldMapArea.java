@@ -188,10 +188,10 @@ public class WorldMapArea {
    }
 
    public static void ai_renamed(int var0, int var1) {
-      int var3 = in.ab.aj[0];
+      int var3 = Rasterizer3D.ab.aj[0];
       int var4 = var3 / Rasterizer2D.Rasterizer2D_width;
       int var5 = var3 - var4 * Rasterizer2D.Rasterizer2D_width;
-      in.ab.an(var0, var5, var1, var4);
+      Rasterizer3D.ab.an(var0, var5, var1, var4);
    }
 
    public int originX() {
@@ -319,9 +319,9 @@ public class WorldMapArea {
                      var8 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
                      var6 = bz.getParamType(var8);
                      if (var6.isString()) {
-                        Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = fw.an_renamed(var4).ai(var8, var6.defaultstr);
+                        Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = fw.an_renamed(var4).getStringParam(var8, var6.defaultstr);
                      } else {
-                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = fw.an_renamed(var4).ax(var8, var6.defaultint * -171401431);
+                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = fw.an_renamed(var4).getIntParam(var8, var6.defaultint * -171401431);
                      }
 
                      return 1;

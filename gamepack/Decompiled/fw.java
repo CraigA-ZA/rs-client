@@ -262,25 +262,25 @@ public class fw extends fb {
       return var4.toString();
    }
 
-   public static hq an_renamed(int var0) {
-      hq var2 = (hq)hq.ac.get((long)var0);
+   public static LocType an_renamed(int var0) {
+      LocType var2 = (LocType)LocType.ac.get((long)var0);
       if (null != var2) {
          return var2;
       } else {
-         byte[] var3 = hq.an.takeFile(6, var0);
-         var2 = new hq();
+         byte[] var3 = LocType.an.takeFile(6, var0);
+         var2 = new LocType();
          var2.at = var0 * -1113054781;
          if (var3 != null) {
-            var2.ac(new Packet(var3));
+            var2.decode(new Packet(var3));
          }
 
          var2.aw();
-         if (var2.br) {
-            var2.am = 0;
-            var2.as = false;
+         if (var2.lowDetailVisible) {
+            var2.interactType = 0;
+            var2.boolean1 = false;
          }
 
-         hq.ac.put(var2, (long)var0);
+         LocType.ac.put(var2, (long)var0);
          return var2;
       }
    }
@@ -300,7 +300,7 @@ public class fw extends fb {
    }
 
    public static void av_renamed(int var0, int var1, int var2, int var3, int var4, int var5, float var6, float var7, float var8, int var9) {
-      in.aq.aq(var0, var1, var2, var3, var4, var5, var6, var7, var8, var9);
+      Rasterizer3D.aq.aq(var0, var1, var2, var3, var4, var5, var6, var7, var8, var9);
    }
 
    fw(fa var1) {

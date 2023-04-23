@@ -69,7 +69,7 @@ public class ec implements Enumerated {
          FontName.jm = new int[var5];
          Archive.jn = new int[var5];
          au.jf = new byte[var5][];
-         cr.jw = new byte[var5][];
+         LocSound.jw = new byte[var5][];
          var5 = 0;
 
          for(var6 = (var4 - 6) / 8; var6 <= (var4 + 6) / 8; ++var6) {
@@ -118,7 +118,7 @@ public class ec implements Enumerated {
          FontName.jm = new int[var6];
          Archive.jn = new int[var6];
          au.jf = new byte[var6][];
-         cr.jw = new byte[var6][];
+         LocSound.jw = new byte[var6][];
          var6 = 0;
 
          for(var7 = 0; var7 < 4; ++var7) {

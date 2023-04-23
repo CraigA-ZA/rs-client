@@ -1,5 +1,5 @@
 public class dp {
-   static Rasterizer3D jz;
+   static Sprite jz;
    int ai = 0;
    int aj = 0;
    int al = 0;

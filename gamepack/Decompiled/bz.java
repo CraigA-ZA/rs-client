@@ -77,10 +77,10 @@ public class bz {
       int var5 = var3.array.length - 2 - var4 - 12;
       var3.index = -1516355947 * var5;
       int var6 = var3.g4s();
-      var2.ab = var3.cl() * -140315817;
-      var2.aq = var3.cl() * -1816416047;
-      var2.al = var3.cl() * -603637105;
-      var2.at = var3.cl() * -751032223;
+      var2.localIntCount = var3.cl() * -140315817;
+      var2.localStringCount = var3.cl() * -1816416047;
+      var2.intArgumentCount = var3.cl() * -603637105;
+      var2.stringArgumentCount = var3.cl() * -751032223;
       int var7 = var3.g1();
       int var8;
       int var9;
@@ -102,18 +102,18 @@ public class bz {
 
       var3.index = 0;
       var2.an = var3.cz();
-      var2.aw = new int[var6];
-      var2.ac = new int[var6];
+      var2.intOperands = new int[var6];
+      var2.opcodes = new int[var6];
       var2.stringOperands = new String[var6];
 
-      for(var8 = 0; -1633313603 * var3.index < var5; var2.aw[var8++] = var9) {
+      for(var8 = 0; -1633313603 * var3.index < var5; var2.intOperands[var8++] = var9) {
          var9 = var3.cl();
          if (var9 == 3) {
             var2.stringOperands[var8] = var3.cw();
          } else if (var9 < 100 && var9 != 21 && var9 != 38 && 39 != var9) {
-            var2.ac[var8] = var3.g4s();
+            var2.opcodes[var8] = var3.g4s();
          } else {
-            var2.ac[var8] = var3.g1();
+            var2.opcodes[var8] = var3.g1();
          }
       }
 
@@ -166,7 +166,7 @@ public class bz {
       } else if (var0 < 1800) {
          return DefaultsGroup.ag_renamed(var0, var1, var2);
       } else if (var0 < 1900) {
-         return in.ar_renamed(var0, var1, var2);
+         return Rasterizer3D.ar_renamed(var0, var1, var2);
       } else if (var0 < 2000) {
          return ai.am_renamed(var0, var1, var2);
       } else if (var0 < 2100) {
@@ -192,7 +192,7 @@ public class bz {
       } else if (var0 < 3200) {
          return NetFileRequest.ad_renamed(var0, var1, var2);
       } else if (var0 < 3300) {
-         return hq.ae_renamed(var0, var1, var2);
+         return LocType.ae_renamed(var0, var1, var2);
       } else if (var0 < 3400) {
          return fe.ap_renamed(var0, var1, var2);
       } else if (var0 < 3500) {
@@ -414,15 +414,15 @@ public class bz {
                   }
                } else {
                   HeadbarType var13 = var77.type;
-                  Rasterizer3D var14 = var13.ac();
-                  Rasterizer3D var15 = var13.aw();
+                  Sprite var14 = var13.ac();
+                  Sprite var15 = var13.aw();
                   int var17 = 0;
                   if (var14 != null && var15 != null) {
-                     if (var13.widthPadding * 166630382 < var15.an) {
+                     if (var13.widthPadding * 166630382 < var15.subWidth) {
                         var17 = -2064168457 * var13.widthPadding;
                      }
 
-                     var16 = var15.an - var17 * 2;
+                     var16 = var15.subWidth - var17 * 2;
                   } else {
                      var16 = 279738407 * var13.width;
                   }
@@ -456,7 +456,7 @@ public class bz {
                         var91 += var17;
                      }
 
-                     var22 = var14.aw;
+                     var22 = var14.subHeight;
                      var10 += var22;
                      var23 = -1848743379 * Client.mz + var2 - (var16 >> 1);
                      var24 = Client.mu * 318977283 + var3 - var10;
@@ -532,7 +532,7 @@ public class bz {
                var79 = -767387641 * var0.de + 15;
                ot.worldToScreen(var0.bx * 1144428983, -411750205 * var0.bo, var79);
                if (-1848743379 * Client.mz > -1) {
-                  var10 += IDKType.ku[1].aw;
+                  var10 += IDKType.ku[1].subHeight;
                   IDKType.ku[1].ax(var2 + Client.mz * -1848743379 - 12, 318977283 * Client.mu + var3 - var10);
                }
             }
@@ -545,9 +545,9 @@ public class bz {
                for(var85 = 0; var85 < var83.length; ++var85) {
                   if (var83[var85] >= 0 && var82[var85] >= 0) {
                      long var86 = (long)var82[var85] << 8 | (long)var83[var85];
-                     Rasterizer3D var89 = (Rasterizer3D)Client.wx.an(var86);
+                     Sprite var89 = (Sprite)Client.wx.an(var86);
                      if (var89 == null) {
-                        Rasterizer3D[] var90 = eb.an_renamed(rr.archive7, var82[var85], 0);
+                        Sprite[] var90 = eb.an_renamed(rr.archive7, var82[var85], 0);
                         if (null != var90 && var83[var85] < var90.length) {
                            var89 = var90[var83[var85]];
                            Client.wx.aw(var86, var89);
@@ -557,7 +557,7 @@ public class bz {
                      if (null != var89) {
                         eg.jd_renamed(var0, var0.de * -767387641 + 15);
                         if (-1848743379 * Client.mz > -1) {
-                           var89.ax(-1848743379 * Client.mz + var2 - (var89.an >> 1), 318977283 * Client.mu + (var3 - var89.aw) - 4);
+                           var89.ax(-1848743379 * Client.mz + var2 - (var89.subWidth >> 1), 318977283 * Client.mu + (var3 - var89.subHeight) - 4);
                         }
                      }
                   }
@@ -626,10 +626,10 @@ public class bz {
                         Client.mu -= 1079552174;
                      }
 
-                     Rasterizer3D var96 = null;
-                     Rasterizer3D var94 = null;
-                     Rasterizer3D var95 = null;
-                     Rasterizer3D var97 = null;
+                     Sprite var96 = null;
+                     Sprite var94 = null;
+                     Sprite var95 = null;
+                     Sprite var97 = null;
                      var23 = 0;
                      var24 = 0;
                      int var25 = 0;
@@ -638,10 +638,10 @@ public class bz {
                      int var28 = 0;
                      int var29 = 0;
                      int var30 = 0;
-                     Rasterizer3D var31 = null;
-                     Rasterizer3D var32 = null;
-                     Rasterizer3D var33 = null;
-                     Rasterizer3D var34 = null;
+                     Sprite var31 = null;
+                     Sprite var32 = null;
+                     Sprite var33 = null;
+                     Sprite var34 = null;
                      int var35 = 0;
                      int var36 = 0;
                      int var37 = 0;
@@ -654,91 +654,91 @@ public class bz {
                      var96 = var87.ab();
                      int var44;
                      if (null != var96) {
-                        var23 = var96.an;
-                        var44 = var96.aw;
+                        var23 = var96.subWidth;
+                        var44 = var96.subHeight;
                         if (var44 > var43) {
                            var43 = var44;
                         }
 
-                        var27 = var96.ac;
+                        var27 = var96.yOffset;
                      }
 
                      var94 = var87.aq();
                      if (null != var94) {
-                        var24 = var94.an;
-                        var44 = var94.aw;
+                        var24 = var94.subWidth;
+                        var44 = var94.subHeight;
                         if (var44 > var43) {
                            var43 = var44;
                         }
 
-                        var28 = var94.ac;
+                        var28 = var94.yOffset;
                      }
 
                      var95 = var87.al();
                      if (var95 != null) {
-                        var25 = var95.an;
-                        var44 = var95.aw;
+                        var25 = var95.subWidth;
+                        var44 = var95.subHeight;
                         if (var44 > var43) {
                            var43 = var44;
                         }
 
-                        var29 = var95.ac;
+                        var29 = var95.yOffset;
                      }
 
                      var97 = var87.at();
                      if (var97 != null) {
-                        var26 = var97.an;
-                        var44 = var97.aw;
+                        var26 = var97.subWidth;
+                        var44 = var97.subHeight;
                         if (var44 > var43) {
                            var43 = var44;
                         }
 
-                        var30 = var97.ac;
+                        var30 = var97.yOffset;
                      }
 
                      if (var93 != null) {
                         var31 = var93.ab();
                         if (var31 != null) {
-                           var35 = var31.an;
-                           var44 = var31.aw;
+                           var35 = var31.subWidth;
+                           var44 = var31.subHeight;
                            if (var44 > var43) {
                               var43 = var44;
                            }
 
-                           var39 = var31.ac;
+                           var39 = var31.yOffset;
                         }
 
                         var32 = var93.aq();
                         if (var32 != null) {
-                           var36 = var32.an;
-                           var44 = var32.aw;
+                           var36 = var32.subWidth;
+                           var44 = var32.subHeight;
                            if (var44 > var43) {
                               var43 = var44;
                            }
 
-                           var40 = var32.ac;
+                           var40 = var32.yOffset;
                         }
 
                         var33 = var93.al();
                         if (null != var33) {
-                           var37 = var33.an;
-                           var44 = var33.aw;
+                           var37 = var33.subWidth;
+                           var44 = var33.subHeight;
                            if (var44 > var43) {
                               var43 = var44;
                            }
 
-                           var41 = var33.ac;
+                           var41 = var33.yOffset;
                         }
 
                         var34 = var93.at();
                         if (null != var34) {
-                           var38 = var34.an;
-                           var44 = var34.aw;
+                           var38 = var34.subWidth;
+                           var44 = var34.subHeight;
                            if (var44 > var43) {
                               var43 = var44;
                            }
 
-                           var42 = var34.ac;
+                           var42 = var34.yOffset;
                         }
                      }
 

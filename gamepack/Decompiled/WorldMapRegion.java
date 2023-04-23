@@ -28,7 +28,7 @@ public class WorldMapRegion {
    }
 
    void ac(int var1, int var2, int var3) {
-      Rasterizer3D var5 = gz.an_renamed(-2122501643 * this.y, 1858063995 * this.x, this.ay * -1897887643);
+      Sprite var5 = gz.an_renamed(-2122501643 * this.y, 1858063995 * this.x, this.ay * -1897887643);
       if (var5 != null) {
          if (this.ay * -1205724864 == var3) {
             var5.ay(var1, var2);
@@ -80,23 +80,23 @@ public class WorldMapRegion {
                   jl[] var11 = var10;
 
                   for(int var12 = 0; var12 < var11.length; ++var12) {
-                     hq var14;
+                     LocType var14;
                      boolean var15;
                      label77: {
                         jl var13 = var11[var12];
                         var14 = fw.an_renamed(var13.af * 2080162465);
-                        if (null != var14.bu) {
-                           int[] var16 = var14.bu;
+                        if (null != var14.multi) {
+                           int[] var16 = var14.multi;
 
                            for(int var17 = 0; var17 < var16.length; ++var17) {
                               int var18 = var16[var17];
-                              hq var19 = fw.an_renamed(var18);
-                              if (1270945427 * var19.be != -1) {
+                              LocType var19 = fw.an_renamed(var18);
+                              if (1270945427 * var19.resizeY != -1) {
                                  var15 = true;
                                  break label77;
                               }
                            }
-                        } else if (1270945427 * var14.be != -1) {
+                        } else if (1270945427 * var14.resizeY != -1) {
                            var15 = true;
                            break label77;
                         }
@@ -116,7 +116,7 @@ public class WorldMapRegion {
 
    }
 
-   void al(hq var1, int var2, int var3, int var4, jz var5) {
+   void al(LocType var1, int var2, int var3, int var4, jz var5) {
       Coord var7 = new Coord(var2, this.y * 1598848320 + var3, -1342988608 * this.x + var4);
       Coord var8 = null;
       if (null != this.al) {
@@ -128,10 +128,10 @@ public class WorldMapRegion {
 
       MapElementType var10;
       Object var11;
-      if (var1.bu != null) {
+      if (var1.multi != null) {
          var11 = new WorldMapIcon2(var8, var7, -1529817365 * var1.at, this);
       } else {
-         var10 = nf.getMapElementType(1270945427 * var1.be);
+         var10 = nf.getMapElementType(1270945427 * var1.resizeY);
          var11 = new WorldMapIcon1(var8, var7, var10.au * 219774827, this.bz(var10));
       }
 
@@ -234,10 +234,10 @@ public class WorldMapRegion {
                if (null == var8) {
                   var10 = new kc();
                } else {
-                  var10 = new kc(Strings.af_renamed(var8).af);
+                  var10 = new kc(Strings.af_renamed(var8).pixels);
                }
 
-               Rasterizer3D var12 = new Rasterizer3D(-1205724864 * this.ay, -1205724864 * this.ay);
+               Sprite var12 = new Sprite(-1205724864 * this.ay, -1205724864 * this.ay);
                var12.ac();
                if (this.al != null) {
                   this.ah(var2, var3, var10);
@@ -248,7 +248,7 @@ public class WorldMapRegion {
                int var13 = -2122501643 * this.y;
                int var14 = this.x * 1858063995;
                int var15 = -1897887643 * this.ay;
-               au.put(var12, er.af_renamed(var13, var14, var15), var12.af.length * 4);
+               au.put(var12, er.af_renamed(var13, var14, var15), var12.pixels.length * 4);
                this.ay();
             }
          }
@@ -392,10 +392,10 @@ public class WorldMapRegion {
 
                var18 = (var16 / 32 << 7) + (var15 / 4 << 10) + var17 / 2;
                var19 = dd.af_renamed(var18, 96);
-               var10 = in.af[var19] | -16777216;
+               var10 = Rasterizer3D.af[var19] | -16777216;
             } else if (-202963991 * var12.texture >= 0) {
-               int var20 = dd.af_renamed(in.ab.aq.ac(var12.texture * -202963991), 96);
-               var10 = in.af[var20] | -16777216;
+               int var20 = dd.af_renamed(Rasterizer3D.ab.aq.ac(var12.texture * -202963991), 96);
+               var10 = Rasterizer3D.af[var20] | -16777216;
             } else if (var12.rgb * 1889574527 == 16711935) {
                var10 = var11;
             } else {
@@ -420,7 +420,7 @@ public class WorldMapRegion {
 
                var18 = (var15 / 4 << 10) + (var16 / 32 << 7) + var17 / 2;
                var19 = dd.af_renamed(var18, 96);
-               var10 = in.af[var19] | -16777216;
+               var10 = Rasterizer3D.af[var19] | -16777216;
             }
          }
 
@@ -491,10 +491,10 @@ public class WorldMapRegion {
 
                   var16 = var15 / 2 + (var13 / 4 << 10) + (var14 / 32 << 7);
                   var17 = dd.af_renamed(var16, 96);
-                  var8 = in.af[var17] | -16777216;
+                  var8 = Rasterizer3D.af[var17] | -16777216;
                } else if (var10.texture * -202963991 >= 0) {
-                  int var18 = dd.af_renamed(in.ab.aq.ac(var10.texture * -202963991), 96);
-                  var8 = in.af[var18] | -16777216;
+                  int var18 = dd.af_renamed(Rasterizer3D.ab.aq.ac(var10.texture * -202963991), 96);
+                  var8 = Rasterizer3D.af[var18] | -16777216;
                } else if (1889574527 * var10.rgb == 16711935) {
                   var8 = var9;
                } else {
@@ -519,7 +519,7 @@ public class WorldMapRegion {
 
                   var16 = var15 / 2 + (var13 / 4 << 10) + (var14 / 32 << 7);
                   var17 = dd.af_renamed(var16, 96);
-                  var8 = in.af[var17] | -16777216;
+                  var8 = Rasterizer3D.af[var17] | -16777216;
                }
             }
 
@@ -553,12 +553,12 @@ public class WorldMapRegion {
                   }
                }
 
-               hq var13 = fw.an_renamed(2080162465 * var10.af);
-               if (-1 != 771086195 * var13.bk) {
-                  if (771086195 * var13.bk != 46 && var13.bk * 771086195 != 52) {
-                     var4[771086195 * var13.bk].au(var1 * -1897887643 * this.ay, this.ay * -1897887643 * (63 - var2), 499192010 * this.ay, 499192010 * this.ay);
+               LocType var13 = fw.an_renamed(2080162465 * var10.af);
+               if (-1 != 771086195 * var13.mapSceneId) {
+                  if (771086195 * var13.mapSceneId != 46 && var13.mapSceneId * 771086195 != 52) {
+                     var4[771086195 * var13.mapSceneId].au(var1 * -1897887643 * this.ay, this.ay * -1897887643 * (63 - var2), 499192010 * this.ay, 499192010 * this.ay);
                   } else {
-                     var4[var13.bk * 771086195].au(var1 * -1897887643 * this.ay, -1897887643 * this.ay * (63 - var2), 499192010 * this.ay + 1, 499192010 * this.ay + 1);
+                     var4[var13.mapSceneId * 771086195].au(var1 * -1897887643 * this.ay, -1897887643 * this.ay * (63 - var2), 499192010 * this.ay + 1, 499192010 * this.ay + 1);
                   }
                }
             }
@@ -578,8 +578,8 @@ public class WorldMapRegion {
                int var11 = 1504481025 * var9.an;
                boolean var10 = var11 >= mc.af.ad * -1344801027 && var11 <= mc.ac.ad * -1344801027 || -1344801027 * mc.au.ad == var11;
                if (var10) {
-                  hq var12 = fw.an_renamed(2080162465 * var9.af);
-                  int var13 = var12.aj * 415653149 != 0 ? -3407872 : -3355444;
+                  LocType var12 = fw.an_renamed(2080162465 * var9.af);
+                  int var13 = var12.int2 * 415653149 != 0 ? -3407872 : -3355444;
                   if (mc.af.ad * -1344801027 == 1504481025 * var9.an) {
                      this.bt(var1, var2, -1419490017 * var9.aw, var13);
                   }
@@ -666,9 +666,9 @@ public class WorldMapRegion {
    }
 
    void ap(MapElementType var1, int var2, int var3, int var4, int var5) {
-      Rasterizer3D var7 = var1.ab(false);
+      Sprite var7 = var1.ab(false);
       if (var7 != null) {
-         var7.ax(var2 - var7.an / 2, var3 - var7.aw / 2);
+         var7.ax(var2 - var7.subWidth / 2, var3 - var7.subHeight / 2);
          if (var4 % var5 < var5 / 2) {
             Rasterizer2D.ed_renamed(var2, var3, 15, 16776960, 128);
             Rasterizer2D.ed_renamed(var2, var3, 7, 16777215, 256);
@@ -684,7 +684,7 @@ public class WorldMapRegion {
    }
 
    void bb(MapElementType var1, int var2, int var3) {
-      Rasterizer3D var5 = var1.ab(false);
+      Sprite var5 = var1.ab(false);
       if (var5 != null) {
          int var6 = this.bk(var5, var1.aj);
          int var7 = this.bx(var5, var1.ak);
@@ -722,25 +722,25 @@ public class WorldMapRegion {
 
    }
 
-   int bk(Rasterizer3D var1, hd var2) {
+   int bk(Sprite var1, hd var2) {
       switch (var2.ac * 1932346871) {
          case 0:
             return 0;
          case 2:
-            return -var1.an / 2;
+            return -var1.subWidth / 2;
          default:
-            return -var1.an;
+            return -var1.subWidth;
       }
    }
 
-   int bx(Rasterizer3D var1, hn var2) {
+   int bx(Sprite var1, hn var2) {
       switch (var2.ac * 578864459) {
          case 1:
-            return -var1.aw / 2;
+            return -var1.subHeight / 2;
          case 2:
             return 0;
          default:
-            return -var1.aw;
+            return -var1.subHeight;
       }
    }
 

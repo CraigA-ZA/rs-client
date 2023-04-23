@@ -30,11 +30,11 @@ public class gz extends DualNode {
 
    }
 
-   static Rasterizer3D an_renamed(int var0, int var1, int var2) {
-      return (Rasterizer3D)WorldMapRegion.au.get(er.af_renamed(var0, var1, var2));
+   static Sprite an_renamed(int var0, int var1, int var2) {
+      return (Sprite)WorldMapRegion.au.get(er.af_renamed(var0, var1, var2));
    }
 
    public static void ag_renamed(int var0, int var1, int var2) {
-      in.ab.aw(var0, var1, var2);
+      Rasterizer3D.ab.aw(var0, var1, var2);
    }
 }

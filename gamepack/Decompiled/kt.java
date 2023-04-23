@@ -51,6 +51,6 @@ public class kt {
    }
 
    static int aq_renamed() {
-      return in.ab.ar * -1643027043;
+      return Rasterizer3D.ab.ar * -1643027043;
    }
 }

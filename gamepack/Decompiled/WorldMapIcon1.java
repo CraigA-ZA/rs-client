@@ -10,10 +10,10 @@ public class WorldMapIcon1 extends AbstractWorldMapIcon {
       this.af = -1078535861 * var3;
       this.label0 = var4;
       MapElementType var5 = nf.getMapElementType(this.element());
-      Rasterizer3D var6 = var5.ab(false);
+      Sprite var6 = var5.ab(false);
       if (var6 != null) {
-         this.aw = -717434413 * var6.an;
-         this.ac = var6.aw * 935195051;
+         this.aw = -717434413 * var6.subWidth;
+         this.ac = var6.subHeight * 935195051;
       } else {
          this.aw = 0;
          this.ac = 0;

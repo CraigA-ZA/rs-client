@@ -20,9 +20,9 @@ public class Interpreter {
    static final String[] as = new String[]{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
    public static void af_renamed(AbstractArchive var0, AbstractArchive var1, boolean var2) {
-      hq.an = var0;
+      LocType.an = var0;
       go.aw = var1;
-      hq.af = var2;
+      LocType.af = var2;
    }
 
    Interpreter() throws Throwable {

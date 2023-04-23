@@ -21,20 +21,20 @@ public class gx {
       return var0.length() + 2;
    }
 
-   static Rasterizer3D at_renamed() {
-      Rasterizer3D var1 = new Rasterizer3D();
-      var1.ab = -822007097 * tx.an;
-      var1.aq = tx.aw * 378525975;
-      var1.ac = tx.ac[0];
-      var1.au = ar.au[0];
-      var1.an = dd.ab[0];
-      var1.aw = fd.aq[0];
-      int var2 = var1.aw * var1.an;
+   static Sprite at_renamed() {
+      Sprite var1 = new Sprite();
+      var1.width = -822007097 * tx.an;
+      var1.height = tx.aw * 378525975;
+      var1.yOffset = tx.ac[0];
+      var1.xOffset = ar.au[0];
+      var1.subWidth = dd.ab[0];
+      var1.subHeight = fd.aq[0];
+      int var2 = var1.subHeight * var1.subWidth;
       byte[] var3 = VarBitType.at[0];
-      var1.af = new int[var2];
+      var1.pixels = new int[var2];
 
       for(int var4 = 0; var4 < var2; ++var4) {
-         var1.af[var4] = pc.al[var3[var4] & 255];
+         var1.pixels[var4] = pc.al[var3[var4] & 255];
       }
 
       pk.ay_renamed();

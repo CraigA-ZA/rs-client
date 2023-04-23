@@ -27,12 +27,12 @@ public class Scene {
    static int br = 4;
    static int Scene_cameraPitchSine;
    static int Scene_selectedScreenX = 0;
-   static int cf;
-   static int cg;
-   static int cl;
-   static int cm;
-   static int cr;
-   static int cy;
+   static int Scene_viewportYCenter;
+   static int Scene_viewportYMin;
+   static int Scene_viewportXMin;
+   static int Scene_viewportXCenter;
+   static int Scene_viewportXMax;
+   static int Scene_viewportYMax;
    static int[] Scene_planeOccluderCounts;
    static Occluder[] Scene_currentOccluders;
    static Occluder[][] Scene_planeOccluders;
@@ -154,17 +154,17 @@ public class Scene {
 
    public static void Scene_addOccluder(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       Occluder var8 = new Occluder();
-      var8.af = var2 / 128 * 2125806217;
-      var8.an = var3 / 128 * -2141622931;
-      var8.aw = var4 / 128 * -1507898379;
-      var8.ac = var5 / 128 * 1022688161;
-      var8.au = var1 * -1065960575;
-      var8.ab = var2 * 2126671529;
-      var8.aq = var3 * 385880973;
-      var8.al = var4 * 582998597;
-      var8.at = var5 * 495746131;
-      var8.aa = var6 * 903512679;
-      var8.ay = var7 * -1329473239;
+      var8.minTileX = var2 / 128 * 2125806217;
+      var8.maxTileX = var3 / 128 * -2141622931;
+      var8.minTileY = var4 / 128 * -1507898379;
+      var8.maxTileY = var5 / 128 * 1022688161;
+      var8.type = var1 * -1065960575;
+      var8.minX = var2 * 2126671529;
+      var8.maxX = var3 * 385880973;
+      var8.minZ = var4 * 582998597;
+      var8.maxZ = var5 * 495746131;
+      var8.minY = var6 * 903512679;
+      var8.maxY = var7 * -1329473239;
       Scene_planeOccluders[var0][Scene_planeOccluderCounts[var0]++] = var8;
    }
 
@@ -797,12 +797,12 @@ public class Scene {
    }
 
    public static void Scene_buildVisiblityMap(int[] var0, int var1, int var2, int var3, int var4) {
-      cl = 0;
-      cg = 0;
-      cr = var3;
-      cy = var4;
-      cm = var3 / 2;
-      cf = var4 / 2;
+      Scene_viewportXMin = 0;
+      Scene_viewportYMin = 0;
+      Scene_viewportXMax = var3;
+      Scene_viewportYMax = var4;
+      Scene_viewportXCenter = var3 / 2;
+      Scene_viewportYCenter = var4 / 2;
       boolean[][][][] var5 = new boolean[var0.length][32][53][53];
 
       int var6;
@@ -813,10 +813,10 @@ public class Scene {
       int var12;
       for(var6 = 128; var6 <= 383; var6 += 32) {
          for(var7 = 0; var7 < 2048; var7 += 64) {
-            Scene_cameraPitchSine = in.ac[var6];
-            Scene_cameraPitchCosine = in.au[var6];
-            Scene_cameraYawSine = in.ac[var7];
-            Scene_cameraYawCosine = in.au[var7];
+            Scene_cameraPitchSine = Rasterizer3D.ac[var6];
+            Scene_cameraPitchCosine = Rasterizer3D.au[var6];
+            Scene_cameraYawSine = Rasterizer3D.ac[var7];
+            Scene_cameraYawCosine = Rasterizer3D.au[var7];
             var8 = (var6 - 128) / 32;
             var9 = var7 / 64;
 
@@ -884,9 +884,9 @@ public class Scene {
       int var5 = var1 * Scene_cameraPitchSine + var4 * Scene_cameraPitchCosine >> 16;
       int var6 = var1 * Scene_cameraPitchCosine - var4 * Scene_cameraPitchSine >> 16;
       if (var5 >= 50 && var5 <= 3500) {
-         int var7 = cm + var3 * 128 / var5;
-         int var8 = cf + var6 * 128 / var5;
-         return var7 >= cl && var7 <= cr && var8 >= cg && var8 <= cy;
+         int var7 = Scene_viewportXCenter + var3 * 128 / var5;
+         int var8 = Scene_viewportYCenter + var6 * 128 / var5;
+         return var7 >= Scene_viewportXMin && var7 <= Scene_viewportXMax && var8 >= Scene_viewportYMin && var8 <= Scene_viewportYMax;
       } else {
          return false;
       }
@@ -937,10 +937,10 @@ public class Scene {
       }
 
       ++Scene_drawnCount;
-      Scene_cameraPitchSine = in.ac[var4];
-      Scene_cameraPitchCosine = in.au[var4];
-      Scene_cameraYawSine = in.ac[var5];
-      Scene_cameraYawCosine = in.au[var5];
+      Scene_cameraPitchSine = Rasterizer3D.ac[var4];
+      Scene_cameraPitchCosine = Rasterizer3D.au[var4];
+      Scene_cameraYawSine = Rasterizer3D.ac[var5];
+      Scene_cameraYawCosine = Rasterizer3D.au[var5];
       visibleTiles = visibilityMap[(var4 - 128) / 32][var5 / 64];
       Scene_cameraX = var1;
       Scene_cameraY = var2;
@@ -1689,14 +1689,14 @@ public class Scene {
                   float var31 = Npc.au_renamed(var11);
                   float var32 = Npc.au_renamed(var16);
                   float var33 = Npc.au_renamed(var15);
-                  in.ab.aw = 0;
+                  Rasterizer3D.ab.aw = 0;
                   int var34;
                   int var35;
                   if ((var26 - var28) * (var25 - var29) - (var27 - var29) * (var24 - var28) > 0) {
-                     in.ab.af = false;
+                     Rasterizer3D.ab.af = false;
                      var34 = aq.aa_renamed();
                      if (var26 < 0 || var28 < 0 || var24 < 0 || var26 > var34 || var28 > var34 || var24 > var34) {
-                        in.ab.af = true;
+                        Rasterizer3D.ab.af = true;
                      }
 
                      if (bx && bv_renamed(Scene_selectedScreenX, Scene_selectedScreenY, var27, var29, var25, var26, var28, var24)) {
@@ -1715,16 +1715,16 @@ public class Scene {
                            FloorDecoration.am_renamed(var27, var29, var25, var26, var28, var24, var32, var33, var31, var1.seColor * -1667175185, var1.texture * 890568309, var1.swColor * 40257399, var13, var9, var14, var19, var21, var18, var16, var15, var11, var1.nwColor * 412494011);
                         }
                      } else {
-                        var35 = in.ab.aq.ac(var1.nwColor * 412494011);
+                        var35 = Rasterizer3D.ab.aq.ac(var1.nwColor * 412494011);
                         Wall.ah_renamed(var27, var29, var25, var26, var28, var24, var32, var33, var31, ba_renamed(var35, var1.seColor * -1667175185), ba_renamed(var35, var1.texture * 890568309), ba_renamed(var35, var1.swColor * 40257399));
                      }
                   }
 
                   if ((var22 - var24) * (var29 - var25) - (var23 - var25) * (var28 - var24) > 0) {
-                     in.ab.af = false;
+                     Rasterizer3D.ab.af = false;
                      var34 = aq.aa_renamed();
                      if (var22 < 0 || var24 < 0 || var28 < 0 || var22 > var34 || var24 > var34 || var28 > var34) {
-                        in.ab.af = true;
+                        Rasterizer3D.ab.af = true;
                      }
 
                      if (bx && bv_renamed(Scene_selectedScreenX, Scene_selectedScreenY, var23, var25, var29, var22, var24, var28)) {
@@ -1739,7 +1739,7 @@ public class Scene {
                      } else if (!Scene_isLowDetail) {
                         FloorDecoration.am_renamed(var23, var25, var29, var22, var24, var28, var30, var31, var33, var1.rgb * 1860851959, var1.swColor * 40257399, var1.texture * 890568309, var10, var14, var9, var17, var18, var21, var12, var11, var15, var1.nwColor * 412494011);
                      } else {
-                        var35 = in.ab.aq.ac(var1.nwColor * 412494011);
+                        var35 = Rasterizer3D.ab.aq.ac(var1.nwColor * 412494011);
                         Wall.ah_renamed(var23, var25, var29, var22, var24, var28, var30, var31, var33, ba_renamed(var35, var1.rgb * 1860851959), ba_renamed(var35, var1.swColor * 40257399), ba_renamed(var35, var1.texture * 890568309));
                      }
                   }
@@ -1782,7 +1782,7 @@ public class Scene {
          TileModel.ar[var9] = Npc.au_renamed(var12);
       }
 
-      in.ab.aw = 0;
+      Rasterizer3D.ab.aw = 0;
       var8 = var1.aq.length;
 
       for(var9 = 0; var9 < var8; ++var9) {
@@ -1799,10 +1799,10 @@ public class Scene {
          float var20 = TileModel.ar[var11];
          float var21 = TileModel.ar[var12];
          if ((var13 - var14) * (var18 - var17) - (var16 - var17) * (var15 - var14) > 0) {
-            in.ab.af = false;
+            Rasterizer3D.ab.af = false;
             int var22 = aq.aa_renamed();
             if (var13 < 0 || var14 < 0 || var15 < 0 || var13 > var22 || var14 > var22 || var15 > var22) {
-               in.ab.af = true;
+               Rasterizer3D.ab.af = true;
             }
 
             if (bx && bv_renamed(Scene_selectedScreenX, Scene_selectedScreenY, var16, var17, var18, var13, var14, var15)) {
@@ -1818,7 +1818,7 @@ public class Scene {
                      FloorDecoration.am_renamed(var16, var17, var18, var13, var14, var15, var19, var20, var21, var1.ac[var9], var1.au[var9], var1.ab[var9], TileModel.am[var10], TileModel.am[var11], TileModel.am[var12], TileModel.as[var10], TileModel.as[var11], TileModel.as[var12], TileModel.aj[var10], TileModel.aj[var11], TileModel.aj[var12], var1.aa[var9]);
                   }
                } else {
-                  int var23 = in.ab.aq.ac(var1.aa[var9]);
+                  int var23 = Rasterizer3D.ab.aq.ac(var1.aa[var9]);
                   Wall.ah_renamed(var16, var17, var18, var13, var14, var15, var19, var20, var21, ba_renamed(var23, var1.ac[var9]), ba_renamed(var23, var1.au[var9]), ba_renamed(var23, var1.ab[var9]));
                }
             } else if (var1.ac[var9] != 12345678) {
@@ -1877,15 +1877,15 @@ public class Scene {
          int var7;
          int var9;
          boolean var18;
-         if (var4.au * -33717119 == 1) {
-            var5 = var4.af * -219522119 - Scene_cameraXTile + 25;
+         if (var4.type * -33717119 == 1) {
+            var5 = var4.minTileX * -219522119 - Scene_cameraXTile + 25;
             if (var5 >= 0 && var5 <= 50) {
-               var6 = var4.aw * 1910687837 - Scene_cameraYTile + 25;
+               var6 = var4.minTileY * 1910687837 - Scene_cameraYTile + 25;
                if (var6 < 0) {
                   var6 = 0;
                }
 
-               var7 = var4.ac * 506177633 - Scene_cameraYTile + 25;
+               var7 = var4.maxTileY * 506177633 - Scene_cameraYTile + 25;
                if (var7 > 50) {
                   var7 = 50;
                }
@@ -1900,7 +1900,7 @@ public class Scene {
                }
 
                if (var18) {
-                  var9 = Scene_cameraX - var4.ab * -1074260583;
+                  var9 = Scene_cameraX - var4.minX * -1074260583;
                   if (var9 > 32) {
                      var4.ao = 455574555;
                   } else {
@@ -1912,22 +1912,22 @@ public class Scene {
                      var9 = -var9;
                   }
 
-                  var4.ag = (var4.al * -1443747699 - Scene_cameraZ << 8) / var9 * -220034745;
-                  var4.ah = (var4.at * 1383802843 - Scene_cameraZ << 8) / var9 * -1665480987;
-                  var4.av = (var4.aa * 690846039 - Scene_cameraY << 8) / var9 * -1186198099;
-                  var4.ar = (var4.ay * 1879954201 - Scene_cameraY << 8) / var9 * 628709121;
+                  var4.ag = (var4.minZ * -1443747699 - Scene_cameraZ << 8) / var9 * -220034745;
+                  var4.ah = (var4.maxZ * 1383802843 - Scene_cameraZ << 8) / var9 * -1665480987;
+                  var4.av = (var4.minY * 690846039 - Scene_cameraY << 8) / var9 * -1186198099;
+                  var4.ar = (var4.maxY * 1879954201 - Scene_cameraY << 8) / var9 * 628709121;
                   Scene_currentOccluders[bf++] = var4;
                }
             }
-         } else if (var4.au * -33717119 == 2) {
-            var5 = var4.aw * 1910687837 - Scene_cameraYTile + 25;
+         } else if (var4.type * -33717119 == 2) {
+            var5 = var4.minTileY * 1910687837 - Scene_cameraYTile + 25;
             if (var5 >= 0 && var5 <= 50) {
-               var6 = var4.af * -219522119 - Scene_cameraXTile + 25;
+               var6 = var4.minTileX * -219522119 - Scene_cameraXTile + 25;
                if (var6 < 0) {
                   var6 = 0;
                }
 
-               var7 = var4.an * -1873370011 - Scene_cameraXTile + 25;
+               var7 = var4.maxTileX * -1873370011 - Scene_cameraXTile + 25;
                if (var7 > 50) {
                   var7 = 50;
                }
@@ -1942,7 +1942,7 @@ public class Scene {
                }
 
                if (var18) {
-                  var9 = Scene_cameraZ - var4.al * -1443747699;
+                  var9 = Scene_cameraZ - var4.minZ * -1443747699;
                   if (var9 > 32) {
                      var4.ao = 1366723665;
                   } else {
@@ -1954,33 +1954,33 @@ public class Scene {
                      var9 = -var9;
                   }
 
-                  var4.ax = (var4.ab * -1074260583 - Scene_cameraX << 8) / var9 * -1619986937;
-                  var4.ai = (var4.aq * -875468987 - Scene_cameraX << 8) / var9 * 528722083;
-                  var4.av = (var4.aa * 690846039 - Scene_cameraY << 8) / var9 * -1186198099;
-                  var4.ar = (var4.ay * 1879954201 - Scene_cameraY << 8) / var9 * 628709121;
+                  var4.ax = (var4.minX * -1074260583 - Scene_cameraX << 8) / var9 * -1619986937;
+                  var4.ai = (var4.maxX * -875468987 - Scene_cameraX << 8) / var9 * 528722083;
+                  var4.av = (var4.minY * 690846039 - Scene_cameraY << 8) / var9 * -1186198099;
+                  var4.ar = (var4.maxY * 1879954201 - Scene_cameraY << 8) / var9 * 628709121;
                   Scene_currentOccluders[bf++] = var4;
                }
             }
-         } else if (var4.au * -33717119 == 4) {
-            var5 = var4.aa * 690846039 - Scene_cameraY;
+         } else if (var4.type * -33717119 == 4) {
+            var5 = var4.minY * 690846039 - Scene_cameraY;
             if (var5 > 128) {
-               var6 = var4.aw * 1910687837 - Scene_cameraYTile + 25;
+               var6 = var4.minTileY * 1910687837 - Scene_cameraYTile + 25;
                if (var6 < 0) {
                   var6 = 0;
                }
 
-               var7 = var4.ac * 506177633 - Scene_cameraYTile + 25;
+               var7 = var4.maxTileY * 506177633 - Scene_cameraYTile + 25;
                if (var7 > 50) {
                   var7 = 50;
                }
 
                if (var6 <= var7) {
-                  int var8 = var4.af * -219522119 - Scene_cameraXTile + 25;
+                  int var8 = var4.minTileX * -219522119 - Scene_cameraXTile + 25;
                   if (var8 < 0) {
                      var8 = 0;
                   }
 
-                  var9 = var4.an * -1873370011 - Scene_cameraXTile + 25;
+                  var9 = var4.maxTileX * -1873370011 - Scene_cameraXTile + 25;
                   if (var9 > 50) {
                      var9 = 50;
                   }
@@ -1999,10 +1999,10 @@ public class Scene {
 
                   if (var10) {
                      var4.ao = -2017094521;
-                     var4.ax = (var4.ab * -1074260583 - Scene_cameraX << 8) / var5 * -1619986937;
-                     var4.ai = (var4.aq * -875468987 - Scene_cameraX << 8) / var5 * 528722083;
-                     var4.ag = (var4.al * -1443747699 - Scene_cameraZ << 8) / var5 * -220034745;
-                     var4.ah = (var4.at * 1383802843 - Scene_cameraZ << 8) / var5 * -1665480987;
+                     var4.ax = (var4.minX * -1074260583 - Scene_cameraX << 8) / var5 * -1619986937;
+                     var4.ai = (var4.maxX * -875468987 - Scene_cameraX << 8) / var5 * 528722083;
+                     var4.ag = (var4.minZ * -1443747699 - Scene_cameraZ << 8) / var5 * -220034745;
+                     var4.ah = (var4.maxZ * 1383802843 - Scene_cameraZ << 8) / var5 * -1665480987;
                      Scene_currentOccluders[bf++] = var4;
                   }
                }
@@ -2249,56 +2249,56 @@ public class Scene {
          int var9;
          int var10;
          if (var5.ao * -221071853 == 1) {
-            var6 = var5.ab * -1074260583 - var1;
+            var6 = var5.minX * -1074260583 - var1;
             if (var6 > 0) {
-               var7 = var5.al * -1443747699 + (var5.ag * -371961737 * var6 >> 8);
-               var8 = var5.at * 1383802843 + (var5.ah * 1030915821 * var6 >> 8);
-               var9 = var5.aa * 690846039 + (var5.av * -847323611 * var6 >> 8);
-               var10 = var5.ay * 1879954201 + (var5.ar * -283662079 * var6 >> 8);
+               var7 = var5.minZ * -1443747699 + (var5.ag * -371961737 * var6 >> 8);
+               var8 = var5.maxZ * 1383802843 + (var5.ah * 1030915821 * var6 >> 8);
+               var9 = var5.minY * 690846039 + (var5.av * -847323611 * var6 >> 8);
+               var10 = var5.maxY * 1879954201 + (var5.ar * -283662079 * var6 >> 8);
                if (var3 >= var7 && var3 <= var8 && var2 >= var9 && var2 <= var10) {
                   return true;
                }
             }
          } else if (var5.ao * -221071853 == 2) {
-            var6 = var1 - var5.ab * -1074260583;
+            var6 = var1 - var5.minX * -1074260583;
             if (var6 > 0) {
-               var7 = var5.al * -1443747699 + (var5.ag * -371961737 * var6 >> 8);
-               var8 = var5.at * 1383802843 + (var5.ah * 1030915821 * var6 >> 8);
-               var9 = var5.aa * 690846039 + (var5.av * -847323611 * var6 >> 8);
-               var10 = var5.ay * 1879954201 + (var5.ar * -283662079 * var6 >> 8);
+               var7 = var5.minZ * -1443747699 + (var5.ag * -371961737 * var6 >> 8);
+               var8 = var5.maxZ * 1383802843 + (var5.ah * 1030915821 * var6 >> 8);
+               var9 = var5.minY * 690846039 + (var5.av * -847323611 * var6 >> 8);
+               var10 = var5.maxY * 1879954201 + (var5.ar * -283662079 * var6 >> 8);
                if (var3 >= var7 && var3 <= var8 && var2 >= var9 && var2 <= var10) {
                   return true;
                }
             }
          } else if (var5.ao * -221071853 == 3) {
-            var6 = var5.al * -1443747699 - var3;
+            var6 = var5.minZ * -1443747699 - var3;
             if (var6 > 0) {
-               var7 = var5.ab * -1074260583 + (var5.ax * 1498322871 * var6 >> 8);
-               var8 = var5.aq * -875468987 + (var5.ai * 542133003 * var6 >> 8);
-               var9 = var5.aa * 690846039 + (var5.av * -847323611 * var6 >> 8);
-               var10 = var5.ay * 1879954201 + (var5.ar * -283662079 * var6 >> 8);
+               var7 = var5.minX * -1074260583 + (var5.ax * 1498322871 * var6 >> 8);
+               var8 = var5.maxX * -875468987 + (var5.ai * 542133003 * var6 >> 8);
+               var9 = var5.minY * 690846039 + (var5.av * -847323611 * var6 >> 8);
+               var10 = var5.maxY * 1879954201 + (var5.ar * -283662079 * var6 >> 8);
                if (var1 >= var7 && var1 <= var8 && var2 >= var9 && var2 <= var10) {
                   return true;
                }
             }
          } else if (var5.ao * -221071853 == 4) {
-            var6 = var3 - var5.al * -1443747699;
+            var6 = var3 - var5.minZ * -1443747699;
             if (var6 > 0) {
-               var7 = var5.ab * -1074260583 + (var5.ax * 1498322871 * var6 >> 8);
-               var8 = var5.aq * -875468987 + (var5.ai * 542133003 * var6 >> 8);
-               var9 = var5.aa * 690846039 + (var5.av * -847323611 * var6 >> 8);
-               var10 = var5.ay * 1879954201 + (var5.ar * -283662079 * var6 >> 8);
+               var7 = var5.minX * -1074260583 + (var5.ax * 1498322871 * var6 >> 8);
+               var8 = var5.maxX * -875468987 + (var5.ai * 542133003 * var6 >> 8);
+               var9 = var5.minY * 690846039 + (var5.av * -847323611 * var6 >> 8);
+               var10 = var5.maxY * 1879954201 + (var5.ar * -283662079 * var6 >> 8);
                if (var1 >= var7 && var1 <= var8 && var2 >= var9 && var2 <= var10) {
                   return true;
                }
             }
          } else if (var5.ao * -221071853 == 5) {
-            var6 = var2 - var5.aa * 690846039;
+            var6 = var2 - var5.minY * 690846039;
             if (var6 > 0) {
-               var7 = var5.ab * -1074260583 + (var5.ax * 1498322871 * var6 >> 8);
-               var8 = var5.aq * -875468987 + (var5.ai * 542133003 * var6 >> 8);
-               var9 = var5.al * -1443747699 + (var5.ag * -371961737 * var6 >> 8);
-               var10 = var5.at * 1383802843 + (var5.ah * 1030915821 * var6 >> 8);
+               var7 = var5.minX * -1074260583 + (var5.ax * 1498322871 * var6 >> 8);
+               var8 = var5.maxX * -875468987 + (var5.ai * 542133003 * var6 >> 8);
+               var9 = var5.minZ * -1443747699 + (var5.ag * -371961737 * var6 >> 8);
+               var10 = var5.maxZ * 1383802843 + (var5.ah * 1030915821 * var6 >> 8);
                if (var1 >= var7 && var1 <= var8 && var3 >= var9 && var3 <= var10) {
                   return true;
                }

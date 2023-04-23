@@ -16,7 +16,7 @@ public class ds {
    static qt rx;
    static Packet ag = new Packet(new byte[5000]);
    static Packet[] au = new Packet[2048];
-   static Rasterizer3D[] kd;
+   static Sprite[] kd;
 
    static boolean loadWorlds() {
       try {

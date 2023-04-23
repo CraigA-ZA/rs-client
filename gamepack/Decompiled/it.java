@@ -76,10 +76,10 @@ public class it extends Entity {
    public short cd;
 
    static {
-      cy = in.ac;
-      cx = in.au;
-      cv = in.af;
-      cb = in.aw;
+      cy = Rasterizer3D.ac;
+      cx = Rasterizer3D.au;
+      cv = Rasterizer3D.af;
+      cb = Rasterizer3D.aw;
       cw = Npc.au_renamed(50);
    }
 
@@ -1038,14 +1038,14 @@ public class it extends Entity {
          if (var16 / var14 < kt.aq_renamed()) {
             int var17 = (var15 + this.bm) * eu.at_renamed();
             int var18 = var17 / var14;
-            int var19 = -1346890391 * in.ab.av;
+            int var19 = -1346890391 * Rasterizer3D.ab.av;
             if (var18 > var19) {
                int var20 = var7 * var3 - var11 * var2 >> 16;
                int var21 = this.bm * var2 >> 16;
                int var22 = var21 + (this.bz * var3 >> 16);
                int var23 = (var20 + var22) * eu.at_renamed();
                int var24 = var23 / var14;
-               int var25 = in.ab.am * 1380452969;
+               int var25 = Rasterizer3D.ab.am * 1380452969;
                if (var24 > var25) {
                   int var26 = var21 + (this.height * 1550732737 * var3 >> 16);
                   int var27 = (var20 - var26) * eu.at_renamed();
@@ -1426,11 +1426,11 @@ public class it extends Entity {
          int var2 = this.ax[var1];
          int var3 = this.ai[var1];
          int var4 = this.ag[var1];
-         in.ab.af = bs[var1];
+         Rasterizer3D.ab.af = bs[var1];
          if (this.as == null) {
-            in.ab.aw = 0;
+            Rasterizer3D.ab.aw = 0;
          } else {
-            in.ab.aw = (this.as[var1] & 255) * -1087605381;
+            Rasterizer3D.ab.aw = (this.as[var1] & 255) * -1087605381;
          }
 
          this.bt(var1, bu[var2], bu[var3], bu[var4], bg[var2], bg[var3], bg[var4], bf[var2], bf[var3], bf[var4], this.ah[var1], this.av[var1], this.ar[var1]);
@@ -1472,7 +1472,7 @@ public class it extends Entity {
             var17 = this.ch;
             var18 = this.ct;
             byte var19 = this.cp;
-            in.aq.au(var2, var3, var4, var5, var6, var7, var8, var9, var10, var15, (byte)var16, (byte)var17, var18, var19);
+            Rasterizer3D.aq.au(var2, var3, var4, var5, var6, var7, var8, var9, var10, var15, (byte)var16, (byte)var17, var18, var19);
          } else if (this.ar[var1] == -1) {
             fw.av_renamed(var2, var3, var4, var5, var6, var7, var8, var9, var10, cv[this.ah[var1]]);
          } else if (var14) {
@@ -1480,7 +1480,7 @@ public class it extends Entity {
             var16 = this.ch;
             var17 = this.ct;
             var18 = this.cp;
-            in.aq.ac(var2, var3, var4, var5, var6, var7, var8, var9, var10, var11, var12, var13, (byte)var15, (byte)var16, (byte)var17, var18);
+            Rasterizer3D.aq.ac(var2, var3, var4, var5, var6, var7, var8, var9, var10, var11, var12, var13, (byte)var15, (byte)var16, (byte)var17, var18);
          } else {
             Wall.ah_renamed(var2, var3, var4, var5, var6, var7, var8, var9, var10, var11, var12, var13);
          }
@@ -1499,9 +1499,9 @@ public class it extends Entity {
       int var9 = bl[var6];
       int var10 = bl[var7];
       if (this.as == null) {
-         in.ab.aw = 0;
+         Rasterizer3D.ab.aw = 0;
       } else {
-         in.ab.aw = (this.as[var1] & 255) * -1087605381;
+         Rasterizer3D.ab.aw = (this.as[var1] & 255) * -1087605381;
       }
 
       int var11;
@@ -1594,11 +1594,11 @@ public class it extends Entity {
       float var17 = ck[0];
       float var18 = ck[1];
       float var19 = ck[2];
-      in.ab.af = false;
+      Rasterizer3D.ab.af = false;
       int var20 = aq.aa_renamed();
       if (var4 == 3) {
          if (var11 < 0 || var12 < 0 || var13 < 0 || var11 > var20 || var12 > var20 || var13 > var20) {
-            in.ab.af = true;
+            Rasterizer3D.ab.af = true;
          }
 
          this.bt(var1, var14, var15, var16, var11, var12, var13, var17, var18, var19, cu[0], cu[1], cu[2]);
@@ -1606,7 +1606,7 @@ public class it extends Entity {
 
       if (var4 == 4) {
          if (var11 < 0 || var12 < 0 || var13 < 0 || var11 > var20 || var12 > var20 || var13 > var20 || cn[3] < 0 || cn[3] > var20) {
-            in.ab.af = true;
+            Rasterizer3D.ab.af = true;
          }
 
          int var22;
@@ -1646,7 +1646,7 @@ public class it extends Entity {
                var40 = this.ch;
                var25 = this.ct;
                var26 = this.cp;
-               in.aq.au(var14, var15, var16, var11, var12, var13, var17, var18, var19, var22, var39, (byte)var40, var25, var26);
+               Rasterizer3D.aq.au(var14, var15, var16, var11, var12, var13, var17, var18, var19, var22, var39, (byte)var40, var25, var26);
                var27 = ca[3];
                var28 = cn[3];
                float var41 = ck[3];
@@ -1654,7 +1654,7 @@ public class it extends Entity {
                byte var43 = this.ch;
                byte var44 = this.ct;
                byte var45 = this.cp;
-               in.aq.au(var14, var16, var27, var11, var13, var28, var17, var19, var41, var22, var42, var43, var44, var45);
+               Rasterizer3D.aq.au(var14, var16, var27, var11, var13, var28, var17, var19, var41, var22, var42, var43, var44, var45);
             } else if (this.ar[var1] == -1) {
                var22 = cv[this.ah[var1]];
                fw.av_renamed(var14, var15, var16, var11, var12, var13, var17, var18, var19, var22);
@@ -1667,7 +1667,7 @@ public class it extends Entity {
                var26 = this.ct;
                var27 = this.ch;
                var28 = this.cp;
-               in.aq.ac(var14, var15, var16, var11, var12, var13, var17, var18, var19, var22, var23, var24, var25, var26, (byte)var27, (byte)var28);
+               Rasterizer3D.aq.ac(var14, var15, var16, var11, var12, var13, var17, var18, var19, var22, var23, var24, var25, var26, (byte)var27, (byte)var28);
                int var29 = ca[3];
                int var30 = cn[3];
                int var31 = cu[0];
@@ -1677,7 +1677,7 @@ public class it extends Entity {
                byte var35 = this.ct;
                byte var36 = this.ch;
                byte var37 = this.cp;
-               in.aq.ac(var14, var16, var29, var11, var13, var30, 0.0F, 0.0F, 0.0F, var31, var32, var33, var34, var35, var36, var37);
+               Rasterizer3D.aq.ac(var14, var16, var29, var11, var13, var30, 0.0F, 0.0F, 0.0F, var31, var32, var33, var34, var35, var36, var37);
             } else {
                Wall.ah_renamed(var14, var15, var16, var11, var12, var13, var17, var18, var19, cu[0], cu[1], cu[2]);
                Wall.ah_renamed(var14, var16, ca[3], var11, var13, cn[3], var17, var19, ck[3], cu[0], cu[2], cu[3]);

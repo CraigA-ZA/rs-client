@@ -128,15 +128,15 @@ public class hy implements be {
             Tiles.aw = -1087180359 * var0;
          }
 
-         hq var9 = fw.an_renamed(var3);
+         LocType var9 = fw.an_renamed(var3);
          int var10;
          int var11;
          if (var4 != 1 && var4 != 3) {
-            var10 = var9.av * -1339930361;
-            var11 = -1659393955 * var9.ar;
+            var10 = var9.offsetZ * -1339930361;
+            var11 = -1659393955 * var9.width;
          } else {
-            var10 = -1659393955 * var9.ar;
-            var11 = -1339930361 * var9.av;
+            var10 = -1659393955 * var9.width;
+            var11 = -1339930361 * var9.offsetZ;
          }
 
          int var12;
@@ -163,7 +163,7 @@ public class hy implements be {
          int var17 = var16[var13][var15] + var16[var12][var15] + var16[var12][var14] + var16[var13][var14] >> 2;
          int var18 = (var10 << 6) + (var1 << 7);
          int var19 = (var2 << 7) + (var11 << 6);
-         long var20 = ir.aa_renamed(var1, var2, 2, 0 == 415653149 * var9.aj, var3);
+         long var20 = ir.aa_renamed(var1, var2, 2, 0 == 415653149 * var9.int2, var3);
          int var22 = var5 + (var4 << 6);
          if (-1850643527 * var9.bg == 1) {
             var22 += 256;
@@ -175,15 +175,15 @@ public class hy implements be {
 
          Object var23;
          if (22 == var5) {
-            if (!Client.cu || 0 != var9.aj * 415653149 || 1 == var9.am * -973955889 || var9.bs) {
-               if (-1 == 1292954189 * var9.ae && null == var9.bu) {
+            if (!Client.cu || 0 != var9.int2 * 415653149 || 1 == var9.interactType * -973955889 || var9.clipped) {
+               if (-1 == 1292954189 * var9.ambient && null == var9.multi) {
                   var23 = var9.al(22, var4, var16, var18, var17, var19, (byte)-65);
                } else {
-                  var23 = new DynamicObject(var3, 22, var4, var0, var1, var2, 1292954189 * var9.ae, var9.bh, (Entity)null);
+                  var23 = new DynamicObject(var3, 22, var4, var0, var1, var2, 1292954189 * var9.ambient, var9.bh, (Entity)null);
                }
 
                var6.newFloorDecoration(var0, var1, var2, var17, (Entity)var23, var20, var22);
-               if (var9.am * -973955889 == 1 && var7 != null) {
+               if (var9.interactType * -973955889 == 1 && var7 != null) {
                   var7.au(var1, var2);
                }
 
@@ -193,10 +193,10 @@ public class hy implements be {
             if (10 != var5 && var5 != 11) {
                int[] var10000;
                if (var5 >= 12) {
-                  if (var9.ae * 1292954189 == -1 && null == var9.bu) {
+                  if (var9.ambient * 1292954189 == -1 && null == var9.multi) {
                      var23 = var9.al(var5, var4, var16, var18, var17, var19, (byte)-110);
                   } else {
-                     var23 = new DynamicObject(var3, var5, var4, var0, var1, var2, var9.ae * 1292954189, var9.bh, (Entity)null);
+                     var23 = new DynamicObject(var3, var5, var4, var0, var1, var2, var9.ambient * 1292954189, var9.bh, (Entity)null);
                   }
 
                   var6.ay(var0, var1, var2, var17, 1, 1, (Entity)var23, 0, var20, var22);
@@ -205,77 +205,77 @@ public class hy implements be {
                      var10000[var2] |= 2340;
                   }
 
-                  if (0 != var9.am * -973955889 && null != var7) {
-                     var7.aw(var1, var2, var10, var11, var9.as);
+                  if (0 != var9.interactType * -973955889 && null != var7) {
+                     var7.aw(var1, var2, var10, var11, var9.boolean1);
                   }
 
                } else if (var5 == 0) {
-                  if (-1 == var9.ae * 1292954189 && var9.bu == null) {
+                  if (-1 == var9.ambient * 1292954189 && var9.multi == null) {
                      var23 = var9.al(0, var4, var16, var18, var17, var19, (byte)-17);
                   } else {
-                     var23 = new DynamicObject(var3, 0, var4, var0, var1, var2, 1292954189 * var9.ae, var9.bh, (Entity)null);
+                     var23 = new DynamicObject(var3, 0, var4, var0, var1, var2, 1292954189 * var9.ambient, var9.bh, (Entity)null);
                   }
 
                   var6.newWall(var0, var1, var2, var17, (Entity)var23, (Entity)null, Tiles.am[var4], 0, var20, var22);
                   if (0 == var4) {
-                     if (var9.bo) {
+                     if (var9.isRotated) {
                         Tiles.al[var0][var1][var2] = 50;
                         Tiles.al[var0][var1][var2 + 1] = 50;
                      }
 
-                     if (var9.ad) {
+                     if (var9.sharelight) {
                         var10000 = ge.ag[var0][var1];
                         var10000[var2] |= 585;
                      }
                   } else if (1 == var4) {
-                     if (var9.bo) {
+                     if (var9.isRotated) {
                         Tiles.al[var0][var1][1 + var2] = 50;
                         Tiles.al[var0][var1 + 1][1 + var2] = 50;
                      }
 
-                     if (var9.ad) {
+                     if (var9.sharelight) {
                         var10000 = ge.ag[var0][var1];
                         var10000[1 + var2] |= 1170;
                      }
                   } else if (2 == var4) {
-                     if (var9.bo) {
+                     if (var9.isRotated) {
                         Tiles.al[var0][1 + var1][var2] = 50;
                         Tiles.al[var0][1 + var1][1 + var2] = 50;
                      }
 
-                     if (var9.ad) {
+                     if (var9.sharelight) {
                         var10000 = ge.ag[var0][1 + var1];
                         var10000[var2] |= 585;
                      }
                   } else if (3 == var4) {
-                     if (var9.bo) {
+                     if (var9.isRotated) {
                         Tiles.al[var0][var1][var2] = 50;
                         Tiles.al[var0][var1 + 1][var2] = 50;
                      }
 
-                     if (var9.ad) {
+                     if (var9.sharelight) {
                         var10000 = ge.ag[var0][var1];
                         var10000[var2] |= 1170;
                      }
                   }
 
-                  if (var9.am * -973955889 != 0 && null != var7) {
-                     var7.an(var1, var2, var5, var4, var9.as);
+                  if (var9.interactType * -973955889 != 0 && null != var7) {
+                     var7.an(var1, var2, var5, var4, var9.boolean1);
                   }
 
-                  if (16 != -89408815 * var9.ap) {
-                     var6.av(var0, var1, var2, -89408815 * var9.ap);
+                  if (16 != -89408815 * var9.contrast) {
+                     var6.av(var0, var1, var2, -89408815 * var9.contrast);
                   }
 
                } else if (var5 == 1) {
-                  if (1292954189 * var9.ae == -1 && var9.bu == null) {
+                  if (1292954189 * var9.ambient == -1 && var9.multi == null) {
                      var23 = var9.al(1, var4, var16, var18, var17, var19, (byte)-60);
                   } else {
-                     var23 = new DynamicObject(var3, 1, var4, var0, var1, var2, 1292954189 * var9.ae, var9.bh, (Entity)null);
+                     var23 = new DynamicObject(var3, 1, var4, var0, var1, var2, 1292954189 * var9.ambient, var9.bh, (Entity)null);
                   }
 
                   var6.newWall(var0, var1, var2, var17, (Entity)var23, (Entity)null, Tiles.as[var4], 0, var20, var22);
-                  if (var9.bo) {
+                  if (var9.isRotated) {
                      if (var4 == 0) {
                         Tiles.al[var0][var1][var2 + 1] = 50;
                      } else if (1 == var4) {
@@ -287,8 +287,8 @@ public class hy implements be {
                      }
                   }
 
-                  if (-973955889 * var9.am != 0 && var7 != null) {
-                     var7.an(var1, var2, var5, var4, var9.as);
+                  if (-973955889 * var9.interactType != 0 && var7 != null) {
+                     var7.an(var1, var2, var5, var4, var9.boolean1);
                   }
 
                } else {
@@ -297,16 +297,16 @@ public class hy implements be {
                      var29 = 1 + var4 & 3;
                      Object var31;
                      Object var32;
-                     if (1292954189 * var9.ae == -1 && null == var9.bu) {
+                     if (1292954189 * var9.ambient == -1 && null == var9.multi) {
                         var32 = var9.al(2, var4 + 4, var16, var18, var17, var19, (byte)-33);
                         var31 = var9.al(2, var29, var16, var18, var17, var19, (byte)-89);
                      } else {
-                        var32 = new DynamicObject(var3, 2, 4 + var4, var0, var1, var2, var9.ae * 1292954189, var9.bh, (Entity)null);
-                        var31 = new DynamicObject(var3, 2, var29, var0, var1, var2, 1292954189 * var9.ae, var9.bh, (Entity)null);
+                        var32 = new DynamicObject(var3, 2, 4 + var4, var0, var1, var2, var9.ambient * 1292954189, var9.bh, (Entity)null);
+                        var31 = new DynamicObject(var3, 2, var29, var0, var1, var2, 1292954189 * var9.ambient, var9.bh, (Entity)null);
                      }
 
                      var6.newWall(var0, var1, var2, var17, (Entity)var32, (Entity)var31, Tiles.am[var4], Tiles.am[var29], var20, var22);
-                     if (var9.ad) {
+                     if (var9.sharelight) {
                         if (var4 == 0) {
                            var10000 = ge.ag[var0][var1];
                            var10000[var2] |= 585;
@@ -330,23 +330,23 @@ public class hy implements be {
                         }
                      }
 
-                     if (var9.am * -973955889 != 0 && null != var7) {
-                        var7.an(var1, var2, var5, var4, var9.as);
+                     if (var9.interactType * -973955889 != 0 && null != var7) {
+                        var7.an(var1, var2, var5, var4, var9.boolean1);
                      }
 
-                     if (16 != var9.ap * -89408815) {
-                        var6.av(var0, var1, var2, var9.ap * -89408815);
+                     if (16 != var9.contrast * -89408815) {
+                        var6.av(var0, var1, var2, var9.contrast * -89408815);
                      }
 
                   } else if (var5 == 3) {
-                     if (-1 == 1292954189 * var9.ae && var9.bu == null) {
+                     if (-1 == 1292954189 * var9.ambient && var9.multi == null) {
                         var23 = var9.al(3, var4, var16, var18, var17, var19, (byte)-78);
                      } else {
-                        var23 = new DynamicObject(var3, 3, var4, var0, var1, var2, var9.ae * 1292954189, var9.bh, (Entity)null);
+                        var23 = new DynamicObject(var3, 3, var4, var0, var1, var2, var9.ambient * 1292954189, var9.bh, (Entity)null);
                      }
 
                      var6.newWall(var0, var1, var2, var17, (Entity)var23, (Entity)null, Tiles.as[var4], 0, var20, var22);
-                     if (var9.bo) {
+                     if (var9.isRotated) {
                         if (0 == var4) {
                            Tiles.al[var0][var1][1 + var2] = 50;
                         } else if (1 == var4) {
@@ -358,31 +358,31 @@ public class hy implements be {
                         }
                      }
 
-                     if (0 != var9.am * -973955889 && null != var7) {
-                        var7.an(var1, var2, var5, var4, var9.as);
+                     if (0 != var9.interactType * -973955889 && null != var7) {
+                        var7.an(var1, var2, var5, var4, var9.boolean1);
                      }
 
                   } else if (9 == var5) {
-                     if (-1 == var9.ae * 1292954189 && var9.bu == null) {
+                     if (-1 == var9.ambient * 1292954189 && var9.multi == null) {
                         var23 = var9.al(var5, var4, var16, var18, var17, var19, (byte)-96);
                      } else {
-                        var23 = new DynamicObject(var3, var5, var4, var0, var1, var2, 1292954189 * var9.ae, var9.bh, (Entity)null);
+                        var23 = new DynamicObject(var3, var5, var4, var0, var1, var2, 1292954189 * var9.ambient, var9.bh, (Entity)null);
                      }
 
                      var6.ay(var0, var1, var2, var17, 1, 1, (Entity)var23, 0, var20, var22);
-                     if (var9.am * -973955889 != 0 && var7 != null) {
-                        var7.aw(var1, var2, var10, var11, var9.as);
+                     if (var9.interactType * -973955889 != 0 && var7 != null) {
+                        var7.aw(var1, var2, var10, var11, var9.boolean1);
                      }
 
-                     if (-89408815 * var9.ap != 16) {
-                        var6.av(var0, var1, var2, -89408815 * var9.ap);
+                     if (-89408815 * var9.contrast != 16) {
+                        var6.av(var0, var1, var2, -89408815 * var9.contrast);
                      }
 
                   } else if (var5 == 4) {
-                     if (1292954189 * var9.ae == -1 && null == var9.bu) {
+                     if (1292954189 * var9.ambient == -1 && null == var9.multi) {
                         var23 = var9.al(4, var4, var16, var18, var17, var19, (byte)-85);
                      } else {
-                        var23 = new DynamicObject(var3, 4, var4, var0, var1, var2, var9.ae * 1292954189, var9.bh, (Entity)null);
+                        var23 = new DynamicObject(var3, 4, var4, var0, var1, var2, var9.ambient * 1292954189, var9.bh, (Entity)null);
                      }
 
                      var6.newWallDecoration(var0, var1, var2, var17, (Entity)var23, (Entity)null, Tiles.am[var4], 0, 0, 0, var20, var22);
@@ -393,13 +393,13 @@ public class hy implements be {
                         var29 = 16;
                         var30 = var6.by(var0, var1, var2);
                         if (0L != var30) {
-                           var29 = fw.an_renamed(InterfaceParent.at(var30)).ap * -89408815;
+                           var29 = fw.an_renamed(InterfaceParent.at(var30)).contrast * -89408815;
                         }
 
-                        if (var9.ae * 1292954189 == -1 && null == var9.bu) {
+                        if (var9.ambient * 1292954189 == -1 && null == var9.multi) {
                            var33 = var9.al(4, var4, var16, var18, var17, var19, (byte)-90);
                         } else {
-                           var33 = new DynamicObject(var3, 4, var4, var0, var1, var2, var9.ae * 1292954189, var9.bh, (Entity)null);
+                           var33 = new DynamicObject(var3, 4, var4, var0, var1, var2, var9.ambient * 1292954189, var9.bh, (Entity)null);
                         }
 
                         var6.newWallDecoration(var0, var1, var2, var17, (Entity)var33, (Entity)null, Tiles.am[var4], 0, Tiles.aj[var4] * var29, var29 * Tiles.ak[var4], var20, var22);
@@ -407,22 +407,22 @@ public class hy implements be {
                         var29 = 8;
                         var30 = var6.by(var0, var1, var2);
                         if (0L != var30) {
-                           var29 = fw.an_renamed(InterfaceParent.at(var30)).ap * -89408815 / 2;
+                           var29 = fw.an_renamed(InterfaceParent.at(var30)).contrast * -89408815 / 2;
                         }
 
-                        if (-1 == 1292954189 * var9.ae && null == var9.bu) {
+                        if (-1 == 1292954189 * var9.ambient && null == var9.multi) {
                            var33 = var9.al(4, 4 + var4, var16, var18, var17, var19, (byte)-95);
                         } else {
-                           var33 = new DynamicObject(var3, 4, 4 + var4, var0, var1, var2, var9.ae * 1292954189, var9.bh, (Entity)null);
+                           var33 = new DynamicObject(var3, 4, 4 + var4, var0, var1, var2, var9.ambient * 1292954189, var9.bh, (Entity)null);
                         }
 
                         var6.newWallDecoration(var0, var1, var2, var17, (Entity)var33, (Entity)null, 256, var4, Tiles.az[var4] * var29, var29 * Tiles.ad[var4], var20, var22);
                      } else if (var5 == 7) {
                         var24 = 2 + var4 & 3;
-                        if (var9.ae * 1292954189 == -1 && var9.bu == null) {
+                        if (var9.ambient * 1292954189 == -1 && var9.multi == null) {
                            var23 = var9.al(4, 4 + var24, var16, var18, var17, var19, (byte)-87);
                         } else {
-                           var23 = new DynamicObject(var3, 4, var24 + 4, var0, var1, var2, 1292954189 * var9.ae, var9.bh, (Entity)null);
+                           var23 = new DynamicObject(var3, 4, var24 + 4, var0, var1, var2, 1292954189 * var9.ambient, var9.bh, (Entity)null);
                         }
 
                         var6.newWallDecoration(var0, var1, var2, var17, (Entity)var23, (Entity)null, 256, var24, 0, 0, var20, var22);
@@ -430,17 +430,17 @@ public class hy implements be {
                         var29 = 8;
                         var30 = var6.by(var0, var1, var2);
                         if (0L != var30) {
-                           var29 = fw.an_renamed(InterfaceParent.at(var30)).ap * -89408815 / 2;
+                           var29 = fw.an_renamed(InterfaceParent.at(var30)).contrast * -89408815 / 2;
                         }
 
                         int var28 = 2 + var4 & 3;
                         Object var27;
-                        if (var9.ae * 1292954189 == -1 && null == var9.bu) {
+                        if (var9.ambient * 1292954189 == -1 && null == var9.multi) {
                            var33 = var9.al(4, var4 + 4, var16, var18, var17, var19, (byte)-28);
                            var27 = var9.al(4, 4 + var28, var16, var18, var17, var19, (byte)-104);
                         } else {
-                           var33 = new DynamicObject(var3, 4, var4 + 4, var0, var1, var2, 1292954189 * var9.ae, var9.bh, (Entity)null);
-                           var27 = new DynamicObject(var3, 4, var28 + 4, var0, var1, var2, var9.ae * 1292954189, var9.bh, (Entity)null);
+                           var33 = new DynamicObject(var3, 4, var4 + 4, var0, var1, var2, 1292954189 * var9.ambient, var9.bh, (Entity)null);
+                           var27 = new DynamicObject(var3, 4, var28 + 4, var0, var1, var2, var9.ambient * 1292954189, var9.bh, (Entity)null);
                         }
 
                         var6.newWallDecoration(var0, var1, var2, var17, (Entity)var33, (Entity)var27, 256, var4, Tiles.az[var4] * var29, var29 * Tiles.ad[var4], var20, var22);
@@ -448,13 +448,13 @@ public class hy implements be {
                   }
                }
             } else {
-               if (-1 == var9.ae * 1292954189 && var9.bu == null) {
+               if (-1 == var9.ambient * 1292954189 && var9.multi == null) {
                   var23 = var9.al(10, var4, var16, var18, var17, var19, (byte)-73);
                } else {
-                  var23 = new DynamicObject(var3, 10, var4, var0, var1, var2, var9.ae * 1292954189, var9.bh, (Entity)null);
+                  var23 = new DynamicObject(var3, 10, var4, var0, var1, var2, var9.ambient * 1292954189, var9.bh, (Entity)null);
                }
 
-               if (null != var23 && var6.ay(var0, var1, var2, var17, var10, var11, (Entity)var23, 11 == var5 ? 256 : 0, var20, var22) && var9.bo) {
+               if (null != var23 && var6.ay(var0, var1, var2, var17, var10, var11, (Entity)var23, 11 == var5 ? 256 : 0, var20, var22) && var9.isRotated) {
                   var24 = 15;
                   if (var23 instanceof it) {
                      var24 = ((it)var23).ah() / 4;
@@ -472,8 +472,8 @@ public class hy implements be {
                   }
                }
 
-               if (0 != var9.am * -973955889 && var7 != null) {
-                  var7.aw(var1, var2, var10, var11, var9.as);
+               if (0 != var9.interactType * -973955889 && var7 != null) {
+                  var7.aw(var1, var2, var10, var11, var9.boolean1);
                }
 
             }

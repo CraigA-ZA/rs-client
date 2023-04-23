@@ -16,7 +16,7 @@ public final class WorldMapManager {
    WorldMapRegion[][] regions;
    WorldMapAreaData mapAreaData;
    IndexedSprite[] mapSceneSprites;
-   Rasterizer3D ac;
+   Sprite ac;
    final HashMap ay;
    final AbstractArchive aa;
    final AbstractArchive at;

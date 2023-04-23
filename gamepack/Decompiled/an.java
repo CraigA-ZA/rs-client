@@ -21,11 +21,11 @@ public class an implements Callable {
    }
 
    public static void ay_renamed(int[] var0, int var1, int var2, float[] var3) {
-      if (null == var3 && in.at == in.aq) {
-         in.aq = in.al;
+      if (null == var3 && Rasterizer3D.at == Rasterizer3D.aq) {
+         Rasterizer3D.aq = Rasterizer3D.al;
       }
 
-      in.aq.af(var0, var1, var2, var3);
+      Rasterizer3D.aq.af(var0, var1, var2, var3);
    }
 
    static void hf_renamed(int var0) {

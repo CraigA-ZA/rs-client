@@ -390,7 +390,7 @@ public class ay {
 
                         var34 = 0;
                         if (var33 != -1) {
-                           var34 = in.af[ar_renamed(var33, 96)];
+                           var34 = Rasterizer3D.af[ar_renamed(var33, 96)];
                         }
 
                         if (0 == var23) {
@@ -420,7 +420,7 @@ public class ay {
                            int var43;
                            int var44;
                            if (var63 >= 0) {
-                              var42 = in.ab.aq.ac(var63);
+                              var42 = Rasterizer3D.ab.aq.ac(var63);
                               var41 = -1;
                            } else if (16711935 == 1889574527 * var37.rgb) {
                               var41 = -2;
@@ -441,7 +441,7 @@ public class ay {
 
                            var43 = 0;
                            if (var42 != -2) {
-                              var43 = in.af[sh.am_renamed(var42, 96)];
+                              var43 = Rasterizer3D.af[sh.am_renamed(var42, 96)];
                            }
 
                            if (-1 != var37.rgb2 * -2085280195) {
@@ -454,7 +454,7 @@ public class ay {
                               }
 
                               var42 = ServerBuild.as_renamed(var44, var37.ay * 1797179473, var45);
-                              var43 = in.af[sh.am_renamed(var42, 96)];
+                              var43 = Rasterizer3D.af[sh.am_renamed(var42, 96)];
                            }
 
                            var0.addTile(var3, var12, var18, var35, var61, var63, var24, var25, var26, var27, ar_renamed(var32, var28), ar_renamed(var32, var29), ar_renamed(var32, var30), ar_renamed(var32, var31), sh.am_renamed(var41, var28), sh.am_renamed(var41, var29), sh.am_renamed(var41, var30), sh.am_renamed(var41, var31), var34, var43);

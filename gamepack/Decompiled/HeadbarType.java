@@ -73,11 +73,11 @@ public class HeadbarType extends DualNode {
 
    }
 
-   public Rasterizer3D aw() {
+   public Sprite aw() {
       if (1930644535 * this.spritefront < 0) {
          return null;
       } else {
-         Rasterizer3D var2 = (Rasterizer3D)ac.get((long)(1930644535 * this.spritefront));
+         Sprite var2 = (Sprite)ac.get((long)(1930644535 * this.spritefront));
          if (var2 != null) {
             return var2;
          } else {
@@ -91,11 +91,11 @@ public class HeadbarType extends DualNode {
       }
    }
 
-   public Rasterizer3D ac() {
+   public Sprite ac() {
       if (-1451871987 * this.spriteback < 0) {
          return null;
       } else {
-         Rasterizer3D var2 = (Rasterizer3D)ac.get((long)(this.spriteback * -1451871987));
+         Sprite var2 = (Sprite)ac.get((long)(this.spriteback * -1451871987));
          if (null != var2) {
             return var2;
          } else {

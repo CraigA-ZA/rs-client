@@ -14,13 +14,13 @@ public class WorldMapIcon2 extends AbstractWorldMapIcon {
    }
 
    void af() {
-      this.aw = fw.an_renamed(-707716855 * this.af).ao().be * 1063280821;
+      this.aw = fw.an_renamed(-707716855 * this.af).multiLoc().resizeY * 1063280821;
       this.label0 = this.an.bz(nf.getMapElementType(this.aw * -362754265));
       MapElementType var2 = nf.getMapElementType(this.element());
-      Rasterizer3D var3 = var2.ab(false);
+      Sprite var3 = var2.ab(false);
       if (var3 != null) {
-         this.au = -2030208215 * var3.an;
-         this.ab = 36450991 * var3.aw;
+         this.au = -2030208215 * var3.subWidth;
+         this.ab = 36450991 * var3.subHeight;
       } else {
          this.au = 0;
          this.ab = 0;

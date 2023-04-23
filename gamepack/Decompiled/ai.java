@@ -210,7 +210,7 @@ class ai extends DefaultTlsClient {
          } else {
             byte[] var6 = new byte[var5];
             if (var3 == 1) {
-               sv.af_renamed(var6, var5, var0, var4, 9);
+               Bzip2Decompressor.af_renamed(var6, var5, var0, var4, 9);
             } else {
                AbstractArchive.gzipDecompressor.decompress(var2, var6);
             }

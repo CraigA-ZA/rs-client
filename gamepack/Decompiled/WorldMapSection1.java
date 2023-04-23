@@ -89,7 +89,7 @@ public class WorldMapSection1 implements WorldMapSection {
    void aq() {
    }
 
-   public static final Rasterizer3D ay_renamed(int var0, int var1, int var2, int var3, int var4, boolean var5) {
+   public static final Sprite ay_renamed(int var0, int var1, int var2, int var3, int var4, boolean var5) {
       if (var1 == -1) {
          var4 = 0;
       } else if (2 == var4 && var1 != 1) {
@@ -97,9 +97,9 @@ public class WorldMapSection1 implements WorldMapSection {
       }
 
       long var7 = ((long)var2 << 38) + (long)var0 + ((long)var1 << 16) + ((long)var4 << 40) + ((long)var3 << 42);
-      Rasterizer3D var9;
+      Sprite var9;
       if (!var5) {
-         var9 = (Rasterizer3D)ObjType.ao.get(var7);
+         var9 = (Sprite)ObjType.ao.get(var7);
          if (var9 != null) {
             return var9;
          }
@@ -124,7 +124,7 @@ public class WorldMapSection1 implements WorldMapSection {
       if (var21 == null) {
          return null;
       } else {
-         Rasterizer3D var22 = null;
+         Sprite var22 = null;
          if (-1 != var10.resizez * -1375068187) {
             var22 = ay_renamed(var10.certtemplate * 1399852547, 10, 1, 0, 0, true);
             if (null == var22) {
@@ -148,12 +148,12 @@ public class WorldMapSection1 implements WorldMapSection {
          float[] var16 = Rasterizer2D.by;
          int[] var17 = new int[4];
          Rasterizer2D.Rasterizer2D_getClipArray(var17);
-         var9 = new Rasterizer3D(36, 32);
-         an.ay_renamed(var9.af, 36, 32, (float[])null);
+         var9 = new Sprite(36, 32);
+         an.ay_renamed(var9.pixels, 36, 32, (float[])null);
          Rasterizer2D.er();
          am.ao_renamed();
          WorldMapArea.ai_renamed(16, 16);
-         in.ab.an = false;
+         Rasterizer3D.ab.an = false;
          if (-1 != var10.cy * 119859889) {
             var22.ax(0, 0);
          }
@@ -165,8 +165,8 @@ public class WorldMapSection1 implements WorldMapSection {
             var18 = (int)((double)var18 * 1.04);
          }
 
-         int var19 = var18 * in.ac[415331477 * var10.yan2d] >> 16;
-         int var20 = var18 * in.au[415331477 * var10.yan2d] >> 16;
+         int var19 = var18 * Rasterizer3D.ac[415331477 * var10.yan2d] >> 16;
+         int var20 = var18 * Rasterizer3D.au[415331477 * var10.yan2d] >> 16;
          var21.ai();
          var21.bx(0, -2044433177 * var10.manwear2, var10.xof2d * 450595207, var10.yan2d * 415331477, var10.manwearyoff * 151912273, 1550732737 * var21.height / 2 + var19 + -271411709 * var10.yof2d, var20 + var10.yof2d * -271411709);
          if (-1276549997 * var10.cg != -1) {
@@ -185,7 +185,7 @@ public class WorldMapSection1 implements WorldMapSection {
             var9.aa(var3);
          }
 
-         an.ay_renamed(var9.af, 36, 32, (float[])null);
+         an.ay_renamed(var9.pixels, 36, 32, (float[])null);
          if (var10.resizez * -1375068187 != -1) {
             var22.ax(0, 0);
          }
@@ -201,7 +201,7 @@ public class WorldMapSection1 implements WorldMapSection {
          an.ay_renamed(var13, var14, var15, var16);
          Rasterizer2D.Rasterizer2D_setClipArray(var17);
          am.ao_renamed();
-         in.ab.an = true;
+         Rasterizer3D.ab.an = true;
          return var9;
       }
    }

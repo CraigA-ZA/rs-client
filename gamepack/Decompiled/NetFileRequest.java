@@ -539,8 +539,8 @@ public class NetFileRequest extends DualNode {
    static int ba_renamed(int var0, ClientScript var1, boolean var2) {
       if (var0 == 6809) {
          int var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         hq var5 = fw.an_renamed(var4);
-         Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = null != var5 ? var5.ao : "";
+         LocType var5 = fw.an_renamed(var4);
+         Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = null != var5 ? var5.name : "";
          return 1;
       } else {
          return 2;

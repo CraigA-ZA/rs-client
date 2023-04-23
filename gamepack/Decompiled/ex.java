@@ -1,7 +1,7 @@
 public class ex implements Enumerated {
    static MouseWheel mouseWheel;
    static int uo;
-   static Rasterizer3D at;
+   static Sprite at;
    static final ex ac = new ex(3, 3);
    static final ex af = new ex(0, 0);
    static final ex an = new ex(1, 1);

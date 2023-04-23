@@ -5,7 +5,7 @@ public abstract class ii extends Rasterizer2D {
    jg al;
 
    ii(jg var1) {
-      this.aq = in.af;
+      this.aq = Rasterizer3D.af;
       this.al = var1;
    }
 

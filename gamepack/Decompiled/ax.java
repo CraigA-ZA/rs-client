@@ -39,7 +39,7 @@ class ax extends SSLSocket {
    }
 
    static int ab_renamed() {
-      return 1666539507 * in.ab.ai;
+      return 1666539507 * Rasterizer3D.ab.ai;
    }
 
    public boolean getEnableSessionCreation() {

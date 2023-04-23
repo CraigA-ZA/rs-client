@@ -574,10 +574,10 @@ public class Component extends Node {
       }
    }
 
-   public Rasterizer3D at(boolean var1, UrlRequester var2) {
+   public Sprite at(boolean var1, UrlRequester var2) {
       bj = false;
       if (null != this.cp) {
-         Rasterizer3D var4 = this.aa(var2);
+         Sprite var4 = this.aa(var2);
          if (null != var4) {
             return var4;
          }
@@ -594,7 +594,7 @@ public class Component extends Node {
          return null;
       } else {
          long var5 = ((long)(this.spriteShadow * -353676735) << 40) + ((this.do ? 1L : 0L) << 38) + ((long)(this.outline * 1638912775) << 36) + (long)var8 + ((this.di ? 1L : 0L) << 39);
-         Rasterizer3D var7 = (Rasterizer3D)bx.get(var5);
+         Sprite var7 = (Sprite)bx.get(var5);
          if (null != var7) {
             return var7;
          } else {
@@ -611,14 +611,14 @@ public class Component extends Node {
       }
    }
 
-   Rasterizer3D aa(UrlRequester var1) {
+   Sprite aa(UrlRequester var1) {
       if (!this.ao()) {
          return this.ay(var1);
       } else {
          String var3 = this.cp + (this.do ? 1 : 0) + (this.di ? 1 : 0) + this.outline * 1638912775 + -353676735 * this.spriteShadow;
-         Rasterizer3D var4 = (Rasterizer3D)bt.an(var3);
+         Sprite var4 = (Sprite)bt.an(var3);
          if (null == var4) {
-            Rasterizer3D var5 = this.ay(var1);
+            Sprite var5 = this.ay(var1);
             if (null != var5) {
                var4 = var5.an();
                this.ax(var4);
@@ -630,7 +630,7 @@ public class Component extends Node {
       }
    }
 
-   Rasterizer3D ay(UrlRequester var1) {
+   Sprite ay(UrlRequester var1) {
       if (this.cp != null && null != var1) {
          lr var3 = (lr)bd.an(this.cp);
          if (null == var3) {
@@ -648,7 +648,7 @@ public class Component extends Node {
       return this.do || this.di || 0 != 1638912775 * this.outline || 0 != this.spriteShadow * -353676735;
    }
 
-   void ax(Rasterizer3D var1) {
+   void ax(Sprite var1) {
       if (this.do) {
          var1.al();
       }
@@ -858,7 +858,7 @@ public class Component extends Node {
          if (null != var6) {
             return var6;
          } else {
-            Rasterizer3D var7 = this.at(var1, (UrlRequester)null);
+            Sprite var7 = this.at(var1, (UrlRequester)null);
             if (var7 == null) {
                if (var2 == -1) {
                   throw new IllegalStateException();
@@ -866,25 +866,25 @@ public class Component extends Node {
                   return null;
                }
             } else {
-               Rasterizer3D var8 = var7.aw();
-               int[] var9 = new int[var8.aw];
-               int[] var10 = new int[var8.aw];
+               Sprite var8 = var7.aw();
+               int[] var9 = new int[var8.subHeight];
+               int[] var10 = new int[var8.subHeight];
 
-               for(int var11 = 0; var11 < var8.aw; ++var11) {
+               for(int var11 = 0; var11 < var8.subHeight; ++var11) {
                   if (var2 == -1) {
                      throw new IllegalStateException();
                   }
 
                   int var12 = 0;
-                  int var13 = var8.an;
+                  int var13 = var8.subWidth;
 
                   int var14;
-                  for(var14 = 0; var14 < var8.an; ++var14) {
+                  for(var14 = 0; var14 < var8.subWidth; ++var14) {
                      if (var2 == -1) {
                         throw new IllegalStateException();
                      }
 
-                     if (var8.af[var14 + var11 * var8.an] == 0) {
+                     if (var8.pixels[var14 + var11 * var8.subWidth] == 0) {
                         if (var2 == -1) {
                            throw new IllegalStateException();
                         }
@@ -894,12 +894,12 @@ public class Component extends Node {
                      }
                   }
 
-                  for(var14 = var8.an - 1; var14 >= var12; --var14) {
+                  for(var14 = var8.subWidth - 1; var14 >= var12; --var14) {
                      if (var2 == -1) {
                         throw new IllegalStateException();
                      }
 
-                     if (0 == var8.af[var11 * var8.an + var14]) {
+                     if (0 == var8.pixels[var11 * var8.subWidth + var14]) {
                         if (var2 == -1) {
                            throw new IllegalStateException();
                         }
@@ -913,7 +913,7 @@ public class Component extends Node {
                   var10[var11] = var13 - var12;
                }
 
-               var6 = new SpriteMask(var8.an, var8.aw, var10, var9);
+               var6 = new SpriteMask(var8.subWidth, var8.subHeight, var10, var9);
                bm.put(var6, var4);
                return var6;
             }

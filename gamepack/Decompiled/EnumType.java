@@ -1337,15 +1337,15 @@ public class EnumType extends DualNode {
             }
 
             if (null != var18) {
-               hq var19 = fw.an_renamed(var17);
+               LocType var19 = fw.an_renamed(var17);
                int var20;
                int var21;
                if (1 != var14 && var14 != 3) {
-                  var20 = -1339930361 * var19.av;
-                  var21 = var19.ar * -1659393955;
+                  var20 = -1339930361 * var19.offsetZ;
+                  var21 = var19.width * -1659393955;
                } else {
-                  var20 = -1659393955 * var19.ar;
-                  var21 = var19.av * -1339930361;
+                  var20 = -1659393955 * var19.width;
+                  var21 = var19.offsetZ * -1339930361;
                }
 
                int var22 = var7 + (var20 >> 1);

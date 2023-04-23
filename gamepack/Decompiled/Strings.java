@@ -529,7 +529,7 @@ public class Strings {
       ns = "https://oldschool.runescape.com/launcher";
    }
 
-   public static final Rasterizer3D af_renamed(byte[] var0) {
+   public static final Sprite af_renamed(byte[] var0) {
       BufferedImage var2 = null;
 
       try {
@@ -543,12 +543,12 @@ public class Strings {
          int[] var5 = new int[var10 * var4];
          PixelGrabber var6 = new PixelGrabber(var2, 0, 0, var10, var4, var5, 0, var10);
          var6.grabPixels();
-         return new Rasterizer3D(var5, var10, var4);
+         return new Sprite(var5, var10, var4);
       } catch (IOException var8) {
       } catch (InterruptedException var9) {
       }
 
-      return new Rasterizer3D(0, 0);
+      return new Sprite(0, 0);
    }
 
    public static void at_renamed() {

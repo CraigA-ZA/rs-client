@@ -112,7 +112,7 @@ public class TaskHandler implements Runnable {
    }
 
    static int au_renamed() {
-      return 93675259 * in.ab.ax;
+      return 93675259 * Rasterizer3D.ab.ax;
    }
 
    public final Task newSocketTask(String var1, int var2) {

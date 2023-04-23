@@ -258,7 +258,7 @@ public class he implements be {
       ClientPreferences var2 = new ClientPreferences();
 
       try {
-         var1 = in.getPreferencesFile("", Client.studioGame.name, false);
+         var1 = Rasterizer3D.getPreferencesFile("", Client.studioGame.name, false);
          byte[] var3 = new byte[(int)var1.length()];
 
          int var5;

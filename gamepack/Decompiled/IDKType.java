@@ -5,7 +5,7 @@ public class IDKType extends DualNode {
    static AbstractArchive IDKType_archive;
    static AbstractArchive an;
    static AbstractSocket js5Socket;
-   static Rasterizer3D[] ku;
+   static Sprite[] ku;
    int[] models;
    int[] head = new int[]{-1, -1, -1, -1, -1};
    short[] recol_d;
@@ -259,9 +259,9 @@ public class IDKType extends DualNode {
                int var14 = var12 + var1;
                int var15 = var2 + var11;
                if (var14 > 0 && var15 > 0 && var14 < 103 && var15 < 103) {
-                  hq var16 = fw.an_renamed(var6);
-                  if (var13 != 22 || !Client.cu || 0 != var16.aj * 415653149 || -973955889 * var16.am == 1 || var16.bs) {
-                     if (!var16.aq()) {
+                  LocType var16 = fw.an_renamed(var6);
+                  if (var13 != 22 || !Client.cu || 0 != var16.int2 * 415653149 || -973955889 * var16.interactType == 1 || var16.clipped) {
+                     if (!var16.loadModels()) {
                         Client.jk += 1441978033;
                         var4 = false;
                      }

@@ -24,19 +24,19 @@ public class StructType extends DualNode {
    }
 
    static void af_renamed() {
-      for(cr var1 = (cr)cr.af.last(); null != var1; var1 = (cr)cr.af.previous()) {
-         if (var1.at != null) {
-            fe.pcmStreamMixer.removeSubStream(var1.at);
-            var1.at = null;
+      for(LocSound var1 = (LocSound)LocSound.af.last(); null != var1; var1 = (LocSound)LocSound.af.previous()) {
+         if (var1.stream1 != null) {
+            fe.pcmStreamMixer.removeSubStream(var1.stream1);
+            var1.stream1 = null;
          }
 
-         if (null != var1.ai) {
-            fe.pcmStreamMixer.removeSubStream(var1.ai);
-            var1.ai = null;
+         if (null != var1.stream2) {
+            fe.pcmStreamMixer.removeSubStream(var1.stream2);
+            var1.stream2 = null;
          }
       }
 
-      cr.af.af();
+      LocSound.af.af();
    }
 
    void postDecode() {

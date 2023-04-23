@@ -7,7 +7,7 @@ public class fg extends fu {
 
    static ClientScript an_renamed(int var0, int var1, int var2) {
       int var4 = (var1 << 8) + var0;
-      ClientScript var6 = hq.aw_renamed(var4, var0);
+      ClientScript var6 = LocType.aw_renamed(var4, var0);
       if (null != var6) {
          return var6;
       } else {

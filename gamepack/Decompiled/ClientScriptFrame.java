@@ -34,9 +34,9 @@ public class ClientScriptFrame {
             int var21;
             int var22;
             if (2 == var14 && bx.scene.bk(GameShell.plane * -1727408401, var12, var13, var10) >= 0) {
-               hq var18 = fw.an_renamed(var16);
-               if (null != var18.bu) {
-                  var18 = var18.ao();
+               LocType var18 = fw.an_renamed(var16);
+               if (null != var18.multi) {
+                  var18 = var18.multiLoc();
                }
 
                if (null == var18) {
@@ -53,13 +53,13 @@ public class ClientScriptFrame {
                }
 
                if (1 == -303899309 * Client.oq) {
-                  MiniMenuEntry.kz_renamed(Strings.Strings_use, Client.selectedItemName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(65535) + var18.ao, 1, var17, var12, var13);
+                  MiniMenuEntry.kz_renamed(Strings.Strings_use, Client.selectedItemName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(65535) + var18.name, 1, var17, var12, var13);
                } else if (Client.om) {
                   if ((SecureRandomFuture.oo * 1457791911 & 4) == 4) {
-                     MiniMenuEntry.kz_renamed(Client.oj, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(65535) + var18.ao, 2, var17, var12, var13);
+                     MiniMenuEntry.kz_renamed(Client.oj, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(65535) + var18.name, 2, var17, var12, var13);
                   }
                } else {
-                  String[] var29 = var18.bi;
+                  String[] var29 = var18.op;
                   if (var29 != null) {
                      for(var21 = 4; var21 >= 0; --var21) {
                         if ((var19 == null || var19.an(var21)) && null != var29[var21]) {
@@ -84,12 +84,12 @@ public class ClientScriptFrame {
                               var22 = 1001;
                            }
 
-                           MiniMenuEntry.kz_renamed(var29[var21], oa.colorStartTag(65535) + var18.ao, var22, var17, var12, var13);
+                           MiniMenuEntry.kz_renamed(var29[var21], oa.colorStartTag(65535) + var18.name, var22, var17, var12, var13);
                         }
                      }
                   }
 
-                  MiniMenuEntry.kz_renamed(Strings.Strings_examine, oa.colorStartTag(65535) + var18.ao, 1002, -1529817365 * var18.at, var12, var13);
+                  MiniMenuEntry.kz_renamed(Strings.Strings_examine, oa.colorStartTag(65535) + var18.name, 1002, -1529817365 * var18.at, var12, var13);
                }
             }
 
@@ -221,7 +221,7 @@ public class ClientScriptFrame {
 
    static final void mg(double var0) {
       am.an(var0);
-      ((TextureProvider)in.ab.aq).setBrightness(var0);
+      ((TextureProvider)Rasterizer3D.ab.aq).setBrightness(var0);
       ec.aj_renamed();
       aj.clientPreferences.ah(var0);
    }

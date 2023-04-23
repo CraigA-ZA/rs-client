@@ -1,7 +1,7 @@
-public final class sv {
+public final class Bzip2Decompressor {
    static Bzip2State al = new Bzip2State();
 
-   sv() throws Throwable {
+   Bzip2Decompressor() throws Throwable {
       throw new Error();
    }
 

@@ -1,6 +1,6 @@
 public class ChatChannel {
    static int cz;
-   static Rasterizer3D jb;
+   static Sprite jb;
    Message[] messages = new Message[100];
    int count;
 

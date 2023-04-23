@@ -13,7 +13,7 @@ public class aq implements Enumerated {
    }
 
    static int aa_renamed() {
-      return 571147771 * in.ab.ag;
+      return 571147771 * Rasterizer3D.ab.ag;
    }
 
    static void aa_renamed(boolean var0) {

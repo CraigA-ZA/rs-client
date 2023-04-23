@@ -15,8 +15,8 @@ public class ms implements Enumerated {
    }
 
    static void au_renamed(int var0, int var1, int var2, int var3) {
-      for(cr var5 = (cr)cr.af.last(); var5 != null; var5 = (cr)cr.af.previous()) {
-         if (-1 != var5.al * 1671764667 || null != var5.ao) {
+      for(LocSound var5 = (LocSound)LocSound.af.last(); var5 != null; var5 = (LocSound)LocSound.af.previous()) {
+         if (-1 != var5.soundEffectId * 1671764667 || null != var5.soundEffectIds) {
             int var6 = 0;
             if (var1 > -823707049 * var5.au) {
                var6 += var1 - var5.au * -823707049;
@@ -37,49 +37,49 @@ public class ms implements Enumerated {
                }
 
                int var7 = (var5.aq * -1826007749 - var6) * aj.clientPreferences.az() / (-1826007749 * var5.aq);
-               if (null == var5.at) {
-                  if (var5.al * 1671764667 >= 0) {
-                     SoundEffect var8 = SoundEffect.readSoundEffect(qc.archive4, var5.al * 1671764667, 0);
+               if (null == var5.stream1) {
+                  if (var5.soundEffectId * 1671764667 >= 0) {
+                     SoundEffect var8 = SoundEffect.readSoundEffect(qc.archive4, var5.soundEffectId * 1671764667, 0);
                      if (null != var8) {
                         RawSound var9 = var8.toRawSound().resample(WorldMapSectionType.decimator);
                         RawPcmStream var10 = RawPcmStream.aw_renamed(var9, 100, var7);
                         var10.aa(-1);
                         fe.pcmStreamMixer.addSubStream(var10);
-                        var5.at = var10;
+                        var5.stream1 = var10;
                      }
                   }
                } else {
-                  var5.at.ao(var7);
+                  var5.stream1.ao(var7);
                }
 
-               if (var5.ai == null) {
-                  if (null != var5.ao && (var5.ax -= var3 * -713890281) * -428166745 <= 0) {
-                     int var12 = (int)(Math.random() * (double)var5.ao.length);
-                     SoundEffect var13 = SoundEffect.readSoundEffect(qc.archive4, var5.ao[var12], 0);
+               if (var5.stream2 == null) {
+                  if (null != var5.soundEffectIds && (var5.ax -= var3 * -713890281) * -428166745 <= 0) {
+                     int var12 = (int)(Math.random() * (double)var5.soundEffectIds.length);
+                     SoundEffect var13 = SoundEffect.readSoundEffect(qc.archive4, var5.soundEffectIds[var12], 0);
                      if (null != var13) {
                         RawSound var14 = var13.toRawSound().resample(WorldMapSectionType.decimator);
                         RawPcmStream var11 = RawPcmStream.aw_renamed(var14, 100, var7);
                         var11.aa(0);
                         fe.pcmStreamMixer.addSubStream(var11);
-                        var5.ai = var11;
+                        var5.stream2 = var11;
                         var5.ax = (-442346035 * var5.aa + (int)(Math.random() * (double)(-1018564833 * var5.ay - -442346035 * var5.aa))) * -713890281;
                      }
                   }
                } else {
-                  var5.ai.ao(var7);
-                  if (!var5.ai.hasNext()) {
-                     var5.ai = null;
+                  var5.stream2.ao(var7);
+                  if (!var5.stream2.hasNext()) {
+                     var5.stream2 = null;
                   }
                }
             } else {
-               if (null != var5.at) {
-                  fe.pcmStreamMixer.removeSubStream(var5.at);
-                  var5.at = null;
+               if (null != var5.stream1) {
+                  fe.pcmStreamMixer.removeSubStream(var5.stream1);
+                  var5.stream1 = null;
                }
 
-               if (var5.ai != null) {
-                  fe.pcmStreamMixer.removeSubStream(var5.ai);
-                  var5.ai = null;
+               if (var5.stream2 != null) {
+                  fe.pcmStreamMixer.removeSubStream(var5.stream2);
+                  var5.stream2 = null;
                }
             }
          }

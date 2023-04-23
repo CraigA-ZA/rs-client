@@ -50,8 +50,8 @@ public class PlayerType implements Enumerated {
          Interpreter.Interpreter_intStackSize = 0;
          SecureRandomCallable.Interpreter_stringStackSize = 0;
          var26 = -1;
-         int[] var7 = var5.aw;
-         int[] var8 = var5.ac;
+         int[] var7 = var5.intOperands;
+         int[] var8 = var5.opcodes;
          int var9 = -1;
          Interpreter.Interpreter_frameDepth = 0;
          Interpreter.ak = false;
@@ -65,9 +65,9 @@ public class PlayerType implements Enumerated {
                   int var14;
                   try {
                      var23 = true;
-                     Interpreter.Interpreter_intLocals = new int[2144970855 * var5.ab];
+                     Interpreter.Interpreter_intLocals = new int[2144970855 * var5.localIntCount];
                      int var12 = 0;
-                     Interpreter.Interpreter_stringLocals = new String[-1897224143 * var5.aq];
+                     Interpreter.Interpreter_stringLocals = new String[-1897224143 * var5.localStringCount];
                      int var28 = 0;
 
                      int var15;
@@ -134,7 +134,7 @@ public class PlayerType implements Enumerated {
                         var9 = var7[var26];
                         if (var9 >= 100) {
                            boolean var37;
-                           if (1 == var5.ac[var26]) {
+                           if (1 == var5.opcodes[var26]) {
                               var37 = true;
                            } else {
                               var37 = false;
@@ -192,8 +192,8 @@ public class PlayerType implements Enumerated {
 
                            ClientScriptFrame var36 = Interpreter.Interpreter_frames[(Interpreter.Interpreter_frameDepth -= 937402633) * -1968816839];
                            var5 = var36.script;
-                           var7 = var5.aw;
-                           var8 = var5.ac;
+                           var7 = var5.intOperands;
+                           var8 = var5.opcodes;
                            var26 = var36.pc * -1780087085;
                            Interpreter.Interpreter_intLocals = var36.intLocals;
                            Interpreter.Interpreter_stringLocals = var36.stringLocals;
@@ -319,19 +319,19 @@ public class PlayerType implements Enumerated {
                            } else {
                               var14 = var8[var26];
                               ClientScript var40 = AbstractByteArrayCopier.af_renamed(var14);
-                              int[] var16 = new int[2144970855 * var40.ab];
-                              String[] var17 = new String[var40.aq * -1897224143];
+                              int[] var16 = new int[2144970855 * var40.localIntCount];
+                              String[] var17 = new String[var40.localStringCount * -1897224143];
 
-                              for(var18 = 0; var18 < -1203198865 * var40.al; ++var18) {
-                                 var16[var18] = Interpreter.Interpreter_intStack[var18 + (-964267539 * Interpreter.Interpreter_intStackSize - var40.al * -1203198865)];
+                              for(var18 = 0; var18 < -1203198865 * var40.intArgumentCount; ++var18) {
+                                 var16[var18] = Interpreter.Interpreter_intStack[var18 + (-964267539 * Interpreter.Interpreter_intStackSize - var40.intArgumentCount * -1203198865)];
                               }
 
-                              for(var18 = 0; var18 < 1178893217 * var40.at; ++var18) {
-                                 var17[var18] = Interpreter.Interpreter_stringStack[var18 + (-2017760987 * SecureRandomCallable.Interpreter_stringStackSize - var40.at * 1178893217)];
+                              for(var18 = 0; var18 < 1178893217 * var40.stringArgumentCount; ++var18) {
+                                 var17[var18] = Interpreter.Interpreter_stringStack[var18 + (-2017760987 * SecureRandomCallable.Interpreter_stringStackSize - var40.stringArgumentCount * 1178893217)];
                               }
 
-                              Interpreter.Interpreter_intStackSize -= var40.al * -1927162805;
-                              SecureRandomCallable.Interpreter_stringStackSize -= var40.at * 2141738445;
+                              Interpreter.Interpreter_intStackSize -= var40.intArgumentCount * -1927162805;
+                              SecureRandomCallable.Interpreter_stringStackSize -= var40.stringArgumentCount * 2141738445;
                               ClientScriptFrame var35 = new ClientScriptFrame();
                               var35.script = var5;
                               var35.pc = var26 * -1031782053;
@@ -339,8 +339,8 @@ public class PlayerType implements Enumerated {
                               var35.stringLocals = Interpreter.Interpreter_stringLocals;
                               Interpreter.Interpreter_frames[(Interpreter.Interpreter_frameDepth += 937402633) * -1968816839 - 1] = var35;
                               var5 = var40;
-                              var7 = var40.aw;
-                              var8 = var40.ac;
+                              var7 = var40.intOperands;
+                              var8 = var40.opcodes;
                               var26 = -1;
                               Interpreter.Interpreter_intLocals = var16;
                               Interpreter.Interpreter_stringLocals = var17;

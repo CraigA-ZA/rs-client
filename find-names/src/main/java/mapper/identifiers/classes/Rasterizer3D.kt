@@ -6,12 +6,14 @@ import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.Class2
+import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
 
-@DependsOn(Rasterizer2D::class)
 class Rasterizer3D : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { it.superType == type<Rasterizer2D>() }
-            .and { it.instanceFields.count { it.type == Type.INT_TYPE } >= 6 }
-            .and { it.instanceFields.count { it.type == IntArray::class.type } == 1 }
-            .and { it.instanceFields.count { it.type == ByteArray::class.type } == 0 }
+    override val predicate = predicateOf<Class2> { it.superType == Any::class.type }
+            .and { it.instanceFields.isEmpty() }
+            .and { it.instanceMethods.isEmpty() }
+            .and { it.interfaces.isEmpty() }
+            .and { it.classInitializer != null }
+            .and { it.classInitializer!!.instructions.any { it.opcode == Opcodes.LDC && it.ldcCst == 65536 } }
 }

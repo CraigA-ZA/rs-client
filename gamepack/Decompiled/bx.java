@@ -457,7 +457,7 @@ public class bx {
       Client.ww.clear();
       nn.ai_renamed();
       am.av_renamed();
-      ((TextureProvider)in.ab.aq).clear();
+      ((TextureProvider)Rasterizer3D.ab.aq).clear();
       ClientScript.ClientScript_cached.clear();
       Client.wx.ab();
       DevicePcmPlayerProvider.archive0.cg();

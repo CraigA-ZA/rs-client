@@ -118,7 +118,7 @@ public class Decimator {
       int var6;
       if (null == st.dr) {
          Archive var4 = rr.archive7;
-         Rasterizer3D[] var3;
+         Sprite[] var3;
          if (!var4.cv("sl_back", "")) {
             var3 = null;
          } else {

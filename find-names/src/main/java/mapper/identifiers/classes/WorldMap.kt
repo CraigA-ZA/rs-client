@@ -85,11 +85,11 @@ class WorldMap : IdentityMapper.Class() {
         override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == HashMap::class.type }
     }
 
-//    @DependsOn(Client.Strings_loading::class)
-//    class drawLoading : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.instructions.any { it.opcode == GETSTATIC && it.fieldId == field<Client.Strings_loading>().id } }
-//    }
+    @DependsOn(Client.Strings_loading::class)
+    class drawLoading : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+                .and { it.instructions.any { it.opcode == GETSTATIC && it.fieldId == field<Client.Strings_loading>().id } }
+    }
 
     @MethodParameters("x", "y", "width", "height", "cycle")
     class draw : IdentityMapper.InstanceMethod() {

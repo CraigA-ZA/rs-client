@@ -68,7 +68,7 @@ public class fa {
    }
 
    static int al_renamed() {
-      return 1145780727 * in.ab.as;
+      return 1145780727 * Rasterizer3D.ab.as;
    }
 
    static final void ji_renamed() {

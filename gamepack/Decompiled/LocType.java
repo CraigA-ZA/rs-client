@@ -1,4 +1,4 @@
-public class hq extends DualNode {
+public class LocType extends DualNode {
    public static EvictingDualNodeHashTable au = new EvictingDualNodeHashTable(500);
    static boolean af = false;
    static UnlitModel[] al = new UnlitModel[4];
@@ -6,89 +6,89 @@ public class hq extends DualNode {
    static EvictingDualNodeHashTable ac = new EvictingDualNodeHashTable(4096);
    static EvictingDualNodeHashTable aq = new EvictingDualNodeHashTable(30);
    static AbstractArchive an;
-   boolean az;
-   boolean br;
-   boolean bx;
-   int ak;
-   int bb;
-   int bd;
-   int bf;
-   int bj;
-   int bm;
-   int bn;
-   int bq;
-   int bt;
-   int by;
-   int bz;
+   boolean occlude;
+   boolean lowDetailVisible;
+   boolean isSolid;
+   int length;
+   int mapIconId;
+   int offsetX;
+   int interactable;
+   int hillChange;
+   int resizeZ;
+   int int3;
+   int resizeX;
+   int offsetY;
+   int animationId;
+   int ambientSoundId;
    int[] aa;
    int[] ay;
-   IterableNodeHashTable bw;
-   short[] ag;
-   short[] ah;
-   short[] ai;
-   short[] ax;
-   public boolean ad;
-   public boolean as;
+   IterableNodeHashTable params;
+   short[] recol_s;
+   short[] recol_d;
+   short[] retex_d;
+   short[] retex_s;
+   public boolean sharelight;
+   public boolean boolean1;
    public boolean bh;
-   public boolean bo;
-   public boolean bs;
-   public int ae;
-   public int aj;
-   public int am;
-   public int ap;
-   public int ar;
+   public boolean isRotated;
+   public boolean clipped;
+   public int ambient;
+   public int int2;
+   public int interactType;
+   public int contrast;
+   public int width;
    public int at;
-   public int av;
+   public int offsetZ;
    public int ba;
-   public int be;
+   public int resizeY;
    public int bg;
-   public int bk;
-   public int bl;
-   public int bp;
-   public int bv;
+   public int mapSceneId;
+   public int int5;
+   public int int6;
+   public int int4;
    public int[] bc;
-   public int[] bu;
-   public String ao;
-   public String[] bi;
+   public int[] multi;
+   public String name;
+   public String[] op;
 
    public static boolean au_renamed(int var0) {
       return 0 != (var0 >> 22 & 1);
    }
 
-   hq() {
-      this.ao = Strings.Strings_null;
-      this.av = 1205654711;
-      this.ar = 1159818229;
-      this.am = -1581132706;
-      this.as = true;
-      this.aj = -1041321269;
-      this.ak = -657077221;
-      this.az = false;
-      this.ad = false;
-      this.ae = 1142530427;
-      this.ap = -233970928;
-      this.by = 0;
-      this.bb = 0;
-      this.bi = new String[5];
-      this.be = 1683785829;
-      this.bk = 476568133;
-      this.bx = false;
-      this.bo = true;
-      this.bz = -133284736;
-      this.bm = -845704064;
-      this.bd = -2060996480;
-      this.bt = 0;
-      this.bj = 0;
-      this.bn = 0;
-      this.bs = false;
-      this.br = false;
+   LocType() {
+      this.name = Strings.Strings_null;
+      this.offsetZ = 1205654711;
+      this.width = 1159818229;
+      this.interactType = -1581132706;
+      this.boolean1 = true;
+      this.int2 = -1041321269;
+      this.length = -657077221;
+      this.occlude = false;
+      this.sharelight = false;
+      this.ambient = 1142530427;
+      this.contrast = -233970928;
+      this.animationId = 0;
+      this.mapIconId = 0;
+      this.op = new String[5];
+      this.resizeY = 1683785829;
+      this.mapSceneId = 476568133;
+      this.isSolid = false;
+      this.isRotated = true;
+      this.ambientSoundId = -133284736;
+      this.resizeZ = -845704064;
+      this.offsetX = -2060996480;
+      this.offsetY = 0;
+      this.hillChange = 0;
+      this.int3 = 0;
+      this.clipped = false;
+      this.lowDetailVisible = false;
       this.bg = -1776888457;
-      this.bf = -1157714067;
-      this.bq = 1863808827;
+      this.interactable = -1157714067;
+      this.resizeX = 1863808827;
       this.ba = 38705135;
-      this.bv = 0;
-      this.bl = 0;
-      this.bp = 0;
+      this.int4 = 0;
+      this.int5 = 0;
+      this.int6 = 0;
       this.bh = true;
    }
 
@@ -121,37 +121,37 @@ public class hq extends DualNode {
    }
 
    void aw() {
-      if (this.aj * 415653149 == -1) {
-         this.aj = 0;
+      if (this.int2 * 415653149 == -1) {
+         this.int2 = 0;
          if (null != this.aa && (null == this.ay || this.ay[0] == 10)) {
-            this.aj = 1041321269;
+            this.int2 = 1041321269;
          }
 
          for(int var2 = 0; var2 < 5; ++var2) {
-            if (this.bi[var2] != null) {
-               this.aj = 1041321269;
+            if (this.op[var2] != null) {
+               this.int2 = 1041321269;
             }
          }
       }
 
       if (-1 == -1850643527 * this.bg) {
-         this.bg = (this.am * -973955889 != 0 ? 1 : 0) * 1776888457;
+         this.bg = (this.interactType * -973955889 != 0 ? 1 : 0) * 1776888457;
       }
 
    }
 
-   void ac(Packet var1) {
+   void decode(Packet var1) {
       while(true) {
          int var3 = var1.g1();
          if (var3 == 0) {
             return;
          }
 
-         this.au(var1, var3, (byte)16);
+         this.decode0(var1, var3, (byte)16);
       }
    }
 
-   void au(Packet var1, int var2, byte var3) {
+   void decode0(Packet var1, int var2, byte var3) {
       int var4;
       int var5;
       if (var2 == 1) {
@@ -193,7 +193,7 @@ public class hq extends DualNode {
             }
          }
       } else if (var2 == 2) {
-         this.ao = var1.cw();
+         this.name = var1.cw();
       } else if (var2 == 5) {
          if (var3 == -1) {
             throw new IllegalStateException();
@@ -221,71 +221,71 @@ public class hq extends DualNode {
             return;
          }
 
-         this.av = var1.g1() * 1205654711;
+         this.offsetZ = var1.g1() * 1205654711;
       } else if (15 == var2) {
          if (var3 == -1) {
             throw new IllegalStateException();
          }
 
-         this.ar = var1.g1() * 1159818229;
+         this.width = var1.g1() * 1159818229;
       } else if (var2 == 17) {
          if (var3 == -1) {
             throw new IllegalStateException();
          }
 
-         this.am = 0;
-         this.as = false;
+         this.interactType = 0;
+         this.boolean1 = false;
       } else if (var2 == 18) {
-         this.as = false;
+         this.boolean1 = false;
       } else if (var2 == 19) {
          if (var3 == -1) {
             throw new IllegalStateException();
          }
 
-         this.aj = var1.g1() * 1041321269;
+         this.int2 = var1.g1() * 1041321269;
       } else if (var2 == 21) {
          if (var3 == -1) {
             throw new IllegalStateException();
          }
 
-         this.ak = 0;
+         this.length = 0;
       } else if (var2 == 22) {
          if (var3 == -1) {
             throw new IllegalStateException();
          }
 
-         this.az = true;
+         this.occlude = true;
       } else if (23 == var2) {
-         this.ad = true;
+         this.sharelight = true;
       } else if (var2 == 24) {
-         this.ae = var1.cl() * -1142530427;
-         if (65535 == 1292954189 * this.ae) {
+         this.ambient = var1.cl() * -1142530427;
+         if (65535 == 1292954189 * this.ambient) {
             if (var3 == -1) {
                throw new IllegalStateException();
             }
 
-            this.ae = 1142530427;
+            this.ambient = 1142530427;
          }
       } else if (27 == var2) {
          if (var3 == -1) {
             throw new IllegalStateException();
          }
 
-         this.am = 1356917295;
+         this.interactType = 1356917295;
       } else if (var2 == 28) {
          if (var3 == -1) {
             throw new IllegalStateException();
          }
 
-         this.ap = var1.g1() * -1893671375;
+         this.contrast = var1.g1() * -1893671375;
       } else if (var2 == 29) {
          if (var3 == -1) {
             throw new IllegalStateException();
          }
 
-         this.by = var1.g1s() * 524532799;
+         this.animationId = var1.g1s() * 524532799;
       } else if (39 == var2) {
-         this.bb = var1.g1s() * -1238182971;
+         this.mapIconId = var1.g1s() * -1238182971;
       } else {
          if (var2 >= 30) {
             if (var3 == -1) {
@@ -293,13 +293,13 @@ public class hq extends DualNode {
             }
 
             if (var2 < 35) {
-               this.bi[var2 - 30] = var1.cw();
-               if (this.bi[var2 - 30].equalsIgnoreCase(Strings.Strings_hidden)) {
+               this.op[var2 - 30] = var1.cw();
+               if (this.op[var2 - 30].equalsIgnoreCase(Strings.Strings_hidden)) {
                   if (var3 == -1) {
                      throw new IllegalStateException();
                   }
 
-                  this.bi[var2 - 30] = null;
+                  this.op[var2 - 30] = null;
                }
 
                return;
@@ -312,12 +312,12 @@ public class hq extends DualNode {
             }
 
             var4 = var1.g1();
-            this.ax = new short[var4];
-            this.ai = new short[var4];
+            this.retex_s = new short[var4];
+            this.retex_d = new short[var4];
 
             for(var5 = 0; var5 < var4; ++var5) {
-               this.ax[var5] = (short)var1.cl();
-               this.ai[var5] = (short)var1.cl();
+               this.retex_s[var5] = (short)var1.cl();
+               this.retex_d[var5] = (short)var1.cl();
             }
          } else if (var2 == 41) {
             if (var3 == -1) {
@@ -325,16 +325,16 @@ public class hq extends DualNode {
             }
 
             var4 = var1.g1();
-            this.ag = new short[var4];
-            this.ah = new short[var4];
+            this.recol_s = new short[var4];
+            this.recol_d = new short[var4];
 
             for(var5 = 0; var5 < var4; ++var5) {
                if (var3 == -1) {
                   throw new IllegalStateException();
                }
 
-               this.ag[var5] = (short)var1.cl();
-               this.ah[var5] = (short)var1.cl();
+               this.recol_s[var5] = (short)var1.cl();
+               this.recol_d[var5] = (short)var1.cl();
             }
          } else if (61 == var2) {
             var1.cl();
@@ -343,33 +343,33 @@ public class hq extends DualNode {
                throw new IllegalStateException();
             }
 
-            this.bx = true;
+            this.isSolid = true;
          } else if (64 == var2) {
             if (var3 == -1) {
                throw new IllegalStateException();
             }
 
-            this.bo = false;
+            this.isRotated = false;
          } else if (65 == var2) {
             if (var3 == -1) {
                throw new IllegalStateException();
             }
 
-            this.bz = var1.cl() * 1039146105;
+            this.ambientSoundId = var1.cl() * 1039146105;
          } else if (var2 == 66) {
             if (var3 == -1) {
                throw new IllegalStateException();
             }
 
-            this.bm = var1.cl() * -677695703;
+            this.resizeZ = var1.cl() * -677695703;
          } else if (var2 == 67) {
             if (var3 == -1) {
                return;
             }
 
-            this.bd = var1.cl() * 1862946657;
+            this.offsetX = var1.cl() * 1862946657;
          } else if (var2 == 68) {
-            this.bk = var1.cl() * -476568133;
+            this.mapSceneId = var1.cl() * -476568133;
          } else if (69 == var2) {
             if (var3 == -1) {
                throw new IllegalStateException();
@@ -381,31 +381,31 @@ public class hq extends DualNode {
                throw new IllegalStateException();
             }
 
-            this.bt = var1.cg() * -327422321;
+            this.offsetY = var1.cg() * -327422321;
          } else if (71 == var2) {
             if (var3 == -1) {
                throw new IllegalStateException();
             }
 
-            this.bj = var1.cg() * 956024773;
+            this.hillChange = var1.cg() * 956024773;
          } else if (72 == var2) {
             if (var3 == -1) {
                return;
             }
 
-            this.bn = var1.cg() * -127229215;
+            this.int3 = var1.cg() * -127229215;
          } else if (73 == var2) {
             if (var3 == -1) {
                return;
             }
 
-            this.bs = true;
+            this.clipped = true;
          } else if (74 == var2) {
             if (var3 == -1) {
                throw new IllegalStateException();
             }
 
-            this.br = true;
+            this.lowDetailVisible = true;
          } else if (var2 == 75) {
             if (var3 == -1) {
                return;
@@ -421,16 +421,16 @@ public class hq extends DualNode {
                      }
 
                      this.ba = var1.cl() * -38705135;
-                     this.bv = var1.g1() * 1190823625;
+                     this.int4 = var1.g1() * 1190823625;
                      return;
                   } else if (var2 == 79) {
                      if (var3 == -1) {
                         throw new IllegalStateException();
                      }
 
-                     this.bl = var1.cl() * 1257958995;
-                     this.bp = var1.cl() * 230715233;
-                     this.bv = var1.g1() * 1190823625;
+                     this.int5 = var1.cl() * 1257958995;
+                     this.int6 = var1.cl() * 230715233;
+                     this.int4 = var1.g1() * 1190823625;
                      var4 = var1.g1();
                      this.bc = new int[var4];
 
@@ -440,14 +440,14 @@ public class hq extends DualNode {
 
                      return;
                   } else if (81 == var2) {
-                     this.ak = var1.g1() * 708044032;
+                     this.length = var1.g1() * 708044032;
                      return;
                   } else if (var2 == 82) {
                      if (var3 == -1) {
                         return;
                      }
 
-                     this.be = var1.cl() * -1683785829;
+                     this.resizeY = var1.cl() * -1683785829;
                      return;
                   } else {
                      if (89 == var2) {
@@ -457,7 +457,7 @@ public class hq extends DualNode {
 
                         this.bh = false;
                      } else if (var2 == 249) {
-                        this.bw = ChatChannel.readStringIntParameters(var1, this.bw);
+                        this.params = ChatChannel.readStringIntParameters(var1, this.params);
                         return;
                      }
 
@@ -470,18 +470,18 @@ public class hq extends DualNode {
                }
             }
 
-            this.bf = var1.cl() * 1157714067;
-            if (1411927451 * this.bf == 65535) {
+            this.interactable = var1.cl() * 1157714067;
+            if (1411927451 * this.interactable == 65535) {
                if (var3 == -1) {
                   return;
                }
 
-               this.bf = -1157714067;
+               this.interactable = -1157714067;
             }
 
-            this.bq = var1.cl() * -1863808827;
-            if (1685173773 * this.bq == 65535) {
-               this.bq = 1863808827;
+            this.resizeX = var1.cl() * -1863808827;
+            if (1685173773 * this.resizeX == 65535) {
+               this.resizeX = 1863808827;
             }
 
             var4 = -1;
@@ -501,26 +501,26 @@ public class hq extends DualNode {
             }
 
             var5 = var1.g1();
-            this.bu = new int[var5 + 2];
+            this.multi = new int[var5 + 2];
 
             for(int var6 = 0; var6 <= var5; ++var6) {
-               this.bu[var6] = var1.cl();
-               if (this.bu[var6] == 65535) {
+               this.multi[var6] = var1.cl();
+               if (this.multi[var6] == 65535) {
                   if (var3 == -1) {
                      throw new IllegalStateException();
                   }
 
-                  this.bu[var6] = -1;
+                  this.multi[var6] = -1;
                }
             }
 
-            this.bu[1 + var5] = var4;
+            this.multi[1 + var5] = var4;
          }
       }
 
    }
 
-   public final boolean ab(int var1) {
+   public final boolean loadModelType(int var1) {
       if (this.ay != null) {
          for(int var5 = 0; var5 < this.ay.length; ++var5) {
             if (this.ay[var5] == var1) {
@@ -544,7 +544,7 @@ public class hq extends DualNode {
       }
    }
 
-   public final boolean aq() {
+   public final boolean loadModels() {
       if (this.aa == null) {
          return true;
       } else {
@@ -576,7 +576,7 @@ public class hq extends DualNode {
             throw new IllegalStateException();
          }
 
-         UnlitModel var11 = this.ay(var1, var2);
+         UnlitModel var11 = this.getUnlitModel(var1, var2);
          if (var11 == null) {
             if (var7 >= -1) {
                throw new IllegalStateException();
@@ -585,15 +585,15 @@ public class hq extends DualNode {
             return null;
          }
 
-         if (!this.az) {
+         if (!this.occlude) {
             if (var7 >= -1) {
                throw new IllegalStateException();
             }
 
-            var10 = var11.bb(64 + this.by * 1284125631, 768 + -18088891 * this.bb, -50, -10, -50);
+            var10 = var11.bb(64 + this.animationId * 1284125631, 768 + -18088891 * this.mapIconId, -50, -10, -50);
          } else {
-            var11.bo = (short)(1284125631 * this.by + 64);
-            var11.bz = (short)(this.bb * -18088891 + 768);
+            var11.bo = (short)(1284125631 * this.animationId + 64);
+            var11.bz = (short)(this.mapIconId * -18088891 + 768);
             var11.ad();
             var10 = var11;
          }
@@ -601,7 +601,7 @@ public class hq extends DualNode {
          ab.put((DualNode)var10, var8);
       }
 
-      if (this.az) {
+      if (this.occlude) {
          if (var7 >= -1) {
             throw new IllegalStateException();
          }
@@ -609,19 +609,19 @@ public class hq extends DualNode {
          var10 = ((UnlitModel)var10).ao();
       }
 
-      if (-1437543955 * this.ak >= 0) {
+      if (-1437543955 * this.length >= 0) {
          if (var7 >= -1) {
             throw new IllegalStateException();
          }
 
          if (var10 instanceof it) {
-            var10 = ((it)var10).at(var3, var4, var5, var6, true, this.ak * -1437543955);
+            var10 = ((it)var10).at(var3, var4, var5, var6, true, this.length * -1437543955);
          } else if (var10 instanceof UnlitModel) {
             if (var7 >= -1) {
                throw new IllegalStateException();
             }
 
-            var10 = ((UnlitModel)var10).ax(var3, var4, var5, var6, true, -1437543955 * this.ak);
+            var10 = ((UnlitModel)var10).ax(var3, var4, var5, var6, true, -1437543955 * this.length);
          }
       }
 
@@ -638,17 +638,17 @@ public class hq extends DualNode {
 
       it var10 = (it)aq.get(var8);
       if (var10 == null) {
-         UnlitModel var11 = this.ay(var1, var2);
+         UnlitModel var11 = this.getUnlitModel(var1, var2);
          if (var11 == null) {
             return null;
          }
 
-         var10 = var11.bb(this.by * 1284125631 + 64, 768 + -18088891 * this.bb, -50, -10, -50);
+         var10 = var11.bb(this.animationId * 1284125631 + 64, 768 + -18088891 * this.mapIconId, -50, -10, -50);
          aq.put(var10, var8);
       }
 
-      if (this.ak * -1437543955 >= 0) {
-         var10 = var10.at(var3, var4, var5, var6, true, -1437543955 * this.ak);
+      if (this.length * -1437543955 >= 0) {
+         var10 = var10.at(var3, var4, var5, var6, true, -1437543955 * this.length);
       }
 
       return var10;
@@ -664,16 +664,16 @@ public class hq extends DualNode {
 
       it var12 = (it)aq.get(var10);
       if (var12 == null) {
-         UnlitModel var13 = this.ay(var1, var2);
+         UnlitModel var13 = this.getUnlitModel(var1, var2);
          if (var13 == null) {
             return null;
          }
 
-         var12 = var13.bb(64 + this.by * 1284125631, 768 + this.bb * -18088891, -50, -10, -50);
+         var12 = var13.bb(64 + this.animationId * 1284125631, 768 + this.mapIconId * -18088891, -50, -10, -50);
          aq.put(var12, var10);
       }
 
-      if (var7 == null && -1 == this.ak * -1437543955) {
+      if (var7 == null && -1 == this.length * -1437543955) {
          return var12;
       } else {
          if (null != var7) {
@@ -682,15 +682,15 @@ public class hq extends DualNode {
             var12 = var12.aa(true);
          }
 
-         if (-1437543955 * this.ak >= 0) {
-            var12 = var12.at(var3, var4, var5, var6, false, -1437543955 * this.ak);
+         if (-1437543955 * this.length >= 0) {
+            var12 = var12.at(var3, var4, var5, var6, false, -1437543955 * this.length);
          }
 
          return var12;
       }
    }
 
-   final UnlitModel ay(int var1, int var2) {
+   final UnlitModel getUnlitModel(int var1, int var2) {
       UnlitModel var4 = null;
       boolean var5;
       int var6;
@@ -704,7 +704,7 @@ public class hq extends DualNode {
             return null;
          }
 
-         var5 = this.bx;
+         var5 = this.isSolid;
          if (2 == var1 && var2 > 3) {
             var5 = !var5;
          }
@@ -754,7 +754,7 @@ public class hq extends DualNode {
          }
 
          var6 = this.aa[var9];
-         boolean var10 = this.bx ^ var2 > 3;
+         boolean var10 = this.isSolid ^ var2 > 3;
          if (var10) {
             var6 += 65536;
          }
@@ -774,20 +774,20 @@ public class hq extends DualNode {
          }
       }
 
-      if (128 == this.bz * -60584503 && 128 == -950870759 * this.bm && -1734306655 * this.bd == 128) {
+      if (128 == this.ambientSoundId * -60584503 && 128 == -950870759 * this.resizeZ && -1734306655 * this.offsetX == 128) {
          var5 = false;
       } else {
          var5 = true;
       }
 
       boolean var11;
-      if (105607279 * this.bt == 0 && 0 == this.bj * -1068622067 && this.bn * 629285153 == 0) {
+      if (105607279 * this.offsetY == 0 && 0 == this.hillChange * -1068622067 && this.int3 * 629285153 == 0) {
          var11 = false;
       } else {
          var11 = true;
       }
 
-      UnlitModel var12 = new UnlitModel(var4, 0 == var2 && !var5 && !var11, this.ax == null, this.ag == null, true);
+      UnlitModel var12 = new UnlitModel(var4, 0 == var2 && !var5 && !var11, this.retex_s == null, this.recol_s == null, true);
       if (4 == var1 && var2 > 3) {
          var12.ar(256);
          var12.am(45, 0, -45);
@@ -802,49 +802,49 @@ public class hq extends DualNode {
          var12.av();
       }
 
-      if (this.ax != null) {
-         for(var8 = 0; var8 < this.ax.length; ++var8) {
-            var12.recolor(this.ax[var8], this.ai[var8]);
+      if (this.retex_s != null) {
+         for(var8 = 0; var8 < this.retex_s.length; ++var8) {
+            var12.recolor(this.retex_s[var8], this.retex_d[var8]);
          }
       }
 
-      if (null != this.ag) {
-         for(var8 = 0; var8 < this.ag.length; ++var8) {
-            var12.retexture(this.ag[var8], this.ah[var8]);
+      if (null != this.recol_s) {
+         for(var8 = 0; var8 < this.recol_s.length; ++var8) {
+            var12.retexture(this.recol_s[var8], this.recol_d[var8]);
          }
       }
 
       if (var5) {
-         var12.az(this.bz * -60584503, this.bm * -950870759, -1734306655 * this.bd);
+         var12.az(this.ambientSoundId * -60584503, this.resizeZ * -950870759, -1734306655 * this.offsetX);
       }
 
       if (var11) {
-         var12.am(105607279 * this.bt, this.bj * -1068622067, this.bn * 629285153);
+         var12.am(105607279 * this.offsetY, this.hillChange * -1068622067, this.int3 * 629285153);
       }
 
       return var12;
    }
 
-   public final hq ao() {
+   public final LocType multiLoc() {
       int var2 = -1;
-      if (-1 != 1411927451 * this.bf) {
-         var2 = WorldMapSection1.af_renamed(1411927451 * this.bf);
-      } else if (1685173773 * this.bq != -1) {
-         var2 = Varps.Varps_main[this.bq * 1685173773];
+      if (-1 != 1411927451 * this.interactable) {
+         var2 = WorldMapSection1.af_renamed(1411927451 * this.interactable);
+      } else if (1685173773 * this.resizeX != -1) {
+         var2 = Varps.Varps_main[this.resizeX * 1685173773];
       }
 
       int var3;
-      if (var2 >= 0 && var2 < this.bu.length - 1) {
-         var3 = this.bu[var2];
+      if (var2 >= 0 && var2 < this.multi.length - 1) {
+         var3 = this.multi[var2];
       } else {
-         var3 = this.bu[this.bu.length - 1];
+         var3 = this.multi[this.multi.length - 1];
       }
 
       return -1 != var3 ? fw.an_renamed(var3) : null;
    }
 
-   public int ax(int var1, int var2) {
-      IterableNodeHashTable var5 = this.bw;
+   public int getIntParam(int var1, int var2) {
+      IterableNodeHashTable var5 = this.params;
       int var4;
       if (null == var5) {
          var4 = var2;
@@ -860,17 +860,17 @@ public class hq extends DualNode {
       return var4;
    }
 
-   public String ai(int var1, String var2) {
-      return EnumType.an_renamed(this.bw, var1, var2);
+   public String getStringParam(int var1, String var2) {
+      return EnumType.an_renamed(this.params, var1, var2);
    }
 
    public boolean ah() {
-      if (this.bu == null) {
+      if (this.multi == null) {
          return this.ba * 1970571505 != -1 || null != this.bc;
       } else {
-         for(int var2 = 0; var2 < this.bu.length; ++var2) {
-            if (-1 != this.bu[var2]) {
-               hq var3 = fw.an_renamed(this.bu[var2]);
+         for(int var2 = 0; var2 < this.multi.length; ++var2) {
+            if (-1 != this.multi[var2]) {
+               LocType var3 = fw.an_renamed(this.multi[var2]);
                if (-1 != 1970571505 * var3.ba || var3.bc != null) {
                   return true;
                }

@@ -124,7 +124,7 @@ public class FriendsList extends UserList {
                      Ignored.af_renamed(var0.ab.bx(), true, false);
                      break;
                   case 1:
-                     if (hq.au_renamed(KeyHandler.getComponentClickMask(var0.ab))) {
+                     if (LocType.au_renamed(KeyHandler.getComponentClickMask(var0.ab))) {
                         int[] var5 = var0.ab.bo();
                         if (null != var5) {
                            PacketBitNode var3 = mi.an_renamed(ClientProt.ct, Client.packetWriter.au);

@@ -59,7 +59,7 @@ public class nf {
          }
       }
 
-      Rasterizer3D var18 = new Rasterizer3D(var17, var3, var3);
+      Sprite var18 = new Sprite(var17, var3, var3);
       this.af.put(var1, var18);
    }
 
@@ -67,12 +67,12 @@ public class nf {
       return var0 >= 0 && var0 < MapElementType.MapElementType_cached.length && MapElementType.MapElementType_cached[var0] != null ? MapElementType.MapElementType_cached[var0] : new MapElementType(var0);
    }
 
-   Rasterizer3D an(int var1) {
+   Sprite an(int var1) {
       if (!this.af.containsKey(var1)) {
          this.af(var1);
       }
 
-      return (Rasterizer3D)this.af.get(var1);
+      return (Sprite)this.af.get(var1);
    }
 
    public final void aw(int var1, int var2) {
@@ -87,11 +87,11 @@ public class nf {
       this.au = 0;
    }
 
-   public final void au(int var1, int var2, Rasterizer3D var3, float var4) {
+   public final void au(int var1, int var2, Sprite var3, float var4) {
       int var6 = (int)(18.0F * var4);
-      Rasterizer3D var7 = this.an(var6);
+      Sprite var7 = this.an(var6);
       int var8 = 1 + 2 * var6;
-      Bounds var9 = new Bounds(0, 0, var3.an, var3.aw);
+      Bounds var9 = new Bounds(0, 0, var3.subWidth, var3.subHeight);
       Bounds var10 = new Bounds(0, 0);
       this.an.an(var8, var8);
       System.nanoTime();
@@ -103,7 +103,7 @@ public class nf {
          var12 = this.aw[var11];
          var13 = this.ac[var11];
          int var14 = (int)((float)(var12 - var1) * var4) - var6;
-         int var15 = (int)((float)var3.aw - var4 * (float)(var13 - var2)) - var6;
+         int var15 = (int)((float)var3.subHeight - var4 * (float)(var13 - var2)) - var6;
          this.an.af(var14, var15);
          this.an.ac(var9, var10);
          this.ab(var7, var3, var10);
@@ -112,20 +112,20 @@ public class nf {
       System.nanoTime();
       System.nanoTime();
 
-      for(var11 = 0; var11 < var3.af.length; ++var11) {
-         if (0 == var3.af[var11]) {
-            var3.af[var11] = -16777216;
+      for(var11 = 0; var11 < var3.pixels.length; ++var11) {
+         if (0 == var3.pixels[var11]) {
+            var3.pixels[var11] = -16777216;
          } else {
-            var12 = (var3.af[var11] + 64 - 1) / 256;
+            var12 = (var3.pixels[var11] + 64 - 1) / 256;
             if (var12 <= 0) {
-               var3.af[var11] = -16777216;
+               var3.pixels[var11] = -16777216;
             } else {
                if (var12 > dt.at.length) {
                   var12 = dt.at.length;
                }
 
                var13 = dt.at[var12 - 1];
-               var3.af[var11] = -16777216 | var13;
+               var3.pixels[var11] = -16777216 | var13;
             }
          }
       }
@@ -133,30 +133,30 @@ public class nf {
       System.nanoTime();
    }
 
-   void ab(Rasterizer3D var1, Rasterizer3D var2, Bounds var3) {
+   void ab(Sprite var1, Sprite var2, Bounds var3) {
       if (0 != var3.aw * 944313703 && var3.ac * -1376251093 != 0) {
          int var5 = 0;
          int var6 = 0;
          if (0 == -844906645 * var3.af) {
-            var5 = var1.an - 944313703 * var3.aw;
+            var5 = var1.subWidth - 944313703 * var3.aw;
          }
 
          if (0 == 1864020389 * var3.an) {
-            var6 = var1.aw - var3.ac * -1376251093;
+            var6 = var1.subHeight - var3.ac * -1376251093;
          }
 
-         int var7 = var1.an * var6 + var5;
-         int var8 = var3.an * 1864020389 * var2.an + var3.af * -844906645;
+         int var7 = var1.subWidth * var6 + var5;
+         int var8 = var3.an * 1864020389 * var2.subWidth + var3.af * -844906645;
 
          for(int var9 = 0; var9 < -1376251093 * var3.ac; ++var9) {
             for(int var10 = 0; var10 < var3.aw * 944313703; ++var10) {
-               int[] var10000 = var2.af;
+               int[] var10000 = var2.pixels;
                int var10001 = var8++;
-               var10000[var10001] += var1.af[var7++];
+               var10000[var10001] += var1.pixels[var7++];
             }
 
-            var7 += var1.an - 944313703 * var3.aw;
-            var8 += var2.an - 944313703 * var3.aw;
+            var7 += var1.subWidth - 944313703 * var3.aw;
+            var8 += var2.subWidth - 944313703 * var3.aw;
          }
 
       }

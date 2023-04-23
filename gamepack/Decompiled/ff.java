@@ -38,16 +38,16 @@ public class ff extends fb {
             var11 = var4;
          }
 
-         int[] var12 = UrlRequester.tk.af;
+         int[] var12 = UrlRequester.tk.pixels;
          var13 = (103 - var2) * 2048 + var1 * 4 + 24624;
          var14 = InterfaceParent.at(var6);
-         hq var15 = fw.an_renamed(var14);
-         if (-1 != var15.bk * 771086195) {
-            IndexedSprite var16 = ml.ju[var15.bk * 771086195];
+         LocType var15 = fw.an_renamed(var14);
+         if (-1 != var15.mapSceneId * 771086195) {
+            IndexedSprite var16 = ml.ju[var15.mapSceneId * 771086195];
             if (var16 != null) {
-               int var17 = (var15.av * -1064754148 - var16.subWidth) / 2;
-               int var18 = (var15.ar * 1952358772 - var16.subHeight) / 2;
-               var16.aw(var17 + 48 + var1 * 4, var18 + (104 - var2 - -1659393955 * var15.ar) * 4 + 48);
+               int var17 = (var15.offsetZ * -1064754148 - var16.subWidth) / 2;
+               int var18 = (var15.width * 1952358772 - var16.subHeight) / 2;
+               var16.aw(var17 + 48 + var1 * 4, var18 + (104 - var2 - -1659393955 * var15.width) * 4 + 48);
             }
          } else {
             if (0 == var10 || var10 == 2) {
@@ -118,14 +118,14 @@ public class ff extends fb {
          var9 = var8 >> 6 & 3;
          var10 = var8 & 31;
          var11 = InterfaceParent.at(var6);
-         hq var21 = fw.an_renamed(var11);
+         LocType var21 = fw.an_renamed(var11);
          int var25;
-         if (-1 != var21.bk * 771086195) {
-            IndexedSprite var23 = ml.ju[771086195 * var21.bk];
+         if (-1 != var21.mapSceneId * 771086195) {
+            IndexedSprite var23 = ml.ju[771086195 * var21.mapSceneId];
             if (var23 != null) {
-               var14 = (-1064754148 * var21.av - var23.subWidth) / 2;
-               var25 = (1952358772 * var21.ar - var23.subHeight) / 2;
-               var23.aw(48 + var1 * 4 + var14, var25 + 4 * (104 - var2 - var21.ar * -1659393955) + 48);
+               var14 = (-1064754148 * var21.offsetZ - var23.subWidth) / 2;
+               var25 = (1952358772 * var21.width - var23.subHeight) / 2;
+               var23.aw(48 + var1 * 4 + var14, var25 + 4 * (104 - var2 - var21.width * -1659393955) + 48);
             }
          } else if (var10 == 9) {
             var13 = 15658734;
@@ -133,7 +133,7 @@ public class ff extends fb {
                var13 = 15597568;
             }
 
-            int[] var24 = UrlRequester.tk.af;
+            int[] var24 = UrlRequester.tk.pixels;
             var25 = 24624 + var1 * 4 + (103 - var2) * 2048;
             if (0 != var9 && var9 != 2) {
                var24[var25] = var13;
@@ -152,13 +152,13 @@ public class ff extends fb {
       var6 = bx.scene.be(var0, var1, var2);
       if (0L != var6) {
          var8 = InterfaceParent.at(var6);
-         hq var19 = fw.an_renamed(var8);
-         if (var19.bk * 771086195 != -1) {
-            IndexedSprite var20 = ml.ju[771086195 * var19.bk];
+         LocType var19 = fw.an_renamed(var8);
+         if (var19.mapSceneId * 771086195 != -1) {
+            IndexedSprite var20 = ml.ju[771086195 * var19.mapSceneId];
             if (null != var20) {
-               var11 = (var19.av * -1064754148 - var20.subWidth) / 2;
-               int var22 = (var19.ar * 1952358772 - var20.subHeight) / 2;
-               var20.aw(var1 * 4 + 48 + var11, 48 + (104 - var2 - -1659393955 * var19.ar) * 4 + var22);
+               var11 = (var19.offsetZ * -1064754148 - var20.subWidth) / 2;
+               int var22 = (var19.width * 1952358772 - var20.subHeight) / 2;
+               var20.aw(var1 * 4 + 48 + var11, 48 + (104 - var2 - -1659393955 * var19.width) * 4 + var22);
             }
          }
       }

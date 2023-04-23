@@ -1,5 +1,5 @@
 final class sf implements ss {
-   static Rasterizer3D[] kt;
+   static Sprite[] kt;
 
    void ax(Long var1, Packet var2) {
       var2.p8s(var1);

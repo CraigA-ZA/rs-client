@@ -26,7 +26,7 @@ public final class Tiles {
    }
 
    public static void ax_renamed() {
-      in.ab.af();
+      Rasterizer3D.ab.af();
    }
 
    public static void aw_renamed() {
@@ -89,11 +89,11 @@ public final class Tiles {
             int var19 = var18 >> 2;
             int var20 = var18 & 3;
             if (var17 == var4 && var16 >= var5 && var16 < var5 + 8 && var15 >= var6 && var15 < var6 + 8) {
-               hq var21 = fw.an_renamed(var11);
+               LocType var21 = fw.an_renamed(var11);
                int var24 = var16 & 7;
                int var25 = var15 & 7;
-               int var27 = -1339930361 * var21.av;
-               int var28 = -1659393955 * var21.ar;
+               int var27 = -1339930361 * var21.offsetZ;
+               int var28 = -1659393955 * var21.width;
                int var29;
                if (1 == (var20 & 1)) {
                   var29 = var27;
@@ -116,8 +116,8 @@ public final class Tiles {
                var29 = var2 + var23;
                int var32 = var16 & 7;
                int var33 = var15 & 7;
-               int var35 = -1339930361 * var21.av;
-               int var36 = -1659393955 * var21.ar;
+               int var35 = -1339930361 * var21.offsetZ;
+               int var36 = -1659393955 * var21.width;
                int var37;
                if (1 == (var20 & 1)) {
                   var37 = var35;

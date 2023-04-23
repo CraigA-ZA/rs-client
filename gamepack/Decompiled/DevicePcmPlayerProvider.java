@@ -11,7 +11,7 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
    }
 
    static void ar_renamed(int var0, int var1, int var2, int var3, int var4, int var5, float var6, float var7, float var8, int var9, int var10, int var11, int var12, int var13, int var14, int var15, int var16, int var17, int var18, int var19, int var20, int var21) {
-      in.aq.al(var0, var1, var2, var3, var4, var5, var6, var7, var8, var9, var10, var11, var12, var13, var14, var15, var16, var17, var18, var19, var20, var21);
+      Rasterizer3D.aq.al(var0, var1, var2, var3, var4, var5, var6, var7, var8, var9, var10, var11, var12, var13, var14, var15, var16, var17, var18, var19, var20, var21);
    }
 
    static void hs_renamed() {
@@ -23,7 +23,7 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
             Client.collisionMaps[var1] = new CollisionMap(104, 104);
          }
 
-         UrlRequester.tk = new Rasterizer3D(512, 512);
+         UrlRequester.tk = new Sprite(512, 512);
          cz.Login_loadingText = Strings.Strings_startingGameEngine;
          cz.ad = 1084032613;
          Client.fi = 1602846572;
@@ -266,7 +266,7 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   cz.ad = -2003412602;
                } else {
                   AbstractFont.AbstractFont_modIconSprites = bx.kg;
-                  dp.jz.au();
+                  dp.jz.normalize();
                   int var2 = (int)(Math.random() * 21.0) - 10;
                   int var3 = (int)(Math.random() * 21.0) - 10;
                   var4 = (int)(Math.random() * 21.0) - 10;
@@ -283,7 +283,7 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                } else {
                   al.textureProvider = new TextureProvider(WorldMapLabelSize.archive8, rr.archive7, 20, aj.clientPreferences.av(), Client.cu ? 64 : 128);
                   TextureProvider var24 = al.textureProvider;
-                  in.ab.aq = var24;
+                  Rasterizer3D.ab.aq = var24;
                   am.an(aj.clientPreferences.av());
                   Client.fi = -575701732;
                }

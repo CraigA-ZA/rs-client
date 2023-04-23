@@ -1,5 +1,10 @@
 package mapper.identifiers.classes
 
+import mapper.abstractclasses.IdentityMapper
+import mapper.annotations.DependsOn
+import mapper.predicateutilities.predicateOf
+import mapper.wrappers.Class2
+
 //@DependsOn(Client.Login_username::class)
 //class Login : IdentityMapper.Class() {
 //

@@ -102,7 +102,7 @@ public class Varcs {
    }
 
    AccessFile al(boolean var1) {
-      return in.getPreferencesFile("2", Client.studioGame.name, var1);
+      return Rasterizer3D.getPreferencesFile("2", Client.studioGame.name, var1);
    }
 
    void at() {

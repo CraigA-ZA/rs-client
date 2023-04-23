@@ -2788,12 +2788,12 @@ class Client : IdentityMapper.Class() {
                 .and { it.arguments.startsWith(IntArray::class.type, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE) }
     }
 
-//    class Scene_viewportXMin : SceneViewportField(0)
-//    class Scene_viewportYMin : SceneViewportField(1)
-//    class Scene_viewportXMax : SceneViewportField(2)
-//    class Scene_viewportYMax : SceneViewportField(3)
-//    class Scene_viewportXCenter : SceneViewportField(4)
-//    class Scene_viewportYCenter : SceneViewportField(5)
+    class Scene_viewportXMin : SceneViewportField(0)
+    class Scene_viewportYMin : SceneViewportField(1)
+    class Scene_viewportXMax : SceneViewportField(2)
+    class Scene_viewportYMax : SceneViewportField(3)
+    class Scene_viewportXCenter : SceneViewportField(4)
+    class Scene_viewportYCenter : SceneViewportField(5)
 
     @MethodParameters("isInInstance", "bit")
     @DependsOn(xteaKeys::class)

@@ -79,7 +79,7 @@ public class eu extends AbstractUserComparator {
    }
 
    public static int at_renamed() {
-      return in.ab.ab * -1734758735;
+      return Rasterizer3D.ab.ab * -1734758735;
    }
 
    static int bv_renamed(int var0, ClientScript var1, boolean var2) {

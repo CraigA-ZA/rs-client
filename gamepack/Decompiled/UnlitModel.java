@@ -43,8 +43,8 @@ public class UnlitModel extends Entity {
    public short bz;
 
    static {
-      UnlitModel_sine = in.ac;
-      UnlitModel_cosine = in.au;
+      UnlitModel_sine = Rasterizer3D.ac;
+      UnlitModel_cosine = Rasterizer3D.au;
    }
 
    UnlitModel() {

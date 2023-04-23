@@ -145,16 +145,16 @@ public class MapElementType extends DualNode {
 
    }
 
-   public Rasterizer3D ab(boolean var1) {
+   public Sprite ab(boolean var1) {
       int var3 = var1 ? this.sprite2 * 2035390535 : 1458003089 * this.ab;
       return this.aq(var3);
    }
 
-   Rasterizer3D aq(int var1) {
+   Sprite aq(int var1) {
       if (var1 < 0) {
          return null;
       } else {
-         Rasterizer3D var3 = (Rasterizer3D)MapElementType_cachedSprites.get((long)var1);
+         Sprite var3 = (Sprite)MapElementType_cachedSprites.get((long)var1);
          if (null != var3) {
             return var3;
          } else {

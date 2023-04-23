@@ -386,7 +386,7 @@ class ao implements TlsAuthentication {
                            int var26;
                            int var41;
                            if (5 == 883712245 * var11.bg) {
-                              Rasterizer3D var35;
+                              Sprite var35;
                               if (!var11.isIf3) {
                                  var35 = var11.at(rr.runCs1(var11), ag.urlRequester);
                                  if (var35 != null) {
@@ -406,8 +406,8 @@ class ao implements TlsAuthentication {
                                        fw.ma_renamed(var11);
                                     }
                                  } else {
-                                    var21 = var35.ab;
-                                    var22 = var35.aq;
+                                    var21 = var35.width;
+                                    var22 = var35.height;
                                     if (!var11.spriteTiling) {
                                        var23 = -576720896 * var11.width / var21;
                                        if (var11.spriteAngle * -738051099 != 0) {
@@ -500,8 +500,8 @@ class ao implements TlsAuthentication {
                                  }
 
                                  WorldMapArea.ai_renamed(var13 + var11.width * -794961409 / 2, var11.height * 1473950221 / 2 + var14);
-                                 var41 = var11.modelZoom * 942674363 * in.ac[797932055 * var11.modelAngleX] >> 16;
-                                 var25 = 942674363 * var11.modelZoom * in.au[797932055 * var11.modelAngleX] >> 16;
+                                 var41 = var11.modelZoom * 942674363 * Rasterizer3D.ac[797932055 * var11.modelAngleX] >> 16;
+                                 var25 = 942674363 * var11.modelZoom * Rasterizer3D.au[797932055 * var11.modelAngleX] >> 16;
                                  if (var36 != null) {
                                     if (!var11.isIf3) {
                                        var36.bx(0, var11.modelAngleY * -480949115, 0, var11.modelAngleX * 797932055, 0, var41, var25);

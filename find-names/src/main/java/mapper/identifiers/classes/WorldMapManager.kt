@@ -43,13 +43,6 @@ class WorldMapManager : IdentityMapper.Class() {
         override val predicate = predicateOf<Method2> { it.returnType == HashMap::class.type }
     }
 
-//    @MethodParameters()
-//    @DependsOn(buildIcons::class)
-//    class buildIcons0 : UniqueMapper.InMethod.Method(buildIcons::class) {
-//        override val predicate = predicateOf<Instruction2> { it.isMethod }
-//    }
-    //TODO
-
     @DependsOn(buildIcons::class)
     class icons : UniqueMapper.InMethod.Field(buildIcons::class) {
         override val predicate = predicateOf<Instruction2> { it.isField }
@@ -68,6 +61,12 @@ class WorldMapManager : IdentityMapper.Class() {
     }
 
     //TODO
+    //    @MethodParameters("x", "y", "dst")
+//    @DependsOn(WorldMapRegion::class)
+//    class getNeighboringRegions : IdentityMapper.InstanceMethod() {
+//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
+//                .and { it.arguments == listOf(Type.INT_TYPE, Type.INT_TYPE, type<WorldMapRegion>().withDimensions(1)) }
+//    }
 //    @MethodParameters()
 //    class clearIcons : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE && it.arguments.isEmpty() }
@@ -77,6 +76,11 @@ class WorldMapManager : IdentityMapper.Class() {
 //    @DependsOn(Sprite::class)
 //    class overviewSprite : IdentityMapper.InstanceField() {
 //        override val predicate = predicateOf<Field2> { it.type == type<Sprite>() }
+//    }
+    //    @MethodParameters()
+//    @DependsOn(buildIcons::class)
+//    class buildIcons0 : UniqueMapper.InMethod.Method(buildIcons::class) {
+//        override val predicate = predicateOf<Instruction2> { it.isMethod }
 //    }
 
     @DependsOn(WorldMapAreaData::class)
@@ -96,11 +100,4 @@ class WorldMapManager : IdentityMapper.Class() {
     class loadStarted : OrderMapper.InConstructor.Field(WorldMapManager::class, 1) {
         override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
     }
-
-//    @MethodParameters("x", "y", "dst")
-//    @DependsOn(WorldMapRegion::class)
-//    class getNeighboringRegions : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
-//                .and { it.arguments == listOf(Type.INT_TYPE, Type.INT_TYPE, type<WorldMapRegion>().withDimensions(1)) }
-//    }
 }

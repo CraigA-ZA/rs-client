@@ -91,9 +91,9 @@ public class bb {
             }
          }
 
-         if (-1 != Archive.jn[var2] && cr.jw[var2] == null) {
-            cr.jw[var2] = nn.archive5.takeFileEncrypted(Archive.jn[var2], 0, Scenery.xteaKeys[var2]);
-            if (null == cr.jw[var2]) {
+         if (-1 != Archive.jn[var2] && LocSound.jw[var2] == null) {
+            LocSound.jw[var2] = nn.archive5.takeFileEncrypted(Archive.jn[var2], 0, Scenery.xteaKeys[var2]);
+            if (null == LocSound.jw[var2]) {
                var1 = false;
                Client.jx += 1047178289;
             }
@@ -109,7 +109,7 @@ public class bb {
          int var4;
          int var5;
          for(var2 = 0; var2 < au.jf.length; ++var2) {
-            byte[] var3 = cr.jw[var2];
+            byte[] var3 = LocSound.jw[var2];
             if (null != var3) {
                var4 = 64 * (WorldMapAreaData.jj[var2] >> 8) - -1232093375 * jm.ib;
                var5 = (WorldMapAreaData.jj[var2] & 255) * 64 - Scenery.jc * 827352769;
@@ -176,7 +176,7 @@ public class bb {
                Language.jv_renamed(true);
 
                for(var16 = 0; var16 < var2; ++var16) {
-                  byte[] var17 = cr.jw[var16];
+                  byte[] var17 = LocSound.jw[var16];
                   if (null != var17) {
                      var5 = 64 * (WorldMapAreaData.jj[var16] >> 8) - jm.ib * -1232093375;
                      var18 = 64 * (WorldMapAreaData.jj[var16] & 255) - Scenery.jc * 827352769;
@@ -250,8 +250,8 @@ public class bb {
                            var11 = (var9 / 8 << 8) + var10 / 8;
 
                            for(var12 = 0; var12 < WorldMapAreaData.jj.length; ++var12) {
-                              if (WorldMapAreaData.jj[var12] == var11 && null != cr.jw[var12]) {
-                                 Tiles.aa(cr.jw[var12], var16, 8 * var4, var5 * 8, var7, 8 * (var9 & 7), (var10 & 7) * 8, var8, bx.scene, Client.collisionMaps);
+                              if (WorldMapAreaData.jj[var12] == var11 && null != LocSound.jw[var12]) {
+                                 Tiles.aa(LocSound.jw[var12], var16, 8 * var4, var5 * 8, var7, 8 * (var9 & 7), (var10 & 7) * 8, var8, bx.scene, Client.collisionMaps);
                                  break;
                               }
                            }
@@ -288,7 +288,7 @@ public class bb {
 
             mj.hz_renamed();
             KeyHandler.jl_renamed();
-            hq.au.clear();
+            LocType.au.clear();
             PacketBitNode var20;
             if (ClientScriptFrame.client.hasFrame()) {
                var20 = mi.an_renamed(ClientProt.bt, Client.packetWriter.au);

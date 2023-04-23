@@ -93,7 +93,7 @@ final class dn implements lx {
       AccessFile var1 = null;
 
       try {
-         var1 = in.getPreferencesFile("", Client.studioGame.name, true);
+         var1 = Rasterizer3D.getPreferencesFile("", Client.studioGame.name, true);
          Packet var2 = aj.clientPreferences.toBuffer();
          var1.write(var2.array, 0, var2.index * -1633313603);
       } catch (Exception var4) {

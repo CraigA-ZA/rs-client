@@ -3,7 +3,7 @@ import java.net.URL;
 
 public class lr {
    UrlRequest af;
-   Rasterizer3D an;
+   Sprite an;
 
    lr(String var1, UrlRequester var2) {
       try {
@@ -18,7 +18,7 @@ public class lr {
       this.af = var1;
    }
 
-   Rasterizer3D af() {
+   Sprite af() {
       if (null == this.an && this.af != null && this.af.isDone()) {
          if (this.af.getResponse() != null) {
             this.an = Strings.af_renamed(this.af.getResponse());

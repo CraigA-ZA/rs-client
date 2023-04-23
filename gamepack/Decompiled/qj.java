@@ -6,7 +6,7 @@ public final class qj {
    public static final qj ab;
    static int aw;
    static int jg;
-   static Rasterizer3D[] kc;
+   static Sprite[] kc;
    public float[] au = new float[16];
 
    static {

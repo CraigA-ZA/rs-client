@@ -13,10 +13,10 @@ public class ot extends RuntimeException {
          var0 -= bt.kx * -2100544359;
          var4 -= gk.kv * 1772923873;
          var1 -= ly.ke * -91399205;
-         int var5 = in.ac[1897923909 * WorldMapSectionType.ky];
-         int var6 = in.au[WorldMapSectionType.ky * 1897923909];
-         int var7 = in.ac[-1010818347 * ek.kh];
-         int var8 = in.au[-1010818347 * ek.kh];
+         int var5 = Rasterizer3D.ac[1897923909 * WorldMapSectionType.ky];
+         int var6 = Rasterizer3D.au[WorldMapSectionType.ky * 1897923909];
+         int var7 = Rasterizer3D.ac[-1010818347 * ek.kh];
+         int var8 = Rasterizer3D.au[-1010818347 * ek.kh];
          int var9 = var8 * var0 + var7 * var1 >> 16;
          var1 = var1 * var8 - var7 * var0 >> 16;
          var0 = var9;
