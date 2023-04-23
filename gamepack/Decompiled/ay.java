@@ -314,7 +314,7 @@ public class ay {
                      var17 -= bx.ai[var20];
                   }
 
-                  if (var18 >= 1 && var18 < 103 && (!Client.cu || (Tiles.Tiles_renderFlags[0][var12][var18] & 2) != 0 || 0 == (Tiles.Tiles_renderFlags[var3][var12][var18] & 16))) {
+                  if (var18 >= 1 && var18 < 103 && (!Client.isLowDetail || (Tiles.Tiles_renderFlags[0][var12][var18] & 2) != 0 || 0 == (Tiles.Tiles_renderFlags[var3][var12][var18] & 16))) {
                      if (var3 < Tiles.aw * 1401144457) {
                         Tiles.aw = var3 * -1087180359;
                      }

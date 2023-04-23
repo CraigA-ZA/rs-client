@@ -24,7 +24,7 @@ public abstract class AbstractArchive {
 
    void decodeIndex(byte[] var1) {
       this.hash = ii.br_renamed(var1, var1.length) * -175856763;
-      Packet var3 = new Packet(ai.ch_renamed(var1));
+      Packet var3 = new Packet(ai.decompressBytes(var1));
       int var4 = var3.g1();
       if (var4 >= 5 && var4 <= 7) {
          if (var4 >= 6) {
@@ -149,12 +149,12 @@ public abstract class AbstractArchive {
       }
    }
 
-   public static NPCType an_renamed(int var0) {
-      NPCType var2 = (NPCType)NPCType.ac.get((long)var0);
+   public static NPCType getNPCType(int var0) {
+      NPCType var2 = (NPCType)NPCType.NPCType_cached.get((long)var0);
       if (null != var2) {
          return var2;
       } else {
-         byte[] var3 = NPCType.an.takeFile(9, var0);
+         byte[] var3 = NPCType.NPCType_archive.takeFile(9, var0);
          var2 = new NPCType();
          var2.ab = -1772751813 * var0;
          if (null != var3) {
@@ -162,7 +162,7 @@ public abstract class AbstractArchive {
          }
 
          var2.postDecode();
-         NPCType.ac.put(var2, (long)var0);
+         NPCType.NPCType_cached.put(var2, (long)var0);
          return var2;
       }
    }
@@ -442,7 +442,7 @@ public abstract class AbstractArchive {
                var9.tinyKeyDecrypt(var2, 5, var9.array.length);
             }
 
-            byte[] var20 = ai.ch_renamed(var19);
+            byte[] var20 = ai.decompressBytes(var19);
             if (this.releaseGroups) {
                this.groups[var1] = null;
             }
@@ -508,22 +508,22 @@ public abstract class AbstractArchive {
 
    public int getGroupId(String var1) {
       var1 = var1.toLowerCase();
-      return this.groupNameHashTable.get(hn.aq_renamed(var1));
+      return this.groupNameHashTable.get(hn.hashString(var1));
    }
 
    public int getFileId(int var1, String var2) {
       var2 = var2.toLowerCase();
-      return this.fileNameHashTables[var1].get(hn.aq_renamed(var2));
+      return this.fileNameHashTables[var1].get(hn.hashString(var2));
    }
 
    public boolean cv(String var1, String var2) {
       var1 = var1.toLowerCase();
       var2 = var2.toLowerCase();
-      int var4 = this.groupNameHashTable.get(hn.aq_renamed(var1));
+      int var4 = this.groupNameHashTable.get(hn.hashString(var1));
       if (var4 < 0) {
          return false;
       } else {
-         int var5 = this.fileNameHashTables[var4].get(hn.aq_renamed(var2));
+         int var5 = this.fileNameHashTables[var4].get(hn.hashString(var2));
          return var5 >= 0;
       }
    }
@@ -531,28 +531,28 @@ public abstract class AbstractArchive {
    public byte[] takeFileByNames(String var1, String var2) {
       var1 = var1.toLowerCase();
       var2 = var2.toLowerCase();
-      int var4 = this.groupNameHashTable.get(hn.aq_renamed(var1));
-      int var5 = this.fileNameHashTables[var4].get(hn.aq_renamed(var2));
+      int var4 = this.groupNameHashTable.get(hn.hashString(var1));
+      int var5 = this.fileNameHashTables[var4].get(hn.hashString(var2));
       return this.takeFile(var4, var5);
    }
 
    public boolean tryLoadFileByNames(String var1, String var2) {
       var1 = var1.toLowerCase();
       var2 = var2.toLowerCase();
-      int var4 = this.groupNameHashTable.get(hn.aq_renamed(var1));
-      int var5 = this.fileNameHashTables[var4].get(hn.aq_renamed(var2));
+      int var4 = this.groupNameHashTable.get(hn.hashString(var1));
+      int var5 = this.fileNameHashTables[var4].get(hn.hashString(var2));
       return this.tryLoadFile(var4, var5);
    }
 
    public boolean tryLoadGroupByName(String var1) {
       var1 = var1.toLowerCase();
-      int var3 = this.groupNameHashTable.get(hn.aq_renamed(var1));
+      int var3 = this.groupNameHashTable.get(hn.hashString(var1));
       return this.tryLoadGroup(var3);
    }
 
    public void cw(String var1) {
       var1 = var1.toLowerCase();
-      int var3 = this.groupNameHashTable.get(hn.aq_renamed(var1));
+      int var3 = this.groupNameHashTable.get(hn.hashString(var1));
       if (var3 >= 0) {
          this.aw(var3);
       }
@@ -560,7 +560,7 @@ public abstract class AbstractArchive {
 
    public int groupLoadPercentByName(String var1) {
       var1 = var1.toLowerCase();
-      int var3 = this.groupNameHashTable.get(hn.aq_renamed(var1));
+      int var3 = this.groupNameHashTable.get(hn.hashString(var1));
       return this.groupLoadPercent(var3);
    }
 }

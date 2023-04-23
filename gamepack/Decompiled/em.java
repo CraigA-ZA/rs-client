@@ -32,7 +32,7 @@ public class em {
          }
 
          var0 -= 1000;
-         var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+         var4 = gh.getInterfaceComponent(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
       } else {
          Component var10000;
          if (var2) {

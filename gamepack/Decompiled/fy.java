@@ -57,7 +57,7 @@ public class fy extends fb {
 
             if (1 == var1 && var4.gu != null) {
                if (var4.childIndex * 55577617 >= 0) {
-                  Component var13 = gh.an_renamed(var4.id * 1713081171);
+                  Component var13 = gh.getInterfaceComponent(var4.id * 1713081171);
                   if (var13 == null || var13.children == null || var4.childIndex * 55577617 >= var13.children.length || var13.children[55577617 * var4.childIndex] != var4) {
                      continue;
                   }

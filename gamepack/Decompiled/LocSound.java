@@ -1,6 +1,6 @@
 public final class LocSound extends Node {
-   static byte[][] jw;
-   static NodeDeque af = new NodeDeque();
+   static byte[][] regionMapArchives;
+   static NodeDeque objectSounds = new NodeDeque();
    RawPcmStream stream2;
    RawPcmStream stream1;
    LocType obj;

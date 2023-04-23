@@ -2,7 +2,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class fc extends fb {
-   static IndexedSprite[] ao;
+   static IndexedSprite[] titleMuteSprites;
    String af;
    // $FF: synthetic field
    final fa this$0;

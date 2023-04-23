@@ -4,7 +4,7 @@ public class World {
    static int aq = 0;
    static int[] al = new int[]{1, 1, 1, 1};
    static int[] at = new int[]{0, 1, 2, 3};
-   static IndexedSprite[] dt;
+   static IndexedSprite[] slStarSprites;
    int location;
    int properties;
    int index;

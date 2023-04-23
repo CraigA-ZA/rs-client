@@ -50,7 +50,7 @@ public class Varcs {
       }
 
       this.strings = new String[var2];
-      this.aa();
+      this.read();
    }
 
    void setInt(int var1, int var2) {
@@ -87,7 +87,7 @@ public class Varcs {
       return this.strings[var1];
    }
 
-   void aq() {
+   void clearTransient() {
       int var2;
       for(var2 = 0; var2 < this.intsPersistence.length; ++var2) {
          if (!this.intsPersistence[var2]) {
@@ -101,12 +101,12 @@ public class Varcs {
 
    }
 
-   AccessFile al(boolean var1) {
+   AccessFile getPreferencesFile(boolean var1) {
       return Rasterizer3D.getPreferencesFile("2", Client.studioGame.name, var1);
    }
 
-   void at() {
-      AccessFile var2 = this.al(true);
+   void write() {
+      AccessFile var2 = this.getPreferencesFile(true);
 
       try {
          int var3 = 3;
@@ -160,10 +160,10 @@ public class Varcs {
       this.lastWriteTimeMs = Formatting.af_renamed() * 2378911120439077589L;
    }
 
-   void aa() {
-      AccessFile var2 = this.al(false);
+   void read() {
+      AccessFile var2 = this.getPreferencesFile(false);
 
-      label229: {
+      label244: {
          try {
             byte[] var3 = new byte[(int)var2.length()];
 
@@ -176,62 +176,62 @@ public class Varcs {
             }
 
             Packet var25 = new Packet(var3);
-            if (var25.array.length - -1633313603 * var25.index < 1) {
-               return;
-            }
+            if (var25.array.length - -1633313603 * var25.index >= 1) {
+               int var6 = var25.g1();
+               if (var6 >= 0 && var6 <= 2) {
+                  int var7;
+                  int var8;
+                  int var9;
+                  int var10;
+                  if (var6 >= 2) {
+                     var7 = var25.cl();
+                     var8 = 0;
 
-            int var6 = var25.g1();
-            if (var6 >= 0 && var6 <= 2) {
-               int var7;
-               int var8;
-               int var9;
-               int var10;
-               if (var6 >= 2) {
-                  var7 = var25.cl();
-                  var8 = 0;
+                     while(true) {
+                        if (var8 >= var7) {
+                           break label244;
+                        }
 
-                  while(true) {
-                     if (var8 >= var7) {
-                        break label229;
+                        var9 = var25.cl();
+                        var10 = var25.g1();
+                        sh var11 = (sh)StructType.findEnumerated(sh.au_renamed(), var10);
+                        Object var12 = var11.at(var25);
+                        if (var9 >= 0 && var9 < this.intsPersistence.length && this.intsPersistence[var9]) {
+                           this.map.put(var9, var12);
+                        }
+
+                        ++var8;
+                     }
+                  } else {
+                     var7 = var25.cl();
+
+                     for(var8 = 0; var8 < var7; ++var8) {
+                        var9 = var25.cl();
+                        var10 = var25.g4s();
+                        if (var9 >= 0 && var9 < this.intsPersistence.length && this.intsPersistence[var9]) {
+                           this.map.put(var9, var10);
+                        }
                      }
 
-                     var9 = var25.cl();
-                     var10 = var25.g1();
-                     sh var11 = (sh)StructType.findEnumerated(sh.au_renamed(), var10);
-                     Object var12 = var11.at(var25);
-                     if (var9 >= 0 && var9 < this.intsPersistence.length && this.intsPersistence[var9]) {
-                        this.map.put(var9, var12);
+                     var8 = var25.cl();
+                     var9 = 0;
+
+                     while(true) {
+                        if (var9 >= var8) {
+                           break label244;
+                        }
+
+                        var25.cl();
+                        var25.cw();
+                        ++var9;
                      }
-
-                     ++var8;
-                  }
-               } else {
-                  var7 = var25.cl();
-
-                  for(var8 = 0; var8 < var7; ++var8) {
-                     var9 = var25.cl();
-                     var10 = var25.g4s();
-                     if (var9 >= 0 && var9 < this.intsPersistence.length && this.intsPersistence[var9]) {
-                        this.map.put(var9, var10);
-                     }
-                  }
-
-                  var8 = var25.cl();
-                  var9 = 0;
-
-                  while(true) {
-                     if (var9 >= var8) {
-                        break label229;
-                     }
-
-                     var25.cl();
-                     var25.cw();
-                     ++var9;
                   }
                }
+
+               return;
             }
          } catch (Exception var23) {
-            break label229;
+            break label244;
          } finally {
             try {
                var2.close();
@@ -246,9 +246,9 @@ public class Varcs {
       this.unwrittenChanges = false;
    }
 
-   void ay() {
+   void tryWrite() {
       if (this.unwrittenChanges && -7171747788514623875L * this.lastWriteTimeMs < Formatting.af_renamed() - 60000L) {
-         this.at();
+         this.write();
       }
 
    }
@@ -261,7 +261,7 @@ public class Varcs {
       Component var4;
       if (var0 >= 2000) {
          var0 -= 1000;
-         var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+         var4 = gh.getInterfaceComponent(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
       } else {
          var4 = var2 ? SoundSystem.ag : an.ai;
       }

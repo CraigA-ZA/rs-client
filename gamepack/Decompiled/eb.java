@@ -400,7 +400,7 @@ public class eb extends AbstractUserComparator {
          return -1727408401 * GameShell.plane;
       } else {
          int var1 = 3;
-         if (WorldMapSectionType.ky * 1897923909 < 310) {
+         if (WorldMapSectionType.cameraPitch * 1897923909 < 310) {
             int var2;
             int var3;
             if (986256295 * Client.lv == 1) {
@@ -411,8 +411,8 @@ public class eb extends AbstractUserComparator {
                var3 = MusicPatchNode.localPlayer.bo * -411750205 >> 7;
             }
 
-            int var4 = -2100544359 * bt.kx >> 7;
-            int var5 = ly.ke * -91399205 >> 7;
+            int var4 = -2100544359 * bt.cameraX >> 7;
+            int var5 = ly.cameraZ * -91399205 >> 7;
             if (var4 < 0 || var5 < 0 || var4 >= 104 || var5 >= 104) {
                return -1727408401 * GameShell.plane;
             }

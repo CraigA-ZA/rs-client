@@ -65,7 +65,7 @@ public class NetFileRequest extends DualNode {
                   var4 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
                   var21 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
                   int var24 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 2];
-                  Component var26 = gh.an_renamed(var24);
+                  Component var26 = gh.getInterfaceComponent(var24);
                   ol.mm_renamed(var26, var4, var21);
                   return 1;
                } else if (var0 == 3109) {
@@ -539,7 +539,7 @@ public class NetFileRequest extends DualNode {
    static int ba_renamed(int var0, ClientScript var1, boolean var2) {
       if (var0 == 6809) {
          int var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         LocType var5 = fw.an_renamed(var4);
+         LocType var5 = fw.getLocType(var4);
          Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = null != var5 ? var5.name : "";
          return 1;
       } else {

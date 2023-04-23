@@ -24,7 +24,7 @@ public class StructType extends DualNode {
    }
 
    static void af_renamed() {
-      for(LocSound var1 = (LocSound)LocSound.af.last(); null != var1; var1 = (LocSound)LocSound.af.previous()) {
+      for(LocSound var1 = (LocSound)LocSound.objectSounds.last(); null != var1; var1 = (LocSound)LocSound.objectSounds.previous()) {
          if (var1.stream1 != null) {
             fe.pcmStreamMixer.removeSubStream(var1.stream1);
             var1.stream1 = null;
@@ -36,7 +36,7 @@ public class StructType extends DualNode {
          }
       }
 
-      LocSound.af.af();
+      LocSound.objectSounds.af();
    }
 
    void postDecode() {
@@ -86,7 +86,7 @@ public class StructType extends DualNode {
       Component var5;
       if (var0 >= 2000) {
          var0 -= 1000;
-         var5 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+         var5 = gh.getInterfaceComponent(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
          var4 = false;
       } else {
          var5 = var2 ? SoundSystem.ag : an.ai;

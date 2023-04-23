@@ -6,7 +6,7 @@ public class bx {
    static World[] worlds;
    static Scene scene;
    static int[] ai;
-   static IndexedSprite[] kg;
+   static IndexedSprite[] modIconSprites;
 
    bx() throws Throwable {
       throw new Error();
@@ -22,7 +22,7 @@ public class bx {
       if (var0 >= 2000) {
          var0 -= 1000;
          var5 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         var4 = gh.an_renamed(var5);
+         var4 = gh.getInterfaceComponent(var5);
       } else {
          var4 = var2 ? SoundSystem.ag : an.ai;
       }
@@ -405,7 +405,7 @@ public class bx {
    }
 
    static int as_renamed(int var0, ClientScript var1, boolean var2) {
-      Component var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+      Component var4 = gh.getInterfaceComponent(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
       if (var0 == 2500) {
          Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4.x * 262951665;
          return 1;

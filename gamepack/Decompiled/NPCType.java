@@ -1,7 +1,7 @@
 public class NPCType extends DualNode {
-   static EvictingDualNodeHashTable ac = new EvictingDualNodeHashTable(64);
+   static EvictingDualNodeHashTable NPCType_cached = new EvictingDualNodeHashTable(64);
    static EvictingDualNodeHashTable au = new EvictingDualNodeHashTable(50);
-   static AbstractArchive an;
+   static AbstractArchive NPCType_archive;
    static AbstractArchive aw;
    int bd;
    int bo;
@@ -373,7 +373,7 @@ public class NPCType extends DualNode {
    public final NPCType transform() {
       int var2 = -1;
       if (-1 != 1781845069 * this.transformVarbit) {
-         var2 = WorldMapSection1.af_renamed(1781845069 * this.transformVarbit);
+         var2 = WorldMapSection1.getVarbit(1781845069 * this.transformVarbit);
       } else if (2051988897 * this.transformVarp != -1) {
          var2 = Varps.Varps_main[this.transformVarp * 2051988897];
       }
@@ -385,7 +385,7 @@ public class NPCType extends DualNode {
          var3 = this.transforms[this.transforms.length - 1];
       }
 
-      return var3 != -1 ? AbstractArchive.an_renamed(var3) : null;
+      return var3 != -1 ? AbstractArchive.getNPCType(var3) : null;
    }
 
    public boolean aa() {
@@ -394,7 +394,7 @@ public class NPCType extends DualNode {
       } else {
          int var2 = -1;
          if (-1 != this.transformVarbit * 1781845069) {
-            var2 = WorldMapSection1.af_renamed(this.transformVarbit * 1781845069);
+            var2 = WorldMapSection1.getVarbit(this.transformVarbit * 1781845069);
          } else if (-1 != 2051988897 * this.transformVarp) {
             var2 = Varps.Varps_main[2051988897 * this.transformVarp];
          }

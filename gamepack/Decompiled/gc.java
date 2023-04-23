@@ -13,7 +13,7 @@ public class gc {
    }
 
    static final int ag_renamed(int var0, int var1, int var2, int var3) {
-      int var5 = 65536 - Rasterizer3D.au[var2 * 1024 / var3] >> 1;
+      int var5 = 65536 - Rasterizer3D.Rasterizer3D_cosine[var2 * 1024 / var3] >> 1;
       return (var0 * (65536 - var5) >> 16) + (var1 * var5 >> 16);
    }
 }

@@ -6,7 +6,7 @@ final class dn implements lx {
    // $FF: synthetic field
    final Component val$cc;
 
-   public static byte af_renamed(char var0) {
+   public static byte charToByteCp1252(char var0) {
       byte var2;
       if ((var0 <= 0 || var0 >= 128) && (var0 < 160 || var0 > 255)) {
          if (8364 == var0) {

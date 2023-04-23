@@ -51,7 +51,7 @@ public class dk implements Enumerated {
 
          for(int var1 = 0; var1 < Client.players.length; ++var1) {
             if (Client.players[var1] != null) {
-               fi.wc.aw(-1232093375 * jm.ib + (1144428983 * Client.players[var1].bx >> 7), (-411750205 * Client.players[var1].bo >> 7) + 827352769 * Scenery.jc);
+               fi.wc.aw(-1232093375 * jm.baseX + (1144428983 * Client.players[var1].bx >> 7), (-411750205 * Client.players[var1].bo >> 7) + 827352769 * Scenery.baseY);
             }
          }
       }

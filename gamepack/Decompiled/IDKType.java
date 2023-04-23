@@ -259,8 +259,8 @@ public class IDKType extends DualNode {
                int var14 = var12 + var1;
                int var15 = var2 + var11;
                if (var14 > 0 && var15 > 0 && var14 < 103 && var15 < 103) {
-                  LocType var16 = fw.an_renamed(var6);
-                  if (var13 != 22 || !Client.cu || 0 != var16.interactable * 415653149 || -973955889 * var16.interactType == 1 || var16.lowDetailVisible) {
+                  LocType var16 = fw.getLocType(var6);
+                  if (var13 != 22 || !Client.isLowDetail || 0 != var16.interactable * 415653149 || -973955889 * var16.interactType == 1 || var16.lowDetailVisible) {
                      if (!var16.loadModels()) {
                         Client.jk += 1441978033;
                         var4 = false;

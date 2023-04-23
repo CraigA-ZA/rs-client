@@ -32,7 +32,7 @@ public class WorldMapSection1 implements WorldMapSection {
 
    }
 
-   public static int af_renamed(int var0) {
+   public static int getVarbit(int var0) {
       VarBitType var2 = gs.an_renamed(var0);
       int var3 = var2.aw * 470400793;
       int var4 = 1050888611 * var2.ac;
@@ -165,8 +165,8 @@ public class WorldMapSection1 implements WorldMapSection {
             var18 = (int)((double)var18 * 1.04);
          }
 
-         int var19 = var18 * Rasterizer3D.ac[415331477 * var10.xan2d] >> 16;
-         int var20 = var18 * Rasterizer3D.au[415331477 * var10.xan2d] >> 16;
+         int var19 = var18 * Rasterizer3D.Rasterizer3D_sine[415331477 * var10.xan2d] >> 16;
+         int var20 = var18 * Rasterizer3D.Rasterizer3D_cosine[415331477 * var10.xan2d] >> 16;
          var22.ai();
          var22.bx(0, -2044433177 * var10.yan2d, var10.zan2d * 450595207, var10.xan2d * 415331477, var10.xof2d * 151912273, 1550732737 * var22.height / 2 + var19 + -271411709 * var10.yof2d, var20 + var10.yof2d * -271411709);
          if (-1276549997 * var10.cg != -1) {

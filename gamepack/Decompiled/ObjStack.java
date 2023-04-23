@@ -55,7 +55,7 @@ public final class ObjStack {
                }
 
                int var8 = var1.gBit(1);
-               var7.type = AbstractArchive.an_renamed(var1.gBit(14));
+               var7.type = AbstractArchive.getNPCType(var1.gBit(14));
                int var9;
                if (var0) {
                   var9 = var1.gBit(8);

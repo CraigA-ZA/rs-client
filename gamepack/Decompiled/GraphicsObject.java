@@ -82,20 +82,20 @@ public final class GraphicsObject extends Entity {
          var0 = 383;
       }
 
-      if (1897923909 * WorldMapSectionType.ky < var0) {
-         WorldMapSectionType.ky += 528729485 * (MapElementType.uv * 942361787 * (var0 - WorldMapSectionType.ky * 1897923909) / 1000 + 1039880989 * Archive.up);
-         if (1897923909 * WorldMapSectionType.ky > var0) {
-            WorldMapSectionType.ky = 528729485 * var0;
+      if (1897923909 * WorldMapSectionType.cameraPitch < var0) {
+         WorldMapSectionType.cameraPitch += 528729485 * (MapElementType.uv * 942361787 * (var0 - WorldMapSectionType.cameraPitch * 1897923909) / 1000 + 1039880989 * Archive.up);
+         if (1897923909 * WorldMapSectionType.cameraPitch > var0) {
+            WorldMapSectionType.cameraPitch = 528729485 * var0;
          }
-      } else if (1897923909 * WorldMapSectionType.ky > var0) {
-         WorldMapSectionType.ky -= (MapElementType.uv * 942361787 * (WorldMapSectionType.ky * 1897923909 - var0) / 1000 + Archive.up * 1039880989) * 528729485;
-         if (WorldMapSectionType.ky * 1897923909 < var0) {
-            WorldMapSectionType.ky = var0 * 528729485;
+      } else if (1897923909 * WorldMapSectionType.cameraPitch > var0) {
+         WorldMapSectionType.cameraPitch -= (MapElementType.uv * 942361787 * (WorldMapSectionType.cameraPitch * 1897923909 - var0) / 1000 + Archive.up * 1039880989) * 528729485;
+         if (WorldMapSectionType.cameraPitch * 1897923909 < var0) {
+            WorldMapSectionType.cameraPitch = var0 * 528729485;
          }
       }
 
       var1 &= 2047;
-      int var3 = var1 - ek.kh * -1010818347;
+      int var3 = var1 - ek.cameraYaw * -1010818347;
       if (var3 > 1024) {
          var3 -= 2048;
       } else if (var3 < -1024) {
@@ -103,14 +103,14 @@ public final class GraphicsObject extends Entity {
       }
 
       if (var3 > 0) {
-         ek.kh += -1545206147 * (var3 * 942361787 * MapElementType.uv / 1000 + 1039880989 * Archive.up);
-         ek.kh = (ek.kh * -1010818347 & 2047) * -1545206147;
+         ek.cameraYaw += -1545206147 * (var3 * 942361787 * MapElementType.uv / 1000 + 1039880989 * Archive.up);
+         ek.cameraYaw = (ek.cameraYaw * -1010818347 & 2047) * -1545206147;
       } else if (var3 < 0) {
-         ek.kh -= -1545206147 * (1039880989 * Archive.up + -var3 * 942361787 * MapElementType.uv / 1000);
-         ek.kh = (ek.kh * -1010818347 & 2047) * -1545206147;
+         ek.cameraYaw -= -1545206147 * (1039880989 * Archive.up + -var3 * 942361787 * MapElementType.uv / 1000);
+         ek.cameraYaw = (ek.cameraYaw * -1010818347 & 2047) * -1545206147;
       }
 
-      int var4 = var1 - ek.kh * -1010818347;
+      int var4 = var1 - ek.cameraYaw * -1010818347;
       if (var4 > 1024) {
          var4 -= 2048;
       } else if (var4 < -1024) {
@@ -118,7 +118,7 @@ public final class GraphicsObject extends Entity {
       }
 
       if (var4 < 0 && var3 > 0 || var4 > 0 && var3 < 0) {
-         ek.kh = var1 * -1545206147;
+         ek.cameraYaw = var1 * -1545206147;
       }
 
    }

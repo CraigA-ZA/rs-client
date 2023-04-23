@@ -130,16 +130,16 @@ public class Decimator {
          st.dr = var3;
       }
 
-      if (null == av.dl) {
-         av.dl = mz.ac_renamed(rr.archive8, "sl_flags", "");
+      if (null == av.slFlagSprites) {
+         av.slFlagSprites = mz.ac_renamed(rr.archive8, "sl_flags", "");
       }
 
-      if (DevicePcmPlayerProvider.dk == null) {
-         DevicePcmPlayerProvider.dk = mz.ac_renamed(rr.archive8, "sl_arrows", "");
+      if (DevicePcmPlayerProvider.slArrowSprites == null) {
+         DevicePcmPlayerProvider.slArrowSprites = mz.ac_renamed(rr.archive8, "sl_arrows", "");
       }
 
-      if (World.dt == null) {
-         World.dt = mz.ac_renamed(rr.archive8, "sl_stars", "");
+      if (World.slStarSprites == null) {
+         World.slStarSprites = mz.ac_renamed(rr.archive8, "sl_stars", "");
       }
 
       if (PlayerType.dz == null) {
@@ -154,67 +154,67 @@ public class Decimator {
       Rasterizer2D.ew_renamed(578342931 * cz.aw, 0, 125, 23, 12425273, 9135624);
       Rasterizer2D.ew_renamed(125 + cz.aw * 578342931, 0, 640, 23, 5197647, 2697513);
       var0.drawCentered(Strings.mo, cz.aw * 578342931 + 62, 15, 0, -1);
-      if (null != World.dt) {
-         World.dt[1].aw(cz.aw * 578342931 + 140, 1);
+      if (null != World.slStarSprites) {
+         World.slStarSprites[1].aw(cz.aw * 578342931 + 140, 1);
          var1.draw(Strings.mn, 578342931 * cz.aw + 152, 10, 16777215, -1);
-         World.dt[0].aw(cz.aw * 578342931 + 140, 12);
+         World.slStarSprites[0].aw(cz.aw * 578342931 + 140, 12);
          var1.draw(Strings.mi, 152 + cz.aw * 578342931, 21, 16777215, -1);
       }
 
-      if (DevicePcmPlayerProvider.dk != null) {
+      if (DevicePcmPlayerProvider.slArrowSprites != null) {
          int var25 = 578342931 * cz.aw + 280;
          if (World.at[0] == 0 && World.al[0] == 0) {
-            DevicePcmPlayerProvider.dk[2].aw(var25, 4);
+            DevicePcmPlayerProvider.slArrowSprites[2].aw(var25, 4);
          } else {
-            DevicePcmPlayerProvider.dk[0].aw(var25, 4);
+            DevicePcmPlayerProvider.slArrowSprites[0].aw(var25, 4);
          }
 
          if (World.at[0] == 0 && 1 == World.al[0]) {
-            DevicePcmPlayerProvider.dk[3].aw(15 + var25, 4);
+            DevicePcmPlayerProvider.slArrowSprites[3].aw(15 + var25, 4);
          } else {
-            DevicePcmPlayerProvider.dk[1].aw(var25 + 15, 4);
+            DevicePcmPlayerProvider.slArrowSprites[1].aw(var25 + 15, 4);
          }
 
          var0.draw(Strings.md, 32 + var25, 17, 16777215, -1);
          int var27 = cz.aw * 578342931 + 390;
          if (1 == World.at[0] && 0 == World.al[0]) {
-            DevicePcmPlayerProvider.dk[2].aw(var27, 4);
+            DevicePcmPlayerProvider.slArrowSprites[2].aw(var27, 4);
          } else {
-            DevicePcmPlayerProvider.dk[0].aw(var27, 4);
+            DevicePcmPlayerProvider.slArrowSprites[0].aw(var27, 4);
          }
 
          if (World.at[0] == 1 && 1 == World.al[0]) {
-            DevicePcmPlayerProvider.dk[3].aw(15 + var27, 4);
+            DevicePcmPlayerProvider.slArrowSprites[3].aw(15 + var27, 4);
          } else {
-            DevicePcmPlayerProvider.dk[1].aw(var27 + 15, 4);
+            DevicePcmPlayerProvider.slArrowSprites[1].aw(var27 + 15, 4);
          }
 
          var0.draw(Strings.mr, 32 + var27, 17, 16777215, -1);
          var5 = cz.aw * 578342931 + 500;
          if (2 == World.at[0] && 0 == World.al[0]) {
-            DevicePcmPlayerProvider.dk[2].aw(var5, 4);
+            DevicePcmPlayerProvider.slArrowSprites[2].aw(var5, 4);
          } else {
-            DevicePcmPlayerProvider.dk[0].aw(var5, 4);
+            DevicePcmPlayerProvider.slArrowSprites[0].aw(var5, 4);
          }
 
          if (World.at[0] == 2 && World.al[0] == 1) {
-            DevicePcmPlayerProvider.dk[3].aw(var5 + 15, 4);
+            DevicePcmPlayerProvider.slArrowSprites[3].aw(var5 + 15, 4);
          } else {
-            DevicePcmPlayerProvider.dk[1].aw(15 + var5, 4);
+            DevicePcmPlayerProvider.slArrowSprites[1].aw(15 + var5, 4);
          }
 
          var0.draw(Strings.ml, 32 + var5, 17, 16777215, -1);
          var6 = cz.aw * 578342931 + 610;
          if (World.at[0] == 3 && World.al[0] == 0) {
-            DevicePcmPlayerProvider.dk[2].aw(var6, 4);
+            DevicePcmPlayerProvider.slArrowSprites[2].aw(var6, 4);
          } else {
-            DevicePcmPlayerProvider.dk[0].aw(var6, 4);
+            DevicePcmPlayerProvider.slArrowSprites[0].aw(var6, 4);
          }
 
          if (3 == World.at[0] && 1 == World.al[0]) {
-            DevicePcmPlayerProvider.dk[3].aw(15 + var6, 4);
+            DevicePcmPlayerProvider.slArrowSprites[3].aw(15 + var6, 4);
          } else {
-            DevicePcmPlayerProvider.dk[1].aw(var6 + 15, 4);
+            DevicePcmPlayerProvider.slArrowSprites[1].aw(var6 + 15, 4);
          }
 
          var0.draw(Strings.mf, var6 + 32, 17, 16777215, -1);
@@ -319,8 +319,8 @@ public class Decimator {
                st.dr[1140778173 * var21.av].ay(var13, var12);
             }
 
-            if (null != av.dl) {
-               av.dl[(var18.at() ? 8 : 0) + var18.location * -665846519].aw(var13 + 29, var12);
+            if (null != av.slFlagSprites) {
+               av.slFlagSprites[(var18.at() ? 8 : 0) + var18.location * -665846519].aw(var13 + 29, var12);
             }
 
             var0.drawCentered(Integer.toString(-2091224171 * var18.id), 15 + var13, 5 + var28 / 2 + var12, var22, -1);
@@ -378,14 +378,14 @@ public class Decimator {
          qj.jg = var1 * -193171501;
          fd.hi_renamed(25);
          jl.ij_renamed(Strings.Strings_loadingPleaseWait, true);
-         int var4 = jm.ib * -1232093375;
-         int var5 = 827352769 * Scenery.jc;
-         jm.ib = (var0 - 6) * -102332920;
-         Scenery.jc = 1527335432 * (var1 - 6);
-         int var6 = jm.ib * -1232093375 - var4;
-         int var7 = Scenery.jc * 827352769 - var5;
-         var4 = jm.ib * -1232093375;
-         var5 = Scenery.jc * 827352769;
+         int var4 = jm.baseX * -1232093375;
+         int var5 = 827352769 * Scenery.baseY;
+         jm.baseX = (var0 - 6) * -102332920;
+         Scenery.baseY = 1527335432 * (var1 - 6);
+         int var6 = jm.baseX * -1232093375 - var4;
+         int var7 = Scenery.baseY * 827352769 - var5;
+         var4 = jm.baseX * -1232093375;
+         var5 = Scenery.baseY * 827352769;
 
          int var8;
          int var10;
@@ -469,8 +469,8 @@ public class Decimator {
 
          Client.soundEffectCount = 0;
          Client.uj = false;
-         bt.kx -= (var6 << 7) * -1682679895;
-         ly.ke -= 46344275 * (var7 << 7);
+         bt.cameraX -= (var6 << 7) * -1682679895;
+         ly.cameraZ -= 46344275 * (var7 << 7);
          bz.lg -= (var6 << 7) * 1293848551;
          fw.lf -= (var7 << 7) * 892004233;
          Client.sp = 1715437485;

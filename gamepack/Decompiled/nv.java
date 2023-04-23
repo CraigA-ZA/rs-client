@@ -35,7 +35,7 @@ public class nv {
          }
       }
 
-      Component var8 = gh.an_renamed(var4);
+      Component var8 = gh.getInterfaceComponent(var4);
       if (null != var8) {
          fw.ma_renamed(var8);
       }

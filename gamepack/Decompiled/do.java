@@ -20,7 +20,7 @@ public class do {
 
    static final void ku_renamed(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       if (var2 >= 1 && var3 >= 1 && var2 <= 102 && var3 <= 102) {
-         if (Client.cu && var0 != GameShell.plane * -1727408401) {
+         if (Client.isLowDetail && var0 != GameShell.plane * -1727408401) {
             return;
          }
 
@@ -53,7 +53,7 @@ public class do {
             LocType var15;
             if (0 == var1) {
                bx.scene.ar(var0, var2, var3);
-               var15 = fw.an_renamed(var17);
+               var15 = fw.getLocType(var17);
                if (0 != var15.interactType * -973955889) {
                   Client.collisionMaps[var0].aq(var2, var3, var18, var19, var15.boolean1);
                }
@@ -65,7 +65,7 @@ public class do {
 
             if (var1 == 2) {
                bx.scene.as(var0, var2, var3);
-               var15 = fw.an_renamed(var17);
+               var15 = fw.getLocType(var17);
                if (-1339930361 * var15.width + var2 > 103 || -1339930361 * var15.width + var3 > 103 || var2 + var15.length * -1659393955 > 103 || -1659393955 * var15.length + var3 > 103) {
                   return;
                }
@@ -77,7 +77,7 @@ public class do {
 
             if (3 == var1) {
                bx.scene.aj(var0, var2, var3);
-               var15 = fw.an_renamed(var17);
+               var15 = fw.getLocType(var17);
                if (-973955889 * var15.interactType == 1) {
                   Client.collisionMaps[var0].aa(var2, var3);
                }

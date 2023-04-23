@@ -1,11 +1,11 @@
 public class LocType extends DualNode {
-   public static EvictingDualNodeHashTable au = new EvictingDualNodeHashTable(500);
-   static boolean af = false;
+   public static EvictingDualNodeHashTable LocType_cachedUnlitModels = new EvictingDualNodeHashTable(500);
+   static boolean LocType_isLowDetail = false;
    static UnlitModel[] al = new UnlitModel[4];
    static EvictingDualNodeHashTable ab = new EvictingDualNodeHashTable(30);
-   static EvictingDualNodeHashTable ac = new EvictingDualNodeHashTable(4096);
+   static EvictingDualNodeHashTable LocType_cached = new EvictingDualNodeHashTable(4096);
    static EvictingDualNodeHashTable aq = new EvictingDualNodeHashTable(30);
-   static AbstractArchive an;
+   static AbstractArchive LocType_archive;
    boolean sharelight;
    boolean isSolid;
    boolean isRotated;
@@ -170,7 +170,7 @@ public class LocType extends DualNode {
                   throw new IllegalStateException();
                }
 
-               if (!af) {
+               if (!LocType_isLowDetail) {
                   var1.index += -254100545 * var4;
                   return;
                }
@@ -201,7 +201,7 @@ public class LocType extends DualNode {
 
          var4 = var1.g1();
          if (var4 > 0) {
-            if (this.aa != null && !af) {
+            if (this.aa != null && !LocType_isLowDetail) {
                var1.index += var4 * 1262255402;
             } else {
                this.ay = null;
@@ -524,7 +524,7 @@ public class LocType extends DualNode {
       if (this.ay != null) {
          for(int var5 = 0; var5 < this.ay.length; ++var5) {
             if (this.ay[var5] == var1) {
-               return go.aw.tryLoadFile(this.aa[var5] & '\uffff', 0);
+               return go.LocType_modelArchive.tryLoadFile(this.aa[var5] & '\uffff', 0);
             }
          }
 
@@ -537,7 +537,7 @@ public class LocType extends DualNode {
          boolean var3 = true;
 
          for(int var4 = 0; var4 < this.aa.length; ++var4) {
-            var3 &= go.aw.tryLoadFile(this.aa[var4] & '\uffff', 0);
+            var3 &= go.LocType_modelArchive.tryLoadFile(this.aa[var4] & '\uffff', 0);
          }
 
          return var3;
@@ -551,7 +551,7 @@ public class LocType extends DualNode {
          boolean var2 = true;
 
          for(int var3 = 0; var3 < this.aa.length; ++var3) {
-            var2 &= go.aw.tryLoadFile(this.aa[var3] & '\uffff', 0);
+            var2 &= go.LocType_modelArchive.tryLoadFile(this.aa[var3] & '\uffff', 0);
          }
 
          return var2;
@@ -717,9 +717,9 @@ public class LocType extends DualNode {
                var8 += 65536;
             }
 
-            var4 = (UnlitModel)au.get((long)var8);
+            var4 = (UnlitModel)LocType_cachedUnlitModels.get((long)var8);
             if (null == var4) {
-               var4 = UnlitModel.af_renamed(go.aw, var8 & '\uffff', 0);
+               var4 = UnlitModel.af_renamed(go.LocType_modelArchive, var8 & '\uffff', 0);
                if (var4 == null) {
                   return null;
                }
@@ -728,7 +728,7 @@ public class LocType extends DualNode {
                   var4.ak();
                }
 
-               au.put(var4, (long)var8);
+               LocType_cachedUnlitModels.put(var4, (long)var8);
             }
 
             if (var6 > 1) {
@@ -759,9 +759,9 @@ public class LocType extends DualNode {
             var6 += 65536;
          }
 
-         var4 = (UnlitModel)au.get((long)var6);
+         var4 = (UnlitModel)LocType_cachedUnlitModels.get((long)var6);
          if (null == var4) {
-            var4 = UnlitModel.af_renamed(go.aw, var6 & '\uffff', 0);
+            var4 = UnlitModel.af_renamed(go.LocType_modelArchive, var6 & '\uffff', 0);
             if (null == var4) {
                return null;
             }
@@ -770,7 +770,7 @@ public class LocType extends DualNode {
                var4.ak();
             }
 
-            au.put(var4, (long)var6);
+            LocType_cachedUnlitModels.put(var4, (long)var6);
          }
       }
 
@@ -828,7 +828,7 @@ public class LocType extends DualNode {
    public final LocType multiLoc() {
       int var2 = -1;
       if (-1 != 1411927451 * this.bf) {
-         var2 = WorldMapSection1.af_renamed(1411927451 * this.bf);
+         var2 = WorldMapSection1.getVarbit(1411927451 * this.bf);
       } else if (1685173773 * this.bq != -1) {
          var2 = Varps.Varps_main[this.bq * 1685173773];
       }
@@ -840,7 +840,7 @@ public class LocType extends DualNode {
          var3 = this.multi[this.multi.length - 1];
       }
 
-      return -1 != var3 ? fw.an_renamed(var3) : null;
+      return -1 != var3 ? fw.getLocType(var3) : null;
    }
 
    public int getIntParam(int var1, int var2) {
@@ -870,7 +870,7 @@ public class LocType extends DualNode {
       } else {
          for(int var2 = 0; var2 < this.multi.length; ++var2) {
             if (-1 != this.multi[var2]) {
-               LocType var3 = fw.an_renamed(this.multi[var2]);
+               LocType var3 = fw.getLocType(this.multi[var2]);
                if (-1 != 1970571505 * var3.ambientSoundId || var3.bc != null) {
                   return true;
                }

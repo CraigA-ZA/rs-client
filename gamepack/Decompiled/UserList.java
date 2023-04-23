@@ -81,7 +81,7 @@ public abstract class UserList {
       } else {
          User var4 = this.newInstance();
          var4.set(var1, var2);
-         this.bc(var4);
+         this.arrayAddLast(var4);
          this.mapPut(var4);
          return var4;
       }
@@ -131,7 +131,7 @@ public abstract class UserList {
       }
    }
 
-   final void bc(User var1) {
+   final void arrayAddLast(User var1) {
       this.array[(this.size0 += 905500943) * -940640785 - 1] = var1;
    }
 

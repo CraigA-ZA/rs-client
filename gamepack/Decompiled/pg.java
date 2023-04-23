@@ -27,7 +27,7 @@ class pg implements Comparator {
             if (' ' == var5) {
                var3.append('+');
             } else {
-               byte var6 = dn.af_renamed(var5);
+               byte var6 = dn.charToByteCp1252(var5);
                var3.append('%');
                int var7 = var6 >> 4 & 15;
                if (var7 >= 10) {

@@ -3,7 +3,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class av implements ThreadFactory {
    static int uq;
-   static IndexedSprite[] dl;
+   static IndexedSprite[] slFlagSprites;
    // $FF: synthetic field
    final ag this$0;
    final ThreadGroup af;

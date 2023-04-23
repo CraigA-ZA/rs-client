@@ -76,8 +76,8 @@ public class it extends Entity {
    public short cd;
 
    static {
-      cy = Rasterizer3D.ac;
-      cx = Rasterizer3D.au;
+      cy = Rasterizer3D.Rasterizer3D_sine;
+      cx = Rasterizer3D.Rasterizer3D_cosine;
       cv = Rasterizer3D.af;
       cb = Rasterizer3D.aw;
       cw = Npc.au_renamed(50);

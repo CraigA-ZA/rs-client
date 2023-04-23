@@ -280,45 +280,45 @@ public class fh extends DualNode {
    }
 
    static final void il_renamed(int var0, int var1, int var2) {
-      if (-2100544359 * bt.kx < var0) {
-         bt.kx += (2083910077 * KeyHandler.ul + fd.uu * -1514927571 * (var0 - -2100544359 * bt.kx) / 1000) * -1682679895;
-         if (-2100544359 * bt.kx > var0) {
-            bt.kx = -1682679895 * var0;
+      if (-2100544359 * bt.cameraX < var0) {
+         bt.cameraX += (2083910077 * KeyHandler.ul + fd.uu * -1514927571 * (var0 - -2100544359 * bt.cameraX) / 1000) * -1682679895;
+         if (-2100544359 * bt.cameraX > var0) {
+            bt.cameraX = -1682679895 * var0;
          }
       }
 
-      if (bt.kx * -2100544359 > var0) {
-         bt.kx -= -1682679895 * (KeyHandler.ul * 2083910077 + fd.uu * -1514927571 * (-2100544359 * bt.kx - var0) / 1000);
-         if (-2100544359 * bt.kx < var0) {
-            bt.kx = var0 * -1682679895;
+      if (bt.cameraX * -2100544359 > var0) {
+         bt.cameraX -= -1682679895 * (KeyHandler.ul * 2083910077 + fd.uu * -1514927571 * (-2100544359 * bt.cameraX - var0) / 1000);
+         if (-2100544359 * bt.cameraX < var0) {
+            bt.cameraX = var0 * -1682679895;
          }
       }
 
-      if (1772923873 * gk.kv < var1) {
-         gk.kv += (2083910077 * KeyHandler.ul + (var1 - gk.kv * 1772923873) * fd.uu * -1514927571 / 1000) * -424093663;
-         if (gk.kv * 1772923873 > var1) {
-            gk.kv = -424093663 * var1;
+      if (1772923873 * gk.cameraY < var1) {
+         gk.cameraY += (2083910077 * KeyHandler.ul + (var1 - gk.cameraY * 1772923873) * fd.uu * -1514927571 / 1000) * -424093663;
+         if (gk.cameraY * 1772923873 > var1) {
+            gk.cameraY = -424093663 * var1;
          }
       }
 
-      if (gk.kv * 1772923873 > var1) {
-         gk.kv -= (KeyHandler.ul * 2083910077 + (1772923873 * gk.kv - var1) * -1514927571 * fd.uu / 1000) * -424093663;
-         if (1772923873 * gk.kv < var1) {
-            gk.kv = -424093663 * var1;
+      if (gk.cameraY * 1772923873 > var1) {
+         gk.cameraY -= (KeyHandler.ul * 2083910077 + (1772923873 * gk.cameraY - var1) * -1514927571 * fd.uu / 1000) * -424093663;
+         if (1772923873 * gk.cameraY < var1) {
+            gk.cameraY = -424093663 * var1;
          }
       }
 
-      if (-91399205 * ly.ke < var2) {
-         ly.ke += (-1514927571 * fd.uu * (var2 - -91399205 * ly.ke) / 1000 + KeyHandler.ul * 2083910077) * 46344275;
-         if (-91399205 * ly.ke > var2) {
-            ly.ke = var2 * 46344275;
+      if (-91399205 * ly.cameraZ < var2) {
+         ly.cameraZ += (-1514927571 * fd.uu * (var2 - -91399205 * ly.cameraZ) / 1000 + KeyHandler.ul * 2083910077) * 46344275;
+         if (-91399205 * ly.cameraZ > var2) {
+            ly.cameraZ = var2 * 46344275;
          }
       }
 
-      if (-91399205 * ly.ke > var2) {
-         ly.ke -= (-1514927571 * fd.uu * (ly.ke * -91399205 - var2) / 1000 + 2083910077 * KeyHandler.ul) * 46344275;
-         if (-91399205 * ly.ke < var2) {
-            ly.ke = 46344275 * var2;
+      if (-91399205 * ly.cameraZ > var2) {
+         ly.cameraZ -= (-1514927571 * fd.uu * (ly.cameraZ * -91399205 - var2) / 1000 + 2083910077 * KeyHandler.ul) * 46344275;
+         if (-91399205 * ly.cameraZ < var2) {
+            ly.cameraZ = 46344275 * var2;
          }
       }
 

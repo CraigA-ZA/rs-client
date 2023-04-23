@@ -19,12 +19,12 @@ public class hn implements Enumerated {
       es.an_renamed(30, "", var0);
    }
 
-   public static int aq_renamed(CharSequence var0) {
+   public static int hashString(CharSequence var0) {
       int var2 = var0.length();
       int var3 = 0;
 
       for(int var4 = 0; var4 < var2; ++var4) {
-         var3 = (var3 << 5) - var3 + dn.af_renamed(var0.charAt(var4));
+         var3 = (var3 << 5) - var3 + dn.charToByteCp1252(var0.charAt(var4));
       }
 
       return var3;

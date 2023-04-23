@@ -82,18 +82,18 @@ public class bb {
       boolean var1 = true;
 
       int var2;
-      for(var2 = 0; var2 < au.jf.length; ++var2) {
-         if (FontName.jm[var2] != -1 && null == au.jf[var2]) {
-            au.jf[var2] = TotalQuantityComparator.archive5.takeFile(FontName.jm[var2], 0);
-            if (null == au.jf[var2]) {
+      for(var2 = 0; var2 < au.regionLandArchives.length; ++var2) {
+         if (FontName.regionMapArchiveIds[var2] != -1 && null == au.regionLandArchives[var2]) {
+            au.regionLandArchives[var2] = TotalQuantityComparator.archive5.takeFile(FontName.regionMapArchiveIds[var2], 0);
+            if (null == au.regionLandArchives[var2]) {
                var1 = false;
                Client.jx += 1047178289;
             }
          }
 
-         if (-1 != Archive.jn[var2] && LocSound.jw[var2] == null) {
-            LocSound.jw[var2] = TotalQuantityComparator.archive5.takeFileEncrypted(Archive.jn[var2], 0, Scenery.xteaKeys[var2]);
-            if (null == LocSound.jw[var2]) {
+         if (-1 != Archive.regionLandArchiveIds[var2] && LocSound.regionMapArchives[var2] == null) {
+            LocSound.regionMapArchives[var2] = TotalQuantityComparator.archive5.takeFileEncrypted(Archive.regionLandArchiveIds[var2], 0, Scenery.xteaKeys[var2]);
+            if (null == LocSound.regionMapArchives[var2]) {
                var1 = false;
                Client.jx += 1047178289;
             }
@@ -108,11 +108,11 @@ public class bb {
 
          int var4;
          int var5;
-         for(var2 = 0; var2 < au.jf.length; ++var2) {
-            byte[] var3 = LocSound.jw[var2];
+         for(var2 = 0; var2 < au.regionLandArchives.length; ++var2) {
+            byte[] var3 = LocSound.regionMapArchives[var2];
             if (null != var3) {
-               var4 = 64 * (WorldMapAreaData.jj[var2] >> 8) - -1232093375 * jm.ib;
-               var5 = (WorldMapAreaData.jj[var2] & 255) * 64 - Scenery.jc * 827352769;
+               var4 = 64 * (WorldMapAreaData.regions[var2] >> 8) - -1232093375 * jm.baseX;
+               var5 = (WorldMapAreaData.regions[var2] & 255) * 64 - Scenery.baseY * 827352769;
                if (Client.isInInstance) {
                   var4 = 10;
                   var5 = 10;
@@ -147,16 +147,16 @@ public class bb {
 
             mj.hz_renamed();
             fx.af_renamed();
-            var2 = au.jf.length;
+            var2 = au.regionLandArchives.length;
             StructType.af_renamed();
             Language.jv_renamed(true);
             int var24;
             if (!Client.isInInstance) {
                byte[] var6;
                for(var22 = 0; var22 < var2; ++var22) {
-                  var4 = (WorldMapAreaData.jj[var22] >> 8) * 64 - -1232093375 * jm.ib;
-                  var5 = (WorldMapAreaData.jj[var22] & 255) * 64 - Scenery.jc * 827352769;
-                  var6 = au.jf[var22];
+                  var4 = (WorldMapAreaData.regions[var22] >> 8) * 64 - -1232093375 * jm.baseX;
+                  var5 = (WorldMapAreaData.regions[var22] & 255) * 64 - Scenery.baseY * 827352769;
+                  var6 = au.regionLandArchives[var22];
                   if (var6 != null) {
                      mj.hz_renamed();
                      WallDecoration.ac_renamed(var6, var4, var5, bi.ji * 856658440 - 48, qj.jg * 370541272 - 48, Client.collisionMaps);
@@ -164,9 +164,9 @@ public class bb {
                }
 
                for(var22 = 0; var22 < var2; ++var22) {
-                  var4 = (WorldMapAreaData.jj[var22] >> 8) * 64 - jm.ib * -1232093375;
-                  var5 = (WorldMapAreaData.jj[var22] & 255) * 64 - 827352769 * Scenery.jc;
-                  var6 = au.jf[var22];
+                  var4 = (WorldMapAreaData.regions[var22] >> 8) * 64 - jm.baseX * -1232093375;
+                  var5 = (WorldMapAreaData.regions[var22] & 255) * 64 - 827352769 * Scenery.baseY;
+                  var6 = au.regionLandArchives[var22];
                   if (null == var6 && qj.jg * 583188571 < 800) {
                      mj.hz_renamed();
                      ew.aw_renamed(var4, var5, 64, 64);
@@ -176,10 +176,10 @@ public class bb {
                Language.jv_renamed(true);
 
                for(var22 = 0; var22 < var2; ++var22) {
-                  byte[] var23 = LocSound.jw[var22];
+                  byte[] var23 = LocSound.regionMapArchives[var22];
                   if (null != var23) {
-                     var5 = 64 * (WorldMapAreaData.jj[var22] >> 8) - jm.ib * -1232093375;
-                     var24 = 64 * (WorldMapAreaData.jj[var22] & 255) - Scenery.jc * 827352769;
+                     var5 = 64 * (WorldMapAreaData.regions[var22] >> 8) - jm.baseX * -1232093375;
+                     var24 = 64 * (WorldMapAreaData.regions[var22] & 255) - Scenery.baseY * 827352769;
                      mj.hz_renamed();
                      fq.at_renamed(var23, var5, var24, bx.scene, Client.collisionMaps);
                   }
@@ -207,11 +207,11 @@ public class bb {
                            var11 = var7 >> 3 & 2047;
                            var12 = (var10 / 8 << 8) + var11 / 8;
 
-                           for(int var13 = 0; var13 < WorldMapAreaData.jj.length; ++var13) {
-                              if (var12 == WorldMapAreaData.jj[var13] && null != au.jf[var13]) {
+                           for(int var13 = 0; var13 < WorldMapAreaData.regions.length; ++var13) {
+                              if (var12 == WorldMapAreaData.regions[var13] && null != au.regionLandArchives[var13]) {
                                  int var14 = 8 * (var10 - var4);
                                  int var15 = 8 * (var11 - var5);
-                                 as.au_renamed(au.jf[var13], var22, var4 * 8, var5 * 8, var8, 8 * (var10 & 7), 8 * (var11 & 7), var9, var14, var15, Client.collisionMaps);
+                                 as.au_renamed(au.regionLandArchives[var13], var22, var4 * 8, var5 * 8, var8, 8 * (var10 & 7), 8 * (var11 & 7), var9, var14, var15, Client.collisionMaps);
                                  var25 = true;
                                  break;
                               }
@@ -249,9 +249,9 @@ public class bb {
                            var10 = var24 >> 3 & 2047;
                            var11 = (var9 / 8 << 8) + var10 / 8;
 
-                           for(var12 = 0; var12 < WorldMapAreaData.jj.length; ++var12) {
-                              if (WorldMapAreaData.jj[var12] == var11 && null != LocSound.jw[var12]) {
-                                 Tiles.aa(LocSound.jw[var12], var22, 8 * var4, var5 * 8, var7, 8 * (var9 & 7), (var10 & 7) * 8, var8, bx.scene, Client.collisionMaps);
+                           for(var12 = 0; var12 < WorldMapAreaData.regions.length; ++var12) {
+                              if (WorldMapAreaData.regions[var12] == var11 && null != LocSound.regionMapArchives[var12]) {
+                                 Tiles.aa(LocSound.regionMapArchives[var12], var22, 8 * var4, var5 * 8, var7, 8 * (var9 & 7), (var10 & 7) * 8, var8, bx.scene, Client.collisionMaps);
                                  break;
                               }
                            }
@@ -274,7 +274,7 @@ public class bb {
                var22 = GameShell.plane * -1727408401 - 1;
             }
 
-            if (Client.cu) {
+            if (Client.isLowDetail) {
                bx.scene.an(1401144457 * Tiles.aw);
             } else {
                bx.scene.an(0);
@@ -288,7 +288,7 @@ public class bb {
 
             mj.hz_renamed();
             KeyHandler.jl_renamed();
-            LocType.au.clear();
+            LocType.LocType_cachedUnlitModels.clear();
             PacketBitNode var26;
             if (ClientScriptFrame.client.hasFrame()) {
                var26 = mi.an_renamed(ClientProt.bt, Client.packetWriter.au);

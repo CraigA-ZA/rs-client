@@ -54,8 +54,8 @@ final class fe implements ThreadFactory {
             int var6;
             if (var0 == 3308) {
                var4 = -1727408401 * GameShell.plane;
-               var5 = jm.ib * -1232093375 + (1144428983 * MusicPatchNode.localPlayer.bx >> 7);
-               var6 = 827352769 * Scenery.jc + (-411750205 * MusicPatchNode.localPlayer.bo >> 7);
+               var5 = jm.baseX * -1232093375 + (1144428983 * MusicPatchNode.localPlayer.bx >> 7);
+               var6 = 827352769 * Scenery.baseY + (-411750205 * MusicPatchNode.localPlayer.bo >> 7);
                Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var6 + (var5 << 14) + (var4 << 28);
                return 1;
             } else if (var0 == 3309) {

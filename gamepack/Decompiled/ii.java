@@ -47,8 +47,8 @@ public abstract class ii extends Rasterizer2D {
    static void cs_renamed(int var0, Coord var1, boolean var2) {
       WorldMapArea var4 = dz.worldMap().getMapArea(var0);
       int var5 = -1900490645 * MusicPatchNode.localPlayer.ad;
-      int var6 = (MusicPatchNode.localPlayer.bx * 1144428983 >> 7) + -1232093375 * jm.ib;
-      int var7 = Scenery.jc * 827352769 + (-411750205 * MusicPatchNode.localPlayer.bo >> 7);
+      int var6 = (MusicPatchNode.localPlayer.bx * 1144428983 >> 7) + -1232093375 * jm.baseX;
+      int var7 = Scenery.baseY * 827352769 + (-411750205 * MusicPatchNode.localPlayer.bo >> 7);
       Coord var8 = new Coord(var5, var6, var7);
       dz.worldMap().ar(var4, var8, var1, var2);
    }

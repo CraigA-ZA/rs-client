@@ -1,5 +1,5 @@
 public class go extends fb {
-   static AbstractArchive aw;
+   static AbstractArchive LocType_modelArchive;
    int af;
    int an;
    // $FF: synthetic field

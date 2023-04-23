@@ -120,7 +120,7 @@ public class ClientProt implements ClientProt0 {
 
             if (!var3) {
                var5 = (int)var1.key;
-               Component var6 = gh.an_renamed(var5);
+               Component var6 = gh.getInterfaceComponent(var5);
                if (var6 != null) {
                   fw.ma_renamed(var6);
                }

@@ -84,8 +84,8 @@ public abstract class fu extends Node {
                }
 
                if (2 == 633821975 * Client.eu) {
-                  var11 = -420453652 * Client.el - -633406204 * jm.ib + 2 - MusicPatchNode.localPlayer.bx * 1144428983 / 32;
-                  var12 = 2 + (-1108154476 * Client.en - Scenery.jc * -985556220) - -411750205 * MusicPatchNode.localPlayer.bo / 32;
+                  var11 = -420453652 * Client.el - -633406204 * jm.baseX + 2 - MusicPatchNode.localPlayer.bx * 1144428983 / 32;
+                  var12 = 2 + (-1108154476 * Client.en - Scenery.baseY * -985556220) - -411750205 * MusicPatchNode.localPlayer.bo / 32;
                   sb.worldToMinimap(var1, var2, var11, var12, ds.mapMarkerSprites[1], var5);
                }
 

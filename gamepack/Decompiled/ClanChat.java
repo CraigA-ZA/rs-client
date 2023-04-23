@@ -125,7 +125,7 @@ public class ClanChat extends UserList {
 
    static final void ki_renamed(int var0, int var1, int var2, int var3) {
       for(int var5 = 0; var5 < -356793645 * Client.rr; ++var5) {
-         if (Client.rh[var5] + Client.rootComponentWidths[var5] > var0 && Client.rh[var5] < var2 + var0 && Client.rootComponentHeights[var5] + Client.rb[var5] > var1 && Client.rb[var5] < var1 + var3) {
+         if (Client.rootComponentXs[var5] + Client.rootComponentWidths[var5] > var0 && Client.rootComponentXs[var5] < var2 + var0 && Client.rootComponentHeights[var5] + Client.rootComponentYs[var5] > var1 && Client.rootComponentYs[var5] < var1 + var3) {
             Client.rm[var5] = true;
          }
       }

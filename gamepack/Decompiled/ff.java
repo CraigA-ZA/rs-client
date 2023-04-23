@@ -41,9 +41,9 @@ public class ff extends fb {
          int[] var12 = UrlRequester.sceneMinimapSprite.pixels;
          var13 = (103 - var2) * 2048 + var1 * 4 + 24624;
          var14 = InterfaceParent.at(var6);
-         LocType var15 = fw.an_renamed(var14);
+         LocType var15 = fw.getLocType(var14);
          if (-1 != var15.mapSceneId * 771086195) {
-            IndexedSprite var16 = ml.ju[var15.mapSceneId * 771086195];
+            IndexedSprite var16 = ml.mapSceneSprites[var15.mapSceneId * 771086195];
             if (var16 != null) {
                int var17 = (var15.width * -1064754148 - var16.subWidth) / 2;
                int var18 = (var15.length * 1952358772 - var16.subHeight) / 2;
@@ -118,10 +118,10 @@ public class ff extends fb {
          var9 = var8 >> 6 & 3;
          var10 = var8 & 31;
          var11 = InterfaceParent.at(var6);
-         LocType var21 = fw.an_renamed(var11);
+         LocType var21 = fw.getLocType(var11);
          int var25;
          if (-1 != var21.mapSceneId * 771086195) {
-            IndexedSprite var23 = ml.ju[771086195 * var21.mapSceneId];
+            IndexedSprite var23 = ml.mapSceneSprites[771086195 * var21.mapSceneId];
             if (var23 != null) {
                var14 = (-1064754148 * var21.width - var23.subWidth) / 2;
                var25 = (1952358772 * var21.length - var23.subHeight) / 2;
@@ -152,9 +152,9 @@ public class ff extends fb {
       var6 = bx.scene.be(var0, var1, var2);
       if (0L != var6) {
          var8 = InterfaceParent.at(var6);
-         LocType var19 = fw.an_renamed(var8);
+         LocType var19 = fw.getLocType(var8);
          if (var19.mapSceneId * 771086195 != -1) {
-            IndexedSprite var20 = ml.ju[771086195 * var19.mapSceneId];
+            IndexedSprite var20 = ml.mapSceneSprites[771086195 * var19.mapSceneId];
             if (null != var20) {
                var11 = (var19.width * -1064754148 - var20.subWidth) / 2;
                int var22 = (var19.length * 1952358772 - var20.subHeight) / 2;

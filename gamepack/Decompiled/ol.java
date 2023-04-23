@@ -101,7 +101,7 @@ public class ol {
                      break;
                   }
 
-                  var6 = gh.an_renamed(var6.parentId * 913615679);
+                  var6 = gh.getInterfaceComponent(var6.parentId * 913615679);
                   if (var6 == null) {
                      var5 = null;
                      break;
@@ -131,7 +131,7 @@ public class ol {
                         break;
                      }
 
-                     var6 = gh.an_renamed(var6.parentId * 913615679);
+                     var6 = gh.getInterfaceComponent(var6.parentId * 913615679);
                      if (var6 == null) {
                         var5 = null;
                         break;

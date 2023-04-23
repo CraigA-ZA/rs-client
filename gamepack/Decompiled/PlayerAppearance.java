@@ -227,7 +227,7 @@ public class PlayerAppearance {
 
    public it aa(SeqType var1, int var2, SeqType var3, int var4) {
       if (-1 != -2131733097 * this.ab) {
-         return AbstractArchive.an_renamed(this.ab * -2131733097).ab(var1, var2, var3, var4, (hv)null);
+         return AbstractArchive.getNPCType(this.ab * -2131733097).ab(var1, var2, var3, var4, (hv)null);
       } else {
          long var6 = this.aq * 800274196296009541L;
          int[] var8 = this.an;
@@ -351,7 +351,7 @@ public class PlayerAppearance {
 
    UnlitModel getChatHeadModel() {
       if (-1 != this.ab * -2131733097) {
-         return AbstractArchive.an_renamed(this.ab * -2131733097).aq((hv)null);
+         return AbstractArchive.getNPCType(this.ab * -2131733097).aq((hv)null);
       } else {
          boolean var2 = false;
 
@@ -410,7 +410,7 @@ public class PlayerAppearance {
    }
 
    public int getChatHeadId() {
-      return this.ab * -2131733097 == -1 ? (this.an[11] << 5) + (this.an[8] << 10) + (this.aw[0] << 25) + (this.aw[4] << 20) + (this.an[0] << 15) + this.an[1] : 305419896 + AbstractArchive.an_renamed(this.ab * -2131733097).ab * -1115372301;
+      return this.ab * -2131733097 == -1 ? (this.an[11] << 5) + (this.an[8] << 10) + (this.aw[0] << 25) + (this.aw[4] << 20) + (this.an[0] << 15) + this.an[1] : 305419896 + AbstractArchive.getNPCType(this.ab * -2131733097).ab * -1115372301;
    }
 
    void ax() {

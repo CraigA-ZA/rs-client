@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class WorldMapAreaData extends WorldMapArea {
-   static int[] jj;
+   static int[] regions;
    HashSet ai;
    HashSet ax;
    List ag;

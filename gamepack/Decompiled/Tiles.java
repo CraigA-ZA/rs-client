@@ -89,7 +89,7 @@ public final class Tiles {
             int var19 = var18 >> 2;
             int var20 = var18 & 3;
             if (var17 == var4 && var16 >= var5 && var16 < var5 + 8 && var15 >= var6 && var15 < var6 + 8) {
-               LocType var21 = fw.an_renamed(var11);
+               LocType var21 = fw.getLocType(var11);
                int var24 = var16 & 7;
                int var25 = var15 & 7;
                int var27 = -1339930361 * var21.width;

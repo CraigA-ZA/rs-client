@@ -2,7 +2,7 @@ public class WorldMapSectionType implements Enumerated {
    public static String osNameLowerCase;
    static boolean ds;
    static Decimator decimator;
-   static int ky;
+   static int cameraPitch;
    static int ow;
    static final WorldMapSectionType ac = new WorldMapSectionType(2, (byte)3);
    static final WorldMapSectionType af = new WorldMapSectionType(1, (byte)0);

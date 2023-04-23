@@ -307,9 +307,9 @@ public class WorldMapArea {
                      var21 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
                      var6 = bz.getParamType(var21);
                      if (var6.isString()) {
-                        Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = AbstractArchive.an_renamed(var4).getStringParam(var21, var6.defaultstr);
+                        Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = AbstractArchive.getNPCType(var4).getStringParam(var21, var6.defaultstr);
                      } else {
-                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = AbstractArchive.an_renamed(var4).getIntParam(var21, -171401431 * var6.defaultint);
+                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = AbstractArchive.getNPCType(var4).getIntParam(var21, -171401431 * var6.defaultint);
                      }
 
                      return 1;
@@ -319,9 +319,9 @@ public class WorldMapArea {
                      var21 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
                      var6 = bz.getParamType(var21);
                      if (var6.isString()) {
-                        Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = fw.an_renamed(var4).getStringParam(var21, var6.defaultstr);
+                        Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = fw.getLocType(var4).getStringParam(var21, var6.defaultstr);
                      } else {
-                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = fw.an_renamed(var4).getIntParam(var21, var6.defaultint * -171401431);
+                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = fw.getLocType(var4).getIntParam(var21, var6.defaultint * -171401431);
                      }
 
                      return 1;

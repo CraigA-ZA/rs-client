@@ -41,7 +41,7 @@ public class an implements Callable {
    static final void ih_renamed() {
       fh.il_renamed(-621320819 * ju.uh, ds.un * -1852915743, -760417651 * IDKType.ur);
       GraphicsObject.is_renamed(ClientScriptEvent.uw * -1829847369, dt.uf * -1642659271);
-      if (-2100544359 * bt.kx == -621320819 * ju.uh && 1772923873 * gk.kv == -1852915743 * ds.un && ly.ke * -91399205 == -760417651 * IDKType.ur && ClientScriptEvent.uw * -1829847369 == WorldMapSectionType.ky * 1897923909 && -1010818347 * ek.kh == dt.uf * -1642659271) {
+      if (-2100544359 * bt.cameraX == -621320819 * ju.uh && 1772923873 * gk.cameraY == -1852915743 * ds.un && ly.cameraZ * -91399205 == -760417651 * IDKType.ur && ClientScriptEvent.uw * -1829847369 == WorldMapSectionType.cameraPitch * 1897923909 && -1010818347 * ek.cameraYaw == dt.uf * -1642659271) {
          Client.uk = false;
          Client.uj = false;
          Client.ub = false;

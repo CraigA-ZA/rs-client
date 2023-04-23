@@ -35,7 +35,7 @@ public class hc extends DualNode {
    }
 
    static final boolean aj_renamed(int var0, int var1) {
-      LocType var3 = fw.an_renamed(var0);
+      LocType var3 = fw.getLocType(var0);
       if (11 == var1) {
          var1 = 10;
       }

@@ -165,7 +165,7 @@ public class fv extends fb {
          }
 
          if (0 != (var6 & 8)) {
-            var5.type = AbstractArchive.an_renamed(var1.eo());
+            var5.type = AbstractArchive.getNPCType(var1.eo());
             fa.kg_renamed(var5);
             var5.ah();
          }
@@ -184,8 +184,8 @@ public class fv extends fb {
                var5.cv = -1213206377 * var7;
                var5.spotAnimation = var8 * 1388623137;
             } else {
-               var9 = 1144428983 * var5.bx - (var7 - -1232093375 * jm.ib - jm.ib * -1232093375) * 64;
-               var10 = -411750205 * var5.bo - (var8 - Scenery.jc * 827352769 - 827352769 * Scenery.jc) * 64;
+               var9 = 1144428983 * var5.bx - (var7 - -1232093375 * jm.baseX - jm.baseX * -1232093375) * 64;
+               var10 = -411750205 * var5.bo - (var8 - Scenery.baseY * 827352769 - 827352769 * Scenery.baseY) * 64;
                if (0 != var9 || var10 != 0) {
                   var12 = (int)(Math.atan2((double)var9, (double)var10) * 325.94932345220167) & 2047;
                   var5.sequenceDelay = -1409690365 * var12;

@@ -60,8 +60,8 @@ public class ag {
    }
 
    public static void ag_renamed() {
-      LocType.ac.clear();
-      LocType.au.clear();
+      LocType.LocType_cached.clear();
+      LocType.LocType_cachedUnlitModels.clear();
       LocType.ab.clear();
       LocType.aq.clear();
    }

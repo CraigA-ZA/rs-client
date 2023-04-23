@@ -32,7 +32,7 @@ public class dj implements Enumerated {
       var4.an = 100799 * var2;
       Client.interfaceParents.put(var4, (long)var0);
       lm.mj_renamed(var1);
-      Component var5 = gh.an_renamed(var0);
+      Component var5 = gh.getInterfaceComponent(var0);
       fw.ma_renamed(var5);
       if (Client.pg != null) {
          fw.ma_renamed(Client.pg);

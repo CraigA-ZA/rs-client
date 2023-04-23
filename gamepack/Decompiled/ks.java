@@ -33,20 +33,20 @@ public class ks {
    static int bq_renamed(int var0, ClientScript var1, boolean var2) {
       if (var0 == 6754) {
          int var8 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         NPCType var9 = AbstractArchive.an_renamed(var8);
+         NPCType var9 = AbstractArchive.getNPCType(var8);
          Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = null != var9 ? var9.name : "";
          return 1;
       } else {
          NPCType var4;
          if (6764 == var0) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var4 = AbstractArchive.an_renamed(Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize]);
+            var4 = AbstractArchive.getNPCType(Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize]);
             int var5 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
             Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4.ah(var5);
             Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4.ar(var5);
             return 1;
          } else if (var0 == 6765) {
-            var4 = AbstractArchive.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+            var4 = AbstractArchive.getNPCType(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
             Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4 != null ? 2062903815 * var4.bx : 0;
             return 1;
          } else {

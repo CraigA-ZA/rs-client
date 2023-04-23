@@ -73,8 +73,8 @@ public class sb {
       int var7 = var3 * var3 + var2 * var2;
       if (var7 > 4225 && var7 < 90000) {
          int var8 = Client.kf * 704283033 & 2047;
-         int var9 = Rasterizer3D.ac[var8];
-         int var10 = Rasterizer3D.au[var8];
+         int var9 = Rasterizer3D.Rasterizer3D_sine[var8];
+         int var10 = Rasterizer3D.Rasterizer3D_cosine[var8];
          int var11 = var2 * var10 + var9 * var3 >> 16;
          int var12 = var10 * var3 - var9 * var2 >> 16;
          double var13 = Math.atan2((double)var11, (double)var12);

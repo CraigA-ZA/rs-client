@@ -22,11 +22,11 @@ public class MiniMenuEntry {
    }
 
    public static void af_renamed(AbstractArchive var0) {
-      VarBitType.af = var0;
+      VarBitType.VarBitType_archive = var0;
    }
 
    public static void af_renamed(AbstractArchive var0, AbstractArchive var1) {
-      NPCType.an = var0;
+      NPCType.NPCType_archive = var0;
       NPCType.aw = var1;
    }
 

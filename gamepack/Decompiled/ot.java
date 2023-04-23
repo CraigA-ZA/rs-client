@@ -10,13 +10,13 @@ public class ot extends RuntimeException {
    static final void worldToScreen(int var0, int var1, int var2) {
       if (var0 >= 128 && var1 >= 128 && var0 <= 13056 && var1 <= 13056) {
          int var4 = fq.getTileHeight(var0, var1, -1727408401 * GameShell.plane) - var2;
-         var0 -= bt.kx * -2100544359;
-         var4 -= gk.kv * 1772923873;
-         var1 -= ly.ke * -91399205;
-         int var5 = Rasterizer3D.ac[1897923909 * WorldMapSectionType.ky];
-         int var6 = Rasterizer3D.au[WorldMapSectionType.ky * 1897923909];
-         int var7 = Rasterizer3D.ac[-1010818347 * ek.kh];
-         int var8 = Rasterizer3D.au[-1010818347 * ek.kh];
+         var0 -= bt.cameraX * -2100544359;
+         var4 -= gk.cameraY * 1772923873;
+         var1 -= ly.cameraZ * -91399205;
+         int var5 = Rasterizer3D.Rasterizer3D_sine[1897923909 * WorldMapSectionType.cameraPitch];
+         int var6 = Rasterizer3D.Rasterizer3D_cosine[WorldMapSectionType.cameraPitch * 1897923909];
+         int var7 = Rasterizer3D.Rasterizer3D_sine[-1010818347 * ek.cameraYaw];
+         int var8 = Rasterizer3D.Rasterizer3D_cosine[-1010818347 * ek.cameraYaw];
          int var9 = var8 * var0 + var7 * var1 >> 16;
          var1 = var1 * var8 - var7 * var0 >> 16;
          var0 = var9;

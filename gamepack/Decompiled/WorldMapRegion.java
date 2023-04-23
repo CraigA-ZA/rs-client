@@ -84,13 +84,13 @@ public class WorldMapRegion {
                      boolean var15;
                      label77: {
                         jl var13 = var11[var12];
-                        var14 = fw.an_renamed(var13.af * 2080162465);
+                        var14 = fw.getLocType(var13.af * 2080162465);
                         if (null != var14.multi) {
                            int[] var16 = var14.multi;
 
                            for(int var17 = 0; var17 < var16.length; ++var17) {
                               int var18 = var16[var17];
-                              LocType var19 = fw.an_renamed(var18);
+                              LocType var19 = fw.getLocType(var18);
                               if (1270945427 * var19.mapIconId != -1) {
                                  var15 = true;
                                  break label77;
@@ -553,7 +553,7 @@ public class WorldMapRegion {
                   }
                }
 
-               LocType var15 = fw.an_renamed(2080162465 * var10.af);
+               LocType var15 = fw.getLocType(2080162465 * var10.af);
                if (-1 != 771086195 * var15.mapSceneId) {
                   if (771086195 * var15.mapSceneId != 46 && var15.mapSceneId * 771086195 != 52) {
                      var4[771086195 * var15.mapSceneId].au(var1 * -1897887643 * this.ay, this.ay * -1897887643 * (63 - var2), 499192010 * this.ay, 499192010 * this.ay);
@@ -578,7 +578,7 @@ public class WorldMapRegion {
                int var11 = 1504481025 * var9.an;
                boolean var10 = var11 >= mc.af.ad * -1344801027 && var11 <= mc.ac.ad * -1344801027 || -1344801027 * mc.au.ad == var11;
                if (var10) {
-                  LocType var12 = fw.an_renamed(2080162465 * var9.af);
+                  LocType var12 = fw.getLocType(2080162465 * var9.af);
                   int var13 = var12.interactable * 415653149 != 0 ? -3407872 : -3355444;
                   if (mc.af.ad * -1344801027 == 1504481025 * var9.an) {
                      this.bt(var1, var2, -1419490017 * var9.aw, var13);

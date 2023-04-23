@@ -262,12 +262,12 @@ public class fw extends fb {
       return var4.toString();
    }
 
-   public static LocType an_renamed(int var0) {
-      LocType var2 = (LocType)LocType.ac.get((long)var0);
+   public static LocType getLocType(int var0) {
+      LocType var2 = (LocType)LocType.LocType_cached.get((long)var0);
       if (null != var2) {
          return var2;
       } else {
-         byte[] var3 = LocType.an.takeFile(6, var0);
+         byte[] var3 = LocType.LocType_archive.takeFile(6, var0);
          var2 = new LocType();
          var2.at = var0 * -1113054781;
          if (var3 != null) {
@@ -280,7 +280,7 @@ public class fw extends fb {
             var2.boolean1 = false;
          }
 
-         LocType.ac.put(var2, (long)var0);
+         LocType.LocType_cached.put(var2, (long)var0);
          return var2;
       }
    }

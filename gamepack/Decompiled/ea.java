@@ -104,7 +104,7 @@ public class ea extends AbstractUserComparator {
                long var8 = bx.scene.be(GameShell.plane * -1727408401, var6, var7);
                if (var8 != 0L) {
                   int var10 = InterfaceParent.at(var8);
-                  int var11 = fw.an_renamed(var10).mapIconId * 1270945427;
+                  int var11 = fw.getLocType(var10).mapIconId * 1270945427;
                   if (var11 >= 0 && nf.getMapElementType(var11).ax) {
                      Client.mapIcons[1573101195 * Client.sr] = nf.getMapElementType(var11).ab(false);
                      Client.tw[Client.sr * 1573101195] = var6;

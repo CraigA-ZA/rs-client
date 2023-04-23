@@ -15,7 +15,7 @@ public class ms implements Enumerated {
    }
 
    static void au_renamed(int var0, int var1, int var2, int var3) {
-      for(LocSound var5 = (LocSound)LocSound.af.last(); var5 != null; var5 = (LocSound)LocSound.af.previous()) {
+      for(LocSound var5 = (LocSound)LocSound.objectSounds.last(); var5 != null; var5 = (LocSound)LocSound.objectSounds.previous()) {
          if (-1 != var5.soundEffectId * 1671764667 || null != var5.soundEffectIds) {
             int var6 = 0;
             if (var1 > -823707049 * var5.au) {

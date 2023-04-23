@@ -12,8 +12,8 @@ public class WorldMap {
    boolean bq = true;
    boolean elementsDisabled = false;
    boolean perpetualFlash0 = false;
-   float ap;
-   float by;
+   float zoom;
+   float zoomTarget;
    int ad = -2080912417;
    int ae = -667691095;
    int ak;
@@ -108,8 +108,8 @@ public class WorldMap {
          this.smoothZoom();
          this.aq();
          if (var3) {
-            int var9 = (int)Math.ceil((double)((float)var6 / this.ap));
-            int var10 = (int)Math.ceil((double)((float)var7 / this.ap));
+            int var9 = (int)Math.ceil((double)((float)var6 / this.zoom));
+            int var10 = (int)Math.ceil((double)((float)var7 / this.zoom));
             List var11 = this.worldMapManager.ab(-84102297 * this.ak - var9 / 2 - 1, this.az * -632186207 - var10 / 2 - 1, 1 + this.ak * -84102297 + var9 / 2, 1 + var10 / 2 + this.az * -632186207, var4, var5, var6, var7, var1, var2);
             HashSet var12 = new HashSet();
 
@@ -162,7 +162,7 @@ public class WorldMap {
          if (-1 != -1960645157 * this.bj) {
             int var8 = var1 - this.bs * -642077217;
             int var9 = var2 - -2058412227 * this.br;
-            this.al(this.bj * -1960645157 - (int)((float)var8 / this.by), -1246558373 * this.bn + (int)((float)var9 / this.by), false);
+            this.al(this.bj * -1960645157 - (int)((float)var8 / this.zoomTarget), -1246558373 * this.bn + (int)((float)var9 / this.zoomTarget), false);
          }
       } else {
          this.at();
@@ -178,8 +178,8 @@ public class WorldMap {
 
    void au(int var1, int var2, boolean var3, long var4) {
       if (this.currentMapArea0 != null) {
-         int var6 = (int)((float)(-84102297 * this.ak) + ((float)(var1 - this.be * 817997135) - (float)this.bj() * this.ap / 2.0F) / this.ap);
-         int var7 = (int)((float)(this.az * -632186207) - ((float)(var2 - this.bk * -1710969485) - (float)this.bn() * this.ap / 2.0F) / this.ap);
+         int var6 = (int)((float)(-84102297 * this.ak) + ((float)(var1 - this.be * 817997135) - (float)this.bj() * this.zoom / 2.0F) / this.zoom);
+         int var7 = (int)((float)(this.az * -632186207) - ((float)(var2 - this.bk * -1710969485) - (float)this.bn() * this.zoom / 2.0F) / this.zoom);
          this.mouseCoord = this.currentMapArea0.coord(var6 + this.currentMapArea0.minX() * 64, var7 + this.currentMapArea0.minY() * 64);
          if (null != this.mouseCoord && var3) {
             hy var8 = Client.sh;
@@ -222,14 +222,14 @@ public class WorldMap {
 
    void smoothZoom() {
       if (fi.wc != null) {
-         this.ap = this.by;
+         this.zoom = this.zoomTarget;
       } else {
-         if (this.ap < this.by) {
-            this.ap = Math.min(this.by, this.ap / 30.0F + this.ap);
+         if (this.zoom < this.zoomTarget) {
+            this.zoom = Math.min(this.zoomTarget, this.zoom / 30.0F + this.zoom);
          }
 
-         if (this.ap > this.by) {
-            this.ap = Math.max(this.by, this.ap - this.ap / 30.0F);
+         if (this.zoom > this.zoomTarget) {
+            this.zoom = Math.max(this.zoomTarget, this.zoom - this.zoom / 30.0F);
          }
 
       }
@@ -310,12 +310,12 @@ public class WorldMap {
       }
 
       if (var7 || var4) {
-         this.am(var1, var2, var3);
+         this.jump(var1, var2, var3);
       }
 
    }
 
-   public void ax(int var1) {
+   public void setCurrentMapAreaId(int var1) {
       WorldMapArea var3 = this.getMapArea(var1);
       if (null != var3) {
          this.setCurrentMapArea(var3);
@@ -334,7 +334,7 @@ public class WorldMap {
    void setCurrentMapArea(WorldMapArea var1) {
       if (null == this.currentMapArea0 || this.currentMapArea0 != var1) {
          this.initializeWorldMapManager(var1);
-         this.am(-1, -1, -1);
+         this.jump(-1, -1, -1);
       }
    }
 
@@ -351,15 +351,15 @@ public class WorldMap {
          }
 
          if (!var4 && this.currentMapArea0.containsCoord(-113644749 * var2.y, -96298701 * var2.x, var2.z * -2105445199)) {
-            this.am(-113644749 * var2.y, -96298701 * var2.x, var2.z * -2105445199);
+            this.jump(-113644749 * var2.y, -96298701 * var2.x, var2.z * -2105445199);
          } else {
-            this.am(-113644749 * var3.y, var3.x * -96298701, var3.z * -2105445199);
+            this.jump(-113644749 * var3.y, var3.x * -96298701, var3.z * -2105445199);
          }
 
       }
    }
 
-   void am(int var1, int var2, int var3) {
+   void jump(int var1, int var2, int var3) {
       if (this.currentMapArea0 != null) {
          int[] var5 = this.currentMapArea0.position(var1, var2, var3);
          if (var5 == null) {
@@ -369,8 +369,8 @@ public class WorldMap {
          this.al(var5[0] - this.currentMapArea0.minX() * 64, var5[1] - this.currentMapArea0.minY() * 64, true);
          this.ad = -2080912417;
          this.ae = -667691095;
-         this.ap = this.ap(this.currentMapArea0.zoom());
-         this.by = this.ap;
+         this.zoom = this.ap(this.currentMapArea0.zoom());
+         this.zoomTarget = this.zoom;
          this.cc = null;
          this.iconIterator = null;
          this.worldMapManager.an();
@@ -405,8 +405,8 @@ public class WorldMap {
             }
          }
 
-         int var9 = (int)Math.ceil((double)((float)var3 / this.ap));
-         int var10 = (int)Math.ceil((double)((float)var4 / this.ap));
+         int var9 = (int)Math.ceil((double)((float)var3 / this.zoom));
+         int var10 = (int)Math.ceil((double)((float)var4 / this.zoom));
          this.worldMapManager.aw(-84102297 * this.ak - var9 / 2, -632186207 * this.az - var10 / 2, this.ak * -84102297 + var9 / 2, var10 / 2 + this.az * -632186207, var1, var2, var1 + var3, var4 + var2);
          boolean var11;
          if (!this.elementsDisabled) {
@@ -502,8 +502,8 @@ public class WorldMap {
       }
    }
 
-   public void ad(int var1) {
-      this.by = this.ap(var1);
+   public void setZoomLevel(int var1) {
+      this.zoomTarget = this.ap(var1);
    }
 
    void drawLoading(int var1, int var2, int var3, int var4, int var5) {
@@ -530,17 +530,17 @@ public class WorldMap {
       }
    }
 
-   public int by() {
-      if (1.0 == (double)this.by) {
+   public int getZoomLevel() {
+      if (1.0 == (double)this.zoomTarget) {
          return 25;
-      } else if (1.5 == (double)this.by) {
+      } else if (1.5 == (double)this.zoomTarget) {
          return 37;
-      } else if (2.0 == (double)this.by) {
+      } else if (2.0 == (double)this.zoomTarget) {
          return 50;
-      } else if ((double)this.by == 3.0) {
+      } else if ((double)this.zoomTarget == 3.0) {
          return 75;
       } else {
-         return (double)this.by == 4.0 ? 100 : 200;
+         return (double)this.zoomTarget == 4.0 ? 100 : 200;
       }
    }
 
@@ -727,8 +727,8 @@ public class WorldMap {
 
    public void cs(int var1, int var2, int var3, int var4, int var5, int var6) {
       if (this.cacheLoader.isLoaded()) {
-         int var8 = (int)Math.ceil((double)((float)var3 / this.ap));
-         int var9 = (int)Math.ceil((double)((float)var4 / this.ap));
+         int var8 = (int)Math.ceil((double)((float)var3 / this.zoom));
+         int var9 = (int)Math.ceil((double)((float)var4 / this.zoom));
          List var10 = this.worldMapManager.ab(this.ak * -84102297 - var8 / 2 - 1, -632186207 * this.az - var9 / 2 - 1, var8 / 2 + this.ak * -84102297 + 1, 1 + var9 / 2 + this.az * -632186207, var1, var2, var3, var4, var5, var6);
          if (!var10.isEmpty()) {
             Iterator var11 = var10.iterator();

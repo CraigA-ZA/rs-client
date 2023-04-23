@@ -36,8 +36,9 @@ public final class ArchiveDisk {
                } else {
                   byte[] var6 = new byte[var4];
                   int var7 = 0;
+                  int var8 = 0;
 
-                  for(int var8 = 0; var7 < var4; ++var8) {
+                  while(var7 < var4) {
                      if (var5 == 0) {
                         var10000 = null;
                         return (byte[])var10000;
@@ -74,23 +75,25 @@ public final class ArchiveDisk {
                         var13 = ArchiveDisk_buffer[7] & 255;
                      }
 
-                     if (var10 != var1 || var8 != var11 || var13 != 290825311 * this.archive) {
+                     if (var10 == var1 && var8 == var11 && var13 == 290825311 * this.archive) {
+                        if (var12 >= 0 && (long)var12 <= this.datFile.length() / 520L) {
+                           int var15 = var9 + var14;
+
+                           for(int var16 = var14; var16 < var15; ++var16) {
+                              var6[var7++] = ArchiveDisk_buffer[var16];
+                           }
+
+                           var5 = var12;
+                           ++var8;
+                           continue;
+                        }
+
                         var10000 = null;
                         return (byte[])var10000;
                      }
 
-                     if (var12 < 0 || (long)var12 > this.datFile.length() / 520L) {
-                        var10000 = null;
-                        return (byte[])var10000;
-                     }
-
-                     int var15 = var9 + var14;
-
-                     for(int var16 = var14; var16 < var15; ++var16) {
-                        var6[var7++] = ArchiveDisk_buffer[var16];
-                     }
-
-                     var5 = var12;
+                     var10000 = null;
+                     return (byte[])var10000;
                   }
 
                   byte[] var20 = var6;

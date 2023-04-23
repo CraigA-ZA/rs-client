@@ -65,19 +65,19 @@ public class ec implements Enumerated {
             }
          }
 
-         WorldMapAreaData.jj = new int[var5];
-         FontName.jm = new int[var5];
-         Archive.jn = new int[var5];
-         au.jf = new byte[var5][];
-         LocSound.jw = new byte[var5][];
+         WorldMapAreaData.regions = new int[var5];
+         FontName.regionMapArchiveIds = new int[var5];
+         Archive.regionLandArchiveIds = new int[var5];
+         au.regionLandArchives = new byte[var5][];
+         LocSound.regionMapArchives = new byte[var5][];
          var5 = 0;
 
          for(var6 = (var4 - 6) / 8; var6 <= (var4 + 6) / 8; ++var6) {
             for(var7 = (var3 - 6) / 8; var7 <= (6 + var3) / 8; ++var7) {
                var8 = (var6 << 8) + var7;
-               WorldMapAreaData.jj[var5] = var8;
-               FontName.jm[var5] = TotalQuantityComparator.archive5.getGroupId("m" + var6 + "_" + var7);
-               Archive.jn[var5] = TotalQuantityComparator.archive5.getGroupId("l" + var6 + "_" + var7);
+               WorldMapAreaData.regions[var5] = var8;
+               FontName.regionMapArchiveIds[var5] = TotalQuantityComparator.archive5.getGroupId("m" + var6 + "_" + var7);
+               Archive.regionLandArchiveIds[var5] = TotalQuantityComparator.archive5.getGroupId("l" + var6 + "_" + var7);
                ++var5;
             }
          }
@@ -114,11 +114,11 @@ public class ec implements Enumerated {
             }
          }
 
-         WorldMapAreaData.jj = new int[var6];
-         FontName.jm = new int[var6];
-         Archive.jn = new int[var6];
-         au.jf = new byte[var6][];
-         LocSound.jw = new byte[var6][];
+         WorldMapAreaData.regions = new int[var6];
+         FontName.regionMapArchiveIds = new int[var6];
+         Archive.regionLandArchiveIds = new int[var6];
+         au.regionLandArchives = new byte[var6][];
+         LocSound.regionMapArchives = new byte[var6][];
          var6 = 0;
 
          for(var7 = 0; var7 < 4; ++var7) {
@@ -132,18 +132,18 @@ public class ec implements Enumerated {
 
                      int var14;
                      for(var14 = 0; var14 < var6; ++var14) {
-                        if (WorldMapAreaData.jj[var14] == var13) {
+                        if (WorldMapAreaData.regions[var14] == var13) {
                            var13 = -1;
                            break;
                         }
                      }
 
                      if (var13 != -1) {
-                        WorldMapAreaData.jj[var6] = var13;
+                        WorldMapAreaData.regions[var6] = var13;
                         var14 = var13 >> 8 & 255;
                         int var15 = var13 & 255;
-                        FontName.jm[var6] = TotalQuantityComparator.archive5.getGroupId("m" + var14 + "_" + var15);
-                        Archive.jn[var6] = TotalQuantityComparator.archive5.getGroupId("l" + var14 + "_" + var15);
+                        FontName.regionMapArchiveIds[var6] = TotalQuantityComparator.archive5.getGroupId("m" + var14 + "_" + var15);
+                        Archive.regionLandArchiveIds[var6] = TotalQuantityComparator.archive5.getGroupId("l" + var14 + "_" + var15);
                         ++var6;
                      }
                   }

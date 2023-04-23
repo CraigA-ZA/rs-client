@@ -148,8 +148,8 @@ public class ix {
                var18 = MouseHandler.ay * -2063363905;
                var19 = MouseHandler.ao * -1224153235;
                if (-1222491879 * MouseHandler.MouseHandler_lastButton != 0) {
-                  var18 = MouseHandler.am * 2020601481;
-                  var19 = MouseHandler.as * 1163896205;
+                  var18 = MouseHandler.MouseHandler_lastPressedX * 2020601481;
+                  var19 = MouseHandler.MouseHandler_lastPressedY * 1163896205;
                }
 
                boolean var38 = var18 >= var13 && var19 >= var14 && var18 < var15 && var19 < var16;
@@ -253,12 +253,12 @@ public class ix {
                      }
 
                      var22 = false;
-                     if ((1 == -1222491879 * MouseHandler.MouseHandler_lastButton || !su.ev && MouseHandler.MouseHandler_lastButton * -1222491879 == 4) && MouseHandler.am * 2020601481 >= var13 && MouseHandler.as * 1163896205 >= var14 && 2020601481 * MouseHandler.am < var15 && 1163896205 * MouseHandler.as < var16) {
+                     if ((1 == -1222491879 * MouseHandler.MouseHandler_lastButton || !su.ev && MouseHandler.MouseHandler_lastButton * -1222491879 == 4) && MouseHandler.MouseHandler_lastPressedX * 2020601481 >= var13 && MouseHandler.MouseHandler_lastPressedY * 1163896205 >= var14 && 2020601481 * MouseHandler.MouseHandler_lastPressedX < var15 && 1163896205 * MouseHandler.MouseHandler_lastPressedY < var16) {
                         var22 = true;
                      }
 
                      if (var22) {
-                        ol.mm_renamed(var10, MouseHandler.am * 2020601481 - var35, 1163896205 * MouseHandler.as - var12);
+                        ol.mm_renamed(var10, MouseHandler.MouseHandler_lastPressedX * 2020601481 - var35, 1163896205 * MouseHandler.MouseHandler_lastPressedY - var12);
                      }
 
                      if (var10.as()) {
@@ -308,8 +308,8 @@ public class ix {
                               var40 = new ClientScriptEvent();
                               var40.boolean1 = true;
                               var40.aw = var10;
-                              var40.ac = (MouseHandler.am * 2020601481 - var35) * -2011830585;
-                              var40.au = 1126405829 * (MouseHandler.as * 1163896205 - var12);
+                              var40.ac = (MouseHandler.MouseHandler_lastPressedX * 2020601481 - var35) * -2011830585;
+                              var40.au = 1126405829 * (MouseHandler.MouseHandler_lastPressedY * 1163896205 - var12);
                               var40.args0 = var10.onClick;
                               Client.rq.addFirst(var40);
                            }

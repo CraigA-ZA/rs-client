@@ -82,7 +82,7 @@ public class DynamicObject extends Entity {
          this.cycleStart = -1353577717 * (-1886224337 * Client.ep - var2);
       }
 
-      LocType var13 = fw.an_renamed(618580957 * this.id);
+      LocType var13 = fw.getLocType(618580957 * this.id);
       if (var13.multi != null) {
          var13 = var13.multiLoc();
       }

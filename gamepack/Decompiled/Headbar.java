@@ -1,5 +1,5 @@
 public class Headbar extends Node {
-   static IndexedSprite[] ka;
+   static IndexedSprite[] scrollBarSprites;
    HeadbarType type;
    IterableNodeDeque updates = new IterableNodeDeque();
 

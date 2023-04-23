@@ -37,7 +37,7 @@ public class gq {
    }
 
    public static void ax_renamed() {
-      NPCType.ac.clear();
+      NPCType.NPCType_cached.clear();
       NPCType.au.clear();
    }
 

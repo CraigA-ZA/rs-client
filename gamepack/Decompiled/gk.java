@@ -1,7 +1,7 @@
 import java.security.SecureRandom;
 
 public class gk extends gn {
-   static int kv;
+   static int cameraY;
    static SecureRandom secureRandom;
    int af;
    // $FF: synthetic field

@@ -123,7 +123,7 @@ public class GrandExchangeEvent {
 
    public static void au_renamed() {
       HeadbarType.HeadbarType_cached.clear();
-      HeadbarType.ac.clear();
+      HeadbarType.HeadbarType_cachedSprites.clear();
    }
 
    GrandExchangeEvent(Packet var1, byte var2, int var3) {

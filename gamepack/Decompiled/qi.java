@@ -12,9 +12,9 @@ public class qi {
       byte var5 = (byte)(var4 >> 28);
       int var6 = var4 >> 14 & 16383;
       int var7 = var4 & 16383;
-      var3.pathX[0] = var6 - jm.ib * -1232093375;
+      var3.pathX[0] = var6 - jm.baseX * -1232093375;
       var3.bx = ((var3.pathX[0] << 7) + (var3.transformedSize() << 6)) * -881028089;
-      var3.pathY[0] = var7 - 827352769 * Scenery.jc;
+      var3.pathY[0] = var7 - 827352769 * Scenery.baseY;
       var3.bo = ((var3.pathY[0] << 7) + (var3.transformedSize() << 6)) * 1193213931;
       GameShell.plane = (var3.ad = var5 * -1829675965) * 1128021573;
       if (null != ds.au[var2]) {

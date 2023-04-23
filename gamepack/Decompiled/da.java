@@ -137,8 +137,8 @@ public class da {
    }
 
    static final void le_renamed(int var0, int var1, int var2, int var3, int var4) {
-      Headbar.ka[0].aw(var0, var1);
-      Headbar.ka[1].aw(var0, var3 + var1 - 16);
+      Headbar.scrollBarSprites[0].aw(var0, var1);
+      Headbar.scrollBarSprites[1].aw(var0, var3 + var1 - 16);
       Rasterizer2D.Rasterizer2D_fillRectangle(var0, var1 + 16, 16, var3 - 32, Client.kq * 40021093);
       int var6 = (var3 - 32) * var3 / var4;
       if (var6 < 8) {

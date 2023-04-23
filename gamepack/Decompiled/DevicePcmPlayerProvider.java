@@ -1,7 +1,7 @@
 public class DevicePcmPlayerProvider implements PcmPlayerProvider {
    static int gi;
    static Archive archive0;
-   static IndexedSprite[] dk;
+   static IndexedSprite[] slArrowSprites;
 
    DevicePcmPlayerProvider() {
    }
@@ -58,7 +58,7 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
          Client.fi = -1089274152;
       } else if (40 != -627796577 * Client.fi) {
          if (-627796577 * Client.fi == 45) {
-            boolean var26 = !Client.cu;
+            boolean var26 = !Client.isLowDetail;
             PcmPlayer.au = -1500814902;
             PcmPlayer.ab = var26;
             UrlRequest.at = 754987022;
@@ -148,7 +148,7 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   EnumType.af_renamed(dk.archive2);
                   World.af_renamed(dk.archive2);
                   Client.af_renamed(dk.archive2, FloorUnderlayType.archive7);
-                  Interpreter.af_renamed(dk.archive2, FloorUnderlayType.archive7, Client.cu);
+                  Interpreter.af_renamed(dk.archive2, FloorUnderlayType.archive7, Client.isLowDetail);
                   MiniMenuEntry.af_renamed(dk.archive2, FloorUnderlayType.archive7);
                   dk.af_renamed(dk.archive2);
                   Archive var25 = dk.archive2;
@@ -207,8 +207,8 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   ++var1;
                }
 
-               if (null == ml.ju) {
-                  ml.ju = cv.af_renamed(rr.archive8, -506869823 * Varcs.spriteIds.mapscene, 0);
+               if (null == ml.mapSceneSprites) {
+                  ml.mapSceneSprites = cv.af_renamed(rr.archive8, -506869823 * Varcs.spriteIds.mapscene, 0);
                } else {
                   ++var1;
                }
@@ -249,14 +249,14 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   ++var1;
                }
 
-               if (null == Headbar.ka) {
-                  Headbar.ka = cv.af_renamed(rr.archive8, Varcs.spriteIds.scrollbar * 233709739, 0);
+               if (null == Headbar.scrollBarSprites) {
+                  Headbar.scrollBarSprites = cv.af_renamed(rr.archive8, Varcs.spriteIds.scrollbar * 233709739, 0);
                } else {
                   ++var1;
                }
 
-               if (null == bx.kg) {
-                  bx.kg = cv.af_renamed(rr.archive8, Varcs.spriteIds.modicons * -2142254499, 0);
+               if (null == bx.modIconSprites) {
+                  bx.modIconSprites = cv.af_renamed(rr.archive8, Varcs.spriteIds.modicons * -2142254499, 0);
                } else {
                   ++var1;
                }
@@ -265,13 +265,13 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   cz.Login_loadingText = Strings.Strings_loadingSprites + var1 * 100 / 12 + "%";
                   cz.ad = -2003412602;
                } else {
-                  AbstractFont.AbstractFont_modIconSprites = bx.kg;
+                  AbstractFont.AbstractFont_modIconSprites = bx.modIconSprites;
                   dp.jz.normalize();
                   int var2 = (int)(Math.random() * 21.0) - 10;
                   int var3 = (int)(Math.random() * 21.0) - 10;
                   var4 = (int)(Math.random() * 21.0) - 10;
                   var5 = (int)(Math.random() * 41.0) - 20;
-                  ml.ju[0].shiftColors(var5 + var2, var5 + var3, var4 + var5);
+                  ml.mapSceneSprites[0].shiftColors(var5 + var2, var5 + var3, var4 + var5);
                   cz.Login_loadingText = Strings.Strings_loadedSprites;
                   cz.ad = -2003412602;
                   Client.fi = -1377125018;
@@ -281,7 +281,7 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   cz.Login_loadingText = Strings.Strings_loadingTextures + "0%";
                   cz.ad = -1962249446;
                } else {
-                  al.textureProvider = new TextureProvider(WorldMapLabelSize.archive9, rr.archive8, 20, aj.clientPreferences.av(), Client.cu ? 64 : 128);
+                  al.textureProvider = new TextureProvider(WorldMapLabelSize.archive9, rr.archive8, 20, aj.clientPreferences.av(), Client.isLowDetail ? 64 : 128);
                   TextureProvider var24 = al.textureProvider;
                   Rasterizer3D.ab.aq = var24;
                   am.an(aj.clientPreferences.av());
@@ -341,7 +341,7 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                } else {
                   if (ey.worldMap0 == null) {
                      ey.worldMap0 = new WorldMap();
-                     ey.worldMap0.init(bi.ft, UnitPriceComparator.fu, he.gr, fx.fontBold12, Client.im, ml.ju);
+                     ey.worldMap0.init(bi.ft, UnitPriceComparator.fu, he.gr, fx.fontBold12, Client.im, ml.mapSceneSprites);
                   }
 
                   cz.Login_loadingText = Strings.Strings_loadedWorldMap;

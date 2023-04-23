@@ -2,9 +2,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class Rasterizer3D {
-   public static int[] ac = new int[2048];
+   public static int[] Rasterizer3D_sine = new int[2048];
    public static int[] af = new int[65536];
-   public static int[] au = new int[2048];
+   public static int[] Rasterizer3D_cosine = new int[2048];
    public static jg ab;
    static ii aq;
    static int ai;
@@ -24,8 +24,8 @@ public class Rasterizer3D {
       }
 
       for(var0 = 0; var0 < 2048; ++var0) {
-         ac[var0] = (int)(65536.0 * Math.sin(0.0030679615 * (double)var0));
-         au[var0] = (int)(65536.0 * Math.cos(0.0030679615 * (double)var0));
+         Rasterizer3D_sine[var0] = (int)(65536.0 * Math.sin(0.0030679615 * (double)var0));
+         Rasterizer3D_cosine[var0] = (int)(65536.0 * Math.cos(0.0030679615 * (double)var0));
       }
 
       ab = new jg();

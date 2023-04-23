@@ -486,7 +486,7 @@ public class aq implements Enumerated {
             Rasterizer2D.Rasterizer2D_setClipArray(var31);
          }
 
-         fc.ao[aj.clientPreferences.aa() ? 1 : 0].aw(765 + cz.aw * 578342931 - 40, 463);
+         fc.titleMuteSprites[aj.clientPreferences.aa() ? 1 : 0].aw(765 + cz.aw * 578342931 - 40, 463);
          if (-1275976559 * Client.dw > 5 && Language.af == fj.ck) {
             if (mv.dv != null) {
                var4 = cz.aw * 578342931 + 5;

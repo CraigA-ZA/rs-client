@@ -66,7 +66,7 @@ public class am {
    }
 
    static void an_renamed() {
-      for(LocSound var1 = (LocSound)LocSound.af.last(); var1 != null; var1 = (LocSound)LocSound.af.previous()) {
+      for(LocSound var1 = (LocSound)LocSound.objectSounds.last(); var1 != null; var1 = (LocSound)LocSound.objectSounds.previous()) {
          if (var1.obj != null) {
             var1.set();
          }
@@ -320,16 +320,16 @@ public class am {
       int var18;
       int var19;
       if (var12 != 0) {
-         var17 = Rasterizer3D.ac[var12];
-         var18 = Rasterizer3D.au[var12];
+         var17 = Rasterizer3D.Rasterizer3D_sine[var12];
+         var18 = Rasterizer3D.Rasterizer3D_cosine[var12];
          var19 = var18 * var15 - var17 * var11 >> 16;
          var16 = var17 * var15 + var11 * var18 >> 16;
          var15 = var19;
       }
 
       if (var13 != 0) {
-         var17 = Rasterizer3D.ac[var13];
-         var18 = Rasterizer3D.au[var13];
+         var17 = Rasterizer3D.Rasterizer3D_sine[var13];
+         var18 = Rasterizer3D.Rasterizer3D_cosine[var13];
          var19 = var14 * var18 + var17 * var16 >> 16;
          var16 = var16 * var18 - var17 * var14 >> 16;
          var14 = var19;
@@ -342,17 +342,17 @@ public class am {
          ClientScriptEvent.uw = -268140793 * var5;
          dt.uf = -523744247 * var35;
       } else {
-         bt.kx = (var7 - var14) * -1682679895;
-         gk.kv = -424093663 * (var8 - var15);
-         ly.ke = 46344275 * (var9 - var16);
-         WorldMapSectionType.ky = var5 * 528729485;
-         ek.kh = var35 * -1545206147;
+         bt.cameraX = (var7 - var14) * -1682679895;
+         gk.cameraY = -424093663 * (var8 - var15);
+         ly.cameraZ = 46344275 * (var9 - var16);
+         WorldMapSectionType.cameraPitch = var5 * 528729485;
+         ek.cameraYaw = var35 * -1545206147;
       }
 
       if (1 == 986256295 * Client.lv && Client.pu * 324465533 >= 2 && 0 == Client.ep * -1886224337 % 50 && (1144428983 * MusicPatchNode.localPlayer.bx >> 7 != -1958669353 * bz.lg >> 7 || -365969735 * fw.lf >> 7 != -411750205 * MusicPatchNode.localPlayer.bo >> 7)) {
          var17 = MusicPatchNode.localPlayer.ad * -1900490645;
-         var18 = -1232093375 * jm.ib + (bz.lg * -1958669353 >> 7);
-         var19 = 827352769 * Scenery.jc + (fw.lf * -365969735 >> 7);
+         var18 = -1232093375 * jm.baseX + (bz.lg * -1958669353 >> 7);
+         var19 = 827352769 * Scenery.baseY + (fw.lf * -365969735 >> 7);
          PacketBitNode var20 = mi.an_renamed(ClientProt.cq, Client.packetWriter.au);
          var20.bit.p4ME(1263827259 * Client.ly);
          var20.bit.dy(var18);
@@ -367,8 +367,8 @@ public class am {
          if (aj.clientPreferences.ab()) {
             var12 = -1727408401 * GameShell.plane;
          } else {
-            var13 = fq.getTileHeight(-2100544359 * bt.kx, ly.ke * -91399205, GameShell.plane * -1727408401);
-            if (var13 - gk.kv * 1772923873 < 800 && 0 != (Tiles.Tiles_renderFlags[-1727408401 * GameShell.plane][-2100544359 * bt.kx >> 7][ly.ke * -91399205 >> 7] & 4)) {
+            var13 = fq.getTileHeight(-2100544359 * bt.cameraX, ly.cameraZ * -91399205, GameShell.plane * -1727408401);
+            if (var13 - gk.cameraY * 1772923873 < 800 && 0 != (Tiles.Tiles_renderFlags[-1727408401 * GameShell.plane][-2100544359 * bt.cameraX >> 7][ly.cameraZ * -91399205 >> 7] & 4)) {
                var12 = GameShell.plane * -1727408401;
             } else {
                var12 = 3;
@@ -378,39 +378,39 @@ public class am {
          var11 = var12;
       }
 
-      var12 = -2100544359 * bt.kx;
-      var13 = 1772923873 * gk.kv;
-      var14 = -91399205 * ly.ke;
-      var15 = WorldMapSectionType.ky * 1897923909;
-      var16 = -1010818347 * ek.kh;
+      var12 = -2100544359 * bt.cameraX;
+      var13 = 1772923873 * gk.cameraY;
+      var14 = -91399205 * ly.cameraZ;
+      var15 = WorldMapSectionType.cameraPitch * 1897923909;
+      var16 = -1010818347 * ek.cameraYaw;
 
       for(var17 = 0; var17 < 5; ++var17) {
          if (Client.ue[var17]) {
             var18 = (int)(Math.random() * (double)(Client.vq[var17] * 2 + 1) - (double)Client.vq[var17] + Math.sin((double)Client.vg[var17] * ((double)Client.vf[var17] / 100.0)) * (double)Client.vw[var17]);
             if (var17 == 0) {
-               bt.kx += -1682679895 * var18;
+               bt.cameraX += -1682679895 * var18;
             }
 
             if (1 == var17) {
-               gk.kv += -424093663 * var18;
+               gk.cameraY += -424093663 * var18;
             }
 
             if (var17 == 2) {
-               ly.ke += 46344275 * var18;
+               ly.cameraZ += 46344275 * var18;
             }
 
             if (3 == var17) {
-               ek.kh = (ek.kh * -1010818347 + var18 & 2047) * -1545206147;
+               ek.cameraYaw = (ek.cameraYaw * -1010818347 + var18 & 2047) * -1545206147;
             }
 
             if (4 == var17) {
-               WorldMapSectionType.ky += 528729485 * var18;
-               if (1897923909 * WorldMapSectionType.ky < 128) {
-                  WorldMapSectionType.ky = -1042102656;
+               WorldMapSectionType.cameraPitch += 528729485 * var18;
+               if (1897923909 * WorldMapSectionType.cameraPitch < 128) {
+                  WorldMapSectionType.cameraPitch = -1042102656;
                }
 
-               if (1897923909 * WorldMapSectionType.ky > 383) {
-                  WorldMapSectionType.ky = 639929843;
+               if (1897923909 * WorldMapSectionType.cameraPitch > 383) {
+                  WorldMapSectionType.cameraPitch = 639929843;
                }
             }
          }
@@ -419,8 +419,8 @@ public class am {
       var17 = -2063363905 * MouseHandler.ay;
       var18 = -1224153235 * MouseHandler.ao;
       if (0 != MouseHandler.MouseHandler_lastButton * -1222491879) {
-         var17 = 2020601481 * MouseHandler.am;
-         var18 = 1163896205 * MouseHandler.as;
+         var17 = 2020601481 * MouseHandler.MouseHandler_lastPressedX;
+         var18 = 1163896205 * MouseHandler.MouseHandler_lastPressedY;
       }
 
       if (var17 >= var0 && var17 < var0 + var2 && var18 >= var1 && var18 < var1 + var3) {
@@ -441,7 +441,7 @@ public class am {
       var19 = eu.at_renamed();
       mz.af_renamed(ClientScriptFrame.client.by);
       Rasterizer3D.ab.ab = Client.viewportZoom * 1241253503;
-      bx.scene.draw(-2100544359 * bt.kx, 1772923873 * gk.kv, -91399205 * ly.ke, 1897923909 * WorldMapSectionType.ky, ek.kh * -1010818347, var11);
+      bx.scene.draw(-2100544359 * bt.cameraX, 1772923873 * gk.cameraY, -91399205 * ly.cameraZ, 1897923909 * WorldMapSectionType.cameraPitch, ek.cameraYaw * -1010818347, var11);
       mz.af_renamed(false);
       if (Client.ex) {
          Rasterizer2D.fb();
@@ -604,11 +604,11 @@ public class am {
       mm.jo_renamed(var0, var1);
       ((TextureProvider)Rasterizer3D.ab.aq).animate(Client.ja * -1795081153);
       Friend.jn_renamed();
-      bt.kx = -1682679895 * var12;
-      gk.kv = -424093663 * var13;
-      ly.ke = var14 * 46344275;
-      WorldMapSectionType.ky = var15 * 528729485;
-      ek.kh = var16 * -1545206147;
+      bt.cameraX = -1682679895 * var12;
+      gk.cameraY = -424093663 * var13;
+      ly.cameraZ = var14 * 46344275;
+      WorldMapSectionType.cameraPitch = var15 * 528729485;
+      ek.cameraYaw = var16 * -1545206147;
       if (Client.da && hd.au_renamed(true, false) == 0) {
          Client.da = false;
       }

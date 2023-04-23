@@ -102,7 +102,7 @@ public class HitmarkType extends DualNode {
    public final HitmarkType transform() {
       int var2 = -1;
       if (-1 != 1173802085 * this.transformVarbit) {
-         var2 = WorldMapSection1.af_renamed(this.transformVarbit * 1173802085);
+         var2 = WorldMapSection1.getVarbit(this.transformVarbit * 1173802085);
       } else if (-1 != this.transformVarp * -1580274447) {
          var2 = Varps.Varps_main[-1580274447 * this.transformVarp];
       }

@@ -98,7 +98,7 @@ public class EnumType extends DualNode {
       if (cz.di) {
          bz.ag_renamed(var0);
       } else {
-         if ((1 == -1222491879 * MouseHandler.MouseHandler_lastButton || !su.ev && 4 == MouseHandler.MouseHandler_lastButton * -1222491879) && 2020601481 * MouseHandler.am >= 765 + cz.aw * 578342931 - 50 && 1163896205 * MouseHandler.as >= 453) {
+         if ((1 == -1222491879 * MouseHandler.MouseHandler_lastButton || !su.ev && 4 == MouseHandler.MouseHandler_lastButton * -1222491879) && 2020601481 * MouseHandler.MouseHandler_lastPressedX >= 765 + cz.aw * 578342931 - 50 && 1163896205 * MouseHandler.MouseHandler_lastPressedY >= 453) {
             aj.clientPreferences.at(!aj.clientPreferences.aa());
             if (!aj.clientPreferences.aa()) {
                sh.an_renamed(pj.archive6, "scape main", "", 255, false);
@@ -150,7 +150,7 @@ public class EnumType extends DualNode {
                      var8 = 463;
                      var9 = 100;
                      byte var10 = 35;
-                     if (2020601481 * MouseHandler.am >= var40 && 2020601481 * MouseHandler.am <= var40 + var9 && MouseHandler.as * 1163896205 >= var8 && MouseHandler.as * 1163896205 <= var8 + var10) {
+                     if (2020601481 * MouseHandler.MouseHandler_lastPressedX >= var40 && 2020601481 * MouseHandler.MouseHandler_lastPressedX <= var40 + var9 && MouseHandler.MouseHandler_lastPressedY * 1163896205 >= var8 && MouseHandler.MouseHandler_lastPressedY * 1163896205 <= var8 + var10) {
                         cz.ar_renamed();
                         return;
                      }
@@ -162,8 +162,8 @@ public class EnumType extends DualNode {
                }
 
                var40 = -1222491879 * MouseHandler.MouseHandler_lastButton;
-               var8 = 2020601481 * MouseHandler.am;
-               var9 = MouseHandler.as * 1163896205;
+               var8 = 2020601481 * MouseHandler.MouseHandler_lastPressedX;
+               var9 = MouseHandler.MouseHandler_lastPressedY * 1163896205;
                if (var40 == 0) {
                   var8 = -2063363905 * MouseHandler.ay;
                   var9 = MouseHandler.ao * -1224153235;
@@ -1337,7 +1337,7 @@ public class EnumType extends DualNode {
             }
 
             if (null != var18) {
-               LocType var19 = fw.an_renamed(var17);
+               LocType var19 = fw.getLocType(var17);
                int var20;
                int var21;
                if (1 != var14 && var14 != 3) {

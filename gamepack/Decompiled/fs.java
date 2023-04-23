@@ -20,7 +20,7 @@ public class fs {
       if (var0 >= 2000) {
          var0 -= 1000;
          var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         var5 = gh.an_renamed(var4);
+         var5 = gh.getInterfaceComponent(var4);
       } else {
          var5 = var2 ? SoundSystem.ag : an.ai;
       }

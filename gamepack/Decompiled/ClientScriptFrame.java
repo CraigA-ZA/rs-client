@@ -34,7 +34,7 @@ public class ClientScriptFrame {
             int var21;
             int var22;
             if (2 == var14 && bx.scene.bk(GameShell.plane * -1727408401, var12, var13, var10) >= 0) {
-               LocType var18 = fw.an_renamed(var16);
+               LocType var18 = fw.getLocType(var16);
                if (null != var18.multi) {
                   var18 = var18.multiLoc();
                }

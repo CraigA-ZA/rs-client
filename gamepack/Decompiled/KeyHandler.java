@@ -122,7 +122,7 @@ public class KeyHandler implements KeyListener, FocusListener {
          } else {
             label62: {
                if (0 != var2) {
-                  char[] var4 = od.af;
+                  char[] var4 = od.cp1252AsciiExtension;
 
                   for(int var5 = 0; var5 < var4.length; ++var5) {
                      char var6 = var4[var5];
@@ -199,15 +199,15 @@ public class KeyHandler implements KeyListener, FocusListener {
          qo.aq = MusicPatchNode2.au_renamed(var1, "titlebutton_large", "");
          os.al = MusicPatchNode2.au_renamed(var1, "play_now_text", "");
          MusicPatchNode2.au_renamed(var1, "titlebutton_wide42,1", "");
-         py.ac = mz.ac_renamed(var1, "runes", "");
-         fc.ao = mz.ac_renamed(var1, "title_mute", "");
+         py.runeSprites = mz.ac_renamed(var1, "runes", "");
+         fc.titleMuteSprites = mz.ac_renamed(var1, "title_mute", "");
          cz.ax = MusicPatchNode2.au_renamed(var1, "options_radio_buttons,0", "");
          cz.ai = MusicPatchNode2.au_renamed(var1, "options_radio_buttons,4", "");
          gs.ag = MusicPatchNode2.au_renamed(var1, "options_radio_buttons,2", "");
          cz.ah = MusicPatchNode2.au_renamed(var1, "options_radio_buttons,6", "");
          ChatChannel.cz = 1622050401 * cz.ax.subWidth;
          FloorUnderlayType.cw = cz.ax.subHeight * 905476585;
-         em.av = new dp(py.ac);
+         em.av = new dp(py.runeSprites);
          if (var2) {
             cz.ca = "";
             cz.cu = "";

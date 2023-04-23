@@ -1,5 +1,5 @@
 public class ek {
-   static int kh;
+   static int cameraYaw;
    boolean ab;
    boolean af;
    boolean an;

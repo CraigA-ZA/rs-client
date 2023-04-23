@@ -102,8 +102,8 @@ public class qc {
          int var7 = Client.kf * 704283033 & 2047;
          int var8 = var3 * var3 + var2 * var2;
          if (var8 <= 6400) {
-            int var9 = Rasterizer3D.ac[var7];
-            int var10 = Rasterizer3D.au[var7];
+            int var9 = Rasterizer3D.Rasterizer3D_sine[var7];
+            int var10 = Rasterizer3D.Rasterizer3D_cosine[var7];
             int var11 = var2 * var10 + var3 * var9 >> 16;
             int var12 = var3 * var10 - var9 * var2 >> 16;
             if (var8 > 2500) {

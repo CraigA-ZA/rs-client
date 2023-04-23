@@ -251,7 +251,7 @@ public final class Player extends Actor {
    }
 
    int transformedSize() {
-      return this.appearance != null && -1 != -2131733097 * this.appearance.ab ? AbstractArchive.an_renamed(-2131733097 * this.appearance.ab).size * 1458410691 : 1;
+      return this.appearance != null && -1 != -2131733097 * this.appearance.ab ? AbstractArchive.getNPCType(-2131733097 * this.appearance.ab).size * 1458410691 : 1;
    }
 
    protected final it getModel() {
@@ -360,17 +360,17 @@ public final class Player extends Actor {
       if (ax.an) {
          cz.au = null;
          lu.ab = null;
-         py.ac = null;
+         py.runeSprites = null;
          ex.at = null;
          ParamType.aa = null;
          Canvas.ay = null;
-         fc.ao = null;
+         fc.titleMuteSprites = null;
          cz.ax = null;
          gs.ag = null;
          st.dr = null;
-         av.dl = null;
-         DevicePcmPlayerProvider.dk = null;
-         World.dt = null;
+         av.slFlagSprites = null;
+         DevicePcmPlayerProvider.slArrowSprites = null;
+         World.slStarSprites = null;
          mv.dv = null;
          em.av.an();
          ly.au = -626822165;

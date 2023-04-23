@@ -56,7 +56,7 @@ public class ArchiveLoader {
                if (4 == var7) {
                   var10 = var3[var5++] << 16;
                   var10 += var3[var5++];
-                  var11 = gh.an_renamed(var10);
+                  var11 = gh.getInterfaceComponent(var10);
                   var12 = var3[var5++];
                   if (var12 != -1 && (!HeadbarUpdate.getObjType(var12).members || Client.ca)) {
                      for(var13 = 0; var13 < var11.gb.length; ++var13) {
@@ -94,7 +94,7 @@ public class ArchiveLoader {
                if (10 == var7) {
                   var10 = var3[var5++] << 16;
                   var10 += var3[var5++];
-                  var11 = gh.an_renamed(var10);
+                  var11 = gh.getInterfaceComponent(var10);
                   var12 = var3[var5++];
                   if (-1 != var12 && (!HeadbarUpdate.getObjType(var12).members || Client.ca)) {
                      for(var13 = 0; var13 < var11.gb.length; ++var13) {
@@ -122,7 +122,7 @@ public class ArchiveLoader {
 
                if (var7 == 14) {
                   var10 = var3[var5++];
-                  var8 = WorldMapSection1.af_renamed(var10);
+                  var8 = WorldMapSection1.getVarbit(var10);
                }
 
                if (15 == var7) {
@@ -138,11 +138,11 @@ public class ArchiveLoader {
                }
 
                if (var7 == 18) {
-                  var8 = -1232093375 * jm.ib + (MusicPatchNode.localPlayer.bx * 1144428983 >> 7);
+                  var8 = -1232093375 * jm.baseX + (MusicPatchNode.localPlayer.bx * 1144428983 >> 7);
                }
 
                if (19 == var7) {
-                  var8 = Scenery.jc * 827352769 + (-411750205 * MusicPatchNode.localPlayer.bo >> 7);
+                  var8 = Scenery.baseY * 827352769 + (-411750205 * MusicPatchNode.localPlayer.bo >> 7);
                }
 
                if (20 == var7) {

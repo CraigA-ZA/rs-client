@@ -5,7 +5,7 @@ public class ly {
    public static AbstractArchive af;
    public static AbstractArchive an;
    public static AbstractArchive aw;
-   static int ke;
+   static int cameraZ;
 
    ly() throws Throwable {
       throw new Error();

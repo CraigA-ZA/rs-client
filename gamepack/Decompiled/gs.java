@@ -9,7 +9,7 @@ public class gs extends fb {
       if (var2 != null) {
          return var2;
       } else {
-         byte[] var3 = VarBitType.af.takeFile(14, var0);
+         byte[] var3 = VarBitType.VarBitType_archive.takeFile(14, var0);
          var2 = new VarBitType();
          if (var3 != null) {
             var2.aw(new Packet(var3));

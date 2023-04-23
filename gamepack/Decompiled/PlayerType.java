@@ -200,7 +200,7 @@ public class PlayerType implements Enumerated {
                            Interpreter.Interpreter_stringLocals = var36.stringLocals;
                         } else if (var9 == 25) {
                            var14 = var8[var26];
-                           Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = WorldMapSection1.af_renamed(var14);
+                           Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = WorldMapSection1.getVarbit(var14);
                         } else if (27 == var9) {
                            var14 = var8[var26];
                            kn.an_renamed(var14, Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);

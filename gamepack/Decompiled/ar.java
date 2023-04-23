@@ -132,8 +132,8 @@ class ar implements SSLSession {
          var17 = mi.an_renamed(ClientProt.bp, Client.packetWriter.au);
          var17.bit.dy(var3);
          var17.bit.dh(Client.sh.av(82) ? 1 : 0);
-         var17.bit.dy(var1 + 827352769 * Scenery.jc);
-         var17.bit.p2LE(-1232093375 * jm.ib + var0);
+         var17.bit.dy(var1 + 827352769 * Scenery.baseY);
+         var17.bit.p2LE(-1232093375 * jm.baseX + var0);
          Client.packetWriter.aw(var17);
       }
 
@@ -161,9 +161,9 @@ class ar implements SSLSession {
          Client.te = var0 * -1970850269;
          Client.th = 875414437 * var1;
          var17 = mi.an_renamed(ClientProt.bq, Client.packetWriter.au);
-         var17.bit.ds(jm.ib * -1232093375 + var0);
+         var17.bit.ds(jm.baseX * -1232093375 + var0);
          var17.bit.p2LE(var3);
-         var17.bit.ds(827352769 * Scenery.jc + var1);
+         var17.bit.ds(827352769 * Scenery.baseY + var1);
          var17.bit.dp(Client.sh.av(82) ? 1 : 0);
          Client.packetWriter.aw(var17);
       }
@@ -180,10 +180,10 @@ class ar implements SSLSession {
          Client.te = var0 * -1970850269;
          Client.th = 875414437 * var1;
          var17 = mi.an_renamed(ClientProt.bz, Client.packetWriter.au);
-         var17.bit.dy(var1 + Scenery.jc * 827352769);
+         var17.bit.dy(var1 + Scenery.baseY * 827352769);
          var17.bit.ds(var3);
          var17.bit.bu(Client.sh.av(82) ? 1 : 0);
-         var17.bit.ds(jm.ib * -1232093375 + var0);
+         var17.bit.ds(jm.baseX * -1232093375 + var0);
          Client.packetWriter.aw(var17);
       }
 
@@ -197,8 +197,8 @@ class ar implements SSLSession {
          var17 = mi.an_renamed(ClientProt.cw, Client.packetWriter.au);
          var17.bit.dp(Client.sh.av(82) ? 1 : 0);
          var17.bit.ds(var3);
-         var17.bit.dy(-1232093375 * jm.ib + var0);
-         var17.bit.ds(var1 + 827352769 * Scenery.jc);
+         var17.bit.dy(-1232093375 * jm.baseX + var0);
+         var17.bit.ds(var1 + 827352769 * Scenery.baseY);
          Client.packetWriter.aw(var17);
       }
 
@@ -216,7 +216,7 @@ class ar implements SSLSession {
          var17 = mi.an_renamed(ClientProt.ci, Client.packetWriter.au);
          var17.bit.ba(var1);
          Client.packetWriter.aw(var17);
-         var18 = gh.an_renamed(var1);
+         var18 = gh.getInterfaceComponent(var1);
          if (var18 != null && var18.cs1Instructions != null && var18.cs1Instructions[0][0] == 5) {
             var12 = var18.cs1Instructions[0][1];
             Varps.Varps_main[var12] = 1 - Varps.Varps_main[var12];
@@ -375,9 +375,9 @@ class ar implements SSLSession {
          Client.te = var0 * -1970850269;
          Client.th = var1 * 875414437;
          var17 = mi.an_renamed(ClientProt.ay, Client.packetWriter.au);
-         var17.bit.p2LE(-1232093375 * jm.ib + var0);
+         var17.bit.p2LE(-1232093375 * jm.baseX + var0);
          var17.bit.dh(Client.sh.av(82) ? 1 : 0);
-         var17.bit.ds(var1 + Scenery.jc * 827352769);
+         var17.bit.ds(var1 + Scenery.baseY * 827352769);
          var17.bit.dy(var3);
          Client.packetWriter.aw(var17);
       }
@@ -403,7 +403,7 @@ class ar implements SSLSession {
       } else {
          PacketBitNode var20;
          if (var2 == 24) {
-            var21 = gh.an_renamed(var1);
+            var21 = gh.getInterfaceComponent(var1);
             if (null != var21) {
                boolean var22 = true;
                if (1021339961 * var21.clientCode > 0) {
@@ -446,10 +446,10 @@ class ar implements SSLSession {
             Client.te = -1970850269 * var0;
             Client.th = 875414437 * var1;
             var17 = mi.an_renamed(ClientProt.bi, Client.packetWriter.au);
-            var17.bit.dy(-1232093375 * jm.ib + var0);
+            var17.bit.dy(-1232093375 * jm.baseX + var0);
             var17.bit.bu(Client.sh.av(82) ? 1 : 0);
             var17.bit.ds(var3);
-            var17.bit.dy(var1 + Scenery.jc * 827352769);
+            var17.bit.dy(var1 + Scenery.baseY * 827352769);
             Client.packetWriter.aw(var17);
          }
 
@@ -499,10 +499,10 @@ class ar implements SSLSession {
             var17.bit.dh(Client.sh.av(82) ? 1 : 0);
             var17.bit.p2LE(var3);
             var17.bit.p2LE(Client.op * 616923277);
-            var17.bit.p2LE(var0 + jm.ib * -1232093375);
+            var17.bit.p2LE(var0 + jm.baseX * -1232093375);
             var17.bit.ds(145251849 * Client.oa);
             var17.bit.p4ME(96656415 * jg.ou);
-            var17.bit.ds(var1 + 827352769 * Scenery.jc);
+            var17.bit.ds(var1 + 827352769 * Scenery.baseY);
             Client.packetWriter.aw(var17);
          }
 
@@ -541,9 +541,9 @@ class ar implements SSLSession {
             Client.th = var1 * 875414437;
             var17 = mi.an_renamed(ClientProt.ah, Client.packetWriter.au);
             var17.bit.p2(WorldMapSectionType.ow * 896780031);
-            var17.bit.ds(jm.ib * -1232093375 + var0);
+            var17.bit.ds(jm.baseX * -1232093375 + var0);
             var17.bit.ds(var3);
-            var17.bit.ds(Scenery.jc * 827352769 + var1);
+            var17.bit.ds(Scenery.baseY * 827352769 + var1);
             var17.bit.p2(-1518641849 * fw.iz);
             var17.bit.bu(Client.sh.av(82) ? 1 : 0);
             var17.bit.p4ME(-1164741861 * lh.ix);
@@ -574,8 +574,8 @@ class ar implements SSLSession {
             Client.te = -1970850269 * var0;
             Client.th = var1 * 875414437;
             var17 = mi.an_renamed(ClientProt.bs, Client.packetWriter.au);
-            var17.bit.ds(-1232093375 * jm.ib + var0);
-            var17.bit.p2LE(827352769 * Scenery.jc + var1);
+            var17.bit.ds(-1232093375 * jm.baseX + var0);
+            var17.bit.p2LE(827352769 * Scenery.baseY + var1);
             var17.bit.ds(var3);
             var17.bit.du(Client.sh.av(82) ? 1 : 0);
             Client.packetWriter.aw(var17);
@@ -606,9 +606,9 @@ class ar implements SSLSession {
             Client.th = var1 * 875414437;
             var17 = mi.an_renamed(ClientProt.do, Client.packetWriter.au);
             var17.bit.ds(var3);
-            var17.bit.p2(Scenery.jc * 827352769 + var1);
+            var17.bit.p2(Scenery.baseY * 827352769 + var1);
             var17.bit.dh(Client.sh.av(82) ? 1 : 0);
-            var17.bit.p2LE(var0 + jm.ib * -1232093375);
+            var17.bit.p2LE(var0 + jm.baseX * -1232093375);
             Client.packetWriter.aw(var17);
          }
 
@@ -691,10 +691,10 @@ class ar implements SSLSession {
             var17.bit.dy(var3);
             var17.bit.p4ME(-1164741861 * lh.ix);
             var17.bit.p2(896780031 * WorldMapSectionType.ow);
-            var17.bit.dy(var0 + -1232093375 * jm.ib);
+            var17.bit.dy(var0 + -1232093375 * jm.baseX);
             var17.bit.dh(Client.sh.av(82) ? 1 : 0);
             var17.bit.dy(-1518641849 * fw.iz);
-            var17.bit.ds(var1 + 827352769 * Scenery.jc);
+            var17.bit.ds(var1 + 827352769 * Scenery.baseY);
             Client.packetWriter.aw(var17);
          }
 
@@ -710,8 +710,8 @@ class ar implements SSLSession {
             var17.bit.p4ME(96656415 * jg.ou);
             var17.bit.ds(145251849 * Client.oa);
             var17.bit.p2(var3);
-            var17.bit.p2LE(-1232093375 * jm.ib + var0);
-            var17.bit.dy(var1 + Scenery.jc * 827352769);
+            var17.bit.p2LE(-1232093375 * jm.baseX + var0);
+            var17.bit.dy(var1 + Scenery.baseY * 827352769);
             var17.bit.dy(Client.op * 616923277);
             Client.packetWriter.aw(var17);
          }
@@ -724,9 +724,9 @@ class ar implements SSLSession {
             Client.te = var0 * -1970850269;
             Client.th = var1 * 875414437;
             var17 = mi.an_renamed(ClientProt.db, Client.packetWriter.au);
-            var17.bit.dy(jm.ib * -1232093375 + var0);
+            var17.bit.dy(jm.baseX * -1232093375 + var0);
             var17.bit.dh(Client.sh.av(82) ? 1 : 0);
-            var17.bit.ds(827352769 * Scenery.jc + var1);
+            var17.bit.ds(827352769 * Scenery.baseY + var1);
             var17.bit.p2LE(var3);
             Client.packetWriter.aw(var17);
          }
@@ -735,7 +735,7 @@ class ar implements SSLSession {
             var17 = mi.an_renamed(ClientProt.ci, Client.packetWriter.au);
             var17.bit.ba(var1);
             Client.packetWriter.aw(var17);
-            var18 = gh.an_renamed(var1);
+            var18 = gh.getInterfaceComponent(var1);
             if (null != var18 && var18.cs1Instructions != null && 5 == var18.cs1Instructions[0][0]) {
                var12 = var18.cs1Instructions[0][1];
                if (var18.cs1ComparisonValues[0] != Varps.Varps_main[var12]) {
@@ -753,9 +753,9 @@ class ar implements SSLSession {
             Client.te = -1970850269 * var0;
             Client.th = var1 * 875414437;
             var17 = mi.an_renamed(ClientProt.as, Client.packetWriter.au);
-            var17.bit.p2LE(Scenery.jc * 827352769 + var1);
+            var17.bit.p2LE(Scenery.baseY * 827352769 + var1);
             var17.bit.dp(Client.sh.av(82) ? 1 : 0);
-            var17.bit.p2(var0 + jm.ib * -1232093375);
+            var17.bit.p2(var0 + jm.baseX * -1232093375);
             var17.bit.p2LE(var3);
             Client.packetWriter.aw(var17);
          }
@@ -766,15 +766,15 @@ class ar implements SSLSession {
             Client.mv = 1387316670;
             Client.me = 0;
             var17 = mi.an_renamed(ClientProt.dm, Client.packetWriter.au);
-            var17.bit.p2(Scenery.jc * 827352769 + var1);
+            var17.bit.p2(Scenery.baseY * 827352769 + var1);
             var17.bit.p2LE(var3);
-            var17.bit.p2LE(-1232093375 * jm.ib + var0);
+            var17.bit.p2LE(-1232093375 * jm.baseX + var0);
             Client.packetWriter.aw(var17);
          }
 
          if (0 != Client.oq * -303899309) {
             Client.oq = 0;
-            fw.ma_renamed(gh.an_renamed(lh.ix * -1164741861));
+            fw.ma_renamed(gh.getInterfaceComponent(lh.ix * -1164741861));
          }
 
          if (Client.om) {

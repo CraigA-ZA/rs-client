@@ -1,6 +1,6 @@
 public class ml {
    static AbstractSocket ic;
-   static IndexedSprite[] ju;
+   static IndexedSprite[] mapSceneSprites;
 
    ml() throws Throwable {
       throw new Error();

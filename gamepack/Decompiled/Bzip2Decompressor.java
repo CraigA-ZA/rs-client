@@ -1,25 +1,25 @@
 public final class Bzip2Decompressor {
-   static Bzip2State al = new Bzip2State();
+   static Bzip2State Bzip2Decompressor_state = new Bzip2State();
 
    Bzip2Decompressor() throws Throwable {
       throw new Error();
    }
 
-   public static int af_renamed(byte[] var0, int var1, byte[] var2, int var3, int var4) {
-      synchronized(al) {
-         al.aq = var2;
-         al.al = var4 * -294994265;
-         al.aa = var0;
-         al.ay = 0;
-         al.ao = var1 * -1652051505;
-         al.av = 0;
-         al.ah = 0;
-         al.at = 0;
-         al.ax = 0;
-         aw(al);
-         var1 -= al.ao * -1452165841;
-         al.aq = null;
-         al.aa = null;
+   public static int Bzip2Decompressor_decompress(byte[] var0, int var1, byte[] var2, int var3, int var4) {
+      synchronized(Bzip2Decompressor_state) {
+         Bzip2Decompressor_state.aq = var2;
+         Bzip2Decompressor_state.al = var4 * -294994265;
+         Bzip2Decompressor_state.aa = var0;
+         Bzip2Decompressor_state.ay = 0;
+         Bzip2Decompressor_state.ao = var1 * -1652051505;
+         Bzip2Decompressor_state.av = 0;
+         Bzip2Decompressor_state.ah = 0;
+         Bzip2Decompressor_state.at = 0;
+         Bzip2Decompressor_state.ax = 0;
+         aw(Bzip2Decompressor_state);
+         var1 -= Bzip2Decompressor_state.ao * -1452165841;
+         Bzip2Decompressor_state.aq = null;
+         Bzip2Decompressor_state.aa = null;
          return var1;
       }
    }

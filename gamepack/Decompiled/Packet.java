@@ -129,7 +129,7 @@ public class Packet extends Node {
       }
    }
 
-   public static String ab_renamed(byte[] var0, int var1, int var2) {
+   public static String decodeStringCp1252(byte[] var0, int var1, int var2) {
       char[] var4 = new char[var2];
       int var5 = 0;
 
@@ -137,7 +137,7 @@ public class Packet extends Node {
          int var7 = var0[var1 + var6] & 255;
          if (var7 != 0) {
             if (var7 >= 128 && var7 < 160) {
-               char var8 = od.af[var7 - 128];
+               char var8 = od.cp1252AsciiExtension[var7 - 128];
                if (0 == var8) {
                   var8 = '?';
                }
@@ -301,7 +301,7 @@ public class Packet extends Node {
       }
 
       int var3 = -1633313603 * this.index - var2 - 1;
-      return 0 == var3 ? "" : ab_renamed(this.array, var2, var3);
+      return 0 == var3 ? "" : decodeStringCp1252(this.array, var2, var3);
    }
 
    public String gjstr() {
@@ -315,7 +315,7 @@ public class Packet extends Node {
          }
 
          int var4 = this.index * -1633313603 - var3 - 1;
-         return var4 == 0 ? "" : ab_renamed(this.array, var3, var4);
+         return var4 == 0 ? "" : decodeStringCp1252(this.array, var3, var4);
       }
    }
 

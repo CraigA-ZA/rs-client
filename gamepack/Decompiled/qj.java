@@ -335,7 +335,7 @@ public final class qj {
    }
 
    static final int ig_renamed(int var0) {
-      return Math.abs(var0 - -1010818347 * ek.kh) > 1024 ? (var0 < -1010818347 * ek.kh ? 1 : -1) * 2048 + var0 : var0;
+      return Math.abs(var0 - -1010818347 * ek.cameraYaw) > 1024 ? (var0 < -1010818347 * ek.cameraYaw ? 1 : -1) * 2048 + var0 : var0;
    }
 
    static final void kn_renamed() {

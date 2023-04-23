@@ -249,7 +249,7 @@ public class bz {
    }
 
    static int az_renamed(int var0, ClientScript var1, boolean var2) {
-      Component var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+      Component var4 = gh.getInterfaceComponent(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
       if (2800 == var0) {
          Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = hc.af_renamed(KeyHandler.getComponentClickMask(var4));
          return 1;
@@ -299,50 +299,50 @@ public class bz {
 
       if (1 == -1222491879 * MouseHandler.MouseHandler_lastButton || !su.ev && -1222491879 * MouseHandler.MouseHandler_lastButton == 4) {
          int var4 = cz.aw * 578342931 + 280;
-         if (MouseHandler.am * 2020601481 >= var4 && MouseHandler.am * 2020601481 <= var4 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (MouseHandler.MouseHandler_lastPressedX * 2020601481 >= var4 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= var4 + 14 && 1163896205 * MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedY * 1163896205 <= 18) {
             ta.an_renamed(0, 0);
             return;
          }
 
-         if (2020601481 * MouseHandler.am >= 15 + var4 && MouseHandler.am * 2020601481 <= var4 + 80 && 1163896205 * MouseHandler.as >= 4 && 1163896205 * MouseHandler.as <= 18) {
+         if (2020601481 * MouseHandler.MouseHandler_lastPressedX >= 15 + var4 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= var4 + 80 && 1163896205 * MouseHandler.MouseHandler_lastPressedY >= 4 && 1163896205 * MouseHandler.MouseHandler_lastPressedY <= 18) {
             ta.an_renamed(0, 1);
             return;
          }
 
          int var5 = 390 + 578342931 * cz.aw;
-         if (MouseHandler.am * 2020601481 >= var5 && MouseHandler.am * 2020601481 <= var5 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (MouseHandler.MouseHandler_lastPressedX * 2020601481 >= var5 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= var5 + 14 && 1163896205 * MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedY * 1163896205 <= 18) {
             ta.an_renamed(1, 0);
             return;
          }
 
-         if (MouseHandler.am * 2020601481 >= var5 + 15 && 2020601481 * MouseHandler.am <= var5 + 80 && MouseHandler.as * 1163896205 >= 4 && 1163896205 * MouseHandler.as <= 18) {
+         if (MouseHandler.MouseHandler_lastPressedX * 2020601481 >= var5 + 15 && 2020601481 * MouseHandler.MouseHandler_lastPressedX <= var5 + 80 && MouseHandler.MouseHandler_lastPressedY * 1163896205 >= 4 && 1163896205 * MouseHandler.MouseHandler_lastPressedY <= 18) {
             ta.an_renamed(1, 1);
             return;
          }
 
          int var6 = 500 + cz.aw * 578342931;
-         if (MouseHandler.am * 2020601481 >= var6 && 2020601481 * MouseHandler.am <= var6 + 14 && 1163896205 * MouseHandler.as >= 4 && 1163896205 * MouseHandler.as <= 18) {
+         if (MouseHandler.MouseHandler_lastPressedX * 2020601481 >= var6 && 2020601481 * MouseHandler.MouseHandler_lastPressedX <= var6 + 14 && 1163896205 * MouseHandler.MouseHandler_lastPressedY >= 4 && 1163896205 * MouseHandler.MouseHandler_lastPressedY <= 18) {
             ta.an_renamed(2, 0);
             return;
          }
 
-         if (2020601481 * MouseHandler.am >= var6 + 15 && MouseHandler.am * 2020601481 <= 80 + var6 && MouseHandler.as * 1163896205 >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (2020601481 * MouseHandler.MouseHandler_lastPressedX >= var6 + 15 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= 80 + var6 && MouseHandler.MouseHandler_lastPressedY * 1163896205 >= 4 && MouseHandler.MouseHandler_lastPressedY * 1163896205 <= 18) {
             ta.an_renamed(2, 1);
             return;
          }
 
          int var7 = cz.aw * 578342931 + 610;
-         if (MouseHandler.am * 2020601481 >= var7 && MouseHandler.am * 2020601481 <= var7 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (MouseHandler.MouseHandler_lastPressedX * 2020601481 >= var7 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= var7 + 14 && 1163896205 * MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedY * 1163896205 <= 18) {
             ta.an_renamed(3, 0);
             return;
          }
 
-         if (2020601481 * MouseHandler.am >= 15 + var7 && MouseHandler.am * 2020601481 <= 80 + var7 && MouseHandler.as * 1163896205 >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (2020601481 * MouseHandler.MouseHandler_lastPressedX >= 15 + var7 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= 80 + var7 && MouseHandler.MouseHandler_lastPressedY * 1163896205 >= 4 && MouseHandler.MouseHandler_lastPressedY * 1163896205 <= 18) {
             ta.an_renamed(3, 1);
             return;
          }
 
-         if (2020601481 * MouseHandler.am >= 708 + cz.aw * 578342931 && MouseHandler.as * 1163896205 >= 4 && 2020601481 * MouseHandler.am <= 708 + cz.aw * 578342931 + 50 && 1163896205 * MouseHandler.as <= 20) {
+         if (2020601481 * MouseHandler.MouseHandler_lastPressedX >= 708 + cz.aw * 578342931 && MouseHandler.MouseHandler_lastPressedY * 1163896205 >= 4 && 2020601481 * MouseHandler.MouseHandler_lastPressedX <= 708 + cz.aw * 578342931 + 50 && 1163896205 * MouseHandler.MouseHandler_lastPressedY <= 20) {
             fd.am_renamed();
             return;
          }
@@ -354,11 +354,11 @@ public class bz {
             return;
          }
 
-         if (cz.dh * 1246310743 > 0 && null != PlayerType.dz && 2020601481 * MouseHandler.am >= 0 && MouseHandler.am * 2020601481 <= PlayerType.dz.subWidth && 1163896205 * MouseHandler.as >= 1658005443 * kd.ak / 2 - 50 && 1163896205 * MouseHandler.as <= 1658005443 * kd.ak / 2 + 50) {
+         if (cz.dh * 1246310743 > 0 && null != PlayerType.dz && 2020601481 * MouseHandler.MouseHandler_lastPressedX >= 0 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= PlayerType.dz.subWidth && 1163896205 * MouseHandler.MouseHandler_lastPressedY >= 1658005443 * kd.ak / 2 - 50 && 1163896205 * MouseHandler.MouseHandler_lastPressedY <= 1658005443 * kd.ak / 2 + 50) {
             cz.dh -= -1379513753;
          }
 
-         if (1246310743 * cz.dh < cz.dp * 1959698517 && null != ai.dg && MouseHandler.am * 2020601481 >= GameShell.aj * -1687260435 - ai.dg.subWidth - 5 && MouseHandler.am * 2020601481 <= GameShell.aj * -1687260435 && MouseHandler.as * 1163896205 >= kd.ak * 1658005443 / 2 - 50 && MouseHandler.as * 1163896205 <= kd.ak * 1658005443 / 2 + 50) {
+         if (1246310743 * cz.dh < cz.dp * 1959698517 && null != ai.dg && MouseHandler.MouseHandler_lastPressedX * 2020601481 >= GameShell.aj * -1687260435 - ai.dg.subWidth - 5 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= GameShell.aj * -1687260435 && MouseHandler.MouseHandler_lastPressedY * 1163896205 >= kd.ak * 1658005443 / 2 - 50 && MouseHandler.MouseHandler_lastPressedY * 1163896205 <= kd.ak * 1658005443 / 2 + 50) {
             cz.dh += -1379513753;
          }
       }

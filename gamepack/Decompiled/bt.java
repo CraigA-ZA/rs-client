@@ -1,6 +1,6 @@
 public class bt {
    public static IterableNodeDeque reflectionChecks = new IterableNodeDeque();
-   static int kx;
+   static int cameraX;
    static Sprite[] headIconPkSprites;
 
    bt() throws Throwable {
@@ -9,7 +9,7 @@ public class bt {
 
    static void ie_renamed() {
       if (null != ey.worldMap0) {
-         ey.worldMap0.ao(GameShell.plane * -1727408401, (1144428983 * MusicPatchNode.localPlayer.bx >> 7) + -1232093375 * jm.ib, 827352769 * Scenery.jc + (MusicPatchNode.localPlayer.bo * -411750205 >> 7), false);
+         ey.worldMap0.ao(GameShell.plane * -1727408401, (1144428983 * MusicPatchNode.localPlayer.bx >> 7) + -1232093375 * jm.baseX, 827352769 * Scenery.baseY + (MusicPatchNode.localPlayer.bo * -411750205 >> 7), false);
          ey.worldMap0.bb();
       }
 
@@ -79,7 +79,7 @@ public class bt {
          for(var10 = 0; var10 < var20.length; ++var10) {
             int var11 = var10 * 32 + 128 + 15;
             int var12 = jm.hv_renamed(var11);
-            int var13 = Rasterizer3D.ac[var11];
+            int var13 = Rasterizer3D.Rasterizer3D_sine[var11];
             int var15 = var3 - 334;
             if (var15 < 0) {
                var15 = 0;

@@ -193,7 +193,7 @@ class ai extends DefaultTlsClient {
       return new ao(this);
    }
 
-   static final byte[] ch_renamed(byte[] var0) {
+   static final byte[] decompressBytes(byte[] var0) {
       Packet var2 = new Packet(var0);
       int var3 = var2.g1();
       int var4 = var2.g4s();
@@ -209,7 +209,7 @@ class ai extends DefaultTlsClient {
             } else {
                byte[] var6 = new byte[var5];
                if (var3 == 1) {
-                  Bzip2Decompressor.af_renamed(var6, var5, var0, var4, 9);
+                  Bzip2Decompressor.Bzip2Decompressor_decompress(var6, var5, var0, var4, 9);
                } else {
                   AbstractArchive.gzipDecompressor.decompress(var2, var6);
                }
@@ -242,7 +242,7 @@ class ai extends DefaultTlsClient {
             var11 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
             int var6 = Interpreter.Interpreter_intStack[2 + Interpreter.Interpreter_intStackSize * -964267539];
             if (var6 >= 1 && var6 <= 10) {
-               dd var7 = new dd(var6, var10, var11, gh.an_renamed(var10).itemId * -2006098851);
+               dd var7 = new dd(var6, var10, var11, gh.getInterfaceComponent(var10).itemId * -2006098851);
                Interpreter.ad.add(var7);
                return 1;
             } else {
@@ -255,7 +255,7 @@ class ai extends DefaultTlsClient {
          throw new RuntimeException();
       } else {
          if (var0 >= 2000) {
-            var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+            var4 = gh.getInterfaceComponent(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
          } else {
             var4 = var2 ? SoundSystem.ag : an.ai;
          }

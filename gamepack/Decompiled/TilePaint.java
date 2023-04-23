@@ -27,7 +27,7 @@ public final class TilePaint {
 
          byte[] var4 = new byte[var3];
          var0.index += mv.huffman.an(var0.array, -1633313603 * var0.index, var4, 0, var3) * -1516355947;
-         String var5 = Packet.ab_renamed(var4, 0, var3);
+         String var5 = Packet.decodeStringCp1252(var4, 0, var3);
          var2 = var5;
       } catch (Exception var6) {
          var2 = "Cabbage";
@@ -39,11 +39,11 @@ public final class TilePaint {
    static int ak_renamed(int var0, ClientScript var1, boolean var2) {
       Component var4;
       if (var0 == 2700) {
-         var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+         var4 = gh.getInterfaceComponent(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
          Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -2006098851 * var4.itemId;
          return 1;
       } else if (var0 == 2701) {
-         var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+         var4 = gh.getInterfaceComponent(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
          if (var4.itemId * -2006098851 != -1) {
             Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4.itemQuantity * 1336975799;
          } else {
@@ -65,14 +65,14 @@ public final class TilePaint {
          Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.or * -896157613;
          return 1;
       } else if (2707 == var0) {
-         var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+         var4 = gh.getInterfaceComponent(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
          Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4.by() ? 1 : 0;
          return 1;
       } else if (2708 == var0) {
-         var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+         var4 = gh.getInterfaceComponent(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
          return BufferedSource.ah_renamed(var4);
       } else if (var0 == 2709) {
-         var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+         var4 = gh.getInterfaceComponent(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
          return au.av_renamed(var4);
       } else {
          return 2;

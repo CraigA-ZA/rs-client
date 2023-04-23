@@ -813,10 +813,10 @@ public class Scene {
       int var12;
       for(var6 = 128; var6 <= 383; var6 += 32) {
          for(var7 = 0; var7 < 2048; var7 += 64) {
-            Scene_cameraPitchSine = Rasterizer3D.ac[var6];
-            Scene_cameraPitchCosine = Rasterizer3D.au[var6];
-            Scene_cameraYawSine = Rasterizer3D.ac[var7];
-            Scene_cameraYawCosine = Rasterizer3D.au[var7];
+            Scene_cameraPitchSine = Rasterizer3D.Rasterizer3D_sine[var6];
+            Scene_cameraPitchCosine = Rasterizer3D.Rasterizer3D_cosine[var6];
+            Scene_cameraYawSine = Rasterizer3D.Rasterizer3D_sine[var7];
+            Scene_cameraYawCosine = Rasterizer3D.Rasterizer3D_cosine[var7];
             var8 = (var6 - 128) / 32;
             var9 = var7 / 64;
 
@@ -937,10 +937,10 @@ public class Scene {
       }
 
       ++Scene_drawnCount;
-      Scene_cameraPitchSine = Rasterizer3D.ac[var4];
-      Scene_cameraPitchCosine = Rasterizer3D.au[var4];
-      Scene_cameraYawSine = Rasterizer3D.ac[var5];
-      Scene_cameraYawCosine = Rasterizer3D.au[var5];
+      Scene_cameraPitchSine = Rasterizer3D.Rasterizer3D_sine[var4];
+      Scene_cameraPitchCosine = Rasterizer3D.Rasterizer3D_cosine[var4];
+      Scene_cameraYawSine = Rasterizer3D.Rasterizer3D_sine[var5];
+      Scene_cameraYawCosine = Rasterizer3D.Rasterizer3D_cosine[var5];
       visibleTiles = visibilityMap[(var4 - 128) / 32][var5 / 64];
       Scene_cameraX = var1;
       Scene_cameraY = var2;

@@ -413,7 +413,7 @@ public class dp {
          if (var5 == 0) {
             throw new RuntimeException();
          } else {
-            Component var7 = gh.an_renamed(var4);
+            Component var7 = gh.getInterfaceComponent(var4);
             if (null == var7.children) {
                var7.children = new Component[1 + var12];
             }
@@ -457,18 +457,18 @@ public class dp {
          Component var10;
          if (var0 == 101) {
             var10 = var2 ? SoundSystem.ag : an.ai;
-            Component var11 = gh.an_renamed(1713081171 * var10.id);
+            Component var11 = gh.getInterfaceComponent(1713081171 * var10.id);
             var11.children[55577617 * var10.childIndex] = null;
             fw.ma_renamed(var11);
             return 1;
          } else if (102 == var0) {
-            var10 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+            var10 = gh.getInterfaceComponent(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
             var10.children = null;
             fw.ma_renamed(var10);
             return 1;
          } else if (200 != var0) {
             if (201 == var0) {
-               var10 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+               var10 = gh.getInterfaceComponent(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
                if (null != var10) {
                   Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1;
                   if (var2) {

@@ -768,7 +768,7 @@ public class Component extends Node {
                   var13 = UnlitModel.af_renamed(DynamicObject.bi, var9, 0);
                   break;
                case 2:
-                  var13 = AbstractArchive.an_renamed(var9).aq((hv)null);
+                  var13 = AbstractArchive.getNPCType(var9).aq((hv)null);
                   break;
                case 3:
                   var13 = null != var4 ? var4.getChatHeadModel() : null;
@@ -782,7 +782,7 @@ public class Component extends Node {
                default:
                   break;
                case 6:
-                  var13 = AbstractArchive.an_renamed(var9).aq(var6);
+                  var13 = AbstractArchive.getNPCType(var9).aq(var6);
             }
 
             if (var13 == null) {

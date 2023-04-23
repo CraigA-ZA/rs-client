@@ -2,7 +2,7 @@ public class HeadbarType extends DualNode {
    public static EvictingDualNodeHashTable HeadbarType_cached = new EvictingDualNodeHashTable(64);
    public static AbstractArchive af;
    public static AbstractArchive an;
-   static EvictingDualNodeHashTable ac = new EvictingDualNodeHashTable(64);
+   static EvictingDualNodeHashTable HeadbarType_cachedSprites = new EvictingDualNodeHashTable(64);
    int spriteback = 1313667643;
    int spritefront = 1336792697;
    public int int3 = 667293181;
@@ -77,13 +77,13 @@ public class HeadbarType extends DualNode {
       if (1930644535 * this.spritefront < 0) {
          return null;
       } else {
-         Sprite var2 = (Sprite)ac.get((long)(1930644535 * this.spritefront));
+         Sprite var2 = (Sprite)HeadbarType_cachedSprites.get((long)(1930644535 * this.spritefront));
          if (var2 != null) {
             return var2;
          } else {
             var2 = sc.readSprite(an, 1930644535 * this.spritefront, 0);
             if (null != var2) {
-               ac.put(var2, (long)(1930644535 * this.spritefront));
+               HeadbarType_cachedSprites.put(var2, (long)(1930644535 * this.spritefront));
             }
 
             return var2;
@@ -95,13 +95,13 @@ public class HeadbarType extends DualNode {
       if (-1451871987 * this.spriteback < 0) {
          return null;
       } else {
-         Sprite var2 = (Sprite)ac.get((long)(this.spriteback * -1451871987));
+         Sprite var2 = (Sprite)HeadbarType_cachedSprites.get((long)(this.spriteback * -1451871987));
          if (null != var2) {
             return var2;
          } else {
             var2 = sc.readSprite(an, this.spriteback * -1451871987, 0);
             if (null != var2) {
-               ac.put(var2, (long)(-1451871987 * this.spriteback));
+               HeadbarType_cachedSprites.put(var2, (long)(-1451871987 * this.spriteback));
             }
 
             return var2;

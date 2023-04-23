@@ -41,7 +41,7 @@ public class ParamType extends DualNode {
          }
 
          if (var6 >= 128 && var6 < 160) {
-            char var7 = od.af[var6 - 128];
+            char var7 = od.cp1252AsciiExtension[var6 - 128];
             if (var7 == 0) {
                var7 = '?';
             }

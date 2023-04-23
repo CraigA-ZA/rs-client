@@ -7,10 +7,10 @@ import java.awt.event.MouseMotionListener;
 public class MouseHandler implements MouseListener, MouseMotionListener, FocusListener {
    public static MouseHandler MouseHandler_instance = new MouseHandler();
    public static int MouseHandler_currentButton = 0;
-   public static int am = 0;
+   public static int MouseHandler_lastPressedX = 0;
    public static int ao = 0;
    public static int MouseHandler_lastButton = 0;
-   public static int as = 0;
+   public static int MouseHandler_lastPressedY = 0;
    public static int ay = 0;
    public static long MouseHandler_lastPressedTimeMillis = 0L;
    public static long ax = 0L;
@@ -33,7 +33,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
          return true;
       } else {
          if (0 != var0) {
-            char[] var2 = od.af;
+            char[] var2 = od.cp1252AsciiExtension;
 
             for(int var3 = 0; var3 < var2.length; ++var3) {
                char var4 = var2[var3];
@@ -146,7 +146,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
    }
 
    static int aj_renamed(int var0, ClientScript var1, boolean var2) {
-      Component var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+      Component var4 = gh.getInterfaceComponent(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
       if (var0 == 2600) {
          Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4.scrollX * -1469632775;
          return 1;
@@ -287,7 +287,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
    static void addPlayerToScene(Player var0, boolean var1) {
       if (null != var0 && var0.isVisible() && !var0.isHidden) {
          var0.isUnanimated = false;
-         if ((Client.cu && ds.ab * -2010934433 > 50 || -2010934433 * ds.ab > 200) && var1 && var0.readySequence * 1590591885 == -1302441815 * var0.spotAnimationFrame) {
+         if ((Client.isLowDetail && ds.ab * -2010934433 > 50 || -2010934433 * ds.ab > 200) && var1 && var0.readySequence * 1590591885 == -1302441815 * var0.spotAnimationFrame) {
             var0.isUnanimated = true;
          }
 

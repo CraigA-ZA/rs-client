@@ -7,7 +7,7 @@ public class gh extends gn {
       ParamType.ParamType_cached.clear();
    }
 
-   public static Component an_renamed(int var0) {
+   public static Component getInterfaceComponent(int var0) {
       int var2 = var0 >> 16;
       int var3 = var0 & '\uffff';
       if (hn.interfaceComponents[var2] == null || hn.interfaceComponents[var2][var3] == null) {
@@ -35,7 +35,7 @@ public class gh extends gn {
    }
 
    static final void ak_renamed(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, Scene var8, CollisionMap var9) {
-      LocType var11 = fw.an_renamed(var4);
+      LocType var11 = fw.getLocType(var4);
       int var12 = var7 >= 0 ? var7 : 1292954189 * var11.animationId;
       int var13;
       int var14;
@@ -185,7 +185,7 @@ public class gh extends gn {
                   var34 = 16;
                   var27 = var8.by(var0, var2, var3);
                   if (var27 != 0L) {
-                     var34 = fw.an_renamed(InterfaceParent.at(var27)).int2 * -89408815;
+                     var34 = fw.getLocType(InterfaceParent.at(var27)).int2 * -89408815;
                   }
 
                   if (-1 == var12 && var11.multi == null) {
@@ -199,7 +199,7 @@ public class gh extends gn {
                   var34 = 8;
                   var27 = var8.by(var0, var2, var3);
                   if (0L != var27) {
-                     var34 = fw.an_renamed(InterfaceParent.at(var27)).int2 * -89408815 / 2;
+                     var34 = fw.getLocType(InterfaceParent.at(var27)).int2 * -89408815 / 2;
                   }
 
                   if (var12 == -1 && var11.multi == null) {
@@ -222,7 +222,7 @@ public class gh extends gn {
                   var34 = 8;
                   var27 = var8.by(var0, var2, var3);
                   if (0L != var27) {
-                     var34 = fw.an_renamed(InterfaceParent.at(var27)).int2 * -89408815 / 2;
+                     var34 = fw.getLocType(InterfaceParent.at(var27)).int2 * -89408815 / 2;
                   }
 
                   int var31 = var5 + 2 & 3;

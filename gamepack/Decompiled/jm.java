@@ -1,5 +1,5 @@
 public class jm extends jz {
-   static int ib;
+   static int baseX;
 
    jm() {
    }

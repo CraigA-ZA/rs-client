@@ -123,12 +123,12 @@ public class hy implements be {
    }
 
    static final void ay_renamed(int var0, int var1, int var2, int var3, int var4, int var5, Scene var6, CollisionMap var7) {
-      if (!Client.cu || 0 != (Tiles.Tiles_renderFlags[0][var1][var2] & 2) || (Tiles.Tiles_renderFlags[var0][var1][var2] & 16) == 0) {
+      if (!Client.isLowDetail || 0 != (Tiles.Tiles_renderFlags[0][var1][var2] & 2) || (Tiles.Tiles_renderFlags[var0][var1][var2] & 16) == 0) {
          if (var0 < 1401144457 * Tiles.aw) {
             Tiles.aw = -1087180359 * var0;
          }
 
-         LocType var9 = fw.an_renamed(var3);
+         LocType var9 = fw.getLocType(var3);
          int var10;
          int var11;
          if (var4 != 1 && var4 != 3) {
@@ -175,7 +175,7 @@ public class hy implements be {
 
          Object var23;
          if (22 == var5) {
-            if (!Client.cu || 0 != var9.interactable * 415653149 || 1 == var9.interactType * -973955889 || var9.lowDetailVisible) {
+            if (!Client.isLowDetail || 0 != var9.interactable * 415653149 || 1 == var9.interactType * -973955889 || var9.lowDetailVisible) {
                if (-1 == 1292954189 * var9.animationId && null == var9.multi) {
                   var23 = var9.al(22, var4, var16, var18, var17, var19, (byte)-65);
                } else {
@@ -393,7 +393,7 @@ public class hy implements be {
                         var30 = 16;
                         var31 = var6.by(var0, var1, var2);
                         if (0L != var31) {
-                           var30 = fw.an_renamed(InterfaceParent.at(var31)).int2 * -89408815;
+                           var30 = fw.getLocType(InterfaceParent.at(var31)).int2 * -89408815;
                         }
 
                         if (var9.animationId * 1292954189 == -1 && null == var9.multi) {
@@ -407,7 +407,7 @@ public class hy implements be {
                         var30 = 8;
                         var31 = var6.by(var0, var1, var2);
                         if (0L != var31) {
-                           var30 = fw.an_renamed(InterfaceParent.at(var31)).int2 * -89408815 / 2;
+                           var30 = fw.getLocType(InterfaceParent.at(var31)).int2 * -89408815 / 2;
                         }
 
                         if (-1 == 1292954189 * var9.animationId && null == var9.multi) {
@@ -430,7 +430,7 @@ public class hy implements be {
                         var30 = 8;
                         var31 = var6.by(var0, var1, var2);
                         if (0L != var31) {
-                           var30 = fw.an_renamed(InterfaceParent.at(var31)).int2 * -89408815 / 2;
+                           var30 = fw.getLocType(InterfaceParent.at(var31)).int2 * -89408815 / 2;
                         }
 
                         int var28 = 2 + var4 & 3;

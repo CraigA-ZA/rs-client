@@ -1,5 +1,5 @@
 public final class Scenery {
-   static int jc;
+   static int baseY;
    static int[][] xteaKeys;
    int endY;
    int centerX;

@@ -36,8 +36,8 @@ public class MouseRecorder implements Runnable {
       int var4;
       if (6600 == var0) {
          var4 = GameShell.plane * -1727408401;
-         int var27 = (MusicPatchNode.localPlayer.bx * 1144428983 >> 7) + jm.ib * -1232093375;
-         int var23 = Scenery.jc * 827352769 + (-411750205 * MusicPatchNode.localPlayer.bo >> 7);
+         int var27 = (MusicPatchNode.localPlayer.bx * 1144428983 >> 7) + jm.baseX * -1232093375;
+         int var23 = Scenery.baseY * 827352769 + (-411750205 * MusicPatchNode.localPlayer.bo >> 7);
          dz.worldMap().ao(var4, var27, var23, true);
          return 1;
       } else {
@@ -54,14 +54,14 @@ public class MouseRecorder implements Runnable {
             return 1;
          } else if (var0 == 6602) {
             var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-            dz.worldMap().ax(var4);
+            dz.worldMap().setCurrentMapAreaId(var4);
             return 1;
          } else if (var0 == 6603) {
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = dz.worldMap().by();
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = dz.worldMap().getZoomLevel();
             return 1;
          } else if (var0 == 6604) {
             var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-            dz.worldMap().ad(var4);
+            dz.worldMap().setZoomLevel(var4);
             return 1;
          } else if (6605 == var0) {
             Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = dz.worldMap().isCacheLoaded() ? 1 : 0;

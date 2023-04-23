@@ -45,7 +45,7 @@ public class mi {
          } else if (-549033243 * Client.localPlayerIndex == var1) {
             throw new RuntimeException();
          } else {
-            ds.Players_regions[var1] = (jm.ib * -1232093375 + var5.pathX[0] >> 13 << 14) + (var5.ad * -1900490645 << 28) + (var5.pathY[0] + Scenery.jc * 827352769 >> 13);
+            ds.Players_regions[var1] = (jm.baseX * -1232093375 + var5.pathX[0] >> 13 << 14) + (var5.ad * -1900490645 << 28) + (var5.pathY[0] + Scenery.baseY * 827352769 >> 13);
             if (var5.sequenceDelay * -283165269 != -1) {
                ds.ay[var1] = var5.sequenceDelay * -283165269;
             } else {
@@ -89,18 +89,16 @@ public class mi {
                ++var8;
             }
 
-            if (var1 != -549033243 * Client.localPlayerIndex || 1144428983 * var5.bx >= 1536 && -411750205 * var5.bo >= 1536 && var5.bx * 1144428983 < 11776 && var5.bo * -411750205 < 11776) {
-               if (var3) {
-                  var5.bi = true;
-                  var5.tileX = -700518347 * var7;
-                  var5.tileY = var8 * -1699085727;
-               } else {
-                  var5.bi = false;
-                  var5.av(var7, var8, ds.ac[var1]);
-               }
-            } else {
+            if (var1 == -549033243 * Client.localPlayerIndex && (1144428983 * var5.bx < 1536 || -411750205 * var5.bo < 1536 || var5.bx * 1144428983 >= 11776 || var5.bo * -411750205 >= 11776)) {
                var5.resetPath(var7, var8);
                var5.bi = false;
+            } else if (var3) {
+               var5.bi = true;
+               var5.tileX = -700518347 * var7;
+               var5.tileY = var8 * -1699085727;
+            } else {
+               var5.bi = false;
+               var5.av(var7, var8, ds.ac[var1]);
             }
 
          } else if (var4 == 2) {
@@ -208,8 +206,8 @@ public class mi {
                var8 = var7 >> 28;
                var9 = var7 >> 14 & 16383;
                var10 = var7 & 16383;
-               var11 = (var9 + var5.pathX[0] + -1232093375 * jm.ib & 16383) - -1232093375 * jm.ib;
-               var12 = (var10 + var5.pathY[0] + 827352769 * Scenery.jc & 16383) - Scenery.jc * 827352769;
+               var11 = (var9 + var5.pathX[0] + -1232093375 * jm.baseX & 16383) - -1232093375 * jm.baseX;
+               var12 = (var10 + var5.pathY[0] + 827352769 * Scenery.baseY & 16383) - Scenery.baseY * 827352769;
                if (-549033243 * Client.localPlayerIndex != var1 || var5.bx * 1144428983 >= 1536 && -411750205 * var5.bo >= 1536 && var5.bx * 1144428983 < 11776 && var5.bo * -411750205 < 11776) {
                   if (var3) {
                      var5.bi = true;

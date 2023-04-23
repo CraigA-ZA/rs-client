@@ -8,7 +8,7 @@ public class FontName {
    static int jt;
    static int um;
    static int wj;
-   static int[] jm;
+   static int[] regionMapArchiveIds;
    String aq;
 
    public static FontName[] FontName_values() {

@@ -1,7 +1,7 @@
 public class VarBitType extends DualNode {
    public static byte[][] at;
    public static EvictingDualNodeHashTable VarBitType_cached = new EvictingDualNodeHashTable(64);
-   static AbstractArchive af;
+   static AbstractArchive VarBitType_archive;
    static final int[] ab = new int[32];
    public int ac;
    public int au;

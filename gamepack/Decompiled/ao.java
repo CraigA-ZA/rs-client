@@ -106,8 +106,8 @@ class ao implements TlsAuthentication {
          if (var11 != null && (var11.parentId * 913615679 == var1 || var1 == -1412584499 && Client.pr == var11)) {
             int var12;
             if (var8 == -1) {
-               Client.rh[Client.rr * -356793645] = var6 + 262951665 * var11.x;
-               Client.rb[-356793645 * Client.rr] = var11.y * -747355095 + var7;
+               Client.rootComponentXs[Client.rr * -356793645] = var6 + 262951665 * var11.x;
+               Client.rootComponentYs[-356793645 * Client.rr] = var11.y * -747355095 + var7;
                Client.rootComponentWidths[-356793645 * Client.rr] = -794961409 * var11.width;
                Client.rootComponentHeights[-356793645 * Client.rr] = 1473950221 * var11.height;
                var12 = (Client.rr += 1127867739) * -356793645 - 1;
@@ -211,7 +211,7 @@ class ao implements TlsAuthentication {
                            Runtime var45 = Runtime.getRuntime();
                            var21 = (int)((var45.totalMemory() - var45.freeMemory()) / 1024L);
                            var22 = 16776960;
-                           if (var21 > 327680 && !Client.cu) {
+                           if (var21 > 327680 && !Client.isLowDetail) {
                               var22 = 16711680;
                            }
 
@@ -500,8 +500,8 @@ class ao implements TlsAuthentication {
                                  }
 
                                  WorldMapArea.ai_renamed(var13 + var11.width * -794961409 / 2, var11.height * 1473950221 / 2 + var14);
-                                 var41 = var11.modelZoom * 942674363 * Rasterizer3D.ac[797932055 * var11.modelAngleX] >> 16;
-                                 var25 = 942674363 * var11.modelZoom * Rasterizer3D.au[797932055 * var11.modelAngleX] >> 16;
+                                 var41 = var11.modelZoom * 942674363 * Rasterizer3D.Rasterizer3D_sine[797932055 * var11.modelAngleX] >> 16;
+                                 var25 = 942674363 * var11.modelZoom * Rasterizer3D.Rasterizer3D_cosine[797932055 * var11.modelAngleX] >> 16;
                                  if (var36 != null) {
                                     if (!var11.isIf3) {
                                        var36.bx(0, var11.modelAngleY * -480949115, 0, var11.modelAngleX * 797932055, 0, var41, var25);

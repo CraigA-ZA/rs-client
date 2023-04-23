@@ -92,7 +92,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          var6.set();
       }
 
-      LocSound.af.addFirst(var6);
+      LocSound.objectSounds.addFirst(var6);
       if (var6.soundEffectIds != null) {
          var6.ax = (var6.aa * -442346035 + (int)(Math.random() * (double)(var6.ay * -1018564833 - var6.aa * -442346035))) * -713890281;
       }

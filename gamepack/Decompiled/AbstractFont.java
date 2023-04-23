@@ -163,7 +163,7 @@ public abstract class AbstractFont extends Rasterizer2D {
          var1 = ' ';
       }
 
-      return this.advances[dn.af_renamed(var1) & 255];
+      return this.advances[dn.charToByteCp1252(var1) & 255];
    }
 
    public int stringWidth(String var1) {
@@ -206,7 +206,7 @@ public abstract class AbstractFont extends Rasterizer2D {
                }
 
                if (var2 == -1) {
-                  var4 += this.advances[(char)(dn.af_renamed(var6) & 255)];
+                  var4 += this.advances[(char)(dn.charToByteCp1252(var6) & 255)];
                   if (this.kerning != null && var3 != -1) {
                      var4 += this.kerning[(var3 << 8) + var6];
                   }
@@ -665,7 +665,7 @@ public abstract class AbstractFont extends Rasterizer2D {
 
       for(int var6 = 0; var6 < var1.length(); ++var6) {
          if (var1.charAt(var6) != 0) {
-            char var7 = (char)(dn.af_renamed(var1.charAt(var6)) & 255);
+            char var7 = (char)(dn.charToByteCp1252(var1.charAt(var6)) & 255);
             if (var7 == '<') {
                var4 = var6;
             } else {
@@ -753,7 +753,7 @@ public abstract class AbstractFont extends Rasterizer2D {
 
       for(int var9 = 0; var9 < var1.length(); ++var9) {
          if (var1.charAt(var9) != 0) {
-            char var10 = (char)(dn.af_renamed(var1.charAt(var9)) & 255);
+            char var10 = (char)(dn.charToByteCp1252(var1.charAt(var9)) & 255);
             if (var10 == '<') {
                var6 = var9;
             } else {

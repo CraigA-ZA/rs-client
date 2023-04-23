@@ -49,22 +49,22 @@ public class MusicPatchNode extends Node {
                return;
             }
 
-            int var5 = 2020601481 * MouseHandler.am - var1;
-            int var6 = MouseHandler.as * 1163896205 - var2;
+            int var5 = 2020601481 * MouseHandler.MouseHandler_lastPressedX - var1;
+            int var6 = MouseHandler.MouseHandler_lastPressedY * 1163896205 - var2;
             if (var4.contains(var5, var6)) {
                var5 -= var4.width * 1484188043 / 2;
                var6 -= var4.height * 939947663 / 2;
                int var7 = Client.kf * 704283033 & 2047;
-               int var8 = Rasterizer3D.ac[var7];
-               int var9 = Rasterizer3D.au[var7];
+               int var8 = Rasterizer3D.Rasterizer3D_sine[var7];
+               int var9 = Rasterizer3D.Rasterizer3D_cosine[var7];
                int var10 = var5 * var9 + var6 * var8 >> 11;
                int var11 = var6 * var9 - var5 * var8 >> 11;
                int var12 = 1144428983 * localPlayer.bx + var10 >> 7;
                int var13 = localPlayer.bo * -411750205 - var11 >> 7;
                PacketBitNode var14 = mi.an_renamed(ClientProt.af, Client.packetWriter.au);
                var14.bit.bu(18);
-               var14.bit.ds(Scenery.jc * 827352769 + var13);
-               var14.bit.p2LE(var12 + -1232093375 * jm.ib);
+               var14.bit.ds(Scenery.baseY * 827352769 + var13);
+               var14.bit.p2LE(var12 + -1232093375 * jm.baseX);
                var14.bit.du(Client.sh.av(82) ? (Client.sh.av(81) ? 2 : 1) : 0);
                var14.bit.bu(var5);
                var14.bit.bu(var6);

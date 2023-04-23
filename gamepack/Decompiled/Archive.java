@@ -2,7 +2,7 @@ import java.util.zip.CRC32;
 
 public class Archive extends AbstractArchive {
    static int up;
-   static int[] jn;
+   static int[] regionLandArchiveIds;
    static CRC32 Archive_crc = new CRC32();
    boolean aa = false;
    boolean ah = false;
@@ -215,7 +215,7 @@ public class Archive extends AbstractArchive {
             return;
          }
 
-         Packet var7 = new Packet(ai.ch_renamed(var3));
+         Packet var7 = new Packet(ai.decompressBytes(var3));
          int var8 = var7.g1();
          if (var8 != 5 && 6 != var8) {
             throw new RuntimeException(var8 + "," + -1596339445 * this.al + "," + var2);

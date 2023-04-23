@@ -286,8 +286,8 @@ public class ReflectionCheck extends Node {
       if (0 == 1134756167 * var0.dn || 1489558979 * var0.pathLength > 0) {
          var3 = -1;
          if (-714961113 * var0.cv != -1 && -1282076959 * var0.spotAnimation != -1) {
-            var4 = var0.cv * -1320709248 - 1205837952 * jm.ib + 64;
-            var5 = -897093504 * var0.spotAnimation - -1473027968 * Scenery.jc + 64;
+            var4 = var0.cv * -1320709248 - 1205837952 * jm.baseX + 64;
+            var5 = -897093504 * var0.spotAnimation - -1473027968 * Scenery.baseY + 64;
             var6 = var0.bx * 1144428983 - var4;
             var7 = -411750205 * var0.bo - var5;
             if (var6 != 0 || 0 != var7) {

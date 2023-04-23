@@ -23,7 +23,7 @@ public class SoundSystem implements Runnable {
    }
 
    public static Component getComponentChild(int var0, int var1) {
-      Component var3 = gh.an_renamed(var0);
+      Component var3 = gh.getInterfaceComponent(var0);
       if (var1 == -1) {
          return var3;
       } else {

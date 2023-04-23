@@ -111,7 +111,7 @@ public class FriendsList extends UserList {
    static void je_renamed(hf var0) {
       if (var0 != null && null != var0.ab) {
          if (55577617 * var0.ab.childIndex >= 0) {
-            Component var2 = gh.an_renamed(913615679 * var0.ab.parentId);
+            Component var2 = gh.getInterfaceComponent(913615679 * var0.ab.parentId);
             if (var2 == null || var2.children == null || 0 == var2.children.length || 55577617 * var0.ab.childIndex >= var2.children.length || var2.children[55577617 * var0.ab.childIndex] != var0.ab) {
                return;
             }

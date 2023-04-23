@@ -25,7 +25,7 @@ public class jl {
          int var11 = var3 + var7 + var3;
 
          for(int var12 = 0; var12 < -356793645 * Client.rr; ++var12) {
-            if (Client.rootComponentWidths[var12] + Client.rh[var12] > var8 && Client.rh[var12] < var10 + var8 && Client.rb[var12] + Client.rootComponentHeights[var12] > var9 && Client.rb[var12] < var9 + var11) {
+            if (Client.rootComponentWidths[var12] + Client.rootComponentXs[var12] > var8 && Client.rootComponentXs[var12] < var10 + var8 && Client.rootComponentYs[var12] + Client.rootComponentHeights[var12] > var9 && Client.rootComponentYs[var12] < var9 + var11) {
                Client.rf[var12] = true;
             }
          }

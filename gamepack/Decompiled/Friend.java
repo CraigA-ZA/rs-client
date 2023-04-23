@@ -41,8 +41,8 @@ public class Friend extends Buddy {
 
    static final void jn_renamed() {
       Client.ma = 0;
-      int var1 = jm.ib * -1232093375 + (1144428983 * MusicPatchNode.localPlayer.bx >> 7);
-      int var2 = Scenery.jc * 827352769 + (-411750205 * MusicPatchNode.localPlayer.bo >> 7);
+      int var1 = jm.baseX * -1232093375 + (1144428983 * MusicPatchNode.localPlayer.bx >> 7);
+      int var2 = Scenery.baseY * 827352769 + (-411750205 * MusicPatchNode.localPlayer.bo >> 7);
       if (var1 >= 3053 && var1 <= 3156 && var2 >= 3056 && var2 <= 3136) {
          Client.ma = -1041569925;
       }
