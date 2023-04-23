@@ -21,9 +21,9 @@ public class dt implements Enumerated {
 
    static final void mo_renamed(int var0) {
       var0 = Math.min(Math.max(var0, 0), 255);
-      if (var0 != aj.vb.am()) {
-         if (aj.vb.am() == 0 && -1 != Client.tz * 1976903761) {
-            Message.aw_renamed(pj.fw, 1976903761 * Client.tz, 0, var0, false);
+      if (var0 != aj.clientPreferences.am()) {
+         if (aj.clientPreferences.am() == 0 && -1 != Client.tz * 1976903761) {
+            Message.aw_renamed(pj.archive6, 1976903761 * Client.tz, 0, var0, false);
             Client.tf = false;
          } else if (var0 == 0) {
             FloorUnderlayType.au_renamed();
@@ -32,7 +32,7 @@ public class dt implements Enumerated {
             ii.ac_renamed(var0);
          }
 
-         aj.vb.ar(var0);
+         aj.clientPreferences.ar(var0);
       }
 
    }

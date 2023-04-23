@@ -106,14 +106,14 @@ class ax extends SSLSocket {
    static void ci_renamed(int var0) {
       if (var0 != -1) {
          if (SoundSystem.loadInterface(var0)) {
-            Component[] var2 = hn.ap[var0];
+            Component[] var2 = hn.interfaceComponents[var0];
 
             for(int var3 = 0; var3 < var2.length; ++var3) {
                Component var4 = var2[var3];
-               if (null != var4.fi) {
+               if (null != var4.onStatTransmit) {
                   ClientScriptEvent var5 = new ClientScriptEvent();
                   var5.aw = var4;
-                  var5.af = var4.fi;
+                  var5.args0 = var4.onStatTransmit;
                   PlayerType.an_renamed(var5, 5000000, 0);
                }
             }

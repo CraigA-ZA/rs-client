@@ -1,17 +1,17 @@
 public class FloorUnderlayType extends DualNode {
-   public static EvictingDualNodeHashTable an = new EvictingDualNodeHashTable(64);
-   public static AbstractArchive af;
+   public static EvictingDualNodeHashTable FloorUnderlayType_cached = new EvictingDualNodeHashTable(64);
+   public static AbstractArchive FloorUnderlayType_archive;
    static int cw;
    static Archive fr;
    static tf sn;
-   int aw = 0;
+   int rgb = 0;
    public int ab;
    public int ac;
    public int aq;
    public int au;
 
    public void reset() {
-      this.setHsl(this.aw * 86825461);
+      this.setHsl(this.rgb * 86825461);
    }
 
    public void decode(Packet var1, int var2) {
@@ -27,7 +27,7 @@ public class FloorUnderlayType extends DualNode {
 
    void decode0(Packet var1, int var2, int var3) {
       if (var2 == 1) {
-         this.aw = var1.cr() * 1952729693;
+         this.rgb = var1.cr() * 1952729693;
       }
 
    }
@@ -119,7 +119,7 @@ public class FloorUnderlayType extends DualNode {
             for(var5 = new StringBuilder(var2); 0L != var0; var5.append(var8)) {
                long var6 = var0;
                var0 /= 37L;
-               var8 = oy.af[(int)(var6 - var0 * 37L)];
+               var8 = oy.base37Table[(int)(var6 - var0 * 37L)];
                if ('_' == var8) {
                   int var9 = var5.length() - 1;
                   var5.setCharAt(var9, Character.toUpperCase(var5.charAt(var9)));
@@ -137,7 +137,7 @@ public class FloorUnderlayType extends DualNode {
    }
 
    public static void au_renamed() {
-      sa.ac.ao();
+      sa.midiPcmStream.ao();
       ly.au = -626822165;
       ly.ab = null;
    }

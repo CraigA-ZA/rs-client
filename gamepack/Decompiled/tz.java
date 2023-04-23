@@ -34,7 +34,7 @@ public class tz {
 
    public void aw(oq var1, Font var2) {
       if (null != var2) {
-         int var4 = var2.al;
+         int var4 = var2.ascent;
          int var5 = Math.min(this.au * -942838135, (int)((float)var4 * 0.9F));
          int var6 = var1.bo(2079060143 * this.ac);
          int var7 = var1.bz(this.au * -942838135);
@@ -56,7 +56,7 @@ public class tz {
          int var17;
          int var19;
          if (!var13.aw()) {
-            int var16 = var2.at + var2.aa;
+            int var16 = var2.maxAscent + var2.maxDescent;
 
             for(var17 = 0; var17 < var13.ac(); ++var17) {
                om var18 = var13.al(var17);

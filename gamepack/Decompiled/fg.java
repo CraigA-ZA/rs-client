@@ -12,17 +12,17 @@ public class fg extends fu {
          return var6;
       } else {
          int var5 = kd.af_renamed(var2, var0);
-         ClientScript var8 = (ClientScript)ClientScript.af.get((long)(var5 << 16));
+         ClientScript var8 = (ClientScript)ClientScript.ClientScript_cached.get((long)(var5 << 16));
          ClientScript var7;
          if (null != var8) {
             var7 = var8;
          } else {
             String var9 = String.valueOf(var5);
-            int var10 = ey.fj.getGroupId(var9);
+            int var10 = ey.archive16.getGroupId(var9);
             if (-1 == var10) {
                var7 = null;
             } else {
-               byte[] var11 = ey.fj.takeFileFlat(var10);
+               byte[] var11 = ey.archive16.takeFileFlat(var10);
                if (null != var11) {
                   if (var11.length <= 1) {
                      var7 = null;
@@ -31,7 +31,7 @@ public class fg extends fu {
 
                   var8 = bz.loadClientScript(var11);
                   if (var8 != null) {
-                     ClientScript.af.put(var8, (long)(var5 << 16));
+                     ClientScript.ClientScript_cached.put(var8, (long)(var5 << 16));
                      var7 = var8;
                      return var7 != null ? var7 : null;
                   }
@@ -52,7 +52,7 @@ public class fg extends fu {
 
    void write(Packet var1) {
       if (var1.g1() != 255) {
-         var1.at -= -1516355947;
+         var1.index -= -1516355947;
          var1.g8s();
       }
 
@@ -87,12 +87,12 @@ public class fg extends fu {
          fz var4 = (fz)var3.aw.get(var1);
          if (var4.af == -1) {
             String var5 = var4.aw.af();
-            PacketBitNode var6 = mi.an_renamed(ClientProt.dv, Client.in.au);
-            var6.aw.bu(3 + DynamicObject.bc_renamed(var5));
-            var6.aw.bu(var0);
-            var6.aw.p2(var1);
-            var6.aw.bh(var5);
-            Client.in.aw(var6);
+            PacketBitNode var6 = mi.an_renamed(ClientProt.dv, Client.packetWriter.au);
+            var6.bit.bu(3 + DynamicObject.bc_renamed(var5));
+            var6.bit.bu(var0);
+            var6.bit.p2(var1);
+            var6.bit.bh(var5);
+            Client.packetWriter.aw(var6);
          }
       }
    }

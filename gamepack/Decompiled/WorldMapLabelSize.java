@@ -1,8 +1,8 @@
 public class WorldMapLabelSize {
-   public static final WorldMapLabelSize af = new WorldMapLabelSize(0, 0, 4);
-   public static final WorldMapLabelSize an = new WorldMapLabelSize(2, 1, 2);
-   public static final WorldMapLabelSize aw = new WorldMapLabelSize(1, 2, 0);
-   static Archive fq;
+   public static final WorldMapLabelSize WorldMapLabelSize_small = new WorldMapLabelSize(0, 0, 4);
+   public static final WorldMapLabelSize WorldMapLabelSize_medium = new WorldMapLabelSize(2, 1, 2);
+   public static final WorldMapLabelSize WorldMapLabelSize_large = new WorldMapLabelSize(1, 2, 0);
+   static Archive archive8;
    final int ab;
    final int ac;
    final int au;
@@ -18,7 +18,7 @@ public class WorldMapLabelSize {
    }
 
    static WorldMapLabelSize an_renamed(int var0) {
-      WorldMapLabelSize[] var2 = new WorldMapLabelSize[]{af, an, aw};
+      WorldMapLabelSize[] var2 = new WorldMapLabelSize[]{WorldMapLabelSize_small, WorldMapLabelSize_medium, WorldMapLabelSize_large};
       WorldMapLabelSize[] var3 = var2;
 
       for(int var4 = 0; var4 < var3.length; ++var4) {
@@ -34,7 +34,7 @@ public class WorldMapLabelSize {
    static final void ab_renamed(PacketBit var0) {
       for(int var2 = 0; var2 < ds.ax * 1474255643; ++var2) {
          int var3 = ds.ai[var2];
-         Player var4 = Client.mc[var3];
+         Player var4 = Client.players[var3];
          int var5 = var0.g1();
          if (0 != (var5 & 8)) {
             var5 += var0.g1() << 8;
@@ -51,10 +51,10 @@ public class WorldMapLabelSize {
 
    static Archive newArchive(int var0, boolean var1, boolean var2, boolean var3, boolean var4) {
       ArchiveDisk var6 = null;
-      if (null != gc.ax) {
-         var6 = new ArchiveDisk(var0, gc.ax, ol.ag[var0], 1000000);
+      if (null != gc.dat2File) {
+         var6 = new ArchiveDisk(var0, gc.dat2File, ol.idxFiles[var0], 1000000);
       }
 
-      return new Archive(var6, kb.wh, var0, var1, var2, var3, var4);
+      return new Archive(var6, kb.masterDisk, var0, var1, var2, var3, var4);
    }
 }

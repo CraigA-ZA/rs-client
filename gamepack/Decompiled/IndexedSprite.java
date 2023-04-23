@@ -1,38 +1,38 @@
 public final class IndexedSprite extends Rasterizer2D {
-   public byte[] af;
-   public int ab;
-   public int ac;
-   public int al;
-   public int aq;
-   public int au;
-   public int aw;
-   public int[] an;
+   public byte[] pixels;
+   public int yOffset;
+   public int subHeight;
+   public int height;
+   public int width;
+   public int xOffset;
+   public int subWidth;
+   public int[] palette;
 
    IndexedSprite() {
    }
 
    public void normalize() {
-      if (this.aw != this.aq || this.ac != this.al) {
-         byte[] var1 = new byte[this.aq * this.al];
+      if (this.subWidth != this.width || this.subHeight != this.height) {
+         byte[] var1 = new byte[this.width * this.height];
          int var2 = 0;
 
-         for(int var3 = 0; var3 < this.ac; ++var3) {
-            for(int var4 = 0; var4 < this.aw; ++var4) {
-               var1[var4 + this.au + (var3 + this.ab) * this.aq] = this.af[var2++];
+         for(int var3 = 0; var3 < this.subHeight; ++var3) {
+            for(int var4 = 0; var4 < this.subWidth; ++var4) {
+               var1[var4 + this.xOffset + (var3 + this.yOffset) * this.width] = this.pixels[var2++];
             }
          }
 
-         this.af = var1;
-         this.aw = this.aq;
-         this.ac = this.al;
-         this.au = 0;
-         this.ab = 0;
+         this.pixels = var1;
+         this.subWidth = this.width;
+         this.subHeight = this.height;
+         this.xOffset = 0;
+         this.yOffset = 0;
       }
    }
 
    public void shiftColors(int var1, int var2, int var3) {
-      for(int var4 = 0; var4 < this.an.length; ++var4) {
-         int var5 = this.an[var4] >> 16 & 255;
+      for(int var4 = 0; var4 < this.palette.length; ++var4) {
+         int var5 = this.palette[var4] >> 16 & 255;
          var5 += var1;
          if (var5 < 0) {
             var5 = 0;
@@ -40,7 +40,7 @@ public final class IndexedSprite extends Rasterizer2D {
             var5 = 255;
          }
 
-         int var6 = this.an[var4] >> 8 & 255;
+         int var6 = this.palette[var4] >> 8 & 255;
          var6 += var2;
          if (var6 < 0) {
             var6 = 0;
@@ -48,7 +48,7 @@ public final class IndexedSprite extends Rasterizer2D {
             var6 = 255;
          }
 
-         int var7 = this.an[var4] & 255;
+         int var7 = this.palette[var4] & 255;
          var7 += var3;
          if (var7 < 0) {
             var7 = 0;
@@ -56,52 +56,52 @@ public final class IndexedSprite extends Rasterizer2D {
             var7 = 255;
          }
 
-         this.an[var4] = (var5 << 16) + (var6 << 8) + var7;
+         this.palette[var4] = (var5 << 16) + (var6 << 8) + var7;
       }
 
    }
 
    public void aw(int var1, int var2) {
-      var1 += this.au;
-      var2 += this.ab;
-      int var3 = var1 + var2 * ae;
+      var1 += this.xOffset;
+      var2 += this.yOffset;
+      int var3 = var1 + var2 * Rasterizer2D_width;
       int var4 = 0;
-      int var5 = this.ac;
-      int var6 = this.aw;
-      int var7 = ae - var6;
+      int var5 = this.subHeight;
+      int var6 = this.subWidth;
+      int var7 = Rasterizer2D_width - var6;
       int var8 = 0;
       int var9;
-      if (var2 < bi) {
-         var9 = bi - var2;
+      if (var2 < Rasterizer2D_yClipStart) {
+         var9 = Rasterizer2D_yClipStart - var2;
          var5 -= var9;
-         var2 = bi;
+         var2 = Rasterizer2D_yClipStart;
          var4 += var9 * var6;
-         var3 += var9 * ae;
+         var3 += var9 * Rasterizer2D_width;
       }
 
-      if (var2 + var5 > be) {
-         var5 -= var2 + var5 - be;
+      if (var2 + var5 > Rasterizer2D_yClipEnd) {
+         var5 -= var2 + var5 - Rasterizer2D_yClipEnd;
       }
 
-      if (var1 < bk) {
-         var9 = bk - var1;
+      if (var1 < Rasterizer2D_xClipStart) {
+         var9 = Rasterizer2D_xClipStart - var1;
          var6 -= var9;
-         var1 = bk;
+         var1 = Rasterizer2D_xClipStart;
          var4 += var9;
          var3 += var9;
          var8 += var9;
          var7 += var9;
       }
 
-      if (var1 + var6 > bx) {
-         var9 = var1 + var6 - bx;
+      if (var1 + var6 > Rasterizer2D_xClipEnd) {
+         var9 = var1 + var6 - Rasterizer2D_xClipEnd;
          var6 -= var9;
          var8 += var9;
          var7 += var9;
       }
 
       if (var6 > 0 && var5 > 0) {
-         ac_renamed(ad, this.af, this.an, var4, var3, var6, var5, var7, var8);
+         ac_renamed(Rasterizer2D_pixels, this.pixels, this.palette, var4, var3, var6, var5, var7, var8);
       }
    }
 
@@ -158,25 +158,25 @@ public final class IndexedSprite extends Rasterizer2D {
    }
 
    public void au(int var1, int var2, int var3, int var4) {
-      int var5 = this.aw;
-      int var6 = this.ac;
+      int var5 = this.subWidth;
+      int var6 = this.subHeight;
       int var7 = 0;
       int var8 = 0;
-      int var9 = this.aq;
-      int var10 = this.al;
+      int var9 = this.width;
+      int var10 = this.height;
       int var11 = (var9 << 16) / var3;
       int var12 = (var10 << 16) / var4;
       int var13;
-      if (this.au > 0) {
-         var13 = ((this.au << 16) + var11 - 1) / var11;
+      if (this.xOffset > 0) {
+         var13 = ((this.xOffset << 16) + var11 - 1) / var11;
          var1 += var13;
-         var7 += var13 * var11 - (this.au << 16);
+         var7 += var13 * var11 - (this.xOffset << 16);
       }
 
-      if (this.ab > 0) {
-         var13 = ((this.ab << 16) + var12 - 1) / var12;
+      if (this.yOffset > 0) {
+         var13 = ((this.yOffset << 16) + var12 - 1) / var12;
          var2 += var13;
-         var8 += var13 * var12 - (this.ab << 16);
+         var8 += var13 * var12 - (this.yOffset << 16);
       }
 
       if (var5 < var9) {
@@ -187,35 +187,35 @@ public final class IndexedSprite extends Rasterizer2D {
          var4 = ((var6 << 16) - var8 + var12 - 1) / var12;
       }
 
-      var13 = var1 + var2 * ae;
-      int var14 = ae - var3;
-      if (var2 + var4 > be) {
-         var4 -= var2 + var4 - be;
+      var13 = var1 + var2 * Rasterizer2D_width;
+      int var14 = Rasterizer2D_width - var3;
+      if (var2 + var4 > Rasterizer2D_yClipEnd) {
+         var4 -= var2 + var4 - Rasterizer2D_yClipEnd;
       }
 
       int var15;
-      if (var2 < bi) {
-         var15 = bi - var2;
+      if (var2 < Rasterizer2D_yClipStart) {
+         var15 = Rasterizer2D_yClipStart - var2;
          var4 -= var15;
-         var13 += var15 * ae;
+         var13 += var15 * Rasterizer2D_width;
          var8 += var12 * var15;
       }
 
-      if (var1 + var3 > bx) {
-         var15 = var1 + var3 - bx;
+      if (var1 + var3 > Rasterizer2D_xClipEnd) {
+         var15 = var1 + var3 - Rasterizer2D_xClipEnd;
          var3 -= var15;
          var14 += var15;
       }
 
-      if (var1 < bk) {
-         var15 = bk - var1;
+      if (var1 < Rasterizer2D_xClipStart) {
+         var15 = Rasterizer2D_xClipStart - var1;
          var3 -= var15;
          var13 += var15;
          var7 += var11 * var15;
          var14 += var15;
       }
 
-      ab_renamed(ad, this.af, this.an, var7, var8, var13, var14, var3, var4, var11, var12, var5);
+      ab_renamed(Rasterizer2D_pixels, this.pixels, this.palette, var7, var8, var13, var14, var3, var4, var11, var12, var5);
    }
 
    static void ab_renamed(int[] var0, byte[] var1, int[] var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10, int var11) {

@@ -9,22 +9,22 @@ import java.util.Queue;
 public abstract class UrlRequester implements Runnable {
    static Rasterizer3D tk;
    int ac;
-   Queue aw = new LinkedList();
-   final Thread af = new Thread(this);
-   volatile boolean an;
+   Queue requests = new LinkedList();
+   final Thread thread = new Thread(this);
+   volatile boolean isClosed;
 
    UrlRequester(int var1) {
-      this.af.setPriority(1);
-      this.af.start();
+      this.thread.setPriority(1);
+      this.thread.start();
       this.ac = -502647555 * var1;
    }
 
    public void run() {
-      while(!this.an) {
+      while(!this.isClosed) {
          try {
             UrlRequest var1;
             synchronized(this) {
-               var1 = (UrlRequest)this.aw.poll();
+               var1 = (UrlRequest)this.requests.poll();
                if (var1 == null) {
                   try {
                      this.wait();
@@ -143,9 +143,9 @@ public abstract class UrlRequester implements Runnable {
             InterfaceParent.ByteArrayPool_release(var7);
          }
 
-         var2.au = var5;
+         var2.response0 = var5;
       } catch (IOException var15) {
-         var2.au = null;
+         var2.response0 = null;
       } finally {
          var2.ac = this.an(var1) * -1964979829;
       }
@@ -162,21 +162,21 @@ public abstract class UrlRequester implements Runnable {
    public UrlRequest request(URL var1) {
       UrlRequest var3 = new UrlRequest(var1);
       synchronized(this) {
-         this.aw.add(var3);
+         this.requests.add(var3);
          this.notify();
          return var3;
       }
    }
 
    public void ab() {
-      this.an = true;
+      this.isClosed = true;
 
       try {
          synchronized(this) {
             this.notify();
          }
 
-         this.af.join();
+         this.thread.join();
       } catch (InterruptedException var5) {
       }
 

@@ -1,19 +1,19 @@
 public final class Scenery {
    static int jc;
-   static int[][] jd;
-   int aa;
-   int ac;
-   int af;
-   int ai = 0;
-   int al;
-   int an;
+   static int[][] xteaKeys;
+   int endY;
+   int centerX;
+   int plane;
+   int flags = 0;
+   int endX;
+   int startX;
    int ao;
-   int aq;
-   int at;
-   int au;
-   int aw;
+   int orientation;
+   int startY;
+   int centerY;
+   int height;
    int ay;
-   public Entity ab;
+   public Entity entity;
    public long ax = 0L;
 
    Scenery() {

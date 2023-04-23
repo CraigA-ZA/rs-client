@@ -268,13 +268,13 @@ public class fh extends DualNode {
    }
 
    static void he_renamed(int var0, int var1, int var2) {
-      if (aj.vb.aj() != 0 && 0 != var1 && Client.tl * -297150195 < 50) {
-         Client.tu[Client.tl * -297150195] = var0;
-         Client.tr[Client.tl * -297150195] = var1;
-         Client.tg[Client.tl * -297150195] = var2;
-         Client.ti[-297150195 * Client.tl] = null;
-         Client.tb[Client.tl * -297150195] = 0;
-         Client.tl += 831233477;
+      if (aj.clientPreferences.aj() != 0 && 0 != var1 && Client.soundEffectCount * -297150195 < 50) {
+         Client.tu[Client.soundEffectCount * -297150195] = var0;
+         Client.tr[Client.soundEffectCount * -297150195] = var1;
+         Client.tg[Client.soundEffectCount * -297150195] = var2;
+         Client.soundEffects[-297150195 * Client.soundEffectCount] = null;
+         Client.tb[Client.soundEffectCount * -297150195] = 0;
+         Client.soundEffectCount += 831233477;
       }
 
    }

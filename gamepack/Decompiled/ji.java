@@ -77,19 +77,19 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.bj(ad, var1, 0, 0, var5 >> 14, var6 >> 14, var10, var23);
+                              this.bj(Rasterizer2D_pixels, var1, 0, 0, var5 >> 14, var6 >> 14, var10, var23);
                               var6 += var21;
                               var5 += var19;
                               var10 += var24;
-                              var1 += ae;
+                              var1 += Rasterizer2D_width;
                            }
                         }
 
-                        this.bj(ad, var1, 0, 0, var4 >> 14, var6 >> 14, var10, var23);
+                        this.bj(Rasterizer2D_pixels, var1, 0, 0, var4 >> 14, var6 >> 14, var10, var23);
                         var6 += var21;
                         var4 += var20;
                         var10 += var24;
-                        var1 += ae;
+                        var1 += Rasterizer2D_width;
                      }
                   } else {
                      var3 -= var2;
@@ -105,19 +105,19 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.bj(ad, var1, 0, 0, var6 >> 14, var5 >> 14, var10, var23);
+                              this.bj(Rasterizer2D_pixels, var1, 0, 0, var6 >> 14, var5 >> 14, var10, var23);
                               var6 += var21;
                               var5 += var19;
                               var10 += var24;
-                              var1 += ae;
+                              var1 += Rasterizer2D_width;
                            }
                         }
 
-                        this.bj(ad, var1, 0, 0, var6 >> 14, var4 >> 14, var10, var23);
+                        this.bj(Rasterizer2D_pixels, var1, 0, 0, var6 >> 14, var4 >> 14, var10, var23);
                         var6 += var21;
                         var4 += var20;
                         var10 += var24;
-                        var1 += ae;
+                        var1 += Rasterizer2D_width;
                      }
                   }
                } else {
@@ -149,19 +149,19 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.bj(ad, var1, 0, 0, var4 >> 14, var6 >> 14, var10, var23);
+                              this.bj(Rasterizer2D_pixels, var1, 0, 0, var4 >> 14, var6 >> 14, var10, var23);
                               var6 += var19;
                               var4 += var20;
                               var10 += var24;
-                              var1 += ae;
+                              var1 += Rasterizer2D_width;
                            }
                         }
 
-                        this.bj(ad, var1, 0, 0, var4 >> 14, var5 >> 14, var10, var23);
+                        this.bj(Rasterizer2D_pixels, var1, 0, 0, var4 >> 14, var5 >> 14, var10, var23);
                         var5 += var21;
                         var4 += var20;
                         var10 += var24;
-                        var1 += ae;
+                        var1 += Rasterizer2D_width;
                      }
                   } else {
                      var2 -= var3;
@@ -177,19 +177,19 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.bj(ad, var1, 0, 0, var6 >> 14, var4 >> 14, var10, var23);
+                              this.bj(Rasterizer2D_pixels, var1, 0, 0, var6 >> 14, var4 >> 14, var10, var23);
                               var6 += var19;
                               var4 += var20;
                               var10 += var24;
-                              var1 += ae;
+                              var1 += Rasterizer2D_width;
                            }
                         }
 
-                        this.bj(ad, var1, 0, 0, var5 >> 14, var4 >> 14, var10, var23);
+                        this.bj(Rasterizer2D_pixels, var1, 0, 0, var5 >> 14, var4 >> 14, var10, var23);
                         var5 += var21;
                         var4 += var20;
                         var10 += var24;
-                        var1 += ae;
+                        var1 += Rasterizer2D_width;
                      }
                   }
                }
@@ -234,19 +234,19 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.bj(ad, var2, 0, 0, var4 >> 14, var6 >> 14, var11, var23);
+                              this.bj(Rasterizer2D_pixels, var2, 0, 0, var4 >> 14, var6 >> 14, var11, var23);
                               var4 += var20;
                               var6 += var21;
                               var11 += var24;
-                              var2 += ae;
+                              var2 += Rasterizer2D_width;
                            }
                         }
 
-                        this.bj(ad, var2, 0, 0, var4 >> 14, var5 >> 14, var11, var23);
+                        this.bj(Rasterizer2D_pixels, var2, 0, 0, var4 >> 14, var5 >> 14, var11, var23);
                         var4 += var20;
                         var5 += var19;
                         var11 += var24;
-                        var2 += ae;
+                        var2 += Rasterizer2D_width;
                      }
                   } else {
                      var1 -= var3;
@@ -262,19 +262,19 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.bj(ad, var2, 0, 0, var6 >> 14, var4 >> 14, var11, var23);
+                              this.bj(Rasterizer2D_pixels, var2, 0, 0, var6 >> 14, var4 >> 14, var11, var23);
                               var4 += var20;
                               var6 += var21;
                               var11 += var24;
-                              var2 += ae;
+                              var2 += Rasterizer2D_width;
                            }
                         }
 
-                        this.bj(ad, var2, 0, 0, var5 >> 14, var4 >> 14, var11, var23);
+                        this.bj(Rasterizer2D_pixels, var2, 0, 0, var5 >> 14, var4 >> 14, var11, var23);
                         var4 += var20;
                         var5 += var19;
                         var11 += var24;
-                        var2 += ae;
+                        var2 += Rasterizer2D_width;
                      }
                   }
                } else {
@@ -306,19 +306,19 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.bj(ad, var2, 0, 0, var4 >> 14, var5 >> 14, var11, var23);
+                              this.bj(Rasterizer2D_pixels, var2, 0, 0, var4 >> 14, var5 >> 14, var11, var23);
                               var4 += var21;
                               var5 += var19;
                               var11 += var24;
-                              var2 += ae;
+                              var2 += Rasterizer2D_width;
                            }
                         }
 
-                        this.bj(ad, var2, 0, 0, var6 >> 14, var5 >> 14, var11, var23);
+                        this.bj(Rasterizer2D_pixels, var2, 0, 0, var6 >> 14, var5 >> 14, var11, var23);
                         var6 += var20;
                         var5 += var19;
                         var11 += var24;
-                        var2 += ae;
+                        var2 += Rasterizer2D_width;
                      }
                   } else {
                      var3 -= var1;
@@ -334,19 +334,19 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.bj(ad, var2, 0, 0, var5 >> 14, var4 >> 14, var11, var23);
+                              this.bj(Rasterizer2D_pixels, var2, 0, 0, var5 >> 14, var4 >> 14, var11, var23);
                               var4 += var21;
                               var5 += var19;
                               var11 += var24;
-                              var2 += ae;
+                              var2 += Rasterizer2D_width;
                            }
                         }
 
-                        this.bj(ad, var2, 0, 0, var5 >> 14, var6 >> 14, var11, var23);
+                        this.bj(Rasterizer2D_pixels, var2, 0, 0, var5 >> 14, var6 >> 14, var11, var23);
                         var6 += var20;
                         var5 += var19;
                         var11 += var24;
-                        var2 += ae;
+                        var2 += Rasterizer2D_width;
                      }
                   }
                }
@@ -390,19 +390,19 @@ public class ji extends ii {
                               return;
                            }
 
-                           this.bj(ad, var3, 0, 0, var5 >> 14, var4 >> 14, var12, var23);
+                           this.bj(Rasterizer2D_pixels, var3, 0, 0, var5 >> 14, var4 >> 14, var12, var23);
                            var5 += var19;
                            var4 += var20;
                            var12 += var24;
-                           var3 += ae;
+                           var3 += Rasterizer2D_width;
                         }
                      }
 
-                     this.bj(ad, var3, 0, 0, var5 >> 14, var6 >> 14, var12, var23);
+                     this.bj(Rasterizer2D_pixels, var3, 0, 0, var5 >> 14, var6 >> 14, var12, var23);
                      var5 += var19;
                      var6 += var21;
                      var12 += var24;
-                     var3 += ae;
+                     var3 += Rasterizer2D_width;
                   }
                } else {
                   var2 -= var1;
@@ -418,19 +418,19 @@ public class ji extends ii {
                               return;
                            }
 
-                           this.bj(ad, var3, 0, 0, var4 >> 14, var5 >> 14, var12, var23);
+                           this.bj(Rasterizer2D_pixels, var3, 0, 0, var4 >> 14, var5 >> 14, var12, var23);
                            var5 += var19;
                            var4 += var20;
                            var12 += var24;
-                           var3 += ae;
+                           var3 += Rasterizer2D_width;
                         }
                      }
 
-                     this.bj(ad, var3, 0, 0, var6 >> 14, var5 >> 14, var12, var23);
+                     this.bj(Rasterizer2D_pixels, var3, 0, 0, var6 >> 14, var5 >> 14, var12, var23);
                      var5 += var19;
                      var6 += var21;
                      var12 += var24;
-                     var3 += ae;
+                     var3 += Rasterizer2D_width;
                   }
                }
             } else {
@@ -462,19 +462,19 @@ public class ji extends ii {
                               return;
                            }
 
-                           this.bj(ad, var3, 0, 0, var5 >> 14, var6 >> 14, var12, var23);
+                           this.bj(Rasterizer2D_pixels, var3, 0, 0, var5 >> 14, var6 >> 14, var12, var23);
                            var5 += var20;
                            var6 += var21;
                            var12 += var24;
-                           var3 += ae;
+                           var3 += Rasterizer2D_width;
                         }
                      }
 
-                     this.bj(ad, var3, 0, 0, var4 >> 14, var6 >> 14, var12, var23);
+                     this.bj(Rasterizer2D_pixels, var3, 0, 0, var4 >> 14, var6 >> 14, var12, var23);
                      var4 += var19;
                      var6 += var21;
                      var12 += var24;
-                     var3 += ae;
+                     var3 += Rasterizer2D_width;
                   }
                } else {
                   var1 -= var2;
@@ -490,19 +490,19 @@ public class ji extends ii {
                               return;
                            }
 
-                           this.bj(ad, var3, 0, 0, var6 >> 14, var5 >> 14, var12, var23);
+                           this.bj(Rasterizer2D_pixels, var3, 0, 0, var6 >> 14, var5 >> 14, var12, var23);
                            var5 += var20;
                            var6 += var21;
                            var12 += var24;
-                           var3 += ae;
+                           var3 += Rasterizer2D_width;
                         }
                      }
 
-                     this.bj(ad, var3, 0, 0, var6 >> 14, var4 >> 14, var12, var23);
+                     this.bj(Rasterizer2D_pixels, var3, 0, 0, var6 >> 14, var4 >> 14, var12, var23);
                      var4 += var19;
                      var6 += var21;
                      var12 += var24;
-                     var3 += ae;
+                     var3 += Rasterizer2D_width;
                   }
                }
             }
@@ -674,17 +674,17 @@ public class ji extends ii {
                               return;
                            }
 
-                           this.bn(ad, var1, var10, 0, var6 >> 14, var5 >> 14);
+                           this.bn(Rasterizer2D_pixels, var1, var10, 0, var6 >> 14, var5 >> 14);
                            var6 += var13;
                            var5 += var12;
-                           var1 += ae;
+                           var1 += Rasterizer2D_width;
                         }
                      }
 
-                     this.bn(ad, var1, var10, 0, var6 >> 14, var4 >> 14);
+                     this.bn(Rasterizer2D_pixels, var1, var10, 0, var6 >> 14, var4 >> 14);
                      var6 += var13;
                      var4 += var11;
-                     var1 += ae;
+                     var1 += Rasterizer2D_width;
                   }
                } else {
                   var3 -= var2;
@@ -700,17 +700,17 @@ public class ji extends ii {
                               return;
                            }
 
-                           this.bn(ad, var1, var10, 0, var5 >> 14, var6 >> 14);
+                           this.bn(Rasterizer2D_pixels, var1, var10, 0, var5 >> 14, var6 >> 14);
                            var6 += var13;
                            var5 += var12;
-                           var1 += ae;
+                           var1 += Rasterizer2D_width;
                         }
                      }
 
-                     this.bn(ad, var1, var10, 0, var4 >> 14, var6 >> 14);
+                     this.bn(Rasterizer2D_pixels, var1, var10, 0, var4 >> 14, var6 >> 14);
                      var6 += var13;
                      var4 += var11;
-                     var1 += ae;
+                     var1 += Rasterizer2D_width;
                   }
                }
             } else {
@@ -741,17 +741,17 @@ public class ji extends ii {
                               return;
                            }
 
-                           this.bn(ad, var1, var10, 0, var6 >> 14, var4 >> 14);
+                           this.bn(Rasterizer2D_pixels, var1, var10, 0, var6 >> 14, var4 >> 14);
                            var6 += var12;
                            var4 += var11;
-                           var1 += ae;
+                           var1 += Rasterizer2D_width;
                         }
                      }
 
-                     this.bn(ad, var1, var10, 0, var5 >> 14, var4 >> 14);
+                     this.bn(Rasterizer2D_pixels, var1, var10, 0, var5 >> 14, var4 >> 14);
                      var5 += var13;
                      var4 += var11;
-                     var1 += ae;
+                     var1 += Rasterizer2D_width;
                   }
                } else {
                   var2 -= var3;
@@ -767,17 +767,17 @@ public class ji extends ii {
                               return;
                            }
 
-                           this.bn(ad, var1, var10, 0, var4 >> 14, var6 >> 14);
+                           this.bn(Rasterizer2D_pixels, var1, var10, 0, var4 >> 14, var6 >> 14);
                            var6 += var12;
                            var4 += var11;
-                           var1 += ae;
+                           var1 += Rasterizer2D_width;
                         }
                      }
 
-                     this.bn(ad, var1, var10, 0, var4 >> 14, var5 >> 14);
+                     this.bn(Rasterizer2D_pixels, var1, var10, 0, var4 >> 14, var5 >> 14);
                      var5 += var13;
                      var4 += var11;
-                     var1 += ae;
+                     var1 += Rasterizer2D_width;
                   }
                }
             }
@@ -820,17 +820,17 @@ public class ji extends ii {
                               return;
                            }
 
-                           this.bn(ad, var2, var10, 0, var4 >> 14, var6 >> 14);
+                           this.bn(Rasterizer2D_pixels, var2, var10, 0, var4 >> 14, var6 >> 14);
                            var4 += var11;
                            var6 += var13;
-                           var2 += ae;
+                           var2 += Rasterizer2D_width;
                         }
                      }
 
-                     this.bn(ad, var2, var10, 0, var4 >> 14, var5 >> 14);
+                     this.bn(Rasterizer2D_pixels, var2, var10, 0, var4 >> 14, var5 >> 14);
                      var4 += var11;
                      var5 += var12;
-                     var2 += ae;
+                     var2 += Rasterizer2D_width;
                   }
                } else {
                   var1 -= var3;
@@ -846,17 +846,17 @@ public class ji extends ii {
                               return;
                            }
 
-                           this.bn(ad, var2, var10, 0, var6 >> 14, var4 >> 14);
+                           this.bn(Rasterizer2D_pixels, var2, var10, 0, var6 >> 14, var4 >> 14);
                            var4 += var11;
                            var6 += var13;
-                           var2 += ae;
+                           var2 += Rasterizer2D_width;
                         }
                      }
 
-                     this.bn(ad, var2, var10, 0, var5 >> 14, var4 >> 14);
+                     this.bn(Rasterizer2D_pixels, var2, var10, 0, var5 >> 14, var4 >> 14);
                      var4 += var11;
                      var5 += var12;
-                     var2 += ae;
+                     var2 += Rasterizer2D_width;
                   }
                }
             } else {
@@ -887,17 +887,17 @@ public class ji extends ii {
                               return;
                            }
 
-                           this.bn(ad, var2, var10, 0, var4 >> 14, var5 >> 14);
+                           this.bn(Rasterizer2D_pixels, var2, var10, 0, var4 >> 14, var5 >> 14);
                            var4 += var13;
                            var5 += var12;
-                           var2 += ae;
+                           var2 += Rasterizer2D_width;
                         }
                      }
 
-                     this.bn(ad, var2, var10, 0, var6 >> 14, var5 >> 14);
+                     this.bn(Rasterizer2D_pixels, var2, var10, 0, var6 >> 14, var5 >> 14);
                      var6 += var11;
                      var5 += var12;
-                     var2 += ae;
+                     var2 += Rasterizer2D_width;
                   }
                } else {
                   var3 -= var1;
@@ -913,17 +913,17 @@ public class ji extends ii {
                               return;
                            }
 
-                           this.bn(ad, var2, var10, 0, var5 >> 14, var4 >> 14);
+                           this.bn(Rasterizer2D_pixels, var2, var10, 0, var5 >> 14, var4 >> 14);
                            var4 += var13;
                            var5 += var12;
-                           var2 += ae;
+                           var2 += Rasterizer2D_width;
                         }
                      }
 
-                     this.bn(ad, var2, var10, 0, var5 >> 14, var6 >> 14);
+                     this.bn(Rasterizer2D_pixels, var2, var10, 0, var5 >> 14, var6 >> 14);
                      var6 += var11;
                      var5 += var12;
-                     var2 += ae;
+                     var2 += Rasterizer2D_width;
                   }
                }
             }
@@ -965,17 +965,17 @@ public class ji extends ii {
                            return;
                         }
 
-                        this.bn(ad, var3, var10, 0, var5 >> 14, var4 >> 14);
+                        this.bn(Rasterizer2D_pixels, var3, var10, 0, var5 >> 14, var4 >> 14);
                         var5 += var12;
                         var4 += var11;
-                        var3 += ae;
+                        var3 += Rasterizer2D_width;
                      }
                   }
 
-                  this.bn(ad, var3, var10, 0, var5 >> 14, var6 >> 14);
+                  this.bn(Rasterizer2D_pixels, var3, var10, 0, var5 >> 14, var6 >> 14);
                   var5 += var12;
                   var6 += var13;
-                  var3 += ae;
+                  var3 += Rasterizer2D_width;
                }
             } else {
                var2 -= var1;
@@ -991,17 +991,17 @@ public class ji extends ii {
                            return;
                         }
 
-                        this.bn(ad, var3, var10, 0, var4 >> 14, var5 >> 14);
+                        this.bn(Rasterizer2D_pixels, var3, var10, 0, var4 >> 14, var5 >> 14);
                         var5 += var12;
                         var4 += var11;
-                        var3 += ae;
+                        var3 += Rasterizer2D_width;
                      }
                   }
 
-                  this.bn(ad, var3, var10, 0, var6 >> 14, var5 >> 14);
+                  this.bn(Rasterizer2D_pixels, var3, var10, 0, var6 >> 14, var5 >> 14);
                   var5 += var12;
                   var6 += var13;
-                  var3 += ae;
+                  var3 += Rasterizer2D_width;
                }
             }
          } else {
@@ -1032,17 +1032,17 @@ public class ji extends ii {
                            return;
                         }
 
-                        this.bn(ad, var3, var10, 0, var5 >> 14, var6 >> 14);
+                        this.bn(Rasterizer2D_pixels, var3, var10, 0, var5 >> 14, var6 >> 14);
                         var5 += var11;
                         var6 += var13;
-                        var3 += ae;
+                        var3 += Rasterizer2D_width;
                      }
                   }
 
-                  this.bn(ad, var3, var10, 0, var4 >> 14, var6 >> 14);
+                  this.bn(Rasterizer2D_pixels, var3, var10, 0, var4 >> 14, var6 >> 14);
                   var4 += var12;
                   var6 += var13;
-                  var3 += ae;
+                  var3 += Rasterizer2D_width;
                }
             } else {
                var1 -= var2;
@@ -1058,17 +1058,17 @@ public class ji extends ii {
                            return;
                         }
 
-                        this.bn(ad, var3, var10, 0, var6 >> 14, var5 >> 14);
+                        this.bn(Rasterizer2D_pixels, var3, var10, 0, var6 >> 14, var5 >> 14);
                         var5 += var11;
                         var6 += var13;
-                        var3 += ae;
+                        var3 += Rasterizer2D_width;
                      }
                   }
 
-                  this.bn(ad, var3, var10, 0, var6 >> 14, var4 >> 14);
+                  this.bn(Rasterizer2D_pixels, var3, var10, 0, var6 >> 14, var4 >> 14);
                   var4 += var12;
                   var6 += var13;
-                  var3 += ae;
+                  var3 += Rasterizer2D_width;
                }
             }
          }
@@ -1265,22 +1265,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.bs(ad, var23, 0, 0, var1, var6 >> 14, var5 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                                 this.bs(Rasterizer2D_pixels, var23, 0, 0, var1, var6 >> 14, var5 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                                  var6 += var32;
                                  var5 += var31;
                                  var10 += var35;
-                                 var1 += ae;
+                                 var1 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.bs(ad, var23, 0, 0, var1, var6 >> 14, var4 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                           this.bs(Rasterizer2D_pixels, var23, 0, 0, var1, var6 >> 14, var4 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                            var6 += var32;
                            var4 += var30;
                            var10 += var35;
-                           var1 += ae;
+                           var1 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -1299,22 +1299,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.bs(ad, var23, 0, 0, var1, var5 >> 14, var6 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                                 this.bs(Rasterizer2D_pixels, var23, 0, 0, var1, var5 >> 14, var6 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                                  var6 += var32;
                                  var5 += var31;
                                  var10 += var35;
-                                 var1 += ae;
+                                 var1 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.bs(ad, var23, 0, 0, var1, var4 >> 14, var6 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                           this.bs(Rasterizer2D_pixels, var23, 0, 0, var1, var4 >> 14, var6 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                            var6 += var32;
                            var4 += var30;
                            var10 += var35;
-                           var1 += ae;
+                           var1 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -1353,22 +1353,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.bs(ad, var23, 0, 0, var1, var4 >> 14, var6 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                                 this.bs(Rasterizer2D_pixels, var23, 0, 0, var1, var4 >> 14, var6 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                                  var6 += var31;
                                  var4 += var30;
                                  var10 += var35;
-                                 var1 += ae;
+                                 var1 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.bs(ad, var23, 0, 0, var1, var4 >> 14, var5 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                           this.bs(Rasterizer2D_pixels, var23, 0, 0, var1, var4 >> 14, var5 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                            var5 += var32;
                            var4 += var30;
                            var10 += var35;
-                           var1 += ae;
+                           var1 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -1387,22 +1387,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.bs(ad, var23, 0, 0, var1, var6 >> 14, var4 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                                 this.bs(Rasterizer2D_pixels, var23, 0, 0, var1, var6 >> 14, var4 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                                  var6 += var31;
                                  var4 += var30;
                                  var10 += var35;
-                                 var1 += ae;
+                                 var1 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.bs(ad, var23, 0, 0, var1, var5 >> 14, var4 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                           this.bs(Rasterizer2D_pixels, var23, 0, 0, var1, var5 >> 14, var4 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                            var5 += var32;
                            var4 += var30;
                            var10 += var35;
-                           var1 += ae;
+                           var1 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -1454,22 +1454,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.bs(ad, var23, 0, 0, var2, var4 >> 14, var6 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                                 this.bs(Rasterizer2D_pixels, var23, 0, 0, var2, var4 >> 14, var6 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                                  var4 += var30;
                                  var6 += var32;
                                  var11 += var35;
-                                 var2 += ae;
+                                 var2 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.bs(ad, var23, 0, 0, var2, var4 >> 14, var5 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                           this.bs(Rasterizer2D_pixels, var23, 0, 0, var2, var4 >> 14, var5 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                            var4 += var30;
                            var5 += var31;
                            var11 += var35;
-                           var2 += ae;
+                           var2 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -1488,22 +1488,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.bs(ad, var23, 0, 0, var2, var6 >> 14, var4 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                                 this.bs(Rasterizer2D_pixels, var23, 0, 0, var2, var6 >> 14, var4 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                                  var4 += var30;
                                  var6 += var32;
                                  var11 += var35;
-                                 var2 += ae;
+                                 var2 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.bs(ad, var23, 0, 0, var2, var5 >> 14, var4 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                           this.bs(Rasterizer2D_pixels, var23, 0, 0, var2, var5 >> 14, var4 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                            var4 += var30;
                            var5 += var31;
                            var11 += var35;
-                           var2 += ae;
+                           var2 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -1542,22 +1542,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.bs(ad, var23, 0, 0, var2, var4 >> 14, var5 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                                 this.bs(Rasterizer2D_pixels, var23, 0, 0, var2, var4 >> 14, var5 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                                  var4 += var32;
                                  var5 += var31;
                                  var11 += var35;
-                                 var2 += ae;
+                                 var2 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.bs(ad, var23, 0, 0, var2, var6 >> 14, var5 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                           this.bs(Rasterizer2D_pixels, var23, 0, 0, var2, var6 >> 14, var5 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                            var6 += var30;
                            var5 += var31;
                            var11 += var35;
-                           var2 += ae;
+                           var2 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -1576,22 +1576,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.bs(ad, var23, 0, 0, var2, var5 >> 14, var4 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                                 this.bs(Rasterizer2D_pixels, var23, 0, 0, var2, var5 >> 14, var4 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                                  var4 += var32;
                                  var5 += var31;
                                  var11 += var35;
-                                 var2 += ae;
+                                 var2 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.bs(ad, var23, 0, 0, var2, var5 >> 14, var6 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                           this.bs(Rasterizer2D_pixels, var23, 0, 0, var2, var5 >> 14, var6 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                            var6 += var30;
                            var5 += var31;
                            var11 += var35;
-                           var2 += ae;
+                           var2 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -1642,22 +1642,22 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.bs(ad, var23, 0, 0, var3, var5 >> 14, var4 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                              this.bs(Rasterizer2D_pixels, var23, 0, 0, var3, var5 >> 14, var4 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                               var5 += var31;
                               var4 += var30;
                               var12 += var35;
-                              var3 += ae;
+                              var3 += Rasterizer2D_width;
                               var37 += var39;
                               var40 += var42;
                               var43 += var45;
                            }
                         }
 
-                        this.bs(ad, var23, 0, 0, var3, var5 >> 14, var6 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                        this.bs(Rasterizer2D_pixels, var23, 0, 0, var3, var5 >> 14, var6 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                         var5 += var31;
                         var6 += var32;
                         var12 += var35;
-                        var3 += ae;
+                        var3 += Rasterizer2D_width;
                         var37 += var39;
                         var40 += var42;
                         var43 += var45;
@@ -1676,22 +1676,22 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.bs(ad, var23, 0, 0, var3, var4 >> 14, var5 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                              this.bs(Rasterizer2D_pixels, var23, 0, 0, var3, var4 >> 14, var5 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                               var5 += var31;
                               var4 += var30;
                               var12 += var35;
-                              var3 += ae;
+                              var3 += Rasterizer2D_width;
                               var37 += var39;
                               var40 += var42;
                               var43 += var45;
                            }
                         }
 
-                        this.bs(ad, var23, 0, 0, var3, var6 >> 14, var5 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                        this.bs(Rasterizer2D_pixels, var23, 0, 0, var3, var6 >> 14, var5 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                         var5 += var31;
                         var6 += var32;
                         var12 += var35;
-                        var3 += ae;
+                        var3 += Rasterizer2D_width;
                         var37 += var39;
                         var40 += var42;
                         var43 += var45;
@@ -1730,22 +1730,22 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.bs(ad, var23, 0, 0, var3, var5 >> 14, var6 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                              this.bs(Rasterizer2D_pixels, var23, 0, 0, var3, var5 >> 14, var6 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                               var5 += var30;
                               var6 += var32;
                               var12 += var35;
-                              var3 += ae;
+                              var3 += Rasterizer2D_width;
                               var37 += var39;
                               var40 += var42;
                               var43 += var45;
                            }
                         }
 
-                        this.bs(ad, var23, 0, 0, var3, var4 >> 14, var6 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                        this.bs(Rasterizer2D_pixels, var23, 0, 0, var3, var4 >> 14, var6 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                         var4 += var31;
                         var6 += var32;
                         var12 += var35;
-                        var3 += ae;
+                        var3 += Rasterizer2D_width;
                         var37 += var39;
                         var40 += var42;
                         var43 += var45;
@@ -1764,22 +1764,22 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.bs(ad, var23, 0, 0, var3, var6 >> 14, var5 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                              this.bs(Rasterizer2D_pixels, var23, 0, 0, var3, var6 >> 14, var5 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                               var5 += var30;
                               var6 += var32;
                               var12 += var35;
-                              var3 += ae;
+                              var3 += Rasterizer2D_width;
                               var37 += var39;
                               var40 += var42;
                               var43 += var45;
                            }
                         }
 
-                        this.bs(ad, var23, 0, 0, var3, var6 >> 14, var4 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                        this.bs(Rasterizer2D_pixels, var23, 0, 0, var3, var6 >> 14, var4 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                         var4 += var31;
                         var6 += var32;
                         var12 += var35;
-                        var3 += ae;
+                        var3 += Rasterizer2D_width;
                         var37 += var39;
                         var40 += var42;
                         var43 += var45;
@@ -2308,22 +2308,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.br(ad, var23, 0, 0, var1, var5 >> 14, var6 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                                 this.br(Rasterizer2D_pixels, var23, 0, 0, var1, var5 >> 14, var6 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                                  var6 += var32;
                                  var5 += var31;
                                  var10 += var35;
-                                 var1 += ae;
+                                 var1 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.br(ad, var23, 0, 0, var1, var4 >> 14, var6 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                           this.br(Rasterizer2D_pixels, var23, 0, 0, var1, var4 >> 14, var6 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                            var6 += var32;
                            var4 += var30;
                            var10 += var35;
-                           var1 += ae;
+                           var1 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -2342,22 +2342,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.br(ad, var23, 0, 0, var1, var6 >> 14, var5 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                                 this.br(Rasterizer2D_pixels, var23, 0, 0, var1, var6 >> 14, var5 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                                  var6 += var32;
                                  var5 += var31;
                                  var10 += var35;
-                                 var1 += ae;
+                                 var1 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.br(ad, var23, 0, 0, var1, var6 >> 14, var4 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                           this.br(Rasterizer2D_pixels, var23, 0, 0, var1, var6 >> 14, var4 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                            var6 += var32;
                            var4 += var30;
                            var10 += var35;
-                           var1 += ae;
+                           var1 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -2396,22 +2396,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.br(ad, var23, 0, 0, var1, var6 >> 14, var4 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                                 this.br(Rasterizer2D_pixels, var23, 0, 0, var1, var6 >> 14, var4 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                                  var6 += var31;
                                  var4 += var30;
                                  var10 += var35;
-                                 var1 += ae;
+                                 var1 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.br(ad, var23, 0, 0, var1, var5 >> 14, var4 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                           this.br(Rasterizer2D_pixels, var23, 0, 0, var1, var5 >> 14, var4 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                            var5 += var32;
                            var4 += var30;
                            var10 += var35;
-                           var1 += ae;
+                           var1 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -2430,22 +2430,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.br(ad, var23, 0, 0, var1, var4 >> 14, var6 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                                 this.br(Rasterizer2D_pixels, var23, 0, 0, var1, var4 >> 14, var6 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                                  var6 += var31;
                                  var4 += var30;
                                  var10 += var35;
-                                 var1 += ae;
+                                 var1 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.br(ad, var23, 0, 0, var1, var4 >> 14, var5 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
+                           this.br(Rasterizer2D_pixels, var23, 0, 0, var1, var4 >> 14, var5 >> 14, var10, var34, var37, var40, var43, var38, var41, var44);
                            var5 += var32;
                            var4 += var30;
                            var10 += var35;
-                           var1 += ae;
+                           var1 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -2497,22 +2497,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.br(ad, var23, 0, 0, var2, var6 >> 14, var4 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                                 this.br(Rasterizer2D_pixels, var23, 0, 0, var2, var6 >> 14, var4 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                                  var4 += var30;
                                  var6 += var32;
                                  var11 += var35;
-                                 var2 += ae;
+                                 var2 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.br(ad, var23, 0, 0, var2, var5 >> 14, var4 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                           this.br(Rasterizer2D_pixels, var23, 0, 0, var2, var5 >> 14, var4 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                            var4 += var30;
                            var5 += var31;
                            var11 += var35;
-                           var2 += ae;
+                           var2 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -2531,22 +2531,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.br(ad, var23, 0, 0, var2, var4 >> 14, var6 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                                 this.br(Rasterizer2D_pixels, var23, 0, 0, var2, var4 >> 14, var6 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                                  var4 += var30;
                                  var6 += var32;
                                  var11 += var35;
-                                 var2 += ae;
+                                 var2 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.br(ad, var23, 0, 0, var2, var4 >> 14, var5 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                           this.br(Rasterizer2D_pixels, var23, 0, 0, var2, var4 >> 14, var5 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                            var4 += var30;
                            var5 += var31;
                            var11 += var35;
-                           var2 += ae;
+                           var2 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -2585,22 +2585,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.br(ad, var23, 0, 0, var2, var4 >> 14, var5 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                                 this.br(Rasterizer2D_pixels, var23, 0, 0, var2, var4 >> 14, var5 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                                  var4 += var32;
                                  var5 += var31;
                                  var11 += var35;
-                                 var2 += ae;
+                                 var2 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.br(ad, var23, 0, 0, var2, var6 >> 14, var5 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                           this.br(Rasterizer2D_pixels, var23, 0, 0, var2, var6 >> 14, var5 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                            var6 += var30;
                            var5 += var31;
                            var11 += var35;
-                           var2 += ae;
+                           var2 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -2619,22 +2619,22 @@ public class ji extends ii {
                                     return;
                                  }
 
-                                 this.br(ad, var23, 0, 0, var2, var5 >> 14, var4 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                                 this.br(Rasterizer2D_pixels, var23, 0, 0, var2, var5 >> 14, var4 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                                  var4 += var32;
                                  var5 += var31;
                                  var11 += var35;
-                                 var2 += ae;
+                                 var2 += Rasterizer2D_width;
                                  var37 += var39;
                                  var40 += var42;
                                  var43 += var45;
                               }
                            }
 
-                           this.br(ad, var23, 0, 0, var2, var5 >> 14, var6 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
+                           this.br(Rasterizer2D_pixels, var23, 0, 0, var2, var5 >> 14, var6 >> 14, var11, var34, var37, var40, var43, var38, var41, var44);
                            var6 += var30;
                            var5 += var31;
                            var11 += var35;
-                           var2 += ae;
+                           var2 += Rasterizer2D_width;
                            var37 += var39;
                            var40 += var42;
                            var43 += var45;
@@ -2685,22 +2685,22 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.br(ad, var23, 0, 0, var3, var5 >> 14, var4 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                              this.br(Rasterizer2D_pixels, var23, 0, 0, var3, var5 >> 14, var4 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                               var5 += var31;
                               var4 += var30;
                               var12 += var35;
-                              var3 += ae;
+                              var3 += Rasterizer2D_width;
                               var37 += var39;
                               var40 += var42;
                               var43 += var45;
                            }
                         }
 
-                        this.br(ad, var23, 0, 0, var3, var5 >> 14, var6 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                        this.br(Rasterizer2D_pixels, var23, 0, 0, var3, var5 >> 14, var6 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                         var5 += var31;
                         var6 += var32;
                         var12 += var35;
-                        var3 += ae;
+                        var3 += Rasterizer2D_width;
                         var37 += var39;
                         var40 += var42;
                         var43 += var45;
@@ -2719,22 +2719,22 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.br(ad, var23, 0, 0, var3, var4 >> 14, var5 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                              this.br(Rasterizer2D_pixels, var23, 0, 0, var3, var4 >> 14, var5 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                               var5 += var31;
                               var4 += var30;
                               var12 += var35;
-                              var3 += ae;
+                              var3 += Rasterizer2D_width;
                               var37 += var39;
                               var40 += var42;
                               var43 += var45;
                            }
                         }
 
-                        this.br(ad, var23, 0, 0, var3, var6 >> 14, var5 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                        this.br(Rasterizer2D_pixels, var23, 0, 0, var3, var6 >> 14, var5 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                         var5 += var31;
                         var6 += var32;
                         var12 += var35;
-                        var3 += ae;
+                        var3 += Rasterizer2D_width;
                         var37 += var39;
                         var40 += var42;
                         var43 += var45;
@@ -2773,22 +2773,22 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.br(ad, var23, 0, 0, var3, var5 >> 14, var6 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                              this.br(Rasterizer2D_pixels, var23, 0, 0, var3, var5 >> 14, var6 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                               var5 += var30;
                               var6 += var32;
                               var12 += var35;
-                              var3 += ae;
+                              var3 += Rasterizer2D_width;
                               var37 += var39;
                               var40 += var42;
                               var43 += var45;
                            }
                         }
 
-                        this.br(ad, var23, 0, 0, var3, var4 >> 14, var6 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                        this.br(Rasterizer2D_pixels, var23, 0, 0, var3, var4 >> 14, var6 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                         var4 += var31;
                         var6 += var32;
                         var12 += var35;
-                        var3 += ae;
+                        var3 += Rasterizer2D_width;
                         var37 += var39;
                         var40 += var42;
                         var43 += var45;
@@ -2807,22 +2807,22 @@ public class ji extends ii {
                                  return;
                               }
 
-                              this.br(ad, var23, 0, 0, var3, var6 >> 14, var5 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                              this.br(Rasterizer2D_pixels, var23, 0, 0, var3, var6 >> 14, var5 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                               var5 += var30;
                               var6 += var32;
                               var12 += var35;
-                              var3 += ae;
+                              var3 += Rasterizer2D_width;
                               var37 += var39;
                               var40 += var42;
                               var43 += var45;
                            }
                         }
 
-                        this.br(ad, var23, 0, 0, var3, var6 >> 14, var4 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
+                        this.br(Rasterizer2D_pixels, var23, 0, 0, var3, var6 >> 14, var4 >> 14, var12, var34, var37, var40, var43, var38, var41, var44);
                         var4 += var31;
                         var6 += var32;
                         var12 += var35;
-                        var3 += ae;
+                        var3 += Rasterizer2D_width;
                         var37 += var39;
                         var40 += var42;
                         var43 += var45;

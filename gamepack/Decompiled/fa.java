@@ -72,32 +72,32 @@ public class fa {
    }
 
    static final void ji_renamed() {
-      for(Projectile var1 = (Projectile)Client.na.last(); null != var1; var1 = (Projectile)Client.na.previous()) {
-         if (GameShell.mh * -1727408401 == -850668143 * var1.an && -1886224337 * Client.ep <= -1203783373 * var1.al) {
-            if (Client.ep * -1886224337 >= -2048301599 * var1.aq) {
-               if (803751093 * var1.ay > 0) {
-                  Npc var2 = Client.iu[var1.ay * 803751093 - 1];
+      for(Projectile var1 = (Projectile)Client.projectiles.last(); null != var1; var1 = (Projectile)Client.projectiles.previous()) {
+         if (GameShell.plane * -1727408401 == -850668143 * var1.frame && -1886224337 * Client.ep <= -1203783373 * var1.cycleStart) {
+            if (Client.ep * -1886224337 >= -2048301599 * var1.targetIndex) {
+               if (803751093 * var1.int3 > 0) {
+                  Npc var2 = Client.npcs[var1.int3 * 803751093 - 1];
                   if (null != var2 && 1144428983 * var2.bx >= 0 && 1144428983 * var2.bx < 13312 && var2.bo * -411750205 >= 0 && -411750205 * var2.bo < 13312) {
-                     var1.setDestination(1144428983 * var2.bx, -411750205 * var2.bo, fq.getTileHeight(var2.bx * 1144428983, -411750205 * var2.bo, -850668143 * var1.an) - var1.ab * -860121869, -1886224337 * Client.ep);
+                     var1.setDestination(1144428983 * var2.bx, -411750205 * var2.bo, fq.getTileHeight(var2.bx * 1144428983, -411750205 * var2.bo, -850668143 * var1.frame) - var1.id * -860121869, -1886224337 * Client.ep);
                   }
                }
 
-               if (var1.ay * 803751093 < 0) {
-                  int var3 = -(803751093 * var1.ay) - 1;
+               if (var1.int3 * 803751093 < 0) {
+                  int var3 = -(803751093 * var1.int3) - 1;
                   Player var4;
-                  if (-549033243 * Client.mg == var3) {
-                     var4 = MusicPatchNode.mi;
+                  if (-549033243 * Client.localPlayerIndex == var3) {
+                     var4 = MusicPatchNode.localPlayer;
                   } else {
-                     var4 = Client.mc[var3];
+                     var4 = Client.players[var3];
                   }
 
                   if (var4 != null && 1144428983 * var4.bx >= 0 && var4.bx * 1144428983 < 13312 && -411750205 * var4.bo >= 0 && -411750205 * var4.bo < 13312) {
-                     var1.setDestination(1144428983 * var4.bx, var4.bo * -411750205, fq.getTileHeight(var4.bx * 1144428983, -411750205 * var4.bo, -850668143 * var1.an) - -860121869 * var1.ab, Client.ep * -1886224337);
+                     var1.setDestination(1144428983 * var4.bx, var4.bo * -411750205, fq.getTileHeight(var4.bx * 1144428983, -411750205 * var4.bo, -850668143 * var1.frame) - -860121869 * var1.id, Client.ep * -1886224337);
                   }
                }
 
                var1.advance(-1795081153 * Client.ja);
-               bx.js.ao(-1727408401 * GameShell.mh, (int)var1.ax, (int)var1.ai, (int)var1.ag, 60, var1, 650783873 * var1.aj, -1L, false);
+               bx.scene.ao(-1727408401 * GameShell.plane, (int)var1.speedZ, (int)var1.ai, (int)var1.accelerationZ, 60, var1, 650783873 * var1.yaw, -1L, false);
             }
          } else {
             var1.remove();
@@ -109,20 +109,20 @@ public class fa {
    static void kg_renamed(Npc var0) {
       var0.bm = 1763542591 * var0.af.al;
       var0.dx = var0.af.bj * -1952936367;
-      var0.bs = var0.af.ai * 869101579;
-      var0.br = -1784513249 * var0.af.ag;
+      var0.readySequence = var0.af.ai * 869101579;
+      var0.walkLeftSequence = -1784513249 * var0.af.ag;
       var0.bg = 1886938753 * var0.af.ah;
-      var0.bu = var0.af.av * 2010418861;
-      var0.bt = var0.af.ay * -133009915;
+      var0.walkRightSequence = var0.af.av * 2010418861;
+      var0.turnLeftSequence = var0.af.ay * -133009915;
       var0.bj = var0.af.ao * -1457034847;
-      var0.bn = var0.af.ax * -1686059033;
-      var0.bf = -1079417805 * var0.af.ar;
-      var0.bq = var0.af.am * -2020975041;
-      var0.ba = var0.af.as * 1337010697;
+      var0.sequence = var0.af.ax * -1686059033;
+      var0.runSequence = -1079417805 * var0.af.ar;
+      var0.overheadTextCyclesRemaining = var0.af.am * -2020975041;
+      var0.npcCycle = var0.af.as * 1337010697;
       var0.bv = 269496349 * var0.af.aj;
-      var0.bl = -2121315781 * var0.af.ak;
+      var0.turnRightSequence = -2121315781 * var0.af.ak;
       var0.bp = var0.af.az * -605946035;
-      var0.bc = var0.af.ad * -76847983;
-      var0.bh = var0.af.ae * -1771433781;
+      var0.targetIndex = var0.af.ad * -76847983;
+      var0.movementFrameCycle = var0.af.ae * -1771433781;
    }
 }

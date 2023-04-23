@@ -7,7 +7,7 @@ public class gt extends fb {
    static void ac_renamed(int var0, int[] var1, int var2) {
       for(int var4 = 0; var4 < 743589639 * IDKType.aw; ++var4) {
          IDKType var5 = dn.getIDKType(var4);
-         if (var5 != null && !var5.ao && (1 == var0 ? 7 : 0) + var2 == 1015855167 * var5.au) {
+         if (var5 != null && !var5.ao && (1 == var0 ? 7 : 0) + var2 == 1015855167 * var5.bodyPart) {
             var1[PlayerAppearance.ag[var2]] = 256 + var4;
             break;
          }
@@ -30,7 +30,7 @@ public class gt extends fb {
 
    static int bp_renamed(int var0, ClientScript var1, boolean var2) {
       if (var0 == 7108) {
-         Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = ByteArrayPool.kj_renamed() ? 1 : 0;
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = ByteArrayPool.kj_renamed() ? 1 : 0;
          return 1;
       } else {
          return 2;

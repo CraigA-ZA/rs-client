@@ -1,5 +1,5 @@
 public class iq {
-   static ServerBuild ci;
+   static ServerBuild serverBuild;
    int ab;
    int ac;
    int af;

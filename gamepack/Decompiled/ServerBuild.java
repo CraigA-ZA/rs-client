@@ -1,15 +1,15 @@
 public class ServerBuild {
-   static Archive fb;
+   static Archive archive1;
    static final ServerBuild ac = new ServerBuild("WIP", 2);
    static final ServerBuild af = new ServerBuild("LIVE", 0);
    static final ServerBuild an = new ServerBuild("BUILDLIVE", 3);
    static final ServerBuild aw = new ServerBuild("RC", 1);
-   final int ab;
-   public final String au;
+   final int id;
+   public final String name;
 
    ServerBuild(String var1, int var2) {
-      this.au = var1;
-      this.ab = -1294558747 * var2;
+      this.name = var1;
+      this.id = -1294558747 * var2;
    }
 
    public static sm an_renamed(int var0) {

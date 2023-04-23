@@ -32,7 +32,7 @@ public class bz {
    }
 
    public static ParamType getParamType(int var0) {
-      ParamType var2 = (ParamType)ParamType.an.get((long)var0);
+      ParamType var2 = (ParamType)ParamType.ParamType_cached.get((long)var0);
       if (null != var2) {
          return var2;
       } else {
@@ -43,7 +43,7 @@ public class bz {
          }
 
          var2.postDecode();
-         ParamType.an.put(var2, (long)var0);
+         ParamType.ParamType_cached.put(var2, (long)var0);
          return var2;
       }
    }
@@ -53,15 +53,15 @@ public class bz {
       if (!var0.cc()) {
          return false;
       } else {
-         mo.aw = var0.cq(35) * 827991417;
-         MapElementType.an = new MapElementType[mo.aw * -1703136055];
+         mo.MapElementType_count = var0.cq(35) * 827991417;
+         MapElementType.MapElementType_cached = new MapElementType[mo.MapElementType_count * -1703136055];
 
-         for(int var3 = 0; var3 < mo.aw * -1703136055; ++var3) {
+         for(int var3 = 0; var3 < mo.MapElementType_count * -1703136055; ++var3) {
             byte[] var4 = var0.takeFile(35, var3);
-            MapElementType.an[var3] = new MapElementType(var3);
+            MapElementType.MapElementType_cached[var3] = new MapElementType(var3);
             if (var4 != null) {
-               MapElementType.an[var3].decode(new Packet(var4));
-               MapElementType.an[var3].removeAll();
+               MapElementType.MapElementType_cached[var3].decode(new Packet(var4));
+               MapElementType.MapElementType_cached[var3].removeAll();
             }
          }
 
@@ -72,10 +72,10 @@ public class bz {
    static ClientScript loadClientScript(byte[] var0) {
       ClientScript var2 = new ClientScript();
       Packet var3 = new Packet(var0);
-      var3.at = -1516355947 * (var3.al.length - 2);
+      var3.index = -1516355947 * (var3.array.length - 2);
       int var4 = var3.cl();
-      int var5 = var3.al.length - 2 - var4 - 12;
-      var3.at = -1516355947 * var5;
+      int var5 = var3.array.length - 2 - var4 - 12;
+      var3.index = -1516355947 * var5;
       int var6 = var3.g4s();
       var2.ab = var3.cl() * -140315817;
       var2.aq = var3.cl() * -1816416047;
@@ -85,12 +85,12 @@ public class bz {
       int var8;
       int var9;
       if (var7 > 0) {
-         var2.aa = var2.au(var7);
+         var2.switches = var2.au(var7);
 
          for(var8 = 0; var8 < var7; ++var8) {
             var9 = var3.cl();
             IterableNodeHashTable var10 = new IterableNodeHashTable(var9 > 0 ? co.ab_renamed(var9) : 1);
-            var2.aa[var8] = var10;
+            var2.switches[var8] = var10;
 
             while(var9-- > 0) {
                int var11 = var3.g4s();
@@ -100,16 +100,16 @@ public class bz {
          }
       }
 
-      var3.at = 0;
+      var3.index = 0;
       var2.an = var3.cz();
       var2.aw = new int[var6];
       var2.ac = new int[var6];
-      var2.au = new String[var6];
+      var2.stringOperands = new String[var6];
 
-      for(var8 = 0; -1633313603 * var3.at < var5; var2.aw[var8++] = var9) {
+      for(var8 = 0; -1633313603 * var3.index < var5; var2.aw[var8++] = var9) {
          var9 = var3.cl();
          if (var9 == 3) {
-            var2.au[var8] = var3.cw();
+            var2.stringOperands[var8] = var3.cw();
          } else if (var9 < 100 && var9 != 21 && var9 != 38 && 39 != var9) {
             var2.ac[var8] = var3.g4s();
          } else {
@@ -249,16 +249,16 @@ public class bz {
    }
 
    static int az_renamed(int var0, ClientScript var1, boolean var2) {
-      Component var4 = gh.an_renamed(Interpreter.al[(Interpreter.at -= 427135973) * -964267539]);
+      Component var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
       if (2800 == var0) {
-         Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = hc.af_renamed(KeyHandler.getComponentClickMask(var4));
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = hc.af_renamed(KeyHandler.getComponentClickMask(var4));
          return 1;
       } else if (var0 != 2801) {
          if (2802 == var0) {
-            if (null == var4.eh) {
-               Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = "";
+            if (null == var4.opbase) {
+               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
             } else {
-               Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = var4.eh;
+               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var4.opbase;
             }
 
             return 1;
@@ -266,12 +266,12 @@ public class bz {
             return 2;
          }
       } else {
-         int var5 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+         int var5 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
          --var5;
-         if (var4.ek != null && var5 < var4.ek.length && null != var4.ek[var5]) {
-            Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = var4.ek[var5];
+         if (var4.ops != null && var5 < var4.ops.length && null != var4.ops[var5]) {
+            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var4.ops[var5];
          } else {
-            Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = "";
+            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
          }
 
          return 1;
@@ -299,66 +299,66 @@ public class bz {
 
       if (1 == -1222491879 * MouseHandler.ar || !su.ev && -1222491879 * MouseHandler.ar == 4) {
          int var4 = cz.aw * 578342931 + 280;
-         if (MouseHandler.am * 2020601481 >= var4 && MouseHandler.am * 2020601481 <= var4 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var4 && MouseHandler.MouseHandler_lastButton * 2020601481 <= var4 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
             ta.an_renamed(0, 0);
             return;
          }
 
-         if (2020601481 * MouseHandler.am >= 15 + var4 && MouseHandler.am * 2020601481 <= var4 + 80 && 1163896205 * MouseHandler.as >= 4 && 1163896205 * MouseHandler.as <= 18) {
+         if (2020601481 * MouseHandler.MouseHandler_lastButton >= 15 + var4 && MouseHandler.MouseHandler_lastButton * 2020601481 <= var4 + 80 && 1163896205 * MouseHandler.as >= 4 && 1163896205 * MouseHandler.as <= 18) {
             ta.an_renamed(0, 1);
             return;
          }
 
          int var5 = 390 + 578342931 * cz.aw;
-         if (MouseHandler.am * 2020601481 >= var5 && MouseHandler.am * 2020601481 <= var5 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var5 && MouseHandler.MouseHandler_lastButton * 2020601481 <= var5 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
             ta.an_renamed(1, 0);
             return;
          }
 
-         if (MouseHandler.am * 2020601481 >= var5 + 15 && 2020601481 * MouseHandler.am <= var5 + 80 && MouseHandler.as * 1163896205 >= 4 && 1163896205 * MouseHandler.as <= 18) {
+         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var5 + 15 && 2020601481 * MouseHandler.MouseHandler_lastButton <= var5 + 80 && MouseHandler.as * 1163896205 >= 4 && 1163896205 * MouseHandler.as <= 18) {
             ta.an_renamed(1, 1);
             return;
          }
 
          int var6 = 500 + cz.aw * 578342931;
-         if (MouseHandler.am * 2020601481 >= var6 && 2020601481 * MouseHandler.am <= var6 + 14 && 1163896205 * MouseHandler.as >= 4 && 1163896205 * MouseHandler.as <= 18) {
+         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var6 && 2020601481 * MouseHandler.MouseHandler_lastButton <= var6 + 14 && 1163896205 * MouseHandler.as >= 4 && 1163896205 * MouseHandler.as <= 18) {
             ta.an_renamed(2, 0);
             return;
          }
 
-         if (2020601481 * MouseHandler.am >= var6 + 15 && MouseHandler.am * 2020601481 <= 80 + var6 && MouseHandler.as * 1163896205 >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (2020601481 * MouseHandler.MouseHandler_lastButton >= var6 + 15 && MouseHandler.MouseHandler_lastButton * 2020601481 <= 80 + var6 && MouseHandler.as * 1163896205 >= 4 && MouseHandler.as * 1163896205 <= 18) {
             ta.an_renamed(2, 1);
             return;
          }
 
          int var7 = cz.aw * 578342931 + 610;
-         if (MouseHandler.am * 2020601481 >= var7 && MouseHandler.am * 2020601481 <= var7 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var7 && MouseHandler.MouseHandler_lastButton * 2020601481 <= var7 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
             ta.an_renamed(3, 0);
             return;
          }
 
-         if (2020601481 * MouseHandler.am >= 15 + var7 && MouseHandler.am * 2020601481 <= 80 + var7 && MouseHandler.as * 1163896205 >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (2020601481 * MouseHandler.MouseHandler_lastButton >= 15 + var7 && MouseHandler.MouseHandler_lastButton * 2020601481 <= 80 + var7 && MouseHandler.as * 1163896205 >= 4 && MouseHandler.as * 1163896205 <= 18) {
             ta.an_renamed(3, 1);
             return;
          }
 
-         if (2020601481 * MouseHandler.am >= 708 + cz.aw * 578342931 && MouseHandler.as * 1163896205 >= 4 && 2020601481 * MouseHandler.am <= 708 + cz.aw * 578342931 + 50 && 1163896205 * MouseHandler.as <= 20) {
+         if (2020601481 * MouseHandler.MouseHandler_lastButton >= 708 + cz.aw * 578342931 && MouseHandler.as * 1163896205 >= 4 && 2020601481 * MouseHandler.MouseHandler_lastButton <= 708 + cz.aw * 578342931 + 50 && 1163896205 * MouseHandler.as <= 20) {
             fd.am_renamed();
             return;
          }
 
          if (cz.de * 248569915 != -1) {
-            World var8 = bx.au[248569915 * cz.de];
+            World var8 = bx.worlds[248569915 * cz.de];
             FloorOverlayType.ah_renamed(var8);
             fd.am_renamed();
             return;
          }
 
-         if (cz.dh * 1246310743 > 0 && null != PlayerType.dz && 2020601481 * MouseHandler.am >= 0 && MouseHandler.am * 2020601481 <= PlayerType.dz.aw && 1163896205 * MouseHandler.as >= 1658005443 * kd.ak / 2 - 50 && 1163896205 * MouseHandler.as <= 1658005443 * kd.ak / 2 + 50) {
+         if (cz.dh * 1246310743 > 0 && null != PlayerType.dz && 2020601481 * MouseHandler.MouseHandler_lastButton >= 0 && MouseHandler.MouseHandler_lastButton * 2020601481 <= PlayerType.dz.subWidth && 1163896205 * MouseHandler.as >= 1658005443 * kd.ak / 2 - 50 && 1163896205 * MouseHandler.as <= 1658005443 * kd.ak / 2 + 50) {
             cz.dh -= -1379513753;
          }
 
-         if (1246310743 * cz.dh < cz.dp * 1959698517 && null != ai.dg && MouseHandler.am * 2020601481 >= GameShell.aj * -1687260435 - ai.dg.aw - 5 && MouseHandler.am * 2020601481 <= GameShell.aj * -1687260435 && MouseHandler.as * 1163896205 >= kd.ak * 1658005443 / 2 - 50 && MouseHandler.as * 1163896205 <= kd.ak * 1658005443 / 2 + 50) {
+         if (1246310743 * cz.dh < cz.dp * 1959698517 && null != ai.dg && MouseHandler.MouseHandler_lastButton * 2020601481 >= GameShell.aj * -1687260435 - ai.dg.subWidth - 5 && MouseHandler.MouseHandler_lastButton * 2020601481 <= GameShell.aj * -1687260435 && MouseHandler.as * 1163896205 >= kd.ak * 1658005443 / 2 - 50 && MouseHandler.as * 1163896205 <= kd.ak * 1658005443 / 2 + 50) {
             cz.dh += -1379513753;
          }
       }
@@ -383,19 +383,19 @@ public class bz {
          boolean var9 = var1 < var76;
          int var10 = -2;
          int var11;
-         if (var0.bw != null && (!var9 || !var0.ci && (Client.sj * -1963411823 == 4 || !var0.ce && (0 == -1963411823 * Client.sj || Client.sj * -1963411823 == 3 || Client.sj * -1963411823 == 1 && ((Player)var0).isFromFriend())))) {
+         if (var0.overheadText != null && (!var9 || !var0.ci && (Client.sj * -1963411823 == 4 || !var0.ce && (0 == -1963411823 * Client.sj || Client.sj * -1963411823 == 3 || Client.sj * -1963411823 == 1 && ((Player)var0).isFromFriend())))) {
             var11 = -767387641 * var0.de;
             ot.worldToScreen(var0.bx * 1144428983, -411750205 * var0.bo, var11);
-            if (Client.mz * -1848743379 > -1 && Client.ld * 734988573 < 1025553311 * Client.lq) {
-               Client.lb[734988573 * Client.ld] = fx.ip.stringWidth(var0.bw) / 2;
-               Client.le[Client.ld * 734988573] = fx.ip.al;
-               Client.lj[734988573 * Client.ld] = -1848743379 * Client.mz;
-               Client.ll[Client.ld * 734988573] = 318977283 * Client.mu - var10;
-               Client.lx[Client.ld * 734988573] = var0.cc * -1337884343;
-               Client.lo[734988573 * Client.ld] = var0.cn * 819594233;
-               Client.lw[Client.ld * 734988573] = -536830723 * var0.cs;
-               Client.lr[Client.ld * 734988573] = var0.bw;
-               Client.ld += -1973288651;
+            if (Client.mz * -1848743379 > -1 && Client.overheadTextCount * 734988573 < 1025553311 * Client.lq) {
+               Client.overheadTextXOffsets[734988573 * Client.overheadTextCount] = fx.fontBold12.stringWidth(var0.overheadText) / 2;
+               Client.le[Client.overheadTextCount * 734988573] = fx.fontBold12.ascent;
+               Client.lj[734988573 * Client.overheadTextCount] = -1848743379 * Client.mz;
+               Client.ll[Client.overheadTextCount * 734988573] = 318977283 * Client.mu - var10;
+               Client.lx[Client.overheadTextCount * 734988573] = var0.movementFrame * -1337884343;
+               Client.lo[734988573 * Client.overheadTextCount] = var0.walkBackSequence * 819594233;
+               Client.lw[Client.overheadTextCount * 734988573] = -536830723 * var0.movementSequence;
+               Client.overheadText[Client.overheadTextCount * 734988573] = var0.overheadText;
+               Client.overheadTextCount += -1973288651;
                var10 += 12;
             }
          }
@@ -403,49 +403,49 @@ public class bz {
          int var16;
          int var23;
          int var24;
-         if (!var0.cg.at()) {
+         if (!var0.headbars.at()) {
             eg.jd_renamed(var0, -767387641 * var0.de + 15);
 
-            for(Headbar var77 = (Headbar)var0.cg.last(); null != var77; var77 = (Headbar)var0.cg.previous()) {
+            for(Headbar var77 = (Headbar)var0.headbars.last(); null != var77; var77 = (Headbar)var0.headbars.previous()) {
                HeadbarUpdate var12 = var77.get(-1886224337 * Client.ep);
                if (null == var12) {
                   if (var77.isEmpty()) {
                      var77.remove();
                   }
                } else {
-                  HeadbarType var13 = var77.aw;
+                  HeadbarType var13 = var77.type;
                   Rasterizer3D var14 = var13.ac();
                   Rasterizer3D var15 = var13.aw();
                   int var17 = 0;
                   if (var14 != null && var15 != null) {
-                     if (var13.ah * 166630382 < var15.an) {
-                        var17 = -2064168457 * var13.ah;
+                     if (var13.widthPadding * 166630382 < var15.an) {
+                        var17 = -2064168457 * var13.widthPadding;
                      }
 
                      var16 = var15.an - var17 * 2;
                   } else {
-                     var16 = 279738407 * var13.ag;
+                     var16 = 279738407 * var13.width;
                   }
 
                   int var18 = 255;
                   boolean var19 = true;
-                  int var20 = -1886224337 * Client.ep - var12.af * -1225111563;
-                  int var21 = var12.aw * -2028064551 * var16 / (var13.ag * 279738407);
+                  int var20 = -1886224337 * Client.ep - var12.health2 * -1225111563;
+                  int var21 = var12.health * -2028064551 * var16 / (var13.width * 279738407);
                   int var22;
                   int var91;
-                  if (var12.ac * -2116244499 > var20) {
-                     var22 = var13.ay * 294055185 == 0 ? 0 : 294055185 * var13.ay * (var20 / (294055185 * var13.ay));
-                     var23 = var16 * 1250696899 * var12.an / (279738407 * var13.ag);
-                     var91 = var23 + var22 * (var21 - var23) / (-2116244499 * var12.ac);
+                  if (var12.cycleOffset * -2116244499 > var20) {
+                     var22 = var13.int4 * 294055185 == 0 ? 0 : 294055185 * var13.int4 * (var20 / (294055185 * var13.int4));
+                     var23 = var16 * 1250696899 * var12.cycle / (279738407 * var13.width);
+                     var91 = var23 + var22 * (var21 - var23) / (-2116244499 * var12.cycleOffset);
                   } else {
                      var91 = var21;
-                     var22 = var13.ao * -407931959 + var12.ac * -2116244499 - var20;
-                     if (var13.aa * -471494485 >= 0) {
-                        var18 = (var22 << 8) / (var13.ao * -407931959 - -471494485 * var13.aa);
+                     var22 = var13.int5 * -407931959 + var12.cycleOffset * -2116244499 - var20;
+                     if (var13.int3 * -471494485 >= 0) {
+                        var18 = (var22 << 8) / (var13.int5 * -407931959 - -471494485 * var13.int3);
                      }
                   }
 
-                  if (-2028064551 * var12.aw > 0 && var91 < 1) {
+                  if (-2028064551 * var12.health > 0 && var91 < 1) {
                      var91 = 1;
                   }
 
@@ -499,9 +499,9 @@ public class bz {
             if (var9) {
                var79 = 15 + -767387641 * var0.de;
                ot.worldToScreen(1144428983 * var0.bx, -411750205 * var0.bo, var79);
-               AbstractFont var81 = (AbstractFont)Client.im.get(FontName.an);
+               AbstractFont var81 = (AbstractFont)Client.im.get(FontName.FontName_plain12);
                var10 += 4;
-               var81.drawCentered(var78.af.af(), Client.mz * -1848743379 + var2, Client.mu * 318977283 + var3 - var10, 16777215, 0);
+               var81.drawCentered(var78.username.af(), Client.mz * -1848743379 + var2, Client.mu * 318977283 + var3 - var10, 16777215, 0);
                var10 += 18;
             }
          }
@@ -512,18 +512,18 @@ public class bz {
                return;
             }
 
-            if (-1 != var78.ac * -1875167049 || -1 != -1905401649 * var78.au) {
+            if (-1 != var78.combatLevel * -1875167049 || -1 != -1905401649 * var78.headIconPk) {
                var79 = 15 + -767387641 * var0.de;
                ot.worldToScreen(var0.bx * 1144428983, -411750205 * var0.bo, var79);
                if (-1848743379 * Client.mz > -1) {
-                  if (-1875167049 * var78.ac != -1) {
+                  if (-1875167049 * var78.combatLevel != -1) {
                      var10 += 25;
-                     bt.jl[var78.ac * -1875167049].ax(var2 + Client.mz * -1848743379 - 12, 318977283 * Client.mu + var3 - var10);
+                     bt.jl[var78.combatLevel * -1875167049].ax(var2 + Client.mz * -1848743379 - 12, 318977283 * Client.mu + var3 - var10);
                   }
 
-                  if (-1905401649 * var78.au != -1) {
+                  if (-1905401649 * var78.headIconPk != -1) {
                      var10 += 25;
-                     qj.kc[-1905401649 * var78.au].ax(Client.mz * -1848743379 + var2 - 12, var3 + Client.mu * 318977283 - var10);
+                     qj.kc[-1905401649 * var78.headIconPk].ax(Client.mz * -1848743379 + var2 - 12, var3 + Client.mu * 318977283 - var10);
                   }
                }
             }
@@ -547,7 +547,7 @@ public class bz {
                      long var86 = (long)var82[var85] << 8 | (long)var83[var85];
                      Rasterizer3D var89 = (Rasterizer3D)Client.wx.an(var86);
                      if (var89 == null) {
-                        Rasterizer3D[] var90 = eb.an_renamed(rr.fv, var82[var85], 0);
+                        Rasterizer3D[] var90 = eb.an_renamed(rr.archive7, var82[var85], 0);
                         if (null != var90 && var83[var85] < var90.length) {
                            var89 = var90[var83[var85]];
                            Client.wx.aw(var86, var89);
@@ -574,8 +574,8 @@ public class bz {
          }
 
          for(var11 = 0; var11 < 4; ++var11) {
-            var79 = var0.cm[var11];
-            int var84 = var0.ck[var11];
+            var79 = var0.hitmarkCycles[var11];
+            int var84 = var0.hitmarkTypes[var11];
             HitmarkType var87 = null;
             int var88 = 0;
             if (var84 >= 0) {
@@ -583,12 +583,12 @@ public class bz {
                   continue;
                }
 
-               var87 = ew.getHitmarkType(var0.ck[var11]);
+               var87 = ew.getHitmarkType(var0.hitmarkTypes[var11]);
                var88 = 292771999 * var87.ai;
-               if (var87 != null && null != var87.ae) {
+               if (var87 != null && null != var87.transforms) {
                   var87 = var87.transform();
                   if (var87 == null) {
-                     var0.cm[var11] = -1;
+                     var0.hitmarkCycles[var11] = -1;
                      continue;
                   }
                }
@@ -596,18 +596,18 @@ public class bz {
                continue;
             }
 
-            var16 = var0.cf[var11];
+            var16 = var0.hitmarkValues2[var11];
             HitmarkType var93 = null;
             if (var16 >= 0) {
                var93 = ew.getHitmarkType(var16);
-               if (null != var93 && var93.ae != null) {
+               if (null != var93 && var93.transforms != null) {
                   var93 = var93.transform();
                }
             }
 
             if (var79 - var88 <= -1886224337 * Client.ep) {
                if (null == var87) {
-                  var0.cm[var11] = -1;
+                  var0.hitmarkCycles[var11] = -1;
                } else {
                   eg.jd_renamed(var0, var0.de * -767387641 / 2);
                   if (Client.mz * -1848743379 > -1) {
@@ -744,27 +744,27 @@ public class bz {
 
                      Font var98 = var87.getFont();
                      if (null == var98) {
-                        var98 = Language.ir;
+                        var98 = Language.fontPlain11;
                      }
 
                      Font var45;
                      if (null != var93) {
                         var45 = var93.getFont();
                         if (var45 == null) {
-                           var45 = Language.ir;
+                           var45 = Language.fontPlain11;
                         }
                      } else {
-                        var45 = Language.ir;
+                        var45 = Language.fontPlain11;
                      }
 
                      String var46 = null;
                      String var47 = null;
                      boolean var48 = false;
                      int var49 = 0;
-                     var46 = var87.getString(var0.cq[var11]);
+                     var46 = var87.getString(var0.hitmarkValues[var11]);
                      int var99 = var98.stringWidth(var46);
                      if (var93 != null) {
-                        var47 = var93.getString(var0.cl[var11]);
+                        var47 = var93.getString(var0.hitmarkTypes2[var11]);
                         var49 = var45.stringWidth(var47);
                      }
 
@@ -849,16 +849,16 @@ public class bz {
                         }
                      }
 
-                     var63 = var0.cm[var11] - -1886224337 * Client.ep;
-                     int var64 = var87.am * 895105585 - 895105585 * var87.am * var63 / (292771999 * var87.ai);
+                     var63 = var0.hitmarkCycles[var11] - -1886224337 * Client.ep;
+                     int var64 = var87.transformVarbit * 895105585 - 895105585 * var87.transformVarbit * var63 / (292771999 * var87.ai);
                      int var65 = 498242719 * var87.as * var63 / (var87.ai * 292771999) + -(var87.as * 498242719);
                      int var66 = var2 + -1848743379 * Client.mz - (var52 >> 1) + var64;
                      int var67 = var3 + Client.mu * 318977283 - 12 + var65;
                      int var68 = var67;
                      int var69 = var67 + var43;
                      int var70 = var67 + 15 + 1785373205 * var87.ad;
-                     int var71 = var70 - var98.at;
-                     int var72 = var98.aa + var70;
+                     int var71 = var70 - var98.maxAscent;
+                     int var72 = var98.maxDescent + var70;
                      if (var71 < var67) {
                         var68 = var71;
                      }
@@ -872,8 +872,8 @@ public class bz {
                      int var75;
                      if (null != var93) {
                         var73 = 1785373205 * var93.ad + var67 + 15;
-                        var74 = var73 - var45.at;
-                        var75 = var73 + var45.aa;
+                        var74 = var73 - var45.maxAscent;
+                        var75 = var73 + var45.maxDescent;
                         if (var74 < var68) {
                            ;
                         }

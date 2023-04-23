@@ -7,7 +7,7 @@ public class fk extends fu {
    final gr this$0;
 
    public static void af_renamed(AbstractArchive var0, AbstractArchive var1, AbstractArchive var2) {
-      SeqType.au = var0;
+      SeqType.SeqType_archive = var0;
       SeqType.ab = var1;
       SeqType.aq = var2;
    }

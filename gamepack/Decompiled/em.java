@@ -32,7 +32,7 @@ public class em {
          }
 
          var0 -= 1000;
-         var4 = gh.an_renamed(Interpreter.al[(Interpreter.at -= 427135973) * -964267539]);
+         var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
       } else {
          Component var10000;
          if (var2) {
@@ -48,7 +48,7 @@ public class em {
          var4 = var10000;
       }
 
-      String var5 = Interpreter.aa[(SecureRandomCallable.ay -= -1086551379) * -2017760987];
+      String var5 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
       int[] var6 = null;
       if (var5.length() > 0) {
          if (var3 != -1) {
@@ -60,9 +60,9 @@ public class em {
                throw new IllegalStateException();
             }
 
-            int var7 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+            int var7 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
             if (var7 > 0) {
-               for(var6 = new int[var7]; var7-- > 0; var6[var7] = Interpreter.al[(Interpreter.at -= 427135973) * -964267539]) {
+               for(var6 = new int[var7]; var7-- > 0; var6[var7] = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]) {
                   if (var3 != -1) {
                      throw new IllegalStateException();
                   }
@@ -82,13 +82,13 @@ public class em {
                throw new IllegalStateException();
             }
 
-            var10[var8] = Interpreter.aa[(SecureRandomCallable.ay -= -1086551379) * -2017760987];
+            var10[var8] = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
          } else {
-            var10[var8] = new Integer(Interpreter.al[(Interpreter.at -= 427135973) * -964267539]);
+            var10[var8] = new Integer(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
          }
       }
 
-      var8 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+      var8 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
       if (var8 != -1) {
          if (var3 != -1) {
             throw new IllegalStateException();
@@ -104,98 +104,98 @@ public class em {
             throw new IllegalStateException();
          }
 
-         var4.fh = var10;
+         var4.onClickRepeat = var10;
       } else if (var0 == 1401) {
          if (var3 != -1) {
             throw new IllegalStateException();
          }
 
-         var4.fo = var10;
+         var4.onDrag = var10;
       } else if (var0 == 1402) {
          if (var3 != -1) {
             throw new IllegalStateException();
          }
 
-         var4.fp = var10;
+         var4.onTargetLeave = var10;
       } else if (var0 == 1403) {
          if (var3 != -1) {
             throw new IllegalStateException();
          }
 
-         var4.fx = var10;
+         var4.onInvTransmit = var10;
       } else if (1404 == var0) {
          if (var3 != -1) {
             throw new IllegalStateException();
          }
 
-         var4.fb = var10;
+         var4.onTargetEnter = var10;
       } else if (1405 == var0) {
          if (var3 != -1) {
             throw new IllegalStateException();
          }
 
-         var4.fn = var10;
+         var4.onDragComplete = var10;
       } else if (var0 == 1406) {
          if (var3 != -1) {
             throw new IllegalStateException();
          }
 
-         var4.fy = var10;
+         var4.onLoad = var10;
       } else if (var0 == 1407) {
          if (var3 != -1) {
             throw new IllegalStateException();
          }
 
-         var4.fw = var10;
-         var4.fr = var6;
+         var4.onOp = var10;
+         var4.invTransmitTriggers = var6;
       } else if (var0 == 1408) {
-         var4.fj = var10;
+         var4.onClick = var10;
       } else if (var0 == 1409) {
          if (var3 != -1) {
             throw new IllegalStateException();
          }
 
-         var4.fg = var10;
+         var4.onMouseOver = var10;
       } else if (var0 == 1410) {
-         var4.fz = var10;
+         var4.onScrollWheel = var10;
       } else if (var0 == 1411) {
          if (var3 != -1) {
             throw new IllegalStateException();
          }
 
-         var4.fl = var10;
+         var4.onRelease = var10;
       } else if (1412 == var0) {
          if (var3 != -1) {
             throw new IllegalStateException();
          }
 
-         var4.fd = var10;
+         var4.onHold = var10;
       } else if (var0 == 1414) {
          if (var3 != -1) {
             throw new IllegalStateException();
          }
 
-         var4.fv = var10;
-         var4.fq = var6;
+         var4.onMouseRepeat = var10;
+         var4.statTransmitTriggers = var6;
       } else if (1415 == var0) {
          if (var3 != -1) {
             throw new IllegalStateException();
          }
 
-         var4.fc = var10;
-         var4.ff = var6;
+         var4.onVarTransmit = var10;
+         var4.varTransmitTriggers = var6;
       } else if (var0 == 1416) {
          if (var3 != -1) {
             throw new IllegalStateException();
          }
 
-         var4.fa = var10;
+         var4.onTimer = var10;
       } else if (var0 == 1417) {
          if (var3 != -1) {
             throw new IllegalStateException();
          }
 
-         var4.fm = var10;
+         var4.onMouseLeave = var10;
       } else if (var0 == 1418) {
          if (var3 != -1) {
             throw new IllegalStateException();
@@ -335,41 +335,41 @@ public class em {
          }
       }
 
-      var4.fs = true;
+      var4.hasListener = true;
       return 1;
    }
 
    static void hh_renamed() {
-      Client.in.af();
-      Client.in.ab.at = 0;
-      Client.in.aq = null;
-      Client.in.ao = null;
-      Client.in.ax = null;
-      Client.in.ai = null;
-      Client.in.al = 0;
-      Client.in.aa = 0;
+      Client.packetWriter.af();
+      Client.packetWriter.bit.index = 0;
+      Client.packetWriter.serverPacket0 = null;
+      Client.packetWriter.ao = null;
+      Client.packetWriter.ax = null;
+      Client.packetWriter.ai = null;
+      Client.packetWriter.al = 0;
+      Client.packetWriter.aa = 0;
       Client.ea = 0;
-      Client.ne = 0;
-      Client.nt = false;
+      Client.menuOptionsCount = 0;
+      Client.isMiniMenuOpen = false;
       Client.tp = 0;
       Client.te = 0;
 
       int var1;
       for(var1 = 0; var1 < 2048; ++var1) {
-         Client.mc[var1] = null;
+         Client.players[var1] = null;
       }
 
-      MusicPatchNode.mi = null;
+      MusicPatchNode.localPlayer = null;
 
-      for(var1 = 0; var1 < Client.iu.length; ++var1) {
-         Npc var2 = Client.iu[var1];
+      for(var1 = 0; var1 < Client.npcs.length; ++var1) {
+         Npc var2 = Client.npcs[var1];
          if (var2 != null) {
-            var2.cr = -1052277865;
-            var2.cy = false;
+            var2.sequenceFrameCycle = -1052277865;
+            var2.false0 = false;
          }
       }
 
-      Inventory.af = new NodeHashTable(32);
+      Inventory.itemContainers = new NodeHashTable(32);
       fd.hi_renamed(30);
 
       for(var1 = 0; var1 < 100; ++var1) {
@@ -380,19 +380,19 @@ public class em {
    }
 
    static final void kd_renamed(int var0, int var1) {
-      NodeDeque var3 = Client.nr[GameShell.mh * -1727408401][var0][var1];
+      NodeDeque var3 = Client.objStacks[GameShell.plane * -1727408401][var0][var1];
       if (var3 == null) {
-         bx.js.ak(-1727408401 * GameShell.mh, var0, var1);
+         bx.scene.ak(-1727408401 * GameShell.plane, var0, var1);
       } else {
          long var4 = -99999999L;
          Obj var6 = null;
 
          Obj var7;
          for(var7 = (Obj)var3.last(); var7 != null; var7 = (Obj)var3.previous()) {
-            ObjType var8 = HeadbarUpdate.getObjType(var7.af * 176307405);
-            long var9 = (long)(var8.be * -1706039181);
-            if (1 == var8.bi * 1552863327) {
-               var9 *= -1745152527 * var7.an < Integer.MAX_VALUE ? (long)(1 + var7.an * -1745152527) : (long)(var7.an * -1745152527);
+            ObjType var8 = HeadbarUpdate.getObjType(var7.id * 176307405);
+            long var9 = (long)(var8.cost * -1706039181);
+            if (1 == var8.stackable * 1552863327) {
+               var9 *= -1745152527 * var7.quantity < Integer.MAX_VALUE ? (long)(1 + var7.quantity * -1745152527) : (long)(var7.quantity * -1745152527);
             }
 
             if (var9 > var4) {
@@ -402,26 +402,26 @@ public class em {
          }
 
          if (null == var6) {
-            bx.js.ak(GameShell.mh * -1727408401, var0, var1);
+            bx.scene.ak(GameShell.plane * -1727408401, var0, var1);
          } else {
             var3.addLast(var6);
             Obj var12 = null;
             Obj var13 = null;
 
             for(var7 = (Obj)var3.last(); null != var7; var7 = (Obj)var3.previous()) {
-               if (var6.af * 176307405 != var7.af * 176307405) {
+               if (var6.id * 176307405 != var7.id * 176307405) {
                   if (var12 == null) {
                      var12 = var7;
                   }
 
-                  if (176307405 * var12.af != var7.af * 176307405 && var13 == null) {
+                  if (176307405 * var12.id != var7.id * 176307405 && var13 == null) {
                      var13 = var7;
                   }
                }
             }
 
             long var10 = ir.aa_renamed(var0, var1, 3, false, 0);
-            bx.js.newObjStack(-1727408401 * GameShell.mh, var0, var1, fq.getTileHeight(64 + var0 * 128, 64 + 128 * var1, GameShell.mh * -1727408401), var6, var10, var12, var13);
+            bx.scene.newObjStack(-1727408401 * GameShell.plane, var0, var1, fq.getTileHeight(64 + var0 * 128, 64 + 128 * var1, GameShell.plane * -1727408401), var6, var10, var12, var13);
          }
       }
    }

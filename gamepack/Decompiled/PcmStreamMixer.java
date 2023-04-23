@@ -1,11 +1,11 @@
 public class PcmStreamMixer extends PcmStream {
    int ac = -1;
    int aw = 0;
-   NodeDeque af = new NodeDeque();
+   NodeDeque subStreams = new NodeDeque();
    NodeDeque an = new NodeDeque();
 
    public final synchronized void addSubStream(PcmStream var1) {
-      this.af.addLast(var1);
+      this.subStreams.addLast(var1);
    }
 
    public final synchronized void removeSubStream(PcmStream var1) {
@@ -25,19 +25,19 @@ public class PcmStreamMixer extends PcmStream {
    }
 
    void ac(Node var1, PcmStreamMixerListener var2) {
-      while(var1 != this.an.af && ((PcmStreamMixerListener)var1).af <= var2.af) {
-         var1 = var1.hc;
+      while(var1 != this.an.sentinel && ((PcmStreamMixerListener)var1).af <= var2.af) {
+         var1 = var1.previous;
       }
 
       NodeDeque.ac(var2, var1);
-      this.ac = ((PcmStreamMixerListener)this.an.af.hc).af;
+      this.ac = ((PcmStreamMixerListener)this.an.sentinel.previous).af;
    }
 
    void au(PcmStreamMixerListener var1) {
       var1.remove();
       var1.remove2();
-      Node var2 = this.an.af.hc;
-      if (var2 == this.an.af) {
+      Node var2 = this.an.sentinel.previous;
+      if (var2 == this.an.sentinel) {
          this.ac = -1;
       } else {
          this.ac = ((PcmStreamMixerListener)var2).af;
@@ -46,11 +46,11 @@ public class PcmStreamMixer extends PcmStream {
    }
 
    protected PcmStream firstSubStream() {
-      return (PcmStream)this.af.last();
+      return (PcmStream)this.subStreams.last();
    }
 
    protected PcmStream nextSubStream() {
-      return (PcmStream)this.af.previous();
+      return (PcmStream)this.subStreams.previous();
    }
 
    protected int al() {
@@ -84,7 +84,7 @@ public class PcmStreamMixer extends PcmStream {
                this.au(var5);
             } else {
                var5.af = var7;
-               this.ac(var5.hc, var5);
+               this.ac(var5.previous, var5);
             }
          }
       } while(var3 != 0);
@@ -92,7 +92,7 @@ public class PcmStreamMixer extends PcmStream {
    }
 
    void updateSubStreams(int[] var1, int var2, int var3) {
-      for(PcmStream var4 = (PcmStream)this.af.last(); var4 != null; var4 = (PcmStream)this.af.previous()) {
+      for(PcmStream var4 = (PcmStream)this.subStreams.last(); var4 != null; var4 = (PcmStream)this.subStreams.previous()) {
          var4.update(var1, var2, var3);
       }
 
@@ -124,7 +124,7 @@ public class PcmStreamMixer extends PcmStream {
                this.au(var3);
             } else {
                var3.af = var5;
-               this.ac(var3.hc, var3);
+               this.ac(var3.previous, var3);
             }
          }
       } while(var1 != 0);
@@ -132,7 +132,7 @@ public class PcmStreamMixer extends PcmStream {
    }
 
    void skipSubStreams(int var1) {
-      for(PcmStream var2 = (PcmStream)this.af.last(); var2 != null; var2 = (PcmStream)this.af.previous()) {
+      for(PcmStream var2 = (PcmStream)this.subStreams.last(); var2 != null; var2 = (PcmStream)this.subStreams.previous()) {
          var2.skip(var1);
       }
 

@@ -1,5 +1,5 @@
 public class hc extends DualNode {
-   static Archive ff;
+   static Archive archive10;
 
    public static int af_renamed(int var0) {
       return var0 >> 11 & 63;

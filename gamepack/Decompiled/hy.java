@@ -111,9 +111,9 @@ public class hy implements be {
    }
 
    static final void PcmStream_disable(PcmStream var0) {
-      var0.am = false;
-      if (null != var0.ar) {
-         var0.ar.ab = 0;
+      var0.active = false;
+      if (null != var0.sound) {
+         var0.sound.position = 0;
       }
 
       for(PcmStream var2 = var0.firstSubStream(); var2 != null; var2 = var0.nextSubStream()) {
@@ -123,7 +123,7 @@ public class hy implements be {
    }
 
    static final void ay_renamed(int var0, int var1, int var2, int var3, int var4, int var5, Scene var6, CollisionMap var7) {
-      if (!Client.cu || 0 != (Tiles.an[0][var1][var2] & 2) || (Tiles.an[var0][var1][var2] & 16) == 0) {
+      if (!Client.cu || 0 != (Tiles.Tiles_renderFlags[0][var1][var2] & 2) || (Tiles.Tiles_renderFlags[var0][var1][var2] & 16) == 0) {
          if (var0 < 1401144457 * Tiles.aw) {
             Tiles.aw = -1087180359 * var0;
          }
@@ -159,7 +159,7 @@ public class hy implements be {
             var15 = 1 + var2;
          }
 
-         int[][] var16 = Tiles.af[var0];
+         int[][] var16 = Tiles.Tiles_heights[var0];
          int var17 = var16[var13][var15] + var16[var12][var15] + var16[var12][var14] + var16[var13][var14] >> 2;
          int var18 = (var10 << 6) + (var1 << 7);
          int var19 = (var2 << 7) + (var11 << 6);
@@ -486,7 +486,7 @@ public class hy implements be {
       int[] var2 = ds.aq;
 
       for(int var3 = 0; var3 < var1; ++var3) {
-         Player var4 = Client.mc[var2[var3]];
+         Player var4 = Client.players[var2[var3]];
          if (var4 != null) {
             ReflectionCheck.ii_renamed(var4, 1);
          }

@@ -60,11 +60,11 @@ public class oa {
          if ('\n' == var2.af) {
             return 0;
          } else if (this.au(var2)) {
-            return this.af.ak.aw[42];
+            return this.af.ak.advances[42];
          } else {
-            int var3 = this.af.ak.aw[var2.af];
+            int var3 = this.af.ak.advances[var2.af];
             if (var3 == 0) {
-               return var2.af == '\t' ? this.af.ak.aw[32] * 3 : this.af.ak.aw[32];
+               return var2.af == '\t' ? this.af.ak.advances[32] * 3 : this.af.ak.advances[32];
             } else {
                return var3;
             }
@@ -103,8 +103,8 @@ public class oa {
          byte[] var3 = new byte[24];
 
          try {
-            gc.ao.seek(0L);
-            gc.ao.readFill(var3);
+            gc.randomDat.seek(0L);
+            gc.randomDat.readFill(var3);
 
             int var4;
             for(var4 = 0; var4 < 24 && var3[var4] == 0; ++var4) {

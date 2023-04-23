@@ -12,6 +12,6 @@ public class pm {
    }
 
    static boolean isComponentHidden(Component var0) {
-      return var0.ck;
+      return var0.isHidden;
    }
 }

@@ -1,6 +1,6 @@
 public class ee implements ed {
    static int af_renamed() {
-      return (Messages.ac += -284896739) * -1810202571 - 1;
+      return (Messages.Messages_count += -284896739) * -1810202571 - 1;
    }
 
    static void ak_renamed(int var0) {

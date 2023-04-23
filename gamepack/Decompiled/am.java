@@ -79,10 +79,10 @@ public class am {
    }
 
    public static void ao_renamed() {
-      int var1 = Rasterizer2D.bk;
-      int var2 = Rasterizer2D.bi;
-      int var3 = Rasterizer2D.bx;
-      int var4 = Rasterizer2D.be;
+      int var1 = Rasterizer2D.Rasterizer2D_xClipStart;
+      int var2 = Rasterizer2D.Rasterizer2D_yClipStart;
+      int var3 = Rasterizer2D.Rasterizer2D_xClipEnd;
+      int var4 = Rasterizer2D.Rasterizer2D_yClipEnd;
       in.ab.ag = (var3 - var1) * 1163083059;
       in.ab.ah = -508492839 * (var4 - var2);
       Tiles.ax_renamed();
@@ -90,158 +90,158 @@ public class am {
          in.ab.aj = new int[co.ab_renamed(in.ab.ah * -1347859351)];
       }
 
-      int var5 = var1 + Rasterizer2D.ae * var2;
+      int var5 = var1 + Rasterizer2D.Rasterizer2D_width * var2;
 
       for(int var6 = 0; var6 < in.ab.ah * -1347859351; ++var6) {
          in.ab.aj[var6] = var5;
-         var5 += Rasterizer2D.ae;
+         var5 += Rasterizer2D.Rasterizer2D_width;
       }
 
    }
 
    static String aw_renamed() {
-      return aj.vb.al() ? mc.ai_renamed(cz.ca) : cz.ca;
+      return aj.clientPreferences.al() ? mc.ai_renamed(cz.ca) : cz.ca;
    }
 
    public static void av_renamed() {
       Component.bx.clear();
       Component.bo.clear();
-      Component.bz.clear();
+      Component.Component_cachedFonts.clear();
       Component.bm.clear();
    }
 
    static int bx_renamed(int var0, ClientScript var1, boolean var2) {
       int var4;
       if (3903 == var0) {
-         var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-         Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = Client.vs[var4].type();
+         var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.grandExchangeOffers[var4].type();
          return 1;
       } else if (var0 == 3904) {
-         var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-         Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = Client.vs[var4].an * -300881317;
+         var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.grandExchangeOffers[var4].unitPrice * -300881317;
          return 1;
       } else if (var0 == 3905) {
-         var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-         Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = Client.vs[var4].aw * -1994102707;
+         var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.grandExchangeOffers[var4].currentPrice * -1994102707;
          return 1;
       } else if (var0 == 3906) {
-         var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-         Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 857042809 * Client.vs[var4].ac;
+         var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 857042809 * Client.grandExchangeOffers[var4].id;
          return 1;
       } else if (var0 == 3907) {
-         var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-         Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = Client.vs[var4].au * -52036157;
+         var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.grandExchangeOffers[var4].totalQuantity * -52036157;
          return 1;
       } else if (var0 == 3908) {
-         var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-         Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 1510761213 * Client.vs[var4].ab;
+         var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1510761213 * Client.grandExchangeOffers[var4].currentQuantity;
          return 1;
       } else {
          int var14;
          if (3910 == var0) {
-            var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-            var14 = Client.vs[var4].status();
-            Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var14 == 0 ? 1 : 0;
+            var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+            var14 = Client.grandExchangeOffers[var4].status();
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var14 == 0 ? 1 : 0;
             return 1;
          } else if (3911 == var0) {
-            var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-            var14 = Client.vs[var4].status();
-            Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 2 == var14 ? 1 : 0;
+            var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+            var14 = Client.grandExchangeOffers[var4].status();
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 2 == var14 ? 1 : 0;
             return 1;
          } else if (var0 == 3912) {
-            var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-            var14 = Client.vs[var4].status();
-            Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 5 == var14 ? 1 : 0;
+            var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+            var14 = Client.grandExchangeOffers[var4].status();
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 5 == var14 ? 1 : 0;
             return 1;
          } else if (var0 == 3913) {
-            var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-            var14 = Client.vs[var4].status();
-            Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 1 == var14 ? 1 : 0;
+            var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+            var14 = Client.grandExchangeOffers[var4].status();
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1 == var14 ? 1 : 0;
             return 1;
          } else {
             boolean var12;
             if (3914 == var0) {
-               var12 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539] == 1;
-               if (oh.vj != null) {
-                  oh.vj.sort(GrandExchangeEvents.ac, var12);
+               var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+               if (oh.grandExchangeEvents != null) {
+                  oh.grandExchangeEvents.sort(GrandExchangeEvents.ac, var12);
                }
 
                return 1;
             } else if (var0 == 3915) {
-               var12 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539] == 1;
-               if (null != oh.vj) {
-                  oh.vj.sort(GrandExchangeEvents.aw, var12);
+               var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+               if (null != oh.grandExchangeEvents) {
+                  oh.grandExchangeEvents.sort(GrandExchangeEvents.aw, var12);
                }
 
                return 1;
             } else if (3916 == var0) {
-               Interpreter.at -= 854271946;
-               var12 = 1 == Interpreter.al[Interpreter.at * -964267539];
-               boolean var13 = Interpreter.al[Interpreter.at * -964267539 + 1] == 1;
-               if (oh.vj != null) {
+               Interpreter.Interpreter_intStackSize -= 854271946;
+               var12 = 1 == Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+               boolean var13 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1] == 1;
+               if (oh.grandExchangeEvents != null) {
                   Client.wg.af = var13;
-                  oh.vj.sort(Client.wg, var12);
+                  oh.grandExchangeEvents.sort(Client.wg, var12);
                }
 
                return 1;
             } else if (var0 == 3917) {
-               var12 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539] == 1;
-               if (null != oh.vj) {
-                  oh.vj.sort(GrandExchangeEvents.an, var12);
+               var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+               if (null != oh.grandExchangeEvents) {
+                  oh.grandExchangeEvents.sort(GrandExchangeEvents.an, var12);
                }
 
                return 1;
             } else if (var0 == 3918) {
-               var12 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539] == 1;
-               if (oh.vj != null) {
-                  oh.vj.sort(GrandExchangeEvents.au, var12);
+               var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+               if (oh.grandExchangeEvents != null) {
+                  oh.grandExchangeEvents.sort(GrandExchangeEvents.au, var12);
                }
 
                return 1;
             } else if (3919 == var0) {
-               Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = null == oh.vj ? 0 : oh.vj.af.size();
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = null == oh.grandExchangeEvents ? 0 : oh.grandExchangeEvents.events.size();
                return 1;
             } else {
                GrandExchangeEvent var5;
                if (3920 == var0) {
-                  var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-                  var5 = (GrandExchangeEvent)oh.vj.af.get(var4);
-                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var5.af * -39392873;
+                  var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var5 = (GrandExchangeEvent)oh.grandExchangeEvents.events.get(var4);
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5.world * -39392873;
                   return 1;
                } else if (3921 == var0) {
-                  var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-                  var5 = (GrandExchangeEvent)oh.vj.af.get(var4);
-                  Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = var5.af();
+                  var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var5 = (GrandExchangeEvent)oh.grandExchangeEvents.events.get(var4);
+                  Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var5.af();
                   return 1;
                } else if (3922 == var0) {
-                  var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-                  var5 = (GrandExchangeEvent)oh.vj.af.get(var4);
-                  Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = var5.an();
+                  var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var5 = (GrandExchangeEvent)oh.grandExchangeEvents.events.get(var4);
+                  Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var5.an();
                   return 1;
                } else if (var0 == 3923) {
-                  var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-                  var5 = (GrandExchangeEvent)oh.vj.af.get(var4);
+                  var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var5 = (GrandExchangeEvent)oh.grandExchangeEvents.events.get(var4);
                   long var6 = Formatting.af_renamed() - mj.wd * -8156142729726467959L - -2107275097961185091L * var5.an;
                   int var8 = (int)(var6 / 3600000L);
                   int var9 = (int)((var6 - (long)(var8 * 3600000)) / 60000L);
                   int var10 = (int)((var6 - (long)(var8 * 3600000) - (long)('\uea60' * var9)) / 1000L);
                   String var11 = var8 + ":" + var9 / 10 + var9 % 10 + ":" + var10 / 10 + var10 % 10;
-                  Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = var11;
+                  Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var11;
                   return 1;
                } else if (var0 == 3924) {
-                  var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-                  var5 = (GrandExchangeEvent)oh.vj.af.get(var4);
-                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var5.aw.ac * 857042809;
+                  var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var5 = (GrandExchangeEvent)oh.grandExchangeEvents.events.get(var4);
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5.grandExchangeOffer.id * 857042809;
                   return 1;
                } else if (var0 == 3925) {
-                  var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-                  var5 = (GrandExchangeEvent)oh.vj.af.get(var4);
-                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = -1994102707 * var5.aw.aw;
+                  var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var5 = (GrandExchangeEvent)oh.grandExchangeEvents.events.get(var4);
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1994102707 * var5.grandExchangeOffer.currentPrice;
                   return 1;
                } else if (3926 == var0) {
-                  var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
-                  var5 = (GrandExchangeEvent)oh.vj.af.get(var4);
-                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var5.aw.an * -300881317;
+                  var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var5 = (GrandExchangeEvent)oh.grandExchangeEvents.events.get(var4);
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5.grandExchangeOffer.unitPrice * -300881317;
                   return 1;
                } else {
                   return 2;
@@ -257,13 +257,13 @@ public class am {
 
    static final void drawActors2d(int var0, int var1, int var2, int var3) {
       Client.mw += 1160286419;
-      if (MusicPatchNode.mi.bx * 1144428983 >> 7 == 1494100363 * Client.te && Client.th * -1748014035 == MusicPatchNode.mi.bo * -411750205 >> 7) {
+      if (MusicPatchNode.localPlayer.bx * 1144428983 >> 7 == 1494100363 * Client.te && Client.th * -1748014035 == MusicPatchNode.localPlayer.bo * -411750205 >> 7) {
          Client.te = 0;
       }
 
       Obj.ix_renamed();
-      if (-1565733637 * Client.nl >= 0 && Client.mc[-1565733637 * Client.nl] != null) {
-         MouseHandler.addPlayerToScene(Client.mc[Client.nl * -1565733637], false);
+      if (-1565733637 * Client.nl >= 0 && Client.players[-1565733637 * Client.nl] != null) {
+         MouseHandler.addPlayerToScene(Client.players[Client.nl * -1565733637], false);
       }
 
       ia.jc_renamed(true);
@@ -272,8 +272,8 @@ public class am {
 
       int var7;
       for(var7 = 0; var7 < var5; ++var7) {
-         if (Client.nl * -1565733637 != var6[var7] && Client.mg * -549033243 != var6[var7]) {
-            MouseHandler.addPlayerToScene(Client.mc[var6[var7]], true);
+         if (Client.nl * -1565733637 != var6[var7] && Client.localPlayerIndex * -549033243 != var6[var7]) {
+            MouseHandler.addPlayerToScene(Client.players[var6[var7]], true);
          }
       }
 
@@ -283,8 +283,8 @@ public class am {
       bt.setViewportShape(var0, var1, var2, var3, true);
       var0 = -82629945 * Client.vd;
       var1 = Client.vx * 1352043351;
-      var2 = 433849721 * Client.vp;
-      var3 = 2042096749 * Client.vy;
+      var2 = 433849721 * Client.viewportHeight;
+      var3 = 2042096749 * Client.viewportWidth;
       Rasterizer2D.Rasterizer2D_setClip(var0, var1, var2 + var0, var1 + var3);
       ao_renamed();
       Rasterizer2D.fd();
@@ -349,27 +349,27 @@ public class am {
          ek.kh = var35 * -1545206147;
       }
 
-      if (1 == 986256295 * Client.lv && Client.pu * 324465533 >= 2 && 0 == Client.ep * -1886224337 % 50 && (1144428983 * MusicPatchNode.mi.bx >> 7 != -1958669353 * bz.lg >> 7 || -365969735 * fw.lf >> 7 != -411750205 * MusicPatchNode.mi.bo >> 7)) {
-         var17 = MusicPatchNode.mi.ad * -1900490645;
+      if (1 == 986256295 * Client.lv && Client.pu * 324465533 >= 2 && 0 == Client.ep * -1886224337 % 50 && (1144428983 * MusicPatchNode.localPlayer.bx >> 7 != -1958669353 * bz.lg >> 7 || -365969735 * fw.lf >> 7 != -411750205 * MusicPatchNode.localPlayer.bo >> 7)) {
+         var17 = MusicPatchNode.localPlayer.ad * -1900490645;
          var18 = -1232093375 * jm.ib + (bz.lg * -1958669353 >> 7);
          var19 = 827352769 * Scenery.jc + (fw.lf * -365969735 >> 7);
-         PacketBitNode var20 = mi.an_renamed(ClientProt.cq, Client.in.au);
-         var20.aw.p4ME(1263827259 * Client.ly);
-         var20.aw.dy(var18);
-         var20.aw.dh(var17);
-         var20.aw.ds(var19);
-         Client.in.aw(var20);
+         PacketBitNode var20 = mi.an_renamed(ClientProt.cq, Client.packetWriter.au);
+         var20.bit.p4ME(1263827259 * Client.ly);
+         var20.bit.dy(var18);
+         var20.bit.dh(var17);
+         var20.bit.ds(var19);
+         Client.packetWriter.aw(var20);
       }
 
       if (!Client.uj) {
          var11 = eb.jx_renamed();
       } else {
-         if (aj.vb.ab()) {
-            var12 = -1727408401 * GameShell.mh;
+         if (aj.clientPreferences.ab()) {
+            var12 = -1727408401 * GameShell.plane;
          } else {
-            var13 = fq.getTileHeight(-2100544359 * bt.kx, ly.ke * -91399205, GameShell.mh * -1727408401);
-            if (var13 - gk.kv * 1772923873 < 800 && 0 != (Tiles.an[-1727408401 * GameShell.mh][-2100544359 * bt.kx >> 7][ly.ke * -91399205 >> 7] & 4)) {
-               var12 = GameShell.mh * -1727408401;
+            var13 = fq.getTileHeight(-2100544359 * bt.kx, ly.ke * -91399205, GameShell.plane * -1727408401);
+            if (var13 - gk.kv * 1772923873 < 800 && 0 != (Tiles.Tiles_renderFlags[-1727408401 * GameShell.plane][-2100544359 * bt.kx >> 7][ly.ke * -91399205 >> 7] & 4)) {
+               var12 = GameShell.plane * -1727408401;
             } else {
                var12 = 3;
             }
@@ -419,7 +419,7 @@ public class am {
       var17 = -2063363905 * MouseHandler.ay;
       var18 = -1224153235 * MouseHandler.ao;
       if (0 != MouseHandler.ar * -1222491879) {
-         var17 = 2020601481 * MouseHandler.am;
+         var17 = 2020601481 * MouseHandler.MouseHandler_lastButton;
          var18 = 1163896205 * MouseHandler.as;
       }
 
@@ -439,9 +439,9 @@ public class am {
       Rasterizer2D.Rasterizer2D_fillRectangle(var0, var1, var2, var3, 0);
       mj.hz_renamed();
       var19 = eu.at_renamed();
-      mz.af_renamed(ClientScriptFrame.bc.by);
-      in.ab.ab = Client.vi * 1241253503;
-      bx.js.draw(-2100544359 * bt.kx, 1772923873 * gk.kv, -91399205 * ly.ke, 1897923909 * WorldMapSectionType.ky, ek.kh * -1010818347, var11);
+      mz.af_renamed(ClientScriptFrame.client.by);
+      in.ab.ab = Client.viewportZoom * 1241253503;
+      bx.scene.draw(-2100544359 * bt.kx, 1772923873 * gk.kv, -91399205 * ly.ke, 1897923909 * WorldMapSectionType.ky, ek.kh * -1010818347, var11);
       mz.af_renamed(false);
       if (Client.ex) {
          Rasterizer2D.fb();
@@ -449,8 +449,8 @@ public class am {
 
       in.ab.ab = var19 * 1001249361;
       mj.hz_renamed();
-      bx.js.ag();
-      Client.ld = 0;
+      bx.scene.ag();
+      Client.overheadTextCount = 0;
       boolean var37 = false;
       int var21 = -1;
       int var22 = -1;
@@ -461,36 +461,36 @@ public class am {
       for(var25 = 0; var25 < 265474485 * Client.iw + var23; ++var25) {
          Object var26;
          if (var25 < var23) {
-            var26 = Client.mc[var24[var25]];
+            var26 = Client.players[var24[var25]];
             if (var24[var25] == -1565733637 * Client.nl) {
                var37 = true;
                var21 = var25;
                continue;
             }
 
-            if (MusicPatchNode.mi == var26) {
+            if (MusicPatchNode.localPlayer == var26) {
                var22 = var25;
                continue;
             }
          } else {
-            var26 = Client.iu[Client.iy[var25 - var23]];
+            var26 = Client.npcs[Client.iy[var25 - var23]];
          }
 
          bz.drawActor2d((Actor)var26, var25, var0, var1, var2, var3);
       }
 
       if (Client.md && -1 != var22) {
-         bz.drawActor2d(MusicPatchNode.mi, var22, var0, var1, var2, var3);
+         bz.drawActor2d(MusicPatchNode.localPlayer, var22, var0, var1, var2, var3);
       }
 
       if (var37) {
-         bz.drawActor2d(Client.mc[-1565733637 * Client.nl], var21, var0, var1, var2, var3);
+         bz.drawActor2d(Client.players[-1565733637 * Client.nl], var21, var0, var1, var2, var3);
       }
 
-      for(var25 = 0; var25 < Client.ld * 734988573; ++var25) {
+      for(var25 = 0; var25 < Client.overheadTextCount * 734988573; ++var25) {
          int var38 = Client.lj[var25];
          int var27 = Client.ll[var25];
-         int var28 = Client.lb[var25];
+         int var28 = Client.overheadTextXOffsets[var25];
          int var29 = Client.le[var25];
          boolean var30 = true;
 
@@ -498,7 +498,7 @@ public class am {
             var30 = false;
 
             for(int var31 = 0; var31 < var25; ++var31) {
-               if (var27 + 2 > Client.ll[var31] - Client.le[var31] && var27 - var29 < 2 + Client.ll[var31] && var38 - var28 < Client.lb[var31] + Client.lj[var31] && var38 + var28 > Client.lj[var31] - Client.lb[var31] && Client.ll[var31] - Client.le[var31] < var27) {
+               if (var27 + 2 > Client.ll[var31] - Client.le[var31] && var27 - var29 < 2 + Client.ll[var31] && var38 - var28 < Client.overheadTextXOffsets[var31] + Client.lj[var31] && var38 + var28 > Client.lj[var31] - Client.overheadTextXOffsets[var31] && Client.ll[var31] - Client.le[var31] < var27) {
                   var27 = Client.ll[var31] - Client.le[var31];
                   var30 = true;
                }
@@ -507,7 +507,7 @@ public class am {
 
          Client.mz = -846498395 * Client.lj[var25];
          Client.mu = (Client.ll[var25] = var27) * -1610031701;
-         String var39 = Client.lr[var25];
+         String var39 = Client.overheadText[var25];
          if (0 == Client.py * 395188193) {
             int var32 = 16776960;
             if (Client.lx[var25] < 6) {
@@ -561,25 +561,25 @@ public class am {
             }
 
             if (0 == Client.lo[var25]) {
-               fx.ip.drawCentered(var39, var0 + Client.mz * -1848743379, var1 + 318977283 * Client.mu, var32, 0);
+               fx.fontBold12.drawCentered(var39, var0 + Client.mz * -1848743379, var1 + 318977283 * Client.mu, var32, 0);
             }
 
             if (Client.lo[var25] == 1) {
-               fx.ip.drawCenteredWave(var39, -1848743379 * Client.mz + var0, Client.mu * 318977283 + var1, var32, 0, Client.mw * 2041464667);
+               fx.fontBold12.drawCenteredWave(var39, -1848743379 * Client.mz + var0, Client.mu * 318977283 + var1, var32, 0, Client.mw * 2041464667);
             }
 
             if (Client.lo[var25] == 2) {
-               fx.ip.drawCenteredWave2(var39, -1848743379 * Client.mz + var0, var1 + 318977283 * Client.mu, var32, 0, Client.mw * 2041464667);
+               fx.fontBold12.drawCenteredWave2(var39, -1848743379 * Client.mz + var0, var1 + 318977283 * Client.mu, var32, 0, Client.mw * 2041464667);
             }
 
             if (Client.lo[var25] == 3) {
-               fx.ip.drawCenteredShake(var39, var0 + Client.mz * -1848743379, var1 + 318977283 * Client.mu, var32, 0, 2041464667 * Client.mw, 150 - Client.lw[var25]);
+               fx.fontBold12.drawCenteredShake(var39, var0 + Client.mz * -1848743379, var1 + 318977283 * Client.mu, var32, 0, 2041464667 * Client.mw, 150 - Client.lw[var25]);
             }
 
             if (4 == Client.lo[var25]) {
-               var33 = (150 - Client.lw[var25]) * (fx.ip.stringWidth(var39) + 100) / 150;
+               var33 = (150 - Client.lw[var25]) * (fx.fontBold12.stringWidth(var39) + 100) / 150;
                Rasterizer2D.Rasterizer2D_expandClip(-1848743379 * Client.mz + var0 - 50, var1, var0 + Client.mz * -1848743379 + 50, var3 + var1);
-               fx.ip.draw(var39, 50 + var0 + -1848743379 * Client.mz - var33, var1 + Client.mu * 318977283, var32, 0);
+               fx.fontBold12.draw(var39, 50 + var0 + -1848743379 * Client.mz - var33, var1 + Client.mu * 318977283, var32, 0);
                Rasterizer2D.Rasterizer2D_setClip(var0, var1, var0 + var2, var1 + var3);
             }
 
@@ -592,12 +592,12 @@ public class am {
                   var34 = var33 - 125;
                }
 
-               Rasterizer2D.Rasterizer2D_expandClip(var0, var1 + 318977283 * Client.mu - fx.ip.al - 1, var2 + var0, 5 + 318977283 * Client.mu + var1);
-               fx.ip.drawCentered(var39, var0 + Client.mz * -1848743379, var1 + 318977283 * Client.mu + var34, var32, 0);
+               Rasterizer2D.Rasterizer2D_expandClip(var0, var1 + 318977283 * Client.mu - fx.fontBold12.ascent - 1, var2 + var0, 5 + 318977283 * Client.mu + var1);
+               fx.fontBold12.drawCentered(var39, var0 + Client.mz * -1848743379, var1 + 318977283 * Client.mu + var34, var32, 0);
                Rasterizer2D.Rasterizer2D_setClip(var0, var1, var2 + var0, var3 + var1);
             }
          } else {
-            fx.ip.drawCentered(var39, Client.mz * -1848743379 + var0, var1 + 318977283 * Client.mu, 16776960, 0);
+            fx.fontBold12.drawCentered(var39, Client.mz * -1848743379 + var0, var1 + 318977283 * Client.mu, 16776960, 0);
          }
       }
 
@@ -615,17 +615,17 @@ public class am {
 
       if (Client.da) {
          Rasterizer2D.Rasterizer2D_fillRectangle(var0, var1, var2, var3, 0);
-         jl.ij_renamed(Strings.ao, false);
+         jl.ij_renamed(Strings.Strings_loadingPleaseWait, false);
       }
 
    }
 
    static void kh_renamed(int var0, int var1, int var2, int var3) {
       Component var5 = SoundSystem.getComponentChild(var0, var1);
-      if (var5 != null && var5.fa != null) {
+      if (var5 != null && var5.onTimer != null) {
          ClientScriptEvent var6 = new ClientScriptEvent();
          var6.aw = var5;
-         var6.af = var5.fa;
+         var6.args0 = var5.onTimer;
          HeadbarUpdate.af_renamed(var6);
       }
 

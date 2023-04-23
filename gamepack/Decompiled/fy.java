@@ -37,11 +37,11 @@ public class fy extends fb {
          Component var4 = var0[var3];
          if (null != var4) {
             if (0 == 883712245 * var4.bg) {
-               if (var4.gz != null) {
-                  mq_renamed(var4.gz, var1);
+               if (var4.children != null) {
+                  mq_renamed(var4.children, var1);
                }
 
-               InterfaceParent var5 = (InterfaceParent)Client.oc.get((long)(1713081171 * var4.bs));
+               InterfaceParent var5 = (InterfaceParent)Client.interfaceParents.get((long)(1713081171 * var4.id));
                if (null != var5) {
                   ec.mu_renamed(var5.af * 944864121, var1);
                }
@@ -51,21 +51,21 @@ public class fy extends fb {
             if (var1 == 0 && null != var4.gt) {
                var6 = new ClientScriptEvent();
                var6.aw = var4;
-               var6.af = var4.gt;
+               var6.args0 = var4.gt;
                HeadbarUpdate.af_renamed(var6);
             }
 
             if (1 == var1 && var4.gu != null) {
-               if (var4.br * 55577617 >= 0) {
-                  Component var7 = gh.an_renamed(var4.bs * 1713081171);
-                  if (var7 == null || var7.gz == null || var4.br * 55577617 >= var7.gz.length || var7.gz[55577617 * var4.br] != var4) {
+               if (var4.childIndex * 55577617 >= 0) {
+                  Component var7 = gh.an_renamed(var4.id * 1713081171);
+                  if (var7 == null || var7.children == null || var4.childIndex * 55577617 >= var7.children.length || var7.children[55577617 * var4.childIndex] != var4) {
                      continue;
                   }
                }
 
                var6 = new ClientScriptEvent();
                var6.aw = var4;
-               var6.af = var4.gu;
+               var6.args0 = var4.gu;
                HeadbarUpdate.af_renamed(var6);
             }
          }
@@ -74,6 +74,6 @@ public class fy extends fb {
    }
 
    public static Clipboard ol_renamed() {
-      return ClientScriptFrame.bc.ax();
+      return ClientScriptFrame.client.ax();
    }
 }

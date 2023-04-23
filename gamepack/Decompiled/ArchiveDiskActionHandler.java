@@ -1,8 +1,8 @@
 public class ArchiveDiskActionHandler implements Runnable {
-   public static NodeDeque af = new NodeDeque();
-   public static NodeDeque an = new NodeDeque();
+   public static NodeDeque ArchiveDiskActionHandler_requestQueue = new NodeDeque();
+   public static NodeDeque ArchiveDiskActionHandler_responseQueue = new NodeDeque();
    static int aw = 0;
-   static Object ac = new Object();
+   static Object ArchiveDiskActionHandler_lock = new Object();
 
    ArchiveDiskActionHandler() {
    }
@@ -31,7 +31,7 @@ public class ArchiveDiskActionHandler implements Runnable {
                break;
             }
 
-            var0.at -= -1516355947;
+            var0.index -= -1516355947;
             if (var0.cl() != 0) {
                throw new IllegalStateException("");
             }
@@ -50,27 +50,27 @@ public class ArchiveDiskActionHandler implements Runnable {
       try {
          while(true) {
             ArchiveDiskAction var1;
-            synchronized(af) {
-               var1 = (ArchiveDiskAction)af.last();
+            synchronized(ArchiveDiskActionHandler_requestQueue) {
+               var1 = (ArchiveDiskAction)ArchiveDiskActionHandler_requestQueue.last();
             }
 
             if (var1 != null) {
-               if (-1329235479 * var1.af == 0) {
-                  var1.aw.write((int)var1.hr, var1.an, var1.an.length);
-                  synchronized(af) {
+               if (-1329235479 * var1.type == 0) {
+                  var1.archiveDisk.write((int)var1.key, var1.data, var1.data.length);
+                  synchronized(ArchiveDiskActionHandler_requestQueue) {
                      var1.remove();
                   }
-               } else if (var1.af * -1329235479 == 1) {
-                  var1.an = var1.aw.read((int)var1.hr);
-                  synchronized(af) {
-                     an.addFirst(var1);
+               } else if (var1.type * -1329235479 == 1) {
+                  var1.data = var1.archiveDisk.read((int)var1.key);
+                  synchronized(ArchiveDiskActionHandler_requestQueue) {
+                     ArchiveDiskActionHandler_responseQueue.addFirst(var1);
                   }
                }
 
-               synchronized(ac) {
+               synchronized(ArchiveDiskActionHandler_lock) {
                   if (aw * -1248352937 <= 1) {
                      aw = 0;
-                     ac.notifyAll();
+                     ArchiveDiskActionHandler_lock.notifyAll();
                      return;
                   }
 
@@ -78,10 +78,10 @@ public class ArchiveDiskActionHandler implements Runnable {
                }
             } else {
                PlayerAppearance.af(100L);
-               synchronized(ac) {
+               synchronized(ArchiveDiskActionHandler_lock) {
                   if (aw * -1248352937 <= 1) {
                      aw = 0;
-                     ac.notifyAll();
+                     ArchiveDiskActionHandler_lock.notifyAll();
                      return;
                   }
 

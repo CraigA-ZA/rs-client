@@ -49,30 +49,30 @@ public abstract class qg implements ko {
    }
 
    public static void af_renamed(PacketBit var0) {
-      ReflectionCheck var2 = (ReflectionCheck)bt.af.last();
+      ReflectionCheck var2 = (ReflectionCheck)bt.reflectionChecks.last();
       if (null != var2) {
-         int var3 = -1633313603 * var0.at;
-         var0.ba(var2.af * 1600861545);
+         int var3 = -1633313603 * var0.index;
+         var0.ba(var2.id * 1600861545);
 
-         for(int var4 = 0; var4 < var2.an * -153242533; ++var4) {
-            if (var2.ac[var4] != 0) {
-               var0.bu(var2.ac[var4]);
+         for(int var4 = 0; var4 < var2.size * -153242533; ++var4) {
+            if (var2.creationErrors[var4] != 0) {
+               var0.bu(var2.creationErrors[var4]);
             } else {
                try {
-                  int var5 = var2.aw[var4];
+                  int var5 = var2.operations[var4];
                   Field var6;
                   int var7;
                   if (var5 == 0) {
-                     var6 = var2.au[var4];
+                     var6 = var2.fields[var4];
                      var7 = var6.getInt((Object)null);
                      var0.bu(0);
                      var0.ba(var7);
                   } else if (var5 == 1) {
-                     var6 = var2.au[var4];
-                     var6.setInt((Object)null, var2.ab[var4]);
+                     var6 = var2.fields[var4];
+                     var6.setInt((Object)null, var2.intReplaceValues[var4]);
                      var0.bu(0);
                   } else if (var5 == 2) {
-                     var6 = var2.au[var4];
+                     var6 = var2.fields[var4];
                      var7 = var6.getModifiers();
                      var0.bu(0);
                      var0.ba(var7);
@@ -81,14 +81,14 @@ public abstract class qg implements ko {
                   Method var23;
                   if (var5 != 3) {
                      if (4 == var5) {
-                        var23 = var2.aq[var4];
+                        var23 = var2.methods[var4];
                         var7 = var23.getModifiers();
                         var0.bu(0);
                         var0.ba(var7);
                      }
                   } else {
-                     var23 = var2.aq[var4];
-                     byte[][] var24 = var2.al[var4];
+                     var23 = var2.methods[var4];
+                     byte[][] var24 = var2.arguments[var4];
                      Object[] var8 = new Object[var24.length];
 
                      for(int var9 = 0; var9 < var24.length; ++var9) {
@@ -157,9 +157,9 @@ public abstract class qg implements ko {
    }
 
    public static void ay_renamed() {
-      HitmarkType.ac.clear();
+      HitmarkType.HitmarkType_cached.clear();
       HitmarkType.au.clear();
-      HitmarkType.ab.clear();
+      HitmarkType.HitmarkType_cachedFonts.clear();
    }
 
    abstract void af(Packet var1, int var2);

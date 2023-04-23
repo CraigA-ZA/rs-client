@@ -6,7 +6,7 @@ import java.net.HttpURLConnection;
 import java.util.Map;
 
 public class aj {
-   static ClientPreferences vb;
+   static ClientPreferences clientPreferences;
    final int af;
    final String aw;
    final Map an;
@@ -52,7 +52,7 @@ public class aj {
 
    static int ac_renamed(int var0, int var1) {
       long var3 = (long)(var1 + (var0 << 16));
-      return ClientScript.ai != null && ClientScript.ai.hr == var3 ? 1510710551 * NetCache.ah.at / (NetCache.ah.al.length - ClientScript.ai.aw) + 1 : 0;
+      return ClientScript.NetCache_currentResponse != null && ClientScript.NetCache_currentResponse.key == var3 ? 1510710551 * NetCache.ah.index / (NetCache.ah.array.length - ClientScript.NetCache_currentResponse.padding) + 1 : 0;
    }
 
    public static int ag_renamed(int var0) {

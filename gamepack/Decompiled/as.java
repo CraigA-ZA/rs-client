@@ -29,7 +29,7 @@ public class as implements Callable {
       for(int var12 = 0; var12 < 8; ++var12) {
          for(var13 = 0; var13 < 8; ++var13) {
             if (var2 + var12 > 0 && var12 + var2 < 103 && var3 + var13 > 0 && var3 + var13 < 103) {
-               int[] var10000 = var10[var1].bj[var12 + var2];
+               int[] var10000 = var10[var1].flags[var12 + var2];
                var10000[var13 + var3] &= -16777217;
             }
          }

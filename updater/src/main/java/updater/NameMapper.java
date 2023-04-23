@@ -87,19 +87,19 @@ public class NameMapper {
                 }
 
                 // Search in all child classes of the parent class
-                Set<ClassNode> children = builder.getChildClassNodes(builder.getClassNode(parentName));
-                for (ClassNode child : children) {
-                    if (hasNewFieldName(child.name, name, descriptor)) {
-                        return fieldMap.get(new Pair(child.name, name + descriptor));
-                    }
-                    if (!visitedNodes.contains(child.name)) {
-                        visitedNodes.add(child.name);
-                        String childNewName = getNewFieldNameFromHierarchy(child.name, name, descriptor, visitedNodes);
-                        if (childNewName != null) {
-                            return childNewName;
-                        }
-                    }
-                }
+//                Set<ClassNode> children = builder.getChildClassNodes(builder.getClassNode(parentName));
+//                for (ClassNode child : children) {
+//                    if (hasNewFieldName(child.name, name, descriptor)) {
+//                        return fieldMap.get(new Pair(child.name, name + descriptor));
+//                    }
+//                    if (!visitedNodes.contains(child.name)) {
+//                        visitedNodes.add(child.name);
+//                        String childNewName = getNewFieldNameFromHierarchy(child.name, name, descriptor, visitedNodes);
+//                        if (childNewName != null) {
+//                            return childNewName;
+//                        }
+//                    }
+//                }
 
                 parentName = builder.getClassNode(parentName).superName;
             }

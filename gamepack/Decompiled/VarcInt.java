@@ -1,6 +1,6 @@
 public class VarcInt extends DualNode {
    public static EvictingDualNodeHashTable an = new EvictingDualNodeHashTable(64);
-   public boolean aw = false;
+   public boolean persist = false;
 
    public void decode(Packet var1) {
       while(true) {
@@ -15,7 +15,7 @@ public class VarcInt extends DualNode {
 
    void decode0(Packet var1, int var2) {
       if (2 == var2) {
-         this.aw = true;
+         this.persist = true;
       }
 
    }

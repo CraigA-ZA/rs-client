@@ -1,5 +1,5 @@
 public class WorldMapSection0 implements WorldMapSection {
-   static Task fh;
+   static Task js5SocketTask;
    int aa;
    int ab;
    int ac;
@@ -19,20 +19,20 @@ public class WorldMapSection0 implements WorldMapSection {
    }
 
    public void expandBounds(WorldMapArea var1) {
-      if (77939951 * var1.aq > this.au * -1555384875) {
-         var1.aq = this.au * -1093871237;
+      if (77939951 * var1.minX0 > this.au * -1555384875) {
+         var1.minX0 = this.au * -1093871237;
       }
 
-      if (1854846129 * var1.al < this.au * -1555384875) {
-         var1.al = -2069943195 * this.au;
+      if (1854846129 * var1.maxX0 < this.au * -1555384875) {
+         var1.maxX0 = -2069943195 * this.au;
       }
 
-      if (var1.at * 2059655157 > this.ab * -347980981) {
-         var1.at = 297795135 * this.ab;
+      if (var1.minY0 * 2059655157 > this.ab * -347980981) {
+         var1.minY0 = 297795135 * this.ab;
       }
 
-      if (-1086956513 * var1.aa < this.ab * -347980981) {
-         var1.aa = this.ab * -1984578731;
+      if (-1086956513 * var1.maxY0 < this.ab * -347980981) {
+         var1.maxY0 = this.ab * -1984578731;
       }
 
    }

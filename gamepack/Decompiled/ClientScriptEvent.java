@@ -1,16 +1,16 @@
 public class ClientScriptEvent extends Node {
    static int uw;
    static AbstractArchive be;
-   boolean an;
+   boolean boolean1;
    int ab;
    int ac;
    int al;
-   int ao = -1484849228;
+   int type0 = -1484849228;
    int at;
    int au;
    int ay;
-   Object[] af;
-   String aa;
+   Object[] args0;
+   String opbase;
    Component aq;
    Component aw;
 
@@ -19,11 +19,11 @@ public class ClientScriptEvent extends Node {
    }
 
    public void setArgs(Object[] var1) {
-      this.af = var1;
+      this.args0 = var1;
    }
 
    public void setType(int var1) {
-      this.ao = 941178879 * var1;
+      this.type0 = 941178879 * var1;
    }
 
    public void aw(Component var1) {

@@ -56,7 +56,7 @@ public class hq extends DualNode {
    }
 
    hq() {
-      this.ao = Strings.at;
+      this.ao = Strings.Strings_null;
       this.av = 1205654711;
       this.ar = 1159818229;
       this.am = -1581132706;
@@ -93,16 +93,16 @@ public class hq extends DualNode {
    }
 
    static ClientScript aw_renamed(int var0, int var1) {
-      ClientScript var3 = (ClientScript)ClientScript.af.get((long)(var0 << 16));
+      ClientScript var3 = (ClientScript)ClientScript.ClientScript_cached.get((long)(var0 << 16));
       if (var3 != null) {
          return var3;
       } else {
          String var4 = String.valueOf(var0);
-         int var5 = ey.fj.getGroupId(var4);
+         int var5 = ey.archive16.getGroupId(var4);
          if (var5 == -1) {
             return null;
          } else {
-            byte[] var6 = ey.fj.takeFileFlat(var5);
+            byte[] var6 = ey.archive16.takeFileFlat(var5);
             if (var6 != null) {
                if (var6.length <= 1) {
                   return null;
@@ -110,7 +110,7 @@ public class hq extends DualNode {
 
                var3 = bz.loadClientScript(var6);
                if (var3 != null) {
-                  ClientScript.af.put(var3, (long)(var0 << 16));
+                  ClientScript.ClientScript_cached.put(var3, (long)(var0 << 16));
                   return var3;
                }
             }
@@ -171,7 +171,7 @@ public class hq extends DualNode {
                }
 
                if (!af) {
-                  var1.at += -254100545 * var4;
+                  var1.index += -254100545 * var4;
                   return;
                }
 
@@ -202,7 +202,7 @@ public class hq extends DualNode {
          var4 = var1.g1();
          if (var4 > 0) {
             if (this.aa != null && !af) {
-               var1.at += var4 * 1262255402;
+               var1.index += var4 * 1262255402;
             } else {
                this.ay = null;
                this.aa = new int[var4];
@@ -294,7 +294,7 @@ public class hq extends DualNode {
 
             if (var2 < 35) {
                this.bi[var2 - 30] = var1.cw();
-               if (this.bi[var2 - 30].equalsIgnoreCase(Strings.ac)) {
+               if (this.bi[var2 - 30].equalsIgnoreCase(Strings.Strings_hidden)) {
                   if (var3 == -1) {
                      throw new IllegalStateException();
                   }
@@ -830,7 +830,7 @@ public class hq extends DualNode {
       if (-1 != 1411927451 * this.bf) {
          var2 = WorldMapSection1.af_renamed(1411927451 * this.bf);
       } else if (1685173773 * this.bq != -1) {
-         var2 = Varps.aw[this.bq * 1685173773];
+         var2 = Varps.Varps_main[this.bq * 1685173773];
       }
 
       int var3;
@@ -853,7 +853,7 @@ public class hq extends DualNode {
          if (null == var6) {
             var4 = var2;
          } else {
-            var4 = var6.af;
+            var4 = var6.integer;
          }
       }
 
@@ -883,15 +883,15 @@ public class hq extends DualNode {
 
    static int ae_renamed(int var0, ClientScript var1, boolean var2) {
       if (var0 == 3200) {
-         Interpreter.at -= 1281407919;
-         fh.he_renamed(Interpreter.al[Interpreter.at * -964267539], Interpreter.al[1 + -964267539 * Interpreter.at], Interpreter.al[Interpreter.at * -964267539 + 2]);
+         Interpreter.Interpreter_intStackSize -= 1281407919;
+         fh.he_renamed(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539], Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize], Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 2]);
          return 1;
       } else if (var0 == 3201) {
-         an.hf_renamed(Interpreter.al[(Interpreter.at -= 427135973) * -964267539]);
+         an.hf_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
          return 1;
       } else if (var0 == 3202) {
-         Interpreter.at -= 854271946;
-         CollisionMap.hy_renamed(Interpreter.al[Interpreter.at * -964267539], Interpreter.al[-964267539 * Interpreter.at + 1]);
+         Interpreter.Interpreter_intStackSize -= 854271946;
+         CollisionMap.hy_renamed(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539], Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1]);
          return 1;
       } else {
          dt var4;
@@ -908,24 +908,24 @@ public class hq extends DualNode {
                   int var11;
                   int var13;
                   if (3216 == var0) {
-                     var11 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+                     var11 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                      var13 = 0;
                      dt var17 = (dt)StructType.findEnumerated(ArchiveDiskAction.au_renamed(), var11);
                      if (var17 != null) {
                         var13 = dt.af != var17 ? 1 : 0;
                      }
 
-                     Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var13;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var13;
                      return 1;
                   } else if (3218 == var0) {
-                     var11 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+                     var11 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                      var13 = 0;
                      dk var16 = (dk)StructType.findEnumerated(em.au_renamed(), var11);
                      if (var16 != null) {
                         var13 = var16 != dk.af ? 1 : 0;
                      }
 
-                     Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var13;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var13;
                      return 1;
                   } else if (3217 != var0 && var0 != 3219) {
                      return 2;
@@ -936,7 +936,7 @@ public class hq extends DualNode {
                      boolean var15 = true;
                      int var8;
                      if (3217 == var0) {
-                        var8 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+                        var8 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                         var4 = (dt)StructType.findEnumerated(ArchiveDiskAction.au_renamed(), var8);
                         if (null == var4) {
                            throw new RuntimeException(String.format("Unrecognized device option %d", var8));
@@ -944,7 +944,7 @@ public class hq extends DualNode {
                      }
 
                      if (var0 == 3219) {
-                        var8 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+                        var8 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                         var5 = (dk)StructType.findEnumerated(em.au_renamed(), var8);
                         if (null == var5) {
                            throw new RuntimeException(String.format("Unrecognized game option %d", var8));
@@ -991,8 +991,8 @@ public class hq extends DualNode {
                         }
                      }
 
-                     Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var14;
-                     Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var7;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var14;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var7;
                      return 1;
                   }
                }
@@ -1001,7 +1001,7 @@ public class hq extends DualNode {
                var5 = dk.af;
                var9 = false;
                if (3214 == var0) {
-                  var7 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+                  var7 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                   var4 = (dt)StructType.findEnumerated(ArchiveDiskAction.au_renamed(), var7);
                   if (var4 == null) {
                      throw new RuntimeException(String.format("Unrecognized device option %d", var7));
@@ -1009,7 +1009,7 @@ public class hq extends DualNode {
                }
 
                if (var0 == 3215) {
-                  var7 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+                  var7 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                   var5 = (dk)StructType.findEnumerated(em.au_renamed(), var7);
                   if (null == var5) {
                      throw new RuntimeException(String.format("Unrecognized game option %d", var7));
@@ -1017,7 +1017,7 @@ public class hq extends DualNode {
                }
 
                if (3210 == var0) {
-                  var7 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+                  var7 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                   var4 = (dt)StructType.findEnumerated(ArchiveDiskAction.au_renamed(), var7);
                   if (var4 == null) {
                      var5 = (dk)StructType.findEnumerated(em.au_renamed(), var7);
@@ -1038,16 +1038,16 @@ public class hq extends DualNode {
                if (var5 == dk.af) {
                   switch (var4.aq * -2060299987) {
                      case 1:
-                        var6 = aj.vb.al() ? 1 : 0;
+                        var6 = aj.clientPreferences.al() ? 1 : 0;
                         break;
                      case 2:
-                        var6 = aj.vb.aa() ? 1 : 0;
+                        var6 = aj.clientPreferences.aa() ? 1 : 0;
                         break;
                      case 3:
-                        var6 = aj.vb.ax() ? 1 : 0;
+                        var6 = aj.clientPreferences.ax() ? 1 : 0;
                         break;
                      case 4:
-                        var6 = aj.vb.ag();
+                        var6 = aj.clientPreferences.ag();
                         break;
                      case 5:
                         var6 = da.mh_renamed();
@@ -1059,18 +1059,18 @@ public class hq extends DualNode {
                } else {
                   switch (var5.ab * 358560065) {
                      case 1:
-                        var6 = aj.vb.ab() ? 1 : 0;
+                        var6 = aj.clientPreferences.ab() ? 1 : 0;
                         break;
                      case 2:
-                        var7 = aj.vb.am();
+                        var7 = aj.clientPreferences.am();
                         var6 = Math.round((float)(var7 * 100) / 255.0F);
                         break;
                      case 3:
-                        var7 = aj.vb.aj();
+                        var7 = aj.clientPreferences.aj();
                         var6 = Math.round((float)(var7 * 100) / 127.0F);
                         break;
                      case 4:
-                        var7 = aj.vb.az();
+                        var7 = aj.clientPreferences.az();
                         var6 = Math.round((float)(100 * var7) / 127.0F);
                         break;
                      default:
@@ -1079,15 +1079,15 @@ public class hq extends DualNode {
                   }
                }
 
-               Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var6;
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var6;
                return 1;
             }
          } else {
             var4 = dt.af;
             var5 = dk.af;
-            var6 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+            var6 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
             if (3212 == var0) {
-               var7 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+               var7 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                var4 = (dt)StructType.findEnumerated(ArchiveDiskAction.au_renamed(), var7);
                if (var4 == null) {
                   throw new RuntimeException(String.format("Unrecognized device option %d", var7));
@@ -1095,7 +1095,7 @@ public class hq extends DualNode {
             }
 
             if (var0 == 3213) {
-               var7 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+               var7 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                var5 = (dk)StructType.findEnumerated(em.au_renamed(), var7);
                if (var5 == null) {
                   throw new RuntimeException(String.format("Unrecognized game option %d", var7));
@@ -1103,7 +1103,7 @@ public class hq extends DualNode {
             }
 
             if (var0 == 3209) {
-               var7 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+               var7 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                var4 = (dt)StructType.findEnumerated(ArchiveDiskAction.au_renamed(), var7);
                if (null == var4) {
                   var5 = (dk)StructType.findEnumerated(em.au_renamed(), var7);
@@ -1124,20 +1124,20 @@ public class hq extends DualNode {
             if (dk.af == var5) {
                switch (-2060299987 * var4.aq) {
                   case 1:
-                     aj.vb.aq(1 == var6);
+                     aj.clientPreferences.aq(1 == var6);
                      break;
                   case 2:
-                     aj.vb.at(1 == var6);
+                     aj.clientPreferences.at(1 == var6);
                      break;
                   case 3:
-                     aj.vb.ay(1 == var6);
+                     aj.clientPreferences.ay(1 == var6);
                      break;
                   case 4:
                      if (var6 < 0) {
                         var6 = 0;
                      }
 
-                     aj.vb.ai(var6);
+                     aj.clientPreferences.ai(var6);
                      break;
                   case 5:
                      cm.mc_renamed(var6);
@@ -1149,7 +1149,7 @@ public class hq extends DualNode {
             } else {
                switch (var5.ab * 358560065) {
                   case 1:
-                     aj.vb.au(var6 == 1);
+                     aj.clientPreferences.au(var6 == 1);
                      break;
                   case 2:
                      var6 = Math.min(Math.max(var6, 0), 100);

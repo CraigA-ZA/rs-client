@@ -1,14 +1,14 @@
 public class DualNode extends Node {
-   public long ef;
-   public DualNode ej;
-   public DualNode ez;
+   public long keyDual;
+   public DualNode nextDual;
+   public DualNode previousDual;
 
    public void removeDual() {
-      if (this.ej != null) {
-         this.ej.ez = this.ez;
-         this.ez.ej = this.ej;
-         this.ez = null;
-         this.ej = null;
+      if (this.nextDual != null) {
+         this.nextDual.previousDual = this.previousDual;
+         this.previousDual.nextDual = this.nextDual;
+         this.previousDual = null;
+         this.nextDual = null;
       }
    }
 }

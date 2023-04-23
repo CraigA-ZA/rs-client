@@ -36,7 +36,7 @@ public class gr {
    }
 
    public void an(gj var1) {
-      if (this.af * 5227141310100233771L == var1.hr && this.an * 3503076607081773961L == var1.au * -3803380935026318657L) {
+      if (this.af * 5227141310100233771L == var1.key && this.an * 3503076607081773961L == var1.au * -3803380935026318657L) {
          for(fu var3 = (fu)this.aw.last(); null != var3; var3 = (fu)this.aw.previous()) {
             var3.an(var1);
          }
@@ -48,12 +48,12 @@ public class gr {
    }
 
    static void kw_renamed() {
-      Client.ne = 0;
-      Client.nt = false;
-      Client.og[0] = Strings.jl;
-      Client.ok[0] = "";
-      Client.nh[0] = 1006;
-      Client.ox[0] = false;
-      Client.ne = 1153055221;
+      Client.menuOptionsCount = 0;
+      Client.isMiniMenuOpen = false;
+      Client.menuActions[0] = Strings.Strings_cancel;
+      Client.menuTargetNames[0] = "";
+      Client.menuArguments1[0] = 1006;
+      Client.menuShiftClick[0] = false;
+      Client.menuOptionsCount = 1153055221;
    }
 }

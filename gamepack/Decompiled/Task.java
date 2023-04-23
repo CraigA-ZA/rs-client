@@ -1,10 +1,10 @@
 public class Task {
-   Task af;
-   int au;
-   Object aq;
-   public int ab;
-   public volatile int ac = 0;
-   public volatile Object al;
+   Task next;
+   int type;
+   Object objectArgument;
+   public int intArgument;
+   public volatile int status = 0;
+   public volatile Object result;
 
    Task() {
    }

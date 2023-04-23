@@ -1,5 +1,5 @@
 public final class oh {
-   static GrandExchangeEvents vj;
+   static GrandExchangeEvents grandExchangeEvents;
    int an;
    final Object af;
 

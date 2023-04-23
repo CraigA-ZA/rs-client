@@ -23,8 +23,8 @@ public class iu implements Enumerated {
       String var2;
       if (var0 instanceof ClientError) {
          ClientError var3 = (ClientError)var0;
-         var2 = var3.ab + " | ";
-         var0 = var3.aq;
+         var2 = var3.message + " | ";
+         var0 = var3.cause;
       } else {
          var2 = "";
       }

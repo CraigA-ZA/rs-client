@@ -1,10 +1,10 @@
 public class GrandExchangeEvent {
    static long il;
-   String ac;
-   String au;
-   public final int af;
+   String string2;
+   String string1;
+   public final int world;
    public final long an;
-   public final GrandExchangeOffer aw;
+   public final GrandExchangeOffer grandExchangeOffer;
 
    static float af_renamed(ek var0, float var1) {
       if (var0 != null && var0.at() != 0) {
@@ -122,32 +122,32 @@ public class GrandExchangeEvent {
    }
 
    public static void au_renamed() {
-      HeadbarType.aw.clear();
+      HeadbarType.HeadbarType_cached.clear();
       HeadbarType.ac.clear();
    }
 
    GrandExchangeEvent(Packet var1, byte var2, int var3) {
-      this.ac = var1.cw();
-      this.au = var1.cw();
-      this.af = var1.cl() * -754309593;
+      this.string2 = var1.cw();
+      this.string1 = var1.cw();
+      this.world = var1.cl() * -754309593;
       this.an = var1.g8s() * -1320905308375172459L;
       int var4 = var1.g4s();
       int var5 = var1.g4s();
-      this.aw = new GrandExchangeOffer();
-      this.aw.au(2);
-      this.aw.ab(var2);
-      this.aw.aw = 945098885 * var4;
-      this.aw.ac = 275172041 * var5;
-      this.aw.au = 0;
-      this.aw.ab = 0;
-      this.aw.an = -2000800301 * var3;
+      this.grandExchangeOffer = new GrandExchangeOffer();
+      this.grandExchangeOffer.au(2);
+      this.grandExchangeOffer.ab(var2);
+      this.grandExchangeOffer.currentPrice = 945098885 * var4;
+      this.grandExchangeOffer.id = 275172041 * var5;
+      this.grandExchangeOffer.totalQuantity = 0;
+      this.grandExchangeOffer.currentQuantity = 0;
+      this.grandExchangeOffer.unitPrice = -2000800301 * var3;
    }
 
    public String af() {
-      return this.ac;
+      return this.string2;
    }
 
    public String an() {
-      return this.au;
+      return this.string1;
    }
 }

@@ -1,5 +1,5 @@
 public class qc {
-   static Archive fa;
+   static Archive archive4;
    float aa;
    float ab;
    float ac;
@@ -107,9 +107,9 @@ public class qc {
             int var11 = var2 * var10 + var3 * var9 >> 16;
             int var12 = var3 * var10 - var9 * var2 >> 16;
             if (var8 > 2500) {
-               var4.bi(var5.af * 1484188043 / 2 + var11 - var4.ab / 2, var5.an * 939947663 / 2 - var12 - var4.aq / 2, var0, var1, 1484188043 * var5.af, 939947663 * var5.an, var5.ac, var5.aw);
+               var4.bi(var5.height * 1484188043 / 2 + var11 - var4.ab / 2, var5.width * 939947663 / 2 - var12 - var4.aq / 2, var0, var1, 1484188043 * var5.height, 939947663 * var5.width, var5.xStarts, var5.xWidths);
             } else {
-               var4.ax(var11 + var0 + var5.af * 1484188043 / 2 - var4.ab / 2, 939947663 * var5.an / 2 + var1 - var12 - var4.aq / 2);
+               var4.ax(var11 + var0 + var5.height * 1484188043 / 2 - var4.ab / 2, 939947663 * var5.width / 2 + var1 - var12 - var4.aq / 2);
             }
 
          }

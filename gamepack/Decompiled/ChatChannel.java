@@ -1,8 +1,8 @@
 public class ChatChannel {
    static int cz;
    static Rasterizer3D jb;
-   Message[] an = new Message[100];
-   int aw;
+   Message[] messages = new Message[100];
+   int count;
 
    static final IterableNodeHashTable readStringIntParameters(Packet var0, IterableNodeHashTable var1) {
       int var3 = var0.g1();
@@ -32,11 +32,11 @@ public class ChatChannel {
    }
 
    Message addMessage(int var1, String var2, String var3, String var4) {
-      Message var6 = this.an[99];
+      Message var6 = this.messages[99];
 
-      for(int var7 = -1742939983 * this.aw; var7 > 0; --var7) {
+      for(int var7 = -1742939983 * this.count; var7 > 0; --var7) {
          if (var7 != 100) {
-            this.an[var7] = this.an[var7 - 1];
+            this.messages[var7] = this.messages[var7 - 1];
          }
       }
 
@@ -48,20 +48,20 @@ public class ChatChannel {
          var6.set(var1, var2, var4, var3);
       }
 
-      this.an[0] = var6;
-      if (this.aw * -1742939983 < 100) {
-         this.aw += 632451153;
+      this.messages[0] = var6;
+      if (this.count * -1742939983 < 100) {
+         this.count += 632451153;
       }
 
       return var6;
    }
 
    Message getMessage(int var1) {
-      return var1 >= 0 && var1 < -1742939983 * this.aw ? this.an[var1] : null;
+      return var1 >= 0 && var1 < -1742939983 * this.count ? this.messages[var1] : null;
    }
 
    int size() {
-      return this.aw * -1742939983;
+      return this.count * -1742939983;
    }
 
    public static void bq_renamed(Component var0, int var1, int var2) {

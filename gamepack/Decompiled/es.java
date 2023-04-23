@@ -1,5 +1,5 @@
 public class es extends AbstractUserComparator {
-   static ClanChat sb;
+   static ClanChat clanChat;
    final boolean af;
 
    public es(boolean var1) {
@@ -7,11 +7,11 @@ public class es extends AbstractUserComparator {
    }
 
    int af(Buddy var1, Buddy var2) {
-      if (0 != 177258591 * var1.au) {
-         if (var2.au * 177258591 == 0) {
+      if (0 != 177258591 * var1.world0) {
+         if (var2.world0 * 177258591 == 0) {
             return this.af ? -1 : 1;
          }
-      } else if (177258591 * var2.au != 0) {
+      } else if (177258591 * var2.world0 != 0) {
          return this.af ? 1 : -1;
       }
 
@@ -28,7 +28,7 @@ public class es extends AbstractUserComparator {
 
    static void hx_renamed(Archive var0, String var1) {
       ArchiveLoader var3 = new ArchiveLoader(var0, var1);
-      Client.we.add(var3);
+      Client.archiveLoaders.add(var3);
       Client.ws += 1472564749 * var3.aw;
    }
 }

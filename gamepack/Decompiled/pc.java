@@ -38,9 +38,9 @@ public class pc {
    }
 
    static void af_renamed(java.awt.Component var0) {
-      var0.addMouseListener(MouseHandler.ac);
-      var0.addMouseMotionListener(MouseHandler.ac);
-      var0.addFocusListener(MouseHandler.ac);
+      var0.addMouseListener(MouseHandler.MouseHandler_instance);
+      var0.addMouseMotionListener(MouseHandler.MouseHandler_instance);
+      var0.addFocusListener(MouseHandler.MouseHandler_instance);
    }
 
    public void ac(String var1) {

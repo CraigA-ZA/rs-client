@@ -2,13 +2,13 @@ public abstract class AbstractRasterProvider {
    protected float[] ab;
    public int ac;
    public int au;
-   public int[] aw;
+   public int[] pixels;
 
    protected AbstractRasterProvider() {
    }
 
    public final void ar() {
-      Rasterizer2D.Rasterizer2D_replace(this.aw, 1313069155 * this.ac, 1695726685 * this.au, this.ab);
+      Rasterizer2D.Rasterizer2D_replace(this.pixels, 1313069155 * this.ac, 1695726685 * this.au, this.ab);
    }
 
    public final void am(boolean var1) {

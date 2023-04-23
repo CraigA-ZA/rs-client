@@ -2,7 +2,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ne implements Enumerated {
-   public static String ak;
+   public static String osName;
    static String gb;
    static final ne aa;
    static final ne ab;
@@ -77,8 +77,8 @@ public class ne implements Enumerated {
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
          PlayerType var4 = var2[var3];
-         if (var4.am * 2138745227 != -1 && var0.startsWith(ArchiveDiskActionHandler.af_renamed(var4.am * 2138745227))) {
-            var0 = var0.substring(6 + Integer.toString(var4.am * 2138745227).length());
+         if (var4.id * 2138745227 != -1 && var0.startsWith(ArchiveDiskActionHandler.af_renamed(var4.id * 2138745227))) {
+            var0 = var0.substring(6 + Integer.toString(var4.id * 2138745227).length());
             break;
          }
       }

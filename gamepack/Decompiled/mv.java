@@ -1,5 +1,5 @@
 public class mv {
-   static Huffman af;
+   static Huffman huffman;
    static IndexedSprite dv;
 
    mv() throws Throwable {

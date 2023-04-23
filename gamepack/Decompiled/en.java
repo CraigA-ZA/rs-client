@@ -1,5 +1,5 @@
 public class en extends AbstractUserComparator {
-   static PlatformInfo vz;
+   static PlatformInfo platformInfo;
    final boolean af;
 
    public en(boolean var1) {
@@ -7,8 +7,8 @@ public class en extends AbstractUserComparator {
    }
 
    int af(Buddy var1, Buddy var2) {
-      if (177258591 * var1.au == -453810525 * Client.bw && 177258591 * var2.au == Client.bw * -453810525) {
-         return this.af ? 1907692493 * var1.ab - 1907692493 * var2.ab : 1907692493 * var2.ab - var1.ab * 1907692493;
+      if (177258591 * var1.world0 == -453810525 * Client.bw && 177258591 * var2.world0 == Client.bw * -453810525) {
+         return this.af ? 1907692493 * var1.int2 - 1907692493 * var2.int2 : 1907692493 * var2.int2 - var1.int2 * 1907692493;
       } else {
          return this.ao(var1, var2);
       }

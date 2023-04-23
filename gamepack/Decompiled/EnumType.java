@@ -16,20 +16,20 @@ import java.util.Random;
 
 public class EnumType extends DualNode {
    static int ay;
-   static EvictingDualNodeHashTable an = new EvictingDualNodeHashTable(64);
-   static AbstractArchive af;
-   public char ac;
-   public char aw;
+   static EvictingDualNodeHashTable EnumType_cached = new EvictingDualNodeHashTable(64);
+   static AbstractArchive EnumType_archive;
+   public char outputtype;
+   public char inputtype;
    public int ab;
-   public int aq;
-   public int[] al;
-   public int[] at;
-   public String au;
-   public String[] aa;
+   public int outputcount;
+   public int[] keys;
+   public int[] intvals;
+   public String defaultstr;
+   public String[] strvals;
 
    EnumType() {
-      this.au = Strings.at;
-      this.aq = 0;
+      this.defaultstr = Strings.Strings_null;
+      this.outputcount = 0;
    }
 
    public static void af_renamed(AbstractArchive var0) {
@@ -41,7 +41,7 @@ public class EnumType extends DualNode {
          return var2;
       } else {
          ObjectNode var4 = (ObjectNode)var0.get((long)var1);
-         return var4 == null ? var2 : (String)var4.af;
+         return var4 == null ? var2 : (String)var4.obj;
       }
    }
 
@@ -58,32 +58,32 @@ public class EnumType extends DualNode {
 
    void decode0(Packet var1, int var2) {
       if (var2 == 1) {
-         this.aw = (char)var1.g1();
+         this.inputtype = (char)var1.g1();
       } else if (2 == var2) {
-         this.ac = (char)var1.g1();
+         this.outputtype = (char)var1.g1();
       } else if (var2 == 3) {
-         this.au = var1.cw();
+         this.defaultstr = var1.cw();
       } else if (var2 == 4) {
          this.ab = var1.g4s() * 740445373;
       } else {
          int var4;
          if (var2 == 5) {
-            this.aq = var1.cl() * -408757769;
-            this.al = new int[-1067065 * this.aq];
-            this.aa = new String[-1067065 * this.aq];
+            this.outputcount = var1.cl() * -408757769;
+            this.keys = new int[-1067065 * this.outputcount];
+            this.strvals = new String[-1067065 * this.outputcount];
 
-            for(var4 = 0; var4 < -1067065 * this.aq; ++var4) {
-               this.al[var4] = var1.g4s();
-               this.aa[var4] = var1.cw();
+            for(var4 = 0; var4 < -1067065 * this.outputcount; ++var4) {
+               this.keys[var4] = var1.g4s();
+               this.strvals[var4] = var1.cw();
             }
          } else if (6 == var2) {
-            this.aq = var1.cl() * -408757769;
-            this.al = new int[-1067065 * this.aq];
-            this.at = new int[this.aq * -1067065];
+            this.outputcount = var1.cl() * -408757769;
+            this.keys = new int[-1067065 * this.outputcount];
+            this.intvals = new int[this.outputcount * -1067065];
 
-            for(var4 = 0; var4 < this.aq * -1067065; ++var4) {
-               this.al[var4] = var1.g4s();
-               this.at[var4] = var1.g4s();
+            for(var4 = 0; var4 < this.outputcount * -1067065; ++var4) {
+               this.keys[var4] = var1.g4s();
+               this.intvals[var4] = var1.g4s();
             }
          }
       }
@@ -91,17 +91,17 @@ public class EnumType extends DualNode {
    }
 
    public int size() {
-      return -1067065 * this.aq;
+      return -1067065 * this.outputcount;
    }
 
    static void ab_renamed(GameShell var0, Font var1, Font var2) {
       if (cz.di) {
          bz.ag_renamed(var0);
       } else {
-         if ((1 == -1222491879 * MouseHandler.ar || !su.ev && 4 == MouseHandler.ar * -1222491879) && 2020601481 * MouseHandler.am >= 765 + cz.aw * 578342931 - 50 && 1163896205 * MouseHandler.as >= 453) {
-            aj.vb.at(!aj.vb.aa());
-            if (!aj.vb.aa()) {
-               sh.an_renamed(pj.fw, "scape main", "", 255, false);
+         if ((1 == -1222491879 * MouseHandler.ar || !su.ev && 4 == MouseHandler.ar * -1222491879) && 2020601481 * MouseHandler.MouseHandler_lastButton >= 765 + cz.aw * 578342931 - 50 && 1163896205 * MouseHandler.as >= 453) {
+            aj.clientPreferences.at(!aj.clientPreferences.aa());
+            if (!aj.clientPreferences.aa()) {
+               sh.an_renamed(pj.archive6, "scape main", "", 255, false);
             } else {
                FloorUnderlayType.au_renamed();
             }
@@ -114,14 +114,14 @@ public class EnumType extends DualNode {
 
             long var4 = Formatting.af_renamed();
             boolean var6;
-            if (null != Client.we && Client.wy * -397497277 < Client.we.size()) {
+            if (null != Client.archiveLoaders && Client.wy * -397497277 < Client.archiveLoaders.size()) {
                while(true) {
-                  if (-397497277 * Client.wy >= Client.we.size()) {
+                  if (-397497277 * Client.wy >= Client.archiveLoaders.size()) {
                      var6 = true;
                      break;
                   }
 
-                  ArchiveLoader var7 = (ArchiveLoader)Client.we.get(-397497277 * Client.wy);
+                  ArchiveLoader var7 = (ArchiveLoader)Client.archiveLoaders.get(-397497277 * Client.wy);
                   if (!var7.af()) {
                      var6 = false;
                      break;
@@ -150,7 +150,7 @@ public class EnumType extends DualNode {
                      var8 = 463;
                      var9 = 100;
                      byte var10 = 35;
-                     if (2020601481 * MouseHandler.am >= var40 && 2020601481 * MouseHandler.am <= var40 + var9 && MouseHandler.as * 1163896205 >= var8 && MouseHandler.as * 1163896205 <= var8 + var10) {
+                     if (2020601481 * MouseHandler.MouseHandler_lastButton >= var40 && 2020601481 * MouseHandler.MouseHandler_lastButton <= var40 + var9 && MouseHandler.as * 1163896205 >= var8 && MouseHandler.as * 1163896205 <= var8 + var10) {
                         cz.ar_renamed();
                         return;
                      }
@@ -162,7 +162,7 @@ public class EnumType extends DualNode {
                }
 
                var40 = -1222491879 * MouseHandler.ar;
-               var8 = 2020601481 * MouseHandler.am;
+               var8 = 2020601481 * MouseHandler.MouseHandler_lastButton;
                var9 = MouseHandler.as * 1163896205;
                if (var40 == 0) {
                   var8 = -2063363905 * MouseHandler.ay;
@@ -195,10 +195,10 @@ public class EnumType extends DualNode {
                   var13 = fy.az * 950254081 + 80;
                   if (var40 == 1 && var8 >= var13 - 75 && var8 <= 75 + var13 && var9 >= var44 - 20 && var9 <= 20 + var44 || var75) {
                      if ((-205173751 * Client.ce & 33554432) != 0) {
-                        cz.ci = "";
-                        cz.cs = Strings.jo;
-                        cz.cc = Strings.jk;
-                        cz.cn = Strings.jq;
+                        cz.Login_response0 = "";
+                        cz.Login_response1 = Strings.Strings_thisIsABetaWorld;
+                        cz.Login_response2 = Strings.Strings_yourNormalAccountWillNotBeAffected;
+                        cz.Login_response3 = Strings.jq;
                         ee.ak_renamed(1);
                         if (Client.hb && null != cz.ca && cz.ca.length() > 0) {
                            cz.dm = 1153152795;
@@ -207,16 +207,16 @@ public class EnumType extends DualNode {
                         }
                      } else if ((-205173751 * Client.ce & 4) != 0) {
                         if ((-205173751 * Client.ce & 1024) != 0) {
-                           cz.cs = Strings.ji;
-                           cz.cc = Strings.jg;
-                           cz.cn = Strings.jx;
+                           cz.Login_response1 = Strings.Strings_thisIsAHighRiskPvpWorld;
+                           cz.Login_response2 = Strings.Strings_playersCanAttackEachOtherAlmostEverywhere;
+                           cz.Login_response3 = Strings.Strings_andTheProtectItemPrayerWontWork;
                         } else {
-                           cz.cs = Strings.ij;
-                           cz.cc = Strings.id;
-                           cz.cn = Strings.it;
+                           cz.Login_response1 = Strings.Strings_thisIsAPvpWorld;
+                           cz.Login_response2 = Strings.Strings_playersCanAttackEachOther;
+                           cz.Login_response3 = Strings.Strings_almostEverywhere;
                         }
 
-                        cz.ci = Strings.im;
+                        cz.Login_response0 = Strings.Strings_warning;
                         ee.ak_renamed(1);
                         if (Client.hb && cz.ca != null && cz.ca.length() > 0) {
                            cz.dm = 1153152795;
@@ -224,10 +224,10 @@ public class EnumType extends DualNode {
                            cz.dm = 0;
                         }
                      } else if ((Client.ce * -205173751 & 1024) != 0) {
-                        cz.cs = Strings.ix;
-                        cz.cc = Strings.ib;
-                        cz.cn = Strings.jc;
-                        cz.ci = Strings.im;
+                        cz.Login_response1 = Strings.Strings_thisIsAHighRiskWorld;
+                        cz.Login_response2 = Strings.Strings_theProtectItemPrayerWill;
+                        cz.Login_response3 = Strings.Strings_notWorkOnThisWorld;
+                        cz.Login_response0 = Strings.Strings_warning;
                         ee.ak_renamed(1);
                         if (Client.hb && cz.ca != null && cz.ca.length() > 0) {
                            cz.dm = 1153152795;
@@ -306,16 +306,16 @@ public class EnumType extends DualNode {
                         if (1 == var40 && var8 >= var13 - 75 && var8 <= 75 + var13 && var9 >= var44 - 20 && var9 <= var44 + 20) {
                            cz.ca = cz.ca.trim();
                            if (cz.ca.length() == 0) {
-                              he.ax_renamed(Strings.em, Strings.ew, Strings.ex);
+                              he.ax_renamed(Strings.em, Strings.Strings_pleaseEnterYourUsername, Strings.ex);
                               return;
                            }
 
                            if (cz.cu.length() == 0) {
-                              he.ax_renamed(Strings.eh, Strings.ek, Strings.ey);
+                              he.ax_renamed(Strings.eh, Strings.Strings_pleaseEnterYourPassword, Strings.ey);
                               return;
                            }
 
-                           he.ax_renamed(Strings.jm, Strings.jn, Strings.jd);
+                           he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
                            ag.hb_renamed(false);
                            fd.hi_renamed(20);
                            return;
@@ -336,8 +336,8 @@ public class EnumType extends DualNode {
                         cz.cj = var8 >= var13 && var8 < var13 + ChatChannel.cz * 1381277089 && var9 >= var44 && var9 < FloorUnderlayType.cw * -1649414567 + var44;
                         if (var40 == 1 && cz.cj) {
                            Client.hb = !Client.hb;
-                           if (!Client.hb && aj.vb.ae() != null) {
-                              aj.vb.ad((String)null);
+                           if (!Client.hb && aj.clientPreferences.ae() != null) {
+                              aj.clientPreferences.ad((String)null);
                            }
                         }
 
@@ -345,10 +345,10 @@ public class EnumType extends DualNode {
                         var44 = 277;
                         cz.ch = var8 >= var13 && var8 < ChatChannel.cz * 1381277089 + var13 && var9 >= var44 && var9 < var44 + FloorUnderlayType.cw * -1649414567;
                         if (1 == var40 && cz.ch) {
-                           aj.vb.aq(!aj.vb.al());
-                           if (!aj.vb.al()) {
+                           aj.clientPreferences.aq(!aj.clientPreferences.al());
+                           if (!aj.clientPreferences.al()) {
                               cz.ca = "";
-                              aj.vb.ad((String)null);
+                              aj.clientPreferences.ad((String)null);
                               if (Client.hb && null != cz.ca && cz.ca.length() > 0) {
                                  cz.dm = 1153152795;
                               } else {
@@ -410,16 +410,16 @@ public class EnumType extends DualNode {
                                     if (546317845 * var11.ai == 84) {
                                        cz.ca = cz.ca.trim();
                                        if (cz.ca.length() == 0) {
-                                          he.ax_renamed(Strings.em, Strings.ew, Strings.ex);
+                                          he.ax_renamed(Strings.em, Strings.Strings_pleaseEnterYourUsername, Strings.ex);
                                           return;
                                        }
 
                                        if (cz.cu.length() == 0) {
-                                          he.ax_renamed(Strings.eh, Strings.ek, Strings.ey);
+                                          he.ax_renamed(Strings.eh, Strings.Strings_pleaseEnterYourPassword, Strings.ey);
                                           return;
                                        }
 
-                                       he.ax_renamed(Strings.jm, Strings.jn, Strings.jd);
+                                       he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
                                        ag.hb_renamed(false);
                                        fd.hi_renamed(20);
                                        return;
@@ -428,7 +428,7 @@ public class EnumType extends DualNode {
 
                                  if ((var11.av(82) || var11.av(87)) && 67 == var11.ai * 546317845) {
                                     Clipboard var55 = Toolkit.getDefaultToolkit().getSystemClipboard();
-                                    var61 = var55.getContents(ClientScriptFrame.bc);
+                                    var61 = var55.getContents(ClientScriptFrame.client);
                                     var50 = 20 - cz.cu.length();
                                     break;
                                  }
@@ -511,7 +511,7 @@ public class EnumType extends DualNode {
                                  hp.ct = Integer.parseInt(Messages.cp) * -209153533;
                                  Messages.cp = "";
                                  ag.hb_renamed(true);
-                                 he.ax_renamed(Strings.jm, Strings.jn, Strings.jd);
+                                 he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
                                  fd.hi_renamed(20);
                                  return;
                               }
@@ -564,7 +564,7 @@ public class EnumType extends DualNode {
                                        hp.ct = Integer.parseInt(Messages.cp) * -209153533;
                                        Messages.cp = "";
                                        ag.hb_renamed(true);
-                                       he.ax_renamed(Strings.jm, Strings.jn, Strings.jd);
+                                       he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
                                        fd.hi_renamed(20);
                                        return;
                                     }
@@ -627,17 +627,17 @@ public class EnumType extends DualNode {
 
                                        Packet var77 = new Packet(var73);
                                        var77.bh(var18);
-                                       var77.at = var73 * -1516355947;
+                                       var77.index = var73 * -1516355947;
                                        var77.tinyKeyEncryptAll(var69);
-                                       Packet var82 = new Packet(var77.at * -1633313603 + -1633313603 * var62.at + var58.at * -1633313603 + 5);
+                                       Packet var82 = new Packet(var77.index * -1633313603 + -1633313603 * var62.index + var58.index * -1633313603 + 5);
                                        var82.bu(2);
-                                       var82.bu(var58.at * -1633313603);
-                                       var82.cs(var58.al, 0, -1633313603 * var58.at);
-                                       var82.bu(-1633313603 * var62.at);
-                                       var82.cs(var62.al, 0, var62.at * -1633313603);
-                                       var82.p2(-1633313603 * var77.at);
-                                       var82.cs(var77.al, 0, -1633313603 * var77.at);
-                                       String var80 = WorldMapSectionType.af_renamed(var82.al);
+                                       var82.bu(var58.index * -1633313603);
+                                       var82.cs(var58.array, 0, -1633313603 * var58.index);
+                                       var82.bu(-1633313603 * var62.index);
+                                       var82.cs(var62.array, 0, var62.index * -1633313603);
+                                       var82.p2(-1633313603 * var77.index);
+                                       var82.cs(var77.array, 0, -1633313603 * var77.index);
+                                       String var80 = WorldMapSectionType.af_renamed(var82.array);
 
                                        try {
                                           URL var81 = new URL(InvType.nb_renamed("services", false) + "m=accountappeal/login.ws");
@@ -652,11 +652,11 @@ public class EnumType extends DualNode {
                                           var82 = new Packet(new byte[1000]);
 
                                           while(true) {
-                                             int var87 = var86.read(var82.al, -1633313603 * var82.at, 1000 - var82.at * -1633313603);
+                                             int var87 = var86.read(var82.array, -1633313603 * var82.index, 1000 - var82.index * -1633313603);
                                              if (var87 == -1) {
                                                 var85.close();
                                                 var86.close();
-                                                String var88 = new String(var82.al);
+                                                String var88 = new String(var82.array);
                                                 if (var88.startsWith("OFFLINE")) {
                                                    var50 = 4;
                                                 } else if (var88.startsWith("WRONG")) {
@@ -668,11 +668,11 @@ public class EnumType extends DualNode {
                                                 } else {
                                                    var82.tinyKeyDecryptAll(var69);
 
-                                                   while(-1633313603 * var82.at > 0 && var82.al[var82.at * -1633313603 - 1] == 0) {
-                                                      var82.at -= -1516355947;
+                                                   while(-1633313603 * var82.index > 0 && var82.array[var82.index * -1633313603 - 1] == 0) {
+                                                      var82.index -= -1516355947;
                                                    }
 
-                                                   var88 = new String(var82.al, 0, var82.at * -1633313603);
+                                                   var88 = new String(var82.array, 0, var82.index * -1633313603);
                                                    if (dj.an_renamed(var88)) {
                                                       Ignored.af_renamed(var88, true, false);
                                                       var50 = 2;
@@ -683,8 +683,8 @@ public class EnumType extends DualNode {
                                                 break;
                                              }
 
-                                             var82.at += -1516355947 * var87;
-                                             if (var82.at * -1633313603 >= 1000) {
+                                             var82.index += -1516355947 * var87;
+                                             if (var82.index * -1633313603 >= 1000) {
                                                 var50 = 5;
                                                 break;
                                              }
@@ -801,17 +801,17 @@ public class EnumType extends DualNode {
 
                                              Packet var26 = new Packet(var25);
                                              var26.bh(var20);
-                                             var26.at = var25 * -1516355947;
+                                             var26.index = var25 * -1516355947;
                                              var26.tinyKeyEncryptAll(var24);
-                                             Packet var27 = new Packet(5 + var22.at * -1633313603 + -1633313603 * var23.at + -1633313603 * var26.at);
+                                             Packet var27 = new Packet(5 + var22.index * -1633313603 + -1633313603 * var23.index + -1633313603 * var26.index);
                                              var27.bu(2);
-                                             var27.bu(-1633313603 * var22.at);
-                                             var27.cs(var22.al, 0, var22.at * -1633313603);
-                                             var27.bu(var23.at * -1633313603);
-                                             var27.cs(var23.al, 0, var23.at * -1633313603);
-                                             var27.p2(var26.at * -1633313603);
-                                             var27.cs(var26.al, 0, var26.at * -1633313603);
-                                             String var28 = WorldMapSectionType.af_renamed(var27.al);
+                                             var27.bu(-1633313603 * var22.index);
+                                             var27.cs(var22.array, 0, var22.index * -1633313603);
+                                             var27.bu(var23.index * -1633313603);
+                                             var27.cs(var23.array, 0, var23.index * -1633313603);
+                                             var27.p2(var26.index * -1633313603);
+                                             var27.cs(var26.array, 0, var26.index * -1633313603);
+                                             String var28 = WorldMapSectionType.af_renamed(var27.array);
 
                                              try {
                                                 URL var29 = new URL(InvType.nb_renamed("services", false) + "m=accountappeal/login.ws");
@@ -826,11 +826,11 @@ public class EnumType extends DualNode {
                                                 var27 = new Packet(new byte[1000]);
 
                                                 while(true) {
-                                                   int var33 = var32.read(var27.al, var27.at * -1633313603, 1000 - var27.at * -1633313603);
+                                                   int var33 = var32.read(var27.array, var27.index * -1633313603, 1000 - var27.index * -1633313603);
                                                    if (var33 == -1) {
                                                       var31.close();
                                                       var32.close();
-                                                      String var89 = new String(var27.al);
+                                                      String var89 = new String(var27.array);
                                                       if (var89.startsWith("OFFLINE")) {
                                                          var19 = 4;
                                                       } else if (var89.startsWith("WRONG")) {
@@ -842,11 +842,11 @@ public class EnumType extends DualNode {
                                                       } else {
                                                          var27.tinyKeyDecryptAll(var24);
 
-                                                         while(var27.at * -1633313603 > 0 && 0 == var27.al[var27.at * -1633313603 - 1]) {
-                                                            var27.at -= -1516355947;
+                                                         while(var27.index * -1633313603 > 0 && 0 == var27.array[var27.index * -1633313603 - 1]) {
+                                                            var27.index -= -1516355947;
                                                          }
 
-                                                         var89 = new String(var27.al, 0, var27.at * -1633313603);
+                                                         var89 = new String(var27.array, 0, var27.index * -1633313603);
                                                          if (dj.an_renamed(var89)) {
                                                             Ignored.af_renamed(var89, true, false);
                                                             var19 = 2;
@@ -857,8 +857,8 @@ public class EnumType extends DualNode {
                                                       break;
                                                    }
 
-                                                   var27.at += -1516355947 * var33;
-                                                   if (var27.at * -1633313603 >= 1000) {
+                                                   var27.index += -1516355947 * var33;
+                                                   if (var27.index * -1633313603 >= 1000) {
                                                       var19 = 5;
                                                       break;
                                                    }
@@ -1131,7 +1131,7 @@ public class EnumType extends DualNode {
                                  var12 = cz.ak * 678588245 + 180;
                                  var45 = 209;
                                  if (546317845 * var41.ai == 84 || 1 == var40 && var8 >= var12 - 109 && var8 <= 109 + var12 && var9 >= var45 && var9 <= var45 + 68) {
-                                    he.ax_renamed(Strings.jm, Strings.jn, Strings.jd);
+                                    he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
                                     Client.gy = sr.an;
                                     ag.hb_renamed(false);
                                     fd.hi_renamed(20);
@@ -1157,7 +1157,7 @@ public class EnumType extends DualNode {
                                  var12 = fy.az * 950254081 - 80;
                                  var45 = 311;
                                  if (1 == var40 && var8 >= var12 - 75 && var8 <= var12 + 75 && var9 >= var45 - 20 && var9 <= var45 + 20) {
-                                    aj.vb.ap(Client.cl * 976454555);
+                                    aj.clientPreferences.ap(Client.cl * 976454555);
                                     cz.ay_renamed(true);
                                  }
 
@@ -1263,7 +1263,7 @@ public class EnumType extends DualNode {
    static final void ic_renamed() {
       for(int var1 = 0; var1 < 265474485 * Client.iw; ++var1) {
          int var2 = Client.iy[var1];
-         Npc var3 = Client.iu[var2];
+         Npc var3 = Client.npcs[var2];
          if (null != var3) {
             ReflectionCheck.ii_renamed(var3, 1458410691 * var3.af.al);
          }
@@ -1272,7 +1272,7 @@ public class EnumType extends DualNode {
    }
 
    static final void jb_renamed(lm var0) {
-      PacketBit var2 = Client.in.ab;
+      PacketBit var2 = Client.packetWriter.bit;
       int var3;
       int var4;
       int var5;
@@ -1307,9 +1307,9 @@ public class EnumType extends DualNode {
             var6 = 64 + var6 * 128;
             var15 = 64 + var15 * 128;
             var11 = 128 * var11 + 64;
-            Projectile var43 = new Projectile(var8, -1727408401 * GameShell.mh, var5, var6, fq.getTileHeight(var5, var6, GameShell.mh * -1727408401) - var12, Client.ep * -1886224337 + var10, var13 + -1886224337 * Client.ep, var3, var9, var14, var7);
-            var43.setDestination(var15, var11, fq.getTileHeight(var15, var11, -1727408401 * GameShell.mh) - var7, Client.ep * -1886224337 + var10);
-            Client.na.addFirst(var43);
+            Projectile var43 = new Projectile(var8, -1727408401 * GameShell.plane, var5, var6, fq.getTileHeight(var5, var6, GameShell.plane * -1727408401) - var12, Client.ep * -1886224337 + var10, var13 + -1886224337 * Client.ep, var3, var9, var14, var7);
+            var43.setDestination(var15, var11, fq.getTileHeight(var15, var11, -1727408401 * GameShell.plane) - var7, Client.ep * -1886224337 + var10);
+            Client.projectiles.addFirst(var43);
          }
 
       } else {
@@ -1330,10 +1330,10 @@ public class EnumType extends DualNode {
             int var16 = var2.ep();
             int var17 = var2.eo();
             Player var18;
-            if (var3 == -549033243 * Client.mg) {
-               var18 = MusicPatchNode.mi;
+            if (var3 == -549033243 * Client.localPlayerIndex) {
+               var18 = MusicPatchNode.localPlayer;
             } else {
-               var18 = Client.mc[var3];
+               var18 = Client.players[var3];
             }
 
             if (null != var18) {
@@ -1352,15 +1352,15 @@ public class EnumType extends DualNode {
                int var23 = var7 + (var20 + 1 >> 1);
                int var24 = (var21 >> 1) + var8;
                int var25 = (1 + var21 >> 1) + var8;
-               int[][] var26 = Tiles.af[GameShell.mh * -1727408401];
+               int[][] var26 = Tiles.Tiles_heights[GameShell.plane * -1727408401];
                int var27 = var26[var22][var25] + var26[var23][var24] + var26[var22][var24] + var26[var23][var25] >> 2;
                int var28 = (var7 << 7) + (var20 << 6);
                int var29 = (var21 << 6) + (var8 << 7);
                it var30 = var19.at(var13, var14, var26, var28, var27, var29);
                if (var30 != null) {
-                  bz.jz_renamed(GameShell.mh * -1727408401, var7, var8, var15, -1, 0, 0, 31, var10 + 1, 1 + var16);
-                  var18.ay = (Client.ep * -1886224337 + var10) * -746690647;
-                  var18.ao = -377301053 * (var16 + Client.ep * -1886224337);
+                  bz.jz_renamed(GameShell.plane * -1727408401, var7, var8, var15, -1, 0, 0, 31, var10 + 1, 1 + var16);
+                  var18.headIconPrayer = (Client.ep * -1886224337 + var10) * -746690647;
+                  var18.animationCycleStart = -377301053 * (var16 + Client.ep * -1886224337);
                   var18.ah = var30;
                   var18.ax = var7 * -494827904 + -247413952 * var20;
                   var18.ag = var8 * -856229504 + var21 * -428114752;
@@ -1394,11 +1394,11 @@ public class EnumType extends DualNode {
             var7 = var2.eo();
             var8 = var2.g4s();
             if (var4 >= 0 && var5 >= 0 && var4 < 104 && var5 < 104) {
-               NodeDeque var39 = Client.nr[-1727408401 * GameShell.mh][var4][var5];
+               NodeDeque var39 = Client.objStacks[-1727408401 * GameShell.plane][var4][var5];
                if (var39 != null) {
                   for(Obj var34 = (Obj)var39.last(); var34 != null; var34 = (Obj)var39.previous()) {
-                     if ((var7 & 32767) == 176307405 * var34.af && var8 == -1745152527 * var34.an) {
-                        var34.an = var6 * -1785382127;
+                     if ((var7 & 32767) == 176307405 * var34.id && var8 == -1745152527 * var34.quantity) {
+                        var34.quantity = var6 * -1785382127;
                         break;
                      }
                   }
@@ -1422,14 +1422,14 @@ public class EnumType extends DualNode {
                var2.g1n();
                if (var6 >= 0 && var7 >= 0 && var6 < 104 && var7 < 104) {
                   var35 = new Obj();
-                  var35.af = var8 * -968355835;
-                  var35.an = var3 * -1785382127;
+                  var35.id = var8 * -968355835;
+                  var35.quantity = var3 * -1785382127;
                   var35.advance(var4);
-                  if (Client.nr[GameShell.mh * -1727408401][var6][var7] == null) {
-                     Client.nr[GameShell.mh * -1727408401][var6][var7] = new NodeDeque();
+                  if (Client.objStacks[GameShell.plane * -1727408401][var6][var7] == null) {
+                     Client.objStacks[GameShell.plane * -1727408401][var6][var7] = new NodeDeque();
                   }
 
-                  Client.nr[GameShell.mh * -1727408401][var6][var7].addFirst(var35);
+                  Client.objStacks[GameShell.plane * -1727408401][var6][var7].addFirst(var35);
                   em.kd_renamed(var6, var7);
                }
 
@@ -1444,7 +1444,7 @@ public class EnumType extends DualNode {
                var10 = Client.jy[var8];
                var11 = var2.da();
                if (var5 >= 0 && var6 >= 0 && var5 < 104 && var6 < 104) {
-                  bz.jz_renamed(-1727408401 * GameShell.mh, var5, var6, var10, var11, var8, var9, var3, 0, -1);
+                  bz.jz_renamed(-1727408401 * GameShell.plane, var5, var6, var10, var11, var8, var9, var3, 0, -1);
                }
 
             } else {
@@ -1456,17 +1456,17 @@ public class EnumType extends DualNode {
                   var6 = var2.da();
                   var7 = var2.er();
                   if (var4 >= 0 && var5 >= 0 && var4 < 104 && var5 < 104) {
-                     var32 = Client.nr[-1727408401 * GameShell.mh][var4][var5];
+                     var32 = Client.objStacks[-1727408401 * GameShell.plane][var4][var5];
                      if (null != var32) {
                         for(var35 = (Obj)var32.last(); null != var35; var35 = (Obj)var32.previous()) {
-                           if ((var6 & 32767) == 176307405 * var35.af && -1745152527 * var35.an == var7) {
+                           if ((var6 & 32767) == 176307405 * var35.id && -1745152527 * var35.quantity == var7) {
                               var35.remove();
                               break;
                            }
                         }
 
                         if (var32.last() == null) {
-                           Client.nr[GameShell.mh * -1727408401][var4][var5] = null;
+                           Client.objStacks[GameShell.plane * -1727408401][var4][var5] = null;
                         }
 
                         em.kd_renamed(var4, var5);
@@ -1485,13 +1485,13 @@ public class EnumType extends DualNode {
                      var10 = var2.dq();
                      if (var8 >= 0 && var9 >= 0 && var8 < 104 && var9 < 104) {
                         var11 = var5 + 1;
-                        if (MusicPatchNode.mi.dy[0] >= var8 - var11 && MusicPatchNode.mi.dy[0] <= var11 + var8 && MusicPatchNode.mi.ds[0] >= var9 - var11 && MusicPatchNode.mi.ds[0] <= var9 + var11 && aj.vb.az() != 0 && var6 > 0 && -297150195 * Client.tl < 50) {
-                           Client.tu[Client.tl * -297150195] = var3;
-                           Client.tr[Client.tl * -297150195] = var6;
-                           Client.tg[-297150195 * Client.tl] = var10;
-                           Client.ti[Client.tl * -297150195] = null;
-                           Client.tb[Client.tl * -297150195] = (var9 << 8) + (var8 << 16) + var5;
-                           Client.tl += 831233477;
+                        if (MusicPatchNode.localPlayer.pathX[0] >= var8 - var11 && MusicPatchNode.localPlayer.pathX[0] <= var11 + var8 && MusicPatchNode.localPlayer.pathY[0] >= var9 - var11 && MusicPatchNode.localPlayer.pathY[0] <= var9 + var11 && aj.clientPreferences.az() != 0 && var6 > 0 && -297150195 * Client.soundEffectCount < 50) {
+                           Client.tu[Client.soundEffectCount * -297150195] = var3;
+                           Client.tr[Client.soundEffectCount * -297150195] = var6;
+                           Client.tg[-297150195 * Client.soundEffectCount] = var10;
+                           Client.soundEffects[Client.soundEffectCount * -297150195] = null;
+                           Client.tb[Client.soundEffectCount * -297150195] = (var9 << 8) + (var8 << 16) + var5;
+                           Client.soundEffectCount += 831233477;
                         }
                      }
                   }
@@ -1503,10 +1503,10 @@ public class EnumType extends DualNode {
                      var6 = (var4 & 7) + FontName.jt * -191732975;
                      var7 = var2.db();
                      if (var5 >= 0 && var6 >= 0 && var5 < 104 && var6 < 104) {
-                        var32 = Client.nr[GameShell.mh * -1727408401][var5][var6];
+                        var32 = Client.objStacks[GameShell.plane * -1727408401][var5][var6];
                         if (null != var32) {
                            for(var35 = (Obj)var32.last(); null != var35; var35 = (Obj)var32.previous()) {
-                              if ((var3 & 32767) == 176307405 * var35.af) {
+                              if ((var3 & 32767) == 176307405 * var35.id) {
                                  var35.advance(var7);
                                  break;
                               }
@@ -1524,7 +1524,7 @@ public class EnumType extends DualNode {
                         var8 = var6 & 3;
                         var9 = Client.jy[var7];
                         if (var4 >= 0 && var5 >= 0 && var4 < 104 && var5 < 104) {
-                           bz.jz_renamed(-1727408401 * GameShell.mh, var4, var5, var9, -1, var7, var8, 31, 0, -1);
+                           bz.jz_renamed(-1727408401 * GameShell.plane, var4, var5, var9, -1, var7, var8, 31, 0, -1);
                         }
 
                      } else if (var0 == lm.aw) {
@@ -1537,8 +1537,8 @@ public class EnumType extends DualNode {
                         if (var6 >= 0 && var7 >= 0 && var6 < 104 && var7 < 104) {
                            var6 = 128 * var6 + 64;
                            var7 = 128 * var7 + 64;
-                           GraphicsObject var33 = new GraphicsObject(var8, GameShell.mh * -1727408401, var6, var7, fq.getTileHeight(var6, var7, GameShell.mh * -1727408401) - var3, var4, -1886224337 * Client.ep);
-                           Client.np.addFirst(var33);
+                           GraphicsObject var33 = new GraphicsObject(var8, GameShell.plane * -1727408401, var6, var7, fq.getTileHeight(var6, var7, GameShell.plane * -1727408401) - var3, var4, -1886224337 * Client.ep);
+                           Client.graphicsObjects.addFirst(var33);
                         }
 
                      }
@@ -1553,14 +1553,14 @@ public class EnumType extends DualNode {
                      var10 = Client.jy[var8];
                      if (var4 >= 0 && var5 >= 0 && var4 < 103 && var5 < 103) {
                         if (var10 == 0) {
-                           Wall var36 = bx.js.az(GameShell.mh * -1727408401, var4, var5);
+                           Wall var36 = bx.scene.az(GameShell.plane * -1727408401, var4, var5);
                            if (var36 != null) {
-                              var12 = InterfaceParent.at(-4009183385476919801L * var36.al);
+                              var12 = InterfaceParent.at(-4009183385476919801L * var36.tag);
                               if (2 == var8) {
-                                 var36.ab = new DynamicObject(var12, 2, var9 + 4, -1727408401 * GameShell.mh, var4, var5, var6, false, var36.ab);
-                                 var36.aq = new DynamicObject(var12, 2, var9 + 1 & 3, -1727408401 * GameShell.mh, var4, var5, var6, false, var36.aq);
+                                 var36.entity1 = new DynamicObject(var12, 2, var9 + 4, -1727408401 * GameShell.plane, var4, var5, var6, false, var36.entity1);
+                                 var36.entity2 = new DynamicObject(var12, 2, var9 + 1 & 3, -1727408401 * GameShell.plane, var4, var5, var6, false, var36.entity2);
                               } else {
-                                 var36.ab = new DynamicObject(var12, var8, var9, GameShell.mh * -1727408401, var4, var5, var6, false, var36.ab);
+                                 var36.entity1 = new DynamicObject(var12, var8, var9, GameShell.plane * -1727408401, var4, var5, var6, false, var36.entity1);
                               }
 
                               return;
@@ -1568,20 +1568,20 @@ public class EnumType extends DualNode {
                         }
 
                         if (1 == var10) {
-                           WallDecoration var37 = bx.js.ad(GameShell.mh * -1727408401, var4, var5);
+                           WallDecoration var37 = bx.scene.ad(GameShell.plane * -1727408401, var4, var5);
                            if (null != var37) {
-                              var12 = InterfaceParent.at(-4691380879163567243L * var37.aa);
+                              var12 = InterfaceParent.at(-4691380879163567243L * var37.tag);
                               if (4 != var8 && var8 != 5) {
                                  if (6 == var8) {
-                                    var37.al = new DynamicObject(var12, 4, 4 + var9, -1727408401 * GameShell.mh, var4, var5, var6, false, var37.al);
+                                    var37.entity1 = new DynamicObject(var12, 4, 4 + var9, -1727408401 * GameShell.plane, var4, var5, var6, false, var37.entity1);
                                  } else if (7 == var8) {
-                                    var37.al = new DynamicObject(var12, 4, (2 + var9 & 3) + 4, GameShell.mh * -1727408401, var4, var5, var6, false, var37.al);
+                                    var37.entity1 = new DynamicObject(var12, 4, (2 + var9 & 3) + 4, GameShell.plane * -1727408401, var4, var5, var6, false, var37.entity1);
                                  } else if (var8 == 8) {
-                                    var37.al = new DynamicObject(var12, 4, 4 + var9, -1727408401 * GameShell.mh, var4, var5, var6, false, var37.al);
-                                    var37.at = new DynamicObject(var12, 4, 4 + (2 + var9 & 3), -1727408401 * GameShell.mh, var4, var5, var6, false, var37.at);
+                                    var37.entity1 = new DynamicObject(var12, 4, 4 + var9, -1727408401 * GameShell.plane, var4, var5, var6, false, var37.entity1);
+                                    var37.entity2 = new DynamicObject(var12, 4, 4 + (2 + var9 & 3), -1727408401 * GameShell.plane, var4, var5, var6, false, var37.entity2);
                                  }
                               } else {
-                                 var37.al = new DynamicObject(var12, 4, var9, GameShell.mh * -1727408401, var4, var5, var6, false, var37.al);
+                                 var37.entity1 = new DynamicObject(var12, 4, var9, GameShell.plane * -1727408401, var4, var5, var6, false, var37.entity1);
                               }
 
                               return;
@@ -1589,26 +1589,26 @@ public class EnumType extends DualNode {
                         }
 
                         if (var10 == 2) {
-                           Scenery var38 = bx.js.ae(-1727408401 * GameShell.mh, var4, var5);
+                           Scenery var38 = bx.scene.ae(-1727408401 * GameShell.plane, var4, var5);
                            if (11 == var8) {
                               var8 = 10;
                            }
 
                            if (null != var38) {
-                              var38.ab = new DynamicObject(InterfaceParent.at(5016412888503339625L * var38.ax), var8, var9, GameShell.mh * -1727408401, var4, var5, var6, false, var38.ab);
+                              var38.entity = new DynamicObject(InterfaceParent.at(5016412888503339625L * var38.ax), var8, var9, GameShell.plane * -1727408401, var4, var5, var6, false, var38.entity);
                               return;
                            }
                         }
 
                         if (var10 == 3) {
-                           FloorDecoration var40 = bx.js.ap(-1727408401 * GameShell.mh, var4, var5);
+                           FloorDecoration var40 = bx.scene.ap(-1727408401 * GameShell.plane, var4, var5);
                            if (var40 != null) {
-                              var40.ac = new DynamicObject(InterfaceParent.at(3423223696102332293L * var40.au), 22, var9, -1727408401 * GameShell.mh, var4, var5, var6, false, var40.ac);
+                              var40.entity = new DynamicObject(InterfaceParent.at(3423223696102332293L * var40.tag), 22, var9, -1727408401 * GameShell.plane, var4, var5, var6, false, var40.entity);
                               return;
                            }
                         }
 
-                        hu.ju_renamed(-1727408401 * GameShell.mh, var4, var5, var10, var6);
+                        hu.ju_renamed(-1727408401 * GameShell.plane, var4, var5, var10, var6);
                      }
 
                   }

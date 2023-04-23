@@ -84,7 +84,7 @@ public class gj extends Node {
          var4 = var1.g1();
       }
 
-      this.hr = var1.g8s();
+      this.key = var1.g8s();
       this.au = var1.g8s() * -5510785032985703105L;
       this.ab = var1.cw();
       var1.gbool();

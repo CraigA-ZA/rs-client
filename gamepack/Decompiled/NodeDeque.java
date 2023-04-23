@@ -1,17 +1,17 @@
 public class NodeDeque {
-   Node an;
-   public Node af = new Node();
+   Node current;
+   public Node sentinel = new Node();
 
    public NodeDeque() {
-      this.af.hc = this.af;
-      this.af.hg = this.af;
+      this.sentinel.previous = this.sentinel;
+      this.sentinel.next = this.sentinel;
    }
 
    public void af() {
       while(true) {
-         Node var1 = this.af.hc;
-         if (var1 == this.af) {
-            this.an = null;
+         Node var1 = this.sentinel.previous;
+         if (var1 == this.sentinel) {
+            this.current = null;
             return;
          }
 
@@ -20,41 +20,41 @@ public class NodeDeque {
    }
 
    public void addFirst(Node var1) {
-      if (var1.hg != null) {
+      if (var1.next != null) {
          var1.remove();
       }
 
-      var1.hg = this.af.hg;
-      var1.hc = this.af;
-      var1.hg.hc = var1;
-      var1.hc.hg = var1;
+      var1.next = this.sentinel.next;
+      var1.previous = this.sentinel;
+      var1.next.previous = var1;
+      var1.previous.next = var1;
    }
 
    public void addLast(Node var1) {
-      if (var1.hg != null) {
+      if (var1.next != null) {
          var1.remove();
       }
 
-      var1.hg = this.af;
-      var1.hc = this.af.hc;
-      var1.hg.hc = var1;
-      var1.hc.hg = var1;
+      var1.next = this.sentinel;
+      var1.previous = this.sentinel.previous;
+      var1.next.previous = var1;
+      var1.previous.next = var1;
    }
 
    public static void ac(Node var0, Node var1) {
-      if (var0.hg != null) {
+      if (var0.next != null) {
          var0.remove();
       }
 
-      var0.hg = var1.hg;
-      var0.hc = var1;
-      var0.hg.hc = var0;
-      var0.hc.hg = var0;
+      var0.next = var1.next;
+      var0.previous = var1;
+      var0.next.previous = var0;
+      var0.previous.next = var0;
    }
 
    public Node removeLast() {
-      Node var1 = this.af.hc;
-      if (var1 == this.af) {
+      Node var1 = this.sentinel.previous;
+      if (var1 == this.sentinel) {
          return null;
       } else {
          var1.remove();
@@ -63,8 +63,8 @@ public class NodeDeque {
    }
 
    public Node removeFirst() {
-      Node var1 = this.af.hg;
-      if (var1 == this.af) {
+      Node var1 = this.sentinel.next;
+      if (var1 == this.sentinel) {
          return null;
       } else {
          var1.remove();
@@ -73,45 +73,45 @@ public class NodeDeque {
    }
 
    public Node last() {
-      Node var1 = this.af.hc;
-      if (var1 == this.af) {
-         this.an = null;
+      Node var1 = this.sentinel.previous;
+      if (var1 == this.sentinel) {
+         this.current = null;
          return null;
       } else {
-         this.an = var1.hc;
+         this.current = var1.previous;
          return var1;
       }
    }
 
    public Node first() {
-      Node var1 = this.af.hg;
-      if (var1 == this.af) {
-         this.an = null;
+      Node var1 = this.sentinel.next;
+      if (var1 == this.sentinel) {
+         this.current = null;
          return null;
       } else {
-         this.an = var1.hg;
+         this.current = var1.next;
          return var1;
       }
    }
 
    public Node previous() {
-      Node var1 = this.an;
-      if (var1 == this.af) {
-         this.an = null;
+      Node var1 = this.current;
+      if (var1 == this.sentinel) {
+         this.current = null;
          return null;
       } else {
-         this.an = var1.hc;
+         this.current = var1.previous;
          return var1;
       }
    }
 
    public Node next() {
-      Node var1 = this.an;
-      if (var1 == this.af) {
-         this.an = null;
+      Node var1 = this.current;
+      if (var1 == this.sentinel) {
+         this.current = null;
          return null;
       } else {
-         this.an = var1.hg;
+         this.current = var1.next;
          return var1;
       }
    }

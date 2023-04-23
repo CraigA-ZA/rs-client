@@ -2,35 +2,35 @@ import java.io.EOFException;
 import java.io.IOException;
 
 public final class ArchiveDisk {
-   static byte[] af = new byte[520];
+   static byte[] ArchiveDisk_buffer = new byte[520];
    int ac;
-   int au = 390060472;
-   BufferedFile an = null;
-   BufferedFile aw = null;
+   int archive = 390060472;
+   BufferedFile idxFile = null;
+   BufferedFile datFile = null;
 
    public ArchiveDisk(int var1, BufferedFile var2, BufferedFile var3, int var4) {
       this.ac = var1 * -2028882017;
-      this.an = var2;
-      this.aw = var3;
-      this.au = var4 * -10367997;
+      this.idxFile = var2;
+      this.datFile = var3;
+      this.archive = var4 * -10367997;
    }
 
    public byte[] read(int var1) {
-      synchronized(this.an) {
+      synchronized(this.idxFile) {
          try {
             Object var10000;
-            if (this.aw.length() < (long)(6 + 6 * var1)) {
+            if (this.datFile.length() < (long)(6 + 6 * var1)) {
                var10000 = null;
                return (byte[])var10000;
             } else {
-               this.aw.seek((long)(var1 * 6));
-               this.aw.read(af, 0, 6);
-               int var4 = (af[2] & 255) + ((af[0] & 255) << 16) + ((af[1] & 255) << 8);
-               int var5 = ((af[4] & 255) << 8) + ((af[3] & 255) << 16) + (af[5] & 255);
-               if (var4 < 0 || var4 > -479445333 * this.au) {
+               this.datFile.seek((long)(var1 * 6));
+               this.datFile.read(ArchiveDisk_buffer, 0, 6);
+               int var4 = (ArchiveDisk_buffer[2] & 255) + ((ArchiveDisk_buffer[0] & 255) << 16) + ((ArchiveDisk_buffer[1] & 255) << 8);
+               int var5 = ((ArchiveDisk_buffer[4] & 255) << 8) + ((ArchiveDisk_buffer[3] & 255) << 16) + (ArchiveDisk_buffer[5] & 255);
+               if (var4 < 0 || var4 > -479445333 * this.archive) {
                   var10000 = null;
                   return (byte[])var10000;
-               } else if (var5 <= 0 || (long)var5 > this.an.length() / 520L) {
+               } else if (var5 <= 0 || (long)var5 > this.idxFile.length() / 520L) {
                   var10000 = null;
                   return (byte[])var10000;
                } else {
@@ -44,7 +44,7 @@ public final class ArchiveDisk {
                         return (byte[])var10000;
                      }
 
-                     this.an.seek((long)var5 * 520L);
+                     this.idxFile.seek((long)var5 * 520L);
                      int var9 = var4 - var7;
                      int var10;
                      int var11;
@@ -57,30 +57,30 @@ public final class ArchiveDisk {
                         }
 
                         var14 = 10;
-                        this.an.read(af, 0, var9 + var14);
-                        var10 = (af[3] & 255) + ((af[2] & 255) << 8) + ((af[1] & 255) << 16) + ((af[0] & 255) << 24);
-                        var11 = (af[5] & 255) + ((af[4] & 255) << 8);
-                        var12 = (af[8] & 255) + ((af[6] & 255) << 16) + ((af[7] & 255) << 8);
-                        var13 = af[9] & 255;
+                        this.idxFile.read(ArchiveDisk_buffer, 0, var9 + var14);
+                        var10 = (ArchiveDisk_buffer[3] & 255) + ((ArchiveDisk_buffer[2] & 255) << 8) + ((ArchiveDisk_buffer[1] & 255) << 16) + ((ArchiveDisk_buffer[0] & 255) << 24);
+                        var11 = (ArchiveDisk_buffer[5] & 255) + ((ArchiveDisk_buffer[4] & 255) << 8);
+                        var12 = (ArchiveDisk_buffer[8] & 255) + ((ArchiveDisk_buffer[6] & 255) << 16) + ((ArchiveDisk_buffer[7] & 255) << 8);
+                        var13 = ArchiveDisk_buffer[9] & 255;
                      } else {
                         if (var9 > 512) {
                            var9 = 512;
                         }
 
                         var14 = 8;
-                        this.an.read(af, 0, var14 + var9);
-                        var10 = ((af[0] & 255) << 8) + (af[1] & 255);
-                        var11 = ((af[2] & 255) << 8) + (af[3] & 255);
-                        var12 = ((af[5] & 255) << 8) + ((af[4] & 255) << 16) + (af[6] & 255);
-                        var13 = af[7] & 255;
+                        this.idxFile.read(ArchiveDisk_buffer, 0, var14 + var9);
+                        var10 = ((ArchiveDisk_buffer[0] & 255) << 8) + (ArchiveDisk_buffer[1] & 255);
+                        var11 = ((ArchiveDisk_buffer[2] & 255) << 8) + (ArchiveDisk_buffer[3] & 255);
+                        var12 = ((ArchiveDisk_buffer[5] & 255) << 8) + ((ArchiveDisk_buffer[4] & 255) << 16) + (ArchiveDisk_buffer[6] & 255);
+                        var13 = ArchiveDisk_buffer[7] & 255;
                      }
 
                      if (var10 == var1 && var8 == var11 && var13 == 290825311 * this.ac) {
-                        if (var12 >= 0 && (long)var12 <= this.an.length() / 520L) {
+                        if (var12 >= 0 && (long)var12 <= this.idxFile.length() / 520L) {
                            int var15 = var9 + var14;
 
                            for(int var16 = var14; var16 < var15; ++var16) {
-                              var6[var7++] = af[var16];
+                              var6[var7++] = ArchiveDisk_buffer[var16];
                            }
 
                            var5 = var12;
@@ -107,8 +107,8 @@ public final class ArchiveDisk {
    }
 
    public boolean write(int var1, byte[] var2, int var3) {
-      synchronized(this.an) {
-         if (var3 >= 0 && var3 <= -479445333 * this.au) {
+      synchronized(this.idxFile) {
+         if (var3 >= 0 && var3 <= -479445333 * this.archive) {
             boolean var6 = this.write0(var1, var2, var3, true);
             if (!var6) {
                var6 = this.write0(var1, var2, var3, false);
@@ -122,38 +122,38 @@ public final class ArchiveDisk {
    }
 
    boolean write0(int var1, byte[] var2, int var3, boolean var4) {
-      synchronized(this.an) {
+      synchronized(this.idxFile) {
          try {
             int var7;
             boolean var10000;
             if (var4) {
-               if (this.aw.length() < (long)(6 * var1 + 6)) {
+               if (this.datFile.length() < (long)(6 * var1 + 6)) {
                   var10000 = false;
                   return var10000;
                }
 
-               this.aw.seek((long)(6 * var1));
-               this.aw.read(af, 0, 6);
-               var7 = (af[5] & 255) + ((af[3] & 255) << 16) + ((af[4] & 255) << 8);
-               if (var7 <= 0 || (long)var7 > this.an.length() / 520L) {
+               this.datFile.seek((long)(6 * var1));
+               this.datFile.read(ArchiveDisk_buffer, 0, 6);
+               var7 = (ArchiveDisk_buffer[5] & 255) + ((ArchiveDisk_buffer[3] & 255) << 16) + ((ArchiveDisk_buffer[4] & 255) << 8);
+               if (var7 <= 0 || (long)var7 > this.idxFile.length() / 520L) {
                   var10000 = false;
                   return var10000;
                }
             } else {
-               var7 = (int)((this.an.length() + 519L) / 520L);
+               var7 = (int)((this.idxFile.length() + 519L) / 520L);
                if (0 == var7) {
                   var7 = 1;
                }
             }
 
-            af[0] = (byte)(var3 >> 16);
-            af[1] = (byte)(var3 >> 8);
-            af[2] = (byte)var3;
-            af[3] = (byte)(var7 >> 16);
-            af[4] = (byte)(var7 >> 8);
-            af[5] = (byte)var7;
-            this.aw.seek((long)(var1 * 6));
-            this.aw.write(af, 0, 6);
+            ArchiveDisk_buffer[0] = (byte)(var3 >> 16);
+            ArchiveDisk_buffer[1] = (byte)(var3 >> 8);
+            ArchiveDisk_buffer[2] = (byte)var3;
+            ArchiveDisk_buffer[3] = (byte)(var7 >> 16);
+            ArchiveDisk_buffer[4] = (byte)(var7 >> 8);
+            ArchiveDisk_buffer[5] = (byte)var7;
+            this.datFile.seek((long)(var1 * 6));
+            this.datFile.write(ArchiveDisk_buffer, 0, 6);
             int var8 = 0;
             int var9 = 0;
 
@@ -163,31 +163,31 @@ public final class ArchiveDisk {
                      int var10 = 0;
                      int var11;
                      if (var4) {
-                        this.an.seek((long)var7 * 520L);
+                        this.idxFile.seek((long)var7 * 520L);
                         int var12;
                         int var13;
                         if (var1 > 65535) {
                            try {
-                              this.an.read(af, 0, 10);
+                              this.idxFile.read(ArchiveDisk_buffer, 0, 10);
                            } catch (EOFException var17) {
                               break label169;
                            }
 
-                           var11 = (af[3] & 255) + ((af[2] & 255) << 8) + ((af[1] & 255) << 16) + ((af[0] & 255) << 24);
-                           var12 = (af[5] & 255) + ((af[4] & 255) << 8);
-                           var10 = ((af[7] & 255) << 8) + ((af[6] & 255) << 16) + (af[8] & 255);
-                           var13 = af[9] & 255;
+                           var11 = (ArchiveDisk_buffer[3] & 255) + ((ArchiveDisk_buffer[2] & 255) << 8) + ((ArchiveDisk_buffer[1] & 255) << 16) + ((ArchiveDisk_buffer[0] & 255) << 24);
+                           var12 = (ArchiveDisk_buffer[5] & 255) + ((ArchiveDisk_buffer[4] & 255) << 8);
+                           var10 = ((ArchiveDisk_buffer[7] & 255) << 8) + ((ArchiveDisk_buffer[6] & 255) << 16) + (ArchiveDisk_buffer[8] & 255);
+                           var13 = ArchiveDisk_buffer[9] & 255;
                         } else {
                            try {
-                              this.an.read(af, 0, 8);
+                              this.idxFile.read(ArchiveDisk_buffer, 0, 8);
                            } catch (EOFException var16) {
                               break label169;
                            }
 
-                           var11 = (af[1] & 255) + ((af[0] & 255) << 8);
-                           var12 = (af[3] & 255) + ((af[2] & 255) << 8);
-                           var10 = ((af[5] & 255) << 8) + ((af[4] & 255) << 16) + (af[6] & 255);
-                           var13 = af[7] & 255;
+                           var11 = (ArchiveDisk_buffer[1] & 255) + ((ArchiveDisk_buffer[0] & 255) << 8);
+                           var12 = (ArchiveDisk_buffer[3] & 255) + ((ArchiveDisk_buffer[2] & 255) << 8);
+                           var10 = ((ArchiveDisk_buffer[5] & 255) << 8) + ((ArchiveDisk_buffer[4] & 255) << 16) + (ArchiveDisk_buffer[6] & 255);
+                           var13 = ArchiveDisk_buffer[7] & 255;
                         }
 
                         if (var1 != var11 || var12 != var9 || var13 != 290825311 * this.ac) {
@@ -195,7 +195,7 @@ public final class ArchiveDisk {
                            return var10000;
                         }
 
-                        if (var10 < 0 || (long)var10 > this.an.length() / 520L) {
+                        if (var10 < 0 || (long)var10 > this.idxFile.length() / 520L) {
                            var10000 = false;
                            return var10000;
                         }
@@ -203,7 +203,7 @@ public final class ArchiveDisk {
 
                      if (0 == var10) {
                         var4 = false;
-                        var10 = (int)((this.an.length() + 519L) / 520L);
+                        var10 = (int)((this.idxFile.length() + 519L) / 520L);
                         if (0 == var10) {
                            ++var10;
                         }
@@ -218,46 +218,46 @@ public final class ArchiveDisk {
                            var10 = 0;
                         }
 
-                        af[0] = (byte)(var1 >> 24);
-                        af[1] = (byte)(var1 >> 16);
-                        af[2] = (byte)(var1 >> 8);
-                        af[3] = (byte)var1;
-                        af[4] = (byte)(var9 >> 8);
-                        af[5] = (byte)var9;
-                        af[6] = (byte)(var10 >> 16);
-                        af[7] = (byte)(var10 >> 8);
-                        af[8] = (byte)var10;
-                        af[9] = (byte)(290825311 * this.ac);
-                        this.an.seek((long)var7 * 520L);
-                        this.an.write(af, 0, 10);
+                        ArchiveDisk_buffer[0] = (byte)(var1 >> 24);
+                        ArchiveDisk_buffer[1] = (byte)(var1 >> 16);
+                        ArchiveDisk_buffer[2] = (byte)(var1 >> 8);
+                        ArchiveDisk_buffer[3] = (byte)var1;
+                        ArchiveDisk_buffer[4] = (byte)(var9 >> 8);
+                        ArchiveDisk_buffer[5] = (byte)var9;
+                        ArchiveDisk_buffer[6] = (byte)(var10 >> 16);
+                        ArchiveDisk_buffer[7] = (byte)(var10 >> 8);
+                        ArchiveDisk_buffer[8] = (byte)var10;
+                        ArchiveDisk_buffer[9] = (byte)(290825311 * this.ac);
+                        this.idxFile.seek((long)var7 * 520L);
+                        this.idxFile.write(ArchiveDisk_buffer, 0, 10);
                         var11 = var3 - var8;
                         if (var11 > 510) {
                            var11 = 510;
                         }
 
-                        this.an.write(var2, var8, var11);
+                        this.idxFile.write(var2, var8, var11);
                         var8 += var11;
                      } else {
                         if (var3 - var8 <= 512) {
                            var10 = 0;
                         }
 
-                        af[0] = (byte)(var1 >> 8);
-                        af[1] = (byte)var1;
-                        af[2] = (byte)(var9 >> 8);
-                        af[3] = (byte)var9;
-                        af[4] = (byte)(var10 >> 16);
-                        af[5] = (byte)(var10 >> 8);
-                        af[6] = (byte)var10;
-                        af[7] = (byte)(290825311 * this.ac);
-                        this.an.seek(520L * (long)var7);
-                        this.an.write(af, 0, 8);
+                        ArchiveDisk_buffer[0] = (byte)(var1 >> 8);
+                        ArchiveDisk_buffer[1] = (byte)var1;
+                        ArchiveDisk_buffer[2] = (byte)(var9 >> 8);
+                        ArchiveDisk_buffer[3] = (byte)var9;
+                        ArchiveDisk_buffer[4] = (byte)(var10 >> 16);
+                        ArchiveDisk_buffer[5] = (byte)(var10 >> 8);
+                        ArchiveDisk_buffer[6] = (byte)var10;
+                        ArchiveDisk_buffer[7] = (byte)(290825311 * this.ac);
+                        this.idxFile.seek(520L * (long)var7);
+                        this.idxFile.write(ArchiveDisk_buffer, 0, 8);
                         var11 = var3 - var8;
                         if (var11 > 512) {
                            var11 = 512;
                         }
 
-                        this.an.write(var2, var8, var11);
+                        this.idxFile.write(var2, var8, var11);
                         var8 += var11;
                      }
 

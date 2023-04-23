@@ -47,7 +47,7 @@ public class hs extends DualNode {
    public short[] by;
 
    hs() {
-      this.aq = Strings.at;
+      this.aq = Strings.Strings_null;
       this.al = -1159021589;
       this.ay = -1304162881;
       this.ao = -1526449071;
@@ -131,7 +131,7 @@ public class hs extends DualNode {
          var1.cl();
       } else if (var2 >= 30 && var2 < 35) {
          this.be[var2 - 30] = var1.cw();
-         if (this.be[var2 - 30].equalsIgnoreCase(Strings.ac)) {
+         if (this.be[var2 - 30].equalsIgnoreCase(Strings.Strings_hidden)) {
             this.be[var2 - 30] = null;
          }
       } else if (40 == var2) {
@@ -375,7 +375,7 @@ public class hs extends DualNode {
       if (-1 != 1781845069 * this.bs) {
          var2 = WorldMapSection1.af_renamed(1781845069 * this.bs);
       } else if (2051988897 * this.br != -1) {
-         var2 = Varps.aw[this.br * 2051988897];
+         var2 = Varps.Varps_main[this.br * 2051988897];
       }
 
       int var3;
@@ -396,7 +396,7 @@ public class hs extends DualNode {
          if (-1 != this.bs * 1781845069) {
             var2 = WorldMapSection1.af_renamed(this.bs * 1781845069);
          } else if (-1 != 2051988897 * this.br) {
-            var2 = Varps.aw[2051988897 * this.br];
+            var2 = Varps.Varps_main[2051988897 * this.br];
          }
 
          if (var2 >= 0 && var2 < this.bn.length) {
@@ -417,7 +417,7 @@ public class hs extends DualNode {
          if (null == var6) {
             var4 = var2;
          } else {
-            var4 = var6.af;
+            var4 = var6.integer;
          }
       }
 

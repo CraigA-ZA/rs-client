@@ -18,7 +18,7 @@ public class ej implements Comparator {
    }
 
    int af(Buddy var1, Buddy var2) {
-      return this.af ? 1907692493 * var1.ab - 1907692493 * var2.ab : var2.ab * 1907692493 - 1907692493 * var1.ab;
+      return this.af ? 1907692493 * var1.int2 - 1907692493 * var2.int2 : var2.int2 * 1907692493 - 1907692493 * var1.int2;
    }
 
    public int compare(Object var1, Object var2) {
@@ -31,31 +31,31 @@ public class ej implements Comparator {
 
    static int bt_renamed(int var0, ClientScript var1, boolean var2) {
       if (5306 == var0) {
-         Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = na.iv_renamed();
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = na.iv_renamed();
          return 1;
       } else {
          int var4;
          if (5307 == var0) {
-            var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+            var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
             if (var4 == 1 || var4 == 2) {
                Decimator.ir_renamed(var4);
             }
 
             return 1;
          } else if (5308 == var0) {
-            Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = aj.vb.bi();
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = aj.clientPreferences.bi();
             return 1;
          } else if (5309 != var0) {
             if (5310 == var0) {
-               Interpreter.at -= 427135973;
+               Interpreter.Interpreter_intStackSize -= 427135973;
                return 1;
             } else {
                return 2;
             }
          } else {
-            var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+            var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
             if (1 == var4 || var4 == 2) {
-               aj.vb.bb(var4);
+               aj.clientPreferences.bb(var4);
             }
 
             return 1;
@@ -64,7 +64,7 @@ public class ej implements Comparator {
    }
 
    static void nc_renamed(Packet var0, int var1) {
-      byte[] var3 = var0.al;
+      byte[] var3 = var0.array;
       if (null == Client.hf) {
          Client.hf = new byte[24];
       }

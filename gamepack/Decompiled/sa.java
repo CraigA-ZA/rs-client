@@ -1,5 +1,5 @@
 final class sa implements ss {
-   public static MidiPcmStream ac;
+   public static MidiPcmStream midiPcmStream;
 
    void ax(Integer var1, Packet var2) {
       var2.ba(var1);

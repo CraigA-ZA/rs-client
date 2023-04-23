@@ -324,22 +324,22 @@ public class dp {
             var6 = 0;
          }
 
-         if (var6 + 128 >= ia.bn.ac * 1313069155) {
-            var8 = ia.bn.ac * 1313069155 - var6;
+         if (var6 + 128 >= ia.rasterProvider.ac * 1313069155) {
+            var8 = ia.rasterProvider.ac * 1313069155 - var6;
          }
 
-         int var9 = var6 + (var4 + 8) * ia.bn.ac * 1313069155;
+         int var9 = var6 + (var4 + 8) * ia.rasterProvider.ac * 1313069155;
          var3 += var7;
 
          for(int var10 = var7; var10 < var8; ++var10) {
             int var11 = this.ag[var3++];
-            int var12 = var9 % Rasterizer2D.ae;
-            if (0 != var11 && var12 >= Rasterizer2D.bk && var12 < Rasterizer2D.bx) {
+            int var12 = var9 % Rasterizer2D.Rasterizer2D_width;
+            if (0 != var11 && var12 >= Rasterizer2D.Rasterizer2D_xClipStart && var12 < Rasterizer2D.Rasterizer2D_xClipEnd) {
                int var13 = var11;
                int var14 = 256 - var11;
                var11 = this.at[var11];
-               int var15 = ia.bn.aw[var9];
-               ia.bn.aw[var9++] = -16777216 | (var13 * (var11 & 16711935) + var14 * (var15 & 16711935) & -16711936) + (var13 * (var11 & '\uff00') + var14 * (var15 & '\uff00') & 16711680) >> 8;
+               int var15 = ia.rasterProvider.pixels[var9];
+               ia.rasterProvider.pixels[var9++] = -16777216 | (var13 * (var11 & 16711935) + var14 * (var15 & 16711935) & -16711936) + (var13 * (var11 & '\uff00') + var14 * (var15 & '\uff00') & 16711680) >> 8;
             } else {
                ++var9;
             }
@@ -380,11 +380,11 @@ public class dp {
       if (null != var1) {
          var3 = 0;
 
-         for(var4 = 0; var4 < var1.ac; ++var4) {
-            for(var5 = 0; var5 < var1.aw; ++var5) {
-               if (var1.af[var3++] != 0) {
-                  var6 = var5 + 16 + var1.au;
-                  int var7 = 16 + var4 + var1.ab;
+         for(var4 = 0; var4 < var1.subHeight; ++var4) {
+            for(var5 = 0; var5 < var1.subWidth; ++var5) {
+               if (var1.pixels[var3++] != 0) {
+                  var6 = var5 + 16 + var1.xOffset;
+                  int var7 = 16 + var4 + var1.yOffset;
                   int var8 = var6 + (var7 << 7);
                   this.av[var8] = 0;
                }
@@ -395,54 +395,54 @@ public class dp {
    }
 
    static final void ar_renamed(String var0, int var1) {
-      PacketBitNode var3 = mi.an_renamed(ClientProt.ba, Client.in.au);
-      var3.aw.bu(DynamicObject.bc_renamed(var0) + 1);
-      var3.aw.bh(var0);
-      var3.aw.bu(var1);
-      Client.in.aw(var3);
+      PacketBitNode var3 = mi.an_renamed(ClientProt.ba, Client.packetWriter.au);
+      var3.bit.bu(DynamicObject.bc_renamed(var0) + 1);
+      var3.bit.bh(var0);
+      var3.bit.bu(var1);
+      Client.packetWriter.aw(var3);
    }
 
    static int ac_renamed(int var0, ClientScript var1, boolean var2) {
       int var4;
       int var5;
       if (100 == var0) {
-         Interpreter.at -= 1281407919;
-         var4 = Interpreter.al[Interpreter.at * -964267539];
-         var5 = Interpreter.al[Interpreter.at * -964267539 + 1];
-         int var12 = Interpreter.al[-964267539 * Interpreter.at + 2];
+         Interpreter.Interpreter_intStackSize -= 1281407919;
+         var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+         var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1];
+         int var12 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 2];
          if (var5 == 0) {
             throw new RuntimeException();
          } else {
             Component var7 = gh.an_renamed(var4);
-            if (null == var7.gz) {
-               var7.gz = new Component[1 + var12];
+            if (null == var7.children) {
+               var7.children = new Component[1 + var12];
             }
 
-            if (var7.gz.length <= var12) {
+            if (var7.children.length <= var12) {
                Component[] var8 = new Component[1 + var12];
 
-               for(int var9 = 0; var9 < var7.gz.length; ++var9) {
-                  var8[var9] = var7.gz[var9];
+               for(int var9 = 0; var9 < var7.children.length; ++var9) {
+                  var8[var9] = var7.children[var9];
                }
 
-               var7.gz = var8;
+               var7.children = var8;
             }
 
-            if (var12 > 0 && var7.gz[var12 - 1] == null) {
+            if (var12 > 0 && var7.children[var12 - 1] == null) {
                throw new RuntimeException("" + (var12 - 1));
             } else {
                Component var13 = new Component();
                var13.bg = var5 * -1183495331;
-               var13.cu = (var13.bs = 1 * var7.bs) * -1942978835;
-               var13.br = var12 * -1274125071;
-               var13.bn = true;
+               var13.parentId = (var13.id = 1 * var7.id) * -1942978835;
+               var13.childIndex = var12 * -1274125071;
+               var13.isIf3 = true;
                if (12 == var5) {
                   var13.bt();
                   var13.bj().bp(new dn(var13));
                   var13.bj().bl(new dy(var13));
                }
 
-               var7.gz[var12] = var13;
+               var7.children[var12] = var13;
                if (var2) {
                   SoundSystem.ag = var13;
                } else {
@@ -457,27 +457,27 @@ public class dp {
          Component var10;
          if (var0 == 101) {
             var10 = var2 ? SoundSystem.ag : an.ai;
-            Component var11 = gh.an_renamed(1713081171 * var10.bs);
-            var11.gz[55577617 * var10.br] = null;
+            Component var11 = gh.an_renamed(1713081171 * var10.id);
+            var11.children[55577617 * var10.childIndex] = null;
             fw.ma_renamed(var11);
             return 1;
          } else if (102 == var0) {
-            var10 = gh.an_renamed(Interpreter.al[(Interpreter.at -= 427135973) * -964267539]);
-            var10.gz = null;
+            var10 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+            var10.children = null;
             fw.ma_renamed(var10);
             return 1;
          } else if (200 != var0) {
             if (201 == var0) {
-               var10 = gh.an_renamed(Interpreter.al[(Interpreter.at -= 427135973) * -964267539]);
+               var10 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
                if (null != var10) {
-                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 1;
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1;
                   if (var2) {
                      SoundSystem.ag = var10;
                   } else {
                      an.ai = var10;
                   }
                } else {
-                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 0;
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
                }
 
                return 1;
@@ -485,19 +485,19 @@ public class dp {
                return 2;
             }
          } else {
-            Interpreter.at -= 854271946;
-            var4 = Interpreter.al[Interpreter.at * -964267539];
-            var5 = Interpreter.al[1 + Interpreter.at * -964267539];
+            Interpreter.Interpreter_intStackSize -= 854271946;
+            var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+            var5 = Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539];
             Component var6 = SoundSystem.getComponentChild(var4, var5);
             if (var6 != null && -1 != var5) {
-               Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 1;
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1;
                if (var2) {
                   SoundSystem.ag = var6;
                } else {
                   an.ai = var6;
                }
             } else {
-               Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 0;
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
             }
 
             return 1;

@@ -1,5 +1,5 @@
 public abstract class Entity extends DualNode {
-   public int et = -448344600;
+   public int height = -448344600;
 
    protected Entity() {
    }
@@ -7,7 +7,7 @@ public abstract class Entity extends DualNode {
    void draw(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, long var9) {
       it var11 = this.getModel();
       if (null != var11) {
-         this.et = var11.et * 1;
+         this.height = var11.height * 1;
          var11.draw(var1, var2, var3, var4, var5, var6, var7, var8, var9);
       }
 

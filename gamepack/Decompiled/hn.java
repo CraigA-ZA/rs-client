@@ -1,5 +1,5 @@
 public class hn implements Enumerated {
-   public static Component[][] ap;
+   public static Component[][] interfaceComponents;
    static final hn af = new hn(2, 0);
    static final hn an = new hn(1, 1);
    static final hn aw = new hn(0, 2);

@@ -1,7 +1,7 @@
 public class ByteArrayNode extends Node {
-   public byte[] af;
+   public byte[] byteArray;
 
    public ByteArrayNode(byte[] var1) {
-      this.af = var1;
+      this.byteArray = var1;
    }
 }

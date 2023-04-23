@@ -55,7 +55,7 @@ public class in {
          var5 = "_wip";
       }
 
-      File var6 = new File(hd.az, "jagex_" + var1 + "_preferences" + var0 + var5 + ".dat");
+      File var6 = new File(hd.userHomeDirectory, "jagex_" + var1 + "_preferences" + var0 + var5 + ".dat");
       AccessFile var7;
       if (!var2 && var6.exists()) {
          try {
@@ -76,14 +76,14 @@ public class in {
    static int ar_renamed(int var0, ClientScript var1, boolean var2) {
       Component var4 = var2 ? SoundSystem.ag : an.ai;
       if (var0 == 1800) {
-         Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = hc.af_renamed(KeyHandler.getComponentClickMask(var4));
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = hc.af_renamed(KeyHandler.getComponentClickMask(var4));
          return 1;
       } else if (var0 != 1801) {
          if (1802 == var0) {
-            if (null == var4.eh) {
-               Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = "";
+            if (null == var4.opbase) {
+               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
             } else {
-               Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = var4.eh;
+               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var4.opbase;
             }
 
             return 1;
@@ -91,12 +91,12 @@ public class in {
             return 2;
          }
       } else {
-         int var5 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+         int var5 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
          --var5;
-         if (null != var4.ek && var5 < var4.ek.length && var4.ek[var5] != null) {
-            Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = var4.ek[var5];
+         if (null != var4.ops && var5 < var4.ops.length && var4.ops[var5] != null) {
+            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var4.ops[var5];
          } else {
-            Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = "";
+            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
          }
 
          return 1;
