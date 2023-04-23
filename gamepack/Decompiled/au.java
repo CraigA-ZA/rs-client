@@ -11,34 +11,34 @@ public final class au {
    }
 
    public static boolean al_renamed() {
-      return 0 != ly.au * 926096579 ? true : sa.ac.isReady();
+      return 0 != ly.au * 926096579 ? true : sa.midiPcmStream.isReady();
    }
 
    public static void at_renamed() {
-      IDKType.ac.clear();
+      IDKType.IDKType_cached.clear();
    }
 
    public static void af_renamed(AbstractArchive var0, AbstractArchive var1, AbstractArchive var2, AbstractArchive var3) {
       int var5 = 0;
       if (null != var0) {
-         eb.bb = var0;
+         eb.Component_archive = var0;
          DynamicObject.bi = var1;
          ClientScriptEvent.be = var2;
          fv.bk = var3;
-         var5 = eb.bb.cm();
+         var5 = eb.Component_archive.cm();
       }
 
-      hn.ap = new Component[var5][];
-      kt.by = new boolean[var5];
+      hn.interfaceComponents = new Component[var5][];
+      kt.loadedInterfaces = new boolean[var5];
    }
 
    static int av_renamed(Component var0) {
       if (var0.bg * 883712245 != 11) {
-         Interpreter.aa[-2017760987 * SecureRandomCallable.ay - 1] = "";
+         Interpreter.Interpreter_stringStack[-2017760987 * SecureRandomCallable.Interpreter_stringStackSize - 1] = "";
          return 1;
       } else {
-         String var2 = Interpreter.aa[(SecureRandomCallable.ay -= -1086551379) * -2017760987];
-         Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = var0.bi(var2);
+         String var2 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
+         Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var0.bi(var2);
          return 1;
       }
    }

@@ -1,8 +1,8 @@
 public abstract class PcmStream extends Node {
-   PcmStream ah;
-   AbstractSound ar;
+   PcmStream after;
+   AbstractSound sound;
    int av;
-   volatile boolean am = true;
+   volatile boolean active = true;
 
    protected PcmStream() {
    }
@@ -12,7 +12,7 @@ public abstract class PcmStream extends Node {
    }
 
    final void update(int[] var1, int var2, int var3) {
-      if (this.am) {
+      if (this.active) {
          this.fill(var1, var2, var3);
       } else {
          this.skip(var3);

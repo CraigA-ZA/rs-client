@@ -2,7 +2,7 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
 public final class MouseWheelHandler implements MouseWheel, MouseWheelListener {
-   int af = 0;
+   int rotation = 0;
 
    MouseWheelHandler() {
    }
@@ -16,12 +16,12 @@ public final class MouseWheelHandler implements MouseWheel, MouseWheelListener {
    }
 
    public synchronized void mouseWheelMoved(MouseWheelEvent var1) {
-      this.af += var1.getWheelRotation() * -18484905;
+      this.rotation += var1.getWheelRotation() * -18484905;
    }
 
    public synchronized int useRotation() {
-      int var2 = -791311769 * this.af;
-      this.af = 0;
+      int var2 = -791311769 * this.rotation;
+      this.rotation = 0;
       return var2;
    }
 }

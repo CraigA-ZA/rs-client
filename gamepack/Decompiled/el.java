@@ -6,7 +6,7 @@ public class el extends AbstractUserComparator {
    }
 
    int af(Buddy var1, Buddy var2) {
-      if (Client.bw * -453810525 == var1.au * 177258591 && var2.au * 177258591 == Client.bw * -453810525) {
+      if (Client.bw * -453810525 == var1.world0 * 177258591 && var2.world0 * 177258591 == Client.bw * -453810525) {
          return this.af ? var1.username().compareTo0(var2.username()) : var2.username().compareTo0(var1.username());
       } else {
          return this.ao(var1, var2);

@@ -1,41 +1,41 @@
 public class ClanMate extends Buddy {
-   TriBool af;
-   TriBool an;
+   TriBool isIgnored0;
+   TriBool isFriend0;
 
    ClanMate() {
-      this.af = TriBool.af;
-      this.an = TriBool.af;
+      this.isIgnored0 = TriBool.TriBool_unknown;
+      this.isFriend0 = TriBool.TriBool_unknown;
    }
 
    void af() {
-      this.af = TriBool.af;
+      this.isIgnored0 = TriBool.TriBool_unknown;
    }
 
    public final boolean isIgnored() {
-      if (this.af == TriBool.af) {
+      if (this.isIgnored0 == TriBool.TriBool_unknown) {
          this.at();
       }
 
-      return this.af == TriBool.an;
+      return this.isIgnored0 == TriBool.TriBool_true;
    }
 
    void at() {
-      this.af = World.vt.au.contains(this.aw) ? TriBool.an : TriBool.aw;
+      this.isIgnored0 = World.friendSystem.friendsList.contains(this.previousUsername) ? TriBool.TriBool_true : TriBool.TriBool_false;
    }
 
    void aa() {
-      this.an = TriBool.af;
+      this.isFriend0 = TriBool.TriBool_unknown;
    }
 
    public final boolean isFriend() {
-      if (TriBool.af == this.an) {
+      if (TriBool.TriBool_unknown == this.isFriend0) {
          this.ao();
       }
 
-      return TriBool.an == this.an;
+      return TriBool.TriBool_true == this.isFriend0;
    }
 
    void ao() {
-      this.an = World.vt.ab.contains(this.aw) ? TriBool.an : TriBool.aw;
+      this.isFriend0 = World.friendSystem.ignoreList.contains(this.previousUsername) ? TriBool.TriBool_true : TriBool.TriBool_false;
    }
 }

@@ -13,11 +13,11 @@ public class ir {
    }
 
    static int ay_renamed(int var0) {
-      Message var2 = (Message)Messages.an.get((long)var0);
+      Message var2 = (Message)Messages.Messages_hashTable.get((long)var0);
       if (null == var2) {
          return -1;
       } else {
-         return Messages.aw.af == var2.ez ? -1 : -1117255211 * ((Message)var2.ez).af;
+         return Messages.Messages_queue.sentinel == var2.previousDual ? -1 : -1117255211 * ((Message)var2.previousDual).count;
       }
    }
 

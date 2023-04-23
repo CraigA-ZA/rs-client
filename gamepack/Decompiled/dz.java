@@ -16,7 +16,7 @@ public class dz {
       int var12 = 0;
       iw.al[var11] = var0;
       iw.at[var11++] = var1;
-      int[][] var13 = var3.bj;
+      int[][] var13 = var3.flags;
 
       while(var12 != var11) {
          var5 = iw.al[var12];
@@ -104,6 +104,6 @@ public class dz {
    }
 
    static WorldMap worldMap() {
-      return ey.wt;
+      return ey.worldMap0;
    }
 }

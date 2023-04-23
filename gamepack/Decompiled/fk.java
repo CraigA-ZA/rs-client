@@ -7,7 +7,7 @@ public class fk extends fu {
    final gr this$0;
 
    public static void af_renamed(AbstractArchive var0, AbstractArchive var1, AbstractArchive var2) {
-      SeqType.au = var0;
+      SeqType.SeqType_archive = var0;
       SeqType.ab = var1;
       SeqType.aq = var2;
    }
@@ -17,7 +17,7 @@ public class fk extends fu {
       this.af = 1435810339;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       var1.g1();
       this.af = var1.cl() * -1435810339;
       this.an = var1.g1s();

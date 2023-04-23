@@ -10,15 +10,15 @@ public class fo extends fb {
    final fa this$0;
 
    static void addMessage(int var0, String var1, String var2, String var3) {
-      ChatChannel var5 = (ChatChannel)Messages.af.get(var0);
+      ChatChannel var5 = (ChatChannel)Messages.Messages_channels.get(var0);
       if (var5 == null) {
          var5 = new ChatChannel();
-         Messages.af.put(var0, var5);
+         Messages.Messages_channels.put(var0, var5);
       }
 
       Message var6 = var5.addMessage(var0, var1, var2, var3);
-      Messages.an.put(var6, (long)(var6.af * -1117255211));
-      Messages.aw.an(var6);
+      Messages.Messages_hashTable.put(var6, (long)(var6.count * -1117255211));
+      Messages.Messages_queue.an(var6);
       Client.qb = Client.qu * -2073795047;
    }
 
@@ -39,7 +39,7 @@ public class fo extends fb {
       this.af = -2034222333;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.cl() * 2034222333;
       this.an = var1.g4s() * 1848917875;
       this.aw = var1.g1() * 108318663;

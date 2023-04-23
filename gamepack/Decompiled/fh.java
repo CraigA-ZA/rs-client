@@ -32,7 +32,7 @@ public class fh extends DualNode {
       this.at = ot.al.submit(new fi(this, var6, var7));
    }
 
-   void decode0(Packet var1, int var2) {
+   void an(Packet var1, int var2) {
       var1.cl();
       var1.cl();
       this.au = var1.g1() * 2106398559;
@@ -94,7 +94,7 @@ public class fh extends DualNode {
 
    }
 
-   public boolean isFromFriend() {
+   public boolean aw() {
       if (null == this.at && this.aa == null) {
          return true;
       } else {
@@ -126,11 +126,11 @@ public class fh extends DualNode {
       }
    }
 
-   public int gIsaac1() {
+   public int ac() {
       return this.au * -744553313;
    }
 
-   public boolean loadModel() {
+   public boolean au() {
       return this.ab;
    }
 
@@ -268,13 +268,13 @@ public class fh extends DualNode {
    }
 
    static void he_renamed(int var0, int var1, int var2) {
-      if (aj.vb.aj() != 0 && 0 != var1 && Client.tl * -297150195 < 50) {
-         Client.tu[Client.tl * -297150195] = var0;
-         Client.tr[Client.tl * -297150195] = var1;
-         Client.tg[Client.tl * -297150195] = var2;
-         Client.ti[-297150195 * Client.tl] = null;
-         Client.tb[Client.tl * -297150195] = 0;
-         Client.tl += 831233477;
+      if (aj.clientPreferences.aj() != 0 && 0 != var1 && Client.soundEffectCount * -297150195 < 50) {
+         Client.tu[Client.soundEffectCount * -297150195] = var0;
+         Client.tr[Client.soundEffectCount * -297150195] = var1;
+         Client.tg[Client.soundEffectCount * -297150195] = var2;
+         Client.soundEffects[-297150195 * Client.soundEffectCount] = null;
+         Client.tb[Client.soundEffectCount * -297150195] = 0;
+         Client.soundEffectCount += 831233477;
       }
 
    }

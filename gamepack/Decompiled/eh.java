@@ -11,12 +11,12 @@ public class eh implements Callable {
    final int ac;
 
    static void aw_renamed() {
-      synchronized(ArchiveDiskActionHandler.ac) {
+      synchronized(ArchiveDiskActionHandler.ArchiveDiskActionHandler_lock) {
          if (-1248352937 * ArchiveDiskActionHandler.aw == 0) {
-            na.au = new Thread(new ArchiveDiskActionHandler());
-            na.au.setDaemon(true);
-            na.au.start();
-            na.au.setPriority(5);
+            na.ArchiveDiskActionHandler_thread = new Thread(new ArchiveDiskActionHandler());
+            na.ArchiveDiskActionHandler_thread.setDaemon(true);
+            na.ArchiveDiskActionHandler_thread.start();
+            na.ArchiveDiskActionHandler_thread.setPriority(5);
          }
 
          ArchiveDiskActionHandler.aw = 1879867752;
@@ -24,11 +24,11 @@ public class eh implements Callable {
    }
 
    static void at_renamed() {
-      Iterator var1 = Messages.an.iterator();
+      Iterator var1 = Messages.Messages_hashTable.iterator();
 
       while(var1.hasNext()) {
          Message var2 = (Message)var1.next();
-         var2.removeAll();
+         var2.au();
       }
 
    }

@@ -6,23 +6,23 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class Varcs {
-   static GraphicsDefaults gg;
-   boolean ab = false;
-   boolean[] aw;
+   static GraphicsDefaults spriteIds;
+   boolean unwrittenChanges = false;
+   boolean[] intsPersistence;
    /** @deprecated */
    @Deprecated
-   String[] au;
-   Map ac;
-   long aq;
+   String[] strings;
+   Map map;
+   long lastWriteTimeMs;
 
    public static lm[] af_renamed() {
       return new lm[]{lm.af, lm.an, lm.aw, lm.ac, lm.au, lm.ab, lm.aq, lm.al, lm.at, lm.aa, lm.ay};
    }
 
    Varcs() {
-      int var1 = dk.fn.cq(19);
-      this.ac = new HashMap();
-      this.aw = new boolean[var1];
+      int var1 = dk.archive2.cq(19);
+      this.map = new HashMap();
+      this.intsPersistence = new boolean[var1];
 
       int var2;
       for(var2 = 0; var2 < var1; ++var2) {
@@ -34,75 +34,75 @@ public class Varcs {
             byte[] var5 = lh.af.takeFile(19, var2);
             var4 = new VarcInt();
             if (var5 != null) {
-               var4.decode(new Packet(var5));
+               var4.af(new Packet(var5));
             }
 
             VarcInt.an.put(var4, (long)var2);
             var3 = var4;
          }
 
-         this.aw[var2] = var3.aw;
+         this.intsPersistence[var2] = var3.persist;
       }
 
       var2 = 0;
-      if (dk.fn.ao(15)) {
-         var2 = dk.fn.cq(15);
+      if (dk.archive2.ao(15)) {
+         var2 = dk.archive2.cq(15);
       }
 
-      this.au = new String[var2];
+      this.strings = new String[var2];
       this.aa();
    }
 
    void setInt(int var1, int var2) {
-      this.ac.put(var1, var2);
-      if (this.aw[var1]) {
-         this.ab = true;
+      this.map.put(var1, var2);
+      if (this.intsPersistence[var1]) {
+         this.unwrittenChanges = true;
       }
 
    }
 
    int getInt(int var1) {
-      Object var3 = this.ac.get(var1);
+      Object var3 = this.map.get(var1);
       return var3 instanceof Integer ? (Integer)var3 : -1;
    }
 
    void setString(int var1, String var2) {
-      this.ac.put(var1, var2);
+      this.map.put(var1, var2);
    }
 
    String getString(int var1) {
-      Object var3 = this.ac.get(var1);
+      Object var3 = this.map.get(var1);
       return var3 instanceof String ? (String)var3 : "";
    }
 
    /** @deprecated */
    @Deprecated
    void setStringOld(int var1, String var2) {
-      this.au[var1] = var2;
+      this.strings[var1] = var2;
    }
 
    /** @deprecated */
    @Deprecated
    String getStringOld(int var1) {
-      return this.au[var1];
+      return this.strings[var1];
    }
 
    void aq() {
       int var2;
-      for(var2 = 0; var2 < this.aw.length; ++var2) {
-         if (!this.aw[var2]) {
-            this.ac.remove(var2);
+      for(var2 = 0; var2 < this.intsPersistence.length; ++var2) {
+         if (!this.intsPersistence[var2]) {
+            this.map.remove(var2);
          }
       }
 
-      for(var2 = 0; var2 < this.au.length; ++var2) {
-         this.au[var2] = null;
+      for(var2 = 0; var2 < this.strings.length; ++var2) {
+         this.strings[var2] = null;
       }
 
    }
 
    AccessFile al(boolean var1) {
-      return in.getPreferencesFile("2", Client.cc.aq, var1);
+      return in.getPreferencesFile("2", Client.studioGame.name, var1);
    }
 
    void at() {
@@ -111,12 +111,12 @@ public class Varcs {
       try {
          int var3 = 3;
          int var4 = 0;
-         Iterator var5 = this.ac.entrySet().iterator();
+         Iterator var5 = this.map.entrySet().iterator();
 
          while(var5.hasNext()) {
             Map.Entry var6 = (Map.Entry)var5.next();
             int var7 = (Integer)var6.getKey();
-            if (this.aw[var7]) {
+            if (this.intsPersistence[var7]) {
                Object var8 = var6.getValue();
                var3 += 3;
                if (var8 instanceof Integer) {
@@ -132,12 +132,12 @@ public class Varcs {
          Packet var21 = new Packet(var3);
          var21.bu(2);
          var21.p2(var4);
-         Iterator var22 = this.ac.entrySet().iterator();
+         Iterator var22 = this.map.entrySet().iterator();
 
          while(var22.hasNext()) {
             Map.Entry var23 = (Map.Entry)var22.next();
             int var24 = (Integer)var23.getKey();
-            if (this.aw[var24]) {
+            if (this.intsPersistence[var24]) {
                var21.p2(var24);
                Object var9 = var23.getValue();
                sh var10 = sh.ab_renamed(var9.getClass());
@@ -146,7 +146,7 @@ public class Varcs {
             }
          }
 
-         var2.write(var21.al, 0, -1633313603 * var21.at);
+         var2.write(var21.array, 0, -1633313603 * var21.index);
       } catch (Exception var19) {
       } finally {
          try {
@@ -156,8 +156,8 @@ public class Varcs {
 
       }
 
-      this.ab = false;
-      this.aq = Formatting.af_renamed() * 2378911120439077589L;
+      this.unwrittenChanges = false;
+      this.lastWriteTimeMs = Formatting.af_renamed() * 2378911120439077589L;
    }
 
    void aa() {
@@ -176,7 +176,7 @@ public class Varcs {
             }
 
             Packet var25 = new Packet(var3);
-            if (var25.al.length - -1633313603 * var25.at >= 1) {
+            if (var25.array.length - -1633313603 * var25.index >= 1) {
                int var6 = var25.g1();
                if (var6 >= 0 && var6 <= 2) {
                   int var7;
@@ -196,8 +196,8 @@ public class Varcs {
                         var10 = var25.g1();
                         sh var11 = (sh)StructType.findEnumerated(sh.au_renamed(), var10);
                         Object var12 = var11.at(var25);
-                        if (var9 >= 0 && var9 < this.aw.length && this.aw[var9]) {
-                           this.ac.put(var9, var12);
+                        if (var9 >= 0 && var9 < this.intsPersistence.length && this.intsPersistence[var9]) {
+                           this.map.put(var9, var12);
                         }
 
                         ++var8;
@@ -208,8 +208,8 @@ public class Varcs {
                      for(var8 = 0; var8 < var7; ++var8) {
                         var9 = var25.cl();
                         var10 = var25.g4s();
-                        if (var9 >= 0 && var9 < this.aw.length && this.aw[var9]) {
-                           this.ac.put(var9, var10);
+                        if (var9 >= 0 && var9 < this.intsPersistence.length && this.intsPersistence[var9]) {
+                           this.map.put(var9, var10);
                         }
                      }
 
@@ -243,25 +243,25 @@ public class Varcs {
          return;
       }
 
-      this.ab = false;
+      this.unwrittenChanges = false;
    }
 
    void ay() {
-      if (this.ab && -7171747788514623875L * this.aq < Formatting.af_renamed() - 60000L) {
+      if (this.unwrittenChanges && -7171747788514623875L * this.lastWriteTimeMs < Formatting.af_renamed() - 60000L) {
          this.at();
       }
 
    }
 
    boolean hasUnwrittenChanges() {
-      return this.ab;
+      return this.unwrittenChanges;
    }
 
    static int aq_renamed(int var0, ClientScript var1, boolean var2) {
       Component var4;
       if (var0 >= 2000) {
          var0 -= 1000;
-         var4 = gh.an_renamed(Interpreter.al[(Interpreter.at -= 427135973) * -964267539]);
+         var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
       } else {
          var4 = var2 ? SoundSystem.ag : an.ai;
       }
@@ -271,19 +271,19 @@ public class Varcs {
       int var6;
       if (1200 != var0 && 1205 != var0 && 1212 != var0) {
          if (1201 == var0) {
-            var4.dr = 866004410;
-            var4.dl = Interpreter.al[(Interpreter.at -= 427135973) * -964267539] * 509431749;
+            var4.modelType = 866004410;
+            var4.modelId = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] * 509431749;
             return 1;
          } else if (var0 == 1202) {
-            var4.dr = -848477033;
-            var4.dl = MusicPatchNode.mi.aw.getChatHeadId() * 509431749;
+            var4.modelType = -848477033;
+            var4.modelId = MusicPatchNode.localPlayer.appearance.getChatHeadId() * 509431749;
             return 1;
          } else if (1207 == var0) {
-            boolean var8 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539] == 1;
-            SecureRandomCallable.bv_renamed(var4, MusicPatchNode.mi.aw, var8);
+            boolean var8 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+            SecureRandomCallable.bv_renamed(var4, MusicPatchNode.localPlayer.appearance, var8);
             return 1;
          } else if (1208 == var0) {
-            var5 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+            var5 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
             if (var4.dd == null) {
                throw new RuntimeException("");
             } else {
@@ -291,9 +291,9 @@ public class Varcs {
                return 1;
             }
          } else if (var0 == 1209) {
-            Interpreter.at -= 854271946;
-            var5 = Interpreter.al[-964267539 * Interpreter.at];
-            var6 = Interpreter.al[1 + -964267539 * Interpreter.at];
+            Interpreter.Interpreter_intStackSize -= 854271946;
+            var5 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+            var6 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
             if (null == var4.dd) {
                throw new RuntimeException("");
             } else {
@@ -301,41 +301,41 @@ public class Varcs {
                return 1;
             }
          } else if (var0 == 1210) {
-            var5 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+            var5 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
             if (var4.dd == null) {
                throw new RuntimeException("");
             } else {
-               ga.bf_renamed(var4, 1693987821 * MusicPatchNode.mi.aw.au, var5);
+               ga.bf_renamed(var4, 1693987821 * MusicPatchNode.localPlayer.appearance.au, var5);
                return 1;
             }
          } else {
             return 2;
          }
       } else {
-         Interpreter.at -= 854271946;
-         var5 = Interpreter.al[Interpreter.at * -964267539];
-         var6 = Interpreter.al[-964267539 * Interpreter.at + 1];
-         var4.gn = -1852876811 * var5;
-         var4.gv = var6 * -568259577;
+         Interpreter.Interpreter_intStackSize -= 854271946;
+         var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+         var6 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
+         var4.itemId = -1852876811 * var5;
+         var4.itemQuantity = var6 * -568259577;
          ObjType var7 = HeadbarUpdate.getObjType(var5);
-         var4.dh = 874786355 * var7.ak;
-         var4.dp = -2065246853 * var7.az;
-         var4.du = var7.ad * 745454881;
-         var4.dg = -183088313 * var7.ae;
-         var4.de = -347855449 * var7.ap;
-         var4.db = 1614948179 * var7.aj;
+         var4.modelAngleX = 874786355 * var7.yan2d;
+         var4.modelAngleY = -2065246853 * var7.manwear2;
+         var4.modelAngleZ = var7.xof2d * 745454881;
+         var4.modelOffsetX = -183088313 * var7.manwearyoff;
+         var4.modelOffsetY = -347855449 * var7.yof2d;
+         var4.modelZoom = 1614948179 * var7.aj;
          if (var0 == 1205) {
             var4.dn = 0;
-         } else if (var0 == 1212 | 1552863327 * var7.bi == 1) {
+         } else if (var0 == 1212 | 1552863327 * var7.stackable == 1) {
             var4.dn = -761533221;
          } else {
             var4.dn = -1523066442;
          }
 
          if (var4.df * -289037969 > 0) {
-            var4.db = -467727501 * (100808544 * var4.db / (var4.df * -289037969));
-         } else if (-1960603747 * var4.bh > 0) {
-            var4.db = 100808544 * var4.db / (-1960603747 * var4.bh) * -467727501;
+            var4.modelZoom = -467727501 * (100808544 * var4.modelZoom / (var4.df * -289037969));
+         } else if (-1960603747 * var4.rawWidth > 0) {
+            var4.modelZoom = 100808544 * var4.modelZoom / (-1960603747 * var4.rawWidth) * -467727501;
          }
 
          return 1;

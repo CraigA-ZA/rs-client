@@ -1,5 +1,5 @@
 public class ol {
-   public static BufferedFile[] ag;
+   public static BufferedFile[] idxFiles;
    static char[] af = new char[64];
    static char[] an;
    static char[] aw;
@@ -84,7 +84,7 @@ public class ol {
    }
 
    static final void mm_renamed(Component var0, int var1, int var2) {
-      if (Client.pr == null && !Client.nt) {
+      if (Client.pr == null && !Client.isMiniMenuOpen) {
          if (var0 != null) {
             Component var6 = var0;
             int var7 = StructType.an_renamed(KeyHandler.getComponentClickMask(var0));
@@ -101,7 +101,7 @@ public class ol {
                      break;
                   }
 
-                  var6 = gh.an_renamed(var6.cu * 913615679);
+                  var6 = gh.an_renamed(var6.parentId * 913615679);
                   if (var6 == null) {
                      var5 = null;
                      break;
@@ -113,7 +113,7 @@ public class ol {
 
             Component var9 = var5;
             if (null == var5) {
-               var9 = var0.ey;
+               var9 = var0.parent;
             }
 
             if (var9 != null) {
@@ -131,7 +131,7 @@ public class ol {
                         break;
                      }
 
-                     var6 = gh.an_renamed(var6.cu * 913615679);
+                     var6 = gh.an_renamed(var6.parentId * 913615679);
                      if (var6 == null) {
                         var5 = null;
                         break;
@@ -143,7 +143,7 @@ public class ol {
 
                var9 = var5;
                if (var5 == null) {
-                  var9 = var0.ey;
+                  var9 = var0.parent;
                }
 
                Client.pf = var9;

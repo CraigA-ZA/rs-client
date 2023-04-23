@@ -67,8 +67,8 @@ public class eu extends AbstractUserComparator {
    }
 
    int af(Buddy var1, Buddy var2) {
-      if (0 != 177258591 * var1.au && 177258591 * var2.au != 0) {
-         return this.af ? 1907692493 * var1.ab - var2.ab * 1907692493 : 1907692493 * var2.ab - var1.ab * 1907692493;
+      if (0 != 177258591 * var1.world0 && 177258591 * var2.world0 != 0) {
+         return this.af ? 1907692493 * var1.int2 - var2.int2 * 1907692493 : 1907692493 * var2.int2 - var1.int2 * 1907692493;
       } else {
          return this.ao(var1, var2);
       }
@@ -90,32 +90,32 @@ public class eu extends AbstractUserComparator {
       int var3 = -2010934433 * ds.ab;
       int[] var4 = ds.aq;
       boolean var5 = false;
-      Username var6 = new Username(var1, co.cn);
+      Username var6 = new Username(var1, co.loginType);
 
       for(int var7 = 0; var7 < var3; ++var7) {
-         Player var8 = Client.mc[var4[var7]];
-         if (null != var8 && var8 != MusicPatchNode.mi && null != var8.af && var8.af.equals(var6)) {
+         Player var8 = Client.players[var4[var7]];
+         if (null != var8 && var8 != MusicPatchNode.localPlayer && null != var8.username && var8.username.equals(var6)) {
             PacketBitNode var9;
             if (var0 == 1) {
-               var9 = mi.an_renamed(ClientProt.de, Client.in.au);
-               var9.aw.du(0);
-               var9.aw.p2(var4[var7]);
-               Client.in.aw(var9);
+               var9 = mi.an_renamed(ClientProt.de, Client.packetWriter.au);
+               var9.bit.du(0);
+               var9.bit.p2(var4[var7]);
+               Client.packetWriter.aw(var9);
             } else if (4 == var0) {
-               var9 = mi.an_renamed(ClientProt.cf, Client.in.au);
-               var9.aw.dp(0);
-               var9.aw.p2LE(var4[var7]);
-               Client.in.aw(var9);
+               var9 = mi.an_renamed(ClientProt.cf, Client.packetWriter.au);
+               var9.bit.dp(0);
+               var9.bit.p2LE(var4[var7]);
+               Client.packetWriter.aw(var9);
             } else if (var0 == 6) {
-               var9 = mi.an_renamed(ClientProt.ca, Client.in.au);
-               var9.aw.dy(var4[var7]);
-               var9.aw.dp(0);
-               Client.in.aw(var9);
+               var9 = mi.an_renamed(ClientProt.ca, Client.packetWriter.au);
+               var9.bit.dy(var4[var7]);
+               var9.bit.dp(0);
+               Client.packetWriter.aw(var9);
             } else if (var0 == 7) {
-               var9 = mi.an_renamed(ClientProt.al, Client.in.au);
-               var9.aw.ds(var4[var7]);
-               var9.aw.dh(0);
-               Client.in.aw(var9);
+               var9 = mi.an_renamed(ClientProt.al, Client.packetWriter.au);
+               var9.bit.ds(var4[var7]);
+               var9.bit.dh(0);
+               Client.packetWriter.aw(var9);
             }
 
             var5 = true;
@@ -124,7 +124,7 @@ public class eu extends AbstractUserComparator {
       }
 
       if (!var5) {
-         es.an_renamed(4, "", Strings.gt + var1);
+         es.an_renamed(4, "", Strings.Strings_unableToFind + var1);
       }
 
    }

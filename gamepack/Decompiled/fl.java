@@ -54,6 +54,6 @@ public class fl implements Enumerated {
    }
 
    static boolean oi_renamed() {
-      return aj.vb.by() >= Client.cl * 976454555;
+      return aj.clientPreferences.by() >= Client.cl * 976454555;
    }
 }

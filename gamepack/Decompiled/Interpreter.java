@@ -4,18 +4,18 @@ import java.util.Calendar;
 public class Interpreter {
    static boolean ak = false;
    static boolean az = false;
-   static ClientScriptFrame[] ax = new ClientScriptFrame[50];
+   static ClientScriptFrame[] Interpreter_frames = new ClientScriptFrame[50];
    static int ae = 0;
-   static int ao = 0;
-   static int at;
-   static int[] ab = new int[5];
-   static int[] ac;
-   static int[] al = new int[1000];
-   static int[][] aq = new int[5][5000];
-   static String[] aa = new String[1000];
-   static String[] au;
+   static int Interpreter_frameDepth = 0;
+   static int Interpreter_intStackSize;
+   static int[] Interpreter_arrayLengths = new int[5];
+   static int[] Interpreter_intLocals;
+   static int[] Interpreter_intStack = new int[1000];
+   static int[][] Interpreter_arrays = new int[5][5000];
+   static String[] Interpreter_stringStack = new String[1000];
+   static String[] Interpreter_stringLocals;
    static ArrayList ad = new ArrayList();
-   static Calendar am = Calendar.getInstance();
+   static Calendar Interpreter_calendar = Calendar.getInstance();
    static final double bi = Math.log(2.0);
    static final String[] as = new String[]{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
@@ -30,6 +30,6 @@ public class Interpreter {
    }
 
    static World al_renamed() {
-      return 285408389 * World.aq < World.ab * -734287707 ? bx.au[(World.aq += -1658479539) * 285408389 - 1] : null;
+      return 285408389 * World.aq < World.worldsCount * -734287707 ? bx.worlds[(World.aq += -1658479539) * 285408389 - 1] : null;
    }
 }

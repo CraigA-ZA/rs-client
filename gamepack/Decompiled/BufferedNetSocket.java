@@ -2,30 +2,30 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class BufferedNetSocket extends AbstractSocket {
-   Socket af;
-   BufferedSource an;
-   BufferedSink aw;
+   Socket socket;
+   BufferedSource source;
+   BufferedSink sink;
 
    BufferedNetSocket(Socket var1, int var2, int var3) throws IOException {
-      this.af = var1;
-      this.af.setSoTimeout(30000);
-      this.af.setTcpNoDelay(true);
-      this.af.setReceiveBufferSize(65536);
-      this.af.setSendBufferSize(65536);
-      this.an = new BufferedSource(this.af.getInputStream(), var2);
-      this.aw = new BufferedSink(this.af.getOutputStream(), var3);
+      this.socket = var1;
+      this.socket.setSoTimeout(30000);
+      this.socket.setTcpNoDelay(true);
+      this.socket.setReceiveBufferSize(65536);
+      this.socket.setSendBufferSize(65536);
+      this.source = new BufferedSource(this.socket.getInputStream(), var2);
+      this.sink = new BufferedSink(this.socket.getOutputStream(), var3);
    }
 
    public boolean an(int var1) throws IOException {
-      return this.an.isAvailable(var1);
+      return this.source.isAvailable(var1);
    }
 
    public int aw() throws IOException {
-      return this.an.available();
+      return this.source.available();
    }
 
    static int aw_renamed(int var0, int var1) {
-      Inventory var3 = (Inventory)Inventory.af.get((long)var0);
+      Inventory var3 = (Inventory)Inventory.itemContainers.get((long)var0);
       if (null == var3) {
          return 0;
       } else if (-1 == var1) {
@@ -33,9 +33,9 @@ public class BufferedNetSocket extends AbstractSocket {
       } else {
          int var4 = 0;
 
-         for(int var5 = 0; var5 < var3.aw.length; ++var5) {
-            if (var1 == var3.an[var5]) {
-               var4 += var3.aw[var5];
+         for(int var5 = 0; var5 < var3.quantities.length; ++var5) {
+            if (var1 == var3.ids[var5]) {
+               var4 += var3.quantities[var5];
             }
          }
 
@@ -44,26 +44,26 @@ public class BufferedNetSocket extends AbstractSocket {
    }
 
    public int ac() throws IOException {
-      return this.an.readUnsignedByte();
+      return this.source.readUnsignedByte();
    }
 
    public int au(byte[] var1, int var2, int var3) throws IOException {
-      return this.an.read(var1, var2, var3);
+      return this.source.read(var1, var2, var3);
    }
 
    public void ab(byte[] var1, int var2, int var3) throws IOException {
-      this.aw.write(var1, var2, var3);
+      this.sink.write(var1, var2, var3);
    }
 
    public void aq() {
-      this.aw.close();
+      this.sink.close();
 
       try {
-         this.af.close();
+         this.socket.close();
       } catch (IOException var3) {
       }
 
-      this.an.close();
+      this.source.close();
    }
 
    protected void finalize() {

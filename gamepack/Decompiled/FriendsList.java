@@ -1,11 +1,11 @@
 public class FriendsList extends UserList {
    int ac = -1405002149;
-   final LoginType aw;
-   public LinkDeque au = new LinkDeque();
+   final LoginType loginType;
+   public LinkDeque friendLoginUpdates = new LinkDeque();
 
    public FriendsList(LoginType var1) {
       super(400);
-      this.aw = var1;
+      this.loginType = var1;
    }
 
    User newInstance() {
@@ -21,16 +21,16 @@ public class FriendsList extends UserList {
       if (null == var4) {
          return false;
       } else {
-         return !var2 || 0 != 177258591 * var4.au;
+         return !var2 || 0 != 177258591 * var4.world0;
       }
    }
 
    public void read(Packet var1, int var2) {
       while(true) {
-         if (var1.at * -1633313603 < var2) {
+         if (var1.index * -1633313603 < var2) {
             boolean var4 = var1.g1() == 1;
-            Username var5 = new Username(var1.cw(), this.aw);
-            Username var6 = new Username(var1.cw(), this.aw);
+            Username var5 = new Username(var1.cw(), this.loginType);
+            Username var6 = new Username(var1.cw(), this.loginType);
             int var7 = var1.cl();
             int var8 = var1.g1();
             int var9 = var1.g1();
@@ -58,15 +58,15 @@ public class FriendsList extends UserList {
 
                if (var12 != null) {
                   this.changeName(var12, var5, var6);
-                  if (var7 != var12.au * 177258591) {
+                  if (var7 != var12.world0 * 177258591) {
                      boolean var15 = true;
 
-                     for(FriendLoginUpdate var14 = (FriendLoginUpdate)this.au.an(); null != var14; var14 = (FriendLoginUpdate)this.au.aw()) {
-                        if (var14.an.equals(var5)) {
-                           if (0 != var7 && 0 == var14.aw) {
+                     for(FriendLoginUpdate var14 = (FriendLoginUpdate)this.friendLoginUpdates.an(); null != var14; var14 = (FriendLoginUpdate)this.friendLoginUpdates.aw()) {
+                        if (var14.username.equals(var5)) {
+                           if (0 != var7 && 0 == var14.world) {
                               var14.remove();
                               var15 = false;
-                           } else if (0 == var7 && 0 != var14.aw) {
+                           } else if (0 == var7 && 0 != var14.world) {
                               var14.remove();
                               var15 = false;
                            }
@@ -74,7 +74,7 @@ public class FriendsList extends UserList {
                      }
 
                      if (var15) {
-                        this.au.af(new FriendLoginUpdate(var5, var7));
+                        this.friendLoginUpdates.af(new FriendLoginUpdate(var5, var7));
                      }
                   }
                } else {
@@ -85,16 +85,16 @@ public class FriendsList extends UserList {
                   var12 = (Friend)this.addLast(var5, var6);
                }
 
-               if (var12.au * 177258591 != var7) {
-                  var12.ab = ((this.ac += -1405002149) * 2010685907 - 1) * 1270747397;
-                  if (-1 == 177258591 * var12.au && var7 == 0) {
-                     var12.ab = -(var12.ab * 1);
+               if (var12.world0 * 177258591 != var7) {
+                  var12.int2 = ((this.ac += -1405002149) * 2010685907 - 1) * 1270747397;
+                  if (-1 == 177258591 * var12.world0 && var7 == 0) {
+                     var12.int2 = -(var12.int2 * 1);
                   }
 
-                  var12.au = var7 * -1128162401;
+                  var12.world0 = var7 * -1128162401;
                }
 
-               var12.aq = 1331866435 * var8;
+               var12.rank = 1331866435 * var8;
                var12.af = var10;
                var12.an = var11;
                continue;
@@ -110,9 +110,9 @@ public class FriendsList extends UserList {
 
    static void je_renamed(hf var0) {
       if (var0 != null && null != var0.ab) {
-         if (55577617 * var0.ab.br >= 0) {
-            Component var2 = gh.an_renamed(913615679 * var0.ab.cu);
-            if (var2 == null || var2.gz == null || 0 == var2.gz.length || 55577617 * var0.ab.br >= var2.gz.length || var2.gz[55577617 * var0.ab.br] != var0.ab) {
+         if (55577617 * var0.ab.childIndex >= 0) {
+            Component var2 = gh.an_renamed(913615679 * var0.ab.parentId);
+            if (var2 == null || var2.children == null || 0 == var2.children.length || 55577617 * var0.ab.childIndex >= var2.children.length || var2.children[55577617 * var0.ab.childIndex] != var0.ab) {
                return;
             }
          }
@@ -127,14 +127,14 @@ public class FriendsList extends UserList {
                      if (hq.au_renamed(KeyHandler.getComponentClickMask(var0.ab))) {
                         int[] var5 = var0.ab.bo();
                         if (null != var5) {
-                           PacketBitNode var3 = mi.an_renamed(ClientProt.ct, Client.in.au);
-                           var3.aw.p4ME(var5[0]);
-                           var3.aw.p4LE16(var0.ab.bs * 1713081171);
-                           var3.aw.ba(var5[1]);
-                           var3.aw.el(var0.ab.bk());
-                           var3.aw.p4ME(var5[2]);
-                           var3.aw.p2LE(55577617 * var0.ab.br);
-                           Client.in.aw(var3);
+                           PacketBitNode var3 = mi.an_renamed(ClientProt.ct, Client.packetWriter.au);
+                           var3.bit.p4ME(var5[0]);
+                           var3.bit.p4LE16(var0.ab.id * 1713081171);
+                           var3.bit.ba(var5[1]);
+                           var3.bit.el(var0.ab.bk());
+                           var3.bit.p4ME(var5[2]);
+                           var3.bit.p2LE(55577617 * var0.ab.childIndex);
+                           Client.packetWriter.aw(var3);
                         }
                      }
                }

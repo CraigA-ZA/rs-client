@@ -8,6 +8,6 @@ public class lh {
    }
 
    public static void ab_renamed() {
-      FloorUnderlayType.an.clear();
+      FloorUnderlayType.FloorUnderlayType_cached.clear();
    }
 }

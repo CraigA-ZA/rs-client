@@ -4,7 +4,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class kt {
-   public static boolean[] by;
+   public static boolean[] loadedInterfaces;
    static int wu;
 
    kt() throws Throwable {
@@ -26,19 +26,19 @@ public class kt {
          Packet var5 = new Packet(new byte[1000]);
 
          do {
-            int var6 = var4.read(var5.al, -1633313603 * var5.at, 1000 - -1633313603 * var5.at);
+            int var6 = var4.read(var5.array, -1633313603 * var5.index, 1000 - -1633313603 * var5.index);
             if (-1 == var6) {
                if (var0 >= -1) {
                   throw new IllegalStateException();
                } else {
-                  var5.at = 0;
+                  var5.index = 0;
                   long var9 = var5.g8s();
                   return var9;
                }
             }
 
-            var5.at += -1516355947 * var6;
-         } while(-1633313603 * var5.at < 1000);
+            var5.index += -1516355947 * var6;
+         } while(-1633313603 * var5.index < 1000);
 
          if (var0 >= -1) {
             throw new IllegalStateException();

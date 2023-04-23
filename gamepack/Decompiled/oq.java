@@ -49,7 +49,7 @@ public class oq {
    }
 
    public void aq(int var1) {
-      if (null != this.ak && var1 < 2 * this.ak.al) {
+      if (null != this.ak && var1 < 2 * this.ak.ascent) {
          var1 = Integer.MAX_VALUE;
       }
 
@@ -81,7 +81,7 @@ public class oq {
          this.ak = var1;
          if (null != this.ak) {
             if (this.as * -1059679999 == 0) {
-               this.as = this.ak.al * 1279946497;
+               this.as = this.ak.ascent * 1279946497;
             }
 
             if (!this.aw()) {
@@ -332,7 +332,7 @@ public class oq {
    }
 
    public int ae() {
-      return this.aw() ? 0 : this.ak.al + ((om)this.az.get(this.az.size() - 1)).aw * -727185157;
+      return this.aw() ? 0 : this.ak.ascent + ((om)this.az.get(this.az.size() - 1)).aw * -727185157;
    }
 
    public int ap() {
@@ -340,7 +340,7 @@ public class oq {
    }
 
    public int by() {
-      return this.ae() / this.ak.al;
+      return this.ae() / this.ak.ascent;
    }
 
    int bb() {
@@ -471,11 +471,11 @@ public class oq {
       if (var1.af == '\n') {
          return 0;
       } else if (!var2 && 0 != this.ae * 874587033) {
-         return this.ak.aw[42];
+         return this.ak.advances[42];
       } else {
-         int var4 = this.ak.aw[var1.af];
+         int var4 = this.ak.advances[var1.af];
          if (var4 == 0) {
-            return '\t' == var1.af ? this.ak.aw[32] * 3 : this.ak.aw[32];
+            return '\t' == var1.af ? this.ak.advances[32] * 3 : this.ak.advances[32];
          } else {
             return var4;
          }
@@ -554,17 +554,17 @@ public class oq {
    }
 
    public static void as_renamed() {
-      ObjType.aa.clear();
+      ObjType.ObjType_cached.clear();
       ObjType.ay.clear();
       ObjType.ao.clear();
    }
 
    static final void nl_renamed(String var0) {
       if (!var0.equals("")) {
-         PacketBitNode var2 = mi.an_renamed(ClientProt.aa, Client.in.au);
-         var2.aw.bu(DynamicObject.bc_renamed(var0));
-         var2.aw.bh(var0);
-         Client.in.aw(var2);
+         PacketBitNode var2 = mi.an_renamed(ClientProt.aa, Client.packetWriter.au);
+         var2.bit.bu(DynamicObject.bc_renamed(var0));
+         var2.bit.bh(var0);
+         Client.packetWriter.aw(var2);
       }
    }
 }

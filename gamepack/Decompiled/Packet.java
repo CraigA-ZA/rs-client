@@ -3,8 +3,8 @@ import java.math.BigInteger;
 public class Packet extends Node {
    static int[] aa = new int[256];
    static long[] ao;
-   public byte[] al;
-   public int at;
+   public byte[] array;
+   public int index;
 
    static {
       int var2;
@@ -41,67 +41,67 @@ public class Packet extends Node {
    }
 
    public Packet(int var1) {
-      this.al = jz.ac_renamed(var1);
-      this.at = 0;
+      this.array = jz.ac_renamed(var1);
+      this.index = 0;
    }
 
    public Packet(int var1, boolean var2) {
-      this.al = ByteArrayPool.ByteArrayPool_get(var1, var2);
+      this.array = ByteArrayPool.ByteArrayPool_get(var1, var2);
    }
 
    public Packet(byte[] var1) {
-      this.al = var1;
-      this.at = 0;
+      this.array = var1;
+      this.index = 0;
    }
 
    public void bg() {
-      if (null != this.al) {
-         InterfaceParent.ByteArrayPool_release(this.al);
+      if (null != this.array) {
+         InterfaceParent.ByteArrayPool_release(this.array);
       }
 
-      this.al = null;
+      this.array = null;
    }
 
    public void bu(int var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)var1;
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)var1;
    }
 
    public void p2(int var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)var1;
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)var1;
    }
 
    public void bq(int var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)var1;
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)var1;
    }
 
    public void ba(int var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 24);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)var1;
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 24);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)var1;
    }
 
    public void p6(long var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 40));
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 32));
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 24));
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 16));
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 8));
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)((int)var1);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 40));
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 32));
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 24));
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 16));
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 8));
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)((int)var1);
    }
 
    public void p8s(long var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 56));
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 48));
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 40));
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 32));
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 24));
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 16));
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 8));
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)((int)var1);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 56));
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 48));
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 40));
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 32));
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 24));
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 16));
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)((int)(var1 >> 8));
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)((int)var1);
    }
 
    public void pbool(boolean var1) {
@@ -113,8 +113,8 @@ public class Packet extends Node {
       if (var3 >= 0) {
          throw new IllegalArgumentException("");
       } else {
-         this.at += kc.encodeStringCp1252(var1, 0, var1.length(), this.al, this.at * -1633313603) * -1516355947;
-         this.al[(this.at += -1516355947) * -1633313603 - 1] = 0;
+         this.index += kc.encodeStringCp1252(var1, 0, var1.length(), this.array, this.index * -1633313603) * -1516355947;
+         this.array[(this.index += -1516355947) * -1633313603 - 1] = 0;
       }
    }
 
@@ -123,9 +123,9 @@ public class Packet extends Node {
       if (var3 >= 0) {
          throw new IllegalArgumentException("");
       } else {
-         this.al[(this.at += -1516355947) * -1633313603 - 1] = 0;
-         this.at += kc.encodeStringCp1252(var1, 0, var1.length(), this.al, -1633313603 * this.at) * -1516355947;
-         this.al[(this.at += -1516355947) * -1633313603 - 1] = 0;
+         this.array[(this.index += -1516355947) * -1633313603 - 1] = 0;
+         this.index += kc.encodeStringCp1252(var1, 0, var1.length(), this.array, -1633313603 * this.index) * -1516355947;
+         this.array[(this.index += -1516355947) * -1633313603 - 1] = 0;
       }
    }
 
@@ -154,37 +154,37 @@ public class Packet extends Node {
 
    public void ci(CharSequence var1) {
       int var3 = gq.af_renamed(var1);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = 0;
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = 0;
       this.cq(var3);
-      this.at += GrandExchangeOffer.an_renamed(this.al, -1633313603 * this.at, var1) * -1516355947;
+      this.index += GrandExchangeOffer.an_renamed(this.array, -1633313603 * this.index, var1) * -1516355947;
    }
 
    public void cs(byte[] var1, int var2, int var3) {
       for(int var5 = var2; var5 < var3 + var2; ++var5) {
-         this.al[(this.at += -1516355947) * -1633313603 - 1] = var1[var5];
+         this.array[(this.index += -1516355947) * -1633313603 - 1] = var1[var5];
       }
 
    }
 
    public void cc(Packet var1) {
-      this.cs(var1.al, 0, var1.at * -1633313603);
+      this.cs(var1.array, 0, var1.index * -1633313603);
    }
 
    public void cn(int var1) {
       if (var1 < 0) {
          throw new IllegalArgumentException();
       } else {
-         this.al[-1633313603 * this.at - var1 - 4] = (byte)(var1 >> 24);
-         this.al[-1633313603 * this.at - var1 - 3] = (byte)(var1 >> 16);
-         this.al[-1633313603 * this.at - var1 - 2] = (byte)(var1 >> 8);
-         this.al[this.at * -1633313603 - var1 - 1] = (byte)var1;
+         this.array[-1633313603 * this.index - var1 - 4] = (byte)(var1 >> 24);
+         this.array[-1633313603 * this.index - var1 - 3] = (byte)(var1 >> 16);
+         this.array[-1633313603 * this.index - var1 - 2] = (byte)(var1 >> 8);
+         this.array[this.index * -1633313603 - var1 - 1] = (byte)var1;
       }
    }
 
    public void ca(int var1) {
       if (var1 >= 0 && var1 <= 65535) {
-         this.al[-1633313603 * this.at - var1 - 2] = (byte)(var1 >> 8);
-         this.al[-1633313603 * this.at - var1 - 1] = (byte)var1;
+         this.array[-1633313603 * this.index - var1 - 2] = (byte)(var1 >> 8);
+         this.array[-1633313603 * this.index - var1 - 1] = (byte)var1;
       } else {
          throw new IllegalArgumentException();
       }
@@ -192,7 +192,7 @@ public class Packet extends Node {
 
    public void cu(int var1) {
       if (var1 >= 0 && var1 <= 255) {
-         this.al[-1633313603 * this.at - var1 - 1] = (byte)var1;
+         this.array[-1633313603 * this.index - var1 - 1] = (byte)var1;
       } else {
          throw new IllegalArgumentException();
       }
@@ -229,21 +229,21 @@ public class Packet extends Node {
    }
 
    public int g1() {
-      return this.al[(this.at += -1516355947) * -1633313603 - 1] & 255;
+      return this.array[(this.index += -1516355947) * -1633313603 - 1] & 255;
    }
 
    public byte g1s() {
-      return this.al[(this.at += -1516355947) * -1633313603 - 1];
+      return this.array[(this.index += -1516355947) * -1633313603 - 1];
    }
 
    public int cl() {
-      this.at += 1262255402;
-      return (this.al[this.at * -1633313603 - 1] & 255) + ((this.al[-1633313603 * this.at - 2] & 255) << 8);
+      this.index += 1262255402;
+      return (this.array[this.index * -1633313603 - 1] & 255) + ((this.array[-1633313603 * this.index - 2] & 255) << 8);
    }
 
    public int cg() {
-      this.at += 1262255402;
-      int var2 = (this.al[this.at * -1633313603 - 1] & 255) + ((this.al[this.at * -1633313603 - 2] & 255) << 8);
+      this.index += 1262255402;
+      int var2 = (this.array[this.index * -1633313603 - 1] & 255) + ((this.array[this.index * -1633313603 - 2] & 255) << 8);
       if (var2 > 32767) {
          var2 -= 65536;
       }
@@ -252,13 +252,13 @@ public class Packet extends Node {
    }
 
    public int cr() {
-      this.at += -254100545;
-      return ((this.al[-1633313603 * this.at - 2] & 255) << 8) + ((this.al[this.at * -1633313603 - 3] & 255) << 16) + (this.al[this.at * -1633313603 - 1] & 255);
+      this.index += -254100545;
+      return ((this.array[-1633313603 * this.index - 2] & 255) << 8) + ((this.array[this.index * -1633313603 - 3] & 255) << 16) + (this.array[this.index * -1633313603 - 1] & 255);
    }
 
    public int cy() {
-      this.at += -254100545;
-      int var2 = (this.al[this.at * -1633313603 - 1] & 255) + ((this.al[this.at * -1633313603 - 2] & 255) << 8) + ((this.al[this.at * -1633313603 - 3] & 255) << 16);
+      this.index += -254100545;
+      int var2 = (this.array[this.index * -1633313603 - 1] & 255) + ((this.array[this.index * -1633313603 - 2] & 255) << 8) + ((this.array[this.index * -1633313603 - 3] & 255) << 16);
       if (var2 > 8388607) {
          var2 -= 16777216;
       }
@@ -267,8 +267,8 @@ public class Packet extends Node {
    }
 
    public int g4s() {
-      this.at += -1770456492;
-      return ((this.al[this.at * -1633313603 - 3] & 255) << 16) + ((this.al[-1633313603 * this.at - 4] & 255) << 24) + ((this.al[-1633313603 * this.at - 2] & 255) << 8) + (this.al[-1633313603 * this.at - 1] & 255);
+      this.index += -1770456492;
+      return ((this.array[this.index * -1633313603 - 3] & 255) << 16) + ((this.array[-1633313603 * this.index - 4] & 255) << 24) + ((this.array[-1633313603 * this.index - 2] & 255) << 8) + (this.array[-1633313603 * this.index - 1] & 255);
    }
 
    public long g8s() {
@@ -286,8 +286,8 @@ public class Packet extends Node {
    }
 
    public String cz() {
-      if (0 == this.al[this.at * -1633313603]) {
-         this.at += -1516355947;
+      if (0 == this.array[this.index * -1633313603]) {
+         this.index += -1516355947;
          return null;
       } else {
          return this.cw();
@@ -295,41 +295,41 @@ public class Packet extends Node {
    }
 
    public String cw() {
-      int var2 = this.at * -1633313603;
+      int var2 = this.index * -1633313603;
 
-      while(this.al[(this.at += -1516355947) * -1633313603 - 1] != 0) {
+      while(this.array[(this.index += -1516355947) * -1633313603 - 1] != 0) {
       }
 
-      int var3 = -1633313603 * this.at - var2 - 1;
-      return 0 == var3 ? "" : ab_renamed(this.al, var2, var3);
+      int var3 = -1633313603 * this.index - var2 - 1;
+      return 0 == var3 ? "" : ab_renamed(this.array, var2, var3);
    }
 
    public String gjstr() {
-      byte var2 = this.al[(this.at += -1516355947) * -1633313603 - 1];
+      byte var2 = this.array[(this.index += -1516355947) * -1633313603 - 1];
       if (var2 != 0) {
          throw new IllegalStateException("");
       } else {
-         int var3 = -1633313603 * this.at;
+         int var3 = -1633313603 * this.index;
 
-         while(this.al[(this.at += -1516355947) * -1633313603 - 1] != 0) {
+         while(this.array[(this.index += -1516355947) * -1633313603 - 1] != 0) {
          }
 
-         int var4 = this.at * -1633313603 - var3 - 1;
-         return var4 == 0 ? "" : ab_renamed(this.al, var3, var4);
+         int var4 = this.index * -1633313603 - var3 - 1;
+         return var4 == 0 ? "" : ab_renamed(this.array, var3, var4);
       }
    }
 
    public String ch() {
-      byte var2 = this.al[(this.at += -1516355947) * -1633313603 - 1];
+      byte var2 = this.array[(this.index += -1516355947) * -1633313603 - 1];
       if (0 != var2) {
          throw new IllegalStateException("");
       } else {
          int var3 = this.di();
-         if (var3 + this.at * -1633313603 > this.al.length) {
+         if (var3 + this.index * -1633313603 > this.array.length) {
             throw new IllegalStateException("");
          } else {
-            byte[] var5 = this.al;
-            int var6 = this.at * -1633313603;
+            byte[] var5 = this.array;
+            int var6 = this.index * -1633313603;
             char[] var7 = new char[var3];
             int var8 = 0;
             int var9 = var6;
@@ -380,7 +380,7 @@ public class Packet extends Node {
             }
 
             String var4 = new String(var7, 0, var8);
-            this.at += -1516355947 * var3;
+            this.index += -1516355947 * var3;
             return var4;
          }
       }
@@ -388,23 +388,23 @@ public class Packet extends Node {
 
    public void ct(byte[] var1, int var2, int var3) {
       for(int var5 = var2; var5 < var2 + var3; ++var5) {
-         var1[var5] = this.al[(this.at += -1516355947) * -1633313603 - 1];
+         var1[var5] = this.array[(this.index += -1516355947) * -1633313603 - 1];
       }
 
    }
 
    public int gSmart1or2s() {
-      int var2 = this.al[this.at * -1633313603] & 255;
+      int var2 = this.array[this.index * -1633313603] & 255;
       return var2 < 128 ? this.g1() - 64 : this.cl() - '쀀';
    }
 
    public int cd() {
-      int var2 = this.al[this.at * -1633313603] & 255;
+      int var2 = this.array[this.index * -1633313603] & 255;
       return var2 < 128 ? this.g1() : this.cl() - '耀';
    }
 
    public int dm() {
-      int var2 = this.al[-1633313603 * this.at] & 255;
+      int var2 = this.array[-1633313603 * this.index] & 255;
       return var2 < 128 ? this.g1() - 1 : this.cl() - '老';
    }
 
@@ -421,11 +421,11 @@ public class Packet extends Node {
    }
 
    public int dc() {
-      return this.al[-1633313603 * this.at] < 0 ? this.g4s() & Integer.MAX_VALUE : this.cl();
+      return this.array[-1633313603 * this.index] < 0 ? this.g4s() & Integer.MAX_VALUE : this.cl();
    }
 
    public int gSmart2or4() {
-      if (this.al[this.at * -1633313603] < 0) {
+      if (this.array[this.index * -1633313603] < 0) {
          return this.g4s() & Integer.MAX_VALUE;
       } else {
          int var2 = this.cl();
@@ -434,10 +434,10 @@ public class Packet extends Node {
    }
 
    public int di() {
-      byte var2 = this.al[(this.at += -1516355947) * -1633313603 - 1];
+      byte var2 = this.array[(this.index += -1516355947) * -1633313603 - 1];
 
       int var3;
-      for(var3 = 0; var2 < 0; var2 = this.al[(this.at += -1516355947) * -1633313603 - 1]) {
+      for(var3 = 0; var2 < 0; var2 = this.array[(this.index += -1516355947) * -1633313603 - 1]) {
          var3 = (var3 | var2 & 127) << 7;
       }
 
@@ -463,8 +463,8 @@ public class Packet extends Node {
    }
 
    public void tinyKeyEncryptAll(int[] var1) {
-      int var3 = this.at * -1633313603 / 8;
-      this.at = 0;
+      int var3 = this.index * -1633313603 / 8;
+      this.index = 0;
 
       for(int var4 = 0; var4 < var3; ++var4) {
          int var5 = this.g4s();
@@ -477,7 +477,7 @@ public class Packet extends Node {
             var7 += var8;
          }
 
-         this.at -= 754054312;
+         this.index -= 754054312;
          this.ba(var5);
          this.ba(var6);
       }
@@ -485,8 +485,8 @@ public class Packet extends Node {
    }
 
    public void tinyKeyDecryptAll(int[] var1) {
-      int var3 = -1633313603 * this.at / 8;
-      this.at = 0;
+      int var3 = -1633313603 * this.index / 8;
+      this.index = 0;
 
       for(int var4 = 0; var4 < var3; ++var4) {
          int var5 = this.g4s();
@@ -499,7 +499,7 @@ public class Packet extends Node {
             var7 -= var8;
          }
 
-         this.at -= 754054312;
+         this.index -= 754054312;
          this.ba(var5);
          this.ba(var6);
       }
@@ -507,8 +507,8 @@ public class Packet extends Node {
    }
 
    public void tinyKeyEncrypt(int[] var1, int var2, int var3) {
-      int var5 = -1633313603 * this.at;
-      this.at = var2 * -1516355947;
+      int var5 = -1633313603 * this.index;
+      this.index = var2 * -1516355947;
       int var6 = (var3 - var2) / 8;
 
       for(int var7 = 0; var7 < var6; ++var7) {
@@ -522,17 +522,17 @@ public class Packet extends Node {
             var10 += var11;
          }
 
-         this.at -= 754054312;
+         this.index -= 754054312;
          this.ba(var8);
          this.ba(var9);
       }
 
-      this.at = -1516355947 * var5;
+      this.index = -1516355947 * var5;
    }
 
    public void tinyKeyDecrypt(int[] var1, int var2, int var3) {
-      int var5 = -1633313603 * this.at;
-      this.at = -1516355947 * var2;
+      int var5 = -1633313603 * this.index;
+      this.index = -1516355947 * var2;
       int var6 = (var3 - var2) / 8;
 
       for(int var7 = 0; var7 < var6; ++var7) {
@@ -546,109 +546,109 @@ public class Packet extends Node {
             var10 -= var11;
          }
 
-         this.at -= 754054312;
+         this.index -= 754054312;
          this.ba(var8);
          this.ba(var9);
       }
 
-      this.at = -1516355947 * var5;
+      this.index = -1516355947 * var5;
    }
 
    public void rsaEncrypt(BigInteger var1, BigInteger var2) {
-      int var4 = -1633313603 * this.at;
-      this.at = 0;
+      int var4 = -1633313603 * this.index;
+      this.index = 0;
       byte[] var5 = new byte[var4];
       this.ct(var5, 0, var4);
       BigInteger var6 = new BigInteger(var5);
       BigInteger var7 = var6.modPow(var1, var2);
       byte[] var8 = var7.toByteArray();
-      this.at = 0;
+      this.index = 0;
       this.p2(var8.length);
       this.cs(var8, 0, var8.length);
    }
 
    public int dg(int var1) {
-      int var3 = SeqType.bs_renamed(this.al, var1, -1633313603 * this.at);
+      int var3 = SeqType.bs_renamed(this.array, var1, -1633313603 * this.index);
       this.ba(var3);
       return var3;
    }
 
    public boolean de() {
-      this.at -= -1770456492;
-      int var2 = SeqType.bs_renamed(this.al, 0, this.at * -1633313603);
+      this.index -= -1770456492;
+      int var2 = SeqType.bs_renamed(this.array, 0, this.index * -1633313603);
       int var3 = this.g4s();
       return var2 == var3;
    }
 
    public void dh(int var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 + 128);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 + 128);
    }
 
    public void dp(int var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(0 - var1);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(0 - var1);
    }
 
    public void du(int var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(128 - var1);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(128 - var1);
    }
 
    public int db() {
-      return this.al[(this.at += -1516355947) * -1633313603 - 1] - 128 & 255;
+      return this.array[(this.index += -1516355947) * -1633313603 - 1] - 128 & 255;
    }
 
    public int g1n() {
-      return 0 - this.al[(this.at += -1516355947) * -1633313603 - 1] & 255;
+      return 0 - this.array[(this.index += -1516355947) * -1633313603 - 1] & 255;
    }
 
    public int dq() {
-      return 128 - this.al[(this.at += -1516355947) * -1633313603 - 1] & 255;
+      return 128 - this.array[(this.index += -1516355947) * -1633313603 - 1] & 255;
    }
 
    public byte dd() {
-      return (byte)(this.al[(this.at += -1516355947) * -1633313603 - 1] - 128);
+      return (byte)(this.array[(this.index += -1516355947) * -1633313603 - 1] - 128);
    }
 
    public byte dj() {
-      return (byte)(0 - this.al[(this.at += -1516355947) * -1633313603 - 1]);
+      return (byte)(0 - this.array[(this.index += -1516355947) * -1633313603 - 1]);
    }
 
    public byte dx() {
-      return (byte)(128 - this.al[(this.at += -1516355947) * -1633313603 - 1]);
+      return (byte)(128 - this.array[(this.index += -1516355947) * -1633313603 - 1]);
    }
 
    public void p2LE(int var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)var1;
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)var1;
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
    }
 
    public void dy(int var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 + 128);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 + 128);
    }
 
    public void ds(int var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 + 128);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 + 128);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
    }
 
    public int da() {
-      this.at += 1262255402;
-      return ((this.al[-1633313603 * this.at - 1] & 255) << 8) + (this.al[-1633313603 * this.at - 2] & 255);
+      this.index += 1262255402;
+      return ((this.array[-1633313603 * this.index - 1] & 255) << 8) + (this.array[-1633313603 * this.index - 2] & 255);
    }
 
    public int ep() {
-      this.at += 1262255402;
-      return ((this.al[-1633313603 * this.at - 2] & 255) << 8) + (this.al[this.at * -1633313603 - 1] - 128 & 255);
+      this.index += 1262255402;
+      return ((this.array[-1633313603 * this.index - 2] & 255) << 8) + (this.array[this.index * -1633313603 - 1] - 128 & 255);
    }
 
    public int eo() {
-      this.at += 1262255402;
-      return ((this.al[this.at * -1633313603 - 1] & 255) << 8) + (this.al[-1633313603 * this.at - 2] - 128 & 255);
+      this.index += 1262255402;
+      return ((this.array[this.index * -1633313603 - 1] & 255) << 8) + (this.array[-1633313603 * this.index - 2] - 128 & 255);
    }
 
    public int eq() {
-      this.at += 1262255402;
-      int var2 = (this.al[-1633313603 * this.at - 2] & 255) + ((this.al[-1633313603 * this.at - 1] & 255) << 8);
+      this.index += 1262255402;
+      int var2 = (this.array[-1633313603 * this.index - 2] & 255) + ((this.array[-1633313603 * this.index - 1] & 255) << 8);
       if (var2 > 32767) {
          var2 -= 65536;
       }
@@ -657,8 +657,8 @@ public class Packet extends Node {
    }
 
    public int et() {
-      this.at += 1262255402;
-      int var2 = (this.al[-1633313603 * this.at - 1] - 128 & 255) + ((this.al[this.at * -1633313603 - 2] & 255) << 8);
+      this.index += 1262255402;
+      int var2 = (this.array[-1633313603 * this.index - 1] - 128 & 255) + ((this.array[this.index * -1633313603 - 2] & 255) << 8);
       if (var2 > 32767) {
          var2 -= 65536;
       }
@@ -667,8 +667,8 @@ public class Packet extends Node {
    }
 
    public int ef() {
-      this.at += 1262255402;
-      int var2 = ((this.al[-1633313603 * this.at - 1] & 255) << 8) + (this.al[-1633313603 * this.at - 2] - 128 & 255);
+      this.index += 1262255402;
+      int var2 = ((this.array[-1633313603 * this.index - 1] & 255) << 8) + (this.array[-1633313603 * this.index - 2] - 128 & 255);
       if (var2 > 32767) {
          var2 -= 65536;
       }
@@ -677,24 +677,24 @@ public class Packet extends Node {
    }
 
    public void ez(int var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)var1;
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)var1;
    }
 
    public int ej() {
-      this.at += -254100545;
-      return ((this.al[-1633313603 * this.at - 2] & 255) << 8) + ((this.al[-1633313603 * this.at - 1] & 255) << 16) + (this.al[-1633313603 * this.at - 3] & 255);
+      this.index += -254100545;
+      return ((this.array[-1633313603 * this.index - 2] & 255) << 8) + ((this.array[-1633313603 * this.index - 1] & 255) << 16) + (this.array[-1633313603 * this.index - 3] & 255);
    }
 
    public int ea() {
-      this.at += -254100545;
-      return ((this.al[this.at * -1633313603 - 2] & 255) << 16) + ((this.al[-1633313603 * this.at - 3] & 255) << 8) + (this.al[this.at * -1633313603 - 1] & 255);
+      this.index += -254100545;
+      return ((this.array[this.index * -1633313603 - 2] & 255) << 16) + ((this.array[-1633313603 * this.index - 3] & 255) << 8) + (this.array[this.index * -1633313603 - 1] & 255);
    }
 
    public int eu() {
-      this.at += -254100545;
-      int var2 = ((this.al[-1633313603 * this.at - 1] & 255) << 16) + ((this.al[this.at * -1633313603 - 2] & 255) << 8) + (this.al[-1633313603 * this.at - 3] & 255);
+      this.index += -254100545;
+      int var2 = ((this.array[-1633313603 * this.index - 1] & 255) << 16) + ((this.array[this.index * -1633313603 - 2] & 255) << 8) + (this.array[-1633313603 * this.index - 3] & 255);
       if (var2 > 8388607) {
          var2 -= 16777216;
       }
@@ -703,38 +703,38 @@ public class Packet extends Node {
    }
 
    public void p4LE16(int var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)var1;
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 24);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)var1;
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 24);
    }
 
    public void p4ME(int var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)var1;
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 24);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)var1;
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 24);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
    }
 
    public void el(int var1) {
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 24);
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)var1;
-      this.al[(this.at += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 24);
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)var1;
+      this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
    }
 
    public int en() {
-      this.at += -1770456492;
-      return ((this.al[this.at * -1633313603 - 2] & 255) << 16) + ((this.al[-1633313603 * this.at - 1] & 255) << 24) + ((this.al[this.at * -1633313603 - 3] & 255) << 8) + (this.al[this.at * -1633313603 - 4] & 255);
+      this.index += -1770456492;
+      return ((this.array[this.index * -1633313603 - 2] & 255) << 16) + ((this.array[-1633313603 * this.index - 1] & 255) << 24) + ((this.array[this.index * -1633313603 - 3] & 255) << 8) + (this.array[this.index * -1633313603 - 4] & 255);
    }
 
    public int er() {
-      this.at += -1770456492;
-      return ((this.al[this.at * -1633313603 - 2] & 255) << 24) + ((this.al[-1633313603 * this.at - 1] & 255) << 16) + ((this.al[this.at * -1633313603 - 4] & 255) << 8) + (this.al[this.at * -1633313603 - 3] & 255);
+      this.index += -1770456492;
+      return ((this.array[this.index * -1633313603 - 2] & 255) << 24) + ((this.array[-1633313603 * this.index - 1] & 255) << 16) + ((this.array[this.index * -1633313603 - 4] & 255) << 8) + (this.array[this.index * -1633313603 - 3] & 255);
    }
 
    public int eg() {
-      this.at += -1770456492;
-      return (this.al[-1633313603 * this.at - 2] & 255) + ((this.al[this.at * -1633313603 - 4] & 255) << 16) + ((this.al[this.at * -1633313603 - 3] & 255) << 24) + ((this.al[this.at * -1633313603 - 1] & 255) << 8);
+      this.index += -1770456492;
+      return (this.array[-1633313603 * this.index - 2] & 255) + ((this.array[this.index * -1633313603 - 4] & 255) << 16) + ((this.array[this.index * -1633313603 - 3] & 255) << 24) + ((this.array[this.index * -1633313603 - 1] & 255) << 8);
    }
 }

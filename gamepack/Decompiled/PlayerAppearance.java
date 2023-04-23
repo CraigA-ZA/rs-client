@@ -5,7 +5,7 @@ public class PlayerAppearance {
    public static short[][] ao;
    static EvictingDualNodeHashTable ar;
    static final int[] ag;
-   boolean aa = false;
+   boolean isFemale = false;
    gx[] at;
    int[] af;
    int[] an;
@@ -78,7 +78,7 @@ public class PlayerAppearance {
 
    public void af(int[] var1, int[] var2, gx[] var3, boolean var4, int[] var5, int var6, int var7, int var8) {
       this.at = var3;
-      this.aa = var4;
+      this.isFemale = var4;
       this.ac = var8 * 1029929221;
       this.an(var1, var2, var5, var6, var7);
    }
@@ -131,7 +131,7 @@ public class PlayerAppearance {
                }
 
                var5 = dn.getIDKType(var4);
-            } while(null == var5 || var5.ao || var5.au * 1015855167 != var1 + (1 == this.au * 1693987821 ? 7 : 0));
+            } while(null == var5 || var5.ao || var5.bodyPart * 1015855167 != var1 + (1 == this.au * 1693987821 ? 7 : 0));
 
             this.an[ag[var1]] = 256 + var4;
             this.at();
@@ -219,7 +219,7 @@ public class PlayerAppearance {
       this.aq += (long)this.au * -7585466391638339447L;
       this.an[5] = var4;
       this.an[9] = var5;
-      if (var2 != 0L && this.aq * 800274196296009541L != var2 || this.aa) {
+      if (var2 != 0L && this.aq * 800274196296009541L != var2 || this.isFemale) {
          ar.remove(var2);
       }
 

@@ -2,7 +2,7 @@ public class WorldMapIcon2 extends AbstractWorldMapIcon {
    int ab;
    int au;
    int aw;
-   WorldMapLabel ac;
+   WorldMapLabel label0;
    final int af;
    final WorldMapRegion an;
 
@@ -15,7 +15,7 @@ public class WorldMapIcon2 extends AbstractWorldMapIcon {
 
    void af() {
       this.aw = fw.an_renamed(-707716855 * this.af).ao().be * 1063280821;
-      this.ac = this.an.bz(nf.getMapElementType(this.aw * -362754265));
+      this.label0 = this.an.bz(nf.getMapElementType(this.aw * -362754265));
       MapElementType var2 = nf.getMapElementType(this.element());
       Rasterizer3D var3 = var2.ab(false);
       if (var3 != null) {
@@ -33,7 +33,7 @@ public class WorldMapIcon2 extends AbstractWorldMapIcon {
    }
 
    WorldMapLabel label() {
-      return this.ac;
+      return this.label0;
    }
 
    int ac() {

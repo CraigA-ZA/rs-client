@@ -2,76 +2,76 @@ import java.awt.Image;
 import java.io.IOException;
 
 public class PacketWriter {
-   static Image bo;
+   static Image pauseImage;
    boolean at = true;
    int aa = 0;
    int al = 0;
-   int aw = 0;
+   int serverPacket0Length = 0;
    int ay = 0;
    ServerProt ai;
    ServerProt ao;
-   ServerProt aq = null;
+   ServerProt serverPacket0 = null;
    ServerProt ax;
-   IterableNodeDeque an = new IterableNodeDeque();
-   AbstractSocket af;
-   Packet ac = new Packet(5000);
-   PacketBit ab = new PacketBit(40000);
+   IterableNodeDeque bitNodes = new IterableNodeDeque();
+   AbstractSocket socket0;
+   Packet packet = new Packet(5000);
+   PacketBit bit = new PacketBit(40000);
    public Isaac au;
 
    PacketWriter() {
    }
 
    final void af() {
-      this.an.clear0();
-      this.aw = 0;
+      this.bitNodes.clear0();
+      this.serverPacket0Length = 0;
    }
 
    final void an() throws IOException {
-      if (null != this.af && -1859952183 * this.aw > 0) {
-         this.ac.at = 0;
+      if (null != this.socket0 && -1859952183 * this.serverPacket0Length > 0) {
+         this.packet.index = 0;
 
          while(true) {
-            PacketBitNode var2 = (PacketBitNode)this.an.last();
-            if (null == var2 || 1816684323 * var2.ac > this.ac.al.length - this.ac.at * -1633313603) {
-               this.af.ab(this.ac.al, 0, this.ac.at * -1633313603);
+            PacketBitNode var2 = (PacketBitNode)this.bitNodes.last();
+            if (null == var2 || 1816684323 * var2.ac > this.packet.array.length - this.packet.index * -1633313603) {
+               this.socket0.ab(this.packet.array, 0, this.packet.index * -1633313603);
                this.ay = 0;
                break;
             }
 
-            this.ac.cs(var2.aw.al, 0, 1816684323 * var2.ac);
-            this.aw -= -56666229 * var2.ac;
+            this.packet.cs(var2.bit.array, 0, 1816684323 * var2.ac);
+            this.serverPacket0Length -= -56666229 * var2.ac;
             var2.remove();
-            var2.aw.bg();
-            var2.clearAll();
+            var2.bit.bg();
+            var2.ac();
          }
       }
 
    }
 
    public final void aw(PacketBitNode var1) {
-      this.an.addFirst(var1);
-      var1.ac = -1120134497 * var1.aw.at;
-      var1.aw.at = 0;
-      this.aw += var1.ac * -56666229;
+      this.bitNodes.addFirst(var1);
+      var1.ac = -1120134497 * var1.bit.index;
+      var1.bit.index = 0;
+      this.serverPacket0Length += var1.ac * -56666229;
    }
 
    void setSocket(AbstractSocket var1) {
-      this.af = var1;
+      this.socket0 = var1;
    }
 
    void au() {
-      if (this.af != null) {
-         this.af.aq();
-         this.af = null;
+      if (this.socket0 != null) {
+         this.socket0.aq();
+         this.socket0 = null;
       }
 
    }
 
    void ab() {
-      this.af = null;
+      this.socket0 = null;
    }
 
    AbstractSocket getSocket() {
-      return this.af;
+      return this.socket0;
    }
 }

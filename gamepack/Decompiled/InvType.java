@@ -1,7 +1,7 @@
 public class InvType extends DualNode {
    static EvictingDualNodeHashTable an = new EvictingDualNodeHashTable(64);
    static AbstractArchive af;
-   public int aw = 0;
+   public int size = 0;
 
    InvType() {
    }
@@ -19,46 +19,46 @@ public class InvType extends DualNode {
 
    void decode0(Packet var1, int var2) {
       if (2 == var2) {
-         this.aw = var1.cl() * -28904041;
+         this.size = var1.cl() * -28904041;
       }
 
    }
 
    static final void lf_renamed(Npc var0, int var1, int var2, int var3) {
-      hs var5 = var0.af;
-      if (730065501 * Client.ne < 400) {
-         if (var5.bn != null) {
-            var5 = var5.at();
+      NPCType var5 = var0.type;
+      if (730065501 * Client.menuOptionsCount < 400) {
+         if (var5.transforms != null) {
+            var5 = var5.transform();
          }
 
          if (null != var5) {
-            if (var5.bg) {
-               if (!var5.bf || var1 == Client.pt * 2050107857) {
+            if (var5.isInteractable) {
+               if (!var5.isFollower || var1 == Client.pt * 2050107857) {
                   String var6 = var0.at();
                   int var7;
                   if (0 != 2062903815 * var5.bx && var0.eq * 674049519 != 0) {
                      var7 = 674049519 * var0.eq != -1 ? 674049519 * var0.eq : 2062903815 * var5.bx;
-                     var6 = var6 + Inventory.lu_renamed(var7, MusicPatchNode.mi.al * 1302967875) + " " + Formatting.ac + Strings.gf + var7 + Formatting.au;
+                     var6 = var6 + Inventory.lu_renamed(var7, MusicPatchNode.localPlayer.skillLevel * 1302967875) + " " + Formatting.Formatting_spaceLeftParenthesis + Strings.Strings_level + var7 + Formatting.Formatting_rightParenthesis;
                   }
 
-                  if (var5.bf && Client.ov) {
-                     MiniMenuEntry.kz_renamed(Strings.gh, oa.colorStartTag(16776960) + var6, 1003, var1, var2, var3);
+                  if (var5.isFollower && Client.ov) {
+                     MiniMenuEntry.kz_renamed(Strings.Strings_examine, oa.colorStartTag(16776960) + var6, 1003, var1, var2, var3);
                   }
 
                   if (1 == -303899309 * Client.oq) {
-                     MiniMenuEntry.kz_renamed(Strings.gu, Client.it + " " + Formatting.ab + " " + oa.colorStartTag(16776960) + var6, 7, var1, var2, var3);
+                     MiniMenuEntry.kz_renamed(Strings.Strings_use, Client.selectedItemName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(16776960) + var6, 7, var1, var2, var3);
                   } else if (Client.om) {
                      if (2 == (1457791911 * SecureRandomFuture.oo & 2)) {
-                        MiniMenuEntry.kz_renamed(Client.oj, Client.ob + " " + Formatting.ab + " " + oa.colorStartTag(16776960) + var6, 8, var1, var2, var3);
+                        MiniMenuEntry.kz_renamed(Client.oj, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(16776960) + var6, 8, var1, var2, var3);
                      }
                   } else {
-                     var7 = var5.bf && Client.ov ? 2000 : 0;
-                     String[] var8 = var5.be;
+                     var7 = var5.isFollower && Client.ov ? 2000 : 0;
+                     String[] var8 = var5.op;
                      int var9;
                      int var10;
                      if (var8 != null) {
                         for(var9 = 4; var9 >= 0; --var9) {
-                           if (var0.ac(var9) && null != var8[var9] && !var8[var9].equalsIgnoreCase(Strings.gy)) {
+                           if (var0.ac(var9) && null != var8[var9] && !var8[var9].equalsIgnoreCase(Strings.Strings_attack)) {
                               var10 = 0;
                               if (0 == var9) {
                                  var10 = 9 + var7;
@@ -87,10 +87,10 @@ public class InvType extends DualNode {
 
                      if (null != var8) {
                         for(var9 = 4; var9 >= 0; --var9) {
-                           if (var0.ac(var9) && var8[var9] != null && var8[var9].equalsIgnoreCase(Strings.gy)) {
+                           if (var0.ac(var9) && var8[var9] != null && var8[var9].equalsIgnoreCase(Strings.Strings_attack)) {
                               short var11 = 0;
                               if (dj.ac != Client.ew) {
-                                 if (dj.an == Client.ew || Client.ew == dj.af && var5.bx * 2062903815 > MusicPatchNode.mi.al * 1302967875) {
+                                 if (dj.an == Client.ew || Client.ew == dj.af && var5.bx * 2062903815 > MusicPatchNode.localPlayer.skillLevel * 1302967875) {
                                     var11 = 2000;
                                  }
 
@@ -121,8 +121,8 @@ public class InvType extends DualNode {
                         }
                      }
 
-                     if (!var5.bf || !Client.ov) {
-                        MiniMenuEntry.kz_renamed(Strings.gh, oa.colorStartTag(16776960) + var6, 1003, var1, var2, var3);
+                     if (!var5.isFollower || !Client.ov) {
+                        MiniMenuEntry.kz_renamed(Strings.Strings_examine, oa.colorStartTag(16776960) + var6, 1003, var1, var2, var3);
                      }
                   }
 

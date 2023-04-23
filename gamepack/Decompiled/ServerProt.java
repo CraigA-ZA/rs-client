@@ -118,11 +118,11 @@ public class ServerProt {
    public static final ServerProt eu = new ServerProt(112, 10);
    public static final ServerProt ez = new ServerProt(109, 7);
    static final ServerProt be = new ServerProt(29, -2);
-   public final int ed;
-   public final int ev;
+   public final int length;
+   public final int id;
 
    ServerProt(int var1, int var2) {
-      this.ed = 1490038637 * var1;
-      this.ev = var2 * 1670435019;
+      this.length = 1490038637 * var1;
+      this.id = var2 * 1670435019;
    }
 }

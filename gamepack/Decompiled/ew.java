@@ -62,7 +62,7 @@ public class ew {
    }
 
    public static HitmarkType getHitmarkType(int var0) {
-      HitmarkType var2 = (HitmarkType)HitmarkType.ac.get((long)var0);
+      HitmarkType var2 = (HitmarkType)HitmarkType.HitmarkType_cached.get((long)var0);
       if (var2 != null) {
          return var2;
       } else {
@@ -72,7 +72,7 @@ public class ew {
             var2.decode(new Packet(var3));
          }
 
-         HitmarkType.ac.put(var2, (long)var0);
+         HitmarkType.HitmarkType_cached.put(var2, (long)var0);
          return var2;
       }
    }
@@ -100,19 +100,19 @@ public class ew {
             if (var6 >= 0 && var6 < 104 && var5 >= 0 && var5 < 104) {
                Tiles.al[0][var6][var5] = 127;
                if (var6 == var0 && var6 > 0) {
-                  Tiles.af[0][var6][var5] = Tiles.af[0][var6 - 1][var5];
+                  Tiles.Tiles_heights[0][var6][var5] = Tiles.Tiles_heights[0][var6 - 1][var5];
                }
 
                if (var0 + var2 == var6 && var6 < 103) {
-                  Tiles.af[0][var6][var5] = Tiles.af[0][var6 + 1][var5];
+                  Tiles.Tiles_heights[0][var6][var5] = Tiles.Tiles_heights[0][var6 + 1][var5];
                }
 
                if (var5 == var1 && var5 > 0) {
-                  Tiles.af[0][var6][var5] = Tiles.af[0][var6][var5 - 1];
+                  Tiles.Tiles_heights[0][var6][var5] = Tiles.Tiles_heights[0][var6][var5 - 1];
                }
 
                if (var5 == var1 + var3 && var5 < 103) {
-                  Tiles.af[0][var6][var5] = Tiles.af[0][var6][1 + var5];
+                  Tiles.Tiles_heights[0][var6][var5] = Tiles.Tiles_heights[0][var6][1 + var5];
                }
             }
          }
@@ -164,10 +164,10 @@ public class ew {
 
    static final void ai_renamed() {
       if (!ix.ac) {
-         int var1 = Scene.by;
-         int var2 = Scene.bb;
-         int var3 = Scene.bi;
-         int var4 = Scene.be;
+         int var1 = Scene.Scene_cameraPitchSine;
+         int var2 = Scene.Scene_cameraPitchCosine;
+         int var3 = Scene.Scene_cameraYawSine;
+         int var4 = Scene.Scene_cameraYawCosine;
          int var5 = 50;
          int var6 = 3500;
          int var7 = (2139535413 * ix.an - TaskHandler.au_renamed()) * var5 / eu.at_renamed();

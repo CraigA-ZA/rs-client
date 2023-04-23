@@ -31,6 +31,6 @@ public class ta implements Enumerated {
 
       World.at = var3;
       World.al = var4;
-      ex.aw_renamed(bx.au, 0, bx.au.length - 1, World.at, World.al);
+      ex.aw_renamed(bx.worlds, 0, bx.worlds.length - 1, World.at, World.al);
    }
 }

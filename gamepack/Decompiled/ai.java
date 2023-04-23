@@ -15,12 +15,12 @@ class ai extends DefaultTlsClient {
       if (var0 < var1) {
          int var7 = (var0 + var1) / 2;
          int var8 = var0;
-         World var9 = bx.au[var7];
-         bx.au[var7] = bx.au[var1];
-         bx.au[var1] = var9;
+         World var9 = bx.worlds[var7];
+         bx.worlds[var7] = bx.worlds[var1];
+         bx.worlds[var1] = var9;
 
          for(int var10 = var0; var10 < var1; ++var10) {
-            World var12 = bx.au[var10];
+            World var12 = bx.worlds[var10];
             int var13 = ly.compareWorlds(var12, var9, var2, var3);
             int var11;
             if (0 != var13) {
@@ -41,14 +41,14 @@ class ai extends DefaultTlsClient {
             }
 
             if (var11 <= 0) {
-               World var15 = bx.au[var10];
-               bx.au[var10] = bx.au[var8];
-               bx.au[var8++] = var15;
+               World var15 = bx.worlds[var10];
+               bx.worlds[var10] = bx.worlds[var8];
+               bx.worlds[var8++] = var15;
             }
          }
 
-         bx.au[var1] = bx.au[var8];
-         bx.au[var8] = var9;
+         bx.worlds[var1] = bx.worlds[var8];
+         bx.worlds[var8] = var9;
          au_renamed(var0, var8 - 1, var2, var3, var4, var5);
          au_renamed(var8 + 1, var1, var2, var3, var4, var5);
       }
@@ -212,7 +212,7 @@ class ai extends DefaultTlsClient {
             if (var3 == 1) {
                sv.af_renamed(var6, var5, var0, var4, 9);
             } else {
-               AbstractArchive.be.decompress(var2, var6);
+               AbstractArchive.gzipDecompressor.decompress(var2, var6);
             }
 
             return var6;
@@ -226,21 +226,21 @@ class ai extends DefaultTlsClient {
          int var9;
          if (1928 == var0) {
             var4 = var2 ? SoundSystem.ag : an.ai;
-            var9 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+            var9 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
             if (var9 >= 1 && var9 <= 10) {
-               dd var10 = new dd(var9, 1713081171 * var4.bs, var4.br * 55577617, var4.gn * -2006098851);
+               dd var10 = new dd(var9, 1713081171 * var4.id, var4.childIndex * 55577617, var4.itemId * -2006098851);
                Interpreter.ad.add(var10);
                return 1;
             } else {
                throw new RuntimeException();
             }
          } else if (var0 == 2928) {
-            Interpreter.at -= 1281407919;
-            int var8 = Interpreter.al[Interpreter.at * -964267539];
-            var9 = Interpreter.al[-964267539 * Interpreter.at + 1];
-            int var6 = Interpreter.al[2 + Interpreter.at * -964267539];
+            Interpreter.Interpreter_intStackSize -= 1281407919;
+            int var8 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+            var9 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
+            int var6 = Interpreter.Interpreter_intStack[2 + Interpreter.Interpreter_intStackSize * -964267539];
             if (var6 >= 1 && var6 <= 10) {
-               dd var7 = new dd(var6, var8, var9, gh.an_renamed(var8).gn * -2006098851);
+               dd var7 = new dd(var6, var8, var9, gh.an_renamed(var8).itemId * -2006098851);
                Interpreter.ad.add(var7);
                return 1;
             } else {
@@ -253,7 +253,7 @@ class ai extends DefaultTlsClient {
          throw new RuntimeException();
       } else {
          if (var0 >= 2000) {
-            var4 = gh.an_renamed(Interpreter.al[(Interpreter.at -= 427135973) * -964267539]);
+            var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
          } else {
             var4 = var2 ? SoundSystem.ag : an.ai;
          }
@@ -263,7 +263,7 @@ class ai extends DefaultTlsClient {
          } else {
             ClientScriptEvent var5 = new ClientScriptEvent();
             var5.aw = var4;
-            var5.af = var4.gh;
+            var5.args0 = var4.gh;
             var5.ay = -1685365847 + Interpreter.ae * 815462605;
             Client.rq.addFirst(var5);
             return 1;
@@ -276,13 +276,13 @@ class ai extends DefaultTlsClient {
          return false;
       } else {
          boolean var2;
-         if (var0 != MusicPatchNode.mi) {
+         if (var0 != MusicPatchNode.localPlayer) {
             var2 = (-1387790283 * Client.mk & 4) != 0;
             boolean var3 = var2;
             boolean var4;
             if (!var2) {
                var4 = 0 != (Client.mk * -1387790283 & 1);
-               var3 = var4 && var0.isFromFriend();
+               var3 = var4 && var0.aw();
             }
 
             var4 = var3;
@@ -302,7 +302,7 @@ class ai extends DefaultTlsClient {
    static final void lk_renamed(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       if (SoundSystem.loadInterface(var0)) {
          WorldMapSection3.qk = null;
-         ao.drawInterface(hn.ap[var0], -1, var1, var2, var3, var4, var5, var6, var7);
+         ao.drawInterface(hn.interfaceComponents[var0], -1, var1, var2, var3, var4, var5, var6, var7);
          if (null != WorldMapSection3.qk) {
             ao.drawInterface(WorldMapSection3.qk, -1412584499, var1, var2, var3, var4, 1983519339 * id.qp, dy.qw * -2041029009, var7);
             WorldMapSection3.qk = null;

@@ -32,7 +32,7 @@ public class ek {
          byte[] var3 = sz.af.takeFile(38, var0);
          var2 = new sz();
          if (null != var3) {
-            var2.decode(new Packet(var3));
+            var2.aw(new Packet(var3));
          }
 
          var2.ab();

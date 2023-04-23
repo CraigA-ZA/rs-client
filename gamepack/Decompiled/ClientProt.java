@@ -95,31 +95,31 @@ public class ClientProt implements ClientProt0 {
    static final ClientProt bj = new ClientProt(37, -1);
    static final ClientProt bk = new ClientProt(30, 7);
    static final ClientProt br = new ClientProt(40, 2);
-   final int dd;
-   final int dq;
+   final int length;
+   final int id;
 
    ClientProt(int var1, int var2) {
-      this.dq = 784733707 * var1;
-      this.dd = var2 * 797159357;
+      this.id = 784733707 * var1;
+      this.length = var2 * 797159357;
    }
 
    static void mp_renamed() {
-      for(InterfaceParent var1 = (InterfaceParent)Client.oc.first(); null != var1; var1 = (InterfaceParent)Client.oc.next()) {
+      for(InterfaceParent var1 = (InterfaceParent)Client.interfaceParents.first(); null != var1; var1 = (InterfaceParent)Client.interfaceParents.next()) {
          int var2 = var1.af * 944864121;
          if (SoundSystem.loadInterface(var2)) {
             boolean var3 = true;
-            Component[] var4 = hn.ap[var2];
+            Component[] var4 = hn.interfaceComponents[var2];
 
             int var5;
             for(var5 = 0; var5 < var4.length; ++var5) {
                if (var4[var5] != null) {
-                  var3 = var4[var5].bn;
+                  var3 = var4[var5].isIf3;
                   break;
                }
             }
 
             if (!var3) {
-               var5 = (int)var1.hr;
+               var5 = (int)var1.key;
                Component var6 = gh.an_renamed(var5);
                if (var6 != null) {
                   fw.ma_renamed(var6);

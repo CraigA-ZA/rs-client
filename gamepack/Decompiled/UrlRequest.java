@@ -4,8 +4,8 @@ public class UrlRequest {
    public static int at;
    static int an = -1187714911;
    static int aw = 589984538;
-   final URL af;
-   volatile byte[] au;
+   final URL url;
+   volatile byte[] response0;
    volatile int ac;
 
    static int ac(int var0, double var1) {
@@ -23,7 +23,7 @@ public class UrlRequest {
 
    UrlRequest(URL var1) {
       this.ac = an * -856794795;
-      this.af = var1;
+      this.url = var1;
    }
 
    public boolean isDone() {
@@ -31,11 +31,11 @@ public class UrlRequest {
    }
 
    public byte[] getResponse() {
-      return this.au;
+      return this.response0;
    }
 
    public String aw() {
-      return this.af.toString();
+      return this.url.toString();
    }
 
    static void as_renamed() {

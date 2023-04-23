@@ -2,7 +2,7 @@ public class sx {
    int[] af = new int[8];
    short[] an = new short[8];
 
-   public sx(hs var1) {
+   public sx(NPCType var1) {
       int var2 = 0;
       if (var1.ai()) {
          var2 = var1.ag().length;

@@ -1,12 +1,12 @@
 public final class ObjStack {
-   int af;
-   int al;
-   int an;
-   int aw;
-   Entity ab;
-   Entity ac;
-   Entity au;
-   long aq;
+   int tileHeight;
+   int height;
+   int x;
+   int y;
+   Entity third;
+   Entity first;
+   Entity second;
+   long tag;
 
    ObjStack() {
    }
@@ -19,16 +19,16 @@ public final class ObjStack {
       while(true) {
          byte var3 = 16;
          int var4 = 1 << var3;
-         if (var1.bitsRemaining(889658999 * Client.in.al) >= 12 + var3) {
+         if (var1.bitsRemaining(889658999 * Client.packetWriter.al) >= 12 + var3) {
             int var5 = var1.gBit(var3);
             if (var4 - 1 != var5) {
                boolean var6 = false;
-               if (null == Client.iu[var5]) {
-                  Client.iu[var5] = new Npc();
+               if (null == Client.npcs[var5]) {
+                  Client.npcs[var5] = new Npc();
                   var6 = true;
                }
 
-               Npc var7 = Client.iu[var5];
+               Npc var7 = Client.npcs[var5];
                Client.iy[(Client.iw += 1796101277) * 265474485 - 1] = var5;
                var7.dg = Client.ep * -1014023335;
                int var10;
@@ -55,7 +55,7 @@ public final class ObjStack {
                }
 
                int var8 = var1.gBit(1);
-               var7.af = AbstractArchive.an_renamed(var1.gBit(14));
+               var7.type = AbstractArchive.an_renamed(var1.gBit(14));
                int var9;
                if (var0) {
                   var9 = var1.gBit(8);
@@ -79,7 +79,7 @@ public final class ObjStack {
                   var7.bz = 0;
                }
 
-               var7.ay(var9 + MusicPatchNode.mi.dy[0], var10 + MusicPatchNode.mi.ds[0], 1 == var8);
+               var7.ay(var9 + MusicPatchNode.localPlayer.pathX[0], var10 + MusicPatchNode.localPlayer.pathY[0], 1 == var8);
                continue;
             }
          }

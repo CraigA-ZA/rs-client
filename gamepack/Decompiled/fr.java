@@ -11,7 +11,7 @@ public class fr extends fu {
       this.af = -35116265;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.cl() * 35116265;
       this.an = var1.g1s();
       this.aw = var1.cl() * 832186411;

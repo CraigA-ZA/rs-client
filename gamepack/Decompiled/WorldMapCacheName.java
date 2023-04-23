@@ -1,12 +1,12 @@
 public class WorldMapCacheName {
-   public static final WorldMapCacheName af = new WorldMapCacheName("details");
-   public static final WorldMapCacheName an = new WorldMapCacheName("compositemap");
-   public static final WorldMapCacheName au = new WorldMapCacheName("labels");
-   public static final WorldMapCacheName aw = new WorldMapCacheName("compositetexture");
-   static final WorldMapCacheName ac = new WorldMapCacheName("area");
-   public final String ab;
+   public static final WorldMapCacheName WorldMapCacheName_details = new WorldMapCacheName("details");
+   public static final WorldMapCacheName WorldMapCacheName_compositeMap = new WorldMapCacheName("compositemap");
+   public static final WorldMapCacheName WorldMapCacheName_labels = new WorldMapCacheName("labels");
+   public static final WorldMapCacheName WorldMapCacheName_compositeTexture = new WorldMapCacheName("compositetexture");
+   static final WorldMapCacheName WorldMapCacheName_area = new WorldMapCacheName("area");
+   public final String name;
 
    WorldMapCacheName(String var1) {
-      this.ab = var1;
+      this.name = var1;
    }
 }

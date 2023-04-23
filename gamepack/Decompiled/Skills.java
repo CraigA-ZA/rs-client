@@ -1,6 +1,6 @@
 public class Skills {
    public static int[] aw = new int[99];
-   public static final boolean[] an = new boolean[]{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false};
+   public static final boolean[] Skills_enabled = new boolean[]{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false};
 
    static {
       int var0 = 0;

@@ -7,8 +7,8 @@ public class Language implements Enumerated {
    public static final Language ab;
    public static final Language af;
    public static final Language aw;
-   static MiniMenuEntry ot;
-   static Font ir;
+   static MiniMenuEntry tempMenuAction;
+   static Font fontPlain11;
    static final Language ac;
    static final Language an;
    static final Language aq;
@@ -42,7 +42,7 @@ public class Language implements Enumerated {
    }
 
    public static AttackOption[] au_renamed() {
-      return new AttackOption[]{AttackOption.af, AttackOption.ac, AttackOption.an, AttackOption.aw};
+      return new AttackOption[]{AttackOption.AttackOption_dependsOnCombatLevels, AttackOption.AttackOption_hidden, AttackOption.AttackOption_alwaysRightClick, AttackOption.AttackOption_leftClickWhereAvailable};
    }
 
    static Language[] au_renamed() {
@@ -93,9 +93,9 @@ public class Language implements Enumerated {
       } else {
          switch (var0.ac * -22191699) {
             case 1:
-               return Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+               return Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
             case 2:
-               return Interpreter.aa[(SecureRandomCallable.ay -= -1086551379) * -2017760987];
+               return Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
             default:
                throw new IllegalStateException("popValueOfType() failure - unsupported type");
          }
@@ -104,16 +104,16 @@ public class Language implements Enumerated {
 
    static final void jv_renamed(boolean var0) {
       mj.hz_renamed();
-      PacketWriter var10000 = Client.in;
+      PacketWriter var10000 = Client.packetWriter;
       var10000.ay += -1313905755;
-      if (1383386157 * Client.in.ay >= 50 || var0) {
-         Client.in.ay = 0;
-         if (!Client.ik && Client.in.getSocket() != null) {
-            PacketBitNode var2 = mi.an_renamed(ClientProt.by, Client.in.au);
-            Client.in.aw(var2);
+      if (1383386157 * Client.packetWriter.ay >= 50 || var0) {
+         Client.packetWriter.ay = 0;
+         if (!Client.ik && Client.packetWriter.getSocket() != null) {
+            PacketBitNode var2 = mi.an_renamed(ClientProt.by, Client.packetWriter.au);
+            Client.packetWriter.aw(var2);
 
             try {
-               Client.in.an();
+               Client.packetWriter.an();
             } catch (IOException var4) {
                Client.ik = true;
             }

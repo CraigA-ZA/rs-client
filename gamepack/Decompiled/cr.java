@@ -19,7 +19,7 @@ public final class cr extends Node {
    cr() {
    }
 
-   void clear() {
+   void aw() {
       int var2 = 1671764667 * this.al;
       hq var3 = this.ag.ao();
       if (null != var3) {
@@ -37,7 +37,7 @@ public final class cr extends Node {
       }
 
       if (var2 != 1671764667 * this.al && this.at != null) {
-         fe.td.removeSubStream(this.at);
+         fe.pcmStreamMixer.removeSubStream(this.at);
          this.at = null;
       }
 

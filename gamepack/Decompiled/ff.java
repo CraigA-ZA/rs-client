@@ -12,7 +12,7 @@ public class ff extends fb {
       this.this$0 = var1;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.g4s() * 710939539;
       this.an = var1.cw();
    }
@@ -22,7 +22,7 @@ public class ff extends fb {
    }
 
    static final void jy_renamed(int var0, int var1, int var2, int var3, int var4) {
-      long var6 = bx.js.by(var0, var1, var2);
+      long var6 = bx.scene.by(var0, var1, var2);
       int var8;
       int var9;
       int var10;
@@ -30,7 +30,7 @@ public class ff extends fb {
       int var13;
       int var14;
       if (var6 != 0L) {
-         var8 = bx.js.bk(var0, var1, var2, var6);
+         var8 = bx.scene.bk(var0, var1, var2, var6);
          var9 = var8 >> 6 & 3;
          var10 = var8 & 31;
          var11 = var3;
@@ -45,8 +45,8 @@ public class ff extends fb {
          if (-1 != var15.bk * 771086195) {
             IndexedSprite var16 = ml.ju[var15.bk * 771086195];
             if (var16 != null) {
-               int var17 = (var15.av * -1064754148 - var16.aw) / 2;
-               int var18 = (var15.ar * 1952358772 - var16.ac) / 2;
+               int var17 = (var15.av * -1064754148 - var16.subWidth) / 2;
+               int var18 = (var15.ar * 1952358772 - var16.subHeight) / 2;
                var16.aw(var17 + 48 + var1 * 4, var18 + (104 - var2 - -1659393955 * var15.ar) * 4 + 48);
             }
          } else {
@@ -112,9 +112,9 @@ public class ff extends fb {
          }
       }
 
-      var6 = bx.js.bi(var0, var1, var2);
+      var6 = bx.scene.bi(var0, var1, var2);
       if (var6 != 0L) {
-         var8 = bx.js.bk(var0, var1, var2, var6);
+         var8 = bx.scene.bk(var0, var1, var2, var6);
          var9 = var8 >> 6 & 3;
          var10 = var8 & 31;
          var11 = InterfaceParent.at(var6);
@@ -123,8 +123,8 @@ public class ff extends fb {
          if (-1 != var21.bk * 771086195) {
             IndexedSprite var23 = ml.ju[771086195 * var21.bk];
             if (var23 != null) {
-               var14 = (-1064754148 * var21.av - var23.aw) / 2;
-               var25 = (1952358772 * var21.ar - var23.ac) / 2;
+               var14 = (-1064754148 * var21.av - var23.subWidth) / 2;
+               var25 = (1952358772 * var21.ar - var23.subHeight) / 2;
                var23.aw(48 + var1 * 4 + var14, var25 + 4 * (104 - var2 - var21.ar * -1659393955) + 48);
             }
          } else if (var10 == 9) {
@@ -149,15 +149,15 @@ public class ff extends fb {
          }
       }
 
-      var6 = bx.js.be(var0, var1, var2);
+      var6 = bx.scene.be(var0, var1, var2);
       if (0L != var6) {
          var8 = InterfaceParent.at(var6);
          hq var19 = fw.an_renamed(var8);
          if (var19.bk * 771086195 != -1) {
             IndexedSprite var20 = ml.ju[771086195 * var19.bk];
             if (null != var20) {
-               var11 = (var19.av * -1064754148 - var20.aw) / 2;
-               int var22 = (var19.ar * 1952358772 - var20.ac) / 2;
+               var11 = (var19.av * -1064754148 - var20.subWidth) / 2;
+               int var22 = (var19.ar * 1952358772 - var20.subHeight) / 2;
                var20.aw(var1 * 4 + 48 + var11, 48 + (104 - var2 - -1659393955 * var19.ar) * 4 + var22);
             }
          }

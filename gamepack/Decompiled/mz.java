@@ -28,10 +28,10 @@ public class mz {
    oq ar = new oq();
 
    public static PacketBitNode af_renamed(int var0, String var1, Language var2, int var3) {
-      PacketBitNode var5 = mi.an_renamed(ClientProt.ax, Client.in.au);
-      var5.aw.bu(0);
-      int var6 = -1633313603 * var5.aw.at;
-      var5.aw.bu(var0);
+      PacketBitNode var5 = mi.an_renamed(ClientProt.ax, Client.packetWriter.au);
+      var5.bit.bu(0);
+      int var6 = -1633313603 * var5.bit.index;
+      var5.bit.bu(var0);
       String var7 = var1.toLowerCase();
       byte var8 = 0;
       if (var7.startsWith(Strings.hs)) {
@@ -146,14 +146,14 @@ public class mz {
          }
       }
 
-      var5.aw.bu(var8);
-      var5.aw.bu(var9);
-      WorldMapArea.an_renamed(var5.aw, var1);
+      var5.bit.bu(var8);
+      var5.bit.bu(var9);
+      WorldMapArea.an_renamed(var5.bit, var1);
       if (var0 == ms.ac.ordinal()) {
-         var5.aw.bu(var3);
+         var5.bit.bu(var3);
       }
 
-      var5.aw.cu(var5.aw.at * -1633313603 - var6);
+      var5.bit.cu(var5.bit.index * -1633313603 - var6);
       return var5;
    }
 
@@ -937,17 +937,17 @@ public class mz {
    static Component bm_renamed(int var0, Component var1, int var2, int var3, int var4, int var5, int var6, float[] var7) {
       Component var9 = new Component();
       var9.bg = -1183495331 * var0;
-      var9.cu = -1942978835 * var1.bs;
-      var9.br = -1274125071 * var2;
-      var9.bn = true;
-      var9.bq = 1656805111 * var3;
-      var9.ba = -362988363 * var4;
-      var9.bv = 387308049 * var5;
-      var9.bl = -480958745 * var6;
-      var9.bp = 1806877347 * (int)((float)(-794961409 * var1.cs) * var7[0]);
-      var9.bc = 1231090287 * (int)((float)(1473950221 * var1.cc) * var7[1]);
-      var9.bh = -1495372107 * (int)((float)(-794961409 * var1.cs) * var7[2]);
-      var9.bw = 1193771871 * (int)(var7[3] * (float)(1473950221 * var1.cc));
+      var9.parentId = -1942978835 * var1.id;
+      var9.childIndex = -1274125071 * var2;
+      var9.isIf3 = true;
+      var9.xAlignment = 1656805111 * var3;
+      var9.yAlignment = -362988363 * var4;
+      var9.widthAlignment = 387308049 * var5;
+      var9.heightAlignment = -480958745 * var6;
+      var9.rawX = 1806877347 * (int)((float)(-794961409 * var1.width) * var7[0]);
+      var9.rawY = 1231090287 * (int)((float)(1473950221 * var1.height) * var7[1]);
+      var9.rawWidth = -1495372107 * (int)((float)(-794961409 * var1.width) * var7[2]);
+      var9.rawHeight = 1193771871 * (int)(var7[3] * (float)(1473950221 * var1.height));
       return var9;
    }
 }

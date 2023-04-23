@@ -1,16 +1,16 @@
 public class DesktopPlatformInfoProvider implements PlatformInfoProvider {
-   static int nj;
+   static int menuHeight;
    int ab;
    int ac;
    int au;
 
    public PlatformInfo get() {
       byte var2;
-      if (WorldMapSectionType.aj.startsWith("win")) {
+      if (WorldMapSectionType.osNameLowerCase.startsWith("win")) {
          var2 = 1;
-      } else if (WorldMapSectionType.aj.startsWith("mac")) {
+      } else if (WorldMapSectionType.osNameLowerCase.startsWith("mac")) {
          var2 = 2;
-      } else if (WorldMapSectionType.aj.startsWith("linux")) {
+      } else if (WorldMapSectionType.osNameLowerCase.startsWith("linux")) {
          var2 = 3;
       } else {
          var2 = 4;

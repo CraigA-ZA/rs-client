@@ -6,19 +6,19 @@ public class LoginProt implements ClientProt0 {
    static final LoginProt ab = new LoginProt(27);
    static final LoginProt an = new LoginProt(15);
    static final LoginProt[] al = new LoginProt[32];
-   public final int aq;
+   public final int id;
 
    static {
       LoginProt[] var0 = bz.af_renamed();
 
       for(int var1 = 0; var1 < var0.length; ++var1) {
-         al[var0[var1].aq * 537668749] = var0[var1];
+         al[var0[var1].id * 537668749] = var0[var1];
       }
 
    }
 
    LoginProt(int var1) {
-      this.aq = var1 * 1990948421;
+      this.id = var1 * 1990948421;
    }
 
    public static int aq_renamed(int var0) {

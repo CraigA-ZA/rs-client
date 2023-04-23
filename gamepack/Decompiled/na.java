@@ -1,7 +1,7 @@
 import java.util.Comparator;
 
 final class na implements Comparator {
-   static Thread au;
+   static Thread ArchiveDiskActionHandler_thread;
 
    int af(GrandExchangeEvent var1, GrandExchangeEvent var2) {
       return var1.af().compareTo(var2.af());

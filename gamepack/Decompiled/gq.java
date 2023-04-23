@@ -37,8 +37,8 @@ public class gq {
    }
 
    public static void ax_renamed() {
-      hs.ac.clear();
-      hs.au.clear();
+      NPCType.ac.clear();
+      NPCType.au.clear();
    }
 
    gq(gy var1) {

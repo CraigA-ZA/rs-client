@@ -1,7 +1,7 @@
 import java.util.Iterator;
 
 public class IterableNodeDequeDescendingIterator implements Iterator {
-   IterableNodeDeque af;
+   IterableNodeDeque deque;
    Node an;
    Node aw = null;
 
@@ -10,22 +10,22 @@ public class IterableNodeDequeDescendingIterator implements Iterator {
    }
 
    void af(IterableNodeDeque var1) {
-      this.af = var1;
+      this.deque = var1;
       this.an();
    }
 
    void an() {
-      this.an = this.af != null ? this.af.af.hc : null;
+      this.an = this.deque != null ? this.deque.sentinel.previous : null;
       this.aw = null;
    }
 
    public Object next() {
       Node var1 = this.an;
-      if (var1 == this.af.af) {
+      if (var1 == this.deque.sentinel) {
          var1 = null;
          this.an = null;
       } else {
-         this.an = var1.hc;
+         this.an = var1.previous;
       }
 
       this.aw = var1;
@@ -33,7 +33,7 @@ public class IterableNodeDequeDescendingIterator implements Iterator {
    }
 
    public boolean hasNext() {
-      return this.an != this.af.af && this.an != null;
+      return this.an != this.deque.sentinel && this.an != null;
    }
 
    public void remove() {

@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 public class nf {
-   static SoundSystem aa;
+   static SoundSystem soundSystem;
    int au = 0;
    int[] ac = new int[2048];
    int[] aw = new int[2048];
@@ -64,7 +64,7 @@ public class nf {
    }
 
    public static MapElementType getMapElementType(int var0) {
-      return var0 >= 0 && var0 < MapElementType.an.length && MapElementType.an[var0] != null ? MapElementType.an[var0] : new MapElementType(var0);
+      return var0 >= 0 && var0 < MapElementType.MapElementType_cached.length && MapElementType.MapElementType_cached[var0] != null ? MapElementType.MapElementType_cached[var0] : new MapElementType(var0);
    }
 
    Rasterizer3D an(int var1) {

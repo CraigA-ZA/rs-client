@@ -1,6 +1,6 @@
 public final class pj implements Comparable {
-   static Clock ay;
-   static Archive fw;
+   static Clock clock;
+   static Archive archive6;
    static short[] wm;
    Object af;
    Object an;

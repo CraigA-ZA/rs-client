@@ -1,19 +1,19 @@
 public class IDKType extends DualNode {
    public static int aw;
    static int ur;
-   static EvictingDualNodeHashTable ac = new EvictingDualNodeHashTable(64);
-   static AbstractArchive af;
+   static EvictingDualNodeHashTable IDKType_cached = new EvictingDualNodeHashTable(64);
+   static AbstractArchive IDKType_archive;
    static AbstractArchive an;
-   static AbstractSocket fl;
+   static AbstractSocket js5Socket;
    static Rasterizer3D[] ku;
-   int[] ab;
-   int[] ay = new int[]{-1, -1, -1, -1, -1};
-   short[] aa;
-   short[] al;
-   short[] aq;
-   short[] at;
+   int[] models;
+   int[] head = new int[]{-1, -1, -1, -1, -1};
+   short[] recol_d;
+   short[] retex_d;
+   short[] retex_s;
+   short[] recol_s;
    public boolean ao = false;
-   public int au = -1699952575;
+   public int bodyPart = -1699952575;
 
    IDKType() {
    }
@@ -35,7 +35,7 @@ public class IDKType extends DualNode {
             throw new IllegalStateException();
          }
 
-         this.au = var1.g1() * 1699952575;
+         this.bodyPart = var1.g1() * 1699952575;
       } else {
          int var4;
          int var5;
@@ -45,14 +45,14 @@ public class IDKType extends DualNode {
             }
 
             var4 = var1.g1();
-            this.ab = new int[var4];
+            this.models = new int[var4];
 
             for(var5 = 0; var5 < var4; ++var5) {
                if (var3 <= -1) {
                   throw new IllegalStateException();
                }
 
-               this.ab[var5] = var1.cl();
+               this.models[var5] = var1.cl();
             }
          } else if (var2 == 3) {
             this.ao = true;
@@ -62,16 +62,16 @@ public class IDKType extends DualNode {
             }
 
             var4 = var1.g1();
-            this.aq = new short[var4];
-            this.al = new short[var4];
+            this.retex_s = new short[var4];
+            this.retex_d = new short[var4];
 
             for(var5 = 0; var5 < var4; ++var5) {
                if (var3 <= -1) {
                   throw new IllegalStateException();
                }
 
-               this.aq[var5] = (short)var1.cl();
-               this.al[var5] = (short)var1.cl();
+               this.retex_s[var5] = (short)var1.cl();
+               this.retex_d[var5] = (short)var1.cl();
             }
          } else if (var2 == 41) {
             if (var3 <= -1) {
@@ -79,16 +79,16 @@ public class IDKType extends DualNode {
             }
 
             var4 = var1.g1();
-            this.at = new short[var4];
-            this.aa = new short[var4];
+            this.recol_s = new short[var4];
+            this.recol_d = new short[var4];
 
             for(var5 = 0; var5 < var4; ++var5) {
                if (var3 <= -1) {
                   throw new IllegalStateException();
                }
 
-               this.at[var5] = (short)var1.cl();
-               this.aa[var5] = (short)var1.cl();
+               this.recol_s[var5] = (short)var1.cl();
+               this.recol_d[var5] = (short)var1.cl();
             }
          } else if (var2 >= 60) {
             if (var3 <= -1) {
@@ -96,7 +96,7 @@ public class IDKType extends DualNode {
             }
 
             if (var2 < 70) {
-               this.ay[var2 - 60] = var1.cl();
+               this.head[var2 - 60] = var1.cl();
             }
          }
       }
@@ -104,13 +104,13 @@ public class IDKType extends DualNode {
    }
 
    public boolean loadModel() {
-      if (this.ab == null) {
+      if (this.models == null) {
          return true;
       } else {
          boolean var2 = true;
 
-         for(int var3 = 0; var3 < this.ab.length; ++var3) {
-            if (!an.tryLoadFile(this.ab[var3], 0)) {
+         for(int var3 = 0; var3 < this.models.length; ++var3) {
+            if (!an.tryLoadFile(this.models[var3], 0)) {
                var2 = false;
             }
          }
@@ -120,13 +120,13 @@ public class IDKType extends DualNode {
    }
 
    public UnlitModel getModel() {
-      if (this.ab == null) {
+      if (this.models == null) {
          return null;
       } else {
-         UnlitModel[] var2 = new UnlitModel[this.ab.length];
+         UnlitModel[] var2 = new UnlitModel[this.models.length];
 
-         for(int var3 = 0; var3 < this.ab.length; ++var3) {
-            var2[var3] = UnlitModel.af_renamed(an, this.ab[var3], 0);
+         for(int var3 = 0; var3 < this.models.length; ++var3) {
+            var2[var3] = UnlitModel.af_renamed(an, this.models[var3], 0);
          }
 
          UnlitModel var5;
@@ -137,15 +137,15 @@ public class IDKType extends DualNode {
          }
 
          int var4;
-         if (this.aq != null) {
-            for(var4 = 0; var4 < this.aq.length; ++var4) {
-               var5.recolor(this.aq[var4], this.al[var4]);
+         if (this.retex_s != null) {
+            for(var4 = 0; var4 < this.retex_s.length; ++var4) {
+               var5.recolor(this.retex_s[var4], this.retex_d[var4]);
             }
          }
 
-         if (this.at != null) {
-            for(var4 = 0; var4 < this.at.length; ++var4) {
-               var5.retexture(this.at[var4], this.aa[var4]);
+         if (this.recol_s != null) {
+            for(var4 = 0; var4 < this.recol_s.length; ++var4) {
+               var5.retexture(this.recol_s[var4], this.recol_d[var4]);
             }
          }
 
@@ -193,7 +193,7 @@ public class IDKType extends DualNode {
       boolean var2 = true;
 
       for(int var3 = 0; var3 < 5; ++var3) {
-         if (this.ay[var3] != -1 && !an.tryLoadFile(this.ay[var3], 0)) {
+         if (this.head[var3] != -1 && !an.tryLoadFile(this.head[var3], 0)) {
             var2 = false;
          }
       }
@@ -206,22 +206,22 @@ public class IDKType extends DualNode {
       int var3 = 0;
 
       for(int var4 = 0; var4 < 5; ++var4) {
-         if (this.ay[var4] != -1) {
-            var2[var3++] = UnlitModel.af_renamed(an, this.ay[var4], 0);
+         if (this.head[var4] != -1) {
+            var2[var3++] = UnlitModel.af_renamed(an, this.head[var4], 0);
          }
       }
 
       UnlitModel var6 = new UnlitModel(var2, var3);
       int var5;
-      if (null != this.aq) {
-         for(var5 = 0; var5 < this.aq.length; ++var5) {
-            var6.recolor(this.aq[var5], this.al[var5]);
+      if (null != this.retex_s) {
+         for(var5 = 0; var5 < this.retex_s.length; ++var5) {
+            var6.recolor(this.retex_s[var5], this.retex_d[var5]);
          }
       }
 
-      if (null != this.at) {
-         for(var5 = 0; var5 < this.at.length; ++var5) {
-            var6.retexture(this.at[var5], this.aa[var5]);
+      if (null != this.recol_s) {
+         for(var5 = 0; var5 < this.recol_s.length; ++var5) {
+            var6.retexture(this.recol_s[var5], this.recol_d[var5]);
          }
       }
 
@@ -261,7 +261,7 @@ public class IDKType extends DualNode {
                if (var14 > 0 && var15 > 0 && var14 < 103 && var15 < 103) {
                   hq var16 = fw.an_renamed(var6);
                   if (var13 != 22 || !Client.cu || 0 != var16.aj * 415653149 || -973955889 * var16.am == 1 || var16.bs) {
-                     if (!var16.loadChatHeadModel()) {
+                     if (!var16.aq()) {
                         Client.jk += 1441978033;
                         var4 = false;
                      }
@@ -294,7 +294,7 @@ public class IDKType extends DualNode {
       int var13 = 0;
       iw.al[var12] = var0;
       iw.at[var12++] = var1;
-      int[][] var14 = var4.bj;
+      int[][] var14 = var4.flags;
 
       while(true) {
          label353:

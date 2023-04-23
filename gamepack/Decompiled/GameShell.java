@@ -21,49 +21,49 @@ import java.net.URL;
 import java.util.Iterator;
 
 public abstract class GameShell extends Applet implements Runnable, FocusListener, WindowListener {
-   protected static KeyHandler bq = new KeyHandler();
-   protected static TaskHandler af;
+   protected static KeyHandler KeyHandler_instance = new KeyHandler();
+   protected static TaskHandler taskHandler;
    protected static int aa = 0;
    public static int aj;
-   static GameShell an = null;
-   static boolean au = false;
+   static GameShell gameShell = null;
+   static boolean isKilled = false;
    static int al = -2033050820;
    static int at = -341822119;
    static int aw = 0;
    static int bz = -1669766140;
-   static int mh;
-   static long ac = 0L;
-   static long bl = 4496549445389278039L;
-   static long bv = -3922098655801851377L;
+   static int plane;
+   static long stopTimeMs = 0L;
+   static long garbageCollectorLastCheckTimeMs = 4496549445389278039L;
+   static long garbageCollectorLastCollectionTime = -3922098655801851377L;
    static long[] ag = new long[32];
    static long[] ax = new long[32];
-   static volatile boolean bu = true;
-   MouseWheelHandler bs;
-   boolean ab = false;
+   static volatile boolean hasFocus = true;
+   MouseWheelHandler mouseWheelHandler;
+   boolean hasErrored = false;
    boolean bm = false;
    int ad;
-   int ae;
-   int am = 0;
-   int ap;
-   int as = 0;
+   int maxCanvasWidth;
+   int canvasX = 0;
+   int maxCanvasHeight;
+   int canvasY = 0;
    int az;
    java.awt.Canvas bk;
-   Frame be;
-   Clipboard br;
-   final EventQueue bg;
+   Frame frame;
+   Clipboard clipboard;
+   final EventQueue eventQueue;
    protected boolean by = false;
-   protected int ar;
-   protected int av;
+   protected int contentHeight;
+   protected int contentWidth;
    volatile boolean bd = false;
    volatile boolean bx = true;
    volatile long bt = 0L;
 
    static void al_renamed() {
-      Iterator var1 = Messages.an.iterator();
+      Iterator var1 = Messages.Messages_hashTable.iterator();
 
       while(var1.hasNext()) {
          Message var2 = (Message)var1.next();
-         var2.clear();
+         var2.an();
       }
 
    }
@@ -89,7 +89,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       var6.ao = var3.bc;
       if (var3.bu != null) {
          var6.ag = var3;
-         var6.clear();
+         var6.aw();
       }
 
       cr.af.addFirst(var6);
@@ -107,65 +107,65 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       } catch (Throwable var3) {
       }
 
-      this.bg = var1;
+      this.eventQueue = var1;
       DevicePcmPlayerProvider var2 = new DevicePcmPlayerProvider();
-      PcmPlayer.ax = var2;
+      PcmPlayer.pcmPlayerProvider = var2;
    }
 
    protected final void setMaxCanvasSize(int var1, int var2) {
-      if (var1 != 2087275977 * this.ae || 83534669 * this.ap != var2) {
+      if (var1 != 2087275977 * this.maxCanvasWidth || 83534669 * this.maxCanvasHeight != var2) {
          this.bi();
       }
 
-      this.ae = var1 * -753509255;
-      this.ap = var2 * -438874747;
+      this.maxCanvasWidth = var1 * -753509255;
+      this.maxCanvasHeight = var2 * -438874747;
    }
 
    final void at(Object var1) {
-      if (null != this.bg) {
-         for(int var3 = 0; var3 < 50 && this.bg.peekEvent() != null; ++var3) {
+      if (null != this.eventQueue) {
+         for(int var3 = 0; var3 < 50 && this.eventQueue.peekEvent() != null; ++var3) {
             PlayerAppearance.af(1L);
          }
 
          if (null != var1) {
-            this.bg.postEvent(new ActionEvent(var1, 1001, "dummy"));
+            this.eventQueue.postEvent(new ActionEvent(var1, 1001, "dummy"));
          }
 
       }
    }
 
    protected MouseWheel mouseWheel() {
-      if (this.bs == null) {
-         this.bs = new MouseWheelHandler();
-         this.bs.addTo(this.bk);
+      if (this.mouseWheelHandler == null) {
+         this.mouseWheelHandler = new MouseWheelHandler();
+         this.mouseWheelHandler.addTo(this.bk);
       }
 
-      return this.bs;
+      return this.mouseWheelHandler;
    }
 
    protected void setUpClipboard() {
-      this.br = this.getToolkit().getSystemClipboard();
+      this.clipboard = this.getToolkit().getSystemClipboard();
    }
 
    protected void clipboardSetString(String var1) {
-      this.br.setContents(new StringSelection(var1), (ClipboardOwner)null);
+      this.clipboard.setContents(new StringSelection(var1), (ClipboardOwner)null);
    }
 
    protected Clipboard ax() {
-      return this.br;
+      return this.clipboard;
    }
 
    protected final void ai() {
       gs.af_renamed();
-      bq.aw(this.bk);
+      KeyHandler_instance.aw(this.bk);
    }
 
    protected final void ag() {
-      bq.au();
+      KeyHandler_instance.au();
    }
 
    protected void ah(be var1, int var2) {
-      bq.af(var1, var2);
+      KeyHandler_instance.af(var1, var2);
    }
 
    protected final void av() {
@@ -176,27 +176,27 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       Container var2 = this.container();
       if (null != var2) {
          Bounds var3 = this.getFrameContentBounds();
-         this.av = Math.max(944313703 * var3.aw, 69014751 * this.az) * -2050638615;
-         this.ar = Math.max(var3.ac * -1376251093, 1673949127 * this.ad) * -1550051949;
-         if (-927540391 * this.av <= 0) {
-            this.av = -2050638615;
+         this.contentWidth = Math.max(944313703 * var3.aw, 69014751 * this.az) * -2050638615;
+         this.contentHeight = Math.max(var3.ac * -1376251093, 1673949127 * this.ad) * -1550051949;
+         if (-927540391 * this.contentWidth <= 0) {
+            this.contentWidth = -2050638615;
          }
 
-         if (-1747234661 * this.ar <= 0) {
-            this.ar = -1550051949;
+         if (-1747234661 * this.contentHeight <= 0) {
+            this.contentHeight = -1550051949;
          }
 
-         aj = Math.min(-927540391 * this.av, 2087275977 * this.ae) * 2082454245;
-         kd.ak = Math.min(-1747234661 * this.ar, 83534669 * this.ap) * -16547605;
-         this.am = (this.av * -927540391 - -1687260435 * aj) / 2 * 1463717787;
-         this.as = 0;
+         aj = Math.min(-927540391 * this.contentWidth, 2087275977 * this.maxCanvasWidth) * 2082454245;
+         kd.ak = Math.min(-1747234661 * this.contentHeight, 83534669 * this.maxCanvasHeight) * -16547605;
+         this.canvasX = (this.contentWidth * -927540391 - -1687260435 * aj) / 2 * 1463717787;
+         this.canvasY = 0;
          this.bk.setSize(aj * -1687260435, kd.ak * 1658005443);
-         ia.bn = new RasterProvider(-1687260435 * aj, 1658005443 * kd.ak, this.bk, this.by);
-         if (var2 == this.be) {
-            Insets var4 = this.be.getInsets();
-            this.bk.setLocation(var4.left + -744210797 * this.am, this.as * 895830209 + var4.top);
+         ia.rasterProvider = new RasterProvider(-1687260435 * aj, 1658005443 * kd.ak, this.bk, this.by);
+         if (var2 == this.frame) {
+            Insets var4 = this.frame.getInsets();
+            this.bk.setLocation(var4.left + -744210797 * this.canvasX, this.canvasY * 895830209 + var4.top);
          } else {
-            this.bk.setLocation(this.am * -744210797, 895830209 * this.as);
+            this.bk.setLocation(this.canvasX * -744210797, 895830209 * this.canvasY);
          }
 
          this.bx = true;
@@ -205,17 +205,17 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    }
 
    void clearBackground() {
-      int var2 = -744210797 * this.am;
-      int var3 = 895830209 * this.as;
-      int var4 = -927540391 * this.av - -1687260435 * aj - var2;
-      int var5 = this.ar * -1747234661 - kd.ak * 1658005443 - var3;
+      int var2 = -744210797 * this.canvasX;
+      int var3 = 895830209 * this.canvasY;
+      int var4 = -927540391 * this.contentWidth - -1687260435 * aj - var2;
+      int var5 = this.contentHeight * -1747234661 - kd.ak * 1658005443 - var3;
       if (var2 > 0 || var4 > 0 || var3 > 0 || var5 > 0) {
          try {
             Container var6 = this.container();
             int var7 = 0;
             int var8 = 0;
-            if (var6 == this.be) {
-               Insets var9 = this.be.getInsets();
+            if (var6 == this.frame) {
+               Insets var9 = this.frame.getInsets();
                var7 = var9.left;
                var8 = var9.top;
             }
@@ -223,19 +223,19 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             Graphics var11 = var6.getGraphics();
             var11.setColor(Color.black);
             if (var2 > 0) {
-               var11.fillRect(var7, var8, var2, -1747234661 * this.ar);
+               var11.fillRect(var7, var8, var2, -1747234661 * this.contentHeight);
             }
 
             if (var3 > 0) {
-               var11.fillRect(var7, var8, -927540391 * this.av, var3);
+               var11.fillRect(var7, var8, -927540391 * this.contentWidth, var3);
             }
 
             if (var4 > 0) {
-               var11.fillRect(var7 + this.av * -927540391 - var4, var8, var4, this.ar * -1747234661);
+               var11.fillRect(var7 + this.contentWidth * -927540391 - var4, var8, var4, this.contentHeight * -1747234661);
             }
 
             if (var5 > 0) {
-               var11.fillRect(var7, var8 + this.ar * -1747234661 - var5, -927540391 * this.av, var5);
+               var11.fillRect(var7, var8 + this.contentHeight * -1747234661 - var5, -927540391 * this.contentWidth, var5);
             }
          } catch (Exception var10) {
          }
@@ -244,21 +244,21 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    }
 
    final void aj() {
-      bq.ac(this.bk);
+      KeyHandler_instance.ac(this.bk);
       java.awt.Canvas var2 = this.bk;
-      var2.removeMouseListener(MouseHandler.ac);
-      var2.removeMouseMotionListener(MouseHandler.ac);
-      var2.removeFocusListener(MouseHandler.ac);
-      MouseHandler.ab = 0;
-      if (this.bs != null) {
-         this.bs.removeFrom(this.bk);
+      var2.removeMouseListener(MouseHandler.MouseHandler_instance);
+      var2.removeMouseMotionListener(MouseHandler.MouseHandler_instance);
+      var2.removeFocusListener(MouseHandler.MouseHandler_instance);
+      MouseHandler.MouseHandler_currentButton0 = 0;
+      if (this.mouseWheelHandler != null) {
+         this.mouseWheelHandler.removeFrom(this.bk);
       }
 
       this.az();
-      bq.aw(this.bk);
+      KeyHandler_instance.aw(this.bk);
       pc.af_renamed(this.bk);
-      if (this.bs != null) {
-         this.bs.addTo(this.bk);
+      if (this.mouseWheelHandler != null) {
+         this.mouseWheelHandler.addTo(this.bk);
       }
 
       this.bi();
@@ -266,7 +266,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
    protected final void ak(int var1, int var2, int var3, int var4) {
       try {
-         if (null != an) {
+         if (null != gameShell) {
             aw += -914573903;
             if (aw * 1470919505 >= 3) {
                this.error("alreadyloaded");
@@ -277,17 +277,17 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             return;
          }
 
-         an = this;
+         gameShell = this;
          aj = var1 * 2082454245;
          kd.ak = -16547605 * var2;
          ClientError.aw = var3 * -136548689;
          qh.ac = 767373001 * var4;
          dn.af = this;
-         if (null == af) {
-            af = new TaskHandler();
+         if (null == taskHandler) {
+            taskHandler = new TaskHandler();
          }
 
-         af.newThreadTask(this, 1);
+         taskHandler.newThreadTask(this, 1);
       } catch (Exception var7) {
          ob.af_renamed((String)null, var7);
          this.error("crash");
@@ -305,8 +305,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       aj = Math.max(var2.getWidth(), this.az * 69014751) * 2082454245;
       kd.ak = Math.max(var2.getHeight(), this.ad * 1673949127) * -16547605;
       Insets var3;
-      if (null != this.be) {
-         var3 = this.be.getInsets();
+      if (null != this.frame) {
+         var3 = this.frame.getInsets();
          aj -= (var3.right + var3.left) * 2082454245;
          kd.ak -= (var3.bottom + var3.top) * -16547605;
       }
@@ -318,21 +318,21 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       this.bk.setSize(-1687260435 * aj, 1658005443 * kd.ak);
       this.bk.setVisible(true);
       this.bk.setBackground(Color.BLACK);
-      if (this.be == var2) {
-         var3 = this.be.getInsets();
-         this.bk.setLocation(var3.left + -744210797 * this.am, var3.top + 895830209 * this.as);
+      if (this.frame == var2) {
+         var3 = this.frame.getInsets();
+         this.bk.setLocation(var3.left + -744210797 * this.canvasX, var3.top + 895830209 * this.canvasY);
       } else {
-         this.bk.setLocation(this.am * -744210797, this.as * 895830209);
+         this.bk.setLocation(this.canvasX * -744210797, this.canvasY * 895830209);
       }
 
       this.bk.addFocusListener(this);
       this.bk.requestFocus();
       this.bx = true;
-      if (null != ia.bn && 1313069155 * ia.bn.ac == aj * -1687260435 && 1658005443 * kd.ak == 1695726685 * ia.bn.au) {
-         ((RasterProvider)ia.bn).setComponent(this.bk);
-         ia.bn.drawFull(0, 0);
+      if (null != ia.rasterProvider && 1313069155 * ia.rasterProvider.ac == aj * -1687260435 && 1658005443 * kd.ak == 1695726685 * ia.rasterProvider.au) {
+         ((RasterProvider)ia.rasterProvider).setComponent(this.bk);
+         ia.rasterProvider.drawFull(0, 0);
       } else {
-         ia.bn = new RasterProvider(-1687260435 * aj, kd.ak * 1658005443, this.bk, this.by);
+         ia.rasterProvider = new RasterProvider(-1687260435 * aj, kd.ak * 1658005443, this.bk, this.by);
       }
 
       this.bd = false;
@@ -342,8 +342,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    protected void ad(boolean var1) {
       if (var1 != this.by) {
          this.by = var1;
-         ia.bn.am(var1);
-         ia.bn.ar();
+         ia.rasterProvider.am(var1);
+         ia.rasterProvider.ar();
       }
 
    }
@@ -376,10 +376,10 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
    public void run() {
       try {
-         if (null != TaskHandler.af) {
-            String var1 = TaskHandler.af.toLowerCase();
+         if (null != TaskHandler.javaVendor) {
+            String var1 = TaskHandler.javaVendor.toLowerCase();
             if (var1.indexOf("sun") != -1 || var1.indexOf("apple") != -1) {
-               String var2 = TaskHandler.an;
+               String var2 = TaskHandler.javaVersion;
                if (var2.equals("1.1") || var2.startsWith("1.1.") || var2.equals("1.2") || var2.startsWith("1.2.") || var2.equals("1.3") || var2.startsWith("1.3.") || var2.equals("1.4") || var2.startsWith("1.4.") || var2.equals("1.5") || var2.startsWith("1.5.") || var2.equals("1.6.0")) {
                   this.error("wrongjava");
                   return;
@@ -404,10 +404,10 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          this.setFocusCycleRoot(true);
          this.az();
          this.bm();
-         pj.ay = fc.al_renamed();
+         pj.clock = fc.al_renamed();
 
-         while(951500247553634275L * ac == 0L || Formatting.af_renamed() < 951500247553634275L * ac) {
-            DirectByteArrayCopier.aq = pj.ay.wait(al * 2118369515, -1500331287 * at) * 89306205;
+         while(951500247553634275L * stopTimeMs == 0L || Formatting.af_renamed() < 951500247553634275L * stopTimeMs) {
+            DirectByteArrayCopier.aq = pj.clock.wait(al * 2118369515, -1500331287 * at) * 89306205;
 
             for(int var6 = 0; var6 < DirectByteArrayCopier.aq * -873938955; ++var6) {
                this.ap();
@@ -433,7 +433,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       }
 
       synchronized(this) {
-         AbstractByteArrayCopier.bf = bu;
+         AbstractByteArrayCopier.bf = hasFocus;
       }
 
       this.bd();
@@ -455,11 +455,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          this.bx = true;
          this.bk.setSize(aj * -1687260435, 1658005443 * kd.ak);
          this.bk.setVisible(true);
-         if (var2 == this.be) {
-            Insets var8 = this.be.getInsets();
-            this.bk.setLocation(-744210797 * this.am + var8.left, var8.top + 895830209 * this.as);
+         if (var2 == this.frame) {
+            Insets var8 = this.frame.getInsets();
+            this.bk.setLocation(-744210797 * this.canvasX + var8.left, var8.top + 895830209 * this.canvasY);
          } else {
-            this.bk.setLocation(this.am * -744210797, 895830209 * this.as);
+            this.bk.setLocation(this.canvasX * -744210797, 895830209 * this.canvasY);
          }
       }
 
@@ -478,7 +478,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
    final void bb() {
       Bounds var2 = this.getFrameContentBounds();
-      if (var2.aw * 944313703 != -927540391 * this.av || -1747234661 * this.ar != var2.ac * -1376251093 || this.bm) {
+      if (var2.aw * 944313703 != -927540391 * this.contentWidth || -1747234661 * this.contentHeight != var2.ac * -1376251093 || this.bm) {
          this.ar();
          this.bm = false;
       }
@@ -490,8 +490,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    }
 
    final synchronized void kill() {
-      if (!au) {
-         au = true;
+      if (!isKilled) {
+         isKilled = true;
 
          try {
             this.bk.removeFocusListener(this);
@@ -503,16 +503,16 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          } catch (Exception var5) {
          }
 
-         if (this.be != null) {
+         if (this.frame != null) {
             try {
                System.exit(0);
             } catch (Throwable var4) {
             }
          }
 
-         if (null != af) {
+         if (null != taskHandler) {
             try {
-               af.close();
+               taskHandler.close();
             } catch (Exception var3) {
             }
          }
@@ -522,20 +522,20 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    }
 
    public final void start() {
-      if (an == this && !au) {
-         ac = 0L;
+      if (gameShell == this && !isKilled) {
+         stopTimeMs = 0L;
       }
    }
 
    public final void stop() {
-      if (an == this && !au) {
-         ac = (Formatting.af_renamed() + 4000L) * -2406892942717923893L;
+      if (gameShell == this && !isKilled) {
+         stopTimeMs = (Formatting.af_renamed() + 4000L) * -2406892942717923893L;
       }
    }
 
    public final void destroy() {
-      if (this == an && !au) {
-         ac = Formatting.af_renamed() * -2406892942717923893L;
+      if (this == gameShell && !isKilled) {
+         stopTimeMs = Formatting.af_renamed() * -2406892942717923893L;
          PlayerAppearance.af(5000L);
          this.kill();
       }
@@ -546,7 +546,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    }
 
    public final synchronized void paint(Graphics var1) {
-      if (an == this && !au) {
+      if (gameShell == this && !isKilled) {
          this.bx = true;
          if (Formatting.af_renamed() - -6171487387477770437L * this.bt > 1000L) {
             Rectangle var2 = var1.getClipBounds();
@@ -559,12 +559,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    }
 
    public final void focusGained(FocusEvent var1) {
-      bu = true;
+      hasFocus = true;
       this.bx = true;
    }
 
    public final void focusLost(FocusEvent var1) {
-      bu = false;
+      hasFocus = false;
    }
 
    public final void windowActivated(WindowEvent var1) {
@@ -594,7 +594,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          Graphics var5 = this.bk.getGraphics();
          if (null == jn.bb) {
             jn.bb = new java.awt.Font("Helvetica", 1, 13);
-            bb.bi = this.bk.getFontMetrics(jn.bb);
+            bb.pauseFontMetrics = this.bk.getFontMetrics(jn.bb);
          }
 
          if (var3) {
@@ -605,11 +605,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          Color var6 = new Color(140, 17, 17);
 
          try {
-            if (PacketWriter.bo == null) {
-               PacketWriter.bo = this.bk.createImage(304, 34);
+            if (PacketWriter.pauseImage == null) {
+               PacketWriter.pauseImage = this.bk.createImage(304, 34);
             }
 
-            Graphics var7 = PacketWriter.bo.getGraphics();
+            Graphics var7 = PacketWriter.pauseImage.getGraphics();
             var7.setColor(var6);
             var7.drawRect(0, 0, 303, 33);
             var7.fillRect(2, 2, 3 * var1, 30);
@@ -618,8 +618,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             var7.fillRect(var1 * 3 + 2, 2, 300 - 3 * var1, 30);
             var7.setFont(jn.bb);
             var7.setColor(Color.white);
-            var7.drawString(var2, (304 - bb.bi.stringWidth(var2)) / 2, 22);
-            var5.drawImage(PacketWriter.bo, aj * -1687260435 / 2 - 152, kd.ak * 1658005443 / 2 - 18, (ImageObserver)null);
+            var7.drawString(var2, (304 - bb.pauseFontMetrics.stringWidth(var2)) / 2, 22);
+            var5.drawImage(PacketWriter.pauseImage, aj * -1687260435 / 2 - 152, kd.ak * 1658005443 / 2 - 18, (ImageObserver)null);
          } catch (Exception var10) {
             int var8 = -1687260435 * aj / 2 - 152;
             int var9 = 1658005443 * kd.ak / 2 - 18;
@@ -631,7 +631,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             var5.fillRect(3 * var1 + 2 + var8, var9 + 2, 300 - 3 * var1, 30);
             var5.setFont(jn.bb);
             var5.setColor(Color.white);
-            var5.drawString(var2, var8 + (304 - bb.bi.stringWidth(var2)) / 2, 22 + var9);
+            var5.drawString(var2, var8 + (304 - bb.pauseFontMetrics.stringWidth(var2)) / 2, 22 + var9);
          }
       } catch (Exception var11) {
          this.bk.repaint();
@@ -640,14 +640,14 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    }
 
    protected final void bs() {
-      PacketWriter.bo = null;
+      PacketWriter.pauseImage = null;
       jn.bb = null;
-      bb.bi = null;
+      bb.pauseFontMetrics = null;
    }
 
    protected void error(String var1) {
-      if (!this.ab) {
-         this.ab = true;
+      if (!this.hasErrored) {
+         this.hasErrored = true;
          System.out.println("error_game_" + var1);
 
          try {
@@ -659,15 +659,15 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    }
 
    Container container() {
-      return (Container)(null != this.be ? this.be : this);
+      return (Container)(null != this.frame ? this.frame : this);
    }
 
    Bounds getFrameContentBounds() {
       Container var2 = this.container();
       int var3 = Math.max(var2.getWidth(), this.az * 69014751);
       int var4 = Math.max(var2.getHeight(), 1673949127 * this.ad);
-      if (null != this.be) {
-         Insets var5 = this.be.getInsets();
+      if (null != this.frame) {
+         Insets var5 = this.frame.getInsets();
          var3 -= var5.right + var5.left;
          var4 -= var5.top + var5.bottom;
       }
@@ -676,7 +676,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    }
 
    protected final boolean hasFrame() {
-      return this.be != null;
+      return this.frame != null;
    }
 
    protected abstract void am();

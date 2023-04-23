@@ -3,31 +3,31 @@ import java.util.Map;
 
 public class SeqType extends DualNode {
    public static EvictingDualNodeHashTable aa = new EvictingDualNodeHashTable(100);
-   public static EvictingDualNodeHashTable al = new EvictingDualNodeHashTable(64);
+   public static EvictingDualNodeHashTable SeqType_cached = new EvictingDualNodeHashTable(64);
    public static EvictingDualNodeHashTable at = new EvictingDualNodeHashTable(100);
    static boolean af = false;
    static AbstractArchive ab;
    static AbstractArchive aq;
-   static AbstractArchive au;
+   static AbstractArchive SeqType_archive;
    boolean[] aj;
-   int ai = 0;
+   int lefthand = 0;
    int ax = 0;
    int[] ah;
-   int[] as;
+   int[] frameIds;
    public boolean ak = false;
    public boolean by = false;
    public int ad = -766640841;
    public int ae = -960826081;
    public int am = -332517881;
    public int ap = 2043481909;
-   public int ay = -526927311;
-   public int az = -2088242069;
+   public int righthand = -526927311;
+   public int frameCount = -2088242069;
    public int bb = -738419331;
    public int be = -950238702;
    public int bi = 2012018311;
    public int[] ag;
    public int[] ar;
-   public int[] av;
+   public int[] frameLengths;
    public Map ao;
 
    static int bs_renamed(byte[] var0, int var1, int var2) {
@@ -60,10 +60,10 @@ public class SeqType extends DualNode {
       int var5;
       if (var2 == 1) {
          var4 = var1.cl();
-         this.av = new int[var4];
+         this.frameLengths = new int[var4];
 
          for(var5 = 0; var5 < var4; ++var5) {
-            this.av[var5] = var1.cl();
+            this.frameLengths[var5] = var1.cl();
          }
 
          this.ag = new int[var4];
@@ -79,17 +79,17 @@ public class SeqType extends DualNode {
          this.am = var1.cl() * 332517881;
       } else if (var2 == 3) {
          var4 = var1.g1();
-         this.as = new int[1 + var4];
+         this.frameIds = new int[1 + var4];
 
          for(var5 = 0; var5 < var4; ++var5) {
-            this.as[var5] = var1.g1();
+            this.frameIds[var5] = var1.g1();
          }
 
-         this.as[var4] = 9999999;
+         this.frameIds[var4] = 9999999;
       } else if (var2 == 4) {
          this.ak = true;
       } else if (5 == var2) {
-         this.az = var1.g1() * -1276641873;
+         this.frameCount = var1.g1() * -1276641873;
       } else if (6 == var2) {
          this.ad = var1.cl() * 766640841;
       } else if (var2 == 7) {
@@ -122,7 +122,7 @@ public class SeqType extends DualNode {
             this.ar[var5] = var1.cr();
          }
       } else if (14 == var2) {
-         this.ay = var1.g4s() * 526927311;
+         this.righthand = var1.g4s() * 526927311;
       } else if (var2 == 15) {
          var4 = var1.cl();
          this.ao = new HashMap();
@@ -134,7 +134,7 @@ public class SeqType extends DualNode {
          }
       } else if (var2 == 16) {
          this.ax = var1.cl() * 732547785;
-         this.ai = var1.cl() * -1631071449;
+         this.lefthand = var1.cl() * -1631071449;
       } else if (var2 == 17) {
          this.aj = new boolean[256];
 
@@ -151,9 +151,9 @@ public class SeqType extends DualNode {
 
    }
 
-   void removeAll() {
+   void au() {
       if (1069382699 * this.bb == -1) {
-         if (null == this.as && null == this.aj) {
+         if (null == this.frameIds && null == this.aj) {
             this.bb = 0;
          } else {
             this.bb = 1476838662;
@@ -161,7 +161,7 @@ public class SeqType extends DualNode {
       }
 
       if (-1 == this.bi * 1957040329) {
-         if (null == this.as && this.aj == null) {
+         if (null == this.frameIds && this.aj == null) {
             this.bi = 0;
          } else {
             this.bi = 270930674;
@@ -184,11 +184,11 @@ public class SeqType extends DualNode {
             return var5;
          }
       } else {
-         fh var4 = Obj.av_renamed(this.ay * 1238147375);
+         fh var4 = Obj.av_renamed(this.righthand * 1238147375);
          if (null == var4) {
             return var1.aa(true);
          } else {
-            var5 = var1.aa(!var4.loadModel());
+            var5 = var1.aa(!var4.au());
             var5.am(var4, var2);
             return var5;
          }
@@ -226,11 +226,11 @@ public class SeqType extends DualNode {
             return var6;
          }
       } else {
-         fh var5 = Obj.av_renamed(1238147375 * this.ay);
+         fh var5 = Obj.av_renamed(1238147375 * this.righthand);
          if (null == var5) {
             return var1.aa(true);
          } else {
-            var6 = var1.aa(!var5.loadModel());
+            var6 = var1.aa(!var5.au());
             var3 &= 3;
             if (var3 == 1) {
                var6.bb();
@@ -268,11 +268,11 @@ public class SeqType extends DualNode {
             return var5;
          }
       } else {
-         fh var4 = Obj.av_renamed(1238147375 * this.ay);
+         fh var4 = Obj.av_renamed(1238147375 * this.righthand);
          if (var4 == null) {
             return var1.ay(true);
          } else {
-            var5 = var1.ay(!var4.loadModel());
+            var5 = var1.ay(!var4.au());
             var5.am(var4, var2);
             return var5;
          }
@@ -309,19 +309,19 @@ public class SeqType extends DualNode {
                return var3.ab(var1, var4);
             }
 
-            if (!var3.ao() && (this.as == null || -1 == var4)) {
+            if (!var3.ao() && (this.frameIds == null || -1 == var4)) {
                var6.ar(var8, var2);
                return var6;
             }
 
-            if (this.as == null || var4 == -1) {
+            if (this.frameIds == null || var4 == -1) {
                var6.ar(var8, var2);
                return var6;
             }
 
             var7 = var3.ao();
             if (!var7) {
-               var6.ad(var8, var2, this.as, false);
+               var6.ad(var8, var2, this.frameIds, false);
             }
          }
 
@@ -344,11 +344,11 @@ public class SeqType extends DualNode {
                return this.ab(var1, var2);
             }
 
-            var6.ad(var11, var4, this.as, true);
+            var6.ad(var11, var4, this.frameIds, true);
          }
 
          if (var7 && var8 != null) {
-            var6.ad(var8, var2, this.as, false);
+            var6.ad(var8, var2, this.frameIds, false);
          }
 
          var6.av();
@@ -373,7 +373,7 @@ public class SeqType extends DualNode {
             return var8;
          } else {
             var8 = var1.aa(!var6.hasAlphaTransform(var2) & !var7.hasAlphaTransform(var4));
-            var8.ak(var6, var2, var7, var4, this.as);
+            var8.ak(var6, var2, var7, var4, this.frameIds);
             return var8;
          }
       }
@@ -413,20 +413,20 @@ public class SeqType extends DualNode {
    }
 
    public boolean ao() {
-      return this.ay * 1238147375 >= 0;
+      return this.righthand * 1238147375 >= 0;
    }
 
    public int ax() {
-      return this.ai * 1833069719 - -968724615 * this.ax;
+      return this.lefthand * 1833069719 - -968724615 * this.ax;
    }
 
    fh ah() {
-      return this.ao() ? Obj.av_renamed(1238147375 * this.ay) : null;
+      return this.ao() ? Obj.av_renamed(1238147375 * this.righthand) : null;
    }
 
    static final void lc_renamed(int var0, int var1, int var2, boolean var3) {
       if (SoundSystem.loadInterface(var0)) {
-         fp.ld_renamed(hn.ap[var0], -1, var1, var2, var3);
+         fp.ld_renamed(hn.interfaceComponents[var0], -1, var1, var2, var3);
       }
    }
 }

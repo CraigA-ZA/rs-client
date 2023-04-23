@@ -89,7 +89,7 @@ public class fd extends fb {
       this.af = 1030741753;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.cl() * -1030741753;
    }
 
@@ -104,14 +104,14 @@ public class fd extends fb {
          }
 
          if (0 == -1275976559 * Client.dw) {
-            ClientScriptFrame.bc.bs();
+            ClientScriptFrame.client.bs();
          }
 
          if (var0 == 20 || 40 == var0 || 45 == var0 || var0 == 50) {
             kz.og_renamed(0);
             Client.ga = 0;
             Client.gt = 0;
-            Client.ie.aw(var0);
+            Client.timer.aw(var0);
             if (var0 != 20) {
                ag.hb_renamed(false);
             }
@@ -134,18 +134,18 @@ public class fd extends fb {
          if (var0 != 5 && 10 != var0) {
             if (20 == var0) {
                var2 = 11 == -1275976559 * Client.dw ? 4 : 0;
-               KeyHandler.an_renamed(NetFileRequest.fc, rr.fv, false, var2);
+               KeyHandler.an_renamed(NetFileRequest.archive9, rr.archive7, false, var2);
             } else if (11 == var0) {
-               KeyHandler.an_renamed(NetFileRequest.fc, rr.fv, false, 4);
+               KeyHandler.an_renamed(NetFileRequest.archive9, rr.archive7, false, 4);
             } else if (50 == var0) {
                he.ax_renamed("", "Updating date of birth...", "");
-               KeyHandler.an_renamed(NetFileRequest.fc, rr.fv, false, 7);
+               KeyHandler.an_renamed(NetFileRequest.archive9, rr.archive7, false, 7);
             } else {
                Player.au_renamed();
             }
          } else {
             var2 = fl.oi_renamed() ? 0 : 12;
-            KeyHandler.an_renamed(NetFileRequest.fc, rr.fv, true, var2);
+            KeyHandler.an_renamed(NetFileRequest.archive9, rr.archive7, true, var2);
          }
 
          Client.dw = 188619889 * var0;
@@ -156,12 +156,12 @@ public class fd extends fb {
       cz.di = false;
       ex.at.ay(cz.aw * 578342931, 0);
       ParamType.aa.ay(578342931 * cz.aw + 382, 0);
-      Canvas.ay.aw(cz.aw * 578342931 + 382 - Canvas.ay.aw / 2, 18);
+      Canvas.ay.aw(cz.aw * 578342931 + 382 - Canvas.ay.subWidth / 2, 18);
    }
 
    static final void kv_renamed(MiniMenuEntry var0, int var1, int var2) {
       if (var0 != null) {
-         ar.ke_renamed(68640743 * var0.af, var0.an * 1427372077, 532700261 * var0.aw, 1480765569 * var0.ac, 680599237 * var0.au, var0.ab, var0.aq, var1, var2);
+         ar.ke_renamed(68640743 * var0.argument0, var0.argument2 * 1427372077, 532700261 * var0.argument1, 1480765569 * var0.ac, 680599237 * var0.au, var0.action, var0.aq, var1, var2);
       }
 
    }

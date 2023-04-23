@@ -7,18 +7,18 @@ public class sm extends DualNode {
    sm() {
    }
 
-   void decode(Packet var1) {
+   void aw(Packet var1) {
       while(true) {
          int var3 = var1.g1();
          if (0 == var3) {
             return;
          }
 
-         this.decode0(var1, var3);
+         this.ac(var1, var3);
       }
    }
 
-   void decode0(Packet var1, int var2) {
+   void ac(Packet var1, int var2) {
       if (1 == var2) {
          int var4 = var1.g1();
          if (null == this.aw) {
@@ -47,6 +47,6 @@ public class sm extends DualNode {
 
    }
 
-   void removeAll() {
+   void au() {
    }
 }

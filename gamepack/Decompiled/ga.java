@@ -7,17 +7,17 @@ public class ga extends fu {
    final gr this$0;
 
    static void aq_renamed() {
-      Messages.af.clear();
-      Messages.an.clear();
-      Messages.aw.af();
-      Messages.ac = 0;
+      Messages.Messages_channels.clear();
+      Messages.Messages_hashTable.clear();
+      Messages.Messages_queue.af();
+      Messages.Messages_count = 0;
    }
 
    ga(gr var1) {
       this.this$0 = var1;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.cz();
       if (null != this.af) {
          var1.g1();
@@ -58,7 +58,7 @@ public class ga extends fu {
                      var8 = false;
                   } else {
                      ObjType var9 = HeadbarUpdate.getObjType(var4.an[0] - 512);
-                     var8 = 622494345 * hp.ao.ag != var9.bx * -1719338253 && hp.ao.ag * 622494345 != 723093341 * var9.bo;
+                     var8 = 622494345 * hp.ao.ag != var9.manwear * -1719338253 && hp.ao.ag * 622494345 != 723093341 * var9.contrast;
                   }
 
                   if (!var8) {

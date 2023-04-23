@@ -1,15 +1,15 @@
 public class ServerBuild {
-   static Archive fb;
+   static Archive archive1;
    static final ServerBuild ac = new ServerBuild("WIP", 2);
    static final ServerBuild af = new ServerBuild("LIVE", 0);
    static final ServerBuild an = new ServerBuild("BUILDLIVE", 3);
    static final ServerBuild aw = new ServerBuild("RC", 1);
-   final int ab;
-   public final String au;
+   final int id;
+   public final String name;
 
    ServerBuild(String var1, int var2) {
-      this.au = var1;
-      this.ab = -1294558747 * var2;
+      this.name = var1;
+      this.id = -1294558747 * var2;
    }
 
    public static sm an_renamed(int var0) {
@@ -20,10 +20,10 @@ public class ServerBuild {
          byte[] var3 = sm.af.takeFile(39, var0);
          var2 = new sm();
          if (var3 != null) {
-            var2.decode(new Packet(var3));
+            var2.aw(new Packet(var3));
          }
 
-         var2.removeAll();
+         var2.au();
          sm.an.put(var2, (long)var0);
          return var2;
       }

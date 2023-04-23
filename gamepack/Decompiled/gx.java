@@ -42,10 +42,10 @@ public class gx {
    }
 
    public static void ac_renamed(Packet var0, int var1) {
-      if (null != gc.ao) {
+      if (null != gc.randomDat) {
          try {
-            gc.ao.seek(0L);
-            gc.ao.write(var0.al, var1, 24);
+            gc.randomDat.seek(0L);
+            gc.randomDat.write(var0.array, var1, 24);
          } catch (Exception var4) {
          }
       }
