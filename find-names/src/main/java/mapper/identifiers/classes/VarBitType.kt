@@ -1,11 +1,16 @@
 package mapper.identifiers.classes
 
 import mapper.abstractclasses.IdentityMapper
+import mapper.abstractclasses.OrderMapper
 import mapper.annotations.DependsOn
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.wrappers.Class2
+import mapper.wrappers.Instruction2
+import mapper.wrappers.Method2
+import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.INT_TYPE
+import org.objectweb.asm.Type.VOID_TYPE
 
 @DependsOn(DualNode::class)
 class VarBitType : IdentityMapper.Class() {
@@ -18,8 +23,8 @@ class VarBitType : IdentityMapper.Class() {
 //        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
 //                .and { it.instructions.any { it.opcode == Opcodes.GOTO } }
 //    }
-    //TODO fix
-
+////    TODO fix
+//
 //    class decode0 : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
 //                .and { it.instructions.none { it.opcode == Opcodes.GOTO } }

@@ -45,12 +45,12 @@ class AbstractRasterProvider : IdentityMapper.Class() {
 //        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
 //                .and { it.arguments.size in 0..1 }
 //    }
-//
+
 //    @DependsOn(apply::class)
 //    class width : OrderMapper.InMethod.Field(apply::class, 0, 2) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
 //    }
-//
+
 //    @DependsOn(apply::class)
 //    class height : OrderMapper.InMethod.Field(apply::class, 1, 2) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }

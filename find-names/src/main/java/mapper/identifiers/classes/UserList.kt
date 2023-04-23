@@ -153,14 +153,13 @@ class UserList : IdentityMapper.Class() {
                 .and { it.instructions.any { it.isMethod && it.methodId == method<getByPreviousUsername>().id } }
     }
 
-//    @MethodParameters("user")
-//    class arrayAddLast : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.size in 1..2 }
-//                .and { it.arguments.startsWith(type<User>()) }
-//                .and { it.instructions.none { it.isMethod } }
-//    }
-    //TODO
+    @MethodParameters("user")
+    class arrayAddLast : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+                .and { it.arguments.size in 1..2 }
+                .and { it.arguments.startsWith(type<User>()) }
+                .and { it.instructions.none { it.isMethod } }
+    }
 
     @MethodParameters("username", "previousUsername")
     class addLast : IdentityMapper.InstanceMethod() {

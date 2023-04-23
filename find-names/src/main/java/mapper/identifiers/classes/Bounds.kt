@@ -22,7 +22,6 @@ class Bounds : IdentityMapper.Class() {
             .and { it.instanceMethods.size == 9 }
             .and { !Modifier.isAbstract(it.access) }
 
-    //TODO fix
     @MethodParameters("x", "y")
     class setLocation : OrderMapper.InConstructor.Method(Bounds::class, 0, 2) {
         override val constructorPredicate = predicateOf<Method2> { it.arguments.size == 4 }

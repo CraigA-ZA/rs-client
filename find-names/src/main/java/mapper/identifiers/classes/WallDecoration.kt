@@ -44,11 +44,9 @@ class WallDecoration : IdentityMapper.Class() {
     @DependsOn(Scene.newWallDecoration::class)
     class tileHeight : MethodPutField(Scene.newWallDecoration::class, 3, INT_TYPE)
 
-    // todo
     @DependsOn(Scene.newWallDecoration::class)
     class orientation : MethodPutField(Scene.newWallDecoration::class, 4, INT_TYPE)
 
-    // todo
     @DependsOn(Scene.newWallDecoration::class)
     class int7 : MethodPutField(Scene.newWallDecoration::class, 5, INT_TYPE)
 

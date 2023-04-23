@@ -32,7 +32,6 @@ class ArchiveDisk : IdentityMapper.Class() {
         override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
-    //TODO fix
     class maxEntrySize : OrderMapper.InConstructor.Field(ArchiveDisk::class, -1) {
         override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }

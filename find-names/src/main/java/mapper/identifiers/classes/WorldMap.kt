@@ -167,21 +167,21 @@ class WorldMap : IdentityMapper.Class() {
         override val predicate = predicateOf<Field2> { it.type == type<Coord>() }
     }
 
-//    @MethodParameters("plane", "x", "y")
-//    @DependsOn(setCurrentMapArea::class)
-//    class jump : OrderMapper.InMethod.Method(setCurrentMapArea::class, -1) {
-//        override val predicate = predicateOf<Instruction2> { it.isMethod }
-//    }
+    @MethodParameters("plane", "x", "y")
+    @DependsOn(setCurrentMapArea::class)
+    class jump : OrderMapper.InMethod.Method(setCurrentMapArea::class, -1) {
+        override val predicate = predicateOf<Instruction2> { it.isMethod }
+    }
 
-//    @DependsOn(jump::class)
-//    class zoom : OrderMapper.InMethod.Field(jump::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == FLOAT_TYPE }
-//    }
-//
-//    @DependsOn(jump::class)
-//    class zoomTarget : OrderMapper.InMethod.Field(jump::class, 1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == FLOAT_TYPE }
-//    }
+    @DependsOn(jump::class)
+    class zoom : OrderMapper.InMethod.Field(jump::class, 0) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == FLOAT_TYPE }
+    }
+
+    @DependsOn(jump::class)
+    class zoomTarget : OrderMapper.InMethod.Field(jump::class, 1) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == FLOAT_TYPE }
+    }
 
     @MethodParameters()
     @DependsOn(onCycle::class)
@@ -195,29 +195,29 @@ class WorldMap : IdentityMapper.Class() {
                 .and { it.arguments == listOf(INT_TYPE) }
     }
 
-//    @MethodParameters("id")
-//    @DependsOn(setCurrentMapArea::class)
-//    class setCurrentMapAreaId : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments == listOf(INT_TYPE) }
-//                .and { it.instructions.any { it.isMethod && it.methodId == method<setCurrentMapArea>().id } }
-//    }
+    @MethodParameters("id")
+    @DependsOn(setCurrentMapArea::class)
+    class setCurrentMapAreaId : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+                .and { it.arguments == listOf(INT_TYPE) }
+                .and { it.instructions.any { it.isMethod && it.methodId == method<setCurrentMapArea>().id } }
+    }
 
-//    @MethodParameters()
-//    @DependsOn(zoomTarget::class)
-//    class getZoomLevel : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
-//                .and { it.arguments.isEmpty() }
-//                .and { it.instructions.any { it.opcode == GETFIELD && it.fieldId == field<zoomTarget>().id } }
-//    }
-//
-//    @MethodParameters("zoom")
-//    @DependsOn(zoomTarget::class)
-//    class setZoomLevel : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments == listOf(INT_TYPE) }
-//                .and { it.instructions.any { it.opcode == PUTFIELD && it.fieldId == field<zoomTarget>().id } }
-//    }
+    @MethodParameters()
+    @DependsOn(zoomTarget::class)
+    class getZoomLevel : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
+                .and { it.arguments.isEmpty() }
+                .and { it.instructions.any { it.opcode == GETFIELD && it.fieldId == field<zoomTarget>().id } }
+    }
+
+    @MethodParameters("zoom")
+    @DependsOn(zoomTarget::class)
+    class setZoomLevel : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+                .and { it.arguments == listOf(INT_TYPE) }
+                .and { it.instructions.any { it.opcode == PUTFIELD && it.fieldId == field<zoomTarget>().id } }
+    }
 
     class perpetualFlash0 : OrderMapper.InConstructor.Field(WorldMap::class, 0) {
         override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == BOOLEAN_TYPE }
