@@ -24,7 +24,7 @@ import org.runestar.client.common.startsWith
 //    override fun resolve(instruction: Instruction2): Class2 {
 //        return instruction.jar.get(instruction.fieldOwner)
 //    }
-//
+
 //    @DependsOn(Packet::class)
 //    class decode : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }

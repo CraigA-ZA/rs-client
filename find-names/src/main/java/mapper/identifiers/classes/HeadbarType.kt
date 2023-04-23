@@ -3,6 +3,7 @@ package mapper.identifiers.classes
 import mapper.abstractclasses.IdentityMapper
 import mapper.abstractclasses.OrderMapper
 import mapper.annotations.DependsOn
+import mapper.annotations.MethodParameters
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.wrappers.Class2
@@ -66,17 +67,17 @@ class HeadbarType : IdentityMapper.Class() {
         override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
-//    @MethodParameters()
-//    @DependsOn(Sprite::class, spritefront::class)
-//    class getFrontSprite : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
-//                .and { it.instructions.any { it.isField && it.fieldId == field<spritefront>().id } }
-//    }
-//
-//    @MethodParameters()
-//    @DependsOn(Sprite::class, spriteback::class)
-//    class getBackSprite : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
-//                .and { it.instructions.any { it.isField && it.fieldId == field<spriteback>().id } }
-//    }
+    @MethodParameters()
+    @DependsOn(Sprite::class, spritefront::class)
+    class getFrontSprite : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
+                .and { it.instructions.any { it.isField && it.fieldId == field<spritefront>().id } }
+    }
+
+    @MethodParameters()
+    @DependsOn(Sprite::class, spriteback::class)
+    class getBackSprite : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
+                .and { it.instructions.any { it.isField && it.fieldId == field<spriteback>().id } }
+    }
 }

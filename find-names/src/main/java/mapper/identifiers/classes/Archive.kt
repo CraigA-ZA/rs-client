@@ -57,10 +57,10 @@ class Archive : IdentityMapper.Class() {
                 .and { it.arguments.startsWith(type<ArchiveDisk>()) }
     }
 
-//    @DependsOn(AbstractArchive.loadGroup::class)
-//    class loadGroup : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.mark == method<AbstractArchive.loadGroup>().mark }
-//    }
+    @DependsOn(AbstractArchive.loadGroup::class)
+    class loadGroup : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.mark == method<AbstractArchive.loadGroup>().mark }
+    }
 
     @DependsOn(masterDisk::class)
     class loadIndex : IdentityMapper.InstanceMethod() {

@@ -10,7 +10,7 @@ import mapper.wrappers.Method2
 import org.objectweb.asm.Opcodes
 
 @DependsOn(AbstractArchive.decodeIndex::class)
-class IntHashTable : OrderMapper.InMethod.Class(AbstractArchive.decodeIndex::class, 0, 3) {
+class IntHashTable : OrderMapper.InMethod.Class(AbstractArchive.decodeIndex::class, 1, 3) {
     override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.NEW && it.typeType in it.jar }
 
     class array : IdentityMapper.InstanceField() {

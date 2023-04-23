@@ -573,8 +573,8 @@ class Client : IdentityMapper.Class() {
 //    @DependsOn(NPCType::class, EvictingDualNodeHashTable::class)
 //    class NPCType_cached : CachedDefinitionMapper(NPCType::class)
 
-//    @DependsOn(Sprite::class, EvictingDualNodeHashTable::class)
-//    class Sprite_cached : CachedDefinitionMapper(Sprite::class)
+    @DependsOn(Sprite::class, EvictingDualNodeHashTable::class)
+    class Sprite_cached : CachedDefinitionMapper(Sprite::class)
 
 //        @DependsOn(OverlayDefinition::class, EvictingDualNodeHashTable::class)
 //    class OverlayDefinition_cached : CachedDefinitionMapper(OverlayDefinition::class)
@@ -2206,12 +2206,12 @@ class Client : IdentityMapper.Class() {
                 .nextWithin(3) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE.withDimensions(1) }
     }
 
-//    @MethodParameters("bytes")
-//    @DependsOn(Sprite::class)
-//    class imageToSprite : IdentityMapper.StaticMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
-//                .and { it.instructions.any { it.isMethod && it.methodName == "grabPixels" } }
-//    }
+    @MethodParameters("bytes")
+    @DependsOn(Sprite::class)
+    class imageToSprite : IdentityMapper.StaticMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
+                .and { it.instructions.any { it.isMethod && it.methodName == "grabPixels" } }
+    }
 //
 //    @DependsOn(Script::class)
 //    class getScript : IdentityMapper.StaticMethod() {
@@ -2292,18 +2292,18 @@ class Client : IdentityMapper.Class() {
 ////    class slArrowSprites : IndexedSpritesFieldMapper("sl_arrows")
 ////    class slStarSprites : IndexedSpritesFieldMapper("sl_stars")
 //
-//    @DependsOn(Sprite::class, GraphicsDefaults.headiconsprayer::class)
-//    class headIconPrayerSprites : SpriteArrayField(GraphicsDefaults.headiconsprayer::class)
-//    @DependsOn(Sprite::class, GraphicsDefaults.headiconspk::class)
-//    class headIconPkSprites : SpriteArrayField(GraphicsDefaults.headiconspk::class)
-//    @DependsOn(Sprite::class, GraphicsDefaults.headiconshint::class)
-//    class headIconHintSprites : SpriteArrayField(GraphicsDefaults.headiconshint::class)
-//    @DependsOn(Sprite::class, GraphicsDefaults.mapmarker::class)
-//    class mapMarkerSprites : SpriteArrayField(GraphicsDefaults.mapmarker::class)
-//    @DependsOn(Sprite::class, GraphicsDefaults.cross::class)
-//    class crossSprites : SpriteArrayField(GraphicsDefaults.cross::class)
-//    @DependsOn(Sprite::class, GraphicsDefaults.mapdots::class)
-//    class mapDotSprites : SpriteArrayField(GraphicsDefaults.mapdots::class)
+    @DependsOn(Sprite::class, GraphicsDefaults.headiconsprayer::class)
+    class headIconPrayerSprites : SpriteArrayField(GraphicsDefaults.headiconsprayer::class)
+    @DependsOn(Sprite::class, GraphicsDefaults.headiconspk::class)
+    class headIconPkSprites : SpriteArrayField(GraphicsDefaults.headiconspk::class)
+    @DependsOn(Sprite::class, GraphicsDefaults.headiconshint::class)
+    class headIconHintSprites : SpriteArrayField(GraphicsDefaults.headiconshint::class)
+    @DependsOn(Sprite::class, GraphicsDefaults.mapmarker::class)
+    class mapMarkerSprites : SpriteArrayField(GraphicsDefaults.mapmarker::class)
+    @DependsOn(Sprite::class, GraphicsDefaults.cross::class)
+    class crossSprites : SpriteArrayField(GraphicsDefaults.cross::class)
+    @DependsOn(Sprite::class, GraphicsDefaults.mapdots::class)
+    class mapDotSprites : SpriteArrayField(GraphicsDefaults.mapdots::class)
 
     @DependsOn(GrandExchangeEvents::class)
     class grandExchangeEvents : IdentityMapper.StaticField() {
@@ -2642,12 +2642,12 @@ class Client : IdentityMapper.Class() {
 //                .prevIn(3) { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
 //    }
 
-    @DependsOn(Actor.overheadText::class, AbstractFont.stringWidth::class)
-    class overheadText : AllUniqueMapper.Field() {
-        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldId == field<Actor.overheadText>().id }
-                .next { it.isMethod && it.methodMark == method<AbstractFont.stringWidth>().mark }
-                .nextWithin(70) { it.opcode == GETSTATIC && it.fieldType == String::class.type.withDimensions(1) }
-    }
+//    @DependsOn(Actor.overheadText::class, AbstractFont.stringWidth::class)
+//    class overheadText : AllUniqueMapper.Field() {
+//        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldId == field<Actor.overheadText>().id }
+//                .next { it.isMethod && it.methodMark == method<AbstractFont.stringWidth>().mark }
+//                .nextWithin(70) { it.opcode == GETSTATIC && it.fieldType == String::class.type.withDimensions(1) }
+//    }
 
 //    @DependsOn(Actor.overheadText::class, AbstractFont.stringWidth::class)
 //    class overheadTextCyclesRemaining : AllUniqueMapper.Field() {
@@ -2850,12 +2850,12 @@ class Client : IdentityMapper.Class() {
 //                .nextWithin(5) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
-//    @DependsOn(Sprite::class)
-//    class mapIcons : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 1000 }
-//                .next { it.opcode == ANEWARRAY }
-//                .next { it.opcode == PUTSTATIC && it.fieldType == type<Sprite>().withDimensions(1) }
-//    }
+    @DependsOn(Sprite::class)
+    class mapIcons : AllUniqueMapper.Field() {
+        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 1000 }
+                .next { it.opcode == ANEWARRAY }
+                .next { it.opcode == PUTSTATIC && it.fieldType == type<Sprite>().withDimensions(1) }
+    }
 
 //    @DependsOn(mapIcons::class)
 //    class mapIconYs : AllUniqueMapper.Field() {
@@ -2912,19 +2912,19 @@ class Client : IdentityMapper.Class() {
                 .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE) }
     }
 
-//    @MethodParameters("id", "quantity", "n0", "n1", "n2", "b0")
-//    @DependsOn(Sprite::class)
-//    class getItemSprite : IdentityMapper.StaticMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
-//                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE, BOOLEAN_TYPE) }
-//    }
-//
-//    @DependsOn(Sprite::class)
-//    class sceneMinimapSprite : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 512 }
-//                .next { it.opcode == SIPUSH && it.intOperand == 512 }
-//                .nextIn(2) { it.opcode == PUTSTATIC && it.fieldType == type<Sprite>() }
-//    }
+    @MethodParameters("id", "quantity", "n0", "n1", "n2", "b0")
+    @DependsOn(Sprite::class)
+    class getItemSprite : IdentityMapper.StaticMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
+                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE, BOOLEAN_TYPE) }
+    }
+
+    @DependsOn(Sprite::class)
+    class sceneMinimapSprite : AllUniqueMapper.Field() {
+        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 512 }
+                .next { it.opcode == SIPUSH && it.intOperand == 512 }
+                .nextIn(2) { it.opcode == PUTSTATIC && it.fieldType == type<Sprite>() }
+    }
 
     @MethodParameters("w0", "w1", "mode", "b")
     @DependsOn(World::class)
@@ -2968,13 +2968,13 @@ class Client : IdentityMapper.Class() {
                 .and { it.arguments.startsWith(type<Player>(), BOOLEAN_TYPE) }
     }
 
-//    @DependsOn(Sprite::class, AbstractArchive::class)
-//    @MethodParameters("archive", "group", "file")
-//    class readSprite : IdentityMapper.StaticMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
-//                .and { it.arguments.size in 3..4 }
-//                .and { it.arguments.startsWith(type<AbstractArchive>(), INT_TYPE, INT_TYPE) }
-//    }
+    @DependsOn(Sprite::class, AbstractArchive::class)
+    @MethodParameters("archive", "group", "file")
+    class readSprite : IdentityMapper.StaticMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
+                .and { it.arguments.size in 3..4 }
+                .and { it.arguments.startsWith(type<AbstractArchive>(), INT_TYPE, INT_TYPE) }
+    }
 
     @MethodParameters("player", "menuArg0", "menuArg1", "menuArg2")
     @DependsOn(Player::class, Client.playerMenuOpcodes::class)

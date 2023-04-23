@@ -73,10 +73,10 @@ class WorldMapManager : IdentityMapper.Class() {
 //                .and { it.instructions.none { it.isLabel } }
 //    }
 
-//    @DependsOn(Sprite::class)
-//    class overviewSprite : IdentityMapper.InstanceField() {
-//        override val predicate = predicateOf<Field2> { it.type == type<Sprite>() }
-//    }
+    @DependsOn(Sprite::class)
+    class overviewSprite : IdentityMapper.InstanceField() {
+        override val predicate = predicateOf<Field2> { it.type == type<Sprite>() }
+    }
     //    @MethodParameters()
 //    @DependsOn(buildIcons::class)
 //    class buildIcons0 : UniqueMapper.InMethod.Method(buildIcons::class) {

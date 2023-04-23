@@ -72,7 +72,6 @@ abstract class ByteArrayPoolCount(index: Int) : OrderMapper.InClassInitializer.F
     override val predicate = predicateOf<Instruction2> { it.opcode == PUTSTATIC && it.fieldType == Type.INT_TYPE }
 }
 
-//TODO
 //@DependsOn(DesktopPlatformInfoProvider.length::class)
 //abstract class PlatformInfoString(index: Int) : OrderMapper.InMethod.Field(DesktopPlatformInfoProvider.length::class, index) {
 //    override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == String::class.type }
@@ -170,11 +169,11 @@ abstract class SpriteIdsField(index: Int) : OrderMapper.InConstructor.Field(Grap
     override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == Type.INT_TYPE }
 }
 
-//@DependsOn(Sprite::class)
-//abstract class SpriteArrayField(archiveField: KClass<out Mapper<Field2>>) : StaticUniqueMapper.Field() {
-//    override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && context.fields[archiveField]!!.id == it.fieldId }
-//            .prevWithin(10) { it.opcode == GETSTATIC && it.fieldType == type<Sprite>().withDimensions(1) }
-//}
+@DependsOn(Sprite::class)
+abstract class SpriteArrayField(archiveField: KClass<out Mapper<Field2>>) : StaticUniqueMapper.Field() {
+    override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && context.fields[archiveField]!!.id == it.fieldId }
+            .prevWithin(10) { it.opcode == GETSTATIC && it.fieldType == type<Sprite>().withDimensions(1) }
+}
 
 @DependsOn(IndexedSprite::class)
 abstract class IndexedSpriteArrayField(archiveField: KClass<out Mapper<Field2>>) : StaticUniqueMapper.Field() {

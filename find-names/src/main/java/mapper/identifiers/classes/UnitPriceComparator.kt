@@ -8,9 +8,11 @@ import mapper.predicateutilities.type
 import mapper.wrappers.Class2
 import org.objectweb.asm.Opcodes
 
-//@DependsOn(GrandExchangeOffer.unitPrice::class)
-//class UnitPriceComparator : IdentityMapper.Class() {
-//    override val predicate = predicateOf<Class2> { it.interfaces.contains(Comparator::class.type) }
-//            .and { it.instanceMethods.flatMap { it.instructions.asIterable() }
-//                    .any { it.opcode == Opcodes.GETFIELD && it.fieldId == field<GrandExchangeOffer.unitPrice>().id } }
-//}
+@DependsOn(GrandExchangeOffer.unitPrice::class)
+class UnitPriceComparator : IdentityMapper.Class() {
+    override val predicate = predicateOf<Class2> { it.interfaces.contains(Comparator::class.type) }
+            .and {
+                it.instanceMethods.flatMap { it.instructions.asIterable() }
+                        .any { it.opcode == Opcodes.GETFIELD && it.fieldId == field<GrandExchangeOffer.unitPrice>().id }
+            }
+}

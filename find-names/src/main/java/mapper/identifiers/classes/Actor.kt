@@ -74,9 +74,11 @@ class Actor : IdentityMapper.Class() {
         override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
-//    class pathTraversed : OrderMapper.InConstructor.Field(Actor::class, -1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == ByteArray::class.type }
-//    }
+    //TODO fix
+
+    class pathTraversed : OrderMapper.InConstructor.Field(Actor::class, -1) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == type<MoveSpeed>().withDimensions(1) }
+    }
 
     class size : OrderMapper.InConstructor.Field(Actor::class, 0) {
         override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }

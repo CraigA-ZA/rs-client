@@ -1,10 +1,16 @@
 package mapper.identifiers.classes
 
 import mapper.abstractclasses.IdentityMapper
+import mapper.abstractclasses.OrderMapper
+import mapper.annotations.DependsOn
+import mapper.annotations.MethodParameters
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.Class2
+import mapper.wrappers.Instruction2
+import mapper.wrappers.Method2
+import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
 import java.lang.reflect.Modifier
 
@@ -17,35 +23,35 @@ class Bounds : IdentityMapper.Class() {
             .and { !Modifier.isAbstract(it.access) }
 
     //TODO fix
-//    @MethodParameters("x", "y")
-//    class setLocation : OrderMapper.InConstructor.Method(Bounds::class, 0, 2) {
-//        override val constructorPredicate = predicateOf<Method2> { it.arguments.size == 4 }
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.INVOKEVIRTUAL }
-//    }
-//
-//    @MethodParameters("width", "height")
-//    class setSize : OrderMapper.InConstructor.Method(Bounds::class, 1, 2) {
-//        override val constructorPredicate = predicateOf<Method2> { it.arguments.size == 4 }
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.INVOKEVIRTUAL }
-//    }
-//
-//    @DependsOn(setLocation::class)
-//    class x : OrderMapper.InMethod.Field(setLocation::class, 0, 2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD }
-//    }
-//
-//    @DependsOn(setLocation::class)
-//    class y : OrderMapper.InMethod.Field(setLocation::class, 1, 2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD }
-//    }
-//
-//    @DependsOn(setSize::class)
-//    class width : OrderMapper.InMethod.Field(setSize::class, 0, 2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD }
-//    }
-//
-//    @DependsOn(setSize::class)
-//    class height : OrderMapper.InMethod.Field(setSize::class, 1, 2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD }
-//    }
+    @MethodParameters("x", "y")
+    class setLocation : OrderMapper.InConstructor.Method(Bounds::class, 0, 2) {
+        override val constructorPredicate = predicateOf<Method2> { it.arguments.size == 4 }
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.INVOKEVIRTUAL }
+    }
+
+    @MethodParameters("width", "height")
+    class setSize : OrderMapper.InConstructor.Method(Bounds::class, 1, 2) {
+        override val constructorPredicate = predicateOf<Method2> { it.arguments.size == 4 }
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.INVOKEVIRTUAL }
+    }
+
+    @DependsOn(setLocation::class)
+    class x : OrderMapper.InMethod.Field(setLocation::class, 0, 2) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD }
+    }
+
+    @DependsOn(setLocation::class)
+    class y : OrderMapper.InMethod.Field(setLocation::class, 1, 2) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD }
+    }
+
+    @DependsOn(setSize::class)
+    class width : OrderMapper.InMethod.Field(setSize::class, 0, 2) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD }
+    }
+
+    @DependsOn(setSize::class)
+    class height : OrderMapper.InMethod.Field(setSize::class, 1, 2) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD }
+    }
 }

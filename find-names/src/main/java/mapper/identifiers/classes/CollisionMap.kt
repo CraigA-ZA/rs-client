@@ -34,13 +34,13 @@ class CollisionMap : IdentityMapper.Class() {
         override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
-//    class xSize : OrderMapper.InConstructor.Field(CollisionMap::class, -2, 2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
-//    }
-//
-//    class ySize : OrderMapper.InConstructor.Field(CollisionMap::class, -1, 2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
-//    }
+    class xSize : OrderMapper.InConstructor.Field(CollisionMap::class, -2, 2) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+    }
+
+    class ySize : OrderMapper.InConstructor.Field(CollisionMap::class, -1, 2) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+    }
     //TODO
 
     @MethodParameters()

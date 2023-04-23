@@ -2,6 +2,7 @@ package mapper.identifiers.classes
 
 import mapper.abstractclasses.IdentityMapper
 import mapper.abstractclasses.OrderMapper
+import mapper.abstractclasses.UniqueMapper
 import mapper.annotations.DependsOn
 import mapper.annotations.MethodParameters
 import mapper.predicateutilities.*
@@ -62,16 +63,15 @@ class AbstractArchive : IdentityMapper.Class() {
         override val predicate = predicateOf<Field2> { it.type == Any::class.type.withDimensions(2) }
     }
 
-    //TODO
-//    @DependsOn(IntHashTable::class)
-//    class groupNameHashTable : IdentityMapper.InstanceField() {
-//        override val predicate = predicateOf<Field2> { it.type == type<IntHashTable>() }
-//    }
-//
-//    @DependsOn(IntHashTable::class)
-//    class fileNameHashTables : IdentityMapper.InstanceField() {
-//        override val predicate = predicateOf<Field2> { it.type == type<IntHashTable>().withDimensions(1) }
-//    }
+    @DependsOn(IntHashTable::class)
+    class groupNameHashTable : IdentityMapper.InstanceField() {
+        override val predicate = predicateOf<Field2> { it.type == type<IntHashTable>() }
+    }
+
+    @DependsOn(IntHashTable::class)
+    class fileNameHashTables : IdentityMapper.InstanceField() {
+        override val predicate = predicateOf<Field2> { it.type == type<IntHashTable>().withDimensions(1) }
+    }
 
     @DependsOn(decodeIndex::class)
     class fileNameHashes : OrderMapper.InMethod.Field(decodeIndex::class, -1, 2) {
@@ -204,10 +204,10 @@ class AbstractArchive : IdentityMapper.Class() {
                 .and { it.arguments.startsWith(Type.INT_TYPE, String::class.type) }
     }
 
-//    @DependsOn(tryLoadGroup::class)
-//    class loadGroup : UniqueMapper.InMethod.Method(tryLoadGroup::class) {
-//        override val predicate = predicateOf<Instruction2> { it.isMethod }
-//    }
+    @DependsOn(tryLoadGroup::class)
+    class loadGroup : UniqueMapper.InMethod.Method(tryLoadGroup::class) {
+        override val predicate = predicateOf<Instruction2> { it.isMethod }
+    }
 
     @DependsOn(decodeIndex::class)
     class hash : OrderMapper.InMethod.Field(decodeIndex::class, 0) {

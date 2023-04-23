@@ -70,10 +70,10 @@ class WorldMap : IdentityMapper.Class() {
         override val predicate = predicateOf<Instruction2> { it.isMethod }
     }
 
-//    @DependsOn(Sprite::class)
-//    class sprite : IdentityMapper.InstanceField() {
-//        override val predicate = predicateOf<Field2> { it.type == type<Sprite>() }
-//    }
+    @DependsOn(Sprite::class)
+    class sprite : IdentityMapper.InstanceField() {
+        override val predicate = predicateOf<Field2> { it.type == type<Sprite>() }
+    }
 
     @DependsOn(IndexedSprite::class)
     class mapSceneSprites : IdentityMapper.InstanceField() {

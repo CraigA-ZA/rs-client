@@ -17,7 +17,7 @@ public final class Deobfuscator {
     public static Map<String, CtClass> classMap;
     public static Map<String, ClassNode> classMapASM;
     private static List<AbstractDeob> javassistDeobs = List.of(new UnusedMethod(), new UnusedFields());
-    private static List<AbstractDeob> ASMDeobs = List.of(new ControlFlowFixer(), new RenameStaticMethods(), new OpaquePredicates(), new UnusedParams(), new SortFieldsByModifiers(), new SortMethodsByLineNumber(), new UnusedTryCatchRemover());
+    private static List<AbstractDeob> ASMDeobs = List.of(new RenameStaticMethods(), new OpaquePredicates(), new UnusedParams(),  new UnusedTryCatchRemover(), new ControlFlowFixer(), new SortFieldsByModifiers(), new SortMethodsByLineNumber());
 
     public static void main(String[] args) throws IOException {
         //Load JAR using Javassist
