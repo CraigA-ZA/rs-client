@@ -5,16 +5,16 @@ public class SpotType extends DualNode {
    static AbstractArchive an;
    int ab;
    int ambient = 0;
-   int sequence = 0;
+   int contrast = 0;
    int ai = 0;
    int ao = 122094464;
    int au;
-   int contrast = -370064768;
+   int ax = -370064768;
    short[] aa;
    short[] al;
    short[] at;
    short[] ay;
-   public int aq = -1861808927;
+   public int sequence = -1861808927;
 
    static PacketBitNode af_renamed() {
       return PacketBitNode.ab * 380401923 == 0 ? new PacketBitNode() : PacketBitNode.packetBitNodes[(PacketBitNode.ab -= -1882670677) * 380401923];
@@ -38,17 +38,17 @@ public class SpotType extends DualNode {
       if (1 == var2) {
          this.ab = var1.cl() * -1354453963;
       } else if (var2 == 2) {
-         this.aq = var1.cl() * 1861808927;
+         this.sequence = var1.cl() * 1861808927;
       } else if (var2 == 4) {
          this.ao = var1.cl() * -636580345;
       } else if (5 == var2) {
-         this.contrast = var1.cl() * -1110187387;
+         this.ax = var1.cl() * -1110187387;
       } else if (var2 == 6) {
          this.ai = var1.cl() * -1376904751;
       } else if (7 == var2) {
          this.ambient = var1.g1() * 399649223;
       } else if (var2 == 8) {
-         this.sequence = var1.g1() * 1837096875;
+         this.contrast = var1.g1() * 1837096875;
       } else {
          int var4;
          int var5;
@@ -78,14 +78,14 @@ public class SpotType extends DualNode {
    public final it au(int var1) {
       it var3 = this.ab();
       it var4;
-      if (this.aq * 374130911 != -1 && var1 != -1) {
-         var4 = Inventory.getSeqType(this.aq * 374130911, (byte)74).al(var3, var1);
+      if (this.sequence * 374130911 != -1 && var1 != -1) {
+         var4 = Inventory.getSeqType(this.sequence * 374130911, (byte)74).al(var3, var1);
       } else {
          var4 = var3.ay(true);
       }
 
-      if (128 != -1761247305 * this.ao || 128 != this.contrast * -1083521459) {
-         var4.bk(-1761247305 * this.ao, this.contrast * -1083521459, this.ao * -1761247305);
+      if (128 != -1761247305 * this.ao || 128 != this.ax * -1083521459) {
+         var4.bk(-1761247305 * this.ao, this.ax * -1083521459, this.ao * -1761247305);
       }
 
       if (-906961103 * this.ai != 0) {
@@ -129,7 +129,7 @@ public class SpotType extends DualNode {
             }
          }
 
-         var2 = var3.bb(this.ambient * 742442999 + 64, 850 + this.sequence * -138140925, -30, -50, -30);
+         var2 = var3.bb(this.ambient * 742442999 + 64, 850 + this.contrast * -138140925, -30, -50, -30);
          ac.put(var2, (long)(-190570391 * this.au));
       }
 

@@ -170,38 +170,38 @@ public class eb extends AbstractUserComparator {
 
    static int bo_renamed(int var0, ClientScript var1, boolean var2) {
       int var5;
-      int var10;
+      int var12;
       if (var0 == 4000) {
          Interpreter.Interpreter_intStackSize -= 854271946;
-         var10 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+         var12 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
          var5 = Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539];
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5 + var10;
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5 + var12;
          return 1;
       } else if (var0 == 4001) {
          Interpreter.Interpreter_intStackSize -= 854271946;
-         var10 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+         var12 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
          var5 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 - var5;
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 - var5;
          return 1;
       } else if (4002 == var0) {
          Interpreter.Interpreter_intStackSize -= 854271946;
-         var10 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+         var12 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
          var5 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 * var5;
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 * var5;
          return 1;
       } else if (var0 == 4003) {
          Interpreter.Interpreter_intStackSize -= 854271946;
-         var10 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+         var12 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
          var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1];
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 / var5;
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 / var5;
          return 1;
       } else if (var0 == 4004) {
-         var10 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)(Math.random() * (double)var10);
+         var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)(Math.random() * (double)var12);
          return 1;
       } else if (4005 == var0) {
-         var10 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)(Math.random() * (double)(1 + var10));
+         var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)(Math.random() * (double)(1 + var12));
          return 1;
       } else {
          int var6;
@@ -209,59 +209,59 @@ public class eb extends AbstractUserComparator {
          int var8;
          if (4006 == var0) {
             Interpreter.Interpreter_intStackSize -= 2135679865;
-            var10 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+            var12 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
             var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1];
             var6 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 2];
             var7 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 3];
             var8 = Interpreter.Interpreter_intStack[4 + Interpreter.Interpreter_intStackSize * -964267539];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 + (var8 - var6) * (var5 - var10) / (var7 - var6);
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 + (var8 - var6) * (var5 - var12) / (var7 - var6);
             return 1;
          } else if (4007 == var0) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var10 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+            var12 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
             var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 * var5 / 100 + var10;
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 * var5 / 100 + var12;
             return 1;
          } else if (4008 == var0) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var10 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+            var12 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
             var5 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 | 1 << var5;
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 | 1 << var5;
             return 1;
          } else if (var0 == 4009) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var10 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+            var12 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
             var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 & -1 - (1 << var5);
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 & -1 - (1 << var5);
             return 1;
          } else if (var0 == 4010) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var10 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+            var12 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
             var5 = Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0 != (var10 & 1 << var5) ? 1 : 0;
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0 != (var12 & 1 << var5) ? 1 : 0;
             return 1;
          } else if (4011 == var0) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var10 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+            var12 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
             var5 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 % var5;
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 % var5;
             return 1;
          } else if (4012 == var0) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var10 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+            var12 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
             var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1];
-            if (var10 == 0) {
+            if (var12 == 0) {
                Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
             } else {
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)Math.pow((double)var10, (double)var5);
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)Math.pow((double)var12, (double)var5);
             }
 
             return 1;
          } else if (var0 == 4013) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var10 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+            var12 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
             var5 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
-            if (0 == var10) {
+            if (0 == var12) {
                Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
                return 1;
             } else {
@@ -270,99 +270,99 @@ public class eb extends AbstractUserComparator {
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Integer.MAX_VALUE;
                      break;
                   case 1:
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12;
                      break;
                   case 2:
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)Math.sqrt((double)var10);
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)Math.sqrt((double)var12);
                      break;
                   case 3:
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)Math.cbrt((double)var10);
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)Math.cbrt((double)var12);
                      break;
                   case 4:
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)Math.sqrt(Math.sqrt((double)var10));
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)Math.sqrt(Math.sqrt((double)var12));
                      break;
                   default:
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)Math.pow((double)var10, 1.0 / (double)var5);
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)Math.pow((double)var12, 1.0 / (double)var5);
                }
 
                return 1;
             }
          } else if (var0 == 4014) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var10 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+            var12 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
             var5 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 & var5;
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 & var5;
             return 1;
          } else if (var0 == 4015) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var10 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+            var12 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
             var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 | var5;
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 | var5;
             return 1;
          } else if (4016 == var0) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var10 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+            var12 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
             var5 = Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 < var5 ? var10 : var5;
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 < var5 ? var12 : var5;
             return 1;
          } else if (4017 == var0) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var10 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+            var12 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
             var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 > var5 ? var10 : var5;
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 > var5 ? var12 : var5;
             return 1;
          } else if (4018 == var0) {
             Interpreter.Interpreter_intStackSize -= 1281407919;
-            long var11 = (long)Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
-            long var12 = (long)Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
-            long var13 = (long)Interpreter.Interpreter_intStack[2 + -964267539 * Interpreter.Interpreter_intStackSize];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)(var13 * var11 / var12);
+            long var13 = (long)Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+            long var14 = (long)Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
+            long var15 = (long)Interpreter.Interpreter_intStack[2 + -964267539 * Interpreter.Interpreter_intStackSize];
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (int)(var15 * var13 / var14);
             return 1;
          } else if (var0 == 4025) {
-            var10 = am.aw_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10;
+            var12 = am.aw_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12;
             return 1;
          } else if (var0 == 4026) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var10 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+            var12 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
             var5 = Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 ^ 1 << var5;
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 ^ 1 << var5;
             return 1;
          } else if (var0 == 4027) {
             Interpreter.Interpreter_intStackSize -= 1281407919;
-            var10 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+            var12 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
             var5 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
             var6 = Interpreter.Interpreter_intStack[2 + -964267539 * Interpreter.Interpreter_intStackSize];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = fl.au_renamed(var10, var5, var6);
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = fl.au_renamed(var12, var5, var6);
             return 1;
          } else if (4028 == var0) {
             Interpreter.Interpreter_intStackSize -= 1281407919;
-            var10 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+            var12 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
             var5 = Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539];
             var6 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 2];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Canvas.ac_renamed(var10, var5, var6);
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Canvas.ac_renamed(var12, var5, var6);
             return 1;
          } else if (var0 == 4029) {
             Interpreter.Interpreter_intStackSize -= 1281407919;
-            var10 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+            var12 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
             var5 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
             var6 = Interpreter.Interpreter_intStack[2 + Interpreter.Interpreter_intStackSize * -964267539];
             var7 = 31 - var6;
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 << var7 >>> var5 + var7;
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 << var7 >>> var5 + var7;
             return 1;
          } else if (4030 == var0) {
             Interpreter.Interpreter_intStackSize -= 1708543892;
-            var10 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+            var12 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
             var5 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
             var6 = Interpreter.Interpreter_intStack[2 + Interpreter.Interpreter_intStackSize * -964267539];
             var7 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 3];
-            var10 = Canvas.ac_renamed(var10, var6, var7);
+            var12 = Canvas.ac_renamed(var12, var6, var7);
             var8 = fn.an_renamed(var7 - var6 + 1);
             if (var5 > var8) {
                var5 = var8;
             }
 
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10 | var5 << var6;
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 | var5 << var6;
             return 1;
          } else if (4032 == var0) {
             Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 - 1] = dj.aw_renamed(Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize - 1]);
@@ -372,9 +372,9 @@ public class eb extends AbstractUserComparator {
             return 1;
          } else if (var0 == 4034) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var10 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+            var12 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
             var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1];
-            var6 = ea.an_renamed(var10, var5);
+            var6 = ea.an_renamed(var12, var5);
             Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var6;
             return 1;
          } else if (var0 == 4035) {

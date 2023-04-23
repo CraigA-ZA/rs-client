@@ -41,9 +41,9 @@ class ai extends DefaultTlsClient {
             }
 
             if (var11 <= 0) {
-               World var15 = bx.worlds[var10];
+               World var18 = bx.worlds[var10];
                bx.worlds[var10] = bx.worlds[var8];
-               bx.worlds[var8++] = var15;
+               bx.worlds[var8++] = var18;
             }
          }
 
@@ -197,50 +197,52 @@ class ai extends DefaultTlsClient {
       Packet var2 = new Packet(var0);
       int var3 = var2.g1();
       int var4 = var2.g4s();
-      if (var4 < 0 || 0 != AbstractArchive.bz * 401859175 && var4 > AbstractArchive.bz * 401859175) {
-         throw new RuntimeException();
-      } else if (var3 == 0) {
-         byte[] var7 = new byte[var4];
-         var2.ct(var7, 0, var4);
-         return var7;
-      } else {
-         int var5 = var2.g4s();
-         if (var5 < 0 || 0 != AbstractArchive.bz * 401859175 && var5 > AbstractArchive.bz * 401859175) {
-            throw new RuntimeException();
+      if (var4 >= 0 && (0 == AbstractArchive.bz * 401859175 || var4 <= AbstractArchive.bz * 401859175)) {
+         if (var3 == 0) {
+            byte[] var12 = new byte[var4];
+            var2.ct(var12, 0, var4);
+            return var12;
          } else {
-            byte[] var6 = new byte[var5];
-            if (var3 == 1) {
-               Bzip2Decompressor.af_renamed(var6, var5, var0, var4, 9);
+            int var5 = var2.g4s();
+            if (var5 < 0 || 0 != AbstractArchive.bz * 401859175 && var5 > AbstractArchive.bz * 401859175) {
+               throw new RuntimeException();
             } else {
-               AbstractArchive.gzipDecompressor.decompress(var2, var6);
-            }
+               byte[] var6 = new byte[var5];
+               if (var3 == 1) {
+                  Bzip2Decompressor.af_renamed(var6, var5, var0, var4, 9);
+               } else {
+                  AbstractArchive.gzipDecompressor.decompress(var2, var6);
+               }
 
-            return var6;
+               return var6;
+            }
          }
+      } else {
+         throw new RuntimeException();
       }
    }
 
    static int am_renamed(int var0, ClientScript var1, boolean var2) {
       Component var4;
       if (1927 != var0 && var0 != 2927) {
-         int var9;
+         int var11;
          if (1928 == var0) {
             var4 = var2 ? SoundSystem.ag : an.ai;
-            var9 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-            if (var9 >= 1 && var9 <= 10) {
-               dd var10 = new dd(var9, 1713081171 * var4.id, var4.childIndex * 55577617, var4.itemId * -2006098851);
-               Interpreter.ad.add(var10);
+            var11 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+            if (var11 >= 1 && var11 <= 10) {
+               dd var12 = new dd(var11, 1713081171 * var4.id, var4.childIndex * 55577617, var4.itemId * -2006098851);
+               Interpreter.ad.add(var12);
                return 1;
             } else {
                throw new RuntimeException();
             }
          } else if (var0 == 2928) {
             Interpreter.Interpreter_intStackSize -= 1281407919;
-            int var8 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-            var9 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
+            int var10 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+            var11 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
             int var6 = Interpreter.Interpreter_intStack[2 + Interpreter.Interpreter_intStackSize * -964267539];
             if (var6 >= 1 && var6 <= 10) {
-               dd var7 = new dd(var6, var8, var9, gh.an_renamed(var8).itemId * -2006098851);
+               dd var7 = new dd(var6, var10, var11, gh.an_renamed(var10).itemId * -2006098851);
                Interpreter.ad.add(var7);
                return 1;
             } else {

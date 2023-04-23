@@ -501,7 +501,7 @@ public class aq implements Enumerated {
                   var1.drawCentered(Strings.nz, var4 + var30 / 2, var28 / 2 + var18 + 12, 16777215, 0);
                }
             } else {
-               mv.dv = MusicPatchNode2.au_renamed(rr.archive7, "sl_button", "");
+               mv.dv = MusicPatchNode2.au_renamed(rr.archive8, "sl_button", "");
             }
          }
 

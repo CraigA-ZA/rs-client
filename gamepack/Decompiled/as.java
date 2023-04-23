@@ -35,7 +35,7 @@ public class as implements Callable {
          }
       }
 
-      Packet var25 = new Packet(var0);
+      Packet var28 = new Packet(var0);
 
       for(var13 = 0; var13 < 4; ++var13) {
          for(int var14 = 0; var14 < 64; ++var14) {
@@ -59,9 +59,9 @@ public class as implements Callable {
                   int var22 = var3 + var18;
                   int var23 = (var14 & 7) + var8 + var2;
                   int var24 = (var15 & 7) + var9 + var3;
-                  of.loadTerrain(var25, var1, var16, var22, var23, var24, var7);
+                  of.loadTerrain(var28, var1, var16, var22, var23, var24, var7);
                } else {
-                  of.loadTerrain(var25, 0, -1, -1, 0, 0, 0);
+                  of.loadTerrain(var28, 0, -1, -1, 0, 0, 0);
                }
             }
          }

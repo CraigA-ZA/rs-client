@@ -6,7 +6,7 @@ public class sc {
       throw new Error();
    }
 
-   public static Sprite aw_renamed(AbstractArchive var0, int var1, int var2) {
+   public static Sprite readSprite(AbstractArchive var0, int var1, int var2) {
       byte[] var5 = var0.takeFile(var1, var2);
       boolean var4;
       if (var5 == null) {

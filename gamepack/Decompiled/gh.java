@@ -36,15 +36,15 @@ public class gh extends gn {
 
    static final void ak_renamed(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, Scene var8, CollisionMap var9) {
       LocType var11 = fw.an_renamed(var4);
-      int var12 = var7 >= 0 ? var7 : 1292954189 * var11.ambient;
+      int var12 = var7 >= 0 ? var7 : 1292954189 * var11.animationId;
       int var13;
       int var14;
       if (var5 != 1 && var5 != 3) {
-         var13 = var11.offsetZ * -1339930361;
-         var14 = var11.width * -1659393955;
+         var13 = var11.width * -1339930361;
+         var14 = var11.length * -1659393955;
       } else {
-         var13 = var11.width * -1659393955;
-         var14 = var11.offsetZ * -1339930361;
+         var13 = var11.length * -1659393955;
+         var14 = var11.width * -1339930361;
       }
 
       int var15;
@@ -71,9 +71,9 @@ public class gh extends gn {
       int var20 = var19[var15][var17] + var19[var16][var17] + var19[var15][var18] + var19[var16][var18] >> 2;
       int var21 = (var2 << 7) + (var13 << 6);
       int var22 = (var14 << 6) + (var3 << 7);
-      long var23 = ir.aa_renamed(var2, var3, 2, 0 == 415653149 * var11.int2, var4);
+      long var23 = ir.aa_renamed(var2, var3, 2, 0 == 415653149 * var11.interactable, var4);
       int var25 = (var5 << 6) + var6;
-      if (1 == -1850643527 * var11.bg) {
+      if (1 == -1850643527 * var11.int3) {
          var25 += 256;
       }
 
@@ -128,20 +128,20 @@ public class gh extends gn {
             }
 
          } else {
-            int var32;
+            int var34;
             if (2 == var6) {
-               var32 = 1 + var5 & 3;
+               var34 = 1 + var5 & 3;
                Object var28;
-               Object var34;
+               Object var36;
                if (var12 == -1 && var11.multi == null) {
-                  var34 = var11.at(2, 4 + var5, var19, var21, var20, var22);
-                  var28 = var11.at(2, var32, var19, var21, var20, var22);
+                  var36 = var11.at(2, 4 + var5, var19, var21, var20, var22);
+                  var28 = var11.at(2, var34, var19, var21, var20, var22);
                } else {
-                  var34 = new DynamicObject(var4, 2, var5 + 4, var1, var2, var3, var12, var11.bh, (Entity)null);
-                  var28 = new DynamicObject(var4, 2, var32, var1, var2, var3, var12, var11.bh, (Entity)null);
+                  var36 = new DynamicObject(var4, 2, var5 + 4, var1, var2, var3, var12, var11.bh, (Entity)null);
+                  var28 = new DynamicObject(var4, 2, var34, var1, var2, var3, var12, var11.bh, (Entity)null);
                }
 
-               var8.newWall(var0, var2, var3, var20, (Entity)var34, (Entity)var28, Tiles.am[var5], Tiles.am[var32], var23, var25);
+               var8.newWall(var0, var2, var3, var20, (Entity)var36, (Entity)var28, Tiles.am[var5], Tiles.am[var34], var23, var25);
                if (-973955889 * var11.interactType != 0) {
                   var9.an(var2, var3, var6, var5, var11.boolean1);
                }
@@ -182,10 +182,10 @@ public class gh extends gn {
                long var27;
                Object var29;
                if (5 == var6) {
-                  var32 = 16;
+                  var34 = 16;
                   var27 = var8.by(var0, var2, var3);
                   if (var27 != 0L) {
-                     var32 = fw.an_renamed(InterfaceParent.at(var27)).contrast * -89408815;
+                     var34 = fw.an_renamed(InterfaceParent.at(var27)).int2 * -89408815;
                   }
 
                   if (-1 == var12 && var11.multi == null) {
@@ -194,12 +194,12 @@ public class gh extends gn {
                      var29 = new DynamicObject(var4, 4, var5, var1, var2, var3, var12, var11.bh, (Entity)null);
                   }
 
-                  var8.newWallDecoration(var0, var2, var3, var20, (Entity)var29, (Entity)null, Tiles.am[var5], 0, Tiles.aj[var5] * var32, Tiles.ak[var5] * var32, var23, var25);
+                  var8.newWallDecoration(var0, var2, var3, var20, (Entity)var29, (Entity)null, Tiles.am[var5], 0, Tiles.aj[var5] * var34, Tiles.ak[var5] * var34, var23, var25);
                } else if (var6 == 6) {
-                  var32 = 8;
+                  var34 = 8;
                   var27 = var8.by(var0, var2, var3);
                   if (0L != var27) {
-                     var32 = fw.an_renamed(InterfaceParent.at(var27)).contrast * -89408815 / 2;
+                     var34 = fw.an_renamed(InterfaceParent.at(var27)).int2 * -89408815 / 2;
                   }
 
                   if (var12 == -1 && var11.multi == null) {
@@ -208,21 +208,21 @@ public class gh extends gn {
                      var29 = new DynamicObject(var4, 4, var5 + 4, var1, var2, var3, var12, var11.bh, (Entity)null);
                   }
 
-                  var8.newWallDecoration(var0, var2, var3, var20, (Entity)var29, (Entity)null, 256, var5, Tiles.az[var5] * var32, var32 * Tiles.ad[var5], var23, var25);
+                  var8.newWallDecoration(var0, var2, var3, var20, (Entity)var29, (Entity)null, 256, var5, Tiles.az[var5] * var34, var34 * Tiles.ad[var5], var23, var25);
                } else if (var6 == 7) {
-                  int var33 = var5 + 2 & 3;
+                  int var35 = var5 + 2 & 3;
                   if (var12 == -1 && var11.multi == null) {
-                     var26 = var11.at(4, 4 + var33, var19, var21, var20, var22);
+                     var26 = var11.at(4, 4 + var35, var19, var21, var20, var22);
                   } else {
-                     var26 = new DynamicObject(var4, 4, 4 + var33, var1, var2, var3, var12, var11.bh, (Entity)null);
+                     var26 = new DynamicObject(var4, 4, 4 + var35, var1, var2, var3, var12, var11.bh, (Entity)null);
                   }
 
-                  var8.newWallDecoration(var0, var2, var3, var20, (Entity)var26, (Entity)null, 256, var33, 0, 0, var23, var25);
+                  var8.newWallDecoration(var0, var2, var3, var20, (Entity)var26, (Entity)null, 256, var35, 0, 0, var23, var25);
                } else if (8 == var6) {
-                  var32 = 8;
+                  var34 = 8;
                   var27 = var8.by(var0, var2, var3);
                   if (0L != var27) {
-                     var32 = fw.an_renamed(InterfaceParent.at(var27)).contrast * -89408815 / 2;
+                     var34 = fw.an_renamed(InterfaceParent.at(var27)).int2 * -89408815 / 2;
                   }
 
                   int var31 = var5 + 2 & 3;
@@ -235,7 +235,7 @@ public class gh extends gn {
                      var30 = new DynamicObject(var4, 4, 4 + var31, var1, var2, var3, var12, var11.bh, (Entity)null);
                   }
 
-                  var8.newWallDecoration(var0, var2, var3, var20, (Entity)var29, (Entity)var30, 256, var5, var32 * Tiles.az[var5], var32 * Tiles.ad[var5], var23, var25);
+                  var8.newWallDecoration(var0, var2, var3, var20, (Entity)var29, (Entity)var30, 256, var5, var34 * Tiles.az[var5], var34 * Tiles.ad[var5], var23, var25);
                }
             }
          }

@@ -43,7 +43,7 @@ public class ec implements Enumerated {
    }
 
    public static void aj_renamed() {
-      ObjType.ao.clear();
+      ObjType.Sprite_cached.clear();
    }
 
    static final void loadRegions(boolean var0, PacketBit var1) {
@@ -76,8 +76,8 @@ public class ec implements Enumerated {
             for(var7 = (var3 - 6) / 8; var7 <= (6 + var3) / 8; ++var7) {
                var8 = (var6 << 8) + var7;
                WorldMapAreaData.jj[var5] = var8;
-               FontName.jm[var5] = nn.archive5.getGroupId("m" + var6 + "_" + var7);
-               Archive.jn[var5] = nn.archive5.getGroupId("l" + var6 + "_" + var7);
+               FontName.jm[var5] = TotalQuantityComparator.archive5.getGroupId("m" + var6 + "_" + var7);
+               Archive.jn[var5] = TotalQuantityComparator.archive5.getGroupId("l" + var6 + "_" + var7);
                ++var5;
             }
          }
@@ -85,7 +85,7 @@ public class ec implements Enumerated {
          Decimator.jr_renamed(var4, var3, true);
       } else {
          var3 = var1.da();
-         boolean var16 = var1.g1() == 1;
+         boolean var22 = var1.g1() == 1;
          var5 = var1.eo();
          var6 = var1.cl();
          var1.importIndex();
@@ -142,8 +142,8 @@ public class ec implements Enumerated {
                         WorldMapAreaData.jj[var6] = var13;
                         var14 = var13 >> 8 & 255;
                         int var15 = var13 & 255;
-                        FontName.jm[var6] = nn.archive5.getGroupId("m" + var14 + "_" + var15);
-                        Archive.jn[var6] = nn.archive5.getGroupId("l" + var14 + "_" + var15);
+                        FontName.jm[var6] = TotalQuantityComparator.archive5.getGroupId("m" + var14 + "_" + var15);
+                        Archive.jn[var6] = TotalQuantityComparator.archive5.getGroupId("l" + var14 + "_" + var15);
                         ++var6;
                      }
                   }
@@ -151,7 +151,7 @@ public class ec implements Enumerated {
             }
          }
 
-         Decimator.jr_renamed(var3, var5, !var16);
+         Decimator.jr_renamed(var3, var5, !var22);
       }
 
    }

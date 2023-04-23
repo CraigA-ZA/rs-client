@@ -541,7 +541,7 @@ public class it extends Entity {
    void as(fh var1, int var2) {
       AnimBase var3 = var1.ac;
 
-      for(int var4 = 0; var4 < var3.id * 1158767581; ++var4) {
+      for(int var4 = 0; var4 < var3.transformCount * 1158767581; ++var4) {
          int var5 = var3.transformTypes[var4];
          if (var5 == 5 && var1.an != null && var1.an[var4] != null && var1.an[var4][0] != null && this.bi != null && this.as != null) {
             ek var6 = var1.an[var4][0];

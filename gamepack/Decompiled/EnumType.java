@@ -98,7 +98,7 @@ public class EnumType extends DualNode {
       if (cz.di) {
          bz.ag_renamed(var0);
       } else {
-         if ((1 == -1222491879 * MouseHandler.ar || !su.ev && 4 == MouseHandler.ar * -1222491879) && 2020601481 * MouseHandler.MouseHandler_lastButton >= 765 + cz.aw * 578342931 - 50 && 1163896205 * MouseHandler.as >= 453) {
+         if ((1 == -1222491879 * MouseHandler.MouseHandler_lastButton || !su.ev && 4 == MouseHandler.MouseHandler_lastButton * -1222491879) && 2020601481 * MouseHandler.am >= 765 + cz.aw * 578342931 - 50 && 1163896205 * MouseHandler.as >= 453) {
             aj.clientPreferences.at(!aj.clientPreferences.aa());
             if (!aj.clientPreferences.aa()) {
                sh.an_renamed(pj.archive6, "scape main", "", 255, false);
@@ -145,12 +145,12 @@ public class EnumType extends DualNode {
                int var9;
                int var40;
                if (fj.ck == Language.af) {
-                  if (-1222491879 * MouseHandler.ar == 1 || !su.ev && 4 == MouseHandler.ar * -1222491879) {
+                  if (-1222491879 * MouseHandler.MouseHandler_lastButton == 1 || !su.ev && 4 == MouseHandler.MouseHandler_lastButton * -1222491879) {
                      var40 = 5 + 578342931 * cz.aw;
                      var8 = 463;
                      var9 = 100;
                      byte var10 = 35;
-                     if (2020601481 * MouseHandler.MouseHandler_lastButton >= var40 && 2020601481 * MouseHandler.MouseHandler_lastButton <= var40 + var9 && MouseHandler.as * 1163896205 >= var8 && MouseHandler.as * 1163896205 <= var8 + var10) {
+                     if (2020601481 * MouseHandler.am >= var40 && 2020601481 * MouseHandler.am <= var40 + var9 && MouseHandler.as * 1163896205 >= var8 && MouseHandler.as * 1163896205 <= var8 + var10) {
                         cz.ar_renamed();
                         return;
                      }
@@ -161,8 +161,8 @@ public class EnumType extends DualNode {
                   }
                }
 
-               var40 = -1222491879 * MouseHandler.ar;
-               var8 = 2020601481 * MouseHandler.MouseHandler_lastButton;
+               var40 = -1222491879 * MouseHandler.MouseHandler_lastButton;
+               var8 = 2020601481 * MouseHandler.am;
                var9 = MouseHandler.as * 1163896205;
                if (var40 == 0) {
                   var8 = -2063363905 * MouseHandler.ay;
@@ -288,8 +288,8 @@ public class EnumType extends DualNode {
                         var12 += 15;
                         var42 = 361;
                         if (null != Formatting.bh) {
-                           var13 = Formatting.bh.aw * 944313703 / 2;
-                           if (var40 == 1 && var8 >= Formatting.bh.af * -844906645 - var13 && var8 <= -844906645 * Formatting.bh.af + var13 && var9 >= var42 - 15 && var9 < var42) {
+                           var13 = Formatting.bh.width * 944313703 / 2;
+                           if (var40 == 1 && var8 >= Formatting.bh.x * -844906645 - var13 && var8 <= -844906645 * Formatting.bh.x + var13 && var9 >= var42 - 15 && var9 < var42) {
                               switch (-1733444455 * cz.bp) {
                                  case 1:
                                     he.ax_renamed(Strings.lu, Strings.lk, Strings.lh);
@@ -729,8 +729,8 @@ public class EnumType extends DualNode {
 
                               var44 = 361;
                               if (as.bw != null) {
-                                 var15 = 944313703 * as.bw.aw / 2;
-                                 if (1 == var40 && var8 >= as.bw.af * -844906645 - var15 && var8 <= var15 + -844906645 * as.bw.af && var9 >= var44 - 15 && var9 < var44) {
+                                 var15 = 944313703 * as.bw.width / 2;
+                                 if (1 == var40 && var8 >= as.bw.x * -844906645 - var15 && var8 <= var15 + -844906645 * as.bw.x && var9 >= var44 - 15 && var9 < var44) {
                                     Ignored.af_renamed(InvType.nb_renamed("secure", true) + "m=weblogin/g=oldscape/cant_log_in", true, false);
                                  }
                               }
@@ -1341,11 +1341,11 @@ public class EnumType extends DualNode {
                int var20;
                int var21;
                if (1 != var14 && var14 != 3) {
-                  var20 = -1339930361 * var19.offsetZ;
-                  var21 = var19.width * -1659393955;
+                  var20 = -1339930361 * var19.width;
+                  var21 = var19.length * -1659393955;
                } else {
-                  var20 = -1659393955 * var19.width;
-                  var21 = var19.offsetZ * -1339930361;
+                  var20 = -1659393955 * var19.length;
+                  var21 = var19.width * -1339930361;
                }
 
                int var22 = var7 + (var20 >> 1);
@@ -1359,8 +1359,8 @@ public class EnumType extends DualNode {
                it var30 = var19.at(var13, var14, var26, var28, var27, var29);
                if (var30 != null) {
                   bz.jz_renamed(GameShell.plane * -1727408401, var7, var8, var15, -1, 0, 0, 31, var10 + 1, 1 + var16);
-                  var18.headIconPrayer = (Client.ep * -1886224337 + var10) * -746690647;
-                  var18.animationCycleStart = -377301053 * (var16 + Client.ep * -1886224337);
+                  var18.animationCycleStart = (Client.ep * -1886224337 + var10) * -746690647;
+                  var18.animationCycleEnd = -377301053 * (var16 + Client.ep * -1886224337);
                   var18.ah = var30;
                   var18.ax = var7 * -494827904 + -247413952 * var20;
                   var18.ag = var8 * -856229504 + var21 * -428114752;

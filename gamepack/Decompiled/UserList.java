@@ -121,11 +121,11 @@ public abstract class UserList {
    }
 
    final void mapRemove(User var1) {
-      if (this.usernamesMap.remove(var1.previousUsername) == null) {
+      if (this.usernamesMap.remove(var1.username0) == null) {
          throw new IllegalStateException();
       } else {
-         if (var1.username0 != null) {
-            this.previousUsernamesMap.remove(var1.username0);
+         if (var1.previousUsername != null) {
+            this.previousUsernamesMap.remove(var1.previousUsername);
          }
 
       }
@@ -136,11 +136,11 @@ public abstract class UserList {
    }
 
    final void mapPut(User var1) {
-      this.usernamesMap.put(var1.previousUsername, var1);
-      if (var1.username0 != null) {
-         User var3 = (User)this.previousUsernamesMap.put(var1.username0, var1);
+      this.usernamesMap.put(var1.username0, var1);
+      if (var1.previousUsername != null) {
+         User var3 = (User)this.previousUsernamesMap.put(var1.previousUsername, var1);
          if (null != var3 && var3 != var1) {
-            var3.username0 = null;
+            var3.previousUsername = null;
          }
       }
 

@@ -6,7 +6,7 @@ public final class qj {
    public static final qj ab;
    static int aw;
    static int jg;
-   static Sprite[] kc;
+   static Sprite[] headIconPrayerSprites;
    public float[] au = new float[16];
 
    static {
@@ -345,25 +345,25 @@ public final class qj {
          var1 = true;
 
          for(int var2 = 0; var2 < 730065501 * Client.menuOptionsCount - 1; ++var2) {
-            if (Client.menuArguments1[var2] < 1000 && Client.menuArguments1[var2 + 1] > 1000) {
+            if (Client.menuOpcodes[var2] < 1000 && Client.menuOpcodes[var2 + 1] > 1000) {
                String var3 = Client.menuTargetNames[var2];
                Client.menuTargetNames[var2] = Client.menuTargetNames[1 + var2];
                Client.menuTargetNames[var2 + 1] = var3;
                String var4 = Client.menuActions[var2];
                Client.menuActions[var2] = Client.menuActions[1 + var2];
                Client.menuActions[var2 + 1] = var4;
-               int var5 = Client.menuArguments1[var2];
-               Client.menuArguments1[var2] = Client.menuArguments1[var2 + 1];
-               Client.menuArguments1[var2 + 1] = var5;
-               var5 = Client.menuArguments0[var2];
-               Client.menuArguments0[var2] = Client.menuArguments0[1 + var2];
-               Client.menuArguments0[1 + var2] = var5;
+               int var5 = Client.menuOpcodes[var2];
+               Client.menuOpcodes[var2] = Client.menuOpcodes[var2 + 1];
+               Client.menuOpcodes[var2 + 1] = var5;
+               var5 = Client.menuArguments1[var2];
+               Client.menuArguments1[var2] = Client.menuArguments1[1 + var2];
+               Client.menuArguments1[1 + var2] = var5;
                var5 = Client.menuArguments2[var2];
                Client.menuArguments2[var2] = Client.menuArguments2[var2 + 1];
                Client.menuArguments2[1 + var2] = var5;
-               var5 = Client.menuOpcodes[var2];
-               Client.menuOpcodes[var2] = Client.menuOpcodes[1 + var2];
-               Client.menuOpcodes[var2 + 1] = var5;
+               var5 = Client.menuArguments0[var2];
+               Client.menuArguments0[var2] = Client.menuArguments0[1 + var2];
+               Client.menuArguments0[var2 + 1] = var5;
                var5 = Client.oi[var2];
                Client.oi[var2] = Client.oi[1 + var2];
                Client.oi[1 + var2] = var5;

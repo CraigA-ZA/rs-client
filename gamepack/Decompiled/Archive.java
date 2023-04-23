@@ -90,7 +90,7 @@ public class Archive extends AbstractArchive {
 
    }
 
-   void ac(int var1) {
+   void loadGroup(int var1) {
       if (null != this.archiveDisk && null != this.validGroups && this.validGroups[var1]) {
          ArchiveDisk var3 = this.archiveDisk;
          byte[] var5 = null;
@@ -110,18 +110,18 @@ public class Archive extends AbstractArchive {
             this.load(var3, var1, var6, true);
          }
       } else {
-         Message.requestNetFile(this, -1596339445 * this.al, var1, this.groupIds[var1], (byte)2, true);
+         Message.requestNetFile(this, -1596339445 * this.al, var1, this.groupCrcs[var1], (byte)2, true);
       }
 
    }
 
    void au() {
       this.at = -922247218;
-      this.groupCrcs = new int[0];
       this.groupIds = new int[0];
+      this.groupCrcs = new int[0];
       this.groupVersions = new int[0];
       this.fileCounts = new int[0];
-      this.fileNameHashes = new int[0][];
+      this.fileIds = new int[0][];
       this.groups = new Object[0];
       this.files = new Object[0][];
    }
@@ -241,7 +241,7 @@ public class Archive extends AbstractArchive {
          if (var3 == null || var3.length <= 2) {
             this.validGroups[var2] = false;
             if (this.aa || var4) {
-               Message.requestNetFile(this, -1596339445 * this.al, var2, this.groupIds[var2], (byte)2, var4);
+               Message.requestNetFile(this, -1596339445 * this.al, var2, this.groupCrcs[var2], (byte)2, var4);
             }
 
             return;
@@ -250,11 +250,11 @@ public class Archive extends AbstractArchive {
          Archive_crc.reset();
          Archive_crc.update(var3, 0, var3.length - 2);
          var6 = (int)Archive_crc.getValue();
-         int var10 = ((var3[var3.length - 2] & 255) << 8) + (var3[var3.length - 1] & 255);
-         if (this.groupIds[var2] != var6 || var10 != this.groupVersions[var2]) {
+         int var12 = ((var3[var3.length - 2] & 255) << 8) + (var3[var3.length - 1] & 255);
+         if (this.groupCrcs[var2] != var6 || var12 != this.groupVersions[var2]) {
             this.validGroups[var2] = false;
             if (this.aa || var4) {
-               Message.requestNetFile(this, -1596339445 * this.al, var2, this.groupIds[var2], (byte)2, var4);
+               Message.requestNetFile(this, -1596339445 * this.al, var2, this.groupCrcs[var2], (byte)2, var4);
             }
 
             return;

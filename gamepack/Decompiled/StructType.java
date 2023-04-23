@@ -92,23 +92,23 @@ public class StructType extends DualNode {
          var5 = var2 ? SoundSystem.ag : an.ai;
       }
 
-      int var9;
+      int var19;
       if (1300 == var0) {
-         var9 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] - 1;
-         if (var9 >= 0 && var9 <= 9) {
-            var5.setAction(var9, Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987]);
+         var19 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] - 1;
+         if (var19 >= 0 && var19 <= 9) {
+            var5.setAction(var19, Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987]);
             return 1;
          } else {
             SecureRandomCallable.Interpreter_stringStackSize -= -1086551379;
             return 1;
          }
       } else {
-         int var11;
+         int var21;
          if (var0 == 1301) {
             Interpreter.Interpreter_intStackSize -= 854271946;
-            var9 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-            var11 = Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539];
-            var5.parent = SoundSystem.getComponentChild(var9, var11);
+            var19 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+            var21 = Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539];
+            var5.parent = SoundSystem.getComponentChild(var19, var21);
             return 1;
          } else if (1302 == var0) {
             var5.isDraggable = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
@@ -138,43 +138,43 @@ public class StructType extends DualNode {
             byte[] var7;
             int var8;
             if (1350 != var0) {
-               byte var10;
+               byte var20;
                if (1351 == var0) {
                   Interpreter.Interpreter_intStackSize -= 854271946;
-                  var10 = 10;
+                  var20 = 10;
                   var7 = new byte[]{(byte)Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539]};
-                  byte[] var12 = new byte[]{(byte)Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1]};
-                  al.at_renamed(var5, var10, var7, var12);
+                  byte[] var22 = new byte[]{(byte)Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1]};
+                  al.at_renamed(var5, var20, var7, var22);
                   return 1;
                } else if (1352 == var0) {
                   Interpreter.Interpreter_intStackSize -= 1281407919;
-                  var9 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize] - 1;
-                  var11 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
+                  var19 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize] - 1;
+                  var21 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
                   var8 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 2];
-                  if (var9 >= 0 && var9 <= 9) {
-                     cv.aa_renamed(var5, var9, var11, var8);
+                  if (var19 >= 0 && var19 <= 9) {
+                     cv.aa_renamed(var5, var19, var21, var8);
                      return 1;
                   } else {
                      throw new RuntimeException();
                   }
                } else if (var0 == 1353) {
-                  var10 = 10;
-                  var11 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var20 = 10;
+                  var21 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                   var8 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-                  cv.aa_renamed(var5, var10, var11, var8);
+                  cv.aa_renamed(var5, var20, var21, var8);
                   return 1;
                } else if (var0 == 1354) {
                   Interpreter.Interpreter_intStackSize -= 427135973;
-                  var9 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize] - 1;
-                  if (var9 >= 0 && var9 <= 9) {
-                     ne.ay_renamed(var5, var9);
+                  var19 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize] - 1;
+                  if (var19 >= 0 && var19 <= 9) {
+                     ne.ay_renamed(var5, var19);
                      return 1;
                   } else {
                      throw new RuntimeException();
                   }
                } else if (1355 == var0) {
-                  var9 = 10;
-                  ne.ay_renamed(var5, var9);
+                  var19 = 10;
+                  ne.ay_renamed(var5, var19);
                   return 1;
                } else {
                   return 2;

@@ -56,7 +56,7 @@ public class cv {
 
       for(int var5 = 0; var5 < -1485716275 * MouseRecorder.at; ++var5) {
          ObjType var6 = HeadbarUpdate.getObjType(var5);
-         if ((!var1 || var6.members) && var6.resizez * -1375068187 == -1 && var6.name.toLowerCase().indexOf(var0) != -1) {
+         if ((!var1 || var6.stockmarket) && var6.resizez * -1375068187 == -1 && var6.name.toLowerCase().indexOf(var0) != -1) {
             if (var4 >= 250) {
                kt.wu = 316033701;
                pj.wm = null;
@@ -80,12 +80,12 @@ public class cv {
       pj.wm = var3;
       FontName.wj = 0;
       kt.wu = -316033701 * var4;
-      String[] var9 = new String[kt.wu * 1764192979];
+      String[] var16 = new String[kt.wu * 1764192979];
 
-      for(int var10 = 0; var10 < kt.wu * 1764192979; ++var10) {
-         var9[var10] = HeadbarUpdate.getObjType(var3[var10]).name;
+      for(int var17 = 0; var17 < kt.wu * 1764192979; ++var17) {
+         var16[var17] = HeadbarUpdate.getObjType(var3[var17]).name;
       }
 
-      GrandExchangeOffer.af_renamed(var9, pj.wm);
+      GrandExchangeOffer.af_renamed(var16, pj.wm);
    }
 }

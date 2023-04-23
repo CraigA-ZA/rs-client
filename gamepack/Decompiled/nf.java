@@ -93,7 +93,7 @@ public class nf {
       int var8 = 1 + 2 * var6;
       Bounds var9 = new Bounds(0, 0, var3.subWidth, var3.subHeight);
       Bounds var10 = new Bounds(0, 0);
-      this.an.an(var8, var8);
+      this.an.setSize(var8, var8);
       System.nanoTime();
 
       int var11;
@@ -104,7 +104,7 @@ public class nf {
          var13 = this.ac[var11];
          int var14 = (int)((float)(var12 - var1) * var4) - var6;
          int var15 = (int)((float)var3.subHeight - var4 * (float)(var13 - var2)) - var6;
-         this.an.af(var14, var15);
+         this.an.setLocation(var14, var15);
          this.an.ac(var9, var10);
          this.ab(var7, var3, var10);
       }
@@ -134,29 +134,29 @@ public class nf {
    }
 
    void ab(Sprite var1, Sprite var2, Bounds var3) {
-      if (0 != var3.aw * 944313703 && var3.ac * -1376251093 != 0) {
+      if (0 != var3.width * 944313703 && var3.height * -1376251093 != 0) {
          int var5 = 0;
          int var6 = 0;
-         if (0 == -844906645 * var3.af) {
-            var5 = var1.subWidth - 944313703 * var3.aw;
+         if (0 == -844906645 * var3.x) {
+            var5 = var1.subWidth - 944313703 * var3.width;
          }
 
-         if (0 == 1864020389 * var3.an) {
-            var6 = var1.subHeight - var3.ac * -1376251093;
+         if (0 == 1864020389 * var3.y) {
+            var6 = var1.subHeight - var3.height * -1376251093;
          }
 
          int var7 = var1.subWidth * var6 + var5;
-         int var8 = var3.an * 1864020389 * var2.subWidth + var3.af * -844906645;
+         int var8 = var3.y * 1864020389 * var2.subWidth + var3.x * -844906645;
 
-         for(int var9 = 0; var9 < -1376251093 * var3.ac; ++var9) {
-            for(int var10 = 0; var10 < var3.aw * 944313703; ++var10) {
+         for(int var9 = 0; var9 < -1376251093 * var3.height; ++var9) {
+            for(int var10 = 0; var10 < var3.width * 944313703; ++var10) {
                int[] var10000 = var2.pixels;
                int var10001 = var8++;
                var10000[var10001] += var1.pixels[var7++];
             }
 
-            var7 += var1.subWidth - 944313703 * var3.aw;
-            var8 += var2.subWidth - 944313703 * var3.aw;
+            var7 += var1.subWidth - 944313703 * var3.width;
+            var8 += var2.subWidth - 944313703 * var3.width;
          }
 
       }

@@ -89,7 +89,7 @@ public class WorldMapSection1 implements WorldMapSection {
    void aq() {
    }
 
-   public static final Sprite ay_renamed(int var0, int var1, int var2, int var3, int var4, boolean var5) {
+   public static final Sprite getItemSprite(int var0, int var1, int var2, int var3, int var4, boolean var5) {
       if (var1 == -1) {
          var4 = 0;
       } else if (2 == var4 && var1 != 1) {
@@ -99,7 +99,7 @@ public class WorldMapSection1 implements WorldMapSection {
       long var7 = ((long)var2 << 38) + (long)var0 + ((long)var1 << 16) + ((long)var4 << 40) + ((long)var3 << 42);
       Sprite var9;
       if (!var5) {
-         var9 = (Sprite)ObjType.ao.get(var7);
+         var9 = (Sprite)ObjType.Sprite_cached.get(var7);
          if (var9 != null) {
             return var9;
          }
@@ -120,24 +120,24 @@ public class WorldMapSection1 implements WorldMapSection {
          }
       }
 
-      it var21 = var10.at(1);
-      if (var21 == null) {
+      it var22 = var10.at(1);
+      if (var22 == null) {
          return null;
       } else {
-         Sprite var22 = null;
+         Sprite var23 = null;
          if (-1 != var10.resizez * -1375068187) {
-            var22 = ay_renamed(var10.certtemplate * 1399852547, 10, 1, 0, 0, true);
-            if (null == var22) {
+            var23 = getItemSprite(var10.resizey * 1399852547, 10, 1, 0, 0, true);
+            if (null == var23) {
                return null;
             }
          } else if (-1276549997 * var10.cg != -1) {
-            var22 = ay_renamed(var10.placeholdertemplate * -1273418661, var1, var2, var3, 0, false);
-            if (null == var22) {
+            var23 = getItemSprite(var10.cl * -1273418661, var1, var2, var3, 0, false);
+            if (null == var23) {
                return null;
             }
          } else if (var10.cy * 119859889 != -1) {
-            var22 = ay_renamed(-172219939 * var10.cr, var1, 0, 0, 0, false);
-            if (null == var22) {
+            var23 = getItemSprite(-172219939 * var10.cr, var1, 0, 0, 0, false);
+            if (null == var23) {
                return null;
             }
          }
@@ -155,22 +155,22 @@ public class WorldMapSection1 implements WorldMapSection {
          WorldMapArea.ai_renamed(16, 16);
          Rasterizer3D.ab.an = false;
          if (-1 != var10.cy * 119859889) {
-            var22.ax(0, 0);
+            var23.ax(0, 0);
          }
 
-         int var18 = var10.aj * 1014971553;
+         int var18 = var10.zoom2d * 1014971553;
          if (var5) {
             var18 = (int)(1.5 * (double)var18);
          } else if (2 == var2) {
             var18 = (int)((double)var18 * 1.04);
          }
 
-         int var19 = var18 * Rasterizer3D.ac[415331477 * var10.yan2d] >> 16;
-         int var20 = var18 * Rasterizer3D.au[415331477 * var10.yan2d] >> 16;
-         var21.ai();
-         var21.bx(0, -2044433177 * var10.manwear2, var10.xof2d * 450595207, var10.yan2d * 415331477, var10.manwearyoff * 151912273, 1550732737 * var21.height / 2 + var19 + -271411709 * var10.yof2d, var20 + var10.yof2d * -271411709);
+         int var19 = var18 * Rasterizer3D.ac[415331477 * var10.xan2d] >> 16;
+         int var20 = var18 * Rasterizer3D.au[415331477 * var10.xan2d] >> 16;
+         var22.ai();
+         var22.bx(0, -2044433177 * var10.yan2d, var10.zan2d * 450595207, var10.xan2d * 415331477, var10.xof2d * 151912273, 1550732737 * var22.height / 2 + var19 + -271411709 * var10.yof2d, var20 + var10.yof2d * -271411709);
          if (-1276549997 * var10.cg != -1) {
-            var22.ax(0, 0);
+            var23.ax(0, 0);
          }
 
          if (var2 >= 1) {
@@ -187,7 +187,7 @@ public class WorldMapSection1 implements WorldMapSection {
 
          an.ay_renamed(var9.pixels, 36, 32, (float[])null);
          if (var10.resizez * -1375068187 != -1) {
-            var22.ax(0, 0);
+            var23.ax(0, 0);
          }
 
          if (var4 == 1 || var4 == 2 && 1 == var10.stackable * 1552863327) {
@@ -195,7 +195,7 @@ public class WorldMapSection1 implements WorldMapSection {
          }
 
          if (!var5) {
-            ObjType.ao.put(var9, var7);
+            ObjType.Sprite_cached.put(var9, var7);
          }
 
          an.ay_renamed(var13, var14, var15, var16);

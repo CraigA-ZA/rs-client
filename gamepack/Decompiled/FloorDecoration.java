@@ -29,7 +29,7 @@ public final class FloorDecoration {
          int var4 = Inventory.getSeqType(var1, (byte)124).be * 789159225;
          if (1 == var4) {
             var0.cp = 0;
-            var0.sequenceFrame = 0;
+            var0.cd = 0;
             var0.dm = var2 * -401806131;
             var0.dw = 0;
          }
@@ -37,10 +37,10 @@ public final class FloorDecoration {
          if (2 == var4) {
             var0.dw = 0;
          }
-      } else if (-1 == var1 || var0.ct * -1372355773 == -1 || Inventory.getSeqType(var1, (byte)20).frameCount * -1932560049 >= Inventory.getSeqType(-1372355773 * var0.ct, (byte)54).frameCount * -1932560049) {
+      } else if (-1 == var1 || var0.ct * -1372355773 == -1 || Inventory.getSeqType(var1, (byte)20).az * -1932560049 >= Inventory.getSeqType(-1372355773 * var0.ct, (byte)54).az * -1932560049) {
          var0.ct = var1 * -1690721941;
          var0.cp = 0;
-         var0.sequenceFrame = 0;
+         var0.cd = 0;
          var0.dm = var2 * -401806131;
          var0.dw = 0;
          var0.eo = var0.dn * -1718989897;

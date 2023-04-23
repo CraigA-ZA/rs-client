@@ -1,30 +1,30 @@
 public class Bounds {
-   public int ac;
-   public int af;
-   public int an;
-   public int aw;
+   public int height;
+   public int x;
+   public int y;
+   public int width;
 
    public Bounds(int var1, int var2) {
       this(0, 0, var1, var2);
    }
 
    public Bounds(int var1, int var2, int var3, int var4) {
-      this.af(var1, var2);
-      this.an(var3, var4);
+      this.setLocation(var1, var2);
+      this.setSize(var3, var4);
    }
 
-   public void af(int var1, int var2) {
-      this.af = var1 * 775648579;
-      this.an = -1859334611 * var2;
+   public void setLocation(int var1, int var2) {
+      this.x = var1 * 775648579;
+      this.y = -1859334611 * var2;
    }
 
-   public void an(int var1, int var2) {
-      this.aw = -1469434281 * var1;
-      this.ac = 149296003 * var2;
+   public void setSize(int var1, int var2) {
+      this.width = -1469434281 * var1;
+      this.height = 149296003 * var2;
    }
 
    public boolean aw(int var1, int var2) {
-      return var1 >= -844906645 * this.af && var1 < this.aw * 944313703 + this.af * -844906645 && var2 >= this.an * 1864020389 && var2 < this.an * 1864020389 + this.ac * -1376251093;
+      return var1 >= -844906645 * this.x && var1 < this.width * 944313703 + this.x * -844906645 && var2 >= this.y * 1864020389 && var2 < this.y * 1864020389 + this.height * -1376251093;
    }
 
    public String toString() {
@@ -37,46 +37,46 @@ public class Bounds {
    }
 
    void au(Bounds var1, Bounds var2) {
-      var2.af = 1 * this.af;
-      var2.aw = this.aw * 1;
-      if (this.af * -844906645 < var1.af * -844906645) {
-         var2.aw -= -413884579 * var1.af - this.af * -413884579;
-         var2.af = 1 * var1.af;
+      var2.x = 1 * this.x;
+      var2.width = this.width * 1;
+      if (this.x * -844906645 < var1.x * -844906645) {
+         var2.width -= -413884579 * var1.x - this.x * -413884579;
+         var2.x = 1 * var1.x;
       }
 
       if (var2.aq() > var1.aq()) {
-         var2.aw -= (var2.aq() - var1.aq()) * -1469434281;
+         var2.width -= (var2.aq() - var1.aq()) * -1469434281;
       }
 
-      if (var2.aw * 944313703 < 0) {
-         var2.aw = 0;
+      if (var2.width * 944313703 < 0) {
+         var2.width = 0;
       }
 
    }
 
    void ab(Bounds var1, Bounds var2) {
-      var2.an = this.an * 1;
-      var2.ac = this.ac * 1;
-      if (this.an * 1864020389 < var1.an * 1864020389) {
-         var2.ac -= var1.an * -1743378833 - -1743378833 * this.an;
-         var2.an = var1.an * 1;
+      var2.y = this.y * 1;
+      var2.height = this.height * 1;
+      if (this.y * 1864020389 < var1.y * 1864020389) {
+         var2.height -= var1.y * -1743378833 - -1743378833 * this.y;
+         var2.y = var1.y * 1;
       }
 
       if (var2.al() > var1.al()) {
-         var2.ac -= (var2.al() - var1.al()) * 149296003;
+         var2.height -= (var2.al() - var1.al()) * 149296003;
       }
 
-      if (var2.ac * -1376251093 < 0) {
-         var2.ac = 0;
+      if (var2.height * -1376251093 < 0) {
+         var2.height = 0;
       }
 
    }
 
    int aq() {
-      return this.aw * 944313703 + this.af * -844906645;
+      return this.width * 944313703 + this.x * -844906645;
    }
 
    int al() {
-      return -1376251093 * this.ac + this.an * 1864020389;
+      return -1376251093 * this.height + this.y * 1864020389;
    }
 }

@@ -1,19 +1,19 @@
 public final class TilePaint {
    boolean isFlat = true;
-   int texture;
-   int rgb;
-   int swColor;
-   int neColor;
    int nwColor;
+   int swColor;
    int seColor;
+   int rgb;
+   int texture;
+   int neColor;
 
    TilePaint(int var1, int var2, int var3, int var4, int var5, int var6, boolean var7) {
-      this.rgb = var1 * 1110698183;
-      this.swColor = 450282055 * var2;
-      this.seColor = var3 * -615792113;
-      this.texture = var4 * 1943953885;
-      this.nwColor = 1567743091 * var5;
-      this.neColor = 810771411 * var6;
+      this.swColor = var1 * 1110698183;
+      this.seColor = 450282055 * var2;
+      this.neColor = var3 * -615792113;
+      this.nwColor = var4 * 1943953885;
+      this.texture = 1567743091 * var5;
+      this.rgb = 810771411 * var6;
       this.isFlat = var7;
    }
 
@@ -52,8 +52,8 @@ public final class TilePaint {
 
          return 1;
       } else if (2702 == var0) {
-         int var6 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         InterfaceParent var5 = (InterfaceParent)Client.interfaceParents.get((long)var6);
+         int var8 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         InterfaceParent var5 = (InterfaceParent)Client.interfaceParents.get((long)var8);
          if (null != var5) {
             Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1;
          } else {
@@ -84,9 +84,9 @@ public final class TilePaint {
          if (Client.menuOptionsCount * 730065501 < 500) {
             Client.menuActions[730065501 * Client.menuOptionsCount] = var0;
             Client.menuTargetNames[Client.menuOptionsCount * 730065501] = var1;
-            Client.menuArguments1[730065501 * Client.menuOptionsCount] = var2;
-            Client.menuOpcodes[730065501 * Client.menuOptionsCount] = var3;
-            Client.menuArguments0[Client.menuOptionsCount * 730065501] = var4;
+            Client.menuOpcodes[730065501 * Client.menuOptionsCount] = var2;
+            Client.menuArguments0[730065501 * Client.menuOptionsCount] = var3;
+            Client.menuArguments1[Client.menuOptionsCount * 730065501] = var4;
             Client.menuArguments2[730065501 * Client.menuOptionsCount] = var5;
             Client.oi[Client.menuOptionsCount * 730065501] = var6;
             Client.menuShiftClick[730065501 * Client.menuOptionsCount] = var7;

@@ -18,13 +18,13 @@ public class ks {
 
    public static void ba_renamed(Component var0, int var1) {
       ObjType var3 = HeadbarUpdate.getObjType(var1);
-      var0.dd.an[-1935812527 * var3.womanwearyoff] = 512 + var1;
+      var0.dd.an[-1935812527 * var3.shiftclickindex] = 512 + var1;
       if (-1719338253 * var3.manwear != -1) {
          var0.dd.an[var3.manwear * -1719338253] = 0;
       }
 
-      if (var3.contrast * 723093341 != -1) {
-         var0.dd.an[var3.contrast * 723093341] = 0;
+      if (var3.manwear2 * 723093341 != -1) {
+         var0.dd.an[var3.manwear2 * 723093341] = 0;
       }
 
       var0.dd.ax();
@@ -32,9 +32,9 @@ public class ks {
 
    static int bq_renamed(int var0, ClientScript var1, boolean var2) {
       if (var0 == 6754) {
-         int var6 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         NPCType var7 = AbstractArchive.an_renamed(var6);
-         Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = null != var7 ? var7.name : "";
+         int var8 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         NPCType var9 = AbstractArchive.an_renamed(var8);
+         Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = null != var9 ? var9.name : "";
          return 1;
       } else {
          NPCType var4;

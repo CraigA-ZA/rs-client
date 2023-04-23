@@ -17,28 +17,28 @@ public class ow {
          Interpreter.Interpreter_intStackSize -= 854271946;
          var4 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
          var5 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
-         EnumType var11 = fc.getEnumType(var4);
-         if (var11.outputtype != 's') {
+         EnumType var12 = fc.getEnumType(var4);
+         if (var12.outputtype != 's') {
          }
 
-         for(var7 = 0; var7 < -1067065 * var11.outputcount; ++var7) {
-            if (var5 == var11.keys[var7]) {
-               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var11.strvals[var7];
-               var11 = null;
+         for(var7 = 0; var7 < -1067065 * var12.outputcount; ++var7) {
+            if (var5 == var12.keys[var7]) {
+               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var12.strvals[var7];
+               var12 = null;
                break;
             }
          }
 
-         if (var11 != null) {
-            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var11.defaultstr;
+         if (var12 != null) {
+            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var12.defaultstr;
          }
 
          return 1;
       } else if (3408 != var0) {
          if (var0 == 3411) {
             var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-            EnumType var10 = fc.getEnumType(var4);
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var10.size();
+            EnumType var11 = fc.getEnumType(var4);
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var11.size();
             return 1;
          } else {
             return 2;

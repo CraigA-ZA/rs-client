@@ -1,7 +1,7 @@
 public class bt {
    public static IterableNodeDeque reflectionChecks = new IterableNodeDeque();
    static int kx;
-   static Sprite[] jl;
+   static Sprite[] headIconPkSprites;
 
    bt() throws Throwable {
       throw new Error();
@@ -37,13 +37,13 @@ public class bt {
       int var8 = var3 * var7 * 512 / (var2 * 334);
       int var9;
       int var10;
-      short var17;
+      short var19;
       if (var8 < Client.vo) {
-         var17 = Client.vo;
-         var7 = var2 * var17 * 334 / (512 * var3);
+         var19 = Client.vo;
+         var7 = var2 * var19 * 334 / (512 * var3);
          if (var7 > Client.vn) {
             var7 = Client.vn;
-            var9 = 512 * var7 * var3 / (var17 * 334);
+            var9 = 512 * var7 * var3 / (var19 * 334);
             var10 = (var2 - var9) / 2;
             if (var4) {
                Rasterizer2D.Rasterizer2D_resetClip();
@@ -55,11 +55,11 @@ public class bt {
             var2 -= var10 * 2;
          }
       } else if (var8 > Client.vk) {
-         var17 = Client.vk;
-         var7 = var2 * var17 * 334 / (512 * var3);
+         var19 = Client.vk;
+         var7 = var2 * var19 * 334 / (512 * var3);
          if (var7 < Client.vm) {
             var7 = Client.vm;
-            var9 = var2 * var17 * 334 / (var7 * 512);
+            var9 = var2 * var19 * 334 / (var7 * 512);
             var10 = (var3 - var9) / 2;
             if (var4) {
                Rasterizer2D.Rasterizer2D_resetClip();
@@ -73,10 +73,10 @@ public class bt {
       }
 
       Client.viewportZoom = -787687633 * (var3 * var7 / 334);
-      if (var2 != Client.viewportHeight * 433849721 || 2042096749 * Client.viewportWidth != var3) {
-         int[] var18 = new int[9];
+      if (var2 != Client.viewportWidth * 433849721 || 2042096749 * Client.viewportHeight != var3) {
+         int[] var20 = new int[9];
 
-         for(var10 = 0; var10 < var18.length; ++var10) {
+         for(var10 = 0; var10 < var20.length; ++var10) {
             int var11 = var10 * 32 + 128 + 15;
             int var12 = jm.hv_renamed(var11);
             int var13 = Rasterizer3D.ac[var11];
@@ -89,16 +89,16 @@ public class bt {
 
             int var16 = Client.vl + var15 * (Client.ve - Client.vl) / 100;
             int var14 = var12 * var16 / 256;
-            var18[var10] = var14 * var13 >> 16;
+            var20[var10] = var14 * var13 >> 16;
          }
 
-         Scene.Scene_buildVisiblityMap(var18, 500, 800, 334 * var2 / var3, 334);
+         Scene.Scene_buildVisiblityMap(var20, 500, 800, 334 * var2 / var3, 334);
       }
 
       Client.vd = var0 * -1528400137;
       Client.vx = var1 * 2017169511;
-      Client.viewportHeight = var2 * -350989111;
-      Client.viewportWidth = var3 * -538378907;
+      Client.viewportWidth = var2 * -350989111;
+      Client.viewportHeight = var3 * -538378907;
    }
 
    static final void la_renamed(int var0, int var1, int var2, int var3, int var4, int var5) {

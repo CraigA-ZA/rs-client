@@ -27,18 +27,18 @@ public class bx {
          var4 = var2 ? SoundSystem.ag : an.ai;
       }
 
-      int var14;
+      int var28;
       if (1100 == var0) {
          Interpreter.Interpreter_intStackSize -= 854271946;
-         var14 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-         int var11 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
+         var28 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+         int var25 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
          if (var4.bg * 883712245 == 12) {
             mz var8 = var4.bj();
-            if (var8 != null && var8.ay(var14, var11)) {
+            if (var8 != null && var8.ay(var28, var25)) {
                fw.ma_renamed(var4);
             }
          } else {
-            var4.scrollX = 66597705 * var14;
+            var4.scrollX = 66597705 * var28;
             if (-1469632775 * var4.scrollX > -773060713 * var4.scrollWidth - var4.width * -794961409) {
                var4.scrollX = var4.scrollWidth * 18431759 - var4.width * 460912311;
             }
@@ -47,7 +47,7 @@ public class bx {
                var4.scrollX = 0;
             }
 
-            var4.scrollY = var11 * 946188063;
+            var4.scrollY = var25 * 946188063;
             if (var4.scrollY * 1223232735 > -1273374131 * var4.scrollHeight - 1473950221 * var4.height) {
                var4.scrollY = var4.scrollHeight * 1941770835 - var4.height * 978547347;
             }
@@ -104,9 +104,9 @@ public class bx {
          fw.ma_renamed(var4);
          return 1;
       } else if (var0 == 1110) {
-         var14 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         if (-1526544909 * var4.sequenceId != var14) {
-            var4.sequenceId = -1195025605 * var14;
+         var28 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         if (-1526544909 * var4.sequenceId != var28) {
+            var4.sequenceId = -1195025605 * var28;
             var4.modelFrame = 0;
             var4.modelFrameCycle = 0;
             fw.ma_renamed(var4);
@@ -118,21 +118,21 @@ public class bx {
          fw.ma_renamed(var4);
          return 1;
       } else if (var0 == 1112) {
-         String var15 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
-         if (!var15.equals(var4.text)) {
-            var4.text = var15;
+         String var29 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
+         if (!var29.equals(var4.text)) {
+            var4.text = var29;
             fw.ma_renamed(var4);
          }
 
          return 1;
       } else {
-         mz var9;
+         mz var23;
          if (1113 == var0) {
             var4.textLineHeight = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] * 1858899927;
             if (883712245 * var4.bg == 12) {
-               var9 = var4.bj();
-               if (var9 != null) {
-                  var9.ar();
+               var23 = var4.bj();
+               if (var23 != null) {
+                  var23.ar();
                }
             }
 
@@ -141,10 +141,10 @@ public class bx {
          } else if (var0 == 1114) {
             Interpreter.Interpreter_intStackSize -= 1281407919;
             if (12 == var4.bg * 883712245) {
-               var9 = var4.bj();
-               if (var9 != null) {
-                  var9.ao(Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize], Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1]);
-                  var9.ax(Interpreter.Interpreter_intStack[2 + Interpreter.Interpreter_intStackSize * -964267539]);
+               var23 = var4.bj();
+               if (var23 != null) {
+                  var23.ao(Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize], Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1]);
+                  var23.ax(Interpreter.Interpreter_intStack[2 + Interpreter.Interpreter_intStackSize * -964267539]);
                }
             } else {
                var4.textYAlignment = 1612549297 * Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
@@ -202,23 +202,23 @@ public class bx {
             fw.ma_renamed(var4);
             return 1;
          } else if (var0 == 1125) {
-            var14 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-            ta var10 = (ta)StructType.findEnumerated(GrandExchangeOffer.au_renamed(), var14);
-            if (var10 != null) {
-               var4.cb = var10;
+            var28 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+            ta var24 = (ta)StructType.findEnumerated(GrandExchangeOffer.au_renamed(), var28);
+            if (var24 != null) {
+               var4.cb = var24;
                fw.ma_renamed(var4);
             }
 
             return 1;
          } else {
-            boolean var12;
+            boolean var26;
             if (var0 == 1126) {
-               var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
-               var4.cj = var12;
+               var26 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+               var4.cj = var26;
                return 1;
             } else if (1127 == var0) {
-               var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
-               var4.modelTransparency = var12;
+               var26 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+               var4.modelTransparency = var26;
                return 1;
             } else if (var0 == 1129) {
                var4.cp = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
@@ -235,62 +235,62 @@ public class bx {
                var4.ae(Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987], Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
                return 1;
             } else {
-               FaceNormal var13;
+               FaceNormal var27;
                if (var0 == 1133) {
                   Interpreter.Interpreter_intStackSize -= 427135973;
-                  var13 = var4.bn();
-                  if (var13 != null) {
-                     var13.af = 202848117 * Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+                  var27 = var4.bn();
+                  if (var27 != null) {
+                     var27.af = 202848117 * Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
                      fw.ma_renamed(var4);
                   }
 
                   return 1;
                } else if (var0 == 1134) {
                   Interpreter.Interpreter_intStackSize -= 427135973;
-                  var13 = var4.bn();
-                  if (null != var13) {
-                     var13.an = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539] * -1464228981;
+                  var27 = var4.bn();
+                  if (null != var27) {
+                     var27.an = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539] * -1464228981;
                      fw.ma_renamed(var4);
                   }
 
                   return 1;
                } else if (var0 == 1135) {
                   SecureRandomCallable.Interpreter_stringStackSize -= -1086551379;
-                  var9 = var4.bj();
-                  if (null != var9) {
+                  var23 = var4.bj();
+                  if (null != var23) {
                      var4.text2 = Interpreter.Interpreter_stringStack[-2017760987 * SecureRandomCallable.Interpreter_stringStackSize];
                   }
 
                   return 1;
                } else if (1136 == var0) {
                   Interpreter.Interpreter_intStackSize -= 427135973;
-                  var13 = var4.bn();
-                  if (var13 != null) {
-                     var13.aw = -1652794843 * Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+                  var27 = var4.bn();
+                  if (var27 != null) {
+                     var27.aw = -1652794843 * Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
                      fw.ma_renamed(var4);
                   }
 
                   return 1;
                } else if (1137 == var0) {
                   Interpreter.Interpreter_intStackSize -= 427135973;
-                  var9 = var4.bj();
-                  if (var9 != null && var9.al(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539])) {
+                  var23 = var4.bj();
+                  if (var23 != null && var23.al(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539])) {
                      fw.ma_renamed(var4);
                   }
 
                   return 1;
                } else if (1138 == var0) {
                   Interpreter.Interpreter_intStackSize -= 427135973;
-                  var9 = var4.bj();
-                  if (var9 != null && var9.at(Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize])) {
+                  var23 = var4.bj();
+                  if (var23 != null && var23.at(Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize])) {
                      fw.ma_renamed(var4);
                   }
 
                   return 1;
                } else if (var0 == 1139) {
                   Interpreter.Interpreter_intStackSize -= 427135973;
-                  var9 = var4.bj();
-                  if (null != var9 && var9.aa(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539])) {
+                  var23 = var4.bj();
+                  if (null != var23 && var23.aa(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539])) {
                      fw.ma_renamed(var4);
                   }
 
@@ -298,11 +298,11 @@ public class bx {
                } else {
                   mz var7;
                   if (var0 == 1140) {
-                     var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+                     var26 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
                      Client.si.ag();
                      var7 = var4.bj();
-                     if (null != var7 && var7.an(var12)) {
-                        if (var12) {
+                     if (null != var7 && var7.an(var26)) {
+                        if (var26) {
                            Client.si.ax(var4);
                         }
 
@@ -311,64 +311,64 @@ public class bx {
 
                      return 1;
                   } else if (1141 == var0) {
-                     var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
-                     if (!var12 && Client.si.ai() == var4) {
+                     var26 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+                     if (!var26 && Client.si.ai() == var4) {
                         Client.si.ag();
                         fw.ma_renamed(var4);
                      }
 
                      var7 = var4.bj();
                      if (var7 != null) {
-                        var7.aw(var12);
+                        var7.aw(var26);
                      }
 
                      return 1;
                   } else if (1142 == var0) {
                      Interpreter.Interpreter_intStackSize -= 854271946;
-                     var9 = var4.bj();
-                     if (var9 != null && var9.ap(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539], Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539])) {
+                     var23 = var4.bj();
+                     if (var23 != null && var23.ap(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539], Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539])) {
                         fw.ma_renamed(var4);
                      }
 
                      return 1;
                   } else if (var0 == 1143) {
                      Interpreter.Interpreter_intStackSize -= 427135973;
-                     var9 = var4.bj();
-                     if (null != var9 && var9.ap(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539], Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize])) {
+                     var23 = var4.bj();
+                     if (null != var23 && var23.ap(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539], Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize])) {
                         fw.ma_renamed(var4);
                      }
 
                      return 1;
                   } else if (1144 == var0) {
                      Interpreter.Interpreter_intStackSize -= 427135973;
-                     var9 = var4.bj();
-                     if (var9 != null) {
-                        var9.ag(Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize]);
+                     var23 = var4.bj();
+                     if (var23 != null) {
+                        var23.ag(Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize]);
                         fw.ma_renamed(var4);
                      }
 
                      return 1;
                   } else if (var0 == 1145) {
                      Interpreter.Interpreter_intStackSize -= 427135973;
-                     var9 = var4.bj();
-                     if (null != var9) {
-                        var9.ai(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539]);
+                     var23 = var4.bj();
+                     if (null != var23) {
+                        var23.ai(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539]);
                      }
 
                      return 1;
                   } else if (var0 == 1146) {
                      Interpreter.Interpreter_intStackSize -= 427135973;
-                     var9 = var4.bj();
-                     if (var9 != null) {
-                        var9.av(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539]);
+                     var23 = var4.bj();
+                     if (var23 != null) {
+                        var23.av(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539]);
                      }
 
                      return 1;
                   } else if (var0 == 1147) {
                      Interpreter.Interpreter_intStackSize -= 427135973;
-                     var9 = var4.bj();
-                     if (null != var9) {
-                        var9.ah(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539]);
+                     var23 = var4.bj();
+                     if (null != var23) {
+                        var23.ah(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539]);
                         fw.ma_renamed(var4);
                      }
 
@@ -455,7 +455,7 @@ public class bx {
       sz.an.clear();
       Client.wq.clear();
       Client.ww.clear();
-      nn.ai_renamed();
+      TotalQuantityComparator.ai_renamed();
       am.av_renamed();
       ((TextureProvider)Rasterizer3D.ab.aq).clear();
       ClientScript.ClientScript_cached.clear();
@@ -464,15 +464,15 @@ public class bx {
       ServerBuild.archive1.cg();
       dk.archive3.cg();
       qc.archive4.cg();
-      nn.archive5.cg();
+      TotalQuantityComparator.archive5.cg();
       pj.archive6.cg();
-      FloorUnderlayType.fr.cg();
-      rr.archive7.cg();
-      WorldMapLabelSize.archive8.cg();
-      NetFileRequest.archive9.cg();
-      hc.archive10.cg();
-      ey.archive16.cg();
-      PcmPlayer.archive14.cg();
+      FloorUnderlayType.archive7.cg();
+      rr.archive8.cg();
+      WorldMapLabelSize.archive9.cg();
+      NetFileRequest.archive10.cg();
+      hc.archive11.cg();
+      ey.archive12.cg();
+      PcmPlayer.gs.cg();
       scene.clear();
 
       for(int var1 = 0; var1 < 4; ++var1) {

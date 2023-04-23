@@ -46,9 +46,9 @@ public class qb extends qg {
          var6 = 0;
       }
 
-      hl.menuY = var5 * -945723825;
-      ArchiveLoader.menuWidth = 232216885 * var6;
-      DesktopPlatformInfoProvider.menuHeight = -760159457 * var3;
-      fq.menuX = 1585038229 * Client.menuOptionsCount + 167124602;
+      hl.menuX = var5 * -945723825;
+      ArchiveLoader.menuY = 232216885 * var6;
+      DesktopPlatformInfoProvider.menuWidth = -760159457 * var3;
+      fq.menuHeight = 1585038229 * Client.menuOptionsCount + 167124602;
    }
 }

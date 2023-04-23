@@ -1,41 +1,41 @@
 public class DynamicObject extends Entity {
    static AbstractArchive bi;
    SeqType seqType;
+   int ab;
    int plane;
-   int orientation;
-   int cycleStart;
-   int al;
    int id;
    int frame;
-   int au;
    int type;
+   int cycleStart;
+   int au;
+   int orientation;
 
    DynamicObject(int var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8, Entity var9) {
-      this.cycleStart = 1330439285 * var1;
-      this.id = 918377177 * var2;
-      this.type = 1745873217 * var3;
-      this.orientation = var4 * -1874330171;
+      this.id = 1330439285 * var1;
+      this.type = 918377177 * var2;
+      this.orientation = 1745873217 * var3;
+      this.plane = var4 * -1874330171;
       this.au = -1211484067 * var5;
-      this.plane = -1840369975 * var6;
+      this.ab = -1840369975 * var6;
       if (-1 != var7) {
          this.seqType = Inventory.getSeqType(var7, (byte)2);
-         this.al = 0;
-         this.frame = -1495562491 * Client.ep - -1353577717;
+         this.frame = 0;
+         this.cycleStart = -1495562491 * Client.ep - -1353577717;
          if (this.seqType.be * 789159225 == 0 && var9 != null && var9 instanceof DynamicObject) {
             DynamicObject var10 = (DynamicObject)var9;
             if (var10.seqType == this.seqType) {
-               this.al = var10.al * 1;
-               this.frame = 1 * var10.frame;
+               this.frame = var10.frame * 1;
+               this.cycleStart = 1 * var10.cycleStart;
                return;
             }
          }
 
-         if (var8 && this.seqType.am * 1363943497 != -1) {
+         if (var8 && this.seqType.righthand * 1363943497 != -1) {
             if (!this.seqType.ao()) {
-               this.al = (int)(Math.random() * (double)this.seqType.ag.length) * 499784167;
-               this.frame -= (int)(Math.random() * (double)this.seqType.frameLengths[1017637335 * this.al]) * -1353577717;
+               this.frame = (int)(Math.random() * (double)this.seqType.frameIds.length) * 499784167;
+               this.cycleStart -= (int)(Math.random() * (double)this.seqType.frameLengths[1017637335 * this.frame]) * -1353577717;
             } else {
-               this.al = (int)(Math.random() * (double)this.seqType.ax()) * 499784167;
+               this.frame = (int)(Math.random() * (double)this.seqType.ax()) * 499784167;
             }
          }
       }
@@ -45,44 +45,44 @@ public class DynamicObject extends Entity {
    protected final it getModel() {
       int var3;
       if (null != this.seqType) {
-         int var2 = -1886224337 * Client.ep - this.frame * -287053661;
-         if (var2 > 100 && 1363943497 * this.seqType.am > 0) {
+         int var2 = -1886224337 * Client.ep - this.cycleStart * -287053661;
+         if (var2 > 100 && 1363943497 * this.seqType.righthand > 0) {
             var2 = 100;
          }
 
          if (this.seqType.ao()) {
             var3 = this.seqType.ax();
-            this.al += 499784167 * var2;
+            this.frame += 499784167 * var2;
             var2 = 0;
-            if (1017637335 * this.al >= var3) {
-               this.al = 499784167 * (var3 - this.seqType.am * 1363943497);
-               if (1017637335 * this.al < 0 || 1017637335 * this.al > var3) {
+            if (1017637335 * this.frame >= var3) {
+               this.frame = 499784167 * (var3 - this.seqType.righthand * 1363943497);
+               if (1017637335 * this.frame < 0 || 1017637335 * this.frame > var3) {
                   this.seqType = null;
                }
             }
          } else {
-            label92: {
+            label94: {
                do {
                   do {
-                     if (var2 <= this.seqType.frameLengths[this.al * 1017637335]) {
-                        break label92;
+                     if (var2 <= this.seqType.frameLengths[this.frame * 1017637335]) {
+                        break label94;
                      }
 
-                     var2 -= this.seqType.frameLengths[1017637335 * this.al];
-                     this.al += 499784167;
-                  } while(1017637335 * this.al < this.seqType.ag.length);
+                     var2 -= this.seqType.frameLengths[1017637335 * this.frame];
+                     this.frame += 499784167;
+                  } while(1017637335 * this.frame < this.seqType.frameIds.length);
 
-                  this.al -= this.seqType.am * -1989000481;
-               } while(1017637335 * this.al >= 0 && 1017637335 * this.al < this.seqType.ag.length);
+                  this.frame -= this.seqType.righthand * -1989000481;
+               } while(1017637335 * this.frame >= 0 && 1017637335 * this.frame < this.seqType.frameIds.length);
 
                this.seqType = null;
             }
          }
 
-         this.frame = -1353577717 * (-1886224337 * Client.ep - var2);
+         this.cycleStart = -1353577717 * (-1886224337 * Client.ep - var2);
       }
 
-      LocType var13 = fw.an_renamed(618580957 * this.cycleStart);
+      LocType var13 = fw.an_renamed(618580957 * this.id);
       if (var13.multi != null) {
          var13 = var13.multiLoc();
       }
@@ -91,23 +91,23 @@ public class DynamicObject extends Entity {
          return null;
       } else {
          int var4;
-         if (this.type * 1904322241 != 1 && 3 != 1904322241 * this.type) {
-            var3 = -1339930361 * var13.offsetZ;
-            var4 = var13.width * -1659393955;
+         if (this.orientation * 1904322241 != 1 && 3 != 1904322241 * this.orientation) {
+            var3 = -1339930361 * var13.width;
+            var4 = var13.length * -1659393955;
          } else {
-            var3 = var13.width * -1659393955;
-            var4 = -1339930361 * var13.offsetZ;
+            var3 = var13.length * -1659393955;
+            var4 = -1339930361 * var13.width;
          }
 
          int var5 = 1815829493 * this.au + (var3 >> 1);
          int var6 = this.au * 1815829493 + (var3 + 1 >> 1);
-         int var7 = (var4 >> 1) + this.plane * -1893774471;
-         int var8 = -1893774471 * this.plane + (var4 + 1 >> 1);
-         int[][] var9 = Tiles.Tiles_heights[-1674675955 * this.orientation];
+         int var7 = (var4 >> 1) + this.ab * -1893774471;
+         int var8 = -1893774471 * this.ab + (var4 + 1 >> 1);
+         int[][] var9 = Tiles.Tiles_heights[-1674675955 * this.plane];
          int var10 = var9[var5][var8] + var9[var5][var7] + var9[var6][var7] + var9[var6][var8] >> 2;
          int var11 = (var3 << 6) + (this.au * 1815829493 << 7);
-         int var12 = (var4 << 6) + (this.plane * -1893774471 << 7);
-         return var13.aa(-373027479 * this.id, this.type * 1904322241, var9, var11, var10, var12, this.seqType, 1017637335 * this.al);
+         int var12 = (var4 << 6) + (this.ab * -1893774471 << 7);
+         return var13.aa(-373027479 * this.type, this.orientation * 1904322241, var9, var11, var10, var12, this.seqType, 1017637335 * this.frame);
       }
    }
 
@@ -195,10 +195,10 @@ public class DynamicObject extends Entity {
       if (var0 != MusicPatchNode.localPlayer) {
          if (Client.menuOptionsCount * 730065501 < 400) {
             String var5;
-            if (0 == var0.team * 761215505) {
-               var5 = var0.actions[0] + var0.username + var0.actions[1] + Inventory.lu_renamed(var0.skillLevel * 1302967875, MusicPatchNode.localPlayer.skillLevel * 1302967875) + " " + Formatting.Formatting_spaceLeftParenthesis + Strings.Strings_level + 1302967875 * var0.skillLevel + Formatting.Formatting_rightParenthesis + var0.actions[2];
+            if (0 == var0.skillLevel * 761215505) {
+               var5 = var0.actions[0] + var0.username + var0.actions[1] + Inventory.lu_renamed(var0.combatLevel * 1302967875, MusicPatchNode.localPlayer.combatLevel * 1302967875) + " " + Formatting.Formatting_spaceLeftParenthesis + Strings.Strings_level + 1302967875 * var0.combatLevel + Formatting.Formatting_rightParenthesis + var0.actions[2];
             } else {
-               var5 = var0.actions[0] + var0.username + var0.actions[1] + " " + Formatting.Formatting_spaceLeftParenthesis + Strings.Strings_skill + 761215505 * var0.team + Formatting.Formatting_rightParenthesis + var0.actions[2];
+               var5 = var0.actions[0] + var0.username + var0.actions[1] + " " + Formatting.Formatting_spaceLeftParenthesis + Strings.Strings_skill + 761215505 * var0.skillLevel + Formatting.Formatting_rightParenthesis + var0.actions[2];
             }
 
             int var6;
@@ -217,12 +217,12 @@ public class DynamicObject extends Entity {
                            continue;
                         }
 
-                        if (Client.em == dj.an || dj.af == Client.em && var0.skillLevel * 1302967875 > MusicPatchNode.localPlayer.skillLevel * 1302967875) {
+                        if (Client.em == dj.an || dj.af == Client.em && var0.combatLevel * 1302967875 > MusicPatchNode.localPlayer.combatLevel * 1302967875) {
                            var7 = 2000;
                         }
 
-                        if (-55850951 * MusicPatchNode.localPlayer.animationCycleEnd != 0 && -55850951 * var0.animationCycleEnd != 0) {
-                           if (var0.animationCycleEnd * -55850951 == -55850951 * MusicPatchNode.localPlayer.animationCycleEnd) {
+                        if (-55850951 * MusicPatchNode.localPlayer.team != 0 && -55850951 * var0.team != 0) {
+                           if (var0.team * -55850951 == -55850951 * MusicPatchNode.localPlayer.team) {
                               var7 = 2000;
                            } else {
                               var7 = 0;
@@ -242,7 +242,7 @@ public class DynamicObject extends Entity {
             }
 
             for(var6 = 0; var6 < 730065501 * Client.menuOptionsCount; ++var6) {
-               if (23 == Client.menuArguments1[var6]) {
+               if (23 == Client.menuOpcodes[var6]) {
                   Client.menuTargetNames[var6] = oa.colorStartTag(16777215) + var5;
                   break;
                }
@@ -256,7 +256,7 @@ public class DynamicObject extends Entity {
       SpriteMask var5 = var0.getSpriteMask(false, (byte)65);
       if (var5 != null) {
          if (Client.tp * 1383336963 < 3) {
-            ChatChannel.jb.be(var1, var2, var5.height * 1484188043, 939947663 * var5.width, 25, 25, 704283033 * Client.kf, 256, var5.xStarts, var5.xWidths);
+            ChatChannel.jb.be(var1, var2, var5.width * 1484188043, 939947663 * var5.height, 25, 25, 704283033 * Client.kf, 256, var5.xStarts, var5.xWidths);
          } else {
             Rasterizer2D.fx(var1, var2, 0, var5.xStarts, var5.xWidths);
          }

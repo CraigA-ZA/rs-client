@@ -427,8 +427,8 @@ public class ay {
                               var63 = -1;
                               var42 = -2;
                            } else {
-                              var41 = ServerBuild.as_renamed(var37.saturation * 174415927, var37.hue * 470803713, var37.lightness * 532980473);
-                              var43 = -372405639 * Tiles.ae + var37.saturation * 174415927 & 255;
+                              var41 = ServerBuild.as_renamed(var37.hue * 174415927, var37.saturation * 470803713, var37.lightness * 532980473);
+                              var43 = -372405639 * Tiles.ae + var37.hue * 174415927 & 255;
                               var44 = var37.lightness * 532980473 + Tiles.ap * -647485415;
                               if (var44 < 0) {
                                  var44 = 0;
@@ -436,7 +436,7 @@ public class ay {
                                  var44 = 255;
                               }
 
-                              var42 = ServerBuild.as_renamed(var43, var37.hue * 470803713, var44);
+                              var42 = ServerBuild.as_renamed(var43, var37.saturation * 470803713, var44);
                            }
 
                            var43 = 0;
@@ -674,7 +674,7 @@ public class ay {
    static sk od_renamed(int var0) {
       sk var2 = (sk)Client.ww.get((long)var0);
       if (null == var2) {
-         var2 = new sk(PcmPlayer.archive14, var0);
+         var2 = new sk(PcmPlayer.gs, var0);
       }
 
       return var2;

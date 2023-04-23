@@ -110,10 +110,10 @@ class ax extends SSLSocket {
 
             for(int var3 = 0; var3 < var2.length; ++var3) {
                Component var4 = var2[var3];
-               if (null != var4.onStatTransmit) {
+               if (null != var4.onLoad) {
                   ClientScriptEvent var5 = new ClientScriptEvent();
                   var5.aw = var4;
-                  var5.args0 = var4.onStatTransmit;
+                  var5.args0 = var4.onLoad;
                   PlayerType.an_renamed(var5, 5000000, 0);
                }
             }

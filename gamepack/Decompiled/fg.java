@@ -18,11 +18,11 @@ public class fg extends fu {
             var7 = var8;
          } else {
             String var9 = String.valueOf(var5);
-            int var10 = ey.archive16.getGroupId(var9);
+            int var10 = ey.archive12.getGroupId(var9);
             if (-1 == var10) {
                var7 = null;
             } else {
-               byte[] var11 = ey.archive16.takeFileFlat(var10);
+               byte[] var11 = ey.archive12.takeFileFlat(var10);
                if (null != var11) {
                   if (var11.length <= 1) {
                      var7 = null;

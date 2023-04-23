@@ -47,26 +47,26 @@ public class fy extends fb {
                }
             }
 
-            ClientScriptEvent var6;
+            ClientScriptEvent var12;
             if (var1 == 0 && null != var4.gt) {
-               var6 = new ClientScriptEvent();
-               var6.aw = var4;
-               var6.args0 = var4.gt;
-               HeadbarUpdate.af_renamed(var6);
+               var12 = new ClientScriptEvent();
+               var12.aw = var4;
+               var12.args0 = var4.gt;
+               HeadbarUpdate.af_renamed(var12);
             }
 
             if (1 == var1 && var4.gu != null) {
                if (var4.childIndex * 55577617 >= 0) {
-                  Component var7 = gh.an_renamed(var4.id * 1713081171);
-                  if (var7 == null || var7.children == null || var4.childIndex * 55577617 >= var7.children.length || var7.children[55577617 * var4.childIndex] != var4) {
+                  Component var13 = gh.an_renamed(var4.id * 1713081171);
+                  if (var13 == null || var13.children == null || var4.childIndex * 55577617 >= var13.children.length || var13.children[55577617 * var4.childIndex] != var4) {
                      continue;
                   }
                }
 
-               var6 = new ClientScriptEvent();
-               var6.aw = var4;
-               var6.args0 = var4.gu;
-               HeadbarUpdate.af_renamed(var6);
+               var12 = new ClientScriptEvent();
+               var12.aw = var4;
+               var12.args0 = var4.gu;
+               HeadbarUpdate.af_renamed(var12);
             }
          }
       }

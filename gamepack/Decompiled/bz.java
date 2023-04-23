@@ -102,18 +102,18 @@ public class bz {
 
       var3.index = 0;
       var2.an = var3.cz();
-      var2.intOperands = new int[var6];
       var2.opcodes = new int[var6];
+      var2.intOperands = new int[var6];
       var2.stringOperands = new String[var6];
 
-      for(var8 = 0; -1633313603 * var3.index < var5; var2.intOperands[var8++] = var9) {
+      for(var8 = 0; -1633313603 * var3.index < var5; var2.opcodes[var8++] = var9) {
          var9 = var3.cl();
          if (var9 == 3) {
             var2.stringOperands[var8] = var3.cw();
          } else if (var9 < 100 && var9 != 21 && var9 != 38 && 39 != var9) {
-            var2.opcodes[var8] = var3.g4s();
+            var2.intOperands[var8] = var3.g4s();
          } else {
-            var2.opcodes[var8] = var3.g1();
+            var2.intOperands[var8] = var3.g1();
          }
       }
 
@@ -297,52 +297,52 @@ public class bz {
          }
       }
 
-      if (1 == -1222491879 * MouseHandler.ar || !su.ev && -1222491879 * MouseHandler.ar == 4) {
+      if (1 == -1222491879 * MouseHandler.MouseHandler_lastButton || !su.ev && -1222491879 * MouseHandler.MouseHandler_lastButton == 4) {
          int var4 = cz.aw * 578342931 + 280;
-         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var4 && MouseHandler.MouseHandler_lastButton * 2020601481 <= var4 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (MouseHandler.am * 2020601481 >= var4 && MouseHandler.am * 2020601481 <= var4 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
             ta.an_renamed(0, 0);
             return;
          }
 
-         if (2020601481 * MouseHandler.MouseHandler_lastButton >= 15 + var4 && MouseHandler.MouseHandler_lastButton * 2020601481 <= var4 + 80 && 1163896205 * MouseHandler.as >= 4 && 1163896205 * MouseHandler.as <= 18) {
+         if (2020601481 * MouseHandler.am >= 15 + var4 && MouseHandler.am * 2020601481 <= var4 + 80 && 1163896205 * MouseHandler.as >= 4 && 1163896205 * MouseHandler.as <= 18) {
             ta.an_renamed(0, 1);
             return;
          }
 
          int var5 = 390 + 578342931 * cz.aw;
-         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var5 && MouseHandler.MouseHandler_lastButton * 2020601481 <= var5 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (MouseHandler.am * 2020601481 >= var5 && MouseHandler.am * 2020601481 <= var5 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
             ta.an_renamed(1, 0);
             return;
          }
 
-         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var5 + 15 && 2020601481 * MouseHandler.MouseHandler_lastButton <= var5 + 80 && MouseHandler.as * 1163896205 >= 4 && 1163896205 * MouseHandler.as <= 18) {
+         if (MouseHandler.am * 2020601481 >= var5 + 15 && 2020601481 * MouseHandler.am <= var5 + 80 && MouseHandler.as * 1163896205 >= 4 && 1163896205 * MouseHandler.as <= 18) {
             ta.an_renamed(1, 1);
             return;
          }
 
          int var6 = 500 + cz.aw * 578342931;
-         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var6 && 2020601481 * MouseHandler.MouseHandler_lastButton <= var6 + 14 && 1163896205 * MouseHandler.as >= 4 && 1163896205 * MouseHandler.as <= 18) {
+         if (MouseHandler.am * 2020601481 >= var6 && 2020601481 * MouseHandler.am <= var6 + 14 && 1163896205 * MouseHandler.as >= 4 && 1163896205 * MouseHandler.as <= 18) {
             ta.an_renamed(2, 0);
             return;
          }
 
-         if (2020601481 * MouseHandler.MouseHandler_lastButton >= var6 + 15 && MouseHandler.MouseHandler_lastButton * 2020601481 <= 80 + var6 && MouseHandler.as * 1163896205 >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (2020601481 * MouseHandler.am >= var6 + 15 && MouseHandler.am * 2020601481 <= 80 + var6 && MouseHandler.as * 1163896205 >= 4 && MouseHandler.as * 1163896205 <= 18) {
             ta.an_renamed(2, 1);
             return;
          }
 
          int var7 = cz.aw * 578342931 + 610;
-         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var7 && MouseHandler.MouseHandler_lastButton * 2020601481 <= var7 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (MouseHandler.am * 2020601481 >= var7 && MouseHandler.am * 2020601481 <= var7 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
             ta.an_renamed(3, 0);
             return;
          }
 
-         if (2020601481 * MouseHandler.MouseHandler_lastButton >= 15 + var7 && MouseHandler.MouseHandler_lastButton * 2020601481 <= 80 + var7 && MouseHandler.as * 1163896205 >= 4 && MouseHandler.as * 1163896205 <= 18) {
+         if (2020601481 * MouseHandler.am >= 15 + var7 && MouseHandler.am * 2020601481 <= 80 + var7 && MouseHandler.as * 1163896205 >= 4 && MouseHandler.as * 1163896205 <= 18) {
             ta.an_renamed(3, 1);
             return;
          }
 
-         if (2020601481 * MouseHandler.MouseHandler_lastButton >= 708 + cz.aw * 578342931 && MouseHandler.as * 1163896205 >= 4 && 2020601481 * MouseHandler.MouseHandler_lastButton <= 708 + cz.aw * 578342931 + 50 && 1163896205 * MouseHandler.as <= 20) {
+         if (2020601481 * MouseHandler.am >= 708 + cz.aw * 578342931 && MouseHandler.as * 1163896205 >= 4 && 2020601481 * MouseHandler.am <= 708 + cz.aw * 578342931 + 50 && 1163896205 * MouseHandler.as <= 20) {
             fd.am_renamed();
             return;
          }
@@ -354,11 +354,11 @@ public class bz {
             return;
          }
 
-         if (cz.dh * 1246310743 > 0 && null != PlayerType.dz && 2020601481 * MouseHandler.MouseHandler_lastButton >= 0 && MouseHandler.MouseHandler_lastButton * 2020601481 <= PlayerType.dz.subWidth && 1163896205 * MouseHandler.as >= 1658005443 * kd.ak / 2 - 50 && 1163896205 * MouseHandler.as <= 1658005443 * kd.ak / 2 + 50) {
+         if (cz.dh * 1246310743 > 0 && null != PlayerType.dz && 2020601481 * MouseHandler.am >= 0 && MouseHandler.am * 2020601481 <= PlayerType.dz.subWidth && 1163896205 * MouseHandler.as >= 1658005443 * kd.ak / 2 - 50 && 1163896205 * MouseHandler.as <= 1658005443 * kd.ak / 2 + 50) {
             cz.dh -= -1379513753;
          }
 
-         if (1246310743 * cz.dh < cz.dp * 1959698517 && null != ai.dg && MouseHandler.MouseHandler_lastButton * 2020601481 >= GameShell.aj * -1687260435 - ai.dg.subWidth - 5 && MouseHandler.MouseHandler_lastButton * 2020601481 <= GameShell.aj * -1687260435 && MouseHandler.as * 1163896205 >= kd.ak * 1658005443 / 2 - 50 && MouseHandler.as * 1163896205 <= kd.ak * 1658005443 / 2 + 50) {
+         if (1246310743 * cz.dh < cz.dp * 1959698517 && null != ai.dg && MouseHandler.am * 2020601481 >= GameShell.aj * -1687260435 - ai.dg.subWidth - 5 && MouseHandler.am * 2020601481 <= GameShell.aj * -1687260435 && MouseHandler.as * 1163896205 >= kd.ak * 1658005443 / 2 - 50 && MouseHandler.as * 1163896205 <= kd.ak * 1658005443 / 2 + 50) {
             cz.dh += -1379513753;
          }
       }
@@ -391,10 +391,10 @@ public class bz {
                Client.le[Client.overheadTextCount * 734988573] = fx.fontBold12.ascent;
                Client.lj[734988573 * Client.overheadTextCount] = -1848743379 * Client.mz;
                Client.ll[Client.overheadTextCount * 734988573] = 318977283 * Client.mu - var10;
-               Client.lx[Client.overheadTextCount * 734988573] = var0.movementFrame * -1337884343;
-               Client.lo[734988573 * Client.overheadTextCount] = var0.walkBackSequence * 819594233;
-               Client.lw[Client.overheadTextCount * 734988573] = -536830723 * var0.movementSequence;
-               Client.overheadText[Client.overheadTextCount * 734988573] = var0.overheadText;
+               Client.lx[Client.overheadTextCount * 734988573] = var0.sequence * -1337884343;
+               Client.lo[734988573 * Client.overheadTextCount] = var0.sequenceFrame * 819594233;
+               Client.lw[Client.overheadTextCount * 734988573] = -536830723 * var0.movementFrameCycle;
+               Client.lr[Client.overheadTextCount * 734988573] = var0.overheadText;
                Client.overheadTextCount += -1973288651;
                var10 += 12;
             }
@@ -414,8 +414,8 @@ public class bz {
                   }
                } else {
                   HeadbarType var13 = var77.type;
-                  Sprite var14 = var13.ac();
-                  Sprite var15 = var13.aw();
+                  Sprite var14 = var13.getBackSprite();
+                  Sprite var15 = var13.getFrontSprite();
                   int var17 = 0;
                   if (var14 != null && var15 != null) {
                      if (var13.widthPadding * 166630382 < var15.subWidth) {
@@ -429,13 +429,13 @@ public class bz {
 
                   int var18 = 255;
                   boolean var19 = true;
-                  int var20 = -1886224337 * Client.ep - var12.health2 * -1225111563;
-                  int var21 = var12.health * -2028064551 * var16 / (var13.width * 279738407);
+                  int var20 = -1886224337 * Client.ep - var12.cycle * -1225111563;
+                  int var21 = var12.health2 * -2028064551 * var16 / (var13.width * 279738407);
                   int var22;
                   int var91;
                   if (var12.cycleOffset * -2116244499 > var20) {
                      var22 = var13.int4 * 294055185 == 0 ? 0 : 294055185 * var13.int4 * (var20 / (294055185 * var13.int4));
-                     var23 = var16 * 1250696899 * var12.cycle / (279738407 * var13.width);
+                     var23 = var16 * 1250696899 * var12.health / (279738407 * var13.width);
                      var91 = var23 + var22 * (var21 - var23) / (-2116244499 * var12.cycleOffset);
                   } else {
                      var91 = var21;
@@ -445,7 +445,7 @@ public class bz {
                      }
                   }
 
-                  if (-2028064551 * var12.health > 0 && var91 < 1) {
+                  if (-2028064551 * var12.health2 > 0 && var91 < 1) {
                      var91 = 1;
                   }
 
@@ -508,22 +508,22 @@ public class bz {
 
          if (var9) {
             var78 = (Player)var0;
-            if (var78.az) {
+            if (var78.isHidden) {
                return;
             }
 
-            if (-1 != var78.combatLevel * -1875167049 || -1 != -1905401649 * var78.headIconPk) {
+            if (-1 != var78.headIconPk * -1875167049 || -1 != -1905401649 * var78.headIconPrayer) {
                var79 = 15 + -767387641 * var0.de;
                ot.worldToScreen(var0.bx * 1144428983, -411750205 * var0.bo, var79);
                if (-1848743379 * Client.mz > -1) {
-                  if (-1875167049 * var78.combatLevel != -1) {
+                  if (-1875167049 * var78.headIconPk != -1) {
                      var10 += 25;
-                     bt.jl[var78.combatLevel * -1875167049].ax(var2 + Client.mz * -1848743379 - 12, 318977283 * Client.mu + var3 - var10);
+                     bt.headIconPkSprites[var78.headIconPk * -1875167049].ax(var2 + Client.mz * -1848743379 - 12, 318977283 * Client.mu + var3 - var10);
                   }
 
-                  if (-1905401649 * var78.headIconPk != -1) {
+                  if (-1905401649 * var78.headIconPrayer != -1) {
                      var10 += 25;
-                     qj.kc[-1905401649 * var78.headIconPk].ax(Client.mz * -1848743379 + var2 - 12, var3 + Client.mu * 318977283 - var10);
+                     qj.headIconPrayerSprites[-1905401649 * var78.headIconPrayer].ax(Client.mz * -1848743379 + var2 - 12, var3 + Client.mu * 318977283 - var10);
                   }
                }
             }
@@ -532,8 +532,8 @@ public class bz {
                var79 = -767387641 * var0.de + 15;
                ot.worldToScreen(var0.bx * 1144428983, -411750205 * var0.bo, var79);
                if (-1848743379 * Client.mz > -1) {
-                  var10 += IDKType.ku[1].subHeight;
-                  IDKType.ku[1].ax(var2 + Client.mz * -1848743379 - 12, 318977283 * Client.mu + var3 - var10);
+                  var10 += IDKType.headIconHintSprites[1].subHeight;
+                  IDKType.headIconHintSprites[1].ax(var2 + Client.mz * -1848743379 - 12, 318977283 * Client.mu + var3 - var10);
                }
             }
          } else {
@@ -547,7 +547,7 @@ public class bz {
                      long var86 = (long)var82[var85] << 8 | (long)var83[var85];
                      Sprite var89 = (Sprite)Client.wx.an(var86);
                      if (var89 == null) {
-                        Sprite[] var90 = eb.an_renamed(rr.archive7, var82[var85], 0);
+                        Sprite[] var90 = eb.an_renamed(rr.archive8, var82[var85], 0);
                         if (null != var90 && var83[var85] < var90.length) {
                            var89 = var90[var83[var85]];
                            Client.wx.aw(var86, var89);
@@ -568,7 +568,7 @@ public class bz {
                var85 = 15 + -767387641 * var0.de;
                ot.worldToScreen(var0.bx * 1144428983, -411750205 * var0.bo, var85);
                if (-1848743379 * Client.mz > -1) {
-                  IDKType.ku[0].ax(var2 + Client.mz * -1848743379 - 12, 318977283 * Client.mu + var3 - 28);
+                  IDKType.headIconHintSprites[0].ax(var2 + Client.mz * -1848743379 - 12, 318977283 * Client.mu + var3 - 28);
                }
             }
          }
@@ -596,7 +596,7 @@ public class bz {
                continue;
             }
 
-            var16 = var0.hitmarkValues2[var11];
+            var16 = var0.hitmarkTypes2[var11];
             HitmarkType var93 = null;
             if (var16 >= 0) {
                var93 = ew.getHitmarkType(var16);
@@ -764,7 +764,7 @@ public class bz {
                      var46 = var87.getString(var0.hitmarkValues[var11]);
                      int var99 = var98.stringWidth(var46);
                      if (var93 != null) {
-                        var47 = var93.getString(var0.hitmarkTypes2[var11]);
+                        var47 = var93.getString(var0.hitmarkValues2[var11]);
                         var49 = var45.stringWidth(var47);
                      }
 
@@ -850,7 +850,7 @@ public class bz {
                      }
 
                      var63 = var0.hitmarkCycles[var11] - -1886224337 * Client.ep;
-                     int var64 = var87.transformVarbit * 895105585 - 895105585 * var87.transformVarbit * var63 / (292771999 * var87.ai);
+                     int var64 = var87.am * 895105585 - 895105585 * var87.am * var63 / (292771999 * var87.ai);
                      int var65 = 498242719 * var87.as * var63 / (var87.ai * 292771999) + -(var87.as * 498242719);
                      int var66 = var2 + -1848743379 * Client.mz - (var52 >> 1) + var64;
                      int var67 = var3 + Client.mu * 318977283 - 12 + var65;

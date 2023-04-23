@@ -1,11 +1,11 @@
 public class GrandExchangeOffer {
    static String worldsUrl;
    byte state;
-   public int currentQuantity;
-   public int id;
-   public int unitPrice;
-   public int totalQuantity;
    public int currentPrice;
+   public int totalQuantity;
+   public int id;
+   public int currentQuantity;
+   public int unitPrice;
 
    public static void af_renamed(String[] var0, short[] var1) {
       FaceNormal.an_renamed(var0, var1, 0, var0.length - 1);
@@ -16,11 +16,11 @@ public class GrandExchangeOffer {
 
    public GrandExchangeOffer(Packet var1, boolean var2) {
       this.state = var1.g1s();
-      this.unitPrice = var1.cl() * -2000800301;
-      this.currentPrice = var1.g4s() * 945098885;
-      this.id = var1.g4s() * 275172041;
-      this.totalQuantity = var1.g4s() * 832101099;
-      this.currentQuantity = var1.g4s() * 2084457045;
+      this.id = var1.cl() * -2000800301;
+      this.unitPrice = var1.g4s() * 945098885;
+      this.totalQuantity = var1.g4s() * 275172041;
+      this.currentQuantity = var1.g4s() * 832101099;
+      this.currentPrice = var1.g4s() * 2084457045;
       if (var2) {
          this.an(ArchiveDiskActionHandler.af_renamed(var1));
       }

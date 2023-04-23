@@ -96,12 +96,12 @@ public abstract class jz {
          for(var9 = 0; var9 < var6; ++var9) {
             var10 = var3.g1();
             if (var10 != 0) {
-               jl[] var15 = this.av[var9][var1][var2] = new jl[var10];
+               jl[] var16 = this.av[var9][var1][var2] = new jl[var10];
 
                for(var12 = 0; var12 < var10; ++var12) {
                   int var13 = var3.gSmart2or4();
                   int var14 = var3.g1();
-                  var15[var12] = new jl(var13, var14 >> 2, var14 & 3);
+                  var16[var12] = new jl(var13, var14 >> 2, var14 & 3);
                }
             }
          }

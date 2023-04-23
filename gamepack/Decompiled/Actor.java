@@ -9,39 +9,39 @@ public abstract class Actor extends Entity {
    byte df;
    byte dq;
    byte du;
-   int npcCycle = -725472713;
-   int targetIndex = 2025717011;
+   int ba = -725472713;
+   int movementSequence = 2025717011;
    int bd;
    int runSequence = -140602839;
-   int bg = -497469823;
-   int movementFrameCycle = 919918425;
-   int bj = 767436785;
-   int turnRightSequence = 1035736995;
-   int bm = -1967111979;
-   int sequence = 603869663;
+   int walkLeftSequence = -497469823;
+   int movementFrame = 919918425;
+   int turnLeftSequence = 767436785;
+   int targetIndex = 1035736995;
+   int size = -1967111979;
+   int turnRightSequence = 603869663;
    int bo;
    int bp = 1110395975;
    int overheadTextCyclesRemaining = 1320156809;
-   int walkLeftSequence = 1683505383;
-   int readySequence = -1672510249;
-   int turnLeftSequence = -1196796229;
+   int walkBackSequence = 1683505383;
+   int walkSequence = -1672510249;
+   int readySequence = -1196796229;
    int walkRightSequence = -1927855919;
    int bv = 1530081757;
    int bx;
    int bz;
    int spotAnimation = -1388623137;
-   int movementFrame = 0;
-   int sequenceFrame = 0;
+   int sequence = 0;
+   int cd = 0;
    int ch = 0;
-   int walkSequence = 0;
-   int walkBackSequence = 0;
+   int npcCycle = 0;
+   int sequenceFrame = 0;
    int cp = 0;
    int sequenceFrameCycle = -1052277865;
-   int movementSequence = -1924554444;
+   int movementFrameCycle = -1924554444;
    int ct = 1690721941;
    int cv = 1213206377;
    int spotAnimationFrameCycle = 0;
-   int size = 1409690365;
+   int sequenceDelay = 1409690365;
    int spotAnimationFrame = -327373721;
    int dd;
    int de = 233502456;
@@ -54,7 +54,7 @@ public abstract class Actor extends Entity {
    int dm = 0;
    int dn = 0;
    int do = 0;
-   int sequenceDelay = 368061749;
+   int dp = 368061749;
    int dr;
    int dt;
    int dv;
@@ -64,14 +64,14 @@ public abstract class Actor extends Entity {
    int eo = 0;
    int pathLength = 0;
    int eq = -1392091407;
-   int[] hitmarkValues2 = new int[4];
-   int[] hitmarkTypes = new int[4];
    int[] hitmarkTypes2 = new int[4];
+   int[] hitmarkTypes = new int[4];
+   int[] hitmarkValues2 = new int[4];
    int[] hitmarkCycles = new int[4];
    int[] hitmarkValues = new int[4];
    int[] pathY = new int[10];
    int[] pathX = new int[10];
-   iu[] da = new iu[10];
+   MoveSpeed[] pathTraversed = new MoveSpeed[10];
    String overheadText = null;
    IterableNodeDeque headbars = new IterableNodeDeque();
    IterableNodeHashTable dc = new IterableNodeHashTable(4);
@@ -125,33 +125,33 @@ public abstract class Actor extends Entity {
          var12 = 292771999 * var13.ai;
       }
 
-      int var15;
+      int var16;
       if (var9) {
          if (var11 == -1) {
             return;
          }
 
          var10 = 0;
-         var15 = 0;
+         var16 = 0;
          if (0 == var11) {
-            var15 = this.hitmarkCycles[0];
+            var16 = this.hitmarkCycles[0];
          } else if (1 == var11) {
-            var15 = this.hitmarkValues[0];
+            var16 = this.hitmarkValues[0];
          }
 
          for(int var14 = 1; var14 < 4; ++var14) {
             if (0 == var11) {
-               if (this.hitmarkCycles[var14] < var15) {
+               if (this.hitmarkCycles[var14] < var16) {
                   var10 = var14;
-                  var15 = this.hitmarkCycles[var14];
+                  var16 = this.hitmarkCycles[var14];
                }
-            } else if (1 == var11 && this.hitmarkValues[var14] < var15) {
+            } else if (1 == var11 && this.hitmarkValues[var14] < var16) {
                var10 = var14;
-               var15 = this.hitmarkValues[var14];
+               var16 = this.hitmarkValues[var14];
             }
          }
 
-         if (1 == var11 && var15 >= var2) {
+         if (1 == var11 && var16 >= var2) {
             return;
          }
       } else {
@@ -159,11 +159,11 @@ public abstract class Actor extends Entity {
             this.hitmarkCount = 0;
          }
 
-         for(var15 = 0; var15 < 4; ++var15) {
-            byte var16 = this.hitmarkCount;
+         for(var16 = 0; var16 < 4; ++var16) {
+            byte var17 = this.hitmarkCount;
             this.hitmarkCount = (byte)((1 + this.hitmarkCount) % 4);
-            if (this.hitmarkCycles[var16] <= var5) {
-               var10 = var16;
+            if (this.hitmarkCycles[var17] <= var5) {
+               var10 = var17;
                break;
             }
          }
@@ -172,8 +172,8 @@ public abstract class Actor extends Entity {
       if (var10 >= 0) {
          this.hitmarkTypes[var10] = var1;
          this.hitmarkValues[var10] = var2;
-         this.hitmarkValues2[var10] = var3;
-         this.hitmarkTypes2[var10] = var4;
+         this.hitmarkTypes2[var10] = var3;
+         this.hitmarkValues2[var10] = var4;
          this.hitmarkCycles[var10] = var5 + var12 + var6;
       }
    }
@@ -326,26 +326,26 @@ public abstract class Actor extends Entity {
             }
          }
 
-         it var11 = new it(var4, var5, var6, var7);
-         var11.ac(var1);
+         it var13 = new it(var4, var5, var6, var7);
+         var13.ac(var1);
 
-         for(tt var12 = (tt)var3.an(); null != var12; var12 = (tt)var3.next()) {
-            if (-1 != var12.an * 971664459) {
-               it var10 = Inventory.getSpotType(var12.af * -1171575623).au(971664459 * var12.an);
+         for(tt var14 = (tt)var3.an(); null != var14; var14 = (tt)var3.next()) {
+            if (-1 != var14.an * 971664459) {
+               it var10 = Inventory.getSpotType(var14.af * -1171575623).au(971664459 * var14.an);
                if (null != var10) {
-                  var10.be(0, -(-790772793 * var12.au), 0);
-                  var11.ac(var10);
+                  var10.be(0, -(-790772793 * var14.au), 0);
+                  var13.ac(var10);
                }
             }
          }
 
-         return var11;
+         return var13;
       }
    }
 
    void cd() {
       this.co = false;
-      this.size = 1409690365;
+      this.sequenceDelay = 1409690365;
       this.cv = 1213206377;
       this.spotAnimation = -1388623137;
    }

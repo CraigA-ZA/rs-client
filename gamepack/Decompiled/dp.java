@@ -145,8 +145,8 @@ public class dp {
          this.ag[var3++] = var7;
       }
 
-      byte var16 = 10;
-      var7 = 128 - var16;
+      byte var19 = 10;
+      var7 = 128 - var19;
 
       int var8;
       int var11;
@@ -155,7 +155,7 @@ public class dp {
 
          for(int var10 = 0; var10 < 128; ++var10) {
             var11 = (int)(Math.random() * 100.0);
-            if (var11 < 50 && var10 > var16 && var10 < var7) {
+            if (var11 < 50 && var10 > var19 && var10 < var7) {
                this.ag[var10 + var9] = 255;
             } else {
                this.ag[var9 + var10] = 0;
@@ -194,16 +194,16 @@ public class dp {
       this.as += 1950933189 * var1;
       var8 = ((Client.ep * -1886224337 & 1) + var1) / 2;
       if (var8 > 0) {
-         short var17 = 128;
-         byte var18 = 2;
-         var11 = 128 - var18 - var18;
+         short var20 = 128;
+         byte var21 = 2;
+         var11 = 128 - var21 - var21;
 
          int var12;
          int var13;
          int var14;
          for(var12 = 0; var12 < -692470508 * this.as; ++var12) {
-            var13 = (int)(Math.random() * (double)var11) + var18;
-            var14 = (int)(Math.random() * (double)var17) + var17;
+            var13 = (int)(Math.random() * (double)var11) + var21;
+            var14 = (int)(Math.random() * (double)var20) + var20;
             this.ag[var13 + (var14 << 7)] = 192;
          }
 

@@ -52,7 +52,7 @@ public class gr {
       Client.isMiniMenuOpen = false;
       Client.menuActions[0] = Strings.Strings_cancel;
       Client.menuTargetNames[0] = "";
-      Client.menuArguments1[0] = 1006;
+      Client.menuOpcodes[0] = 1006;
       Client.menuShiftClick[0] = false;
       Client.menuOptionsCount = 1153055221;
    }

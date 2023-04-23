@@ -47,10 +47,11 @@ public abstract class AbstractWorldMapIcon {
 
          switch (var4.ak.ac * 578864459) {
             case 0:
-               if (var2 < -1288412757 * this.aa || var2 >= var6 + this.aa * -1288412757) {
-                  return false;
+               if (var2 >= -1288412757 * this.aa && var2 < var6 + this.aa * -1288412757) {
+                  break;
                }
-               break;
+
+               return false;
             case 1:
                if (var2 >= -1288412757 * this.aa - var6 / 2 && var2 <= -1288412757 * this.aa + var6 / 2) {
                   break;

@@ -54,7 +54,7 @@ public class ea extends AbstractUserComparator {
       if (-1727408401 * GameShell.plane != Client.sp * -2000567333) {
          Client.sp = -1813500035 * GameShell.plane;
          int var1 = -1727408401 * GameShell.plane;
-         int[] var2 = UrlRequester.tk.pixels;
+         int[] var2 = UrlRequester.sceneMinimapSprite.pixels;
          int var3 = var2.length;
 
          int var4;
@@ -82,7 +82,7 @@ public class ea extends AbstractUserComparator {
 
          var4 = (238 + (int)(Math.random() * 20.0) - 10 << 16) + (238 + (int)(Math.random() * 20.0) - 10 << 8) + (238 + (int)(Math.random() * 20.0) - 10);
          var5 = 238 + (int)(Math.random() * 20.0) - 10 << 16;
-         UrlRequester.tk.ac();
+         UrlRequester.sceneMinimapSprite.ac();
 
          int var7;
          for(var6 = 1; var6 < 103; ++var6) {
@@ -104,9 +104,9 @@ public class ea extends AbstractUserComparator {
                long var8 = bx.scene.be(GameShell.plane * -1727408401, var6, var7);
                if (var8 != 0L) {
                   int var10 = InterfaceParent.at(var8);
-                  int var11 = fw.an_renamed(var10).resizeY * 1270945427;
+                  int var11 = fw.an_renamed(var10).mapIconId * 1270945427;
                   if (var11 >= 0 && nf.getMapElementType(var11).ax) {
-                     Client.ts[1573101195 * Client.sr] = nf.getMapElementType(var11).ab(false);
+                     Client.mapIcons[1573101195 * Client.sr] = nf.getMapElementType(var11).ab(false);
                      Client.tw[Client.sr * 1573101195] = var6;
                      Client.ty[Client.sr * 1573101195] = var7;
                      Client.sr += 868833571;

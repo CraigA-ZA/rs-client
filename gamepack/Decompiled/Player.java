@@ -1,24 +1,24 @@
 public final class Player extends Actor {
-   boolean isHidden;
-   boolean az;
    boolean isUnanimated;
+   boolean isHidden;
+   boolean bi;
    int aa;
-   int combatLevel = -1162421511;
+   int headIconPk = -1162421511;
    int ad;
    int ae;
    int ag;
    int ai;
-   int animationCycleEnd;
-   int skillLevel;
+   int team;
+   int combatLevel;
    int am;
-   int animationCycleStart;
+   int animationCycleEnd;
    int ar;
    int as;
-   int team;
-   int headIconPk = 914676177;
+   int skillLevel;
+   int headIconPrayer = 914676177;
    int av;
    int ax;
-   int headIconPrayer;
+   int animationCycleStart;
    int tileX;
    int tileY;
    it ah;
@@ -43,27 +43,27 @@ public final class Player extends Actor {
          this.actions[var1] = "";
       }
 
+      this.combatLevel = 0;
       this.skillLevel = 0;
-      this.team = 0;
-      this.headIconPrayer = 0;
       this.animationCycleStart = 0;
-      this.isHidden = false;
       this.animationCycleEnd = 0;
-      this.az = false;
+      this.isUnanimated = false;
+      this.team = 0;
+      this.isHidden = false;
       this.ap = TriBool.TriBool_unknown;
       this.by = TriBool.TriBool_unknown;
       this.bb = TriBool.TriBool_unknown;
-      this.isUnanimated = false;
+      this.bi = false;
    }
 
    final void read(Packet var1) {
       var1.index = 0;
       int var3 = var1.g1();
       boolean var4 = true;
-      this.combatLevel = var1.g1s() * 1162421511;
-      this.headIconPk = var1.g1s() * -914676177;
+      this.headIconPk = var1.g1s() * 1162421511;
+      this.headIconPrayer = var1.g1s() * -914676177;
       int var5 = -1;
-      this.animationCycleEnd = 0;
+      this.team = 0;
       int[] var6 = new int[12];
 
       int var8;
@@ -84,7 +84,7 @@ public final class Player extends Actor {
             if (var6[var7] >= 512) {
                var10 = HeadbarUpdate.getObjType(var6[var7] - 512).placeholderlink * -919846075;
                if (0 != var10) {
-                  this.animationCycleEnd = -248928759 * var10;
+                  this.team = -248928759 * var10;
                }
             }
          }
@@ -116,30 +116,30 @@ public final class Player extends Actor {
          var16[var9] = var10;
       }
 
-      this.turnLeftSequence = var1.cl() * 1196796229;
-      if (65535 == this.turnLeftSequence * 1590591885) {
-         this.turnLeftSequence = -1196796229;
+      this.readySequence = var1.cl() * 1196796229;
+      if (65535 == this.readySequence * 1590591885) {
+         this.readySequence = -1196796229;
       }
 
-      this.bj = var1.cl() * -767436785;
-      if (65535 == this.bj * 1319769839) {
-         this.bj = 767436785;
+      this.turnLeftSequence = var1.cl() * -767436785;
+      if (65535 == this.turnLeftSequence * 1319769839) {
+         this.turnLeftSequence = 767436785;
       }
 
-      this.sequence = this.bj * 980575951;
-      this.readySequence = var1.cl() * 1672510249;
-      if (this.readySequence * 736907545 == 65535) {
-         this.readySequence = -1672510249;
+      this.turnRightSequence = this.turnLeftSequence * 980575951;
+      this.walkSequence = var1.cl() * 1672510249;
+      if (this.walkSequence * 736907545 == 65535) {
+         this.walkSequence = -1672510249;
       }
 
-      this.walkLeftSequence = var1.cl() * -1683505383;
-      if (65535 == 1648569641 * this.walkLeftSequence) {
-         this.walkLeftSequence = 1683505383;
+      this.walkBackSequence = var1.cl() * -1683505383;
+      if (65535 == 1648569641 * this.walkBackSequence) {
+         this.walkBackSequence = 1683505383;
       }
 
-      this.bg = var1.cl() * 497469823;
-      if (-127994241 * this.bg == 65535) {
-         this.bg = -497469823;
+      this.walkLeftSequence = var1.cl() * 497469823;
+      if (-127994241 * this.walkLeftSequence == 65535) {
+         this.walkLeftSequence = -497469823;
       }
 
       this.walkRightSequence = var1.cl() * 1927855919;
@@ -160,11 +160,11 @@ public final class Player extends Actor {
          ClientError.localPlayerName = this.username.af();
       }
 
-      this.skillLevel = var1.g1() * 225691243;
-      this.team = var1.cl() * 1353643761;
-      this.az = var1.g1() == 1;
+      this.combatLevel = var1.g1() * 225691243;
+      this.skillLevel = var1.cl() * 1353643761;
+      this.isHidden = var1.g1() == 1;
       if (Client.cs * -1274626977 == 0 && Client.pu * 324465533 >= 2) {
-         this.az = false;
+         this.isHidden = false;
       }
 
       gx[] var17 = null;
@@ -259,7 +259,7 @@ public final class Player extends Actor {
          return null;
       } else {
          SeqType var2 = this.ct * -1372355773 != -1 && 0 == this.dm * 1253892101 ? Inventory.getSeqType(this.ct * -1372355773, (byte)73) : null;
-         SeqType var3 = -1 != this.spotAnimationFrame * -1302441815 && !this.isHidden && (this.spotAnimationFrame * -1302441815 != this.turnLeftSequence * 1590591885 || var2 == null) ? Inventory.getSeqType(this.spotAnimationFrame * -1302441815, (byte)57) : null;
+         SeqType var3 = -1 == this.spotAnimationFrame * -1302441815 || this.isUnanimated || this.spotAnimationFrame * -1302441815 == this.readySequence * 1590591885 && var2 != null ? null : Inventory.getSeqType(this.spotAnimationFrame * -1302441815, (byte)57);
          it var4 = this.appearance.aa(var2, -41215169 * this.cp, var3, 424813829 * this.spotAnimationFrameCycle);
          if (var4 == null) {
             return null;
@@ -267,16 +267,16 @@ public final class Player extends Actor {
             var4.ai();
             this.de = 2070391287 * var4.height;
             int var5 = var4.ao;
-            if (!this.isHidden) {
+            if (!this.isUnanimated) {
                var4 = this.cp(var4);
             }
 
-            if (!this.isHidden && this.ah != null) {
-               if (Client.ep * -1886224337 >= this.animationCycleStart * -935505685) {
+            if (!this.isUnanimated && this.ah != null) {
+               if (Client.ep * -1886224337 >= this.animationCycleEnd * -935505685) {
                   this.ah = null;
                }
 
-               if (-1886224337 * Client.ep >= -1402262375 * this.headIconPrayer && -1886224337 * Client.ep < -935505685 * this.animationCycleStart) {
+               if (-1886224337 * Client.ep >= -1402262375 * this.animationCycleStart && -1886224337 * Client.ep < -935505685 * this.animationCycleEnd) {
                   it var6 = this.ah;
                   var6.be(this.ax * 1793688517 - 1144428983 * this.bx, this.ai * 1238902143 - 561204023 * this.aa, 240546619 * this.ag - -411750205 * this.bo);
                   if (this.dd * -1751341433 == 512) {
@@ -308,7 +308,7 @@ public final class Player extends Actor {
             }
 
             var4.bx = true;
-            if (this.dq != 0 && Client.ep * -1886224337 >= this.dh * 1182789041 && Client.ep * -1886224337 < 707232483 * this.sequenceDelay) {
+            if (this.dq != 0 && Client.ep * -1886224337 >= this.dh * 1182789041 && Client.ep * -1886224337 < 707232483 * this.dp) {
                var4.cj = this.du;
                var4.ch = this.db;
                var4.ct = this.df;
@@ -323,7 +323,7 @@ public final class Player extends Actor {
       }
    }
 
-   final void av(int var1, int var2, iu var3) {
+   final void av(int var1, int var2, MoveSpeed var3) {
       if (this.ct * -1372355773 != -1 && Inventory.getSeqType(-1372355773 * this.ct, (byte)61).bi * 1957040329 == 1) {
          this.ct = 1690721941;
       }
@@ -331,8 +331,8 @@ public final class Player extends Actor {
       this.cd();
       if (var1 >= 0 && var1 < 104 && var2 >= 0 && var2 < 104) {
          if (this.pathX[0] >= 0 && this.pathX[0] < 104 && this.pathY[0] >= 0 && this.pathY[0] < 104) {
-            if (iu.ac == var3) {
-               Decimator.kq_renamed(this, var1, var2, iu.ac);
+            if (MoveSpeed.run == var3) {
+               Decimator.kq_renamed(this, var1, var2, MoveSpeed.run);
             }
 
             this.am(var1, var2, var3);
@@ -385,7 +385,7 @@ public final class Player extends Actor {
       }
    }
 
-   final void am(int var1, int var2, iu var3) {
+   final void am(int var1, int var2, MoveSpeed var3) {
       if (this.dn * 1134756167 < 9) {
          this.dn += 400971895;
       }
@@ -393,12 +393,12 @@ public final class Player extends Actor {
       for(int var5 = 1134756167 * this.dn; var5 > 0; --var5) {
          this.pathX[var5] = this.pathX[var5 - 1];
          this.pathY[var5] = this.pathY[var5 - 1];
-         this.da[var5] = this.da[var5 - 1];
+         this.pathTraversed[var5] = this.pathTraversed[var5 - 1];
       }
 
       this.pathX[0] = var1;
       this.pathY[0] = var2;
-      this.da[0] = var3;
+      this.pathTraversed[0] = var3;
    }
 
    final boolean isVisible() {

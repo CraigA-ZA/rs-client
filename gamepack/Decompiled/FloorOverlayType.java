@@ -5,9 +5,9 @@ public class FloorOverlayType extends DualNode {
    public int aa;
    public int rgb2 = 1301405419;
    public int texture = 1885338535;
-   public int hue;
-   public int ao;
    public int saturation;
+   public int ao;
+   public int hue;
    public int lightness;
    public int rgb = 0;
    public int ay;
@@ -15,8 +15,8 @@ public class FloorOverlayType extends DualNode {
    public void an() {
       if (-2085280195 * this.rgb2 != -1) {
          this.setHsl(this.rgb2 * -2085280195);
-         this.aa = this.saturation * 1074072567;
-         this.ay = -765667919 * this.hue;
+         this.aa = this.hue * 1074072567;
+         this.ay = -765667919 * this.saturation;
          this.ao = this.lightness * -1337679311;
       }
 
@@ -92,13 +92,13 @@ public class FloorOverlayType extends DualNode {
       }
 
       var13 /= 6.0;
-      this.saturation = (int)(256.0 * var13) * 1160271239;
-      this.hue = 1774787329 * (int)(var15 * 256.0);
+      this.hue = (int)(256.0 * var13) * 1160271239;
+      this.saturation = 1774787329 * (int)(var15 * 256.0);
       this.lightness = 1974763337 * (int)(256.0 * var17);
-      if (470803713 * this.hue < 0) {
-         this.hue = 0;
-      } else if (470803713 * this.hue > 255) {
-         this.hue = 1599202815;
+      if (470803713 * this.saturation < 0) {
+         this.saturation = 0;
+      } else if (470803713 * this.saturation > 255) {
+         this.saturation = 1599202815;
       }
 
       if (532980473 * this.lightness < 0) {
@@ -120,16 +120,16 @@ public class FloorOverlayType extends DualNode {
       }
 
       if (-205173751 * Client.ce != 1810954985 * var0.properties) {
-         Archive var4 = rr.archive7;
+         Archive var8 = rr.archive8;
          int var3 = 1810954985 * var0.properties;
          if ((var3 & 536870912) != 0) {
-            Canvas.ay = MusicPatchNode2.au_renamed(var4, "logo_deadman_mode", "");
+            Canvas.ay = MusicPatchNode2.au_renamed(var8, "logo_deadman_mode", "");
          } else if (0 != (var3 & 1073741824)) {
-            Canvas.ay = MusicPatchNode2.au_renamed(var4, "logo_seasonal_mode", "");
+            Canvas.ay = MusicPatchNode2.au_renamed(var8, "logo_seasonal_mode", "");
          } else if ((var3 & 256) != 0) {
-            Canvas.ay = MusicPatchNode2.au_renamed(var4, "logo_speedrunning", "");
+            Canvas.ay = MusicPatchNode2.au_renamed(var8, "logo_speedrunning", "");
          } else {
-            Canvas.ay = MusicPatchNode2.au_renamed(var4, "logo", "");
+            Canvas.ay = MusicPatchNode2.au_renamed(var8, "logo", "");
          }
       }
 

@@ -141,7 +141,7 @@ public abstract class ia {
             int var4 = var3.bx * 1144428983 >> 7;
             int var5 = var3.bo * -411750205 >> 7;
             if (var4 >= 0 && var4 < 104 && var5 >= 0 && var5 < 104) {
-               if (1 == var3.bm * 353040509 && 64 == (var3.bx * 1144428983 & 127) && 64 == (-411750205 * var3.bo & 127)) {
+               if (1 == var3.size * 353040509 && 64 == (var3.bx * 1144428983 & 127) && 64 == (-411750205 * var3.bo & 127)) {
                   if (Client.mw * 2041464667 == Client.mt[var4][var5]) {
                      continue;
                   }
@@ -151,7 +151,7 @@ public abstract class ia {
 
                long var6 = ir.aa_renamed(0, 0, 1, !var3.type.isInteractable, Client.iy[var2]);
                var3.bd = -14183397 * Client.ep;
-               bx.scene.ao(GameShell.plane * -1727408401, 1144428983 * var3.bx, -411750205 * var3.bo, fq.getTileHeight(1119756096 * var3.bm - 64 + 1144428983 * var3.bx, 1119756096 * var3.bm - 64 + var3.bo * -411750205, -1727408401 * GameShell.plane), 60 + (1119756096 * var3.bm - 64), var3, var3.bz * -1703696531, var6, var3.an);
+               bx.scene.ao(GameShell.plane * -1727408401, 1144428983 * var3.bx, -411750205 * var3.bo, fq.getTileHeight(1119756096 * var3.size - 64 + 1144428983 * var3.bx, 1119756096 * var3.size - 64 + var3.bo * -411750205, -1727408401 * GameShell.plane), 60 + (1119756096 * var3.size - 64), var3, var3.bz * -1703696531, var6, var3.an);
             }
          }
       }

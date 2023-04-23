@@ -14,7 +14,7 @@ public class WorldMapIcon2 extends AbstractWorldMapIcon {
    }
 
    void af() {
-      this.aw = fw.an_renamed(-707716855 * this.af).multiLoc().resizeY * 1063280821;
+      this.aw = fw.an_renamed(-707716855 * this.af).multiLoc().mapIconId * 1063280821;
       this.label0 = this.an.bz(nf.getMapElementType(this.aw * -362754265));
       MapElementType var2 = nf.getMapElementType(this.element());
       Sprite var3 = var2.ab(false);

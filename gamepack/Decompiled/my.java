@@ -66,20 +66,20 @@ public class my {
                fd.km_renamed(Client.oj, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + var0.opbase, 58, 0, 55577617 * var0.childIndex, var0.id * 1713081171, -2006098851 * var0.itemId);
             }
          } else {
-            for(int var7 = 9; var7 >= 5; --var7) {
+            for(int var9 = 9; var9 >= 5; --var9) {
                int var5 = KeyHandler.getComponentClickMask(var0);
-               boolean var9 = 0 != (var5 >> 1 + var7 & 1);
-               String var8;
-               if (!var9 && null == var0.onMouseOver) {
-                  var8 = null;
-               } else if (null != var0.ops && var0.ops.length > var7 && null != var0.ops[var7] && var0.ops[var7].trim().length() != 0) {
-                  var8 = var0.ops[var7];
+               boolean var11 = 0 != (var5 >> 1 + var9 & 1);
+               String var10;
+               if (!var11 && null == var0.onOp) {
+                  var10 = null;
+               } else if (null != var0.ops && var0.ops.length > var9 && null != var0.ops[var9] && var0.ops[var9].trim().length() != 0) {
+                  var10 = var0.ops[var9];
                } else {
-                  var8 = null;
+                  var10 = null;
                }
 
-               if (var8 != null) {
-                  fd.km_renamed(var8, var0.opbase, 1007, var7 + 1, var0.childIndex * 55577617, var0.id * 1713081171, var0.itemId * -2006098851);
+               if (var10 != null) {
+                  fd.km_renamed(var10, var0.opbase, 1007, var9 + 1, var0.childIndex * 55577617, var0.id * 1713081171, var0.itemId * -2006098851);
                }
             }
 
@@ -90,24 +90,24 @@ public class my {
 
             for(var3 = 4; var3 >= 0; --var3) {
                int var6 = KeyHandler.getComponentClickMask(var0);
-               boolean var12 = 0 != (var6 >> 1 + var3 & 1);
-               String var10;
-               if (!var12 && null == var0.onMouseOver) {
-                  var10 = null;
+               boolean var14 = 0 != (var6 >> 1 + var3 & 1);
+               String var12;
+               if (!var14 && null == var0.onOp) {
+                  var12 = null;
                } else if (var0.ops != null && var0.ops.length > var3 && var0.ops[var3] != null && var0.ops[var3].trim().length() != 0) {
-                  var10 = var0.ops[var3];
+                  var12 = var0.ops[var3];
                } else {
-                  var10 = null;
+                  var12 = null;
                }
 
-               if (null != var10) {
-                  TilePaint.addMiniMenuEntry(var10, var0.opbase, 57, 1 + var3, 55577617 * var0.childIndex, var0.id * 1713081171, var0.itemId * -2006098851, var0.hh);
+               if (null != var12) {
+                  TilePaint.addMiniMenuEntry(var12, var0.opbase, 57, 1 + var3, 55577617 * var0.childIndex, var0.id * 1713081171, var0.itemId * -2006098851, var0.hh);
                }
             }
 
             var4 = KeyHandler.getComponentClickMask(var0);
-            boolean var11 = (var4 & 1) != 0;
-            if (var11) {
+            boolean var13 = (var4 & 1) != 0;
+            if (var13) {
                MiniMenuEntry.kz_renamed(Strings.Strings_continue, "", 30, 0, var0.childIndex * 55577617, var0.id * 1713081171);
             }
          }

@@ -1,10 +1,10 @@
 public class Message extends DualNode {
    int count;
-   int type;
    int cycle;
-   String text;
-   String prefix;
+   int type;
    String sender;
+   String prefix;
+   String text;
    TriBool isFromFriend0;
    TriBool isFromIgnored0;
    Username senderUsername;
@@ -17,12 +17,12 @@ public class Message extends DualNode {
 
    void set(int var1, String var2, String var3, String var4) {
       this.count = ee.af_renamed() * -1945835651;
-      this.type = -795781739 * Client.ep;
-      this.cycle = var1 * -280274327;
-      this.text = var2;
+      this.cycle = -795781739 * Client.ep;
+      this.type = var1 * -280274327;
+      this.sender = var2;
       this.fillSenderUsername();
       this.prefix = var3;
-      this.sender = var4;
+      this.text = var4;
       this.an();
       this.au();
    }
@@ -70,8 +70,8 @@ public class Message extends DualNode {
    }
 
    final void fillSenderUsername() {
-      if (null != this.text) {
-         this.senderUsername = new Username(ne.nh_renamed(this.text), co.loginType);
+      if (null != this.sender) {
+         this.senderUsername = new Username(ne.nh_renamed(this.sender), co.loginType);
       } else {
          this.senderUsername = null;
       }
@@ -212,21 +212,21 @@ public class Message extends DualNode {
    static void ks_renamed(int var0, int var1, int var2, int var3, String var4) {
       Component var6 = SoundSystem.getComponentChild(var1, var2);
       if (null != var6) {
-         if (var6.onMouseOver != null) {
+         if (var6.onOp != null) {
             ClientScriptEvent var7 = new ClientScriptEvent();
             var7.aw = var6;
             var7.ab = var0 * -247460251;
             var7.opbase = var4;
-            var7.args0 = var6.onMouseOver;
+            var7.args0 = var6.onOp;
             HeadbarUpdate.af_renamed(var7);
          }
 
-         boolean var12 = true;
+         boolean var14 = true;
          if (1021339961 * var6.clientCode > 0) {
-            var12 = mk_renamed(var6);
+            var14 = mk_renamed(var6);
          }
 
-         if (var12) {
+         if (var14) {
             int var9 = KeyHandler.getComponentClickMask(var6);
             int var10 = var0 - 1;
             boolean var8 = (var9 >> var10 + 1 & 1) != 0;
@@ -346,9 +346,9 @@ public class Message extends DualNode {
          }
 
          if (var2 == 326) {
-            PacketBitNode var5 = mi.an_renamed(ClientProt.au, Client.packetWriter.au);
-            Client.vh.encode(var5.bit);
-            Client.packetWriter.aw(var5);
+            PacketBitNode var6 = mi.an_renamed(ClientProt.au, Client.packetWriter.au);
+            Client.vh.encode(var6.bit);
+            Client.packetWriter.aw(var6);
             return true;
          } else {
             return false;

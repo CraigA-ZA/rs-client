@@ -14,7 +14,7 @@ public class ob {
       try {
          String var3 = "";
          if (var1 != null) {
-            var3 = iu.aw_renamed(var1);
+            var3 = MoveSpeed.aw_renamed(var1);
          }
 
          if (var0 != null) {

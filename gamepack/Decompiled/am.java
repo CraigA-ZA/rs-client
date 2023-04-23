@@ -118,83 +118,83 @@ public class am {
          return 1;
       } else if (var0 == 3904) {
          var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.grandExchangeOffers[var4].unitPrice * -300881317;
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.grandExchangeOffers[var4].id * -300881317;
          return 1;
       } else if (var0 == 3905) {
          var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.grandExchangeOffers[var4].currentPrice * -1994102707;
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.grandExchangeOffers[var4].unitPrice * -1994102707;
          return 1;
       } else if (var0 == 3906) {
          var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 857042809 * Client.grandExchangeOffers[var4].id;
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 857042809 * Client.grandExchangeOffers[var4].totalQuantity;
          return 1;
       } else if (var0 == 3907) {
          var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.grandExchangeOffers[var4].totalQuantity * -52036157;
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.grandExchangeOffers[var4].currentQuantity * -52036157;
          return 1;
       } else if (var0 == 3908) {
          var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1510761213 * Client.grandExchangeOffers[var4].currentQuantity;
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1510761213 * Client.grandExchangeOffers[var4].currentPrice;
          return 1;
       } else {
-         int var14;
+         int var19;
          if (3910 == var0) {
             var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-            var14 = Client.grandExchangeOffers[var4].status();
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var14 == 0 ? 1 : 0;
+            var19 = Client.grandExchangeOffers[var4].status();
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var19 == 0 ? 1 : 0;
             return 1;
          } else if (3911 == var0) {
             var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-            var14 = Client.grandExchangeOffers[var4].status();
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 2 == var14 ? 1 : 0;
+            var19 = Client.grandExchangeOffers[var4].status();
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 2 == var19 ? 1 : 0;
             return 1;
          } else if (var0 == 3912) {
             var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-            var14 = Client.grandExchangeOffers[var4].status();
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 5 == var14 ? 1 : 0;
+            var19 = Client.grandExchangeOffers[var4].status();
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 5 == var19 ? 1 : 0;
             return 1;
          } else if (var0 == 3913) {
             var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-            var14 = Client.grandExchangeOffers[var4].status();
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1 == var14 ? 1 : 0;
+            var19 = Client.grandExchangeOffers[var4].status();
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1 == var19 ? 1 : 0;
             return 1;
          } else {
-            boolean var12;
+            boolean var17;
             if (3914 == var0) {
-               var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+               var17 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
                if (oh.grandExchangeEvents != null) {
-                  oh.grandExchangeEvents.sort(GrandExchangeEvents.ac, var12);
+                  oh.grandExchangeEvents.sort(GrandExchangeEvents.ac, var17);
                }
 
                return 1;
             } else if (var0 == 3915) {
-               var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+               var17 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
                if (null != oh.grandExchangeEvents) {
-                  oh.grandExchangeEvents.sort(GrandExchangeEvents.aw, var12);
+                  oh.grandExchangeEvents.sort(GrandExchangeEvents.aw, var17);
                }
 
                return 1;
             } else if (3916 == var0) {
                Interpreter.Interpreter_intStackSize -= 854271946;
-               var12 = 1 == Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-               boolean var13 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1] == 1;
+               var17 = 1 == Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
+               boolean var18 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1] == 1;
                if (oh.grandExchangeEvents != null) {
-                  Client.wg.af = var13;
-                  oh.grandExchangeEvents.sort(Client.wg, var12);
+                  Client.wg.af = var18;
+                  oh.grandExchangeEvents.sort(Client.wg, var17);
                }
 
                return 1;
             } else if (var0 == 3917) {
-               var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+               var17 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
                if (null != oh.grandExchangeEvents) {
-                  oh.grandExchangeEvents.sort(GrandExchangeEvents.an, var12);
+                  oh.grandExchangeEvents.sort(GrandExchangeEvents.an, var17);
                }
 
                return 1;
             } else if (var0 == 3918) {
-               var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+               var17 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
                if (oh.grandExchangeEvents != null) {
-                  oh.grandExchangeEvents.sort(GrandExchangeEvents.au, var12);
+                  oh.grandExchangeEvents.sort(GrandExchangeEvents.au, var17);
                }
 
                return 1;
@@ -231,17 +231,17 @@ public class am {
                } else if (var0 == 3924) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                   var5 = (GrandExchangeEvent)oh.grandExchangeEvents.events.get(var4);
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5.grandExchangeOffer.id * 857042809;
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5.grandExchangeOffer.totalQuantity * 857042809;
                   return 1;
                } else if (var0 == 3925) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                   var5 = (GrandExchangeEvent)oh.grandExchangeEvents.events.get(var4);
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1994102707 * var5.grandExchangeOffer.currentPrice;
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1994102707 * var5.grandExchangeOffer.unitPrice;
                   return 1;
                } else if (3926 == var0) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                   var5 = (GrandExchangeEvent)oh.grandExchangeEvents.events.get(var4);
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5.grandExchangeOffer.unitPrice * -300881317;
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5.grandExchangeOffer.id * -300881317;
                   return 1;
                } else {
                   return 2;
@@ -283,8 +283,8 @@ public class am {
       bt.setViewportShape(var0, var1, var2, var3, true);
       var0 = -82629945 * Client.vd;
       var1 = Client.vx * 1352043351;
-      var2 = 433849721 * Client.viewportHeight;
-      var3 = 2042096749 * Client.viewportWidth;
+      var2 = 433849721 * Client.viewportWidth;
+      var3 = 2042096749 * Client.viewportHeight;
       Rasterizer2D.Rasterizer2D_setClip(var0, var1, var2 + var0, var1 + var3);
       ao_renamed();
       Rasterizer2D.fd();
@@ -418,8 +418,8 @@ public class am {
 
       var17 = -2063363905 * MouseHandler.ay;
       var18 = -1224153235 * MouseHandler.ao;
-      if (0 != MouseHandler.ar * -1222491879) {
-         var17 = 2020601481 * MouseHandler.MouseHandler_lastButton;
+      if (0 != MouseHandler.MouseHandler_lastButton * -1222491879) {
+         var17 = 2020601481 * MouseHandler.am;
          var18 = 1163896205 * MouseHandler.as;
       }
 
@@ -507,7 +507,7 @@ public class am {
 
          Client.mz = -846498395 * Client.lj[var25];
          Client.mu = (Client.ll[var25] = var27) * -1610031701;
-         String var39 = Client.overheadText[var25];
+         String var39 = Client.lr[var25];
          if (0 == Client.py * 395188193) {
             int var32 = 16776960;
             if (Client.lx[var25] < 6) {
@@ -622,10 +622,10 @@ public class am {
 
    static void kh_renamed(int var0, int var1, int var2, int var3) {
       Component var5 = SoundSystem.getComponentChild(var0, var1);
-      if (var5 != null && var5.onTimer != null) {
+      if (var5 != null && var5.onTargetEnter != null) {
          ClientScriptEvent var6 = new ClientScriptEvent();
          var6.aw = var5;
-         var6.args0 = var5.onTimer;
+         var6.args0 = var5.onTargetEnter;
          HeadbarUpdate.af_renamed(var6);
       }
 

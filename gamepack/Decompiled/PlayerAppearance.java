@@ -249,8 +249,8 @@ public class PlayerAppearance {
             }
          }
 
-         it var19 = (it)ar.get(var6);
-         if (null == var19) {
+         it var21 = (it)ar.get(var6);
+         if (null == var21) {
             boolean var10 = false;
 
             int var12;
@@ -267,16 +267,16 @@ public class PlayerAppearance {
 
             if (var10) {
                if (-1L != 1976929687773021041L * this.al) {
-                  var19 = (it)ar.get(1976929687773021041L * this.al);
+                  var21 = (it)ar.get(1976929687773021041L * this.al);
                }
 
-               if (null == var19) {
+               if (null == var21) {
                   return null;
                }
             }
 
-            if (var19 == null) {
-               UnlitModel[] var21 = new UnlitModel[12];
+            if (var21 == null) {
+               UnlitModel[] var23 = new UnlitModel[12];
                var12 = 0;
 
                int var14;
@@ -285,67 +285,67 @@ public class PlayerAppearance {
                   if (var14 >= 256 && var14 < 512) {
                      UnlitModel var15 = dn.getIDKType(var14 - 256).getModel();
                      if (var15 != null) {
-                        var21[var12++] = var15;
+                        var23[var12++] = var15;
                      }
                   }
 
                   if (var14 >= 512) {
-                     ObjType var23 = HeadbarUpdate.getObjType(var14 - 512);
-                     UnlitModel var16 = var23.ai(1693987821 * this.au);
+                     ObjType var25 = HeadbarUpdate.getObjType(var14 - 512);
+                     UnlitModel var16 = var25.ai(1693987821 * this.au);
                      if (var16 != null) {
                         if (null != this.at) {
                            gx var17 = this.at[var13];
                            if (var17 != null) {
                               int var18;
-                              if (var17.aw != null && var23.av != null && var23.ar.length == var17.aw.length) {
-                                 for(var18 = 0; var18 < var23.av.length; ++var18) {
-                                    var16.recolor(var23.ar[var18], var17.aw[var18]);
+                              if (var17.aw != null && var25.av != null && var25.ar.length == var17.aw.length) {
+                                 for(var18 = 0; var18 < var25.av.length; ++var18) {
+                                    var16.recolor(var25.ar[var18], var17.aw[var18]);
                                  }
                               }
 
-                              if (null != var17.ac && var23.am != null && var17.ac.length == var23.as.length) {
-                                 for(var18 = 0; var18 < var23.am.length; ++var18) {
-                                    var16.retexture(var23.as[var18], var17.ac[var18]);
+                              if (null != var17.ac && var25.am != null && var17.ac.length == var25.as.length) {
+                                 for(var18 = 0; var18 < var25.am.length; ++var18) {
+                                    var16.retexture(var25.as[var18], var17.ac[var18]);
                                  }
                               }
                            }
                         }
 
-                        var21[var12++] = var16;
+                        var23[var12++] = var16;
                      }
                   }
                }
 
-               UnlitModel var22 = new UnlitModel(var21, var12);
+               UnlitModel var24 = new UnlitModel(var23, var12);
 
                for(var14 = 0; var14 < 5; ++var14) {
                   if (this.aw[var14] < ao[var14].length) {
-                     var22.recolor(ay[var14], ao[var14][this.aw[var14]]);
+                     var24.recolor(ay[var14], ao[var14][this.aw[var14]]);
                   }
 
                   if (this.aw[var14] < qv.ai[var14].length) {
-                     var22.recolor(WorldMapIcon1.ax[var14], qv.ai[var14][this.aw[var14]]);
+                     var24.recolor(WorldMapIcon1.ax[var14], qv.ai[var14][this.aw[var14]]);
                   }
                }
 
-               var19 = var22.bb(64, 850, -30, -50, -30);
-               ar.put(var19, var6);
+               var21 = var24.bb(64, 850, -30, -50, -30);
+               ar.put(var21, var6);
                this.al = var6 * 3107045911833599377L;
             }
          }
 
-         it var20;
+         it var22;
          if (var1 == null && var3 == null) {
-            var20 = var19.aa(true);
+            var22 = var21.aa(true);
          } else if (var1 != null && null != var3) {
-            var20 = var1.at(var19, var2, var3, var4);
+            var22 = var1.at(var21, var2, var3, var4);
          } else if (null != var1) {
-            var20 = var1.ab(var19, var2);
+            var22 = var1.ab(var21, var2);
          } else {
-            var20 = var3.ab(var19, var4);
+            var22 = var3.ab(var21, var4);
          }
 
-         return var20;
+         return var22;
       }
    }
 
@@ -370,7 +370,7 @@ public class PlayerAppearance {
          if (var2) {
             return null;
          } else {
-            UnlitModel[] var8 = new UnlitModel[12];
+            UnlitModel[] var9 = new UnlitModel[12];
             var4 = 0;
 
             int var6;
@@ -380,31 +380,31 @@ public class PlayerAppearance {
                if (var6 >= 256 && var6 < 512) {
                   var7 = dn.getIDKType(var6 - 256).getChatHeadModel();
                   if (var7 != null) {
-                     var8[var4++] = var7;
+                     var9[var4++] = var7;
                   }
                }
 
                if (var6 >= 512) {
                   var7 = HeadbarUpdate.getObjType(var6 - 512).ah(this.au * 1693987821);
                   if (null != var7) {
-                     var8[var4++] = var7;
+                     var9[var4++] = var7;
                   }
                }
             }
 
-            UnlitModel var9 = new UnlitModel(var8, var4);
+            UnlitModel var10 = new UnlitModel(var9, var4);
 
             for(var6 = 0; var6 < 5; ++var6) {
                if (this.aw[var6] < ao[var6].length) {
-                  var9.recolor(ay[var6], ao[var6][this.aw[var6]]);
+                  var10.recolor(ay[var6], ao[var6][this.aw[var6]]);
                }
 
                if (this.aw[var6] < qv.ai[var6].length) {
-                  var9.recolor(WorldMapIcon1.ax[var6], qv.ai[var6][this.aw[var6]]);
+                  var10.recolor(WorldMapIcon1.ax[var6], qv.ai[var6][this.aw[var6]]);
                }
             }
 
-            return var9;
+            return var10;
          }
       }
    }

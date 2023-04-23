@@ -18,14 +18,14 @@ public class HeadbarType extends DualNode {
       if (null == var0) {
          return null;
       } else if (var0 instanceof byte[]) {
-         byte[] var7 = (byte[])((byte[])var0);
+         byte[] var8 = (byte[])((byte[])var0);
          if (var1) {
-            int var5 = var7.length;
+            int var5 = var8.length;
             byte[] var6 = new byte[var5];
-            System.arraycopy(var7, 0, var6, 0, var5);
+            System.arraycopy(var8, 0, var6, 0, var5);
             return var6;
          } else {
-            return var7;
+            return var8;
          }
       } else if (var0 instanceof AbstractByteArrayCopier) {
          AbstractByteArrayCopier var3 = (AbstractByteArrayCopier)var0;
@@ -73,7 +73,7 @@ public class HeadbarType extends DualNode {
 
    }
 
-   public Sprite aw() {
+   public Sprite getFrontSprite() {
       if (1930644535 * this.spritefront < 0) {
          return null;
       } else {
@@ -81,7 +81,7 @@ public class HeadbarType extends DualNode {
          if (var2 != null) {
             return var2;
          } else {
-            var2 = sc.aw_renamed(an, 1930644535 * this.spritefront, 0);
+            var2 = sc.readSprite(an, 1930644535 * this.spritefront, 0);
             if (null != var2) {
                ac.put(var2, (long)(1930644535 * this.spritefront));
             }
@@ -91,7 +91,7 @@ public class HeadbarType extends DualNode {
       }
    }
 
-   public Sprite ac() {
+   public Sprite getBackSprite() {
       if (-1451871987 * this.spriteback < 0) {
          return null;
       } else {
@@ -99,7 +99,7 @@ public class HeadbarType extends DualNode {
          if (null != var2) {
             return var2;
          } else {
-            var2 = sc.aw_renamed(an, this.spriteback * -1451871987, 0);
+            var2 = sc.readSprite(an, this.spriteback * -1451871987, 0);
             if (null != var2) {
                ac.put(var2, (long)(-1451871987 * this.spriteback));
             }

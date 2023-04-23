@@ -1,5 +1,5 @@
 public class NetFileRequest extends DualNode {
-   static Archive archive9;
+   static Archive archive10;
    byte padding;
    int crc;
    Archive archive;
@@ -8,10 +8,10 @@ public class NetFileRequest extends DualNode {
    }
 
    static int ad_renamed(int var0, ClientScript var1, boolean var2) {
-      String var12;
+      String var22;
       if (3100 == var0) {
-         var12 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
-         es.an_renamed(0, "", var12);
+         var22 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
+         es.an_renamed(0, "", var22);
          return 1;
       } else if (var0 == 3101) {
          Interpreter.Interpreter_intStackSize -= 854271946;
@@ -24,33 +24,33 @@ public class NetFileRequest extends DualNode {
 
          return 1;
       } else {
-         int var11;
+         int var21;
          if (var0 == 3104) {
-            var12 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
-            var11 = 0;
-            if (WorldMapSectionType.an_renamed(var12)) {
-               var11 = PacketBitNode.ac_renamed(var12);
+            var22 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
+            var21 = 0;
+            if (WorldMapSectionType.an_renamed(var22)) {
+               var21 = PacketBitNode.ac_renamed(var22);
             }
 
-            PacketBitNode var15 = mi.an_renamed(ClientProt.ao, Client.packetWriter.au);
-            var15.bit.ba(var11);
-            Client.packetWriter.aw(var15);
+            PacketBitNode var25 = mi.an_renamed(ClientProt.ao, Client.packetWriter.au);
+            var25.bit.ba(var21);
+            Client.packetWriter.aw(var25);
             return 1;
          } else {
-            PacketBitNode var9;
+            PacketBitNode var19;
             if (var0 == 3105) {
-               var12 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
-               var9 = mi.an_renamed(ClientProt.cu, Client.packetWriter.au);
-               var9.bit.bu(var12.length() + 1);
-               var9.bit.bh(var12);
-               Client.packetWriter.aw(var9);
+               var22 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
+               var19 = mi.an_renamed(ClientProt.cu, Client.packetWriter.au);
+               var19.bit.bu(var22.length() + 1);
+               var19.bit.bh(var22);
+               Client.packetWriter.aw(var19);
                return 1;
             } else if (var0 == 3106) {
-               var12 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
-               var9 = mi.an_renamed(ClientProt.cr, Client.packetWriter.au);
-               var9.bit.bu(var12.length() + 1);
-               var9.bit.bh(var12);
-               Client.packetWriter.aw(var9);
+               var22 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
+               var19 = mi.an_renamed(ClientProt.cr, Client.packetWriter.au);
+               var19.bit.bu(var22.length() + 1);
+               var19.bit.bh(var22);
+               Client.packetWriter.aw(var19);
                return 1;
             } else {
                int var4;
@@ -63,17 +63,17 @@ public class NetFileRequest extends DualNode {
                } else if (var0 == 3108) {
                   Interpreter.Interpreter_intStackSize -= 1281407919;
                   var4 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
-                  var11 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
-                  int var14 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 2];
-                  Component var16 = gh.an_renamed(var14);
-                  ol.mm_renamed(var16, var4, var11);
+                  var21 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
+                  int var24 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 2];
+                  Component var26 = gh.an_renamed(var24);
+                  ol.mm_renamed(var26, var4, var21);
                   return 1;
                } else if (var0 == 3109) {
                   Interpreter.Interpreter_intStackSize -= 854271946;
                   var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-                  var11 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
-                  Component var13 = var2 ? SoundSystem.ag : an.ai;
-                  ol.mm_renamed(var13, var4, var11);
+                  var21 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
+                  Component var23 = var2 ? SoundSystem.ag : an.ai;
+                  ol.mm_renamed(var23, var4, var21);
                   return 1;
                } else if (var0 == 3110) {
                   su.ev = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
@@ -85,15 +85,15 @@ public class NetFileRequest extends DualNode {
                   aj.clientPreferences.au(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1);
                   return 1;
                } else if (var0 == 3113) {
-                  var12 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
-                  boolean var10 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
-                  Ignored.af_renamed(var12, var10, false);
+                  var22 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
+                  boolean var20 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+                  Ignored.af_renamed(var22, var20, false);
                   return 1;
                } else if (3115 == var0) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-                  var9 = mi.an_renamed(ClientProt.cm, Client.packetWriter.au);
-                  var9.bit.p2(var4);
-                  Client.packetWriter.aw(var9);
+                  var19 = mi.an_renamed(ClientProt.cm, Client.packetWriter.au);
+                  var19.bit.p2(var4);
+                  Client.packetWriter.aw(var19);
                   return 1;
                } else if (3116 == var0) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
@@ -211,18 +211,18 @@ public class NetFileRequest extends DualNode {
                   Client.pp = -757532791 * (var2 ? SoundSystem.ag.id * 1713081171 : an.ai.id * 1713081171);
                   return 1;
                } else {
-                  boolean var8;
+                  boolean var18;
                   if (3141 == var0) {
-                     var8 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
-                     aj.clientPreferences.aq(var8);
+                     var18 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+                     aj.clientPreferences.aq(var18);
                      return 1;
                   } else if (3142 == var0) {
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = aj.clientPreferences.al() ? 1 : 0;
                      return 1;
                   } else if (var0 == 3143) {
-                     var8 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
-                     Client.hb = var8;
-                     if (!var8) {
+                     var18 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+                     Client.hb = var18;
+                     if (!var18) {
                         aj.clientPreferences.ad("");
                      }
 
@@ -233,8 +233,8 @@ public class NetFileRequest extends DualNode {
                   } else if (3145 == var0) {
                      return 1;
                   } else if (3146 == var0) {
-                     var8 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
-                     aj.clientPreferences.at(!var8);
+                     var18 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+                     aj.clientPreferences.at(!var18);
                      return 1;
                   } else if (var0 == 3147) {
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = aj.clientPreferences.aa() ? 0 : 1;
@@ -373,28 +373,28 @@ public class NetFileRequest extends DualNode {
       if (-1 != var0.spotAnimationFrame * -1302441815) {
          SeqType var2 = Inventory.getSeqType(-1302441815 * var0.spotAnimationFrame, (byte)49);
          if (var2 != null) {
-            if (!var2.ao() && null != var2.ag) {
-               var0.walkSequence += -105665867;
-               if (424813829 * var0.spotAnimationFrameCycle < var2.ag.length && var0.walkSequence * -767724643 > var2.frameLengths[var0.spotAnimationFrameCycle * 424813829]) {
-                  var0.walkSequence = -105665867;
+            if (!var2.ao() && null != var2.frameIds) {
+               var0.npcCycle += -105665867;
+               if (424813829 * var0.spotAnimationFrameCycle < var2.frameIds.length && var0.npcCycle * -767724643 > var2.frameLengths[var0.spotAnimationFrameCycle * 424813829]) {
+                  var0.npcCycle = -105665867;
                   var0.spotAnimationFrameCycle += 1348853709;
                   lm.hk_renamed(var2, var0.spotAnimationFrameCycle * 424813829, 1144428983 * var0.bx, var0.bo * -411750205);
                }
 
-               if (var0.spotAnimationFrameCycle * 424813829 >= var2.ag.length) {
-                  if (1363943497 * var2.am > 0) {
-                     var0.spotAnimationFrameCycle -= var2.am * -152931979;
+               if (var0.spotAnimationFrameCycle * 424813829 >= var2.frameIds.length) {
+                  if (1363943497 * var2.righthand > 0) {
+                     var0.spotAnimationFrameCycle -= var2.righthand * -152931979;
                      if (var2.by) {
                         var0.ch += 1404488991;
                      }
 
-                     if (424813829 * var0.spotAnimationFrameCycle < 0 || 424813829 * var0.spotAnimationFrameCycle >= var2.ag.length || var2.by && -463442209 * var0.ch >= var2.ap * 1786137655) {
-                        var0.walkSequence = 0;
+                     if (424813829 * var0.spotAnimationFrameCycle < 0 || 424813829 * var0.spotAnimationFrameCycle >= var2.frameIds.length || var2.by && -463442209 * var0.ch >= var2.ap * 1786137655) {
+                        var0.npcCycle = 0;
                         var0.spotAnimationFrameCycle = 0;
                         var0.ch = 0;
                      }
                   } else {
-                     var0.walkSequence = 0;
+                     var0.npcCycle = 0;
                      var0.spotAnimationFrameCycle = 0;
                   }
 
@@ -406,19 +406,19 @@ public class NetFileRequest extends DualNode {
                if (424813829 * var0.spotAnimationFrameCycle < var3) {
                   KeyHandler.ha_renamed(var2, var0.spotAnimationFrameCycle * 424813829, var0.bx * 1144428983, -411750205 * var0.bo);
                } else {
-                  if (var2.am * 1363943497 > 0) {
-                     var0.spotAnimationFrameCycle -= -152931979 * var2.am;
+                  if (var2.righthand * 1363943497 > 0) {
+                     var0.spotAnimationFrameCycle -= -152931979 * var2.righthand;
                      if (var2.by) {
                         var0.ch += 1404488991;
                      }
 
                      if (424813829 * var0.spotAnimationFrameCycle < 0 || 424813829 * var0.spotAnimationFrameCycle >= var3 || var2.by && -463442209 * var0.ch >= 1786137655 * var2.ap) {
                         var0.spotAnimationFrameCycle = 0;
-                        var0.walkSequence = 0;
+                        var0.npcCycle = 0;
                         var0.ch = 0;
                      }
                   } else {
-                     var0.walkSequence = 0;
+                     var0.npcCycle = 0;
                      var0.spotAnimationFrameCycle = 0;
                   }
 
@@ -432,92 +432,92 @@ public class NetFileRequest extends DualNode {
          }
       }
 
-      IterableNodeHashTableIterator var7 = new IterableNodeHashTableIterator(var0.ch());
+      IterableNodeHashTableIterator var8 = new IterableNodeHashTableIterator(var0.ch());
 
       int var4;
-      for(tt var8 = (tt)var7.an(); var8 != null; var8 = (tt)var7.next()) {
-         if (-1171575623 * var8.af != -1 && -1886224337 * Client.ep >= -1415749665 * var8.ac) {
-            var4 = Inventory.getSpotType(var8.af * -1171575623).aq * 374130911;
+      for(tt var9 = (tt)var8.an(); var9 != null; var9 = (tt)var8.next()) {
+         if (-1171575623 * var9.af != -1 && -1886224337 * Client.ep >= -1415749665 * var9.ac) {
+            var4 = Inventory.getSpotType(var9.af * -1171575623).sequence * 374130911;
             if (var4 == -1) {
-               var8.remove();
+               var9.remove();
                var0.do -= -1822461181;
             } else {
-               var8.an = Math.max(971664459 * var8.an, 0) * -793313949;
+               var9.an = Math.max(971664459 * var9.an, 0) * -793313949;
                SeqType var5 = Inventory.getSeqType(var4, (byte)3);
-               if (null != var5.ag && !var5.ao()) {
-                  var8.aw += 1417617079;
-                  if (971664459 * var8.an < var5.ag.length && var8.aw * 77733639 > var5.frameLengths[var8.an * 971664459]) {
-                     var8.aw = 1417617079;
-                     var8.an += -793313949;
-                     lm.hk_renamed(var5, var8.an * 971664459, 1144428983 * var0.bx, var0.bo * -411750205);
+               if (null != var5.frameIds && !var5.ao()) {
+                  var9.aw += 1417617079;
+                  if (971664459 * var9.an < var5.frameIds.length && var9.aw * 77733639 > var5.frameLengths[var9.an * 971664459]) {
+                     var9.aw = 1417617079;
+                     var9.an += -793313949;
+                     lm.hk_renamed(var5, var9.an * 971664459, 1144428983 * var0.bx, var0.bo * -411750205);
                   }
 
-                  if (971664459 * var8.an >= var5.ag.length) {
-                     var8.remove();
+                  if (971664459 * var9.an >= var5.frameIds.length) {
+                     var9.remove();
                      var0.do -= -1822461181;
                   }
                } else if (var5.ao()) {
-                  var8.an += -793313949;
+                  var9.an += -793313949;
                   int var6 = var5.ax();
-                  if (var8.an * 971664459 < var6) {
-                     KeyHandler.ha_renamed(var5, var8.an * 971664459, var0.bx * 1144428983, var0.bo * -411750205);
+                  if (var9.an * 971664459 < var6) {
+                     KeyHandler.ha_renamed(var5, var9.an * 971664459, var0.bx * 1144428983, var0.bo * -411750205);
                   } else {
-                     var8.remove();
+                     var9.remove();
                      var0.do -= -1822461181;
                   }
                } else {
-                  var8.remove();
+                  var9.remove();
                   var0.do -= -1822461181;
                }
             }
          }
       }
 
-      SeqType var9;
+      SeqType var10;
       if (var0.ct * -1372355773 != -1 && 1253892101 * var0.dm <= 1) {
-         var9 = Inventory.getSeqType(var0.ct * -1372355773, (byte)124);
-         if (var9.bb * 1069382699 == 1 && -1181739279 * var0.eo > 0 && -435598119 * var0.dt <= Client.ep * -1886224337 && -1274841313 * var0.dv < Client.ep * -1886224337) {
+         var10 = Inventory.getSeqType(var0.ct * -1372355773, (byte)124);
+         if (var10.bb * 1069382699 == 1 && -1181739279 * var0.eo > 0 && -435598119 * var0.dt <= Client.ep * -1886224337 && -1274841313 * var0.dv < Client.ep * -1886224337) {
             var0.dm = -401806131;
             return;
          }
       }
 
       if (-1372355773 * var0.ct != -1 && 1253892101 * var0.dm == 0) {
-         var9 = Inventory.getSeqType(-1372355773 * var0.ct, (byte)41);
-         if (null != var9) {
-            if (!var9.ao() && var9.ag != null) {
-               var0.sequenceFrame += 672779449;
-               if (var0.cp * -41215169 < var9.ag.length && var0.sequenceFrame * 1356757385 > var9.frameLengths[-41215169 * var0.cp]) {
-                  var0.sequenceFrame = 672779449;
+         var10 = Inventory.getSeqType(-1372355773 * var0.ct, (byte)41);
+         if (null != var10) {
+            if (!var10.ao() && var10.frameIds != null) {
+               var0.cd += 672779449;
+               if (var0.cp * -41215169 < var10.frameIds.length && var0.cd * 1356757385 > var10.frameLengths[-41215169 * var0.cp]) {
+                  var0.cd = 672779449;
                   var0.cp += -63286081;
-                  lm.hk_renamed(var9, -41215169 * var0.cp, 1144428983 * var0.bx, -411750205 * var0.bo);
+                  lm.hk_renamed(var10, -41215169 * var0.cp, 1144428983 * var0.bx, -411750205 * var0.bo);
                }
 
-               if (var0.cp * -41215169 >= var9.ag.length) {
-                  var0.cp -= var9.am * -823260553;
+               if (var0.cp * -41215169 >= var10.frameIds.length) {
+                  var0.cp -= var10.righthand * -823260553;
                   var0.dw += -823959909;
-                  if (-92383341 * var0.dw >= 1786137655 * var9.ap) {
+                  if (-92383341 * var0.dw >= 1786137655 * var10.ap) {
                      var0.ct = 1690721941;
-                  } else if (var0.cp * -41215169 >= 0 && -41215169 * var0.cp < var9.ag.length) {
-                     lm.hk_renamed(var9, var0.cp * -41215169, 1144428983 * var0.bx, -411750205 * var0.bo);
+                  } else if (var0.cp * -41215169 >= 0 && -41215169 * var0.cp < var10.frameIds.length) {
+                     lm.hk_renamed(var10, var0.cp * -41215169, 1144428983 * var0.bx, -411750205 * var0.bo);
                   } else {
                      var0.ct = 1690721941;
                   }
                }
 
-               var0.an = var9.ak;
-            } else if (var9.ao()) {
+               var0.an = var10.ak;
+            } else if (var10.ao()) {
                var0.cp += -63286081;
-               var4 = var9.ax();
+               var4 = var10.ax();
                if (var0.cp * -41215169 < var4) {
-                  KeyHandler.ha_renamed(var9, -41215169 * var0.cp, 1144428983 * var0.bx, -411750205 * var0.bo);
+                  KeyHandler.ha_renamed(var10, -41215169 * var0.cp, 1144428983 * var0.bx, -411750205 * var0.bo);
                } else {
-                  var0.cp -= var9.am * -823260553;
+                  var0.cp -= var10.righthand * -823260553;
                   var0.dw += -823959909;
-                  if (var0.dw * -92383341 >= 1786137655 * var9.ap) {
+                  if (var0.dw * -92383341 >= 1786137655 * var10.ap) {
                      var0.ct = 1690721941;
                   } else if (-41215169 * var0.cp >= 0 && var0.cp * -41215169 < var4) {
-                     KeyHandler.ha_renamed(var9, -41215169 * var0.cp, var0.bx * 1144428983, -411750205 * var0.bo);
+                     KeyHandler.ha_renamed(var10, -41215169 * var0.cp, var0.bx * 1144428983, -411750205 * var0.bo);
                   } else {
                      var0.ct = 1690721941;
                   }

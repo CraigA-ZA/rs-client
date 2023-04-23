@@ -1,5 +1,5 @@
 public class rr extends rm {
-   static Archive archive7;
+   static Archive archive8;
    double ab = 0.0;
    double ac = 0.0;
    double aq = 0.0;
@@ -67,21 +67,21 @@ public class rr extends rm {
    }
 
    static final boolean runCs1(Component var0) {
-      if (null == var0.cs1ComparisonValues) {
+      if (null == var0.cs1Comparisons) {
          return false;
       } else {
-         for(int var2 = 0; var2 < var0.cs1ComparisonValues.length; ++var2) {
+         for(int var2 = 0; var2 < var0.cs1Comparisons.length; ++var2) {
             int var3 = ArchiveLoader.lx_renamed(var0, var2);
-            int var4 = var0.cs1Comparisons[var2];
-            if (var0.cs1ComparisonValues[var2] == 2) {
+            int var4 = var0.cs1ComparisonValues[var2];
+            if (var0.cs1Comparisons[var2] == 2) {
                if (var3 >= var4) {
                   return false;
                }
-            } else if (var0.cs1ComparisonValues[var2] == 3) {
+            } else if (var0.cs1Comparisons[var2] == 3) {
                if (var3 <= var4) {
                   return false;
                }
-            } else if (4 == var0.cs1ComparisonValues[var2]) {
+            } else if (4 == var0.cs1Comparisons[var2]) {
                if (var3 == var4) {
                   return false;
                }

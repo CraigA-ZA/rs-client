@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 public class he implements be {
-   static Archive archive13;
+   static Archive gr;
    boolean an = false;
    boolean aw = false;
    Component af = null;

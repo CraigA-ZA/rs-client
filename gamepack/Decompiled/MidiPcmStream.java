@@ -3,8 +3,8 @@ public class MidiPcmStream extends PcmStream {
    boolean bi;
    int an = 673362688;
    int aw = -1778707904;
-   int trackLength;
    int track;
+   int trackLength;
    int[] aa = new int[16];
    int[] ab = new int[16];
    int[] ac = new int[16];
@@ -112,9 +112,9 @@ public class MidiPcmStream extends PcmStream {
          this.midiFile.markTrackPosition(var5);
       }
 
-      this.trackLength = this.midiFile.getPrioritizedTrack() * 911615763;
-      this.track = this.midiFile.trackLengths[this.trackLength * -2130330853] * -1172591539;
-      this.bo = this.midiFile.ao(this.track * 2049666181) * -5361838125554816559L;
+      this.track = this.midiFile.getPrioritizedTrack() * 911615763;
+      this.trackLength = this.midiFile.trackLengths[this.track * -2130330853] * -1172591539;
+      this.bo = this.midiFile.ao(this.trackLength * 2049666181) * -5361838125554816559L;
    }
 
    public synchronized void ao() {
@@ -164,33 +164,33 @@ public class MidiPcmStream extends PcmStream {
          }
       }
 
-      MusicPatch var9 = (MusicPatch)this.musicPatches.get((long)this.al[var1]);
-      if (var9 != null) {
-         RawSound var10 = var9.rawSounds[var2];
-         if (null != var10) {
+      MusicPatch var12 = (MusicPatch)this.musicPatches.get((long)this.al[var1]);
+      if (var12 != null) {
+         RawSound var13 = var12.rawSounds[var2];
+         if (null != var13) {
             MusicPatchNode var7 = new MusicPatchNode();
             var7.af = var1 * -2055035679;
-            var7.patch = var9;
-            var7.rawSound = var10;
-            var7.ac = var9.ab[var2];
-            var7.au = -1957781017 * var9.aq[var2];
+            var7.patch = var12;
+            var7.rawSound = var13;
+            var7.ac = var12.ab[var2];
+            var7.au = -1957781017 * var12.aq[var2];
             var7.ab = -1339790057 * var2;
-            var7.aq = -284955771 * (1024 + -1979814511 * var9.af * var3 * var3 * var9.ac[var2] >> 11);
-            var7.al = (var9.au[var2] & 255) * -539102003;
-            var7.at = ((var2 << 8) - (var9.aw[var2] & 32767)) * -1343136669;
+            var7.aq = -284955771 * (1024 + -1979814511 * var12.af * var3 * var3 * var12.ac[var2] >> 11);
+            var7.al = (var12.au[var2] & 255) * -539102003;
+            var7.at = ((var2 << 8) - (var12.aw[var2] & 32767)) * -1343136669;
             var7.ao = 0;
             var7.ax = 0;
             var7.ai = 0;
             var7.ag = -81590643;
             var7.ah = 0;
             if (this.az[var1] == 0) {
-               var7.stream = RawPcmStream.ac_renamed(var10, this.bq(var7), this.bv(var7), this.bl(var7));
+               var7.stream = RawPcmStream.ac_renamed(var13, this.bq(var7), this.bv(var7), this.bl(var7));
             } else {
-               var7.stream = RawPcmStream.ac_renamed(var10, this.bq(var7), 0, this.bl(var7));
-               this.ar(var7, var9.aw[var2] < 0);
+               var7.stream = RawPcmStream.ac_renamed(var13, this.bq(var7), 0, this.bl(var7));
+               this.ar(var7, var12.aw[var2] < 0);
             }
 
-            if (var9.aw[var2] < 0) {
+            if (var12.aw[var2] < 0) {
                var7.stream.aa(-1);
             }
 
@@ -667,11 +667,11 @@ public class MidiPcmStream extends PcmStream {
    }
 
    void bp() {
-      int var2 = this.trackLength * -2130330853;
-      int var3 = this.track * 2049666181;
+      int var2 = this.track * -2130330853;
+      int var3 = this.trackLength * 2049666181;
 
       long var4;
-      for(var4 = this.bo * -8691691867109044431L; this.track * 2049666181 == var3; var4 = this.midiFile.ao(var3)) {
+      for(var4 = this.bo * -8691691867109044431L; this.trackLength * 2049666181 == var3; var4 = this.midiFile.ao(var3)) {
          while(this.midiFile.trackLengths[var2] == var3) {
             this.midiFile.gotoTrack(var2);
             int var6 = this.midiFile.readMessage(var2);
@@ -702,8 +702,8 @@ public class MidiPcmStream extends PcmStream {
          var3 = this.midiFile.trackLengths[var2];
       }
 
-      this.trackLength = 911615763 * var2;
-      this.track = -1172591539 * var3;
+      this.track = 911615763 * var2;
+      this.trackLength = -1172591539 * var3;
       this.bo = -5361838125554816559L * var4;
    }
 

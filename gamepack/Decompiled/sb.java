@@ -78,11 +78,11 @@ public class sb {
          int var11 = var2 * var10 + var9 * var3 >> 16;
          int var12 = var10 * var3 - var9 * var2 >> 16;
          double var13 = Math.atan2((double)var11, (double)var12);
-         int var15 = var5.height * 1484188043 / 2 - 25;
+         int var15 = var5.width * 1484188043 / 2 - 25;
          int var16 = (int)(Math.sin(var13) * (double)var15);
          int var17 = (int)(Math.cos(var13) * (double)var15);
          byte var18 = 20;
-         dp.jz.bk(var5.height * 1484188043 / 2 + var0 - var18 / 2 + var16, var1 + 939947663 * var5.width / 2 - var18 / 2 - var17 - 10, var18, var18, 15, 15, var13, 256);
+         dp.jz.bk(var5.width * 1484188043 / 2 + var0 - var18 / 2 + var16, var1 + 939947663 * var5.height / 2 - var18 / 2 - var17 - 10, var18, var18, 15, 15, var13, 256);
       } else {
          qc.ns_renamed(var0, var1, var2, var3, var4, var5);
       }

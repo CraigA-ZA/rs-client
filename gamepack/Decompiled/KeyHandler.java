@@ -64,7 +64,7 @@ public class KeyHandler implements KeyListener, FocusListener {
 
    public final synchronized void keyPressed(KeyEvent var1) {
       int var2;
-      label29: {
+      label32: {
          var2 = var1.getKeyCode();
          if (var2 >= 0) {
             int var4 = bi.KeyHandler_keyCodes.length;
@@ -74,7 +74,7 @@ public class KeyHandler implements KeyListener, FocusListener {
                if (var5) {
                   var2 = -1;
                }
-               break label29;
+               break label32;
             }
          }
 
@@ -92,13 +92,13 @@ public class KeyHandler implements KeyListener, FocusListener {
 
    public final synchronized void keyReleased(KeyEvent var1) {
       int var2;
-      label20: {
+      label22: {
          var2 = var1.getKeyCode();
          if (var2 >= 0) {
             int var4 = bi.KeyHandler_keyCodes.length;
             if (var2 < var4) {
                var2 = ix.an_renamed(var2) & -129;
-               break label20;
+               break label22;
             }
          }
 
@@ -120,7 +120,7 @@ public class KeyHandler implements KeyListener, FocusListener {
          if (var2 > 0 && var2 < 128 || var2 >= 160 && var2 <= 255) {
             var3 = true;
          } else {
-            label61: {
+            label62: {
                if (0 != var2) {
                   char[] var4 = od.af;
 
@@ -128,7 +128,7 @@ public class KeyHandler implements KeyListener, FocusListener {
                      char var6 = var4[var5];
                      if (var6 == var2) {
                         var3 = true;
-                        break label61;
+                        break label62;
                      }
                   }
                }
@@ -181,7 +181,7 @@ public class KeyHandler implements KeyListener, FocusListener {
 
          Rasterizer2D.er();
          byte[] var5 = var0.takeFileByNames("title.jpg", "");
-         ex.at = Strings.af_renamed(var5);
+         ex.at = Strings.imageToSprite(var5);
          ParamType.aa = ex.at.af();
          int var6 = Client.ce * -205173751;
          if ((var6 & 536870912) != 0) {

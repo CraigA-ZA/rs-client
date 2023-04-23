@@ -169,7 +169,7 @@ public class ClientScriptFrame {
                            MiniMenuEntry.kz_renamed(Client.oj, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(16748608) + var33.name, 17, 176307405 * var32.id, var12, var13);
                         }
                      } else {
-                        String[] var34 = var33.iop;
+                        String[] var34 = var33.op;
 
                         for(var22 = 4; var22 >= 0; --var22) {
                            if (var32.aw(var22)) {

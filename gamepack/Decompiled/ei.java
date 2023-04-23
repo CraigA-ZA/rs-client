@@ -1,7 +1,7 @@
 import java.util.concurrent.Callable;
 
 class ei implements Callable {
-   static Archive fg;
+   static Archive archive13;
    // $FF: synthetic field
    final eh[] val$curveLoadJobs;
    // $FF: synthetic field

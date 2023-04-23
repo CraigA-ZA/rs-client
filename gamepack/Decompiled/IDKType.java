@@ -5,13 +5,13 @@ public class IDKType extends DualNode {
    static AbstractArchive IDKType_archive;
    static AbstractArchive an;
    static AbstractSocket js5Socket;
-   static Sprite[] ku;
+   static Sprite[] headIconHintSprites;
    int[] models;
    int[] head = new int[]{-1, -1, -1, -1, -1};
-   short[] recol_d;
    short[] retex_d;
-   short[] retex_s;
+   short[] recol_d;
    short[] recol_s;
+   short[] retex_s;
    public boolean ao = false;
    public int bodyPart = -1699952575;
 
@@ -62,23 +62,6 @@ public class IDKType extends DualNode {
             }
 
             var4 = var1.g1();
-            this.retex_s = new short[var4];
-            this.retex_d = new short[var4];
-
-            for(var5 = 0; var5 < var4; ++var5) {
-               if (var3 <= -1) {
-                  throw new IllegalStateException();
-               }
-
-               this.retex_s[var5] = (short)var1.cl();
-               this.retex_d[var5] = (short)var1.cl();
-            }
-         } else if (var2 == 41) {
-            if (var3 <= -1) {
-               return;
-            }
-
-            var4 = var1.g1();
             this.recol_s = new short[var4];
             this.recol_d = new short[var4];
 
@@ -89,6 +72,23 @@ public class IDKType extends DualNode {
 
                this.recol_s[var5] = (short)var1.cl();
                this.recol_d[var5] = (short)var1.cl();
+            }
+         } else if (var2 == 41) {
+            if (var3 <= -1) {
+               return;
+            }
+
+            var4 = var1.g1();
+            this.retex_s = new short[var4];
+            this.retex_d = new short[var4];
+
+            for(var5 = 0; var5 < var4; ++var5) {
+               if (var3 <= -1) {
+                  throw new IllegalStateException();
+               }
+
+               this.retex_s[var5] = (short)var1.cl();
+               this.retex_d[var5] = (short)var1.cl();
             }
          } else if (var2 >= 60) {
             if (var3 <= -1) {
@@ -129,27 +129,27 @@ public class IDKType extends DualNode {
             var2[var3] = UnlitModel.af_renamed(an, this.models[var3], 0);
          }
 
-         UnlitModel var5;
+         UnlitModel var7;
          if (var2.length == 1) {
-            var5 = var2[0];
+            var7 = var2[0];
          } else {
-            var5 = new UnlitModel(var2, var2.length);
+            var7 = new UnlitModel(var2, var2.length);
          }
 
          int var4;
-         if (this.retex_s != null) {
-            for(var4 = 0; var4 < this.retex_s.length; ++var4) {
-               var5.recolor(this.retex_s[var4], this.retex_d[var4]);
-            }
-         }
-
          if (this.recol_s != null) {
             for(var4 = 0; var4 < this.recol_s.length; ++var4) {
-               var5.retexture(this.recol_s[var4], this.recol_d[var4]);
+               var7.recolor(this.recol_s[var4], this.recol_d[var4]);
             }
          }
 
-         return var5;
+         if (this.retex_s != null) {
+            for(var4 = 0; var4 < this.retex_s.length; ++var4) {
+               var7.retexture(this.retex_s[var4], this.retex_d[var4]);
+            }
+         }
+
+         return var7;
       }
    }
 
@@ -211,21 +211,21 @@ public class IDKType extends DualNode {
          }
       }
 
-      UnlitModel var6 = new UnlitModel(var2, var3);
+      UnlitModel var7 = new UnlitModel(var2, var3);
       int var5;
-      if (null != this.retex_s) {
-         for(var5 = 0; var5 < this.retex_s.length; ++var5) {
-            var6.recolor(this.retex_s[var5], this.retex_d[var5]);
-         }
-      }
-
       if (null != this.recol_s) {
          for(var5 = 0; var5 < this.recol_s.length; ++var5) {
-            var6.retexture(this.recol_s[var5], this.recol_d[var5]);
+            var7.recolor(this.recol_s[var5], this.recol_d[var5]);
          }
       }
 
-      return var6;
+      if (null != this.retex_s) {
+         for(var5 = 0; var5 < this.retex_s.length; ++var5) {
+            var7.retexture(this.retex_s[var5], this.retex_d[var5]);
+         }
+      }
+
+      return var7;
    }
 
    static final boolean al_renamed(byte[] var0, int var1, int var2) {
@@ -233,7 +233,7 @@ public class IDKType extends DualNode {
       Packet var5 = new Packet(var0);
       int var6 = -1;
 
-      label86:
+      label85:
       while(true) {
          int var7 = var5.dw();
          if (0 == var7) {
@@ -249,7 +249,7 @@ public class IDKType extends DualNode {
             while(!var9) {
                var10 = var5.cd();
                if (var10 == 0) {
-                  continue label86;
+                  continue label85;
                }
 
                var8 += var10 - 1;
@@ -260,7 +260,7 @@ public class IDKType extends DualNode {
                int var15 = var2 + var11;
                if (var14 > 0 && var15 > 0 && var14 < 103 && var15 < 103) {
                   LocType var16 = fw.an_renamed(var6);
-                  if (var13 != 22 || !Client.cu || 0 != var16.int2 * 415653149 || -973955889 * var16.interactType == 1 || var16.clipped) {
+                  if (var13 != 22 || !Client.cu || 0 != var16.interactable * 415653149 || -973955889 * var16.interactType == 1 || var16.lowDetailVisible) {
                      if (!var16.loadModels()) {
                         Client.jk += 1441978033;
                         var4 = false;
@@ -319,8 +319,8 @@ public class IDKType extends DualNode {
                         var13 = var13 + 1 & 4095;
                         var8 = var6 - var10;
                         var9 = var7 - var11;
-                        var15 = var6 - 1724654229 * var4.bz;
-                        var16 = var7 - var4.bm * -216630539;
+                        var15 = var6 - 1724654229 * var4.xInset;
+                        var16 = var7 - var4.yInset * -216630539;
                         if (var3.af(var2, var6, var7, var4)) {
                            am.au = var6 * -617213805;
                            pg.ab = 1169106949 * var7;

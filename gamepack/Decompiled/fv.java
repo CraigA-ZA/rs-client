@@ -87,7 +87,7 @@ public class fv extends fb {
                var9 = Inventory.getSeqType(var7, (byte)5).be * 789159225;
                if (var9 == 1) {
                   var5.cp = 0;
-                  var5.sequenceFrame = 0;
+                  var5.cd = 0;
                   var5.dm = -401806131 * var8;
                   var5.dw = 0;
                }
@@ -95,10 +95,10 @@ public class fv extends fb {
                if (2 == var9) {
                   var5.dw = 0;
                }
-            } else if (var7 == -1 || -1372355773 * var5.ct == -1 || Inventory.getSeqType(var7, (byte)116).frameCount * -1932560049 >= Inventory.getSeqType(-1372355773 * var5.ct, (byte)2).frameCount * -1932560049) {
+            } else if (var7 == -1 || -1372355773 * var5.ct == -1 || Inventory.getSeqType(var7, (byte)116).az * -1932560049 >= Inventory.getSeqType(-1372355773 * var5.ct, (byte)2).az * -1932560049) {
                var5.ct = -1690721941 * var7;
                var5.cp = 0;
-               var5.sequenceFrame = 0;
+               var5.cd = 0;
                var5.dm = -401806131 * var8;
                var5.dw = 0;
                var5.eo = -1718989897 * var5.dn;
@@ -116,7 +116,7 @@ public class fv extends fb {
 
          if (0 != (var6 & 2)) {
             var5.overheadText = var1.cw();
-            var5.movementSequence = -1924554444;
+            var5.movementFrameCycle = -1924554444;
          }
 
          int var10;
@@ -188,7 +188,7 @@ public class fv extends fb {
                var10 = -411750205 * var5.bo - (var8 - Scenery.jc * 827352769 - 827352769 * Scenery.jc) * 64;
                if (0 != var9 || var10 != 0) {
                   var12 = (int)(Math.atan2((double)var9, (double)var10) * 325.94932345220167) & 2047;
-                  var5.size = -1409690365 * var12;
+                  var5.sequenceDelay = -1409690365 * var12;
                }
             }
          }
@@ -215,7 +215,7 @@ public class fv extends fb {
 
          if ((var6 & 2048) != 0) {
             var5.dh = (Client.ep * -1886224337 + var1.da()) * -887211183;
-            var5.sequenceDelay = (Client.ep * -1886224337 + var1.cl()) * -368061749;
+            var5.dp = (Client.ep * -1886224337 + var1.cl()) * -368061749;
             var5.du = var1.dd();
             var5.db = var1.dj();
             var5.df = var1.dx();
@@ -230,63 +230,63 @@ public class fv extends fb {
             var5.aw(var1.g1());
          }
 
-         int[] var15;
-         short[] var16;
-         short[] var17;
-         long var18;
-         boolean var19;
+         int[] var18;
+         short[] var19;
+         short[] var20;
+         long var21;
+         boolean var22;
          if (0 != (var6 & 4096)) {
             var7 = var1.dq();
             if ((var7 & 1) == 1) {
                var5.aj();
             } else {
-               var15 = null;
+               var18 = null;
                if (2 == (var7 & 2)) {
                   var9 = var1.dq();
-                  var15 = new int[var9];
+                  var18 = new int[var9];
 
                   for(var10 = 0; var10 < var9; ++var10) {
                      var11 = var1.cl();
                      var11 = var11 == 65535 ? -1 : var11;
-                     var15[var10] = var11;
+                     var18[var10] = var11;
                   }
                }
 
-               var16 = null;
+               var19 = null;
                if ((var7 & 4) == 4) {
                   var10 = 0;
                   if (var5.type.by != null) {
                      var10 = var5.type.by.length;
                   }
 
-                  var16 = new short[var10];
+                  var19 = new short[var10];
 
                   for(var11 = 0; var11 < var10; ++var11) {
-                     var16[var11] = (short)var1.da();
+                     var19[var11] = (short)var1.da();
                   }
                }
 
-               var17 = null;
+               var20 = null;
                if ((var7 & 8) == 8) {
                   var11 = 0;
                   if (var5.type.bi != null) {
                      var11 = var5.type.bi.length;
                   }
 
-                  var17 = new short[var11];
+                  var20 = new short[var11];
 
                   for(var12 = 0; var12 < var11; ++var12) {
-                     var17[var12] = (short)var1.ep();
+                     var20[var12] = (short)var1.ep();
                   }
                }
 
-               var19 = false;
+               var22 = false;
                if ((var7 & 16) != 0) {
-                  var19 = var1.g1() == 1;
+                  var22 = var1.g1() == 1;
                }
 
-               var18 = (long)((Npc.aa += -1963015503) * 413681233 - 1);
-               var5.av(new hv(var18, var15, var16, var17, var19));
+               var21 = (long)((Npc.aa += -1963015503) * 413681233 - 1);
+               var5.av(new hv(var21, var18, var19, var20, var22));
             }
          }
 
@@ -295,91 +295,91 @@ public class fv extends fb {
             if ((var7 & 1) == 1) {
                var5.ak();
             } else {
-               var15 = null;
+               var18 = null;
                if ((var7 & 2) == 2) {
                   var9 = var1.db();
-                  var15 = new int[var9];
+                  var18 = new int[var9];
 
                   for(var10 = 0; var10 < var9; ++var10) {
                      var11 = var1.eo();
                      var11 = var11 == 65535 ? -1 : var11;
-                     var15[var10] = var11;
+                     var18[var10] = var11;
                   }
                }
 
-               var16 = null;
+               var19 = null;
                if (4 == (var7 & 4)) {
                   var10 = 0;
                   if (null != var5.type.by) {
                      var10 = var5.type.by.length;
                   }
 
-                  var16 = new short[var10];
+                  var19 = new short[var10];
 
                   for(var11 = 0; var11 < var10; ++var11) {
-                     var16[var11] = (short)var1.da();
+                     var19[var11] = (short)var1.da();
                   }
                }
 
-               var17 = null;
+               var20 = null;
                if ((var7 & 8) == 8) {
                   var11 = 0;
                   if (var5.type.bi != null) {
                      var11 = var5.type.bi.length;
                   }
 
-                  var17 = new short[var11];
+                  var20 = new short[var11];
 
                   for(var12 = 0; var12 < var11; ++var12) {
-                     var17[var12] = (short)var1.eo();
+                     var20[var12] = (short)var1.eo();
                   }
                }
 
-               var19 = false;
+               var22 = false;
                if (0 != (var7 & 16)) {
-                  var19 = var1.g1() == 1;
+                  var22 = var1.g1() == 1;
                }
 
-               var18 = (long)((Npc.al += -1714612375) * -1770985255 - 1);
-               var5.am(new hv(var18, var15, var16, var17, var19));
+               var21 = (long)((Npc.al += -1714612375) * -1770985255 - 1);
+               var5.am(new hv(var21, var18, var19, var20, var22));
             }
          }
 
          if ((var6 & 131072) != 0) {
             var7 = var1.dq();
-            var15 = new int[8];
-            var16 = new short[8];
+            var18 = new int[8];
+            var19 = new short[8];
 
             for(var10 = 0; var10 < 8; ++var10) {
                if ((var7 & 1 << var10) != 0) {
-                  var15[var10] = var1.gSmart2or4();
-                  var16[var10] = (short)var1.dm();
+                  var18[var10] = var1.gSmart2or4();
+                  var19[var10] = (short)var1.dm();
                } else {
-                  var15[var10] = -1;
-                  var16[var10] = -1;
+                  var18[var10] = -1;
+                  var19[var10] = -1;
                }
             }
 
-            var5.ag(var15, var16);
+            var5.ag(var18, var19);
          }
 
          if (0 != (var6 & 262144)) {
             var7 = var1.g4s();
-            var5.bj = ((var7 & 1) != 0 ? var1.cl() : -2117504177 * var5.type.ao) * -767436785;
-            var5.sequence = (0 != (var7 & 2) ? var1.cl() : var5.type.ax * 1635935495) * -603869663;
-            var5.readySequence = (0 != (var7 & 4) ? var1.eo() : var5.type.ai * 849832979) * 1672510249;
-            var5.walkLeftSequence = (0 != (var7 & 8) ? var1.cl() : var5.type.ag * 606174455) * -1683505383;
-            var5.bg = ((var7 & 16) != 0 ? var1.cl() : 429445119 * var5.type.ah) * 497469823;
+            var5.turnLeftSequence = ((var7 & 1) != 0 ? var1.cl() : -2117504177 * var5.type.ao) * -767436785;
+            var5.turnRightSequence = (0 != (var7 & 2) ? var1.cl() : var5.type.ax * 1635935495) * -603869663;
+            var5.walkSequence = (0 != (var7 & 4) ? var1.eo() : var5.type.ai * 849832979) * 1672510249;
+            var5.walkBackSequence = (0 != (var7 & 8) ? var1.cl() : var5.type.ag * 606174455) * -1683505383;
+            var5.walkLeftSequence = ((var7 & 16) != 0 ? var1.cl() : 429445119 * var5.type.ah) * 497469823;
             var5.walkRightSequence = (0 != (var7 & 32) ? var1.cl() : var5.type.av * -1237616413) * 1927855919;
             var5.runSequence = ((var7 & 64) != 0 ? var1.cl() : -1565402875 * var5.type.ar) * 140602839;
             var5.overheadTextCyclesRemaining = ((var7 & 128) != 0 ? var1.da() : var5.type.am * 1434909561) * -1320156809;
-            var5.npcCycle = (0 != (var7 & 256) ? var1.da() : -1171795391 * var5.type.as) * 725472713;
-            var5.bv = (0 != (var7 & 512) ? var1.da() : var5.type.aj * 1924156607) * -1530081757;
-            var5.turnRightSequence = (0 != (var7 & 1024) ? var1.cl() : -1186532489 * var5.type.ak) * -1035736995;
-            var5.bp = ((var7 & 2048) != 0 ? var1.cl() : var5.type.ambient * 1456216629) * -1110395975;
-            var5.targetIndex = ((var7 & 4096) != 0 ? var1.ep() : var5.type.ad * -750567499) * -2025717011;
-            var5.movementFrameCycle = ((var7 & 8192) != 0 ? var1.eo() : var5.type.contrast * 1520351037) * -919918425;
-            var5.turnLeftSequence = ((var7 & 16384) != 0 ? var1.ep() : var5.type.ay * 1235033537) * 1196796229;
+            var5.ba = (0 != (var7 & 256) ? var1.da() : -1171795391 * var5.type.as) * 725472713;
+            var5.bv = (0 != (var7 & 512) ? var1.da() : var5.type.ambient * 1924156607) * -1530081757;
+            var5.targetIndex = (0 != (var7 & 1024) ? var1.cl() : -1186532489 * var5.type.contrast) * -1035736995;
+            var5.bp = ((var7 & 2048) != 0 ? var1.cl() : var5.type.az * 1456216629) * -1110395975;
+            var5.movementSequence = ((var7 & 4096) != 0 ? var1.ep() : var5.type.ad * -750567499) * -2025717011;
+            var5.movementFrame = ((var7 & 8192) != 0 ? var1.eo() : var5.type.ae * 1520351037) * -919918425;
+            var5.readySequence = ((var7 & 16384) != 0 ? var1.ep() : var5.type.ay * 1235033537) * 1196796229;
          }
 
          if ((var6 & 65536) != 0) {
@@ -402,8 +402,8 @@ public class fv extends fb {
          }
       }
 
-      if (-1633313603 * var1.index != Client.packetWriter.al * 889658999) {
-         throw new RuntimeException(var1.index * -1633313603 + Formatting.Formatting_comma + 889658999 * Client.packetWriter.al);
+      if (-1633313603 * var1.index != Client.packetWriter.serverPacket0Length * 889658999) {
+         throw new RuntimeException(var1.index * -1633313603 + Formatting.Formatting_comma + 889658999 * Client.packetWriter.serverPacket0Length);
       } else {
          for(var3 = 0; var3 < 265474485 * Client.iw; ++var3) {
             if (Client.npcs[Client.iy[var3]] == null) {

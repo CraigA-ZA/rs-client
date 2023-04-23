@@ -8,27 +8,27 @@ import java.util.Map;
 public class WorldMapRegion {
    public static DemotingHashTable au = new DemotingHashTable(37748736, 256);
    int aa;
-   int y;
    int x;
+   int y;
    int ay;
-   HashMap fonts;
+   HashMap iconsMap;
    LinkedList at;
    List iconsList;
    jm al;
-   final HashMap iconsMap;
+   final HashMap fonts;
 
    WorldMapRegion(int var1, int var2, int var3, HashMap var4) {
-      this.y = var1 * 970404445;
-      this.x = var2 * 125165747;
+      this.x = var1 * 970404445;
+      this.y = var2 * 125165747;
       this.at = new LinkedList();
       this.iconsList = new LinkedList();
-      this.fonts = new HashMap();
+      this.iconsMap = new HashMap();
       this.aa = (var3 | -16777216) * 241012907;
-      this.iconsMap = var4;
+      this.fonts = var4;
    }
 
    void ac(int var1, int var2, int var3) {
-      Sprite var5 = gz.an_renamed(-2122501643 * this.y, 1858063995 * this.x, this.ay * -1897887643);
+      Sprite var5 = gz.an_renamed(-2122501643 * this.x, 1858063995 * this.y, this.ay * -1897887643);
       if (var5 != null) {
          if (this.ay * -1205724864 == var3) {
             var5.ay(var1, var2);
@@ -51,18 +51,18 @@ public class WorldMapRegion {
    }
 
    void au(jm var1, List var2) {
-      this.fonts.clear();
+      this.iconsMap.clear();
       this.al = var1;
       this.aa(var2);
    }
 
    void ab(HashSet var1, List var2) {
-      this.fonts.clear();
+      this.iconsMap.clear();
       Iterator var4 = var1.iterator();
 
       while(var4.hasNext()) {
          jh var5 = (jh)var4.next();
-         if (var5.bk() == this.y * -2122501643 && var5.bx() == 1858063995 * this.x) {
+         if (var5.bk() == this.x * -2122501643 && var5.bx() == 1858063995 * this.y) {
             this.at.add(var5);
          }
       }
@@ -91,12 +91,12 @@ public class WorldMapRegion {
                            for(int var17 = 0; var17 < var16.length; ++var17) {
                               int var18 = var16[var17];
                               LocType var19 = fw.an_renamed(var18);
-                              if (1270945427 * var19.resizeY != -1) {
+                              if (1270945427 * var19.mapIconId != -1) {
                                  var15 = true;
                                  break label77;
                               }
                            }
-                        } else if (1270945427 * var14.resizeY != -1) {
+                        } else if (1270945427 * var14.mapIconId != -1) {
                            var15 = true;
                            break label77;
                         }
@@ -117,7 +117,7 @@ public class WorldMapRegion {
    }
 
    void al(LocType var1, int var2, int var3, int var4, jz var5) {
-      Coord var7 = new Coord(var2, this.y * 1598848320 + var3, -1342988608 * this.x + var4);
+      Coord var7 = new Coord(var2, this.x * 1598848320 + var3, -1342988608 * this.y + var4);
       Coord var8 = null;
       if (null != this.al) {
          var8 = new Coord(this.al.at * 1615088237 + var2, var3 + this.al.au * 518961216, 763222976 * this.al.ab + var4);
@@ -127,23 +127,23 @@ public class WorldMapRegion {
       }
 
       MapElementType var10;
-      Object var11;
+      Object var14;
       if (var1.multi != null) {
-         var11 = new WorldMapIcon2(var8, var7, -1529817365 * var1.at, this);
+         var14 = new WorldMapIcon2(var8, var7, -1529817365 * var1.at, this);
       } else {
-         var10 = nf.getMapElementType(1270945427 * var1.resizeY);
-         var11 = new WorldMapIcon1(var8, var7, var10.au * 219774827, this.bz(var10));
+         var10 = nf.getMapElementType(1270945427 * var1.mapIconId);
+         var14 = new WorldMapIcon1(var8, var7, var10.au * 219774827, this.bz(var10));
       }
 
-      var10 = nf.getMapElementType(((AbstractWorldMapIcon)var11).element());
+      var10 = nf.getMapElementType(((AbstractWorldMapIcon)var14).element());
       if (var10.ao) {
-         this.fonts.put(new Coord(0, var3, var4), var11);
+         this.iconsMap.put(new Coord(0, var3, var4), var14);
       }
 
    }
 
    void at() {
-      Iterator var2 = this.fonts.values().iterator();
+      Iterator var2 = this.iconsMap.values().iterator();
 
       while(var2.hasNext()) {
          AbstractWorldMapIcon var3 = (AbstractWorldMapIcon)var2.next();
@@ -159,7 +159,7 @@ public class WorldMapRegion {
 
       while(var3.hasNext()) {
          WorldMapIcon1 var4 = (WorldMapIcon1)var3.next();
-         if (nf.getMapElementType(1767565411 * var4.af).ao && var4.coord2.x * -96298701 >> 6 == this.y * -2122501643 && this.x * 1858063995 == -2105445199 * var4.coord2.z >> 6) {
+         if (nf.getMapElementType(1767565411 * var4.af).ao && var4.coord2.x * -96298701 >> 6 == this.x * -2122501643 && this.y * 1858063995 == -2105445199 * var4.coord2.z >> 6) {
             WorldMapIcon1 var5 = new WorldMapIcon1(var4.coord2, var4.coord2, var4.af * 1767565411, this.bo(var4.af * 1767565411));
             this.iconsList.add(var5);
          }
@@ -182,7 +182,7 @@ public class WorldMapRegion {
    }
 
    boolean ao(AbstractArchive var1) {
-      this.fonts.clear();
+      this.iconsMap.clear();
       if (null != this.al) {
          this.al.ap(var1);
          if (this.al.ae()) {
@@ -217,7 +217,7 @@ public class WorldMapRegion {
    void ax(int var1, kj var2, IndexedSprite[] var3, AbstractArchive var4, AbstractArchive var5) {
       this.ay = -467998355 * var1;
       if (this.al != null || !this.at.isEmpty()) {
-         if (gz.an_renamed(this.y * -2122501643, 1858063995 * this.x, var1) == null) {
+         if (gz.an_renamed(this.x * -2122501643, 1858063995 * this.y, var1) == null) {
             boolean var7 = true;
             var7 &= this.ao(var4);
             int var9;
@@ -234,7 +234,7 @@ public class WorldMapRegion {
                if (null == var8) {
                   var10 = new kc();
                } else {
-                  var10 = new kc(Strings.af_renamed(var8).pixels);
+                  var10 = new kc(Strings.imageToSprite(var8).pixels);
                }
 
                Sprite var12 = new Sprite(-1205724864 * this.ay, -1205724864 * this.ay);
@@ -245,8 +245,8 @@ public class WorldMapRegion {
                   this.av(var2, var3, var10);
                }
 
-               int var13 = -2122501643 * this.y;
-               int var14 = this.x * 1858063995;
+               int var13 = -2122501643 * this.x;
+               int var14 = this.y * 1858063995;
                int var15 = -1897887643 * this.ay;
                au.put(var12, er.af_renamed(var13, var14, var15), var12.pixels.length * 4);
                this.ay();
@@ -265,7 +265,7 @@ public class WorldMapRegion {
    }
 
    void ag(HashSet var1, int var2, int var3) {
-      Iterator var5 = this.fonts.values().iterator();
+      Iterator var5 = this.iconsMap.values().iterator();
 
       while(var5.hasNext()) {
          AbstractWorldMapIcon var6 = (AbstractWorldMapIcon)var5.next();
@@ -399,8 +399,8 @@ public class WorldMapRegion {
             } else if (var12.rgb * 1889574527 == 16711935) {
                var10 = var11;
             } else {
-               var15 = var12.saturation * 174415927;
-               var16 = 470803713 * var12.hue;
+               var15 = var12.hue * 174415927;
+               var16 = 470803713 * var12.saturation;
                var17 = 532980473 * var12.lightness;
                if (var17 > 179) {
                   var16 /= 2;
@@ -498,8 +498,8 @@ public class WorldMapRegion {
                } else if (1889574527 * var10.rgb == 16711935) {
                   var8 = var9;
                } else {
-                  var13 = var10.saturation * 174415927;
-                  var14 = 470803713 * var10.hue;
+                  var13 = var10.hue * 174415927;
+                  var14 = 470803713 * var10.saturation;
                   var15 = var10.lightness * 532980473;
                   if (var15 > 179) {
                      var14 /= 2;
@@ -553,12 +553,12 @@ public class WorldMapRegion {
                   }
                }
 
-               LocType var13 = fw.an_renamed(2080162465 * var10.af);
-               if (-1 != 771086195 * var13.mapSceneId) {
-                  if (771086195 * var13.mapSceneId != 46 && var13.mapSceneId * 771086195 != 52) {
-                     var4[771086195 * var13.mapSceneId].au(var1 * -1897887643 * this.ay, this.ay * -1897887643 * (63 - var2), 499192010 * this.ay, 499192010 * this.ay);
+               LocType var15 = fw.an_renamed(2080162465 * var10.af);
+               if (-1 != 771086195 * var15.mapSceneId) {
+                  if (771086195 * var15.mapSceneId != 46 && var15.mapSceneId * 771086195 != 52) {
+                     var4[771086195 * var15.mapSceneId].au(var1 * -1897887643 * this.ay, this.ay * -1897887643 * (63 - var2), 499192010 * this.ay, 499192010 * this.ay);
                   } else {
-                     var4[var13.mapSceneId * 771086195].au(var1 * -1897887643 * this.ay, -1897887643 * this.ay * (63 - var2), 499192010 * this.ay + 1, 499192010 * this.ay + 1);
+                     var4[var15.mapSceneId * 771086195].au(var1 * -1897887643 * this.ay, -1897887643 * this.ay * (63 - var2), 499192010 * this.ay + 1, 499192010 * this.ay + 1);
                   }
                }
             }
@@ -579,7 +579,7 @@ public class WorldMapRegion {
                boolean var10 = var11 >= mc.af.ad * -1344801027 && var11 <= mc.ac.ad * -1344801027 || -1344801027 * mc.au.ad == var11;
                if (var10) {
                   LocType var12 = fw.an_renamed(2080162465 * var9.af);
-                  int var13 = var12.int2 * 415653149 != 0 ? -3407872 : -3355444;
+                  int var13 = var12.interactable * 415653149 != 0 ? -3407872 : -3355444;
                   if (mc.af.ad * -1344801027 == 1504481025 * var9.an) {
                      this.bt(var1, var2, -1419490017 * var9.aw, var13);
                   }
@@ -630,7 +630,7 @@ public class WorldMapRegion {
    void ad(int var1, int var2, HashSet var3, int var4) {
       float var6 = (float)var4 / 64.0F;
       float var7 = var6 / 2.0F;
-      Iterator var8 = this.fonts.entrySet().iterator();
+      Iterator var8 = this.iconsMap.entrySet().iterator();
 
       while(var8.hasNext()) {
          Map.Entry var9 = (Map.Entry)var8.next();
@@ -697,7 +697,7 @@ public class WorldMapRegion {
       WorldMapLabel var7 = var1.label();
       if (null != var7) {
          if (var7.size.af(var5)) {
-            Font var8 = (Font)this.iconsMap.get(var7.size);
+            Font var8 = (Font)this.fonts.get(var7.size);
             var8.drawLines(var7.text, var3 - var7.width * -31821843 / 2, var4, var7.width * -31821843, -1401615011 * var7.height, -16777216 | 1080412371 * var2.at, 0, 1, 0, var8.ascent / 2);
          }
       }
@@ -750,12 +750,12 @@ public class WorldMapRegion {
    }
 
    WorldMapLabel bz(MapElementType var1) {
-      if (null != var1.al && this.iconsMap != null && this.iconsMap.get(WorldMapLabelSize.WorldMapLabelSize_small) != null) {
+      if (null != var1.al && this.fonts != null && this.fonts.get(WorldMapLabelSize.WorldMapLabelSize_small) != null) {
          WorldMapLabelSize var3 = WorldMapLabelSize.an_renamed(952315347 * var1.labelsize);
          if (null == var3) {
             return null;
          } else {
-            Font var4 = (Font)this.iconsMap.get(var3);
+            Font var4 = (Font)this.fonts.get(var3);
             if (var4 == null) {
                return null;
             } else {
@@ -786,7 +786,7 @@ public class WorldMapRegion {
       LinkedList var7 = new LinkedList();
       if (var4 >= var1 && var5 >= var2) {
          if (var4 < var1 + var3 && var5 < var3 + var2) {
-            Iterator var8 = this.fonts.values().iterator();
+            Iterator var8 = this.iconsMap.values().iterator();
 
             AbstractWorldMapIcon var9;
             while(var8.hasNext()) {
@@ -817,7 +817,7 @@ public class WorldMapRegion {
    List icons() {
       LinkedList var2 = new LinkedList();
       var2.addAll(this.iconsList);
-      var2.addAll(this.fonts.values());
+      var2.addAll(this.iconsMap.values());
       return var2;
    }
 

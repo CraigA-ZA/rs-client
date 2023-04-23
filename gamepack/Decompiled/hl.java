@@ -1,5 +1,5 @@
 public class hl {
-   static int menuY;
+   static int menuX;
    static final hl ab;
    static final hl ac;
    static final hl af;

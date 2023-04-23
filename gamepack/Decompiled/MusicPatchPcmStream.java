@@ -155,14 +155,14 @@ public class MusicPatchPcmStream extends PcmStream {
          return 1;
       } else {
          ObjType var6;
-         int var7;
+         int var12;
          if (4201 == var0) {
             Interpreter.Interpreter_intStackSize -= 854271946;
             var4 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
-            var7 = Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539];
+            var12 = Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539];
             var6 = HeadbarUpdate.getObjType(var4);
-            if (var7 >= 1 && var7 <= 5 && var6.iop[var7 - 1] != null) {
-               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var6.iop[var7 - 1];
+            if (var12 >= 1 && var12 <= 5 && var6.op[var12 - 1] != null) {
+               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var6.op[var12 - 1];
             } else {
                Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
             }
@@ -171,10 +171,10 @@ public class MusicPatchPcmStream extends PcmStream {
          } else if (var0 == 4202) {
             Interpreter.Interpreter_intStackSize -= 854271946;
             var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-            var7 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1];
+            var12 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1];
             var6 = HeadbarUpdate.getObjType(var4);
-            if (var7 >= 1 && var7 <= 5 && null != var6.op[var7 - 1]) {
-               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var6.op[var7 - 1];
+            if (var12 >= 1 && var12 <= 5 && null != var6.iop[var12 - 1]) {
+               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var6.iop[var12 - 1];
             } else {
                Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
             }
@@ -193,8 +193,8 @@ public class MusicPatchPcmStream extends PcmStream {
             if (var0 == 4205) {
                var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                var5 = HeadbarUpdate.getObjType(var4);
-               if (-1375068187 * var5.resizez == -1 && 1399852547 * var5.certtemplate >= 0) {
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5.certtemplate * 1399852547;
+               if (-1375068187 * var5.resizez == -1 && 1399852547 * var5.resizey >= 0) {
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5.resizey * 1399852547;
                } else {
                   Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4;
                }
@@ -203,8 +203,8 @@ public class MusicPatchPcmStream extends PcmStream {
             } else if (var0 == 4206) {
                var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                var5 = HeadbarUpdate.getObjType(var4);
-               if (-1375068187 * var5.resizez >= 0 && var5.certtemplate * 1399852547 >= 0) {
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5.certtemplate * 1399852547;
+               if (-1375068187 * var5.resizez >= 0 && var5.resizey * 1399852547 >= 0) {
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5.resizey * 1399852547;
                } else {
                   Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4;
                }
@@ -212,7 +212,7 @@ public class MusicPatchPcmStream extends PcmStream {
                return 1;
             } else if (var0 == 4207) {
                var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = HeadbarUpdate.getObjType(var4).stockmarket ? 1 : 0;
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = HeadbarUpdate.getObjType(var4).members ? 1 : 0;
                return 1;
             } else if (4208 == var0) {
                var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
@@ -235,9 +235,9 @@ public class MusicPatchPcmStream extends PcmStream {
 
                return 1;
             } else if (4210 == var0) {
-               String var8 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
-               var7 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-               cv.nf_renamed(var8, 1 == var7);
+               String var13 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
+               var12 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+               cv.nf_renamed(var13, 1 == var12);
                Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1764192979 * kt.wu;
                return 1;
             } else if (4211 != var0) {
@@ -246,17 +246,17 @@ public class MusicPatchPcmStream extends PcmStream {
                   return 1;
                } else if (var0 == 4213) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-                  var7 = HeadbarUpdate.getObjType(var4).getShiftClickIndex();
-                  if (var7 == -1) {
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var7;
+                  var12 = HeadbarUpdate.getObjType(var4).getShiftClickIndex();
+                  if (var12 == -1) {
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12;
                   } else {
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var7 + 1;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12 + 1;
                   }
 
                   return 1;
                } else if (4214 == var0) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = HeadbarUpdate.getObjType(var4).womanwearyoff * -1935812527;
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = HeadbarUpdate.getObjType(var4).shiftclickindex * -1935812527;
                   return 1;
                } else if (4215 == var0) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
@@ -264,12 +264,12 @@ public class MusicPatchPcmStream extends PcmStream {
                   return 1;
                } else if (4216 == var0) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = HeadbarUpdate.getObjType(var4).contrast * 723093341;
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = HeadbarUpdate.getObjType(var4).manwear2 * 723093341;
                   return 1;
                } else if (4217 == var0) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                   var5 = HeadbarUpdate.getObjType(var4);
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1162544887 * var5.xan2d;
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1162544887 * var5.placeholdertemplate;
                   return 1;
                } else {
                   return 2;

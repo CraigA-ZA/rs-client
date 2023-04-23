@@ -102,50 +102,48 @@ public class ek {
    }
 
    int aq(float var1) {
-      if (-1335067433 * this.ar < 0 || !((float)(-834721191 * this.au[this.ar * -1335067433].af) <= var1) || this.au[-1335067433 * this.ar].aq != null && !((float)(-834721191 * this.au[this.ar * -1335067433].aq.af) > var1)) {
-         if (!(var1 < (float)this.ac()) && !(var1 > (float)this.au())) {
-            int var3 = this.at();
-            int var4 = -1335067433 * this.ar;
-            if (var3 > 0) {
-               int var5 = 0;
-               int var6 = var3 - 1;
-
-               do {
-                  int var7 = var5 + var6 >> 1;
-                  if (var1 < (float)(-834721191 * this.au[var7].af)) {
-                     if (var1 > (float)(-834721191 * this.au[var7 - 1].af)) {
-                        var4 = var7 - 1;
-                        break;
-                     }
-
-                     var6 = var7 - 1;
-                  } else {
-                     if (!(var1 > (float)(-834721191 * this.au[var7].af))) {
-                        var4 = var7;
-                        break;
-                     }
-
-                     if (var1 < (float)(this.au[1 + var7].af * -834721191)) {
-                        var4 = var7;
-                        break;
-                     }
-
-                     var5 = var7 + 1;
-                  }
-               } while(var5 <= var6);
-            }
-
-            if (var4 != this.ar * -1335067433) {
-               this.ar = -2085996825 * var4;
-               this.av = true;
-            }
-
-            return -1335067433 * this.ar;
-         } else {
-            return -1;
-         }
-      } else {
+      if (-1335067433 * this.ar >= 0 && (float)(-834721191 * this.au[this.ar * -1335067433].af) <= var1 && (this.au[-1335067433 * this.ar].aq == null || (float)(-834721191 * this.au[this.ar * -1335067433].aq.af) > var1)) {
          return this.ar * -1335067433;
+      } else if (!(var1 < (float)this.ac()) && !(var1 > (float)this.au())) {
+         int var3 = this.at();
+         int var4 = -1335067433 * this.ar;
+         if (var3 > 0) {
+            int var5 = 0;
+            int var6 = var3 - 1;
+
+            do {
+               int var7 = var5 + var6 >> 1;
+               if (var1 < (float)(-834721191 * this.au[var7].af)) {
+                  if (var1 > (float)(-834721191 * this.au[var7 - 1].af)) {
+                     var4 = var7 - 1;
+                     break;
+                  }
+
+                  var6 = var7 - 1;
+               } else {
+                  if (!(var1 > (float)(-834721191 * this.au[var7].af))) {
+                     var4 = var7;
+                     break;
+                  }
+
+                  if (var1 < (float)(this.au[1 + var7].af * -834721191)) {
+                     var4 = var7;
+                     break;
+                  }
+
+                  var5 = var7 + 1;
+               }
+            } while(var5 <= var6);
+         }
+
+         if (var4 != this.ar * -1335067433) {
+            this.ar = -2085996825 * var4;
+            this.av = true;
+         }
+
+         return -1335067433 * this.ar;
+      } else {
+         return -1;
       }
    }
 

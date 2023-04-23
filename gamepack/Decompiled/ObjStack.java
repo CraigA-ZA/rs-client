@@ -19,7 +19,7 @@ public final class ObjStack {
       while(true) {
          byte var3 = 16;
          int var4 = 1 << var3;
-         if (var1.bitsRemaining(889658999 * Client.packetWriter.al) >= 12 + var3) {
+         if (var1.bitsRemaining(889658999 * Client.packetWriter.serverPacket0Length) >= 12 + var3) {
             int var5 = var1.gBit(var3);
             if (var4 - 1 != var5) {
                boolean var6 = false;

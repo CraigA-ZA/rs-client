@@ -1,33 +1,33 @@
 public class User implements Comparable {
-   Username username0;
    Username previousUsername;
+   Username username0;
 
    User() {
    }
 
    public Username username() {
-      return this.previousUsername;
-   }
-
-   public String previousName() {
-      return null == this.previousUsername ? "" : this.previousUsername.af();
+      return this.username0;
    }
 
    public String name() {
       return null == this.username0 ? "" : this.username0.af();
    }
 
+   public String previousName() {
+      return null == this.previousUsername ? "" : this.previousUsername.af();
+   }
+
    void set(Username var1, Username var2) {
       if (null == var1) {
          throw new NullPointerException();
       } else {
-         this.previousUsername = var1;
-         this.username0 = var2;
+         this.username0 = var1;
+         this.previousUsername = var2;
       }
    }
 
    public int compareTo0(User var1) {
-      return this.previousUsername.compareTo0(var1.previousUsername);
+      return this.username0.compareTo0(var1.username0);
    }
 
    public int compareTo(Object var1) {

@@ -41,13 +41,13 @@ public class mi {
       Player var5 = Client.players[var1];
       if (var4 == 0) {
          if (var3) {
-            var5.isUnanimated = false;
+            var5.bi = false;
          } else if (-549033243 * Client.localPlayerIndex == var1) {
             throw new RuntimeException();
          } else {
             ds.Players_regions[var1] = (jm.ib * -1232093375 + var5.pathX[0] >> 13 << 14) + (var5.ad * -1900490645 << 28) + (var5.pathY[0] + Scenery.jc * 827352769 >> 13);
-            if (var5.size * -283165269 != -1) {
-               ds.ay[var1] = var5.size * -283165269;
+            if (var5.sequenceDelay * -283165269 != -1) {
+               ds.ay[var1] = var5.sequenceDelay * -283165269;
             } else {
                ds.ay[var1] = -1751341433 * var5.dd;
             }
@@ -89,16 +89,18 @@ public class mi {
                ++var8;
             }
 
-            if (var1 == -549033243 * Client.localPlayerIndex && (1144428983 * var5.bx < 1536 || -411750205 * var5.bo < 1536 || var5.bx * 1144428983 >= 11776 || var5.bo * -411750205 >= 11776)) {
-               var5.resetPath(var7, var8);
-               var5.isUnanimated = false;
-            } else if (var3) {
-               var5.isUnanimated = true;
-               var5.tileX = -700518347 * var7;
-               var5.tileY = var8 * -1699085727;
+            if (var1 != -549033243 * Client.localPlayerIndex || 1144428983 * var5.bx >= 1536 && -411750205 * var5.bo >= 1536 && var5.bx * 1144428983 < 11776 && var5.bo * -411750205 < 11776) {
+               if (var3) {
+                  var5.bi = true;
+                  var5.tileX = -700518347 * var7;
+                  var5.tileY = var8 * -1699085727;
+               } else {
+                  var5.bi = false;
+                  var5.av(var7, var8, ds.ac[var1]);
+               }
             } else {
-               var5.isUnanimated = false;
-               var5.av(var7, var8, ds.ac[var1]);
+               var5.resetPath(var7, var8);
+               var5.bi = false;
             }
 
          } else if (var4 == 2) {
@@ -151,18 +153,16 @@ public class mi {
                var8 += 2;
             }
 
-            if (var1 != Client.localPlayerIndex * -549033243 || 1144428983 * var5.bx >= 1536 && var5.bo * -411750205 >= 1536 && var5.bx * 1144428983 < 11776 && var5.bo * -411750205 < 11776) {
-               if (var3) {
-                  var5.isUnanimated = true;
-                  var5.tileX = -700518347 * var7;
-                  var5.tileY = -1699085727 * var8;
-               } else {
-                  var5.isUnanimated = false;
-                  var5.av(var7, var8, ds.ac[var1]);
-               }
-            } else {
+            if (var1 == Client.localPlayerIndex * -549033243 && (1144428983 * var5.bx < 1536 || var5.bo * -411750205 < 1536 || var5.bx * 1144428983 >= 11776 || var5.bo * -411750205 >= 11776)) {
                var5.resetPath(var7, var8);
-               var5.isUnanimated = false;
+               var5.bi = false;
+            } else if (var3) {
+               var5.bi = true;
+               var5.tileX = -700518347 * var7;
+               var5.tileY = -1699085727 * var8;
+            } else {
+               var5.bi = false;
+               var5.av(var7, var8, ds.ac[var1]);
             }
 
          } else {
@@ -188,13 +188,13 @@ public class mi {
                var12 = var5.pathY[0] + var10;
                if (-549033243 * Client.localPlayerIndex == var1 && (1144428983 * var5.bx < 1536 || var5.bo * -411750205 < 1536 || var5.bx * 1144428983 >= 11776 || -411750205 * var5.bo >= 11776)) {
                   var5.resetPath(var11, var12);
-                  var5.isUnanimated = false;
+                  var5.bi = false;
                } else if (var3) {
-                  var5.isUnanimated = true;
+                  var5.bi = true;
                   var5.tileX = -700518347 * var11;
                   var5.tileY = -1699085727 * var12;
                } else {
-                  var5.isUnanimated = false;
+                  var5.bi = false;
                   var5.av(var11, var12, ds.ac[var1]);
                }
 
@@ -212,16 +212,16 @@ public class mi {
                var12 = (var10 + var5.pathY[0] + 827352769 * Scenery.jc & 16383) - Scenery.jc * 827352769;
                if (-549033243 * Client.localPlayerIndex != var1 || var5.bx * 1144428983 >= 1536 && -411750205 * var5.bo >= 1536 && var5.bx * 1144428983 < 11776 && var5.bo * -411750205 < 11776) {
                   if (var3) {
-                     var5.isUnanimated = true;
+                     var5.bi = true;
                      var5.tileX = -700518347 * var11;
                      var5.tileY = -1699085727 * var12;
                   } else {
-                     var5.isUnanimated = false;
+                     var5.bi = false;
                      var5.av(var11, var12, ds.ac[var1]);
                   }
                } else {
                   var5.resetPath(var11, var12);
-                  var5.isUnanimated = false;
+                  var5.bi = false;
                }
 
                var5.ad = -1829675965 * (byte)(var8 + var5.ad * -1900490645 & 3);

@@ -13,7 +13,7 @@ public class AnimFrameset extends DualNode {
          int var11 = (var9[0] & 255) << 8 | var9[1] & 255;
 
          for(AnimBase var12 = (AnimBase)var5.last(); null != var12; var12 = (AnimBase)var5.previous()) {
-            if (var12.transformCount * 1427390003 == var11) {
+            if (var12.id * 1427390003 == var11) {
                var10 = var12;
                break;
             }

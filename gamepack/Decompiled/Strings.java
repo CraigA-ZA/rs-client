@@ -529,7 +529,7 @@ public class Strings {
       ns = "https://oldschool.runescape.com/launcher";
    }
 
-   public static final Sprite af_renamed(byte[] var0) {
+   public static final Sprite imageToSprite(byte[] var0) {
       BufferedImage var2 = null;
 
       try {

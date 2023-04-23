@@ -21,7 +21,7 @@ public class lr {
    Sprite af() {
       if (null == this.an && this.af != null && this.af.isDone()) {
          if (this.af.getResponse() != null) {
-            this.an = Strings.af_renamed(this.af.getResponse());
+            this.an = Strings.imageToSprite(this.af.getResponse());
          }
 
          this.af = null;

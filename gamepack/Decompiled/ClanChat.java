@@ -5,8 +5,8 @@ public class ClanChat extends UserList {
    final LoginType loginType;
    public byte minKick;
    public int rank;
-   public String owner = null;
    public String name = null;
+   public String owner = null;
 
    public ClanChat(LoginType var1, Usernamed var2) {
       super(500);
@@ -23,11 +23,11 @@ public class ClanChat extends UserList {
    }
 
    final void aw(String var1) {
-      this.owner = SecureRandomFuture.ac_renamed(var1);
+      this.name = SecureRandomFuture.ac_renamed(var1);
    }
 
    final void ay(String var1) {
-      this.name = SecureRandomFuture.ac_renamed(var1);
+      this.owner = SecureRandomFuture.ac_renamed(var1);
    }
 
    public final void readUpdate(Packet var1, int var2) {

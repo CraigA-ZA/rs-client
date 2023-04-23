@@ -2,7 +2,7 @@ public class WorldMapLabelSize {
    public static final WorldMapLabelSize WorldMapLabelSize_small = new WorldMapLabelSize(0, 0, 4);
    public static final WorldMapLabelSize WorldMapLabelSize_medium = new WorldMapLabelSize(2, 1, 2);
    public static final WorldMapLabelSize WorldMapLabelSize_large = new WorldMapLabelSize(1, 2, 0);
-   static Archive archive8;
+   static Archive archive9;
    final int ab;
    final int ac;
    final int au;

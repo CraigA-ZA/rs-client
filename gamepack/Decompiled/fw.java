@@ -31,9 +31,9 @@ public class fw extends fb {
       int var20;
       int var21;
       int var22;
-      boolean var28;
+      boolean var29;
       if (var2 == 1) {
-         var28 = dz.an_renamed(var0, var1, var3, var4);
+         var29 = dz.an_renamed(var0, var1, var3, var4);
       } else if (var2 == 2) {
          var11 = var0;
          var12 = var1;
@@ -49,12 +49,12 @@ public class fw extends fb {
          iw.at[var17++] = var1;
          int[][] var19 = var4.flags;
 
-         boolean var29;
+         boolean var30;
          while(true) {
             if (var18 == var17) {
                am.au = -617213805 * var11;
                pg.ab = 1169106949 * var12;
-               var29 = false;
+               var30 = false;
                break;
             }
 
@@ -63,12 +63,12 @@ public class fw extends fb {
             var18 = var18 + 1 & 4095;
             var13 = var11 - var15;
             var14 = var12 - var16;
-            var20 = var11 - var4.bz * 1724654229;
-            var21 = var12 - var4.bm * -216630539;
+            var20 = var11 - var4.xInset * 1724654229;
+            var21 = var12 - var4.yInset * -216630539;
             if (var3.af(2, var11, var12, var4)) {
                am.au = -617213805 * var11;
                pg.ab = var12 * 1169106949;
-               var29 = true;
+               var30 = true;
                break;
             }
 
@@ -138,38 +138,38 @@ public class fw extends fb {
             }
          }
 
-         var28 = var29;
+         var29 = var30;
       } else {
-         var28 = IDKType.aw_renamed(var0, var1, var2, var3, var4);
+         var29 = IDKType.aw_renamed(var0, var1, var2, var3, var4);
       }
 
       var10 = var0 - 64;
       var11 = var1 - 64;
       var12 = 1093766555 * am.au;
       var13 = -56662835 * pg.ab;
-      if (!var28) {
+      if (!var29) {
          if (!var5) {
             return -1;
          }
 
          var14 = Integer.MAX_VALUE;
          var15 = Integer.MAX_VALUE;
-         byte var31 = 10;
+         byte var32 = 10;
          var17 = 689701217 * var3.af;
          var18 = -407280601 * var3.an;
-         int var32 = 372776577 * var3.aw;
+         int var33 = 372776577 * var3.aw;
          var20 = -333607875 * var3.ac;
 
-         for(var21 = var17 - var31; var21 <= var17 + var31; ++var21) {
-            for(var22 = var18 - var31; var22 <= var18 + var31; ++var22) {
+         for(var21 = var17 - var32; var21 <= var17 + var32; ++var21) {
+            for(var22 = var18 - var32; var22 <= var18 + var32; ++var22) {
                int var23 = var21 - var10;
                int var24 = var22 - var11;
                if (var23 >= 0 && var24 >= 0 && var23 < 128 && var24 < 128 && iw.ac[var23][var24] < 100) {
                   int var25 = 0;
                   if (var21 < var17) {
                      var25 = var17 - var21;
-                  } else if (var21 > var32 + var17 - 1) {
-                     var25 = var21 - (var32 + var17 - 1);
+                  } else if (var21 > var33 + var17 - 1) {
+                     var25 = var21 - (var33 + var17 - 1);
                   }
 
                   int var26 = 0;
@@ -200,10 +200,10 @@ public class fw extends fb {
          var7[0] = var13;
          return 0;
       } else {
-         byte var30 = 0;
-         iw.al[var30] = var12;
-         var14 = var30 + 1;
-         iw.at[var30] = var13;
+         byte var31 = 0;
+         iw.al[var31] = var12;
+         var14 = var31 + 1;
+         iw.at[var31] = var13;
 
          for(var15 = var16 = iw.aw[var12 - var10][var13 - var11]; var0 != var12 || var13 != var1; var15 = iw.aw[var12 - var10][var13 - var11]) {
             if (var15 != var16) {
@@ -275,7 +275,7 @@ public class fw extends fb {
          }
 
          var2.aw();
-         if (var2.lowDetailVisible) {
+         if (var2.isSolid) {
             var2.interactType = 0;
             var2.boolean1 = false;
          }
@@ -364,7 +364,7 @@ public class fw extends fb {
                      if (sh.aw == var29) {
                         Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
                      } else {
-                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = nt.af_renamed(var17);
+                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = UnitPriceComparator.af_renamed(var17);
                      }
                   }
 

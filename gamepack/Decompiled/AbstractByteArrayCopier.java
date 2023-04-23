@@ -9,7 +9,7 @@ public abstract class AbstractByteArrayCopier {
       if (null != var2) {
          return var2;
       } else {
-         byte[] var3 = ey.archive16.takeFile(var0, 0);
+         byte[] var3 = ey.archive12.takeFile(var0, 0);
          if (null == var3) {
             return null;
          } else {

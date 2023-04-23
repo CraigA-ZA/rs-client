@@ -38,16 +38,16 @@ public class ff extends fb {
             var11 = var4;
          }
 
-         int[] var12 = UrlRequester.tk.pixels;
+         int[] var12 = UrlRequester.sceneMinimapSprite.pixels;
          var13 = (103 - var2) * 2048 + var1 * 4 + 24624;
          var14 = InterfaceParent.at(var6);
          LocType var15 = fw.an_renamed(var14);
          if (-1 != var15.mapSceneId * 771086195) {
             IndexedSprite var16 = ml.ju[var15.mapSceneId * 771086195];
             if (var16 != null) {
-               int var17 = (var15.offsetZ * -1064754148 - var16.subWidth) / 2;
-               int var18 = (var15.width * 1952358772 - var16.subHeight) / 2;
-               var16.aw(var17 + 48 + var1 * 4, var18 + (104 - var2 - -1659393955 * var15.width) * 4 + 48);
+               int var17 = (var15.width * -1064754148 - var16.subWidth) / 2;
+               int var18 = (var15.length * 1952358772 - var16.subHeight) / 2;
+               var16.aw(var17 + 48 + var1 * 4, var18 + (104 - var2 - -1659393955 * var15.length) * 4 + 48);
             }
          } else {
             if (0 == var10 || var10 == 2) {
@@ -123,9 +123,9 @@ public class ff extends fb {
          if (-1 != var21.mapSceneId * 771086195) {
             IndexedSprite var23 = ml.ju[771086195 * var21.mapSceneId];
             if (var23 != null) {
-               var14 = (-1064754148 * var21.offsetZ - var23.subWidth) / 2;
-               var25 = (1952358772 * var21.width - var23.subHeight) / 2;
-               var23.aw(48 + var1 * 4 + var14, var25 + 4 * (104 - var2 - var21.width * -1659393955) + 48);
+               var14 = (-1064754148 * var21.width - var23.subWidth) / 2;
+               var25 = (1952358772 * var21.length - var23.subHeight) / 2;
+               var23.aw(48 + var1 * 4 + var14, var25 + 4 * (104 - var2 - var21.length * -1659393955) + 48);
             }
          } else if (var10 == 9) {
             var13 = 15658734;
@@ -133,7 +133,7 @@ public class ff extends fb {
                var13 = 15597568;
             }
 
-            int[] var24 = UrlRequester.tk.pixels;
+            int[] var24 = UrlRequester.sceneMinimapSprite.pixels;
             var25 = 24624 + var1 * 4 + (103 - var2) * 2048;
             if (0 != var9 && var9 != 2) {
                var24[var25] = var13;
@@ -156,9 +156,9 @@ public class ff extends fb {
          if (var19.mapSceneId * 771086195 != -1) {
             IndexedSprite var20 = ml.ju[771086195 * var19.mapSceneId];
             if (null != var20) {
-               var11 = (var19.offsetZ * -1064754148 - var20.subWidth) / 2;
-               int var22 = (var19.width * 1952358772 - var20.subHeight) / 2;
-               var20.aw(var1 * 4 + 48 + var11, 48 + (104 - var2 - -1659393955 * var19.width) * 4 + var22);
+               var11 = (var19.width * -1064754148 - var20.subWidth) / 2;
+               int var22 = (var19.length * 1952358772 - var20.subHeight) / 2;
+               var20.aw(var1 * 4 + 48 + var11, 48 + (104 - var2 - -1659393955 * var19.length) * 4 + var22);
             }
          }
       }

@@ -37,30 +37,30 @@ public class kb {
 
          var4 = var0.gBit(13);
          var5 = var0.gBit(13);
-         boolean var12 = var0.gBit(1) == 1;
-         if (var12) {
+         boolean var14 = var0.gBit(1) == 1;
+         if (var14) {
             ds.ai[(ds.ax += 1362331411) * 1474255643 - 1] = var1;
          }
 
          if (null != Client.players[var1]) {
             throw new RuntimeException();
          } else {
-            Player var13 = Client.players[var1] = new Player();
-            var13.ae = var1 * -710946309;
+            Player var15 = Client.players[var1] = new Player();
+            var15.ae = var1 * -710946309;
             if (ds.au[var1] != null) {
-               var13.read(ds.au[var1]);
+               var15.read(ds.au[var1]);
             }
 
-            var13.dd = 385564471 * ds.ay[var1];
-            var13.sequenceFrameCycle = ds.ao[var1] * 1052277865;
+            var15.dd = 385564471 * ds.ay[var1];
+            var15.sequenceFrameCycle = ds.ao[var1] * 1052277865;
             var8 = ds.Players_regions[var1];
             var9 = var8 >> 28;
             var10 = var8 >> 14 & 255;
             var11 = var8 & 255;
-            var13.da[0] = ds.ac[var1];
-            var13.ad = -1829675965 * (byte)var9;
-            var13.resetPath(var4 + (var10 << 13) - jm.ib * -1232093375, var5 + (var11 << 13) - 827352769 * Scenery.jc);
-            var13.isUnanimated = false;
+            var15.pathTraversed[0] = ds.ac[var1];
+            var15.ad = -1829675965 * (byte)var9;
+            var15.resetPath(var4 + (var10 << 13) - jm.ib * -1232093375, var5 + (var11 << 13) - 827352769 * Scenery.jc);
+            var15.bi = false;
             return true;
          }
       } else if (var3 == 1) {

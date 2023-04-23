@@ -47,15 +47,15 @@ public class do {
          int var14;
          if (var9 != 0L) {
             var14 = bx.scene.bk(var0, var2, var3, var9);
-            int var16 = InterfaceParent.at(var9);
-            int var17 = var14 & 31;
-            int var18 = var14 >> 6 & 3;
+            int var17 = InterfaceParent.at(var9);
+            int var18 = var14 & 31;
+            int var19 = var14 >> 6 & 3;
             LocType var15;
             if (0 == var1) {
                bx.scene.ar(var0, var2, var3);
-               var15 = fw.an_renamed(var16);
+               var15 = fw.an_renamed(var17);
                if (0 != var15.interactType * -973955889) {
-                  Client.collisionMaps[var0].aq(var2, var3, var17, var18, var15.boolean1);
+                  Client.collisionMaps[var0].aq(var2, var3, var18, var19, var15.boolean1);
                }
             }
 
@@ -65,19 +65,19 @@ public class do {
 
             if (var1 == 2) {
                bx.scene.as(var0, var2, var3);
-               var15 = fw.an_renamed(var16);
-               if (-1339930361 * var15.offsetZ + var2 > 103 || -1339930361 * var15.offsetZ + var3 > 103 || var2 + var15.width * -1659393955 > 103 || -1659393955 * var15.width + var3 > 103) {
+               var15 = fw.an_renamed(var17);
+               if (-1339930361 * var15.width + var2 > 103 || -1339930361 * var15.width + var3 > 103 || var2 + var15.length * -1659393955 > 103 || -1659393955 * var15.length + var3 > 103) {
                   return;
                }
 
                if (-973955889 * var15.interactType != 0) {
-                  Client.collisionMaps[var0].al(var2, var3, -1339930361 * var15.offsetZ, var15.width * -1659393955, var18, var15.boolean1);
+                  Client.collisionMaps[var0].al(var2, var3, -1339930361 * var15.width, var15.length * -1659393955, var19, var15.boolean1);
                }
             }
 
             if (3 == var1) {
                bx.scene.aj(var0, var2, var3);
-               var15 = fw.an_renamed(var16);
+               var15 = fw.an_renamed(var17);
                if (-973955889 * var15.interactType == 1) {
                   Client.collisionMaps[var0].aa(var2, var3);
                }
@@ -98,7 +98,7 @@ public class do {
 
    static void kf_renamed(int var0, int var1) {
       PacketBitNode var3 = mi.an_renamed(ClientProt.cp, Client.packetWriter.au);
-      var3.bit.el(var0);
+      var3.bit.p4LE16(var0);
       var3.bit.p2LE(var1);
       Client.packetWriter.aw(var3);
    }

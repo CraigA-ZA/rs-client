@@ -90,16 +90,16 @@ public class BufferedNetSocket extends AbstractSocket {
             var7 = null;
          } else {
             byte[] var10 = var1.takeFile(var5, var6);
-            Font var12;
+            Font var13;
             if (null == var10) {
-               var12 = null;
+               var13 = null;
             } else {
                Font var11 = new Font(var10, tx.ac, ar.au, dd.ab, fd.aq, pc.al, VarBitType.at);
                pk.ay_renamed();
-               var12 = var11;
+               var13 = var11;
             }
 
-            var7 = var12;
+            var7 = var13;
          }
 
          return var7;

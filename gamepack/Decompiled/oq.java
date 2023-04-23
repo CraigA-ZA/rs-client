@@ -240,8 +240,8 @@ public class oq {
                }
             }
 
-            om var7 = (om)this.az.get(this.az.size() - 1);
-            if (var1 >= var7.an * 1620071571 && var1 <= var7.an * 1620071571 + this.bb() && var2 >= -727185157 * var7.aw && var2 <= -727185157 * var7.aw + this.ap()) {
+            om var10 = (om)this.az.get(this.az.size() - 1);
+            if (var1 >= var10.an * 1620071571 && var1 <= var10.an * 1620071571 + this.bb() && var2 >= -727185157 * var10.aw && var2 <= -727185157 * var10.aw + this.ap()) {
                return this.az.size() - 1;
             }
          }
@@ -270,7 +270,7 @@ public class oq {
             return 0;
          }
 
-         int var15 = 16777215;
+         int var16 = 16777215;
          int var8 = 0;
          int var9 = var1;
          int var10 = 16777215;
@@ -556,7 +556,7 @@ public class oq {
    public static void as_renamed() {
       ObjType.ObjType_cached.clear();
       ObjType.ay.clear();
-      ObjType.ao.clear();
+      ObjType.Sprite_cached.clear();
    }
 
    static final void nl_renamed(String var0) {

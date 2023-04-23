@@ -7,19 +7,19 @@ import java.awt.event.MouseMotionListener;
 public class MouseHandler implements MouseListener, MouseMotionListener, FocusListener {
    public static MouseHandler MouseHandler_instance = new MouseHandler();
    public static int MouseHandler_currentButton = 0;
-   public static int MouseHandler_lastButton = 0;
+   public static int am = 0;
    public static int ao = 0;
-   public static int ar = 0;
+   public static int MouseHandler_lastButton = 0;
    public static int as = 0;
    public static int ay = 0;
    public static long MouseHandler_lastPressedTimeMillis = 0L;
    public static long ax = 0L;
    public static volatile int MouseHandler_currentButton0 = 0;
-   public static volatile int MouseHandler_lastButton0 = 0;
    public static volatile int MouseHandler_lastPressedX0 = 0;
    public static volatile int MouseHandler_lastPressedY0 = 0;
-   public static volatile int MouseHandler_x0 = -225734783;
-   public static volatile int MouseHandler_y0 = 1849679947;
+   public static volatile int MouseHandler_lastButton0 = 0;
+   public static volatile int MouseHandler_y0 = -225734783;
+   public static volatile int MouseHandler_x0 = 1849679947;
    public static volatile int MouseHandler_idleCycles = 0;
    public static volatile long at = -678214925528160149L;
    public static volatile long MouseHandler_lastPressedTimeMillis0 = 0L;
@@ -59,12 +59,12 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
    public final synchronized void mousePressed(MouseEvent var1) {
       if (MouseHandler_instance != null) {
          MouseHandler_idleCycles = 0;
-         MouseHandler_lastButton0 = var1.getX() * 394285213;
-         MouseHandler_lastPressedX0 = var1.getY() * -1202616623;
+         MouseHandler_lastPressedX0 = var1.getX() * 394285213;
+         MouseHandler_lastPressedY0 = var1.getY() * -1202616623;
          MouseHandler_lastPressedTimeMillis0 = Formatting.af_renamed() * 4279889128239043159L;
-         MouseHandler_lastPressedY0 = this.getButton(var1) * -528109255;
-         if (0 != -1491866359 * MouseHandler_lastPressedY0) {
-            MouseHandler_currentButton0 = -946669631 * MouseHandler_lastPressedY0;
+         MouseHandler_lastButton0 = this.getButton(var1) * -528109255;
+         if (0 != -1491866359 * MouseHandler_lastButton0) {
+            MouseHandler_currentButton0 = -946669631 * MouseHandler_lastButton0;
          }
       }
 
@@ -100,8 +100,8 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
    public final synchronized void mouseExited(MouseEvent var1) {
       if (MouseHandler_instance != null) {
          MouseHandler_idleCycles = 0;
-         MouseHandler_y0 = 1849679947;
-         MouseHandler_x0 = -225734783;
+         MouseHandler_x0 = 1849679947;
+         MouseHandler_y0 = -225734783;
          at = var1.getWhen() * 678214925528160149L;
       }
 
@@ -114,8 +114,8 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
    public final synchronized void mouseMoved(MouseEvent var1) {
       if (null != MouseHandler_instance) {
          MouseHandler_idleCycles = 0;
-         MouseHandler_y0 = var1.getX() * -1849679947;
-         MouseHandler_x0 = var1.getY() * 225734783;
+         MouseHandler_x0 = var1.getX() * -1849679947;
+         MouseHandler_y0 = var1.getY() * 225734783;
          at = var1.getWhen() * 678214925528160149L;
       }
 
@@ -204,80 +204,80 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
             Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5 != null ? var5.an * 216034339 : 0;
             return 1;
          } else {
-            mz var8;
+            mz var15;
             if (2619 == var0) {
-               var8 = var4.bj();
-               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = null != var8 ? var8.bh().ab() : "";
+               var15 = var4.bj();
+               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = null != var15 ? var15.bh().ab() : "";
                return 1;
             } else if (2620 == var0) {
                var5 = var4.bn();
                Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = null != var5 ? var5.aw * 1912484269 : 0;
                return 1;
             } else if (2621 == var0) {
-               var8 = var4.bj();
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var8 != null ? var8.cq() : 0;
+               var15 = var4.bj();
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var15 != null ? var15.cq() : 0;
                return 1;
             } else if (var0 == 2622) {
-               var8 = var4.bj();
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var8 != null ? var8.cm() : 0;
+               var15 = var4.bj();
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var15 != null ? var15.cm() : 0;
                return 1;
             } else if (var0 == 2623) {
-               var8 = var4.bj();
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var8 != null ? var8.cf() : 0;
+               var15 = var4.bj();
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var15 != null ? var15.cf() : 0;
                return 1;
             } else if (var0 == 2624) {
-               var8 = var4.bj();
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var8 != null && var8.ce() ? 1 : 0;
+               var15 = var4.bj();
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var15 != null && var15.ce() ? 1 : 0;
                return 1;
             } else if (var0 != 2625) {
                if (2626 == var0) {
-                  var8 = var4.bj();
-                  Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = null != var8 ? var8.bw().af() : "";
+                  var15 = var4.bj();
+                  Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = null != var15 ? var15.bw().af() : "";
                   return 1;
                } else if (var0 == 2627) {
-                  var8 = var4.bj();
-                  int var6 = null != var8 ? var8.cn() : 0;
-                  int var7 = null != var8 ? var8.cc() : 0;
+                  var15 = var4.bj();
+                  int var6 = null != var15 ? var15.cn() : 0;
+                  int var7 = null != var15 ? var15.cc() : 0;
                   Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Math.min(var6, var7);
                   Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Math.max(var6, var7);
                   return 1;
                } else if (var0 == 2628) {
-                  var8 = var4.bj();
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var8 != null ? var8.cc() : 0;
+                  var15 = var4.bj();
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var15 != null ? var15.cc() : 0;
                   return 1;
                } else if (var0 == 2629) {
-                  var8 = var4.bj();
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = null != var8 ? var8.cg() : 0;
+                  var15 = var4.bj();
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = null != var15 ? var15.cg() : 0;
                   return 1;
                } else if (var0 == 2630) {
-                  var8 = var4.bj();
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var8 != null ? var8.cl() : 0;
+                  var15 = var4.bj();
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var15 != null ? var15.cl() : 0;
                   return 1;
                } else if (2631 == var0) {
-                  var8 = var4.bj();
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = null != var8 ? var8.cr() : 0;
+                  var15 = var4.bj();
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = null != var15 ? var15.cr() : 0;
                   return 1;
                } else if (2632 == var0) {
-                  var8 = var4.bj();
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = null != var8 ? var8.cy() : 0;
+                  var15 = var4.bj();
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = null != var15 ? var15.cy() : 0;
                   return 1;
                } else {
-                  bb var9;
+                  bb var16;
                   if (var0 == 2633) {
-                     var9 = var4.bs();
-                     Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 - 1] = var9 != null ? var9.aw(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 - 1]) : 0;
+                     var16 = var4.bs();
+                     Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 - 1] = var16 != null ? var16.aw(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 - 1]) : 0;
                      return 1;
                   } else if (var0 == 2634) {
-                     var9 = var4.bs();
-                     Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 - 1] = var9 != null ? var9.ac((char)Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize - 1]) : 0;
+                     var16 = var4.bs();
+                     Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 - 1] = var16 != null ? var16.ac((char)Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize - 1]) : 0;
                      return 1;
                   } else {
                      return 2;
                   }
                }
             } else {
-               var8 = var4.bj();
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var8 != null && var8.ci() ? 1 : 0;
+               var15 = var4.bj();
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var15 != null && var15.ci() ? 1 : 0;
                return 1;
             }
          }
@@ -285,18 +285,18 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
    }
 
    static void addPlayerToScene(Player var0, boolean var1) {
-      if (null != var0 && var0.isVisible() && !var0.az) {
-         var0.isHidden = false;
-         if ((Client.cu && ds.ab * -2010934433 > 50 || -2010934433 * ds.ab > 200) && var1 && var0.turnLeftSequence * 1590591885 == -1302441815 * var0.spotAnimationFrame) {
-            var0.isHidden = true;
+      if (null != var0 && var0.isVisible() && !var0.isHidden) {
+         var0.isUnanimated = false;
+         if ((Client.cu && ds.ab * -2010934433 > 50 || -2010934433 * ds.ab > 200) && var1 && var0.readySequence * 1590591885 == -1302441815 * var0.spotAnimationFrame) {
+            var0.isUnanimated = true;
          }
 
          int var3 = 1144428983 * var0.bx >> 7;
          int var4 = -411750205 * var0.bo >> 7;
          if (var3 >= 0 && var3 < 104 && var4 >= 0 && var4 < 104) {
             long var5 = ir.aa_renamed(0, 0, 0, false, var0.ae * -1232170701);
-            if (var0.ah != null && -1886224337 * Client.ep >= var0.headIconPrayer * -1402262375 && -1886224337 * Client.ep < var0.animationCycleStart * -935505685) {
-               var0.isHidden = false;
+            if (var0.ah != null && -1886224337 * Client.ep >= var0.animationCycleStart * -1402262375 && -1886224337 * Client.ep < var0.animationCycleEnd * -935505685) {
+               var0.isUnanimated = false;
                var0.aa = fq.getTileHeight(1144428983 * var0.bx, -411750205 * var0.bo, GameShell.plane * -1727408401) * -548513145;
                var0.bd = -14183397 * Client.ep;
                bx.scene.ax(-1727408401 * GameShell.plane, var0.bx * 1144428983, var0.bo * -411750205, 561204023 * var0.aa, 60, var0, var0.bz * -1703696531, var5, -1793206457 * var0.av, -1107395863 * var0.ar, 54499173 * var0.am, var0.as * 806621699);

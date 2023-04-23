@@ -52,7 +52,7 @@ public final class Npc extends Actor {
       }
    }
 
-   final void aa(int var1, iu var2) {
+   final void aa(int var1, MoveSpeed var2) {
       int var4 = this.pathX[0];
       int var5 = this.pathY[0];
       if (var1 == 0) {
@@ -102,12 +102,12 @@ public final class Npc extends Actor {
       for(int var6 = this.dn * 1134756167; var6 > 0; --var6) {
          this.pathX[var6] = this.pathX[var6 - 1];
          this.pathY[var6] = this.pathY[var6 - 1];
-         this.da[var6] = this.da[var6 - 1];
+         this.pathTraversed[var6] = this.pathTraversed[var6 - 1];
       }
 
       this.pathX[0] = var4;
       this.pathY[0] = var5;
-      this.da[0] = var2;
+      this.pathTraversed[0] = var2;
    }
 
    final void ay(int var1, int var2, boolean var3) {
@@ -126,12 +126,12 @@ public final class Npc extends Actor {
             for(int var7 = this.dn * 1134756167; var7 > 0; --var7) {
                this.pathX[var7] = this.pathX[var7 - 1];
                this.pathY[var7] = this.pathY[var7 - 1];
-               this.da[var7] = this.da[var7 - 1];
+               this.pathTraversed[var7] = this.pathTraversed[var7 - 1];
             }
 
             this.pathX[0] = var1;
             this.pathY[0] = var2;
-            this.da[0] = iu.aw;
+            this.pathTraversed[0] = MoveSpeed.walk;
             return;
          }
       }
@@ -141,8 +141,8 @@ public final class Npc extends Actor {
       this.pathLength = 0;
       this.pathX[0] = var1;
       this.pathY[0] = var2;
-      this.bx = -1102445696 * this.pathX[0] + -1606165824 * this.bm;
-      this.bo = this.bm * 254242752 + -1887439488 * this.pathY[0];
+      this.bx = -1102445696 * this.pathX[0] + -1606165824 * this.size;
+      this.bo = this.size * 254242752 + -1887439488 * this.pathY[0];
    }
 
    protected final it getModel() {
@@ -150,7 +150,7 @@ public final class Npc extends Actor {
          return null;
       } else {
          SeqType var2 = -1 != -1372355773 * this.ct && 1253892101 * this.dm == 0 ? Inventory.getSeqType(-1372355773 * this.ct, (byte)94) : null;
-         SeqType var3 = -1 == -1302441815 * this.spotAnimationFrame || this.spotAnimationFrame * -1302441815 == this.turnLeftSequence * 1590591885 && var2 != null ? null : Inventory.getSeqType(-1302441815 * this.spotAnimationFrame, (byte)39);
+         SeqType var3 = -1 != -1302441815 * this.spotAnimationFrame && (this.spotAnimationFrame * -1302441815 != this.readySequence * 1590591885 || var2 == null) ? Inventory.getSeqType(-1302441815 * this.spotAnimationFrame, (byte)39) : null;
          it var4 = null;
          if (this.aq != null && this.aq.au) {
             var4 = MusicPatchNode.localPlayer.appearance.aa(var2, -41215169 * this.cp, var3, this.spotAnimationFrameCycle * 424813829);
@@ -169,7 +169,7 @@ public final class Npc extends Actor {
                var4.bx = true;
             }
 
-            if (this.dq != 0 && Client.ep * -1886224337 >= 1182789041 * this.dh && -1886224337 * Client.ep < 707232483 * this.sequenceDelay) {
+            if (this.dq != 0 && Client.ep * -1886224337 >= 1182789041 * this.dh && -1886224337 * Client.ep < 707232483 * this.dp) {
                var4.cj = this.du;
                var4.ch = this.db;
                var4.ct = this.df;

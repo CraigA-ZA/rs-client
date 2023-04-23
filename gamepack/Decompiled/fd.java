@@ -134,18 +134,18 @@ public class fd extends fb {
          if (var0 != 5 && 10 != var0) {
             if (20 == var0) {
                var2 = 11 == -1275976559 * Client.dw ? 4 : 0;
-               KeyHandler.an_renamed(NetFileRequest.archive9, rr.archive7, false, var2);
+               KeyHandler.an_renamed(NetFileRequest.archive10, rr.archive8, false, var2);
             } else if (11 == var0) {
-               KeyHandler.an_renamed(NetFileRequest.archive9, rr.archive7, false, 4);
+               KeyHandler.an_renamed(NetFileRequest.archive10, rr.archive8, false, 4);
             } else if (50 == var0) {
                he.ax_renamed("", "Updating date of birth...", "");
-               KeyHandler.an_renamed(NetFileRequest.archive9, rr.archive7, false, 7);
+               KeyHandler.an_renamed(NetFileRequest.archive10, rr.archive8, false, 7);
             } else {
                Player.au_renamed();
             }
          } else {
             var2 = fl.oi_renamed() ? 0 : 12;
-            KeyHandler.an_renamed(NetFileRequest.archive9, rr.archive7, true, var2);
+            KeyHandler.an_renamed(NetFileRequest.archive10, rr.archive8, true, var2);
          }
 
          Client.dw = 188619889 * var0;
@@ -161,7 +161,7 @@ public class fd extends fb {
 
    static final void kv_renamed(MiniMenuEntry var0, int var1, int var2) {
       if (var0 != null) {
-         ar.ke_renamed(68640743 * var0.argument0, var0.argument2 * 1427372077, 532700261 * var0.argument1, 1480765569 * var0.ac, 680599237 * var0.au, var0.action, var0.aq, var1, var2);
+         ar.ke_renamed(68640743 * var0.af, var0.an * 1427372077, 532700261 * var0.aw, 1480765569 * var0.ac, 680599237 * var0.au, var0.ab, var0.aq, var1, var2);
       }
 
    }

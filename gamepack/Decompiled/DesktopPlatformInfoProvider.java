@@ -1,5 +1,5 @@
 public class DesktopPlatformInfoProvider implements PlatformInfoProvider {
-   static int menuHeight;
+   static int menuWidth;
    int ab;
    int ac;
    int au;

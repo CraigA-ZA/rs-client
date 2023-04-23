@@ -12,9 +12,9 @@ public class GrandExchangeEvents {
 
    static {
       new WorldComparator();
-      aw = new nt();
+      aw = new UnitPriceComparator();
       ac = new na();
-      au = new nn();
+      au = new TotalQuantityComparator();
    }
 
    static final void an_renamed(PacketBit var0, int var1) {
@@ -137,8 +137,8 @@ public class GrandExchangeEvents {
                   for(var5 = 1; var5 < 2048; ++var5) {
                      var10000 = ds.aw;
                      var10000[var5] = (byte)(var10000[var5] >> 1);
-                     Player var8 = Client.players[var5];
-                     if (var8 != null) {
+                     Player var15 = Client.players[var5];
+                     if (var15 != null) {
                         ds.aq[(ds.ab += 511936671) * -2010934433 - 1] = var5;
                      } else {
                         ds.at[(ds.al += 2033203949) * 228405989 - 1] = var5;

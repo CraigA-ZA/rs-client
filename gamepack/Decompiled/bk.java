@@ -67,18 +67,18 @@ public class bk {
                }
 
                if (var9) {
-                  char var13;
+                  char var18;
                   switch (var8) {
                      case ' ':
                      case '-':
                      case '_':
                      case ' ':
-                        var13 = '_';
+                        var18 = '_';
                         break;
                      case '#':
                      case '[':
                      case ']':
-                        var13 = var8;
+                        var18 = var8;
                         break;
                      case 'À':
                      case 'Á':
@@ -90,11 +90,11 @@ public class bk {
                      case 'â':
                      case 'ã':
                      case 'ä':
-                        var13 = 'a';
+                        var18 = 'a';
                         break;
                      case 'Ç':
                      case 'ç':
-                        var13 = 'c';
+                        var18 = 'c';
                         break;
                      case 'È':
                      case 'É':
@@ -104,7 +104,7 @@ public class bk {
                      case 'é':
                      case 'ê':
                      case 'ë':
-                        var13 = 'e';
+                        var18 = 'e';
                         break;
                      case 'Í':
                      case 'Î':
@@ -112,11 +112,11 @@ public class bk {
                      case 'í':
                      case 'î':
                      case 'ï':
-                        var13 = 'i';
+                        var18 = 'i';
                         break;
                      case 'Ñ':
                      case 'ñ':
-                        var13 = 'n';
+                        var18 = 'n';
                         break;
                      case 'Ò':
                      case 'Ó':
@@ -128,7 +128,7 @@ public class bk {
                      case 'ô':
                      case 'õ':
                      case 'ö':
-                        var13 = 'o';
+                        var18 = 'o';
                         break;
                      case 'Ù':
                      case 'Ú':
@@ -138,21 +138,21 @@ public class bk {
                      case 'ú':
                      case 'û':
                      case 'ü':
-                        var13 = 'u';
+                        var18 = 'u';
                         break;
                      case 'ß':
-                        var13 = 'b';
+                        var18 = 'b';
                         break;
                      case 'ÿ':
                      case 'Ÿ':
-                        var13 = 'y';
+                        var18 = 'y';
                         break;
                      default:
-                        var13 = Character.toLowerCase(var8);
+                        var18 = Character.toLowerCase(var8);
                   }
 
-                  if (var13 != 0) {
-                     var6.append(var13);
+                  if (var18 != 0) {
+                     var6.append(var18);
                   }
                }
             }
@@ -207,7 +207,7 @@ public class bk {
                      Client.iy[(Client.iw += 1796101277) * 265474485 - 1] = var4;
                      var5.dg = Client.ep * -1014023335;
                      var8 = var0.gBit(3);
-                     var5.aa(var8, iu.aw);
+                     var5.aa(var8, MoveSpeed.walk);
                      var9 = var0.gBit(1);
                      if (1 == var9) {
                         Client.ih[(Client.ig += 1487412345) * 606834121 - 1] = var4;
@@ -217,12 +217,12 @@ public class bk {
                      var5.dg = -1014023335 * Client.ep;
                      if (var0.gBit(1) == 1) {
                         var8 = var0.gBit(3);
-                        var5.aa(var8, iu.ac);
+                        var5.aa(var8, MoveSpeed.run);
                         var9 = var0.gBit(3);
-                        var5.aa(var9, iu.ac);
+                        var5.aa(var9, MoveSpeed.run);
                      } else {
                         var8 = var0.gBit(3);
-                        var5.aa(var8, iu.an);
+                        var5.aa(var8, MoveSpeed.crawl);
                      }
 
                      var8 = var0.gBit(1);

@@ -739,7 +739,7 @@ public class Scene {
          TilePaint var8 = var7.au;
          int var10;
          if (var8 != null) {
-            int var18 = var8.neColor * -2143818661;
+            int var18 = var8.rgb * -2143818661;
             if (var18 != 0) {
                for(var10 = 0; var10 < 4; ++var10) {
                   var1[var2] = var18;
@@ -1227,7 +1227,7 @@ public class Scene {
                                  if (var3.au != null) {
                                     if (!this.bp(var7, var4, var5)) {
                                        var22 = true;
-                                       if (var3.au.seColor * -1667175185 != 12345678 || bx && var6 <= Scene_selectedPlane) {
+                                       if (var3.au.neColor * -1667175185 != 12345678 || bx && var6 <= Scene_selectedPlane) {
                                           this.bf(var3.au, var7, Scene_cameraPitchSine, Scene_cameraPitchCosine, Scene_cameraYawSine, Scene_cameraYawCosine, var4, var5);
                                        }
                                     }
@@ -1704,19 +1704,19 @@ public class Scene {
                         Scene_selectedY = var8;
                      }
 
-                     if (var1.nwColor * 412494011 == -1) {
-                        if (var1.seColor * -1667175185 != 12345678) {
-                           Wall.ah_renamed(var27, var29, var25, var26, var28, var24, var32, var33, var31, var1.seColor * -1667175185, var1.texture * 890568309, var1.swColor * 40257399);
+                     if (var1.texture * 412494011 == -1) {
+                        if (var1.neColor * -1667175185 != 12345678) {
+                           Wall.ah_renamed(var27, var29, var25, var26, var28, var24, var32, var33, var31, var1.neColor * -1667175185, var1.nwColor * 890568309, var1.seColor * 40257399);
                         }
                      } else if (!Scene_isLowDetail) {
                         if (var1.isFlat) {
-                           FloorDecoration.am_renamed(var27, var29, var25, var26, var28, var24, var32, var33, var31, var1.seColor * -1667175185, var1.texture * 890568309, var1.swColor * 40257399, var10, var14, var9, var17, var18, var21, var12, var11, var15, var1.nwColor * 412494011);
+                           FloorDecoration.am_renamed(var27, var29, var25, var26, var28, var24, var32, var33, var31, var1.neColor * -1667175185, var1.nwColor * 890568309, var1.seColor * 40257399, var10, var14, var9, var17, var18, var21, var12, var11, var15, var1.texture * 412494011);
                         } else {
-                           FloorDecoration.am_renamed(var27, var29, var25, var26, var28, var24, var32, var33, var31, var1.seColor * -1667175185, var1.texture * 890568309, var1.swColor * 40257399, var13, var9, var14, var19, var21, var18, var16, var15, var11, var1.nwColor * 412494011);
+                           FloorDecoration.am_renamed(var27, var29, var25, var26, var28, var24, var32, var33, var31, var1.neColor * -1667175185, var1.nwColor * 890568309, var1.seColor * 40257399, var13, var9, var14, var19, var21, var18, var16, var15, var11, var1.texture * 412494011);
                         }
                      } else {
-                        var35 = Rasterizer3D.ab.aq.ac(var1.nwColor * 412494011);
-                        Wall.ah_renamed(var27, var29, var25, var26, var28, var24, var32, var33, var31, ba_renamed(var35, var1.seColor * -1667175185), ba_renamed(var35, var1.texture * 890568309), ba_renamed(var35, var1.swColor * 40257399));
+                        var35 = Rasterizer3D.ab.aq.ac(var1.texture * 412494011);
+                        Wall.ah_renamed(var27, var29, var25, var26, var28, var24, var32, var33, var31, ba_renamed(var35, var1.neColor * -1667175185), ba_renamed(var35, var1.nwColor * 890568309), ba_renamed(var35, var1.seColor * 40257399));
                      }
                   }
 
@@ -1732,15 +1732,15 @@ public class Scene {
                         Scene_selectedY = var8;
                      }
 
-                     if (var1.nwColor * 412494011 == -1) {
-                        if (var1.rgb * 1860851959 != 12345678) {
-                           Wall.ah_renamed(var23, var25, var29, var22, var24, var28, var30, var31, var33, var1.rgb * 1860851959, var1.swColor * 40257399, var1.texture * 890568309);
+                     if (var1.texture * 412494011 == -1) {
+                        if (var1.swColor * 1860851959 != 12345678) {
+                           Wall.ah_renamed(var23, var25, var29, var22, var24, var28, var30, var31, var33, var1.swColor * 1860851959, var1.seColor * 40257399, var1.nwColor * 890568309);
                         }
                      } else if (!Scene_isLowDetail) {
-                        FloorDecoration.am_renamed(var23, var25, var29, var22, var24, var28, var30, var31, var33, var1.rgb * 1860851959, var1.swColor * 40257399, var1.texture * 890568309, var10, var14, var9, var17, var18, var21, var12, var11, var15, var1.nwColor * 412494011);
+                        FloorDecoration.am_renamed(var23, var25, var29, var22, var24, var28, var30, var31, var33, var1.swColor * 1860851959, var1.seColor * 40257399, var1.nwColor * 890568309, var10, var14, var9, var17, var18, var21, var12, var11, var15, var1.texture * 412494011);
                      } else {
-                        var35 = Rasterizer3D.ab.aq.ac(var1.nwColor * 412494011);
-                        Wall.ah_renamed(var23, var25, var29, var22, var24, var28, var30, var31, var33, ba_renamed(var35, var1.rgb * 1860851959), ba_renamed(var35, var1.swColor * 40257399), ba_renamed(var35, var1.texture * 890568309));
+                        var35 = Rasterizer3D.ab.aq.ac(var1.texture * 412494011);
+                        Wall.ah_renamed(var23, var25, var29, var22, var24, var28, var30, var31, var33, ba_renamed(var35, var1.swColor * 1860851959), ba_renamed(var35, var1.seColor * 40257399), ba_renamed(var35, var1.nwColor * 890568309));
                      }
                   }
 

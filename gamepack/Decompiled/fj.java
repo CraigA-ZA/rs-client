@@ -902,11 +902,11 @@ public class fj {
                      int var9 = var1.g4s();
                      this.ap.put(new IntegerNode(var9), (long)var7);
                   } else if (var8 == 1) {
-                     long var11 = var1.g8s();
-                     this.ap.put(new rq(var11), (long)var7);
+                     long var12 = var1.g8s();
+                     this.ap.put(new rq(var12), (long)var7);
                   } else if (2 == var8) {
-                     String var12 = var1.cw();
-                     this.ap.put(new ObjectNode(var12), (long)var7);
+                     String var13 = var1.cw();
+                     this.ap.put(new ObjectNode(var13), (long)var7);
                   }
                }
             }

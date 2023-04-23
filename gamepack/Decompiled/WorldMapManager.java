@@ -11,20 +11,20 @@ public final class WorldMapManager {
    int ai;
    int ao;
    int ax;
-   HashMap fonts = new HashMap();
+   HashMap aq = new HashMap();
    HashMap icons;
    WorldMapRegion[][] regions;
    WorldMapAreaData mapAreaData;
    IndexedSprite[] mapSceneSprites;
-   Sprite ac;
-   final HashMap ay;
+   Sprite overviewSprite;
+   final HashMap fonts;
    final AbstractArchive aa;
    final AbstractArchive at;
    public int ah = 0;
 
    public WorldMapManager(IndexedSprite[] var1, HashMap var2, AbstractArchive var3, AbstractArchive var4) {
       this.mapSceneSprites = var1;
-      this.ay = var2;
+      this.fonts = var2;
       this.at = var3;
       this.aa = var4;
    }
@@ -69,14 +69,14 @@ public final class WorldMapManager {
             int var14 = var12.al * -1674687277;
             int var15 = var13 - this.mapAreaData.minX();
             int var16 = var14 - this.mapAreaData.minY();
-            this.regions[var15][var16] = new WorldMapRegion(var13, var14, this.mapAreaData.ao(), this.ay);
+            this.regions[var15][var16] = new WorldMapRegion(var13, var14, this.mapAreaData.ao(), this.fonts);
             this.regions[var15][var16].au(var12, this.mapAreaData.ag);
          }
 
          for(int var18 = 0; var18 < var9; ++var18) {
             for(int var20 = 0; var20 < var10; ++var20) {
                if (this.regions[var18][var20] == null) {
-                  this.regions[var18][var20] = new WorldMapRegion(this.mapAreaData.minX() + var18, this.mapAreaData.minY() + var20, this.mapAreaData.ao(), this.ay);
+                  this.regions[var18][var20] = new WorldMapRegion(this.mapAreaData.minX() + var18, this.mapAreaData.minY() + var20, this.mapAreaData.ao(), this.fonts);
                   this.regions[var18][var20].ab(this.mapAreaData.ai, this.mapAreaData.ag);
                }
             }
@@ -86,7 +86,7 @@ public final class WorldMapManager {
          System.nanoTime();
          if (var1.cv(WorldMapCacheName.WorldMapCacheName_compositeTexture.name, var2)) {
             byte[] var19 = var1.takeFileByNames(WorldMapCacheName.WorldMapCacheName_compositeTexture.name, var2);
-            this.ac = Strings.af_renamed(var19);
+            this.overviewSprite = Strings.imageToSprite(var19);
          }
 
          System.nanoTime();
@@ -111,20 +111,20 @@ public final class WorldMapManager {
       float var16 = this.ay(var7 - var5, var3 - var1);
       int var17 = (int)Math.ceil((double)var16);
       this.ah = var17 * 1717142051;
-      if (!this.fonts.containsKey(var17)) {
+      if (!this.aq.containsKey(var17)) {
          kj var18 = new kj(var17);
          var18.ac();
-         this.fonts.put(var17, var18);
+         this.aq.put(var17, var18);
       }
 
-      int var25 = var15.af * -1083493055 + -1346472301 * var15.aw - 1;
+      int var26 = var15.af * -1083493055 + -1346472301 * var15.aw - 1;
       int var19 = 844386227 * var15.ac + 856820921 * var15.an - 1;
 
       int var20;
       int var21;
-      for(var20 = var15.aw * -1346472301; var20 <= var25; ++var20) {
+      for(var20 = var15.aw * -1346472301; var20 <= var26; ++var20) {
          for(var21 = 844386227 * var15.ac; var21 <= var19; ++var21) {
-            this.regions[var20][var21].ax(var17, (kj)this.fonts.get(var17), this.mapSceneSprites, this.at, this.aa);
+            this.regions[var20][var21].ax(var17, (kj)this.aq.get(var17), this.mapSceneSprites, this.at, this.aa);
          }
       }
 
@@ -136,7 +136,7 @@ public final class WorldMapManager {
 
       for(int var23 = var15.aw * -1346472301; var23 < -1346472301 * var15.aw + var15.af * -1083493055; ++var23) {
          for(int var24 = var15.ac * 844386227; var24 < var15.an * 856820921 + 844386227 * var15.ac; ++var24) {
-            this.regions[var23][var24].ac(var5 + (1598848320 * this.regions[var23][var24].y - var21) * var20 / 64, var8 - (64 + (-1342988608 * this.regions[var23][var24].x - var22)) * var20 / 64, var20);
+            this.regions[var23][var24].ac(var5 + (1598848320 * this.regions[var23][var24].x - var21) * var20 / 64, var8 - (64 + (-1342988608 * this.regions[var23][var24].y - var22)) * var20 / 64, var20);
          }
       }
 
@@ -157,7 +157,7 @@ public final class WorldMapManager {
                this.regions[var20][var21].at();
             }
 
-            this.regions[var20][var21].ai(var5 + (1598848320 * this.regions[var20][var21].y - var18) * var17 / 64, var8 - (-1342988608 * this.regions[var20][var21].x - var19 + 64) * var17 / 64, var17, var9);
+            this.regions[var20][var21].ai(var5 + (1598848320 * this.regions[var20][var21].x - var18) * var17 / 64, var8 - (-1342988608 * this.regions[var20][var21].y - var19 + 64) * var17 / 64, var17, var9);
          }
       }
 
@@ -172,8 +172,8 @@ public final class WorldMapManager {
    }
 
    public void drawOverview(int var1, int var2, int var3, int var4, HashSet var5, int var6, int var7) {
-      if (null != this.ac) {
-         this.ac.ag(var1, var2, var3, var4);
+      if (null != this.overviewSprite) {
+         this.overviewSprite.ag(var1, var2, var3, var4);
          if (var6 > 0 && var6 % var7 < var7 / 2) {
             if (this.icons == null) {
                this.aa();
@@ -218,7 +218,7 @@ public final class WorldMapManager {
 
          for(int var18 = -1346472301 * var13.aw; var18 < -1083493055 * var13.af + -1346472301 * var13.aw; ++var18) {
             for(int var19 = var13.ac * 844386227; var19 < 856820921 * var13.an + var13.ac * 844386227; ++var19) {
-               List var20 = this.regions[var18][var19].bm(var15 * (1598848320 * this.regions[var18][var19].y - var16) / 64 + var5, var8 + var6 - (-1342988608 * this.regions[var18][var19].x - var17 + 64) * var15 / 64, var15, var9, var10);
+               List var20 = this.regions[var18][var19].bm(var15 * (1598848320 * this.regions[var18][var19].x - var16) / 64 + var5, var8 + var6 - (-1342988608 * this.regions[var18][var19].y - var17 + 64) * var15 / 64, var15, var9, var10);
                if (!var20.isEmpty()) {
                   var12.addAll(var20);
                }
@@ -296,8 +296,8 @@ public final class WorldMapManager {
                      var8.add(var6);
                      this.icons.put(var7, var8);
                   } else {
-                     List var9 = (List)this.icons.get(var7);
-                     var9.add(var6);
+                     List var11 = (List)this.icons.get(var7);
+                     var11.add(var6);
                   }
                }
             }

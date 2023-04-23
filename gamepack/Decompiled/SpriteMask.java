@@ -1,7 +1,7 @@
 public class SpriteMask extends DualNode {
    static String gn;
-   public final int height;
    public final int width;
+   public final int height;
    public final int[] xStarts;
    public final int[] xWidths;
 
@@ -17,8 +17,8 @@ public class SpriteMask extends DualNode {
    }
 
    SpriteMask(int var1, int var2, int[] var3, int[] var4) {
-      this.height = var1 * 1531475491;
-      this.width = var2 * 1387260015;
+      this.width = var1 * 1531475491;
+      this.height = var2 * 1387260015;
       this.xWidths = var3;
       this.xStarts = var4;
    }

@@ -1,6 +1,6 @@
 public class fq extends fu {
    static gj av;
-   static int menuX;
+   static int menuHeight;
    int af;
    // $FF: synthetic field
    final gr this$0;

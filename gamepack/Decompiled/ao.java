@@ -396,7 +396,7 @@ class ao implements TlsAuthentication {
                                  }
                               } else {
                                  if (-1 != -2006098851 * var11.itemId) {
-                                    var35 = WorldMapSection1.ay_renamed(var11.itemId * -2006098851, var11.itemQuantity * 1336975799, var11.outline * 1638912775, -353676735 * var11.spriteShadow, var11.dn * -1681772717, false);
+                                    var35 = WorldMapSection1.getItemSprite(var11.itemId * -2006098851, var11.itemQuantity * 1336975799, var11.outline * 1638912775, -353676735 * var11.spriteShadow, var11.dn * -1681772717, false);
                                  } else {
                                     var35 = var11.at(false, ag.urlRequester);
                                  }
@@ -471,7 +471,7 @@ class ao implements TlsAuthentication {
                                        var36 = MusicPatchNode.localPlayer.getModel();
                                     }
                                  } else if (-123768459 * var11.modelType == 7) {
-                                    var36 = var11.dd.aa((SeqType)null, -1, Inventory.getSeqType(MusicPatchNode.localPlayer.turnLeftSequence * 1590591885, (byte)121), 424813829 * MusicPatchNode.localPlayer.spotAnimationFrameCycle);
+                                    var36 = var11.dd.aa((SeqType)null, -1, Inventory.getSeqType(MusicPatchNode.localPlayer.readySequence * 1590591885, (byte)121), 424813829 * MusicPatchNode.localPlayer.spotAnimationFrameCycle);
                                  } else {
                                     NPCType var39 = null;
                                     hv var40 = null;

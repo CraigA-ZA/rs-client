@@ -59,21 +59,21 @@ public class FriendsList extends UserList {
                if (var12 != null) {
                   this.changeName(var12, var5, var6);
                   if (var7 != var12.world0 * 177258591) {
-                     boolean var15 = true;
+                     boolean var19 = true;
 
                      for(FriendLoginUpdate var14 = (FriendLoginUpdate)this.friendLoginUpdates.an(); null != var14; var14 = (FriendLoginUpdate)this.friendLoginUpdates.aw()) {
                         if (var14.username.equals(var5)) {
                            if (0 != var7 && 0 == var14.world) {
                               var14.remove();
-                              var15 = false;
+                              var19 = false;
                            } else if (0 == var7 && 0 != var14.world) {
                               var14.remove();
-                              var15 = false;
+                              var19 = false;
                            }
                         }
                      }
 
-                     if (var15) {
+                     if (var19) {
                         this.friendLoginUpdates.af(new FriendLoginUpdate(var5, var7));
                      }
                   }
@@ -125,14 +125,14 @@ public class FriendsList extends UserList {
                      break;
                   case 1:
                      if (LocType.au_renamed(KeyHandler.getComponentClickMask(var0.ab))) {
-                        int[] var5 = var0.ab.bo();
-                        if (null != var5) {
+                        int[] var7 = var0.ab.bo();
+                        if (null != var7) {
                            PacketBitNode var3 = mi.an_renamed(ClientProt.ct, Client.packetWriter.au);
-                           var3.bit.p4ME(var5[0]);
-                           var3.bit.p4LE16(var0.ab.id * 1713081171);
-                           var3.bit.ba(var5[1]);
-                           var3.bit.el(var0.ab.bk());
-                           var3.bit.p4ME(var5[2]);
+                           var3.bit.p4ME(var7[0]);
+                           var3.bit.es(var0.ab.id * 1713081171);
+                           var3.bit.ba(var7[1]);
+                           var3.bit.p4LE16(var0.ab.bk());
+                           var3.bit.p4ME(var7[2]);
                            var3.bit.p2LE(55577617 * var0.ab.childIndex);
                            Client.packetWriter.aw(var3);
                         }
@@ -140,16 +140,16 @@ public class FriendsList extends UserList {
                }
             }
          } else if (12 == var0.ab.bg * 883712245) {
-            mz var4 = var0.ab.bj();
-            if (var4 != null && var4.ci()) {
+            mz var6 = var0.ab.bj();
+            if (var6 != null && var6.ci()) {
                switch (-469277123 * var0.au) {
                   case 0:
                      Client.si.ax(var0.ab);
-                     var4.an(true);
-                     var4.br(var0.aw * -1583959695, -1480602069 * var0.ac, Client.sh.av(82), Client.sh.av(81));
+                     var6.an(true);
+                     var6.br(var0.aw * -1583959695, -1480602069 * var0.ac, Client.sh.av(82), Client.sh.av(81));
                      break;
                   case 1:
-                     var4.bg(-1583959695 * var0.aw, -1480602069 * var0.ac);
+                     var6.bg(-1583959695 * var0.aw, -1480602069 * var0.ac);
                }
             }
          }

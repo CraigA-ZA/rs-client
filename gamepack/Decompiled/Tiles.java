@@ -92,8 +92,8 @@ public final class Tiles {
                LocType var21 = fw.an_renamed(var11);
                int var24 = var16 & 7;
                int var25 = var15 & 7;
-               int var27 = -1339930361 * var21.offsetZ;
-               int var28 = -1659393955 * var21.width;
+               int var27 = -1339930361 * var21.width;
+               int var28 = -1659393955 * var21.length;
                int var29;
                if (1 == (var20 & 1)) {
                   var29 = var27;
@@ -116,8 +116,8 @@ public final class Tiles {
                var29 = var2 + var23;
                int var32 = var16 & 7;
                int var33 = var15 & 7;
-               int var35 = -1339930361 * var21.offsetZ;
-               int var36 = -1659393955 * var21.width;
+               int var35 = -1339930361 * var21.width;
+               int var36 = -1659393955 * var21.length;
                int var37;
                if (1 == (var20 & 1)) {
                   var37 = var35;

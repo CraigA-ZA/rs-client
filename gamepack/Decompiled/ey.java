@@ -1,6 +1,6 @@
 public class ey implements Enumerated {
-   static Archive archive16;
-   static Archive fm;
+   static Archive archive12;
+   static Archive archive15;
    static WorldMap worldMap0;
    static final ey ab = new ey(5, 5, (String)null, 3);
    static final ey ac = new ey(3, 3, (String)null, 6);

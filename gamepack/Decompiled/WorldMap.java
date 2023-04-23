@@ -59,7 +59,7 @@ public class WorldMap {
    Font font;
    WorldMapArchiveLoader cacheLoader;
    IndexedSprite[] mapSceneSprites;
-   Sprite cq;
+   Sprite sprite;
    final int[] cs = new int[]{1008, 1009, 1010, 1011, 1012};
    public boolean ck = false;
 
@@ -89,13 +89,13 @@ public class WorldMap {
          Packet var12 = new Packet(this.aq.takeFile(var8, var9[var11]));
          WorldMapArea var13 = new WorldMapArea();
          var13.read(var12, var9[var11]);
-         this.mapAreas.put(var13.name(), var13);
+         this.mapAreas.put(var13.archiveName(), var13);
          if (var13.isMain()) {
             this.mainMapArea = var13;
          }
       }
 
-      this.ah(this.mainMapArea);
+      this.setCurrentMapArea(this.mainMapArea);
       this.am = null;
    }
 
@@ -187,12 +187,12 @@ public class WorldMap {
             int var12;
             int var13;
             if (var10 && var8.av(82) && var8.av(81)) {
-               int var15 = this.mouseCoord.x * -96298701;
+               int var18 = this.mouseCoord.x * -96298701;
                var12 = -2105445199 * this.mouseCoord.z;
                var13 = this.mouseCoord.y * -113644749;
                PacketBitNode var14 = mi.an_renamed(ClientProt.cq, Client.packetWriter.au);
                var14.bit.p4ME(0);
-               var14.bit.dy(var15);
+               var14.bit.dy(var18);
                var14.bit.dh(var13);
                var14.bit.ds(var12);
                Client.packetWriter.aw(var14);
@@ -207,9 +207,9 @@ public class WorldMap {
                }
 
                if (var11) {
-                  PacketBitNode var16 = mi.an_renamed(ClientProt.bv, Client.packetWriter.au);
-                  var16.bit.el(this.mouseCoord.af());
-                  Client.packetWriter.aw(var16);
+                  PacketBitNode var19 = mi.an_renamed(ClientProt.bv, Client.packetWriter.au);
+                  var19.bit.p4LE16(this.mouseCoord.af());
+                  Client.packetWriter.aw(var19);
                   this.bg = 0L;
                }
             }
@@ -305,7 +305,7 @@ public class WorldMap {
       boolean var7 = false;
       if (this.am != var6 || var4) {
          this.am = var6;
-         this.ah(var6);
+         this.setCurrentMapArea(var6);
          var7 = true;
       }
 
@@ -318,7 +318,7 @@ public class WorldMap {
    public void ax(int var1) {
       WorldMapArea var3 = this.getMapArea(var1);
       if (null != var3) {
-         this.ah(var3);
+         this.setCurrentMapArea(var3);
       }
 
    }
@@ -331,7 +331,7 @@ public class WorldMap {
       return this.currentMapArea0;
    }
 
-   void ah(WorldMapArea var1) {
+   void setCurrentMapArea(WorldMapArea var1) {
       if (null == this.currentMapArea0 || this.currentMapArea0 != var1) {
          this.initializeWorldMapManager(var1);
          this.am(-1, -1, -1);
@@ -341,7 +341,7 @@ public class WorldMap {
    void initializeWorldMapManager(WorldMapArea var1) {
       this.currentMapArea0 = var1;
       this.worldMapManager = new WorldMapManager(this.mapSceneSprites, this.fonts, this.al, this.at);
-      this.cacheLoader.reset(null == this.currentMapArea0 ? null : this.currentMapArea0.name());
+      this.cacheLoader.reset(null == this.currentMapArea0 ? null : this.currentMapArea0.archiveName());
    }
 
    public void ar(WorldMapArea var1, Coord var2, Coord var3, boolean var4) {
@@ -387,7 +387,7 @@ public class WorldMap {
          this.drawLoading(var1, var2, var3, var4, var8);
       } else {
          if (!this.worldMapManager.isLoaded()) {
-            this.worldMapManager.load(this.aq, this.currentMapArea0.name(), Client.ca);
+            this.worldMapManager.load(this.aq, this.currentMapArea0.archiveName(), Client.ca);
             if (!this.worldMapManager.isLoaded()) {
                return;
             }
@@ -434,9 +434,9 @@ public class WorldMap {
    }
 
    boolean aj(int var1, int var2, int var3, int var4, int var5, int var6) {
-      if (null == this.cq) {
+      if (null == this.sprite) {
          return true;
-      } else if (this.cq.subWidth == var1 && this.cq.subHeight == var2) {
+      } else if (this.sprite.subWidth == var1 && this.sprite.subHeight == var2) {
          if (-1655947893 * this.worldMapManager.ah != this.cm * 1547438523) {
             return true;
          } else if (this.cg * 2016965279 != -1680619819 * Client.wn) {
@@ -464,16 +464,16 @@ public class WorldMap {
          int var14 = var1 - this.worldMapManager.ah * -1655947893 * (var8 + var12 - this.cf * 334129421);
          int var15 = var2 - (var8 - (var13 - this.cl * 627335149)) * -1655947893 * this.worldMapManager.ah;
          if (this.aj(var9, var10, var14, var15, var3, var4)) {
-            if (this.cq != null && this.cq.subWidth == var9 && var10 == this.cq.subHeight) {
-               Arrays.fill(this.cq.pixels, 0);
+            if (this.sprite != null && this.sprite.subWidth == var9 && var10 == this.sprite.subHeight) {
+               Arrays.fill(this.sprite.pixels, 0);
             } else {
-               this.cq = new Sprite(var9, var10);
+               this.sprite = new Sprite(var9, var10);
             }
 
             this.cf = (this.bm() - var5 / 2 - var8) * -1316647483;
             this.cl = (this.bd() - var6 / 2 - var8) * 1178523109;
             this.cm = this.worldMapManager.ah * 219395697;
-            fi.wc.au(this.cf * 334129421, 627335149 * this.cl, this.cq, (float)(1547438523 * this.cm) / var11);
+            fi.wc.au(this.cf * 334129421, 627335149 * this.cl, this.sprite, (float)(1547438523 * this.cm) / var11);
             this.cg = Client.wn * 2048189963;
             var14 = var1 - this.worldMapManager.ah * -1655947893 * (var8 + var12 - this.cf * 334129421);
             var15 = var2 - (var8 - (var13 - 627335149 * this.cl)) * this.worldMapManager.ah * -1655947893;
@@ -481,9 +481,9 @@ public class WorldMap {
 
          Rasterizer2D.ev_renamed(var1, var2, var3, var4, 0, 128);
          if (1.0F == var11) {
-            this.cq.az(var14, var15, 192);
+            this.sprite.az(var14, var15, 192);
          } else {
-            this.cq.ap(var14, var15, (int)((float)var9 * var11), (int)(var11 * (float)var10), 192);
+            this.sprite.ap(var14, var15, (int)((float)var9 * var11), (int)(var11 * (float)var10), 192);
          }
       }
 
@@ -492,7 +492,7 @@ public class WorldMap {
    public void az(int var1, int var2, int var3, int var4) {
       if (this.cacheLoader.isLoaded()) {
          if (!this.worldMapManager.isLoaded()) {
-            this.worldMapManager.load(this.aq, this.currentMapArea0.name(), Client.ca);
+            this.worldMapManager.load(this.aq, this.currentMapArea0.archiveName(), Client.ca);
             if (!this.worldMapManager.isLoaded()) {
                return;
             }
@@ -661,7 +661,7 @@ public class WorldMap {
       this.bt = 0;
 
       for(int var3 = 0; var3 < -1703136055 * mo.MapElementType_count; ++var3) {
-         if (nf.getMapElementType(var3) != null && nf.getMapElementType(var3).ae * -461862935 == var1) {
+         if (nf.getMapElementType(var3) != null && nf.getMapElementType(var3).category * -461862935 == var1) {
             this.flashingElements.add(nf.getMapElementType(var3).au * 219774827);
          }
       }
@@ -694,7 +694,7 @@ public class WorldMap {
       }
 
       for(int var4 = 0; var4 < mo.MapElementType_count * -1703136055; ++var4) {
-         if (nf.getMapElementType(var4) != null && nf.getMapElementType(var4).ae * -461862935 == var1) {
+         if (nf.getMapElementType(var4) != null && nf.getMapElementType(var4).category * -461862935 == var1) {
             int var5 = nf.getMapElementType(var4).au * 219774827;
             if (!var2) {
                this.bc.add(var5);

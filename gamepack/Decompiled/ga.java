@@ -53,15 +53,15 @@ public class ga extends fu {
          } else {
             label79: {
                if (var4.an[0] >= 512) {
-                  boolean var8;
+                  boolean var11;
                   if (var4.an[0] < 512) {
-                     var8 = false;
+                     var11 = false;
                   } else {
-                     ObjType var9 = HeadbarUpdate.getObjType(var4.an[0] - 512);
-                     var8 = 622494345 * hp.ao.ag != var9.manwear * -1719338253 && hp.ao.ag * 622494345 != 723093341 * var9.contrast;
+                     ObjType var12 = HeadbarUpdate.getObjType(var4.an[0] - 512);
+                     var11 = 622494345 * hp.ao.ag != var12.manwear * -1719338253 && hp.ao.ag * 622494345 != 723093341 * var12.manwear2;
                   }
 
-                  if (!var8) {
+                  if (!var11) {
                      break label79;
                   }
                }

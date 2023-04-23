@@ -12,11 +12,11 @@ public class ds {
    static int[] aq = new int[2048];
    static int[] at = new int[2048];
    static int[] ay = new int[2048];
-   static iu[] ac = new iu[2048];
+   static MoveSpeed[] ac = new MoveSpeed[2048];
    static qt rx;
    static Packet ag = new Packet(new byte[5000]);
    static Packet[] au = new Packet[2048];
-   static Sprite[] kd;
+   static Sprite[] mapMarkerSprites;
 
    static boolean loadWorlds() {
       try {

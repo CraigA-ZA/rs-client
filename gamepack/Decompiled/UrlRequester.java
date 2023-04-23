@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public abstract class UrlRequester implements Runnable {
-   static Sprite tk;
+   static Sprite sceneMinimapSprite;
    int ac;
    Queue requests = new LinkedList();
    final Thread thread = new Thread(this);

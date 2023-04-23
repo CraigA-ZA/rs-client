@@ -59,13 +59,13 @@ public class GraphicsDefaults {
 
    static final void jg_renamed() {
       for(GraphicsObject var1 = (GraphicsObject)Client.graphicsObjects.last(); var1 != null; var1 = (GraphicsObject)Client.graphicsObjects.previous()) {
-         if (var1.id * 397044137 == -1727408401 * GameShell.plane && !var1.isFinished) {
-            if (-1886224337 * Client.ep >= -1927288833 * var1.height) {
+         if (var1.plane * 397044137 == -1727408401 * GameShell.plane && !var1.isFinished) {
+            if (-1886224337 * Client.ep >= -1927288833 * var1.cycleStart) {
                var1.advance(Client.ja * -1795081153);
                if (var1.isFinished) {
                   var1.remove();
                } else {
-                  bx.scene.ao(var1.id * 397044137, -1570643775 * var1.plane, -161744223 * var1.x, var1.y * -769506393, 60, var1, 0, -1L, false);
+                  bx.scene.ao(var1.plane * 397044137, -1570643775 * var1.x, -161744223 * var1.y, var1.height * -769506393, 60, var1, 0, -1L, false);
                }
             }
          } else {

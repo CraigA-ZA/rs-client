@@ -36,21 +36,21 @@ public class MouseRecorder implements Runnable {
       int var4;
       if (6600 == var0) {
          var4 = GameShell.plane * -1727408401;
-         int var17 = (MusicPatchNode.localPlayer.bx * 1144428983 >> 7) + jm.ib * -1232093375;
-         int var13 = Scenery.jc * 827352769 + (-411750205 * MusicPatchNode.localPlayer.bo >> 7);
-         dz.worldMap().ao(var4, var17, var13, true);
+         int var27 = (MusicPatchNode.localPlayer.bx * 1144428983 >> 7) + jm.ib * -1232093375;
+         int var23 = Scenery.jc * 827352769 + (-411750205 * MusicPatchNode.localPlayer.bo >> 7);
+         dz.worldMap().ao(var4, var27, var23, true);
          return 1;
       } else {
-         WorldMapArea var8;
+         WorldMapArea var18;
          if (var0 == 6601) {
             var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-            String var16 = "";
-            var8 = dz.worldMap().getMapArea(var4);
-            if (null != var8) {
-               var16 = var8.archiveName();
+            String var26 = "";
+            var18 = dz.worldMap().getMapArea(var4);
+            if (null != var18) {
+               var26 = var18.name();
             }
 
-            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var16;
+            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var26;
             return 1;
          } else if (var0 == 6602) {
             var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
@@ -67,85 +67,85 @@ public class MouseRecorder implements Runnable {
             Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = dz.worldMap().isCacheLoaded() ? 1 : 0;
             return 1;
          } else {
-            Coord var15;
+            Coord var25;
             if (6606 == var0) {
-               var15 = new Coord(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
-               dz.worldMap().bk(-96298701 * var15.x, -2105445199 * var15.z);
+               var25 = new Coord(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+               dz.worldMap().bk(-96298701 * var25.x, -2105445199 * var25.z);
                return 1;
             } else if (6607 == var0) {
-               var15 = new Coord(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
-               dz.worldMap().bx(-96298701 * var15.x, -2105445199 * var15.z);
+               var25 = new Coord(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+               dz.worldMap().bx(-96298701 * var25.x, -2105445199 * var25.z);
                return 1;
             } else if (var0 == 6608) {
-               var15 = new Coord(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
-               dz.worldMap().bo(-113644749 * var15.y, var15.x * -96298701, var15.z * -2105445199);
+               var25 = new Coord(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+               dz.worldMap().bo(-113644749 * var25.y, var25.x * -96298701, var25.z * -2105445199);
                return 1;
             } else if (6609 == var0) {
-               var15 = new Coord(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
-               dz.worldMap().bz(var15.y * -113644749, var15.x * -96298701, var15.z * -2105445199);
+               var25 = new Coord(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+               dz.worldMap().bz(var25.y * -113644749, var25.x * -96298701, var25.z * -2105445199);
                return 1;
             } else if (var0 == 6610) {
                Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = dz.worldMap().bm();
                Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = dz.worldMap().bd();
                return 1;
             } else {
-               WorldMapArea var12;
+               WorldMapArea var22;
                if (var0 == 6611) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-                  var12 = dz.worldMap().getMapArea(var4);
-                  if (var12 == null) {
+                  var22 = dz.worldMap().getMapArea(var4);
+                  if (var22 == null) {
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
                   } else {
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12.origin().af();
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var22.origin().af();
                   }
 
                   return 1;
                } else if (var0 == 6612) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-                  var12 = dz.worldMap().getMapArea(var4);
-                  if (var12 == null) {
+                  var22 = dz.worldMap().getMapArea(var4);
+                  if (var22 == null) {
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
                   } else {
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (var12.maxX() - var12.minX() + 1) * 64;
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (var12.maxY() - var12.minY() + 1) * 64;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (var22.maxX() - var22.minX() + 1) * 64;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (var22.maxY() - var22.minY() + 1) * 64;
                   }
 
                   return 1;
                } else if (6613 == var0) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-                  var12 = dz.worldMap().getMapArea(var4);
-                  if (var12 == null) {
+                  var22 = dz.worldMap().getMapArea(var4);
+                  if (var22 == null) {
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
                   } else {
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12.minX() * 64;
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12.minY() * 64;
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12.maxX() * 64 + 64 - 1;
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12.maxY() * 64 + 64 - 1;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var22.minX() * 64;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var22.minY() * 64;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var22.maxX() * 64 + 64 - 1;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var22.maxY() * 64 + 64 - 1;
                   }
 
                   return 1;
                } else if (var0 == 6614) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-                  var12 = dz.worldMap().getMapArea(var4);
-                  if (var12 == null) {
+                  var22 = dz.worldMap().getMapArea(var4);
+                  if (var22 == null) {
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                   } else {
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12.zoom();
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var22.zoom();
                   }
 
                   return 1;
                } else if (6615 == var0) {
-                  var15 = dz.worldMap().bt();
-                  if (null == var15) {
+                  var25 = dz.worldMap().bt();
+                  if (null == var25) {
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                   } else {
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var15.x * -96298701;
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -2105445199 * var15.z;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var25.x * -96298701;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -2105445199 * var25.z;
                   }
 
                   return 1;
@@ -153,20 +153,20 @@ public class MouseRecorder implements Runnable {
                   Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = dz.worldMap().currentMapAreaId();
                   return 1;
                } else if (6617 == var0) {
-                  var15 = new Coord(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
-                  var12 = dz.worldMap().getCurrentMapArea();
-                  if (null == var12) {
+                  var25 = new Coord(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+                  var22 = dz.worldMap().getCurrentMapArea();
+                  if (null == var22) {
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                      return 1;
                   } else {
-                     int[] var11 = var12.position(var15.y * -113644749, -96298701 * var15.x, -2105445199 * var15.z);
-                     if (null == var11) {
+                     int[] var21 = var22.position(var25.y * -113644749, -96298701 * var25.x, -2105445199 * var25.z);
+                     if (null == var21) {
                         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                      } else {
-                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var11[0];
-                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var11[1];
+                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var21[0];
+                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var21[1];
                      }
 
                      return 1;
@@ -174,14 +174,14 @@ public class MouseRecorder implements Runnable {
                } else {
                   Coord var6;
                   if (6618 == var0) {
-                     var15 = new Coord(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
-                     var12 = dz.worldMap().getCurrentMapArea();
-                     if (var12 == null) {
+                     var25 = new Coord(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+                     var22 = dz.worldMap().getCurrentMapArea();
+                     if (var22 == null) {
                         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                         return 1;
                      } else {
-                        var6 = var12.coord(var15.x * -96298701, var15.z * -2105445199);
+                        var6 = var22.coord(var25.x * -96298701, var25.z * -2105445199);
                         if (null == var6) {
                            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                         } else {
@@ -191,29 +191,29 @@ public class MouseRecorder implements Runnable {
                         return 1;
                      }
                   } else {
-                     Coord var9;
+                     Coord var19;
                      if (var0 == 6619) {
                         Interpreter.Interpreter_intStackSize -= 854271946;
                         var4 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
-                        var9 = new Coord(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1]);
-                        ii.cs_renamed(var4, var9, false);
+                        var19 = new Coord(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1]);
+                        ii.cs_renamed(var4, var19, false);
                         return 1;
                      } else if (var0 == 6620) {
                         Interpreter.Interpreter_intStackSize -= 854271946;
                         var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-                        var9 = new Coord(Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539]);
-                        ii.cs_renamed(var4, var9, true);
+                        var19 = new Coord(Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539]);
+                        ii.cs_renamed(var4, var19, true);
                         return 1;
                      } else if (6621 == var0) {
                         Interpreter.Interpreter_intStackSize -= 854271946;
                         var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-                        var9 = new Coord(Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize]);
-                        var8 = dz.worldMap().getMapArea(var4);
-                        if (var8 == null) {
+                        var19 = new Coord(Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize]);
+                        var18 = dz.worldMap().getMapArea(var4);
+                        if (var18 == null) {
                            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
                            return 1;
                         } else {
-                           Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var8.containsCoord(var9.y * -113644749, var9.x * -96298701, -2105445199 * var9.z) ? 1 : 0;
+                           Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var18.containsCoord(var19.y * -113644749, var19.x * -96298701, -2105445199 * var19.z) ? 1 : 0;
                            return 1;
                         }
                      } else if (var0 == 6622) {
@@ -221,12 +221,12 @@ public class MouseRecorder implements Runnable {
                         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = dz.worldMap().bn();
                         return 1;
                      } else if (var0 == 6623) {
-                        var15 = new Coord(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
-                        var12 = dz.worldMap().mapAreaAtCoord(-113644749 * var15.y, var15.x * -96298701, -2105445199 * var15.z);
-                        if (var12 == null) {
+                        var25 = new Coord(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+                        var22 = dz.worldMap().mapAreaAtCoord(-113644749 * var25.y, var25.x * -96298701, -2105445199 * var25.z);
+                        if (var22 == null) {
                            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                         } else {
-                           Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var12.id();
+                           Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var22.id();
                         }
 
                         return 1;
@@ -243,10 +243,10 @@ public class MouseRecorder implements Runnable {
                         dz.worldMap().bu();
                         return 1;
                      } else {
-                        boolean var14;
+                        boolean var24;
                         if (var0 == 6628) {
-                           var14 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
-                           dz.worldMap().perpetualFlash(var14);
+                           var24 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+                           dz.worldMap().perpetualFlash(var24);
                            return 1;
                         } else if (6629 == var0) {
                            var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
@@ -260,22 +260,22 @@ public class MouseRecorder implements Runnable {
                            dz.worldMap().stopCurrentFlashes();
                            return 1;
                         } else if (var0 == 6632) {
-                           var14 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
-                           dz.worldMap().setElementsEnabled(var14);
+                           var24 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+                           dz.worldMap().setElementsEnabled(var24);
                            return 1;
                         } else {
-                           boolean var10;
+                           boolean var20;
                            if (var0 == 6633) {
                               Interpreter.Interpreter_intStackSize -= 854271946;
                               var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-                              var10 = 1 == Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
-                              dz.worldMap().disableElement(var4, var10);
+                              var20 = 1 == Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
+                              dz.worldMap().disableElement(var4, var20);
                               return 1;
                            } else if (6634 == var0) {
                               Interpreter.Interpreter_intStackSize -= 854271946;
                               var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-                              var10 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize] == 1;
-                              dz.worldMap().disableCategory(var4, var10);
+                              var20 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize] == 1;
+                              dz.worldMap().disableCategory(var4, var20);
                               return 1;
                            } else if (var0 == 6635) {
                               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = dz.worldMap().getElementsEnabled() ? 1 : 0;
@@ -291,8 +291,8 @@ public class MouseRecorder implements Runnable {
                            } else if (var0 == 6638) {
                               Interpreter.Interpreter_intStackSize -= 854271946;
                               var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-                              var9 = new Coord(Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539]);
-                              var6 = dz.worldMap().cc(var4, var9);
+                              var19 = new Coord(Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539]);
+                              var6 = dz.worldMap().cc(var4, var19);
                               if (null == var6) {
                                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                               } else {
@@ -301,26 +301,26 @@ public class MouseRecorder implements Runnable {
 
                               return 1;
                            } else {
-                              AbstractWorldMapIcon var7;
+                              AbstractWorldMapIcon var17;
                               if (var0 == 6639) {
-                                 var7 = dz.worldMap().iconStart();
-                                 if (var7 == null) {
+                                 var17 = dz.worldMap().iconStart();
+                                 if (var17 == null) {
                                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                                  } else {
-                                    Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var7.element();
-                                    Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var7.coord2.af();
+                                    Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var17.element();
+                                    Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var17.coord2.af();
                                  }
 
                                  return 1;
                               } else if (var0 == 6640) {
-                                 var7 = dz.worldMap().iconNext();
-                                 if (var7 == null) {
+                                 var17 = dz.worldMap().iconNext();
+                                 if (var17 == null) {
                                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                                  } else {
-                                    Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var7.element();
-                                    Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var7.coord2.af();
+                                    Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var17.element();
+                                    Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var17.coord2.af();
                                  }
 
                                  return 1;
@@ -347,7 +347,7 @@ public class MouseRecorder implements Runnable {
                                     if (null == var5) {
                                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                                     } else {
-                                       Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5.ae * -461862935;
+                                       Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var5.category * -461862935;
                                     }
 
                                     return 1;
@@ -357,7 +357,7 @@ public class MouseRecorder implements Runnable {
                                     if (null == var5) {
                                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
                                     } else {
-                                       Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1458003089 * var5.ab;
+                                       Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1458003089 * var5.sprite1;
                                     }
 
                                     return 1;

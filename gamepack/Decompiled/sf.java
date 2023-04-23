@@ -1,5 +1,5 @@
 final class sf implements ss {
-   static Sprite[] kt;
+   static Sprite[] mapDotSprites;
 
    void ax(Long var1, Packet var2) {
       var2.p8s(var1);

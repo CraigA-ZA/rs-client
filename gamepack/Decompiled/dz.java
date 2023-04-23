@@ -24,8 +24,8 @@ public class dz {
          var12 = var12 + 1 & 4095;
          var7 = var5 - var9;
          var8 = var6 - var10;
-         int var14 = var5 - var3.bz * 1724654229;
-         int var15 = var6 - -216630539 * var3.bm;
+         int var14 = var5 - var3.xInset * 1724654229;
+         int var15 = var6 - -216630539 * var3.yInset;
          if (var2.af(1, var5, var6, var3)) {
             am.au = var5 * -617213805;
             pg.ab = 1169106949 * var6;

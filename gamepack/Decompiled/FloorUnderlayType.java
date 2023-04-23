@@ -2,7 +2,7 @@ public class FloorUnderlayType extends DualNode {
    public static EvictingDualNodeHashTable FloorUnderlayType_cached = new EvictingDualNodeHashTable(64);
    public static AbstractArchive FloorUnderlayType_archive;
    static int cw;
-   static Archive fr;
+   static Archive archive7;
    static tf sn;
    int rgb = 0;
    public int ab;

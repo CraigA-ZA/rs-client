@@ -491,59 +491,59 @@ public class kj {
       byte[] var10000 = new byte[-28927295 * this.af * this.af * -28927295];
       boolean var3 = false;
       byte[] var2 = new byte[this.af * -28927295 * -28927295 * this.af];
-      int var6 = 0;
+      int var14 = 0;
 
       int var4;
       int var5;
       for(var4 = 0; var4 < -28927295 * this.af; ++var4) {
          for(var5 = 0; var5 < -28927295 * this.af; ++var5) {
             if (var5 >= var4 - -28927295 * this.af / 2) {
-               var2[var6] = -1;
+               var2[var14] = -1;
             }
 
-            ++var6;
+            ++var14;
          }
       }
 
       this.an[7][0] = var2;
       var2 = new byte[this.af * -28927295 * -28927295 * this.af];
-      var6 = 0;
+      var14 = 0;
 
       for(var4 = -28927295 * this.af - 1; var4 >= 0; --var4) {
          for(var5 = 0; var5 < this.af * -28927295; ++var5) {
             if (var5 >= var4 - this.af * -28927295 / 2) {
-               var2[var6] = -1;
+               var2[var14] = -1;
             }
 
-            ++var6;
+            ++var14;
          }
       }
 
       this.an[7][1] = var2;
       var2 = new byte[this.af * -28927295 * this.af * -28927295];
-      var6 = 0;
+      var14 = 0;
 
       for(var4 = -28927295 * this.af - 1; var4 >= 0; --var4) {
          for(var5 = this.af * -28927295 - 1; var5 >= 0; --var5) {
             if (var5 >= var4 - -28927295 * this.af / 2) {
-               var2[var6] = -1;
+               var2[var14] = -1;
             }
 
-            ++var6;
+            ++var14;
          }
       }
 
       this.an[7][2] = var2;
       var2 = new byte[this.af * -28927295 * this.af * -28927295];
-      var6 = 0;
+      var14 = 0;
 
       for(var4 = 0; var4 < -28927295 * this.af; ++var4) {
          for(var5 = -28927295 * this.af - 1; var5 >= 0; --var5) {
             if (var5 >= var4 - -28927295 * this.af / 2) {
-               var2[var6] = -1;
+               var2[var14] = -1;
             }
 
-            ++var6;
+            ++var14;
          }
       }
 

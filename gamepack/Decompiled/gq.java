@@ -1,5 +1,5 @@
 public class gq {
-   static Sprite[] kb;
+   static Sprite[] crossSprites;
    // $FF: synthetic field
    final gy this$0;
    public float[] au;

@@ -4,10 +4,10 @@ public class MapElementType extends DualNode {
    static EvictingDualNodeHashTable MapElementType_cachedSprites = new EvictingDualNodeHashTable(256);
    static AbstractArchive af;
    byte[] ad;
-   int category = Integer.MIN_VALUE;
+   int am = Integer.MIN_VALUE;
    int sprite2 = -1486786935;
    int ar = -1629628643;
-   int sprite1 = Integer.MIN_VALUE;
+   int as = Integer.MIN_VALUE;
    int av = -1896307301;
    int[] ah;
    int[] az;
@@ -16,8 +16,8 @@ public class MapElementType extends DualNode {
    public hd aj;
    public hn ak;
    public int labelsize = 0;
-   public int ab = 771758991;
-   public int ae;
+   public int sprite1 = 771758991;
+   public int category;
    public int at;
    public String ag;
    public String al;
@@ -27,7 +27,7 @@ public class MapElementType extends DualNode {
    MapElementType(int var1) {
       this.aj = hd.an;
       this.ak = hn.an;
-      this.ae = 627392423;
+      this.category = 627392423;
       this.au = -1846037181 * var1;
    }
 
@@ -44,7 +44,7 @@ public class MapElementType extends DualNode {
 
    void decode0(Packet var1, int var2) {
       if (var2 == 1) {
-         this.ab = var1.gSmart2or4() * -771758991;
+         this.sprite1 = var1.gSmart2or4() * -771758991;
       } else if (var2 == 2) {
          this.sprite2 = var1.gSmart2or4() * 1486786935;
       } else if (var2 == 3) {
@@ -99,7 +99,7 @@ public class MapElementType extends DualNode {
             } else if (18 == var2) {
                var1.gSmart2or4();
             } else if (19 == var2) {
-               this.ae = var1.cl() * -627392423;
+               this.category = var1.cl() * -627392423;
             } else if (var2 == 21) {
                var1.g4s();
             } else if (22 == var2) {
@@ -131,14 +131,14 @@ public class MapElementType extends DualNode {
          for(int var2 = 0; var2 < this.ah.length; var2 += 2) {
             if (this.ah[var2] < 2140325741 * this.av) {
                this.av = this.ah[var2] * -251176347;
-            } else if (this.ah[var2] > this.category * -1897586587) {
-               this.category = this.ah[var2] * -281505427;
+            } else if (this.ah[var2] > this.am * -1897586587) {
+               this.am = this.ah[var2] * -281505427;
             }
 
             if (this.ah[var2 + 1] < this.ar * -1117233973) {
                this.ar = this.ah[var2 + 1] * -517855005;
-            } else if (this.ah[var2 + 1] > -2068879661 * this.sprite1) {
-               this.sprite1 = this.ah[var2 + 1] * -1539448485;
+            } else if (this.ah[var2 + 1] > -2068879661 * this.as) {
+               this.as = this.ah[var2 + 1] * -1539448485;
             }
          }
       }
@@ -146,7 +146,7 @@ public class MapElementType extends DualNode {
    }
 
    public Sprite ab(boolean var1) {
-      int var3 = var1 ? this.sprite2 * 2035390535 : 1458003089 * this.ab;
+      int var3 = var1 ? this.sprite2 * 2035390535 : 1458003089 * this.sprite1;
       return this.aq(var3);
    }
 
@@ -158,7 +158,7 @@ public class MapElementType extends DualNode {
          if (null != var3) {
             return var3;
          } else {
-            var3 = sc.aw_renamed(af, var1, 0);
+            var3 = sc.readSprite(af, var1, 0);
             if (null != var3) {
                MapElementType_cachedSprites.put(var3, (long)var1);
             }

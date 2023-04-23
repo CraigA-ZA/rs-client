@@ -17,20 +17,20 @@ public class PlayerType implements Enumerated {
    static final PlayerType PlayerType_jagexModerator = new PlayerType(2, 1, true, true, false);
    static final PlayerType ax = new PlayerType(12, 46, false, false, true);
    static final PlayerType ay = new PlayerType(10, 44, false, false, true);
-   final int modIcon;
+   final int id;
    public final boolean isUser;
    public final boolean isPrivileged;
-   public final int id;
+   public final int modIcon;
 
    PlayerType(int var1, int var2, boolean var3, boolean var4, boolean var5) {
-      this.modIcon = var1 * -1325228517;
-      this.id = 1532409379 * var2;
+      this.id = var1 * -1325228517;
+      this.modIcon = 1532409379 * var2;
       this.isPrivileged = var4;
       this.isUser = var5;
    }
 
    public int ordinal() {
-      return this.modIcon * -897643501;
+      return this.id * -897643501;
    }
 
    static void an_renamed(ClientScriptEvent var0, int var1, int var2) {
@@ -40,7 +40,7 @@ public class PlayerType implements Enumerated {
       if (lu.af_renamed(var0.type0 * 937869311)) {
          ByteArrayPool.worldMapEvent = (WorldMapEvent)var4[0];
          MapElementType var6 = nf.getMapElementType(1618357717 * ByteArrayPool.worldMapEvent.mapElement);
-         var5 = fg.an_renamed(var0.type0 * 937869311, var6.au * 219774827, -461862935 * var6.ae);
+         var5 = fg.an_renamed(var0.type0 * 937869311, var6.au * 219774827, -461862935 * var6.category);
       } else {
          var26 = (Integer)var4[0];
          var5 = AbstractByteArrayCopier.af_renamed(var26);
@@ -50,8 +50,8 @@ public class PlayerType implements Enumerated {
          Interpreter.Interpreter_intStackSize = 0;
          SecureRandomCallable.Interpreter_stringStackSize = 0;
          var26 = -1;
-         int[] var7 = var5.intOperands;
-         int[] var8 = var5.opcodes;
+         int[] var7 = var5.opcodes;
+         int[] var8 = var5.intOperands;
          int var9 = -1;
          Interpreter.Interpreter_frameDepth = 0;
          Interpreter.ak = false;
@@ -59,8 +59,8 @@ public class PlayerType implements Enumerated {
          int var11 = 0;
          boolean var23 = false;
 
-         label951: {
-            label952: {
+         label953: {
+            label954: {
                try {
                   int var14;
                   try {
@@ -124,6 +124,7 @@ public class PlayerType implements Enumerated {
 
                      Interpreter.ae = -1037192187 * var0.ay;
 
+                     label937:
                      while(true) {
                         ++var11;
                         if (var11 > var1) {
@@ -134,7 +135,7 @@ public class PlayerType implements Enumerated {
                         var9 = var7[var26];
                         if (var9 >= 100) {
                            boolean var37;
-                           if (1 == var5.opcodes[var26]) {
+                           if (1 == var5.intOperands[var26]) {
                               var37 = true;
                            } else {
                               var37 = false;
@@ -144,7 +145,7 @@ public class PlayerType implements Enumerated {
                            switch (var15) {
                               case 0:
                                  var23 = false;
-                                 break label951;
+                                 break label937;
                               case 1:
                               default:
                                  break;
@@ -187,13 +188,13 @@ public class PlayerType implements Enumerated {
                         } else if (var9 == 21) {
                            if (-1968816839 * Interpreter.Interpreter_frameDepth == 0) {
                               var23 = false;
-                              break;
+                              break label954;
                            }
 
                            ClientScriptFrame var36 = Interpreter.Interpreter_frames[(Interpreter.Interpreter_frameDepth -= 937402633) * -1968816839];
                            var5 = var36.script;
-                           var7 = var5.intOperands;
-                           var8 = var5.opcodes;
+                           var7 = var5.opcodes;
+                           var8 = var5.intOperands;
                            var26 = var36.pc * -1780087085;
                            Interpreter.Interpreter_intLocals = var36.intLocals;
                            Interpreter.Interpreter_stringLocals = var36.stringLocals;
@@ -339,8 +340,8 @@ public class PlayerType implements Enumerated {
                               var35.stringLocals = Interpreter.Interpreter_stringLocals;
                               Interpreter.Interpreter_frames[(Interpreter.Interpreter_frameDepth += 937402633) * -1968816839 - 1] = var35;
                               var5 = var40;
-                              var7 = var40.intOperands;
-                              var8 = var40.opcodes;
+                              var7 = var40.opcodes;
+                              var8 = var40.intOperands;
                               var26 = -1;
                               Interpreter.Interpreter_intLocals = var16;
                               Interpreter.Interpreter_stringLocals = var17;
@@ -359,7 +360,7 @@ public class PlayerType implements Enumerated {
                      var13.append("").append(var9);
                      ob.af_renamed(var13.toString(), var24);
                      var23 = false;
-                     break label952;
+                     break label953;
                   }
                } finally {
                   if (var23) {
@@ -381,8 +382,8 @@ public class PlayerType implements Enumerated {
                }
 
                while(Interpreter.ad.size() > 0) {
-                  dd var39 = (dd)Interpreter.ad.remove(0);
-                  Message.ks_renamed(var39.af(), var39.an(), var39.aw(), var39.ac(), "");
+                  dd var31 = (dd)Interpreter.ad.remove(0);
+                  Message.ks_renamed(var31.af(), var31.an(), var31.aw(), var31.ac(), "");
                }
 
                if (Interpreter.ak) {
@@ -398,8 +399,8 @@ public class PlayerType implements Enumerated {
             }
 
             while(Interpreter.ad.size() > 0) {
-               dd var27 = (dd)Interpreter.ad.remove(0);
-               Message.ks_renamed(var27.af(), var27.an(), var27.aw(), var27.ac(), "");
+               dd var39 = (dd)Interpreter.ad.remove(0);
+               Message.ks_renamed(var39.af(), var39.an(), var39.aw(), var39.ac(), "");
             }
 
             if (Interpreter.ak) {
@@ -415,8 +416,8 @@ public class PlayerType implements Enumerated {
          }
 
          while(Interpreter.ad.size() > 0) {
-            dd var31 = (dd)Interpreter.ad.remove(0);
-            Message.ks_renamed(var31.af(), var31.an(), var31.aw(), var31.ac(), "");
+            dd var27 = (dd)Interpreter.ad.remove(0);
+            Message.ks_renamed(var27.af(), var27.an(), var27.aw(), var27.ac(), "");
          }
 
          if (Interpreter.ak) {

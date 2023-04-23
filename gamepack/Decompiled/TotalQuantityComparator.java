@@ -1,10 +1,10 @@
 import java.util.Comparator;
 
-final class nn implements Comparator {
+final class TotalQuantityComparator implements Comparator {
    static Archive archive5;
 
    int af(GrandExchangeEvent var1, GrandExchangeEvent var2) {
-      return var1.grandExchangeOffer.id * 857042809 < var2.grandExchangeOffer.id * 857042809 ? -1 : (var2.grandExchangeOffer.id * 857042809 == var1.grandExchangeOffer.id * 857042809 ? 0 : 1);
+      return var1.grandExchangeOffer.totalQuantity * 857042809 < var2.grandExchangeOffer.totalQuantity * 857042809 ? -1 : (var2.grandExchangeOffer.totalQuantity * 857042809 == var1.grandExchangeOffer.totalQuantity * 857042809 ? 0 : 1);
    }
 
    public int compare(Object var1, Object var2) {

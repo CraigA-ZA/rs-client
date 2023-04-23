@@ -702,7 +702,7 @@ public class Packet extends Node {
       return var2;
    }
 
-   public void p4LE16(int var1) {
+   public void es(int var1) {
       this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)var1;
       this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 8);
       this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
@@ -716,7 +716,7 @@ public class Packet extends Node {
       this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
    }
 
-   public void el(int var1) {
+   public void p4LE16(int var1) {
       this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 16);
       this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)(var1 >> 24);
       this.array[(this.index += -1516355947) * -1633313603 - 1] = (byte)var1;

@@ -2,8 +2,8 @@ import java.io.EOFException;
 import java.io.IOException;
 
 public class BufferedFile {
-   byte[] readBuffer;
    byte[] writeBuffer;
+   byte[] readBuffer;
    int al = 0;
    int au;
    long aa;
@@ -17,8 +17,8 @@ public class BufferedFile {
    public BufferedFile(AccessFile var1, int var2, int var3) throws IOException {
       this.accessFile = var1;
       this.capacity = (this.aa = var1.length() * 5255811969167658705L) * 6082200808648199633L;
-      this.writeBuffer = new byte[var2];
-      this.readBuffer = new byte[var3];
+      this.readBuffer = new byte[var2];
+      this.writeBuffer = new byte[var3];
       this.at = 0L;
    }
 
@@ -50,7 +50,7 @@ public class BufferedFile {
          }
 
          if (-8462239109085136939L * this.aq != -1L && this.at * 8429326271465132299L >= -8462239109085136939L * this.aq && 8429326271465132299L * this.at + (long)var3 <= this.aq * -8462239109085136939L + (long)(this.al * -654786411)) {
-            System.arraycopy(this.readBuffer, (int)(this.at * 8429326271465132299L - -8462239109085136939L * this.aq), var1, var2, var3);
+            System.arraycopy(this.writeBuffer, (int)(this.at * 8429326271465132299L - -8462239109085136939L * this.aq), var1, var2, var3);
             this.at += -6181027881899576669L * (long)var3;
             return;
          }
@@ -64,13 +64,13 @@ public class BufferedFile {
                var9 = var3;
             }
 
-            System.arraycopy(this.writeBuffer, (int)(8429326271465132299L * this.at - 8734338143670189311L * this.ac), var1, var2, var9);
+            System.arraycopy(this.readBuffer, (int)(8429326271465132299L * this.at - 8734338143670189311L * this.ac), var1, var2, var9);
             this.at += -6181027881899576669L * (long)var9;
             var2 += var9;
             var3 -= var9;
          }
 
-         if (var3 > this.writeBuffer.length) {
+         if (var3 > this.readBuffer.length) {
             this.accessFile.seek(this.at * 8429326271465132299L);
 
             for(this.ao = -140630493748753059L * this.at; var3 > 0; var3 -= var9) {
@@ -90,7 +90,7 @@ public class BufferedFile {
                var9 = -1691135521 * this.au;
             }
 
-            System.arraycopy(this.writeBuffer, 0, var1, var2, var9);
+            System.arraycopy(this.readBuffer, 0, var1, var2, var9);
             var2 += var9;
             var3 -= var9;
             this.at += (long)var9 * -6181027881899576669L;
@@ -126,7 +126,7 @@ public class BufferedFile {
 
             if (var15 > -1L && var11 > var15) {
                int var13 = (int)(var11 - var15);
-               System.arraycopy(this.readBuffer, (int)(var15 - -8462239109085136939L * this.aq), var1, (int)(var15 - var5) + var2, var13);
+               System.arraycopy(this.writeBuffer, (int)(var15 - -8462239109085136939L * this.aq), var1, (int)(var15 - var5) + var2, var13);
                if (var11 > this.at * 8429326271465132299L) {
                   var3 = (int)((long)var3 - (var11 - this.at * 8429326271465132299L));
                   this.at = var11 * -6181027881899576669L;
@@ -151,13 +151,13 @@ public class BufferedFile {
       }
 
       int var3;
-      for(this.ac = 2440797830623285237L * this.at; this.au * -1691135521 < this.writeBuffer.length; this.au += var3 * -84563425) {
-         int var2 = this.writeBuffer.length - -1691135521 * this.au;
+      for(this.ac = 2440797830623285237L * this.at; this.au * -1691135521 < this.readBuffer.length; this.au += var3 * -84563425) {
+         int var2 = this.readBuffer.length - -1691135521 * this.au;
          if (var2 > 200000000) {
             var2 = 200000000;
          }
 
-         var3 = this.accessFile.read(this.writeBuffer, -1691135521 * this.au, var2);
+         var3 = this.accessFile.read(this.readBuffer, -1691135521 * this.au, var2);
          if (var3 == -1) {
             break;
          }
@@ -177,23 +177,23 @@ public class BufferedFile {
             this.flush();
          }
 
-         if (-8462239109085136939L * this.aq != -1L && (long)var3 + 8429326271465132299L * this.at > -8462239109085136939L * this.aq + (long)this.readBuffer.length) {
-            int var5 = (int)((long)this.readBuffer.length - (8429326271465132299L * this.at - this.aq * -8462239109085136939L));
-            System.arraycopy(var1, var2, this.readBuffer, (int)(this.at * 8429326271465132299L - this.aq * -8462239109085136939L), var5);
+         if (-8462239109085136939L * this.aq != -1L && (long)var3 + 8429326271465132299L * this.at > -8462239109085136939L * this.aq + (long)this.writeBuffer.length) {
+            int var5 = (int)((long)this.writeBuffer.length - (8429326271465132299L * this.at - this.aq * -8462239109085136939L));
+            System.arraycopy(var1, var2, this.writeBuffer, (int)(this.at * 8429326271465132299L - this.aq * -8462239109085136939L), var5);
             this.at += (long)var5 * -6181027881899576669L;
             var2 += var5;
             var3 -= var5;
-            this.al = -1669068099 * this.readBuffer.length;
+            this.al = -1669068099 * this.writeBuffer.length;
             this.flush();
          }
 
-         if (var3 <= this.readBuffer.length) {
+         if (var3 <= this.writeBuffer.length) {
             if (var3 > 0) {
                if (-1L == this.aq * -8462239109085136939L) {
                   this.aq = 2422695430762542431L * this.at;
                }
 
-               System.arraycopy(var1, var2, this.readBuffer, (int)(8429326271465132299L * this.at - -8462239109085136939L * this.aq), var3);
+               System.arraycopy(var1, var2, this.writeBuffer, (int)(8429326271465132299L * this.at - -8462239109085136939L * this.aq), var3);
                this.at += (long)var3 * -6181027881899576669L;
                if (this.at * 8429326271465132299L - this.aq * -8462239109085136939L > (long)(this.al * -654786411)) {
                   this.al = (int)(this.at * 8429326271465132299L - -8462239109085136939L * this.aq) * -1669068099;
@@ -228,7 +228,7 @@ public class BufferedFile {
 
             if (var11 > -1L && var7 > var11) {
                int var9 = (int)(var7 - var11);
-               System.arraycopy(var1, (int)((long)var2 + var11 - 8429326271465132299L * this.at), this.writeBuffer, (int)(var11 - 8734338143670189311L * this.ac), var9);
+               System.arraycopy(var1, (int)((long)var2 + var11 - 8429326271465132299L * this.at), this.readBuffer, (int)(var11 - 8734338143670189311L * this.ac), var9);
             }
 
             this.at += (long)var3 * -6181027881899576669L;
@@ -246,7 +246,7 @@ public class BufferedFile {
             this.ao = 7312697603599620803L * this.aq;
          }
 
-         this.accessFile.write(this.readBuffer, 0, this.al * -654786411);
+         this.accessFile.write(this.writeBuffer, 0, this.al * -654786411);
          this.ao += -9056128312498455549L * (long)this.al;
          if (this.ao * 31144933894015367L > 3127984517526915633L * this.aa) {
             this.aa = this.ao * 5080559548865145143L;
@@ -268,7 +268,7 @@ public class BufferedFile {
 
          if (var2 > -1L && var4 > var2) {
             int var6 = (int)(var4 - var2);
-            System.arraycopy(this.readBuffer, (int)(var2 - this.aq * -8462239109085136939L), this.writeBuffer, (int)(var2 - this.ac * 8734338143670189311L), var6);
+            System.arraycopy(this.writeBuffer, (int)(var2 - this.aq * -8462239109085136939L), this.readBuffer, (int)(var2 - this.ac * 8734338143670189311L), var6);
          }
 
          this.aq = -699769937149266301L;

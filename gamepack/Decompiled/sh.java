@@ -153,13 +153,13 @@ public class sh implements Enumerated {
             return 1;
          } else {
             int var6;
-            int var7;
+            int var9;
             if (var0 == 3814) {
                Interpreter.Interpreter_intStackSize -= 1281407919;
                var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-               var7 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
+               var9 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
                var6 = Interpreter.Interpreter_intStack[2 + Interpreter.Interpreter_intStackSize * -964267539];
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = fh.ah.ac(var4, var7, var6);
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = fh.ah.ac(var4, var9, var6);
                return 1;
             } else if (var0 == 3815) {
                Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = fh.ah.as * 680027429;
@@ -176,8 +176,8 @@ public class sh implements Enumerated {
             } else if (var0 == 3819) {
                Interpreter.Interpreter_intStackSize -= 854271946;
                var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-               var7 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
-               kj.na_renamed(var7, var4, (byte)46);
+               var9 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
+               kj.na_renamed(var9, var4, (byte)46);
                return 1;
             } else if (3820 == var0) {
                var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];

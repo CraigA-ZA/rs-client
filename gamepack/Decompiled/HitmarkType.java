@@ -7,16 +7,16 @@ public class HitmarkType extends DualNode {
    static EvictingDualNodeHashTable au = new EvictingDualNodeHashTable(64);
    int ag = -1067276637;
    int ah = -1113583925;
-   int transformVarp = -1427566695;
-   int ap = -753468781;
+   int fontId = -1427566695;
+   int transformVarbit = -753468781;
    int ar = 1203704241;
    int av = 42326427;
-   int fontId = 663321583;
+   int transformVarp = 663321583;
    String format = "";
    public int ad = 0;
    public int ai = -1307612166;
    public int aj = 481029747;
-   public int transformVarbit = 0;
+   public int am = 0;
    public int as = 0;
    public int ax = 659007217;
    public int az = -720956497;
@@ -38,7 +38,7 @@ public class HitmarkType extends DualNode {
 
    void decode0(Packet var1, int var2) {
       if (var2 == 1) {
-         this.transformVarp = var1.gSmart2or4() * 1427566695;
+         this.fontId = var1.gSmart2or4() * 1427566695;
       } else if (2 == var2) {
          this.ax = var1.cr() * -407348977;
       } else if (var2 == 3) {
@@ -50,7 +50,7 @@ public class HitmarkType extends DualNode {
       } else if (var2 == 6) {
          this.ar = var1.gSmart2or4() * -1203704241;
       } else if (var2 == 7) {
-         this.transformVarbit = var1.cg() * -924786991;
+         this.am = var1.cg() * -924786991;
       } else if (8 == var2) {
          this.format = var1.gjstr();
       } else if (var2 == 9) {
@@ -66,14 +66,14 @@ public class HitmarkType extends DualNode {
       } else if (var2 == 14) {
          this.aj = var1.cl() * -481029747;
       } else if (var2 == 17 || var2 == 18) {
-         this.ap = var1.cl() * 753468781;
-         if (1173802085 * this.ap == 65535) {
-            this.ap = -753468781;
+         this.transformVarbit = var1.cl() * 753468781;
+         if (1173802085 * this.transformVarbit == 65535) {
+            this.transformVarbit = -753468781;
          }
 
-         this.fontId = var1.cl() * -663321583;
-         if (this.fontId * -1580274447 == 65535) {
-            this.fontId = 663321583;
+         this.transformVarp = var1.cl() * -663321583;
+         if (this.transformVarp * -1580274447 == 65535) {
+            this.transformVarp = 663321583;
          }
 
          int var4 = -1;
@@ -101,10 +101,10 @@ public class HitmarkType extends DualNode {
 
    public final HitmarkType transform() {
       int var2 = -1;
-      if (-1 != 1173802085 * this.ap) {
-         var2 = WorldMapSection1.af_renamed(this.ap * 1173802085);
-      } else if (-1 != this.fontId * -1580274447) {
-         var2 = Varps.Varps_main[-1580274447 * this.fontId];
+      if (-1 != 1173802085 * this.transformVarbit) {
+         var2 = WorldMapSection1.af_renamed(this.transformVarbit * 1173802085);
+      } else if (-1 != this.transformVarp * -1580274447) {
+         var2 = Varps.Varps_main[-1580274447 * this.transformVarp];
       }
 
       int var3;
@@ -138,7 +138,7 @@ public class HitmarkType extends DualNode {
          if (var2 != null) {
             return var2;
          } else {
-            var2 = sc.aw_renamed(an, 728089333 * this.ag, 0);
+            var2 = sc.readSprite(an, 728089333 * this.ag, 0);
             if (null != var2) {
                au.put(var2, (long)(728089333 * this.ag));
             }
@@ -156,7 +156,7 @@ public class HitmarkType extends DualNode {
          if (var2 != null) {
             return var2;
          } else {
-            var2 = sc.aw_renamed(an, this.ah * -466249443, 0);
+            var2 = sc.readSprite(an, this.ah * -466249443, 0);
             if (var2 != null) {
                au.put(var2, (long)(this.ah * -466249443));
             }
@@ -174,7 +174,7 @@ public class HitmarkType extends DualNode {
          if (null != var2) {
             return var2;
          } else {
-            var2 = sc.aw_renamed(an, 1100815213 * this.av, 0);
+            var2 = sc.readSprite(an, 1100815213 * this.av, 0);
             if (var2 != null) {
                au.put(var2, (long)(1100815213 * this.av));
             }
@@ -192,7 +192,7 @@ public class HitmarkType extends DualNode {
          if (var2 != null) {
             return var2;
          } else {
-            var2 = sc.aw_renamed(an, this.ar * 170092719, 0);
+            var2 = sc.readSprite(an, this.ar * 170092719, 0);
             if (var2 != null) {
                au.put(var2, (long)(170092719 * this.ar));
             }
@@ -203,16 +203,16 @@ public class HitmarkType extends DualNode {
    }
 
    public Font getFont() {
-      if (-1 == 1857366871 * this.transformVarp) {
+      if (-1 == 1857366871 * this.fontId) {
          return null;
       } else {
-         Font var2 = (Font)HitmarkType_cachedFonts.get((long)(1857366871 * this.transformVarp));
+         Font var2 = (Font)HitmarkType_cachedFonts.get((long)(1857366871 * this.fontId));
          if (var2 != null) {
             return var2;
          } else {
             AbstractArchive var4 = an;
             AbstractArchive var5 = aw;
-            int var6 = 1857366871 * this.transformVarp;
+            int var6 = 1857366871 * this.fontId;
             byte[] var8 = var4.takeFile(var6, 0);
             boolean var7;
             if (null == var8) {
@@ -227,20 +227,20 @@ public class HitmarkType extends DualNode {
                var3 = null;
             } else {
                byte[] var9 = var5.takeFile(var6, 0);
-               Font var11;
+               Font var12;
                if (var9 == null) {
-                  var11 = null;
+                  var12 = null;
                } else {
                   Font var10 = new Font(var9, tx.ac, ar.au, dd.ab, fd.aq, pc.al, VarBitType.at);
                   pk.ay_renamed();
-                  var11 = var10;
+                  var12 = var10;
                }
 
-               var3 = var11;
+               var3 = var12;
             }
 
             if (null != var3) {
-               HitmarkType_cachedFonts.put(var3, (long)(1857366871 * this.transformVarp));
+               HitmarkType_cachedFonts.put(var3, (long)(1857366871 * this.fontId));
             }
 
             return var3;

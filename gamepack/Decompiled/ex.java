@@ -104,9 +104,9 @@ public class ex implements Enumerated {
             } while(var10);
 
             if (var6 < var7) {
-               World var14 = var0[var6];
+               World var24 = var0[var6];
                var0[var6] = var0[var7];
-               var0[var7] = var14;
+               var0[var7] = var24;
             }
          }
 

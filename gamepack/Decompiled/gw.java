@@ -1,5 +1,5 @@
 public class gw {
-   static Archive go;
+   static Archive archive16;
 
    gw() throws Throwable {
       throw new Error();

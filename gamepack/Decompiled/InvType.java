@@ -38,7 +38,7 @@ public class InvType extends DualNode {
                   int var7;
                   if (0 != 2062903815 * var5.bx && var0.eq * 674049519 != 0) {
                      var7 = 674049519 * var0.eq != -1 ? 674049519 * var0.eq : 2062903815 * var5.bx;
-                     var6 = var6 + Inventory.lu_renamed(var7, MusicPatchNode.localPlayer.skillLevel * 1302967875) + " " + Formatting.Formatting_spaceLeftParenthesis + Strings.Strings_level + var7 + Formatting.Formatting_rightParenthesis;
+                     var6 = var6 + Inventory.lu_renamed(var7, MusicPatchNode.localPlayer.combatLevel * 1302967875) + " " + Formatting.Formatting_spaceLeftParenthesis + Strings.Strings_level + var7 + Formatting.Formatting_rightParenthesis;
                   }
 
                   if (var5.isFollower && Client.ov) {
@@ -88,31 +88,31 @@ public class InvType extends DualNode {
                      if (null != var8) {
                         for(var9 = 4; var9 >= 0; --var9) {
                            if (var0.ac(var9) && var8[var9] != null && var8[var9].equalsIgnoreCase(Strings.Strings_attack)) {
-                              short var11 = 0;
+                              short var18 = 0;
                               if (dj.ac != Client.ew) {
-                                 if (dj.an == Client.ew || Client.ew == dj.af && var5.bx * 2062903815 > MusicPatchNode.localPlayer.skillLevel * 1302967875) {
-                                    var11 = 2000;
+                                 if (dj.an == Client.ew || Client.ew == dj.af && var5.bx * 2062903815 > MusicPatchNode.localPlayer.combatLevel * 1302967875) {
+                                    var18 = 2000;
                                  }
 
                                  var10 = 0;
                                  if (var9 == 0) {
-                                    var10 = 9 + var11;
+                                    var10 = 9 + var18;
                                  }
 
                                  if (1 == var9) {
-                                    var10 = var11 + 10;
+                                    var10 = var18 + 10;
                                  }
 
                                  if (2 == var9) {
-                                    var10 = var11 + 11;
+                                    var10 = var18 + 11;
                                  }
 
                                  if (3 == var9) {
-                                    var10 = 12 + var11;
+                                    var10 = 12 + var18;
                                  }
 
                                  if (4 == var9) {
-                                    var10 = var11 + 13;
+                                    var10 = var18 + 13;
                                  }
 
                                  MiniMenuEntry.kz_renamed(var8[var9], oa.colorStartTag(16776960) + var6, var10, var1, var2, var3);

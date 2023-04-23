@@ -54,11 +54,11 @@ public class ms implements Enumerated {
 
                if (var5.stream2 == null) {
                   if (null != var5.soundEffectIds && (var5.ax -= var3 * -713890281) * -428166745 <= 0) {
-                     int var12 = (int)(Math.random() * (double)var5.soundEffectIds.length);
-                     SoundEffect var13 = SoundEffect.readSoundEffect(qc.archive4, var5.soundEffectIds[var12], 0);
-                     if (null != var13) {
-                        RawSound var14 = var13.toRawSound().resample(WorldMapSectionType.decimator);
-                        RawPcmStream var11 = RawPcmStream.aw_renamed(var14, 100, var7);
+                     int var13 = (int)(Math.random() * (double)var5.soundEffectIds.length);
+                     SoundEffect var14 = SoundEffect.readSoundEffect(qc.archive4, var5.soundEffectIds[var13], 0);
+                     if (null != var14) {
+                        RawSound var15 = var14.toRawSound().resample(WorldMapSectionType.decimator);
+                        RawPcmStream var11 = RawPcmStream.aw_renamed(var15, 100, var7);
                         var11.aa(0);
                         fe.pcmStreamMixer.addSubStream(var11);
                         var5.stream2 = var11;

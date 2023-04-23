@@ -77,8 +77,8 @@ public final class Obj extends Entity {
 
             if (6 == var4.bg * 883712245) {
                if (-1 != var4.sequenceId * -1526544909 || var4.sequenceId2 * -717228843 != -1) {
-                  boolean var9 = rr.runCs1(var4);
-                  if (var9) {
+                  boolean var16 = rr.runCs1(var4);
+                  if (var16) {
                      var6 = var4.sequenceId2 * -717228843;
                   } else {
                      var6 = var4.sequenceId * -1526544909;
@@ -90,9 +90,9 @@ public final class Obj extends Entity {
                         for(var4.modelFrameCycle += Client.ja * 1742890489; 1438245367 * var4.modelFrameCycle > var7.frameLengths[var4.modelFrame * 1575517389]; fw.ma_renamed(var4)) {
                            var4.modelFrameCycle -= var7.frameLengths[var4.modelFrame * 1575517389] * -1830604857;
                            var4.modelFrame += -1991520251;
-                           if (var4.modelFrame * 1575517389 >= var7.ag.length) {
-                              var4.modelFrame -= -149229203 * var7.am;
-                              if (1575517389 * var4.modelFrame < 0 || 1575517389 * var4.modelFrame >= var7.ag.length) {
+                           if (var4.modelFrame * 1575517389 >= var7.frameIds.length) {
+                              var4.modelFrame -= -149229203 * var7.righthand;
+                              if (1575517389 * var4.modelFrame < 0 || 1575517389 * var4.modelFrame >= var7.frameIds.length) {
                                  var4.modelFrame = 0;
                               }
                            }
@@ -101,7 +101,7 @@ public final class Obj extends Entity {
                         var4.modelFrame += 1198415163 * Client.ja;
                         int var8 = var7.ax();
                         if (var4.modelFrame * 1575517389 >= var8) {
-                           var4.modelFrame -= -149229203 * var7.am;
+                           var4.modelFrame -= -149229203 * var7.righthand;
                            if (var4.modelFrame * 1575517389 < 0 || 1575517389 * var4.modelFrame >= var8) {
                               var4.modelFrame = 0;
                            }
@@ -113,11 +113,11 @@ public final class Obj extends Entity {
                }
 
                if (0 != -238796869 * var4.dq && !var4.isIf3) {
-                  int var10 = var4.dq * -238796869 >> 16;
+                  int var17 = var4.dq * -238796869 >> 16;
                   var6 = var4.dq * -238796869 << 16 >> 16;
-                  var10 *= -1795081153 * Client.ja;
+                  var17 *= -1795081153 * Client.ja;
                   var6 *= -1795081153 * Client.ja;
-                  var4.modelAngleX = -142910041 * (var4.modelAngleX * 797932055 + var10 & 2047);
+                  var4.modelAngleX = -142910041 * (var4.modelAngleX * 797932055 + var17 & 2047);
                   var4.modelAngleY = (var4.modelAngleY * -480949115 + var6 & 2047) * -230241203;
                   fw.ma_renamed(var4);
                }

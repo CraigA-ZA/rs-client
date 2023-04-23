@@ -29,15 +29,15 @@ public class nv {
          }
       }
 
-      for(IntegerNode var6 = (IntegerNode)Client.componentClickMasks.first(); var6 != null; var6 = (IntegerNode)Client.componentClickMasks.next()) {
-         if ((var6.key >> 48 & 65535L) == (long)var3) {
-            var6.remove();
+      for(IntegerNode var7 = (IntegerNode)Client.componentClickMasks.first(); var7 != null; var7 = (IntegerNode)Client.componentClickMasks.next()) {
+         if ((var7.key >> 48 & 65535L) == (long)var3) {
+            var7.remove();
          }
       }
 
-      Component var7 = gh.an_renamed(var4);
-      if (null != var7) {
-         fw.ma_renamed(var7);
+      Component var8 = gh.an_renamed(var4);
+      if (null != var8) {
+         fw.ma_renamed(var8);
       }
 
       if (-896157613 * Client.or != -1) {

@@ -5,8 +5,8 @@ public class ClientScript extends DualNode {
    int intArgumentCount;
    int localStringCount;
    int stringArgumentCount;
-   int[] opcodes;
    int[] intOperands;
+   int[] opcodes;
    String an;
    String[] stringOperands;
    IterableNodeHashTable[] switches;

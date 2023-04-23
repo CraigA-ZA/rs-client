@@ -4,19 +4,19 @@ import java.io.PrintWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
 
-public class iu implements Enumerated {
-   public static final iu ac = new iu((byte)2);
-   public static final iu af = new iu((byte)-1);
-   public static final iu an = new iu((byte)0);
-   public static final iu aw = new iu((byte)1);
-   public byte au;
+public class MoveSpeed implements Enumerated {
+   public static final MoveSpeed run = new MoveSpeed((byte)2);
+   public static final MoveSpeed stationary = new MoveSpeed((byte)-1);
+   public static final MoveSpeed crawl = new MoveSpeed((byte)0);
+   public static final MoveSpeed walk = new MoveSpeed((byte)1);
+   public byte speed;
 
-   iu(byte var1) {
-      this.au = var1;
+   MoveSpeed(byte var1) {
+      this.speed = var1;
    }
 
    public int ordinal() {
-      return this.au;
+      return this.speed;
    }
 
    static String aw_renamed(Throwable var0) throws IOException {

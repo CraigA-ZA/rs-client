@@ -106,36 +106,36 @@ public class Component extends Node {
    public int hx;
    public int[] ed;
    public int[] eg;
-   public int[] varTransmitTriggers;
    public int[] statTransmitTriggers;
    public int[] invTransmitTriggers;
+   public int[] varTransmitTriggers;
    public int[] gb;
-   public int[] cs1ComparisonValues;
    public int[] cs1Comparisons;
+   public int[] cs1ComparisonValues;
    public int[] gp;
    public int[] hs;
    public int[][] cs1Instructions;
-   public Object[] onTimer;
    public Object[] onTargetEnter;
-   public Object[] onVarTransmit;
-   public Object[] onHold;
-   public Object[] onMouseOver;
-   public Object[] onClickRepeat;
-   public Object[] onStatTransmit;
-   public Object[] onClick;
-   public Object[] fk;
-   public Object[] onRelease;
    public Object[] onMouseLeave;
-   public Object[] onDragComplete;
-   public Object[] onDrag;
-   public Object[] onTargetLeave;
-   public Object[] ft;
-   public Object[] fu;
+   public Object[] onStatTransmit;
    public Object[] onMouseRepeat;
    public Object[] onOp;
-   public Object[] onInvTransmit;
+   public Object[] onClick;
    public Object[] onLoad;
+   public Object[] onTimer;
+   public Object[] fk;
+   public Object[] onClickRepeat;
    public Object[] onScrollWheel;
+   public Object[] onDrag;
+   public Object[] onHold;
+   public Object[] onRelease;
+   public Object[] ft;
+   public Object[] fu;
+   public Object[] onInvTransmit;
+   public Object[] onVarTransmit;
+   public Object[] onMouseOver;
+   public Object[] onTargetLeave;
+   public Object[] onDragComplete;
    public Object[] ga;
    public Object[] gd;
    public Object[] ge;
@@ -259,12 +259,12 @@ public class Component extends Node {
       int var3 = var1.g1();
       int var4;
       if (var3 > 0) {
-         this.cs1ComparisonValues = new int[var3];
          this.cs1Comparisons = new int[var3];
+         this.cs1ComparisonValues = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.cs1ComparisonValues[var4] = var1.g1();
-            this.cs1Comparisons[var4] = var1.cl();
+            this.cs1Comparisons[var4] = var1.g1();
+            this.cs1ComparisonValues[var4] = var1.cl();
          }
       }
 
@@ -515,27 +515,27 @@ public class Component extends Node {
       this.dragDeadTime = var1.g1() * 1466803237;
       this.isDraggable = var1.g1() == 1;
       this.targetVerb = var1.cw();
-      this.onStatTransmit = this.readListener(var1);
-      this.onInvTransmit = this.readListener(var1);
-      this.onTargetEnter = this.readListener(var1);
       this.onLoad = this.readListener(var1);
+      this.onMouseOver = this.readListener(var1);
+      this.onMouseLeave = this.readListener(var1);
+      this.onTargetLeave = this.readListener(var1);
+      this.onTargetEnter = this.readListener(var1);
+      this.onVarTransmit = this.readListener(var1);
+      this.onInvTransmit = this.readListener(var1);
+      this.onStatTransmit = this.readListener(var1);
       this.onTimer = this.readListener(var1);
       this.onOp = this.readListener(var1);
       this.onMouseRepeat = this.readListener(var1);
-      this.onVarTransmit = this.readListener(var1);
       this.onClick = this.readListener(var1);
-      this.onMouseOver = this.readListener(var1);
-      this.onHold = this.readListener(var1);
       this.onClickRepeat = this.readListener(var1);
       this.onRelease = this.readListener(var1);
-      this.onTargetLeave = this.readListener(var1);
+      this.onHold = this.readListener(var1);
       this.onDrag = this.readListener(var1);
       this.onDragComplete = this.readListener(var1);
       this.onScrollWheel = this.readListener(var1);
-      this.onMouseLeave = this.readListener(var1);
+      this.varTransmitTriggers = this.readListenerTriggers(var1);
       this.invTransmitTriggers = this.readListenerTriggers(var1);
       this.statTransmitTriggers = this.readListenerTriggers(var1);
-      this.varTransmitTriggers = this.readListenerTriggers(var1);
    }
 
    Object[] readListener(Packet var1) {
@@ -583,22 +583,22 @@ public class Component extends Node {
          }
       }
 
-      int var8;
+      int var18;
       if (var1) {
-         var8 = -1352724779 * this.spriteId;
+         var18 = -1352724779 * this.spriteId;
       } else {
-         var8 = -363627527 * this.spriteId2;
+         var18 = -363627527 * this.spriteId2;
       }
 
-      if (var8 == -1) {
+      if (var18 == -1) {
          return null;
       } else {
-         long var5 = ((long)(this.spriteShadow * -353676735) << 40) + ((this.do ? 1L : 0L) << 38) + ((long)(this.outline * 1638912775) << 36) + (long)var8 + ((this.di ? 1L : 0L) << 39);
+         long var5 = ((long)(this.spriteShadow * -353676735) << 40) + ((this.do ? 1L : 0L) << 38) + ((long)(this.outline * 1638912775) << 36) + (long)var18 + ((this.di ? 1L : 0L) << 39);
          Sprite var7 = (Sprite)bx.get(var5);
          if (null != var7) {
             return var7;
          } else {
-            var7 = sc.aw_renamed(ClientScriptEvent.be, var8, 0);
+            var7 = sc.readSprite(ClientScriptEvent.be, var18, 0);
             if (null == var7) {
                bj = true;
                return null;
@@ -776,8 +776,8 @@ public class Component extends Node {
                case 4:
                   ObjType var16 = HeadbarUpdate.getObjType(var9);
                   var13 = var16.al(10);
-                  var14 += var16.zan2d * 2093614773;
-                  var15 += 1794294545 * var16.boughtlink;
+                  var14 += var16.boughtlink * 2093614773;
+                  var15 += 1794294545 * var16.boughttemplate;
                case 5:
                default:
                   break;
@@ -830,18 +830,18 @@ public class Component extends Node {
             return null;
          }
       } else {
-         long var15;
+         long var17;
          if (this.di) {
             if (var2 == -1) {
                throw new IllegalStateException();
             }
 
-            var15 = 1L;
+            var17 = 1L;
          } else {
-            var15 = 0L;
+            var17 = 0L;
          }
 
-         var15 <<= 39;
+         var17 <<= 39;
          long var10001;
          if (this.do) {
             if (var2 == -1) {
@@ -853,7 +853,7 @@ public class Component extends Node {
             var10001 = 0L;
          }
 
-         long var4 = var15 + (var10001 << 38) + ((long)(1638912775 * this.outline) << 36) + (long)var3 + ((long)(this.spriteShadow * -353676735) << 40);
+         long var4 = var17 + (var10001 << 38) + ((long)(1638912775 * this.outline) << 36) + (long)var3 + ((long)(this.spriteShadow * -353676735) << 40);
          SpriteMask var6 = (SpriteMask)bm.get(var4);
          if (null != var6) {
             return var6;
@@ -1117,12 +1117,12 @@ public class Component extends Node {
       }
 
       for(var6 = var3.iterator(); var6.hasNext(); this.children[var5++] = var8) {
-         gq var10 = (gq)var6.next();
-         var8 = mz.bm_renamed(4, this, var5, 0, 0, 0, 0, var10.au);
-         var8.text = var10.ac;
-         var8.textLineHeight = (Integer)this.ej.get(1845750621 * var10.al) * 1858899927;
-         var8.textYAlignment = var10.ab * 329326313;
-         var8.paddingX = 1890763397 * var10.aq;
+         gq var11 = (gq)var6.next();
+         var8 = mz.bm_renamed(4, this, var5, 0, 0, 0, 0, var11.au);
+         var8.text = var11.ac;
+         var8.textLineHeight = (Integer)this.ej.get(1845750621 * var11.al) * 1858899927;
+         var8.textYAlignment = var11.ab * 329326313;
+         var8.paddingX = 1890763397 * var11.aq;
       }
 
    }

@@ -121,7 +121,7 @@ class ar implements SSLSession {
          }
       }
 
-      PacketBitNode var13;
+      PacketBitNode var17;
       if (6 == var2) {
          Client.mq = 1956692579 * var7;
          Client.mm = 956660059 * var8;
@@ -129,12 +129,12 @@ class ar implements SSLSession {
          Client.me = 0;
          Client.te = -1970850269 * var0;
          Client.th = 875414437 * var1;
-         var13 = mi.an_renamed(ClientProt.bp, Client.packetWriter.au);
-         var13.bit.dy(var3);
-         var13.bit.dh(Client.sh.av(82) ? 1 : 0);
-         var13.bit.dy(var1 + 827352769 * Scenery.jc);
-         var13.bit.p2LE(-1232093375 * jm.ib + var0);
-         Client.packetWriter.aw(var13);
+         var17 = mi.an_renamed(ClientProt.bp, Client.packetWriter.au);
+         var17.bit.dy(var3);
+         var17.bit.dh(Client.sh.av(82) ? 1 : 0);
+         var17.bit.dy(var1 + 827352769 * Scenery.jc);
+         var17.bit.p2LE(-1232093375 * jm.ib + var0);
+         Client.packetWriter.aw(var17);
       }
 
       if (13 == var2) {
@@ -160,12 +160,12 @@ class ar implements SSLSession {
          Client.me = 0;
          Client.te = var0 * -1970850269;
          Client.th = 875414437 * var1;
-         var13 = mi.an_renamed(ClientProt.bq, Client.packetWriter.au);
-         var13.bit.ds(jm.ib * -1232093375 + var0);
-         var13.bit.p2LE(var3);
-         var13.bit.ds(827352769 * Scenery.jc + var1);
-         var13.bit.dp(Client.sh.av(82) ? 1 : 0);
-         Client.packetWriter.aw(var13);
+         var17 = mi.an_renamed(ClientProt.bq, Client.packetWriter.au);
+         var17.bit.ds(jm.ib * -1232093375 + var0);
+         var17.bit.p2LE(var3);
+         var17.bit.ds(827352769 * Scenery.jc + var1);
+         var17.bit.dp(Client.sh.av(82) ? 1 : 0);
+         Client.packetWriter.aw(var17);
       }
 
       if (var2 == 1008 || var2 == 1009 || var2 == 1010 || var2 == 1011 || 1012 == var2) {
@@ -179,12 +179,12 @@ class ar implements SSLSession {
          Client.me = 0;
          Client.te = var0 * -1970850269;
          Client.th = 875414437 * var1;
-         var13 = mi.an_renamed(ClientProt.bz, Client.packetWriter.au);
-         var13.bit.dy(var1 + Scenery.jc * 827352769);
-         var13.bit.ds(var3);
-         var13.bit.bu(Client.sh.av(82) ? 1 : 0);
-         var13.bit.ds(jm.ib * -1232093375 + var0);
-         Client.packetWriter.aw(var13);
+         var17 = mi.an_renamed(ClientProt.bz, Client.packetWriter.au);
+         var17.bit.dy(var1 + Scenery.jc * 827352769);
+         var17.bit.ds(var3);
+         var17.bit.bu(Client.sh.av(82) ? 1 : 0);
+         var17.bit.ds(jm.ib * -1232093375 + var0);
+         Client.packetWriter.aw(var17);
       }
 
       if (var2 == 1001) {
@@ -194,12 +194,12 @@ class ar implements SSLSession {
          Client.me = 0;
          Client.te = -1970850269 * var0;
          Client.th = 875414437 * var1;
-         var13 = mi.an_renamed(ClientProt.cw, Client.packetWriter.au);
-         var13.bit.dp(Client.sh.av(82) ? 1 : 0);
-         var13.bit.ds(var3);
-         var13.bit.dy(-1232093375 * jm.ib + var0);
-         var13.bit.ds(var1 + 827352769 * Scenery.jc);
-         Client.packetWriter.aw(var13);
+         var17 = mi.an_renamed(ClientProt.cw, Client.packetWriter.au);
+         var17.bit.dp(Client.sh.av(82) ? 1 : 0);
+         var17.bit.ds(var3);
+         var17.bit.dy(-1232093375 * jm.ib + var0);
+         var17.bit.ds(var1 + 827352769 * Scenery.jc);
+         Client.packetWriter.aw(var17);
       }
 
       if (23 == var2) {
@@ -211,23 +211,23 @@ class ar implements SSLSession {
       }
 
       int var12;
-      Component var14;
+      Component var18;
       if (var2 == 28) {
-         var13 = mi.an_renamed(ClientProt.ci, Client.packetWriter.au);
-         var13.bit.ba(var1);
-         Client.packetWriter.aw(var13);
-         var14 = gh.an_renamed(var1);
-         if (var14 != null && var14.cs1Instructions != null && var14.cs1Instructions[0][0] == 5) {
-            var12 = var14.cs1Instructions[0][1];
+         var17 = mi.an_renamed(ClientProt.ci, Client.packetWriter.au);
+         var17.bit.ba(var1);
+         Client.packetWriter.aw(var17);
+         var18 = gh.an_renamed(var1);
+         if (var18 != null && var18.cs1Instructions != null && var18.cs1Instructions[0][0] == 5) {
+            var12 = var18.cs1Instructions[0][1];
             Varps.Varps_main[var12] = 1 - Varps.Varps_main[var12];
             al.md_renamed(var12);
          }
       }
 
-      Player var15;
+      Player var19;
       if (47 == var2) {
-         var15 = Client.players[var3];
-         if (var15 != null) {
+         var19 = Client.players[var3];
+         if (var19 != null) {
             Client.mq = 1956692579 * var7;
             Client.mm = var8 * 956660059;
             Client.mv = 1387316670;
@@ -261,8 +261,8 @@ class ar implements SSLSession {
       }
 
       if (var2 == 50) {
-         var15 = Client.players[var3];
-         if (null != var15) {
+         var19 = Client.players[var3];
+         if (null != var19) {
             Client.mq = 1956692579 * var7;
             Client.mm = 956660059 * var8;
             Client.mv = 1387316670;
@@ -292,17 +292,17 @@ class ar implements SSLSession {
          }
       }
 
-      Component var17;
+      Component var21;
       if (57 == var2 || var2 == 1007) {
-         var17 = SoundSystem.getComponentChild(var1, var0);
-         if (var17 != null) {
+         var21 = SoundSystem.getComponentChild(var1, var0);
+         if (var21 != null) {
             Message.ks_renamed(var3, var1, var0, var4, var6);
          }
       }
 
       if (14 == var2) {
-         var15 = Client.players[var3];
-         if (null != var15) {
+         var19 = Client.players[var3];
+         if (null != var19) {
             Client.mq = 1956692579 * var7;
             Client.mm = var8 * 956660059;
             Client.mv = 1387316670;
@@ -320,8 +320,8 @@ class ar implements SSLSession {
       }
 
       if (var2 == 48) {
-         var15 = Client.players[var3];
-         if (null != var15) {
+         var19 = Client.players[var3];
+         if (null != var19) {
             Client.mq = var7 * 1956692579;
             Client.mm = 956660059 * var8;
             Client.mv = 1387316670;
@@ -352,8 +352,8 @@ class ar implements SSLSession {
       }
 
       if (51 == var2) {
-         var15 = Client.players[var3];
-         if (null != var15) {
+         var19 = Client.players[var3];
+         if (null != var19) {
             Client.mq = 1956692579 * var7;
             Client.mm = 956660059 * var8;
             Client.mv = 1387316670;
@@ -374,46 +374,46 @@ class ar implements SSLSession {
          Client.me = 0;
          Client.te = var0 * -1970850269;
          Client.th = var1 * 875414437;
-         var13 = mi.an_renamed(ClientProt.ay, Client.packetWriter.au);
-         var13.bit.p2LE(-1232093375 * jm.ib + var0);
-         var13.bit.dh(Client.sh.av(82) ? 1 : 0);
-         var13.bit.ds(var1 + Scenery.jc * 827352769);
-         var13.bit.dy(var3);
-         Client.packetWriter.aw(var13);
+         var17 = mi.an_renamed(ClientProt.ay, Client.packetWriter.au);
+         var17.bit.p2LE(-1232093375 * jm.ib + var0);
+         var17.bit.dh(Client.sh.av(82) ? 1 : 0);
+         var17.bit.ds(var1 + Scenery.jc * 827352769);
+         var17.bit.dy(var3);
+         Client.packetWriter.aw(var17);
       }
 
       if (var2 == 25) {
-         var17 = SoundSystem.getComponentChild(var1, var0);
-         if (null != var17) {
+         var21 = SoundSystem.getComponentChild(var1, var0);
+         if (null != var21) {
             gy.kp_renamed();
-            am.kh_renamed(var1, var0, hc.af_renamed(KeyHandler.getComponentClickMask(var17)), var4);
+            am.kh_renamed(var1, var0, hc.af_renamed(KeyHandler.getComponentClickMask(var21)), var4);
             Client.oq = 0;
-            Client.oj = MusicPatchNode.nu_renamed(var17);
+            Client.oj = MusicPatchNode.nu_renamed(var21);
             if (null == Client.oj) {
                Client.oj = Strings.Strings_null;
             }
 
-            if (var17.isIf3) {
-               Client.selectedSpellName = var17.opbase + oa.colorStartTag(16777215);
+            if (var21.isIf3) {
+               Client.selectedSpellName = var21.opbase + oa.colorStartTag(16777215);
             } else {
-               Client.selectedSpellName = oa.colorStartTag(65280) + var17.spellName + oa.colorStartTag(16777215);
+               Client.selectedSpellName = oa.colorStartTag(65280) + var21.spellName + oa.colorStartTag(16777215);
             }
          }
 
       } else {
-         PacketBitNode var16;
+         PacketBitNode var20;
          if (var2 == 24) {
-            var17 = gh.an_renamed(var1);
-            if (null != var17) {
-               boolean var18 = true;
-               if (1021339961 * var17.clientCode > 0) {
-                  var18 = Message.mk_renamed(var17);
+            var21 = gh.an_renamed(var1);
+            if (null != var21) {
+               boolean var22 = true;
+               if (1021339961 * var21.clientCode > 0) {
+                  var22 = Message.mk_renamed(var21);
                }
 
-               if (var18) {
-                  var16 = mi.an_renamed(ClientProt.ci, Client.packetWriter.au);
-                  var16.bit.ba(var1);
-                  Client.packetWriter.aw(var16);
+               if (var22) {
+                  var20 = mi.an_renamed(ClientProt.ci, Client.packetWriter.au);
+                  var20.bit.ba(var1);
+                  Client.packetWriter.aw(var20);
                }
             }
          }
@@ -425,15 +425,15 @@ class ar implements SSLSession {
             Client.me = 0;
             var10 = Client.npcs[var3];
             if (var10 != null) {
-               NPCType var19 = var10.type;
-               if (null != var19.transforms) {
-                  var19 = var19.transform();
+               NPCType var23 = var10.type;
+               if (null != var23.transforms) {
+                  var23 = var23.transform();
                }
 
-               if (null != var19) {
-                  var16 = mi.an_renamed(ClientProt.cc, Client.packetWriter.au);
-                  var16.bit.p2LE(-1115372301 * var19.ab);
-                  Client.packetWriter.aw(var16);
+               if (null != var23) {
+                  var20 = mi.an_renamed(ClientProt.cc, Client.packetWriter.au);
+                  var20.bit.p2LE(-1115372301 * var23.ab);
+                  Client.packetWriter.aw(var20);
                }
             }
          }
@@ -445,17 +445,17 @@ class ar implements SSLSession {
             Client.me = 0;
             Client.te = -1970850269 * var0;
             Client.th = 875414437 * var1;
-            var13 = mi.an_renamed(ClientProt.bi, Client.packetWriter.au);
-            var13.bit.dy(-1232093375 * jm.ib + var0);
-            var13.bit.bu(Client.sh.av(82) ? 1 : 0);
-            var13.bit.ds(var3);
-            var13.bit.dy(var1 + Scenery.jc * 827352769);
-            Client.packetWriter.aw(var13);
+            var17 = mi.an_renamed(ClientProt.bi, Client.packetWriter.au);
+            var17.bit.dy(-1232093375 * jm.ib + var0);
+            var17.bit.bu(Client.sh.av(82) ? 1 : 0);
+            var17.bit.ds(var3);
+            var17.bit.dy(var1 + Scenery.jc * 827352769);
+            Client.packetWriter.aw(var17);
          }
 
          if (var2 == 49) {
-            var15 = Client.players[var3];
-            if (var15 != null) {
+            var19 = Client.players[var3];
+            if (var19 != null) {
                Client.mq = 1956692579 * var7;
                Client.mm = var8 * 956660059;
                Client.mv = 1387316670;
@@ -495,15 +495,15 @@ class ar implements SSLSession {
             Client.me = 0;
             Client.te = -1970850269 * var0;
             Client.th = var1 * 875414437;
-            var13 = mi.an_renamed(ClientProt.ae, Client.packetWriter.au);
-            var13.bit.dh(Client.sh.av(82) ? 1 : 0);
-            var13.bit.p2LE(var3);
-            var13.bit.p2LE(Client.op * 616923277);
-            var13.bit.p2LE(var0 + jm.ib * -1232093375);
-            var13.bit.ds(145251849 * Client.oa);
-            var13.bit.p4ME(96656415 * jg.ou);
-            var13.bit.ds(var1 + 827352769 * Scenery.jc);
-            Client.packetWriter.aw(var13);
+            var17 = mi.an_renamed(ClientProt.ae, Client.packetWriter.au);
+            var17.bit.dh(Client.sh.av(82) ? 1 : 0);
+            var17.bit.p2LE(var3);
+            var17.bit.p2LE(Client.op * 616923277);
+            var17.bit.p2LE(var0 + jm.ib * -1232093375);
+            var17.bit.ds(145251849 * Client.oa);
+            var17.bit.p4ME(96656415 * jg.ou);
+            var17.bit.ds(var1 + 827352769 * Scenery.jc);
+            Client.packetWriter.aw(var17);
          }
 
          if (var2 == 1002) {
@@ -511,14 +511,14 @@ class ar implements SSLSession {
             Client.mm = var8 * 956660059;
             Client.mv = 1387316670;
             Client.me = 0;
-            var13 = mi.an_renamed(ClientProt.cv, Client.packetWriter.au);
-            var13.bit.ds(var3);
-            Client.packetWriter.aw(var13);
+            var17 = mi.an_renamed(ClientProt.cv, Client.packetWriter.au);
+            var17.bit.ds(var3);
+            Client.packetWriter.aw(var17);
          }
 
          if (var2 == 45) {
-            var15 = Client.players[var3];
-            if (null != var15) {
+            var19 = Client.players[var3];
+            if (null != var19) {
                Client.mq = var7 * 1956692579;
                Client.mm = var8 * 956660059;
                Client.mv = 1387316670;
@@ -539,20 +539,20 @@ class ar implements SSLSession {
             Client.me = 0;
             Client.te = -1970850269 * var0;
             Client.th = var1 * 875414437;
-            var13 = mi.an_renamed(ClientProt.ah, Client.packetWriter.au);
-            var13.bit.p2(WorldMapSectionType.ow * 896780031);
-            var13.bit.ds(jm.ib * -1232093375 + var0);
-            var13.bit.ds(var3);
-            var13.bit.ds(Scenery.jc * 827352769 + var1);
-            var13.bit.p2(-1518641849 * fw.iz);
-            var13.bit.bu(Client.sh.av(82) ? 1 : 0);
-            var13.bit.p4ME(-1164741861 * lh.ix);
-            Client.packetWriter.aw(var13);
+            var17 = mi.an_renamed(ClientProt.ah, Client.packetWriter.au);
+            var17.bit.p2(WorldMapSectionType.ow * 896780031);
+            var17.bit.ds(jm.ib * -1232093375 + var0);
+            var17.bit.ds(var3);
+            var17.bit.ds(Scenery.jc * 827352769 + var1);
+            var17.bit.p2(-1518641849 * fw.iz);
+            var17.bit.bu(Client.sh.av(82) ? 1 : 0);
+            var17.bit.p4ME(-1164741861 * lh.ix);
+            Client.packetWriter.aw(var17);
          }
 
          if (var2 == 46) {
-            var15 = Client.players[var3];
-            if (var15 != null) {
+            var19 = Client.players[var3];
+            if (var19 != null) {
                Client.mq = var7 * 1956692579;
                Client.mm = 956660059 * var8;
                Client.mv = 1387316670;
@@ -573,17 +573,17 @@ class ar implements SSLSession {
             Client.me = 0;
             Client.te = -1970850269 * var0;
             Client.th = var1 * 875414437;
-            var13 = mi.an_renamed(ClientProt.bs, Client.packetWriter.au);
-            var13.bit.ds(-1232093375 * jm.ib + var0);
-            var13.bit.p2LE(827352769 * Scenery.jc + var1);
-            var13.bit.ds(var3);
-            var13.bit.du(Client.sh.av(82) ? 1 : 0);
-            Client.packetWriter.aw(var13);
+            var17 = mi.an_renamed(ClientProt.bs, Client.packetWriter.au);
+            var17.bit.ds(-1232093375 * jm.ib + var0);
+            var17.bit.p2LE(827352769 * Scenery.jc + var1);
+            var17.bit.ds(var3);
+            var17.bit.du(Client.sh.av(82) ? 1 : 0);
+            Client.packetWriter.aw(var17);
          }
 
          if (var2 == 44) {
-            var15 = Client.players[var3];
-            if (null != var15) {
+            var19 = Client.players[var3];
+            if (null != var19) {
                Client.mq = 1956692579 * var7;
                Client.mm = var8 * 956660059;
                Client.mv = 1387316670;
@@ -604,30 +604,30 @@ class ar implements SSLSession {
             Client.me = 0;
             Client.te = -1970850269 * var0;
             Client.th = var1 * 875414437;
-            var13 = mi.an_renamed(ClientProt.do, Client.packetWriter.au);
-            var13.bit.ds(var3);
-            var13.bit.p2(Scenery.jc * 827352769 + var1);
-            var13.bit.dh(Client.sh.av(82) ? 1 : 0);
-            var13.bit.p2LE(var0 + jm.ib * -1232093375);
-            Client.packetWriter.aw(var13);
+            var17 = mi.an_renamed(ClientProt.do, Client.packetWriter.au);
+            var17.bit.ds(var3);
+            var17.bit.p2(Scenery.jc * 827352769 + var1);
+            var17.bit.dh(Client.sh.av(82) ? 1 : 0);
+            var17.bit.p2LE(var0 + jm.ib * -1232093375);
+            Client.packetWriter.aw(var17);
          }
 
          if (58 == var2) {
-            var17 = SoundSystem.getComponentChild(var1, var0);
-            if (var17 != null) {
-               if (null != var17.fk) {
-                  ClientScriptEvent var20 = new ClientScriptEvent();
-                  var20.aw = var17;
-                  var20.ab = var3 * -247460251;
-                  var20.opbase = var6;
-                  var20.args0 = var17.fk;
-                  HeadbarUpdate.af_renamed(var20);
+            var21 = SoundSystem.getComponentChild(var1, var0);
+            if (var21 != null) {
+               if (null != var21.fk) {
+                  ClientScriptEvent var24 = new ClientScriptEvent();
+                  var24.aw = var21;
+                  var24.ab = var3 * -247460251;
+                  var24.opbase = var6;
+                  var24.args0 = var21.fk;
+                  HeadbarUpdate.af_renamed(var24);
                }
 
                var11 = mi.an_renamed(ClientProt.ad, Client.packetWriter.au);
                var11.bit.p2LE(var0);
                var11.bit.p2(var4);
-               var11.bit.el(jg.ou * 96656415);
+               var11.bit.p4LE16(jg.ou * 96656415);
                var11.bit.ds(145251849 * Client.oa);
                var11.bit.p4ME(var1);
                var11.bit.dy(Client.op * 616923277);
@@ -646,8 +646,8 @@ class ar implements SSLSession {
          }
 
          if (var2 == 15) {
-            var15 = Client.players[var3];
-            if (var15 != null) {
+            var19 = Client.players[var3];
+            if (var19 != null) {
                Client.mq = var7 * 1956692579;
                Client.mm = var8 * 956660059;
                Client.mv = 1387316670;
@@ -687,15 +687,15 @@ class ar implements SSLSession {
             Client.me = 0;
             Client.te = var0 * -1970850269;
             Client.th = var1 * 875414437;
-            var13 = mi.an_renamed(ClientProt.bf, Client.packetWriter.au);
-            var13.bit.dy(var3);
-            var13.bit.p4ME(-1164741861 * lh.ix);
-            var13.bit.p2(896780031 * WorldMapSectionType.ow);
-            var13.bit.dy(var0 + -1232093375 * jm.ib);
-            var13.bit.dh(Client.sh.av(82) ? 1 : 0);
-            var13.bit.dy(-1518641849 * fw.iz);
-            var13.bit.ds(var1 + 827352769 * Scenery.jc);
-            Client.packetWriter.aw(var13);
+            var17 = mi.an_renamed(ClientProt.bf, Client.packetWriter.au);
+            var17.bit.dy(var3);
+            var17.bit.p4ME(-1164741861 * lh.ix);
+            var17.bit.p2(896780031 * WorldMapSectionType.ow);
+            var17.bit.dy(var0 + -1232093375 * jm.ib);
+            var17.bit.dh(Client.sh.av(82) ? 1 : 0);
+            var17.bit.dy(-1518641849 * fw.iz);
+            var17.bit.ds(var1 + 827352769 * Scenery.jc);
+            Client.packetWriter.aw(var17);
          }
 
          if (17 == var2) {
@@ -705,15 +705,15 @@ class ar implements SSLSession {
             Client.me = 0;
             Client.te = var0 * -1970850269;
             Client.th = var1 * 875414437;
-            var13 = mi.an_renamed(ClientProt.ap, Client.packetWriter.au);
-            var13.bit.dh(Client.sh.av(82) ? 1 : 0);
-            var13.bit.p4ME(96656415 * jg.ou);
-            var13.bit.ds(145251849 * Client.oa);
-            var13.bit.p2(var3);
-            var13.bit.p2LE(-1232093375 * jm.ib + var0);
-            var13.bit.dy(var1 + Scenery.jc * 827352769);
-            var13.bit.dy(Client.op * 616923277);
-            Client.packetWriter.aw(var13);
+            var17 = mi.an_renamed(ClientProt.ap, Client.packetWriter.au);
+            var17.bit.dh(Client.sh.av(82) ? 1 : 0);
+            var17.bit.p4ME(96656415 * jg.ou);
+            var17.bit.ds(145251849 * Client.oa);
+            var17.bit.p2(var3);
+            var17.bit.p2LE(-1232093375 * jm.ib + var0);
+            var17.bit.dy(var1 + Scenery.jc * 827352769);
+            var17.bit.dy(Client.op * 616923277);
+            Client.packetWriter.aw(var17);
          }
 
          if (21 == var2) {
@@ -723,23 +723,23 @@ class ar implements SSLSession {
             Client.me = 0;
             Client.te = var0 * -1970850269;
             Client.th = var1 * 875414437;
-            var13 = mi.an_renamed(ClientProt.db, Client.packetWriter.au);
-            var13.bit.dy(jm.ib * -1232093375 + var0);
-            var13.bit.dh(Client.sh.av(82) ? 1 : 0);
-            var13.bit.ds(827352769 * Scenery.jc + var1);
-            var13.bit.p2LE(var3);
-            Client.packetWriter.aw(var13);
+            var17 = mi.an_renamed(ClientProt.db, Client.packetWriter.au);
+            var17.bit.dy(jm.ib * -1232093375 + var0);
+            var17.bit.dh(Client.sh.av(82) ? 1 : 0);
+            var17.bit.ds(827352769 * Scenery.jc + var1);
+            var17.bit.p2LE(var3);
+            Client.packetWriter.aw(var17);
          }
 
          if (var2 == 29) {
-            var13 = mi.an_renamed(ClientProt.ci, Client.packetWriter.au);
-            var13.bit.ba(var1);
-            Client.packetWriter.aw(var13);
-            var14 = gh.an_renamed(var1);
-            if (null != var14 && var14.cs1Instructions != null && 5 == var14.cs1Instructions[0][0]) {
-               var12 = var14.cs1Instructions[0][1];
-               if (var14.cs1Comparisons[0] != Varps.Varps_main[var12]) {
-                  Varps.Varps_main[var12] = var14.cs1Comparisons[0];
+            var17 = mi.an_renamed(ClientProt.ci, Client.packetWriter.au);
+            var17.bit.ba(var1);
+            Client.packetWriter.aw(var17);
+            var18 = gh.an_renamed(var1);
+            if (null != var18 && var18.cs1Instructions != null && 5 == var18.cs1Instructions[0][0]) {
+               var12 = var18.cs1Instructions[0][1];
+               if (var18.cs1ComparisonValues[0] != Varps.Varps_main[var12]) {
+                  Varps.Varps_main[var12] = var18.cs1ComparisonValues[0];
                   al.md_renamed(var12);
                }
             }
@@ -752,12 +752,12 @@ class ar implements SSLSession {
             Client.me = 0;
             Client.te = -1970850269 * var0;
             Client.th = var1 * 875414437;
-            var13 = mi.an_renamed(ClientProt.as, Client.packetWriter.au);
-            var13.bit.p2LE(Scenery.jc * 827352769 + var1);
-            var13.bit.dp(Client.sh.av(82) ? 1 : 0);
-            var13.bit.p2(var0 + jm.ib * -1232093375);
-            var13.bit.p2LE(var3);
-            Client.packetWriter.aw(var13);
+            var17 = mi.an_renamed(ClientProt.as, Client.packetWriter.au);
+            var17.bit.p2LE(Scenery.jc * 827352769 + var1);
+            var17.bit.dp(Client.sh.av(82) ? 1 : 0);
+            var17.bit.p2(var0 + jm.ib * -1232093375);
+            var17.bit.p2LE(var3);
+            Client.packetWriter.aw(var17);
          }
 
          if (1004 == var2) {
@@ -765,11 +765,11 @@ class ar implements SSLSession {
             Client.mm = 956660059 * var8;
             Client.mv = 1387316670;
             Client.me = 0;
-            var13 = mi.an_renamed(ClientProt.dm, Client.packetWriter.au);
-            var13.bit.p2(Scenery.jc * 827352769 + var1);
-            var13.bit.p2LE(var3);
-            var13.bit.p2LE(-1232093375 * jm.ib + var0);
-            Client.packetWriter.aw(var13);
+            var17 = mi.an_renamed(ClientProt.dm, Client.packetWriter.au);
+            var17.bit.p2(Scenery.jc * 827352769 + var1);
+            var17.bit.p2LE(var3);
+            var17.bit.p2LE(-1232093375 * jm.ib + var0);
+            Client.packetWriter.aw(var17);
          }
 
          if (0 != Client.oq * -303899309) {

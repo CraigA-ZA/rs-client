@@ -23,7 +23,7 @@ public final class LocSound extends Node {
       int var2 = 1671764667 * this.soundEffectId;
       LocType var3 = this.obj.multiLoc();
       if (null != var3) {
-         this.soundEffectId = var3.ba * -853803453;
+         this.soundEffectId = var3.ambientSoundId * -853803453;
          this.aq = -981504640 * var3.int4;
          this.aa = -1756454329 * var3.int5;
          this.ay = -1723341761 * var3.int6;

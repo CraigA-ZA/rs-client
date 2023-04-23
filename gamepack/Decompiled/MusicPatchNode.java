@@ -43,17 +43,17 @@ public class MusicPatchNode extends Node {
 
    static final void iw_renamed(Component var0, int var1, int var2) {
       if (Client.tp * 1383336963 == 0 || 1383336963 * Client.tp == 3) {
-         if (!Client.isMiniMenuOpen && (MouseHandler.ar * -1222491879 == 1 || !su.ev && MouseHandler.ar * -1222491879 == 4)) {
+         if (!Client.isMiniMenuOpen && (MouseHandler.MouseHandler_lastButton * -1222491879 == 1 || !su.ev && MouseHandler.MouseHandler_lastButton * -1222491879 == 4)) {
             SpriteMask var4 = var0.getSpriteMask(true, (byte)29);
             if (null == var4) {
                return;
             }
 
-            int var5 = 2020601481 * MouseHandler.MouseHandler_lastButton - var1;
+            int var5 = 2020601481 * MouseHandler.am - var1;
             int var6 = MouseHandler.as * 1163896205 - var2;
             if (var4.contains(var5, var6)) {
-               var5 -= var4.height * 1484188043 / 2;
-               var6 -= var4.width * 939947663 / 2;
+               var5 -= var4.width * 1484188043 / 2;
+               var6 -= var4.height * 939947663 / 2;
                int var7 = Client.kf * 704283033 & 2047;
                int var8 = Rasterizer3D.ac[var7];
                int var9 = Rasterizer3D.au[var7];

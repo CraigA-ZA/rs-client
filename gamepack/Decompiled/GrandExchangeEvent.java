@@ -1,7 +1,7 @@
 public class GrandExchangeEvent {
    static long il;
-   String string2;
    String string1;
+   String string2;
    public final int world;
    public final long an;
    public final GrandExchangeOffer grandExchangeOffer;
@@ -99,8 +99,8 @@ public class GrandExchangeEvent {
                         em.aq[2] = 0.0F;
                         em.aq[3] = 0.0F;
                         em.aq[4] = 0.0F;
-                        int var22 = da.af_renamed(em.ab, 3, 0.0F, true, 1.0F, true, em.aq);
-                        if (1 == var22) {
+                        int var25 = da.af_renamed(em.ab, 3, 0.0F, true, 1.0F, true, em.aq);
+                        if (1 == var25) {
                            var8 = em.aq[0];
                         } else {
                            var8 = 0.0F;
@@ -127,8 +127,8 @@ public class GrandExchangeEvent {
    }
 
    GrandExchangeEvent(Packet var1, byte var2, int var3) {
-      this.string2 = var1.cw();
       this.string1 = var1.cw();
+      this.string2 = var1.cw();
       this.world = var1.cl() * -754309593;
       this.an = var1.g8s() * -1320905308375172459L;
       int var4 = var1.g4s();
@@ -136,18 +136,18 @@ public class GrandExchangeEvent {
       this.grandExchangeOffer = new GrandExchangeOffer();
       this.grandExchangeOffer.au(2);
       this.grandExchangeOffer.ab(var2);
-      this.grandExchangeOffer.currentPrice = 945098885 * var4;
-      this.grandExchangeOffer.id = 275172041 * var5;
-      this.grandExchangeOffer.totalQuantity = 0;
+      this.grandExchangeOffer.unitPrice = 945098885 * var4;
+      this.grandExchangeOffer.totalQuantity = 275172041 * var5;
       this.grandExchangeOffer.currentQuantity = 0;
-      this.grandExchangeOffer.unitPrice = -2000800301 * var3;
+      this.grandExchangeOffer.currentPrice = 0;
+      this.grandExchangeOffer.id = -2000800301 * var3;
    }
 
    public String af() {
-      return this.string2;
+      return this.string1;
    }
 
    public String an() {
-      return this.string1;
+      return this.string2;
    }
 }

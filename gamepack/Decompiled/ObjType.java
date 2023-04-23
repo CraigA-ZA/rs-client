@@ -2,55 +2,55 @@ public class ObjType extends DualNode {
    public static AbstractArchive aq;
    static fj sq;
    static EvictingDualNodeHashTable ObjType_cached = new EvictingDualNodeHashTable(64);
-   static EvictingDualNodeHashTable ao = new EvictingDualNodeHashTable(200);
+   static EvictingDualNodeHashTable Sprite_cached = new EvictingDualNodeHashTable(200);
    static EvictingDualNodeHashTable ay = new EvictingDualNodeHashTable(50);
    int ag;
    int ai;
-   int womanhead2;
-   int zoom2d;
-   int manhead2;
-   int womanwear3;
-   int womanwear;
-   int certlink;
-   int womanwear2;
-   int boughttemplate;
    int womanhead;
-   int manwear3;
-   int resizey;
-   int manhead;
    int resizex;
-   int shiftclickindex;
+   int manhead;
+   int manwear3;
+   int manwearyoff;
+   int certlink;
+   int womanwear;
+   int certtemplate;
+   int manhead2;
+   int womanwearyoff;
+   int womanwear2;
+   int womanwear3;
+   int womanhead2;
+   int contrast;
    int cg;
-   int placeholdertemplate;
+   int cl;
    int team;
    int ambient;
    int[] bh;
    int[] bw;
    IterableNodeHashTable params;
-   public boolean stockmarket;
    public boolean members;
+   public boolean stockmarket;
+   public int zan2d;
    public int xof2d;
-   public int manwearyoff;
-   public int aj;
-   public int yan2d;
+   public int zoom2d;
+   public int xan2d;
    public int yof2d;
-   public int manwear2;
+   public int yan2d;
    public int cost;
    public int stackable;
-   public int womanwearyoff;
-   public int contrast;
+   public int shiftclickindex;
+   public int manwear2;
    public int manwear;
-   public int zan2d;
-   public int certtemplate;
+   public int boughtlink;
+   public int resizey;
    public int resizez;
    public int placeholderlink;
-   public int xan2d;
+   public int placeholdertemplate;
    public int cr;
-   public int boughtlink;
+   public int boughttemplate;
    public int cy;
    public String name;
-   public String[] op;
    public String[] iop;
+   public String[] op;
    public short[] am;
    public short[] ar;
    public short[] as;
@@ -58,44 +58,44 @@ public class ObjType extends DualNode {
 
    ObjType() {
       this.name = Strings.Strings_null;
-      this.aj = -139745840;
+      this.zoom2d = -139745840;
+      this.xan2d = 0;
       this.yan2d = 0;
-      this.manwear2 = 0;
+      this.zan2d = 0;
       this.xof2d = 0;
-      this.manwearyoff = 0;
       this.yof2d = 0;
       this.stackable = 0;
       this.cost = -1041171269;
-      this.womanwearyoff = 1072009039;
+      this.shiftclickindex = 1072009039;
       this.manwear = -1699982907;
-      this.contrast = -1627653365;
-      this.stockmarket = false;
-      this.iop = new String[]{null, null, Strings.Strings_take, null, null};
-      this.op = new String[]{null, null, null, null, Strings.Strings_drop};
-      this.womanwear = 1290787642;
-      this.womanwear2 = 240774559;
-      this.resizey = -1308828767;
-      this.manwear3 = 0;
-      this.womanwear3 = 459970545;
-      this.manhead = -624858415;
-      this.manhead2 = 0;
-      this.womanhead = -1230864509;
-      this.womanhead2 = -787170795;
-      this.resizex = -1008801889;
+      this.manwear2 = -1627653365;
+      this.members = false;
+      this.op = new String[]{null, null, Strings.Strings_take, null, null};
+      this.iop = new String[]{null, null, null, null, Strings.Strings_drop};
+      this.manwearyoff = 1290787642;
+      this.womanwear = 240774559;
+      this.womanwear2 = -1308828767;
+      this.womanwearyoff = 0;
+      this.manwear3 = 459970545;
+      this.womanwear3 = -624858415;
+      this.manhead = 0;
+      this.manhead2 = -1230864509;
+      this.womanhead = -787170795;
+      this.womanhead2 = -1008801889;
       this.certlink = -174922685;
-      this.boughttemplate = 1191712917;
-      this.zoom2d = 738400803;
-      this.certtemplate = -58690731;
+      this.certtemplate = 1191712917;
+      this.resizex = 738400803;
+      this.resizey = -58690731;
       this.resizez = -468518381;
       this.ambient = 1106160256;
-      this.shiftclickindex = 1018432384;
+      this.contrast = 1018432384;
       this.team = 1308512384;
-      this.zan2d = 0;
       this.boughtlink = 0;
+      this.boughttemplate = 0;
       this.placeholderlink = 0;
-      this.xan2d = 0;
-      this.members = false;
-      this.placeholdertemplate = -1905271763;
+      this.placeholdertemplate = 0;
+      this.stockmarket = false;
+      this.cl = -1905271763;
       this.cg = -1073961371;
       this.cr = 1652212107;
       this.cy = 115270063;
@@ -103,7 +103,7 @@ public class ObjType extends DualNode {
 
    void an() {
       if (this.stackable * 1552863327 == 1) {
-         this.xan2d = 0;
+         this.placeholdertemplate = 0;
       }
 
    }
@@ -125,15 +125,15 @@ public class ObjType extends DualNode {
       } else if (2 == var2) {
          this.name = var1.cw();
       } else if (4 == var2) {
-         this.aj = var1.cl() * 354264929;
+         this.zoom2d = var1.cl() * 354264929;
       } else if (5 == var2) {
-         this.yan2d = var1.cl() * -111167811;
+         this.xan2d = var1.cl() * -111167811;
       } else if (var2 == 6) {
-         this.manwear2 = var1.cl() * -1698175273;
+         this.yan2d = var1.cl() * -1698175273;
       } else if (var2 == 7) {
-         this.manwearyoff = var1.cl() * 233220529;
-         if (this.manwearyoff * 151912273 > 32767) {
-            this.manwearyoff -= -1448017920;
+         this.xof2d = var1.cl() * 233220529;
+         if (this.xof2d * 151912273 > 32767) {
+            this.xof2d -= -1448017920;
          }
       } else if (8 == var2) {
          this.yof2d = var1.cl() * -780188501;
@@ -147,30 +147,30 @@ public class ObjType extends DualNode {
       } else if (var2 == 12) {
          this.cost = var1.g4s() * -1041171269;
       } else if (var2 == 13) {
-         this.womanwearyoff = var1.g1() * -1072009039;
+         this.shiftclickindex = var1.g1() * -1072009039;
       } else if (var2 == 14) {
          this.manwear = var1.g1() * 1699982907;
       } else if (16 == var2) {
-         this.stockmarket = true;
+         this.members = true;
       } else if (23 == var2) {
-         this.womanwear2 = var1.cl() * -240774559;
-         this.manwear3 = var1.g1() * -1007890181;
+         this.womanwear = var1.cl() * -240774559;
+         this.womanwearyoff = var1.g1() * -1007890181;
       } else if (var2 == 24) {
-         this.resizey = var1.cl() * 1308828767;
+         this.womanwear2 = var1.cl() * 1308828767;
       } else if (var2 == 25) {
-         this.womanwear3 = var1.cl() * -459970545;
-         this.manhead2 = var1.g1() * -677816051;
+         this.manwear3 = var1.cl() * -459970545;
+         this.manhead = var1.g1() * -677816051;
       } else if (var2 == 26) {
-         this.manhead = var1.cl() * 624858415;
+         this.womanwear3 = var1.cl() * 624858415;
       } else if (var2 == 27) {
-         this.contrast = var1.g1() * 1627653365;
+         this.manwear2 = var1.g1() * 1627653365;
       } else if (var2 >= 30 && var2 < 35) {
-         this.iop[var2 - 30] = var1.cw();
-         if (this.iop[var2 - 30].equalsIgnoreCase(Strings.Strings_hidden)) {
-            this.iop[var2 - 30] = null;
+         this.op[var2 - 30] = var1.cw();
+         if (this.op[var2 - 30].equalsIgnoreCase(Strings.Strings_hidden)) {
+            this.op[var2 - 30] = null;
          }
       } else if (var2 >= 35 && var2 < 40) {
-         this.op[var2 - 35] = var1.cw();
+         this.iop[var2 - 35] = var1.cw();
       } else {
          int var4;
          int var5;
@@ -193,29 +193,29 @@ public class ObjType extends DualNode {
                this.as[var5] = (short)var1.cl();
             }
          } else if (42 == var2) {
-            this.womanwear = var1.g1s() * -645393821;
+            this.manwearyoff = var1.g1s() * -645393821;
          } else if (var2 == 65) {
-            this.members = true;
+            this.stockmarket = true;
          } else if (75 == var2) {
-            this.xan2d = var1.cg() * 1825858873;
+            this.placeholdertemplate = var1.cg() * 1825858873;
          } else if (78 == var2) {
-            this.womanhead = var1.cl() * 1230864509;
+            this.manhead2 = var1.cl() * 1230864509;
          } else if (var2 == 79) {
-            this.womanhead2 = var1.cl() * 787170795;
+            this.womanhead = var1.cl() * 787170795;
          } else if (90 == var2) {
-            this.resizex = var1.cl() * 1008801889;
+            this.womanhead2 = var1.cl() * 1008801889;
          } else if (var2 == 91) {
-            this.boughttemplate = var1.cl() * -1191712917;
+            this.certtemplate = var1.cl() * -1191712917;
          } else if (var2 == 92) {
             this.certlink = var1.cl() * 174922685;
          } else if (93 == var2) {
-            this.zoom2d = var1.cl() * -738400803;
+            this.resizex = var1.cl() * -738400803;
          } else if (94 == var2) {
             var1.cl();
          } else if (95 == var2) {
-            this.xof2d = var1.cl() * 1724640311;
+            this.zan2d = var1.cl() * 1724640311;
          } else if (97 == var2) {
-            this.certtemplate = var1.cl() * 58690731;
+            this.resizey = var1.cl() * 58690731;
          } else if (var2 == 98) {
             this.resizez = var1.cl() * 468518381;
          } else if (var2 >= 100 && var2 < 110) {
@@ -229,17 +229,17 @@ public class ObjType extends DualNode {
          } else if (110 == var2) {
             this.ambient = var1.cl() * -662446763;
          } else if (var2 == 111) {
-            this.shiftclickindex = var1.cl() * 1450797079;
+            this.contrast = var1.cl() * 1450797079;
          } else if (112 == var2) {
             this.team = var1.cl() * 547093665;
          } else if (var2 == 113) {
-            this.zan2d = var1.g1s() * -2035992675;
+            this.boughtlink = var1.g1s() * -2035992675;
          } else if (var2 == 114) {
-            this.boughtlink = var1.g1s() * -297744971;
+            this.boughttemplate = var1.g1s() * -297744971;
          } else if (var2 == 115) {
             this.placeholderlink = var1.g1() * 1067505549;
          } else if (139 == var2) {
-            this.placeholdertemplate = var1.cl() * 1905271763;
+            this.cl = var1.cl() * 1905271763;
          } else if (var2 == 140) {
             this.cg = var1.cl() * 1073961371;
          } else if (var2 == 148) {
@@ -255,71 +255,71 @@ public class ObjType extends DualNode {
 
    void au(ObjType var1, ObjType var2) {
       this.ag = var1.ag * 1;
-      this.aj = var1.aj * 1;
+      this.zoom2d = var1.zoom2d * 1;
+      this.xan2d = 1 * var1.xan2d;
       this.yan2d = 1 * var1.yan2d;
-      this.manwear2 = 1 * var1.manwear2;
+      this.zan2d = 1 * var1.zan2d;
       this.xof2d = 1 * var1.xof2d;
-      this.manwearyoff = 1 * var1.manwearyoff;
       this.yof2d = var1.yof2d * 1;
       this.av = var1.av;
       this.ar = var1.ar;
       this.am = var1.am;
       this.as = var1.as;
       this.name = var2.name;
-      this.stockmarket = var2.stockmarket;
+      this.members = var2.members;
       this.cost = var2.cost * 1;
       this.stackable = 1685556127;
    }
 
    void ab(ObjType var1, ObjType var2) {
       this.ag = 1 * var1.ag;
-      this.aj = 1 * var1.aj;
+      this.zoom2d = 1 * var1.zoom2d;
+      this.xan2d = 1 * var1.xan2d;
       this.yan2d = 1 * var1.yan2d;
-      this.manwear2 = 1 * var1.manwear2;
+      this.zan2d = 1 * var1.zan2d;
       this.xof2d = 1 * var1.xof2d;
-      this.manwearyoff = 1 * var1.manwearyoff;
       this.yof2d = 1 * var1.yof2d;
       this.av = var2.av;
       this.ar = var2.ar;
       this.am = var2.am;
       this.as = var2.as;
       this.name = var2.name;
-      this.stockmarket = var2.stockmarket;
+      this.members = var2.members;
       this.stackable = var2.stackable * 1;
-      this.womanwearyoff = 1 * var2.womanwearyoff;
+      this.shiftclickindex = 1 * var2.shiftclickindex;
       this.manwear = 1 * var2.manwear;
-      this.contrast = var2.contrast * 1;
+      this.manwear2 = var2.manwear2 * 1;
+      this.womanwear = var2.womanwear * 1;
       this.womanwear2 = var2.womanwear2 * 1;
-      this.resizey = var2.resizey * 1;
+      this.manhead2 = var2.manhead2 * 1;
+      this.manwear3 = 1 * var2.manwear3;
+      this.womanwear3 = var2.womanwear3 * 1;
       this.womanhead = var2.womanhead * 1;
-      this.womanwear3 = 1 * var2.womanwear3;
-      this.manhead = var2.manhead * 1;
-      this.womanhead2 = var2.womanhead2 * 1;
-      this.resizex = 1 * var2.resizex;
+      this.womanhead2 = 1 * var2.womanhead2;
       this.certlink = 1 * var2.certlink;
-      this.boughttemplate = var2.boughttemplate * 1;
-      this.zoom2d = 1 * var2.zoom2d;
+      this.certtemplate = var2.certtemplate * 1;
+      this.resizex = 1 * var2.resizex;
       this.placeholderlink = var2.placeholderlink * 1;
-      this.iop = var2.iop;
-      this.xan2d = var2.xan2d * 1;
-      this.op = new String[5];
-      if (null != var2.op) {
+      this.op = var2.op;
+      this.placeholdertemplate = var2.placeholdertemplate * 1;
+      this.iop = new String[5];
+      if (null != var2.iop) {
          for(int var4 = 0; var4 < 4; ++var4) {
-            this.op[var4] = var2.op[var4];
+            this.iop[var4] = var2.iop[var4];
          }
       }
 
-      this.op[4] = Strings.al;
+      this.iop[4] = Strings.al;
       this.cost = 0;
    }
 
    void aq(ObjType var1, ObjType var2) {
       this.ag = var1.ag * 1;
-      this.aj = 1 * var1.aj;
+      this.zoom2d = 1 * var1.zoom2d;
+      this.xan2d = var1.xan2d * 1;
       this.yan2d = var1.yan2d * 1;
-      this.manwear2 = var1.manwear2 * 1;
+      this.zan2d = var1.zan2d * 1;
       this.xof2d = var1.xof2d * 1;
-      this.manwearyoff = var1.manwearyoff * 1;
       this.yof2d = var1.yof2d * 1;
       this.av = var1.av;
       this.ar = var1.ar;
@@ -328,8 +328,8 @@ public class ObjType extends DualNode {
       this.stackable = var1.stackable * 1;
       this.name = var2.name;
       this.cost = 0;
-      this.stockmarket = false;
       this.members = false;
+      this.stockmarket = false;
    }
 
    public final UnlitModel al(int var1) {
@@ -348,27 +348,27 @@ public class ObjType extends DualNode {
          }
       }
 
-      UnlitModel var5 = UnlitModel.af_renamed(aq, 2000117511 * this.ag, 0);
-      if (var5 == null) {
+      UnlitModel var8 = UnlitModel.af_renamed(aq, 2000117511 * this.ag, 0);
+      if (var8 == null) {
          return null;
       } else {
-         if (this.ambient * 614283261 != 128 || this.shiftclickindex * 1552043943 != 128 || -302979231 * this.team != 128) {
-            var5.az(this.ambient * 614283261, this.shiftclickindex * 1552043943, -302979231 * this.team);
+         if (this.ambient * 614283261 != 128 || this.contrast * 1552043943 != 128 || -302979231 * this.team != 128) {
+            var8.az(this.ambient * 614283261, this.contrast * 1552043943, -302979231 * this.team);
          }
 
          if (this.av != null) {
             for(var4 = 0; var4 < this.av.length; ++var4) {
-               var5.recolor(this.av[var4], this.ar[var4]);
+               var8.recolor(this.av[var4], this.ar[var4]);
             }
          }
 
          if (null != this.am) {
             for(var4 = 0; var4 < this.am.length; ++var4) {
-               var5.retexture(this.am[var4], this.as[var4]);
+               var8.retexture(this.am[var4], this.as[var4]);
             }
          }
 
-         return var5;
+         return var8;
       }
    }
 
@@ -387,35 +387,35 @@ public class ObjType extends DualNode {
          }
       }
 
-      it var6 = (it)ay.get((long)(-264956633 * this.ai));
-      if (null != var6) {
-         return var6;
+      it var12 = (it)ay.get((long)(-264956633 * this.ai));
+      if (null != var12) {
+         return var12;
       } else {
-         UnlitModel var7 = UnlitModel.af_renamed(aq, 2000117511 * this.ag, 0);
-         if (null == var7) {
+         UnlitModel var13 = UnlitModel.af_renamed(aq, 2000117511 * this.ag, 0);
+         if (null == var13) {
             return null;
          } else {
-            if (this.ambient * 614283261 != 128 || this.shiftclickindex * 1552043943 != 128 || 128 != this.team * -302979231) {
-               var7.az(614283261 * this.ambient, 1552043943 * this.shiftclickindex, -302979231 * this.team);
+            if (this.ambient * 614283261 != 128 || this.contrast * 1552043943 != 128 || 128 != this.team * -302979231) {
+               var13.az(614283261 * this.ambient, 1552043943 * this.contrast, -302979231 * this.team);
             }
 
             int var5;
             if (this.av != null) {
                for(var5 = 0; var5 < this.av.length; ++var5) {
-                  var7.recolor(this.av[var5], this.ar[var5]);
+                  var13.recolor(this.av[var5], this.ar[var5]);
                }
             }
 
             if (null != this.am) {
                for(var5 = 0; var5 < this.am.length; ++var5) {
-                  var7.retexture(this.am[var5], this.as[var5]);
+                  var13.retexture(this.am[var5], this.as[var5]);
                }
             }
 
-            var6 = var7.bb(64 + 2093614773 * this.zan2d, 1794294545 * this.boughtlink + 768, -50, -10, -50);
-            var6.bx = true;
-            ay.put(var6, (long)(this.ai * -264956633));
-            return var6;
+            var12 = var13.bb(64 + 2093614773 * this.boughtlink, 1794294545 * this.boughttemplate + 768, -50, -10, -50);
+            var12.bx = true;
+            ay.put(var12, (long)(this.ai * -264956633));
+            return var12;
          }
       }
    }
@@ -439,13 +439,13 @@ public class ObjType extends DualNode {
    }
 
    public final boolean ax(int var1) {
-      int var3 = this.womanwear2 * 1259737505;
-      int var4 = this.resizey * -1975240801;
-      int var5 = this.womanhead * -1550321451;
+      int var3 = this.womanwear * 1259737505;
+      int var4 = this.womanwear2 * -1975240801;
+      int var5 = this.manhead2 * -1550321451;
       if (1 == var1) {
-         var3 = -1355512081 * this.womanwear3;
-         var4 = -1937321521 * this.manhead;
-         var5 = this.womanhead2 * 1169668803;
+         var3 = -1355512081 * this.manwear3;
+         var4 = -1937321521 * this.womanwear3;
+         var5 = this.womanhead * 1169668803;
       }
 
       if (-1 == var3) {
@@ -469,13 +469,13 @@ public class ObjType extends DualNode {
    }
 
    public final UnlitModel ai(int var1) {
-      int var3 = this.womanwear2 * 1259737505;
-      int var4 = -1975240801 * this.resizey;
-      int var5 = this.womanhead * -1550321451;
+      int var3 = this.womanwear * 1259737505;
+      int var4 = -1975240801 * this.womanwear2;
+      int var5 = this.manhead2 * -1550321451;
       if (1 == var1) {
-         var3 = this.womanwear3 * -1355512081;
-         var4 = this.manhead * -1937321521;
-         var5 = this.womanhead2 * 1169668803;
+         var3 = this.manwear3 * -1355512081;
+         var4 = this.womanwear3 * -1937321521;
+         var5 = this.womanhead * 1169668803;
       }
 
       if (var3 == -1) {
@@ -489,29 +489,29 @@ public class ObjType extends DualNode {
                UnlitModel[] var9 = new UnlitModel[]{var6, var7, var8};
                var6 = new UnlitModel(var9, 3);
             } else {
-               UnlitModel[] var11 = new UnlitModel[]{var6, var7};
-               var6 = new UnlitModel(var11, 2);
+               UnlitModel[] var15 = new UnlitModel[]{var6, var7};
+               var6 = new UnlitModel(var15, 2);
             }
          }
 
-         if (0 == var1 && 0 != this.manwear3 * 1328855603) {
-            var6.am(0, this.manwear3 * 1328855603, 0);
+         if (0 == var1 && 0 != this.womanwearyoff * 1328855603) {
+            var6.am(0, this.womanwearyoff * 1328855603, 0);
          }
 
-         if (1 == var1 && -846717499 * this.manhead2 != 0) {
-            var6.am(0, -846717499 * this.manhead2, 0);
+         if (1 == var1 && -846717499 * this.manhead != 0) {
+            var6.am(0, -846717499 * this.manhead, 0);
          }
 
-         int var10;
+         int var14;
          if (this.av != null) {
-            for(var10 = 0; var10 < this.av.length; ++var10) {
-               var6.recolor(this.av[var10], this.ar[var10]);
+            for(var14 = 0; var14 < this.av.length; ++var14) {
+               var6.recolor(this.av[var14], this.ar[var14]);
             }
          }
 
          if (this.am != null) {
-            for(var10 = 0; var10 < this.am.length; ++var10) {
-               var6.retexture(this.am[var10], this.as[var10]);
+            for(var14 = 0; var14 < this.am.length; ++var14) {
+               var6.retexture(this.am[var14], this.as[var14]);
             }
          }
 
@@ -520,11 +520,11 @@ public class ObjType extends DualNode {
    }
 
    public final boolean ag(int var1) {
-      int var3 = 2144570273 * this.resizex;
+      int var3 = 2144570273 * this.womanhead2;
       int var4 = this.certlink * 1570928533;
       if (var1 == 1) {
-         var3 = this.boughttemplate * -560329405;
-         var4 = this.zoom2d * 1869912693;
+         var3 = this.certtemplate * -560329405;
+         var4 = this.resizex * 1869912693;
       }
 
       if (var3 == -1) {
@@ -544,11 +544,11 @@ public class ObjType extends DualNode {
    }
 
    public final UnlitModel ah(int var1) {
-      int var3 = 2144570273 * this.resizex;
+      int var3 = 2144570273 * this.womanhead2;
       int var4 = 1570928533 * this.certlink;
       if (var1 == 1) {
-         var3 = -560329405 * this.boughttemplate;
-         var4 = 1869912693 * this.zoom2d;
+         var3 = -560329405 * this.certtemplate;
+         var4 = 1869912693 * this.resizex;
       }
 
       if (-1 == var3) {
@@ -561,16 +561,16 @@ public class ObjType extends DualNode {
             var5 = new UnlitModel(var7, 2);
          }
 
-         int var8;
+         int var11;
          if (null != this.av) {
-            for(var8 = 0; var8 < this.av.length; ++var8) {
-               var5.recolor(this.av[var8], this.ar[var8]);
+            for(var11 = 0; var11 < this.av.length; ++var11) {
+               var5.recolor(this.av[var11], this.ar[var11]);
             }
          }
 
          if (null != this.am) {
-            for(var8 = 0; var8 < this.am.length; ++var8) {
-               var5.retexture(this.am[var8], this.as[var8]);
+            for(var11 = 0; var11 < this.am.length; ++var11) {
+               var5.retexture(this.am[var11], this.as[var11]);
             }
          }
 
@@ -600,11 +600,11 @@ public class ObjType extends DualNode {
    }
 
    public int getShiftClickIndex() {
-      if (this.womanwear * -377028789 != -1 && this.op != null) {
-         if (this.womanwear * -377028789 >= 0) {
-            return this.op[-377028789 * this.womanwear] != null ? -377028789 * this.womanwear : -1;
+      if (this.manwearyoff * -377028789 != -1 && this.iop != null) {
+         if (this.manwearyoff * -377028789 >= 0) {
+            return this.iop[-377028789 * this.manwearyoff] != null ? -377028789 * this.manwearyoff : -1;
          } else {
-            return Strings.Strings_drop.equalsIgnoreCase(this.op[4]) ? 4 : -1;
+            return Strings.Strings_drop.equalsIgnoreCase(this.iop[4]) ? 4 : -1;
          }
       } else {
          return -1;

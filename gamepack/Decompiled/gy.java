@@ -317,10 +317,10 @@ public class gy {
    static void kp_renamed() {
       if (Client.om) {
          Component var1 = SoundSystem.getComponentChild(96656415 * jg.ou, 145251849 * Client.oa);
-         if (var1 != null && null != var1.onLoad) {
+         if (var1 != null && null != var1.onTargetLeave) {
             ClientScriptEvent var2 = new ClientScriptEvent();
             var2.aw = var1;
-            var2.args0 = var1.onLoad;
+            var2.args0 = var1.onTargetLeave;
             HeadbarUpdate.af_renamed(var2);
          }
 

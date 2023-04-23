@@ -1,5 +1,5 @@
 public class ArchiveLoader {
-   static int menuWidth;
+   static int menuY;
    int ac = 0;
    final int aw;
    final Archive archive;
@@ -58,7 +58,7 @@ public class ArchiveLoader {
                   var10 += var3[var5++];
                   var11 = gh.an_renamed(var10);
                   var12 = var3[var5++];
-                  if (var12 != -1 && (!HeadbarUpdate.getObjType(var12).stockmarket || Client.ca)) {
+                  if (var12 != -1 && (!HeadbarUpdate.getObjType(var12).members || Client.ca)) {
                      for(var13 = 0; var13 < var11.gb.length; ++var13) {
                         if (var11.gb[var13] == var12 + 1) {
                            var8 += var11.gp[var13];
@@ -80,7 +80,7 @@ public class ArchiveLoader {
                }
 
                if (8 == var7) {
-                  var8 = 1302967875 * MusicPatchNode.localPlayer.skillLevel;
+                  var8 = 1302967875 * MusicPatchNode.localPlayer.combatLevel;
                }
 
                if (9 == var7) {
@@ -96,7 +96,7 @@ public class ArchiveLoader {
                   var10 += var3[var5++];
                   var11 = gh.an_renamed(var10);
                   var12 = var3[var5++];
-                  if (-1 != var12 && (!HeadbarUpdate.getObjType(var12).stockmarket || Client.ca)) {
+                  if (-1 != var12 && (!HeadbarUpdate.getObjType(var12).members || Client.ca)) {
                      for(var13 = 0; var13 < var11.gb.length; ++var13) {
                         if (var11.gb[var13] == var12 + 1) {
                            var8 = 999999999;

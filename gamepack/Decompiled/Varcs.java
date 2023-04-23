@@ -163,7 +163,7 @@ public class Varcs {
    void aa() {
       AccessFile var2 = this.al(false);
 
-      label244: {
+      label229: {
          try {
             byte[] var3 = new byte[(int)var2.length()];
 
@@ -176,62 +176,62 @@ public class Varcs {
             }
 
             Packet var25 = new Packet(var3);
-            if (var25.array.length - -1633313603 * var25.index >= 1) {
-               int var6 = var25.g1();
-               if (var6 >= 0 && var6 <= 2) {
-                  int var7;
-                  int var8;
-                  int var9;
-                  int var10;
-                  if (var6 >= 2) {
-                     var7 = var25.cl();
-                     var8 = 0;
-
-                     while(true) {
-                        if (var8 >= var7) {
-                           break label244;
-                        }
-
-                        var9 = var25.cl();
-                        var10 = var25.g1();
-                        sh var11 = (sh)StructType.findEnumerated(sh.au_renamed(), var10);
-                        Object var12 = var11.at(var25);
-                        if (var9 >= 0 && var9 < this.intsPersistence.length && this.intsPersistence[var9]) {
-                           this.map.put(var9, var12);
-                        }
-
-                        ++var8;
-                     }
-                  } else {
-                     var7 = var25.cl();
-
-                     for(var8 = 0; var8 < var7; ++var8) {
-                        var9 = var25.cl();
-                        var10 = var25.g4s();
-                        if (var9 >= 0 && var9 < this.intsPersistence.length && this.intsPersistence[var9]) {
-                           this.map.put(var9, var10);
-                        }
-                     }
-
-                     var8 = var25.cl();
-                     var9 = 0;
-
-                     while(true) {
-                        if (var9 >= var8) {
-                           break label244;
-                        }
-
-                        var25.cl();
-                        var25.cw();
-                        ++var9;
-                     }
-                  }
-               }
-
+            if (var25.array.length - -1633313603 * var25.index < 1) {
                return;
             }
+
+            int var6 = var25.g1();
+            if (var6 >= 0 && var6 <= 2) {
+               int var7;
+               int var8;
+               int var9;
+               int var10;
+               if (var6 >= 2) {
+                  var7 = var25.cl();
+                  var8 = 0;
+
+                  while(true) {
+                     if (var8 >= var7) {
+                        break label229;
+                     }
+
+                     var9 = var25.cl();
+                     var10 = var25.g1();
+                     sh var11 = (sh)StructType.findEnumerated(sh.au_renamed(), var10);
+                     Object var12 = var11.at(var25);
+                     if (var9 >= 0 && var9 < this.intsPersistence.length && this.intsPersistence[var9]) {
+                        this.map.put(var9, var12);
+                     }
+
+                     ++var8;
+                  }
+               } else {
+                  var7 = var25.cl();
+
+                  for(var8 = 0; var8 < var7; ++var8) {
+                     var9 = var25.cl();
+                     var10 = var25.g4s();
+                     if (var9 >= 0 && var9 < this.intsPersistence.length && this.intsPersistence[var9]) {
+                        this.map.put(var9, var10);
+                     }
+                  }
+
+                  var8 = var25.cl();
+                  var9 = 0;
+
+                  while(true) {
+                     if (var9 >= var8) {
+                        break label229;
+                     }
+
+                     var25.cl();
+                     var25.cw();
+                     ++var9;
+                  }
+               }
+            }
          } catch (Exception var23) {
-            break label244;
+            break label229;
          } finally {
             try {
                var2.close();
@@ -279,8 +279,8 @@ public class Varcs {
             var4.modelId = MusicPatchNode.localPlayer.appearance.getChatHeadId() * 509431749;
             return 1;
          } else if (1207 == var0) {
-            boolean var8 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
-            SecureRandomCallable.bv_renamed(var4, MusicPatchNode.localPlayer.appearance, var8);
+            boolean var11 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+            SecureRandomCallable.bv_renamed(var4, MusicPatchNode.localPlayer.appearance, var11);
             return 1;
          } else if (1208 == var0) {
             var5 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
@@ -318,12 +318,12 @@ public class Varcs {
          var4.itemId = -1852876811 * var5;
          var4.itemQuantity = var6 * -568259577;
          ObjType var7 = HeadbarUpdate.getObjType(var5);
-         var4.modelAngleX = 874786355 * var7.yan2d;
-         var4.modelAngleY = -2065246853 * var7.manwear2;
-         var4.modelAngleZ = var7.xof2d * 745454881;
-         var4.modelOffsetX = -183088313 * var7.manwearyoff;
+         var4.modelAngleX = 874786355 * var7.xan2d;
+         var4.modelAngleY = -2065246853 * var7.yan2d;
+         var4.modelAngleZ = var7.zan2d * 745454881;
+         var4.modelOffsetX = -183088313 * var7.xof2d;
          var4.modelOffsetY = -347855449 * var7.yof2d;
-         var4.modelZoom = 1614948179 * var7.aj;
+         var4.modelZoom = 1614948179 * var7.zoom2d;
          if (var0 == 1205) {
             var4.dn = 0;
          } else if (var0 == 1212 | 1552863327 * var7.stackable == 1) {

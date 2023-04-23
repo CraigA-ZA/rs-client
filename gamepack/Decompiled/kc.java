@@ -9,8 +9,8 @@ public final class kc {
       if (0 == var2) {
          return "";
       } else if (1 == var2) {
-         CharSequence var9 = var0[var1];
-         return null == var9 ? "null" : var9.toString();
+         CharSequence var12 = var0[var1];
+         return null == var12 ? "null" : var12.toString();
       } else {
          int var4 = var1 + var2;
          int var5 = 0;
@@ -24,18 +24,18 @@ public final class kc {
             }
          }
 
-         StringBuilder var10 = new StringBuilder(var5);
+         StringBuilder var13 = new StringBuilder(var5);
 
-         for(int var11 = var1; var11 < var4; ++var11) {
-            CharSequence var8 = var0[var11];
+         for(int var14 = var1; var14 < var4; ++var14) {
+            CharSequence var8 = var0[var14];
             if (null == var8) {
-               var10.append("null");
+               var13.append("null");
             } else {
-               var10.append(var8);
+               var13.append(var8);
             }
          }
 
-         return var10.toString();
+         return var13.toString();
       }
    }
 

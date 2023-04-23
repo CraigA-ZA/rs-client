@@ -73,16 +73,16 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       var6.an = var0 * 241949401;
       var6.aw = -255427968 * var1;
       var6.ac = -274968704 * var2;
-      int var7 = var3.offsetZ * -1339930361;
-      int var8 = var3.width * -1659393955;
+      int var7 = var3.width * -1339930361;
+      int var8 = var3.length * -1659393955;
       if (1 == var4 || 3 == var4) {
-         var7 = -1659393955 * var3.width;
-         var8 = -1339930361 * var3.offsetZ;
+         var7 = -1659393955 * var3.length;
+         var8 = -1339930361 * var3.width;
       }
 
       var6.au = (var1 + var7) * -1490504832;
       var6.ab = 905187968 * (var2 + var8);
-      var6.soundEffectId = -853803453 * var3.ba;
+      var6.soundEffectId = -853803453 * var3.ambientSoundId;
       var6.aq = var3.int4 * -981504640;
       var6.aa = var3.int5 * -1756454329;
       var6.ay = var3.int6 * -1723341761;
@@ -176,8 +176,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       Container var2 = this.container();
       if (null != var2) {
          Bounds var3 = this.getFrameContentBounds();
-         this.contentWidth = Math.max(944313703 * var3.aw, 69014751 * this.az) * -2050638615;
-         this.contentHeight = Math.max(var3.ac * -1376251093, 1673949127 * this.ad) * -1550051949;
+         this.contentWidth = Math.max(944313703 * var3.width, 69014751 * this.az) * -2050638615;
+         this.contentHeight = Math.max(var3.height * -1376251093, 1673949127 * this.ad) * -1550051949;
          if (-927540391 * this.contentWidth <= 0) {
             this.contentWidth = -2050638615;
          }
@@ -478,7 +478,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
    final void bb() {
       Bounds var2 = this.getFrameContentBounds();
-      if (var2.aw * 944313703 != -927540391 * this.contentWidth || -1747234661 * this.contentHeight != var2.ac * -1376251093 || this.bm) {
+      if (var2.width * 944313703 != -927540391 * this.contentWidth || -1747234661 * this.contentHeight != var2.height * -1376251093 || this.bm) {
          this.ar();
          this.bm = false;
       }

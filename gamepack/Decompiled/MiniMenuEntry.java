@@ -1,11 +1,11 @@
 public class MiniMenuEntry {
    static su qh;
    int ac;
-   int argument0;
-   int argument2;
+   int af;
+   int an;
    int au;
-   int argument1;
-   String action;
+   int aw;
+   String ab;
    String aq;
 
    static void af_renamed(int var0, byte[] var1, ArchiveDisk var2) {

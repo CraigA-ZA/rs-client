@@ -5,8 +5,8 @@ public class NPCType extends DualNode {
    static AbstractArchive aw;
    int bd;
    int bo;
-   int transformVarbit;
    int transformVarp;
+   int transformVarbit;
    int bt;
    int bz;
    int[] aa;
@@ -23,12 +23,12 @@ public class NPCType extends DualNode {
    public boolean bu;
    public int ab;
    public int ad;
-   public int contrast;
+   public int ae;
    public int ag;
    public int ah;
    public int ai;
-   public int aj;
-   public int ak;
+   public int ambient;
+   public int contrast;
    public int size;
    public int am;
    public int ao;
@@ -37,7 +37,7 @@ public class NPCType extends DualNode {
    public int av;
    public int ax;
    public int ay;
-   public int ambient;
+   public int az;
    public int bj;
    public int bx;
    public int[] transforms;
@@ -59,11 +59,11 @@ public class NPCType extends DualNode {
       this.ar = -1104808909;
       this.am = 1535672631;
       this.as = 257868351;
-      this.aj = 1734270145;
-      this.ak = 237251001;
-      this.ambient = 1296177123;
+      this.ambient = 1734270145;
+      this.contrast = 237251001;
+      this.az = 1296177123;
       this.ad = 2136803683;
-      this.contrast = -2044090389;
+      this.ae = -2044090389;
       this.op = new String[5];
       this.bk = true;
       this.bx = 959716425;
@@ -73,8 +73,8 @@ public class NPCType extends DualNode {
       this.bd = 0;
       this.bt = 0;
       this.bj = -1472822432;
-      this.transformVarp = -1998015621;
-      this.transformVarbit = -17057377;
+      this.transformVarbit = -1998015621;
+      this.transformVarp = -17057377;
       this.isInteractable = true;
       this.bu = true;
       this.isFollower = false;
@@ -210,26 +210,26 @@ public class NPCType extends DualNode {
                this.ar = var1.cl() * 1104808909;
                this.am = var1.cl() * -1535672631;
                this.as = var1.cl() * -257868351;
-               this.aj = var1.cl() * -1734270145;
+               this.ambient = var1.cl() * -1734270145;
             } else if (var2 == 116) {
-               this.ak = var1.cl() * -237251001;
+               this.contrast = var1.cl() * -237251001;
             } else if (117 == var2) {
-               this.ak = var1.cl() * -237251001;
-               this.ambient = var1.cl() * -1296177123;
+               this.contrast = var1.cl() * -237251001;
+               this.az = var1.cl() * -1296177123;
                this.ad = var1.cl() * -2136803683;
-               this.contrast = var1.cl() * 2044090389;
+               this.ae = var1.cl() * 2044090389;
             } else if (249 == var2) {
                this.params = ChatChannel.readStringIntParameters(var1, this.params);
             }
          } else {
-            this.transformVarp = var1.cl() * 1998015621;
-            if (65535 == this.transformVarp * 1781845069) {
-               this.transformVarp = -1998015621;
+            this.transformVarbit = var1.cl() * 1998015621;
+            if (65535 == this.transformVarbit * 1781845069) {
+               this.transformVarbit = -1998015621;
             }
 
-            this.transformVarbit = var1.cl() * 17057377;
-            if (this.transformVarbit * 2051988897 == 65535) {
-               this.transformVarbit = -17057377;
+            this.transformVarp = var1.cl() * 17057377;
+            if (this.transformVarp * 2051988897 == 65535) {
+               this.transformVarp = -17057377;
             }
 
             var4 = -1;
@@ -258,8 +258,8 @@ public class NPCType extends DualNode {
 
    public final it ab(SeqType var1, int var2, SeqType var3, int var4, hv var5) {
       if (null != this.transforms) {
-         NPCType var11 = this.transform();
-         return var11 == null ? null : var11.ab(var1, var2, var3, var4, var5);
+         NPCType var13 = this.transform();
+         return var13 == null ? null : var13.ab(var1, var2, var3, var4, var5);
       } else {
          long var7 = (long)(this.ab * -1115372301);
          if (null != var5) {
@@ -277,22 +277,22 @@ public class NPCType extends DualNode {
             au.put(var9, var7);
          }
 
-         it var12;
+         it var14;
          if (null != var1 && var3 != null) {
-            var12 = var1.at(var9, var2, var3, var4);
+            var14 = var1.at(var9, var2, var3, var4);
          } else if (var1 != null) {
-            var12 = var1.ab(var9, var2);
+            var14 = var1.ab(var9, var2);
          } else if (var3 != null) {
-            var12 = var3.ab(var9, var4);
+            var14 = var3.ab(var9, var4);
          } else {
-            var12 = var9.aa(true);
+            var14 = var9.aa(true);
          }
 
          if (this.bo * 1661958697 != 128 || this.bz * 521320011 != 128) {
-            var12.bk(this.bo * 1661958697, this.bz * 521320011, 1661958697 * this.bo);
+            var14.bk(this.bo * 1661958697, this.bz * 521320011, 1661958697 * this.bo);
          }
 
-         return var12;
+         return var14;
       }
    }
 
@@ -325,20 +325,20 @@ public class NPCType extends DualNode {
          if (var5) {
             return null;
          } else {
-            UnlitModel[] var10 = new UnlitModel[var4.length];
+            UnlitModel[] var15 = new UnlitModel[var4.length];
 
             for(int var7 = 0; var7 < var4.length; ++var7) {
-               var10[var7] = UnlitModel.af_renamed(aw, var4[var7], 0);
+               var15[var7] = UnlitModel.af_renamed(aw, var4[var7], 0);
             }
 
-            UnlitModel var11;
-            if (var10.length == 1) {
-               var11 = var10[0];
-               if (null == var11) {
-                  var11 = new UnlitModel(var10, var10.length);
+            UnlitModel var16;
+            if (var15.length == 1) {
+               var16 = var15[0];
+               if (null == var16) {
+                  var16 = new UnlitModel(var15, var15.length);
                }
             } else {
-               var11 = new UnlitModel(var10, var10.length);
+               var16 = new UnlitModel(var15, var15.length);
             }
 
             short[] var8;
@@ -350,7 +350,7 @@ public class NPCType extends DualNode {
                }
 
                for(var9 = 0; var9 < this.ap.length; ++var9) {
-                  var11.recolor(this.ap[var9], var8[var9]);
+                  var16.recolor(this.ap[var9], var8[var9]);
                }
             }
 
@@ -361,21 +361,21 @@ public class NPCType extends DualNode {
                }
 
                for(var9 = 0; var9 < this.bb.length; ++var9) {
-                  var11.retexture(this.bb[var9], var8[var9]);
+                  var16.retexture(this.bb[var9], var8[var9]);
                }
             }
 
-            return var11;
+            return var16;
          }
       }
    }
 
    public final NPCType transform() {
       int var2 = -1;
-      if (-1 != 1781845069 * this.transformVarp) {
-         var2 = WorldMapSection1.af_renamed(1781845069 * this.transformVarp);
-      } else if (2051988897 * this.transformVarbit != -1) {
-         var2 = Varps.Varps_main[this.transformVarbit * 2051988897];
+      if (-1 != 1781845069 * this.transformVarbit) {
+         var2 = WorldMapSection1.af_renamed(1781845069 * this.transformVarbit);
+      } else if (2051988897 * this.transformVarp != -1) {
+         var2 = Varps.Varps_main[this.transformVarp * 2051988897];
       }
 
       int var3;
@@ -393,10 +393,10 @@ public class NPCType extends DualNode {
          return true;
       } else {
          int var2 = -1;
-         if (-1 != this.transformVarp * 1781845069) {
-            var2 = WorldMapSection1.af_renamed(this.transformVarp * 1781845069);
-         } else if (-1 != 2051988897 * this.transformVarbit) {
-            var2 = Varps.Varps_main[2051988897 * this.transformVarbit];
+         if (-1 != this.transformVarbit * 1781845069) {
+            var2 = WorldMapSection1.af_renamed(this.transformVarbit * 1781845069);
+         } else if (-1 != 2051988897 * this.transformVarp) {
+            var2 = Varps.Varps_main[2051988897 * this.transformVarp];
          }
 
          if (var2 >= 0 && var2 < this.transforms.length) {

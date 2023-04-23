@@ -32,14 +32,14 @@ public class av implements ThreadFactory {
 
          if (var8 != 0) {
             var10 = var8;
-            boolean var15 = false;
+            boolean var21 = false;
          } else {
             var10 = var0.charAt(var6++);
          }
 
          if (0 != var9) {
             var11 = var9;
-            boolean var16 = false;
+            boolean var22 = false;
          } else {
             var11 = var1.charAt(var7++);
          }
