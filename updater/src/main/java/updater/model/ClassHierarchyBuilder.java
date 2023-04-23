@@ -16,14 +16,16 @@ public class ClassHierarchyBuilder {
 
     private Map<String, Set<ClassNode>> subClasses = new HashMap<>();
 
+    private Map<String, Set<ClassNode>> interfaceImplementations = new HashMap<>();
+
     public void addClass(ClassNode classNode) {
         classes.put(classNode.name, classNode);
         subClasses.putIfAbsent(classNode.superName, new HashSet<>());
         subClasses.get(classNode.superName).add(classNode);
 
         classNode.interfaces.forEach(s -> {
-            subClasses.putIfAbsent(s, new HashSet<>());
-            subClasses.get(s).add(classNode);
+            interfaceImplementations.putIfAbsent(s, new HashSet<>());
+            interfaceImplementations.get(s).add(classNode);
         });
     }
 
@@ -37,5 +39,9 @@ public class ClassHierarchyBuilder {
 
     public Set<ClassNode> getChildClassNodes(ClassNode classNode) {
         return subClasses.getOrDefault(classNode.name, Collections.emptySet());
+    }
+
+    public Set<ClassNode> getImplementationsOfInterface(ClassNode classNode) {
+        return interfaceImplementations.getOrDefault(classNode.name, Collections.emptySet());
     }
 }
