@@ -30,10 +30,10 @@ class Player : IdentityMapper.Class() {
         override val predicate = predicateOf<Field2> { it.type == Array<String>::class.type }
     }
 
-//    @DependsOn(Model::class)
-//    class model0 : InstanceField() {
-//        override val predicate = predicateOf<Field2> { it.type == type<Model>() }
-//    }
+    @DependsOn(Model::class)
+    class model0 : InstanceField() {
+        override val predicate = predicateOf<Field2> { it.type == type<Model>() }
+    }
 
     @DependsOn(PlayerAppearance::class)
     class appearance : InstanceField() {

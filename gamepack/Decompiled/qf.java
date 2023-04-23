@@ -15,7 +15,7 @@ public class qf implements Enumerated {
       return 2023077401 * this.ab;
    }
 
-   static final boolean ag_renamed(it var0, int var1, int var2, int var3, int var4) {
+   static final boolean ag_renamed(Model var0, int var1, int var2, int var3, int var4) {
       boolean var6 = ix.af;
       if (!var6) {
          return false;

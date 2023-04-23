@@ -337,21 +337,11 @@ class Component : IdentityMapper.Class() {
 //    }
 
     //TODO
-//    @MethodParameters("sequence", "frame", "b", "appearance")
-//    @DependsOn(Model::class)
-//    class getModel : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
-//    }
-
-//    @DependsOn(getModel::class)
-//    class modelType : OrderMapper.InMethod.Field(getModel::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
-//    }
-//
-//    @DependsOn(getModel::class)
-//    class modelId : OrderMapper.InMethod.Field(getModel::class, 1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
-//    }
+    @MethodParameters("sequence", "frame", "b", "appearance")
+    @DependsOn(Model::class)
+    class getModel : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
+    }
 
     @MethodParameters("index", "s")
     class setAction : IdentityMapper.InstanceMethod() {

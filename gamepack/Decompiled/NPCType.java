@@ -4,11 +4,11 @@ public class NPCType extends DualNode {
    static AbstractArchive NPCType_archive;
    static AbstractArchive aw;
    int bd;
-   int bo;
+   int resizeh;
    int transformVarp;
    int transformVarbit;
    int bt;
-   int bz;
+   int resizev;
    int[] aa;
    int[] models;
    int[] bq;
@@ -21,7 +21,7 @@ public class NPCType extends DualNode {
    public boolean bk;
    public boolean bm;
    public boolean bu;
-   public int ab;
+   public int id;
    public int ad;
    public int ae;
    public int ag;
@@ -67,8 +67,8 @@ public class NPCType extends DualNode {
       this.op = new String[5];
       this.bk = true;
       this.bx = 959716425;
-      this.bo = 1835076736;
-      this.bz = 2129768832;
+      this.resizeh = 1835076736;
+      this.resizev = 2129768832;
       this.bm = false;
       this.bd = 0;
       this.bt = 0;
@@ -164,9 +164,9 @@ public class NPCType extends DualNode {
       } else if (95 == var2) {
          this.bx = var1.cl() * -959716425;
       } else if (97 == var2) {
-         this.bo = var1.cl() * 1121632793;
+         this.resizeh = var1.cl() * 1121632793;
       } else if (var2 == 98) {
-         this.bz = var1.cl() * 889054051;
+         this.resizev = var1.cl() * 889054051;
       } else if (var2 == 99) {
          this.bm = true;
       } else if (100 == var2) {
@@ -256,28 +256,28 @@ public class NPCType extends DualNode {
 
    }
 
-   public final it ab(SeqType var1, int var2, SeqType var3, int var4, hv var5) {
+   public final Model getModel(SeqType var1, int var2, SeqType var3, int var4, hv var5) {
       if (null != this.transforms) {
          NPCType var13 = this.transform();
-         return var13 == null ? null : var13.ab(var1, var2, var3, var4, var5);
+         return var13 == null ? null : var13.getModel(var1, var2, var3, var4, var5);
       } else {
-         long var7 = (long)(this.ab * -1115372301);
+         long var7 = (long)(this.id * -1115372301);
          if (null != var5) {
             var7 |= -1176524468931644747L * var5.af << 16;
          }
 
-         it var9 = (it)au.get(var7);
+         Model var9 = (Model)au.get(var7);
          if (var9 == null) {
             UnlitModel var10 = this.al(this.models, var5);
             if (var10 == null) {
                return null;
             }
 
-            var9 = var10.bb(64 + this.bd * -1500709613, this.bt * -2057653211 + 850, -30, -50, -30);
+            var9 = var10.light(64 + this.bd * -1500709613, this.bt * -2057653211 + 850, -30, -50, -30);
             au.put(var9, var7);
          }
 
-         it var14;
+         Model var14;
          if (null != var1 && var3 != null) {
             var14 = var1.at(var9, var2, var3, var4);
          } else if (var1 != null) {
@@ -285,11 +285,11 @@ public class NPCType extends DualNode {
          } else if (var3 != null) {
             var14 = var3.ab(var9, var4);
          } else {
-            var14 = var9.aa(true);
+            var14 = var9.toSharedSequenceModel(true);
          }
 
-         if (this.bo * 1661958697 != 128 || this.bz * 521320011 != 128) {
-            var14.bk(this.bo * 1661958697, this.bz * 521320011, 1661958697 * this.bo);
+         if (this.resizeh * 1661958697 != 128 || this.resizev * 521320011 != 128) {
+            var14.resize(this.resizeh * 1661958697, this.resizev * 521320011, 1661958697 * this.resizeh);
          }
 
          return var14;

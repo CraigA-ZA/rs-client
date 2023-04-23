@@ -46,18 +46,18 @@ public class ga extends fu {
          if (1693987821 * var4.au == var1) {
             for(var6 = 0; var6 < PlayerAppearance.ag.length; ++var6) {
                var7 = PlayerAppearance.ag[var6];
-               if (var4.an[var7] > 0 && var4.an[var7] < 512) {
-                  var4.an[var7] = var4.af[var7];
+               if (var4.equipment[var7] > 0 && var4.equipment[var7] < 512) {
+                  var4.equipment[var7] = var4.af[var7];
                }
             }
          } else {
             label79: {
-               if (var4.an[0] >= 512) {
+               if (var4.equipment[0] >= 512) {
                   boolean var11;
-                  if (var4.an[0] < 512) {
+                  if (var4.equipment[0] < 512) {
                      var11 = false;
                   } else {
-                     ObjType var12 = HeadbarUpdate.getObjType(var4.an[0] - 512);
+                     ObjType var12 = HeadbarUpdate.getObjType(var4.equipment[0] - 512);
                      var11 = 622494345 * hp.ao.ag != var12.manwear * -1719338253 && hp.ao.ag * 622494345 != 723093341 * var12.manwear2;
                   }
 
@@ -66,13 +66,13 @@ public class ga extends fu {
                   }
                }
 
-               var4.an[622494345 * hp.ao.ag] = 1;
+               var4.equipment[622494345 * hp.ao.ag] = 1;
             }
 
             for(var6 = 0; var6 < 7; ++var6) {
                var7 = PlayerAppearance.ag[var6];
-               if (var4.an[var7] > 0 && var4.an[var7] < 512) {
-                  gt.ac_renamed(var2, var4.an, var6);
+               if (var4.equipment[var7] > 0 && var4.equipment[var7] < 512) {
+                  gt.ac_renamed(var2, var4.equipment, var6);
                }
             }
          }

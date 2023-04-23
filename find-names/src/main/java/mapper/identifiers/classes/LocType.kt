@@ -188,23 +188,23 @@ class LocType : IdentityMapper.Class() {
         override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
-//    @MethodParameters()
-//    @DependsOn(Client.getLocType::class)
-//    class postDecode : OrderMapper.InMethod.Method(Client.getLocType::class, -1) {
-//        override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodOwner == type<LocType>() }
-//    }
+    @MethodParameters()
+    @DependsOn(Client.getLocType::class)
+    class postDecode : OrderMapper.InMethod.Method(Client.getLocType::class, -1) {
+        override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodOwner == type<LocType>() }
+    }
 
-//    @DependsOn(Model::class)
-//    class getModel : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
-//                .and { it.arguments.size in 6..7 }
-//    }
-//
-//    @DependsOn(Model::class)
-//    class getModelDynamic : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
-//                .and { it.arguments.size in 8..9 }
-//    }
+    @DependsOn(Model::class)
+    class getModel : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
+                .and { it.arguments.size in 6..7 }
+    }
+
+    @DependsOn(Model::class)
+    class getModelDynamic : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
+                .and { it.arguments.size in 8..9 }
+    }
 
     @MethodParameters("n", "m")
     @DependsOn(UnlitModel::class)

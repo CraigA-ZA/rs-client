@@ -274,7 +274,7 @@ public class fw extends fb {
             var2.decode(new Packet(var3));
          }
 
-         var2.aw();
+         var2.postDecode();
          if (var2.isSolid) {
             var2.interactType = 0;
             var2.boolean1 = false;

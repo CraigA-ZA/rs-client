@@ -241,9 +241,9 @@ public class Scene {
       Tile var12 = this.tiles[var1][var2][var3];
       if (var12 != null) {
          for(int var13 = 0; var13 < var12.ay * -422028371; ++var13) {
-            if ((var12.scenery[var13].flags * -72925475 & 256) == 256 && var12.scenery[var13].entity instanceof it) {
-               it var14 = (it)var12.scenery[var13].entity;
-               var14.ai();
+            if ((var12.scenery[var13].flags * -72925475 & 256) == 256 && var12.scenery[var13].entity instanceof Model) {
+               Model var14 = (Model)var12.scenery[var13].entity;
+               var14.calculateBoundsCylinder();
                if (var14.height * 1550732737 > var11) {
                   var11 = var14.height * 1550732737;
                }
@@ -616,10 +616,10 @@ public class Scene {
                         var10 = (UnlitModel)var8.entity2;
                         this.bz(var10, var4, var5, var6, 1, 1);
                         UnlitModel.by(var9, var10, 0, 0, 0, false);
-                        var8.entity2 = var10.bb(var10.bo, var10.bz, var1, var2, var3);
+                        var8.entity2 = var10.light(var10.bo, var10.bz, var1, var2, var3);
                      }
 
-                     var8.entity1 = var9.bb(var9.bo, var9.bz, var1, var2, var3);
+                     var8.entity1 = var9.light(var9.bo, var9.bz, var1, var2, var3);
                   }
 
                   for(int var14 = 0; var14 < var7.ay * -422028371; ++var14) {
@@ -627,7 +627,7 @@ public class Scene {
                      if (var16 != null && var16.entity instanceof UnlitModel) {
                         UnlitModel var11 = (UnlitModel)var16.entity;
                         this.bz(var11, var4, var5, var6, var16.endX * -1242897449 - var16.startX * 626811319 + 1, var16.endY * -80616117 - var16.startY * 2004902003 + 1);
-                        var16.entity = var11.bb(var11.bo, var11.bz, var1, var2, var3);
+                        var16.entity = var11.light(var11.bo, var11.bz, var1, var2, var3);
                      }
                   }
 
@@ -635,7 +635,7 @@ public class Scene {
                   if (var15 != null && var15.entity instanceof UnlitModel) {
                      var10 = (UnlitModel)var15.entity;
                      this.bo(var10, var4, var5, var6);
-                     var15.entity = var10.bb(var10.bo, var10.bz, var1, var2, var3);
+                     var15.entity = var10.light(var10.bo, var10.bz, var1, var2, var3);
                   }
                }
             }

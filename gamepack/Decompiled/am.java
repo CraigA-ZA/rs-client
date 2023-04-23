@@ -105,7 +105,7 @@ public class am {
 
    public static void av_renamed() {
       Component.bx.clear();
-      Component.bo.clear();
+      Component.Component_cachedModels.clear();
       Component.Component_cachedFonts.clear();
       Component.bm.clear();
    }

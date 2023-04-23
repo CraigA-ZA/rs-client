@@ -295,7 +295,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
          int var4 = -411750205 * var0.bo >> 7;
          if (var3 >= 0 && var3 < 104 && var4 >= 0 && var4 < 104) {
             long var5 = ir.aa_renamed(0, 0, 0, false, var0.ae * -1232170701);
-            if (var0.ah != null && -1886224337 * Client.ep >= var0.animationCycleStart * -1402262375 && -1886224337 * Client.ep < var0.animationCycleEnd * -935505685) {
+            if (var0.model0 != null && -1886224337 * Client.ep >= var0.animationCycleStart * -1402262375 && -1886224337 * Client.ep < var0.animationCycleEnd * -935505685) {
                var0.isUnanimated = false;
                var0.aa = fq.getTileHeight(1144428983 * var0.bx, -411750205 * var0.bo, GameShell.plane * -1727408401) * -548513145;
                var0.bd = -14183397 * Client.ep;

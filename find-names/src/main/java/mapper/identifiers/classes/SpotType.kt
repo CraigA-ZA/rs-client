@@ -3,6 +3,7 @@ package mapper.identifiers.classes
 import mapper.*
 import mapper.abstractclasses.IdentityMapper
 import mapper.abstractclasses.OrderMapper
+import mapper.abstractclasses.UniqueMapper
 import mapper.annotations.DependsOn
 import mapper.annotations.MethodParameters
 import mapper.predicateutilities.*
@@ -34,18 +35,19 @@ class SpotType : IdentityMapper.Class() {
                 .and { it != method<decode0>() }
     }
 
-    //TODO
-//    @DependsOn(Client.getSpotType::class)
-//    class id : OrderMapper.InMethod.Field(Client.getSpotType::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<SpotType>() }
-//    }
 
+    @DependsOn(Client.getSpotType::class)
+    class id : OrderMapper.InMethod.Field(Client.getSpotType::class, 0) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<SpotType>() }
+    }
+
+    //TODO
 //    @DependsOn(Model::class)
 //    class getModel : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
 //    }
 
-    // in degrees, 0, 180, 270
+//     in degrees, 0, 180, 270
 //    @DependsOn(getModel::class)
 //    class orientation : OrderMapper.InMethod.Field(getModel::class, -1) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
@@ -91,10 +93,10 @@ class SpotType : IdentityMapper.Class() {
 //                .prevIn(2) { it.opcode == GETFIELD && it.fieldType == ShortArray::class.type }
 //    }
 
-//    @DependsOn(decode0::class)
-//    class model : OrderMapper.InMethod.Field(decode0::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
-//    }
+    @DependsOn(decode0::class)
+    class model : OrderMapper.InMethod.Field(decode0::class, 0) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+    }
 
     class ambient : OrderMapper.InConstructor.Field(SpotType::class, 4) {
         override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }

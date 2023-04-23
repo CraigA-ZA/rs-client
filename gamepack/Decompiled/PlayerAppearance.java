@@ -8,7 +8,7 @@ public class PlayerAppearance {
    boolean isFemale = false;
    gx[] at;
    int[] af;
-   int[] an;
+   int[] equipment;
    int[] aw;
    long al;
    long aq;
@@ -69,7 +69,7 @@ public class PlayerAppearance {
    }
 
    PlayerAppearance(PlayerAppearance var1) {
-      int[] var2 = Arrays.copyOf(var1.an, var1.an.length);
+      int[] var2 = Arrays.copyOf(var1.equipment, var1.equipment.length);
       int[] var3 = Arrays.copyOf(var1.af, var1.af.length);
       gx[] var4 = (gx[])(var1.at != null ? (gx[])Arrays.copyOf(var1.at, var1.at.length) : null);
       int[] var5 = Arrays.copyOf(var1.aw, var1.aw.length);
@@ -93,7 +93,7 @@ public class PlayerAppearance {
       }
 
       this.af = var1;
-      this.an = var2;
+      this.equipment = var2;
       this.aw = var3;
       this.au = 325591525 * var4;
       this.ab = -11568601 * var5;
@@ -112,7 +112,7 @@ public class PlayerAppearance {
 
    public void au(int var1, boolean var2) {
       if (var1 != 1 || 1 != this.au * 1693987821) {
-         int var4 = this.an[ag[var1]];
+         int var4 = this.equipment[ag[var1]];
          if (0 != var4) {
             var4 -= 256;
 
@@ -133,7 +133,7 @@ public class PlayerAppearance {
                var5 = dn.getIDKType(var4);
             } while(null == var5 || var5.ao || var5.bodyPart * 1015855167 != var1 + (1 == this.au * 1693987821 ? 7 : 0));
 
-            this.an[ag[var1]] = 256 + var4;
+            this.equipment[ag[var1]] = 256 + var4;
             this.at();
          }
       }
@@ -172,7 +172,7 @@ public class PlayerAppearance {
 
       int var3;
       for(var3 = 0; var3 < 7; ++var3) {
-         int var4 = this.an[ag[var3]];
+         int var4 = this.equipment[ag[var3]];
          if (var4 == 0) {
             var1.bu(-1);
          } else {
@@ -188,26 +188,26 @@ public class PlayerAppearance {
 
    void at() {
       long var2 = 800274196296009541L * this.aq;
-      int var4 = this.an[5];
-      int var5 = this.an[9];
-      this.an[5] = var5;
-      this.an[9] = var4;
+      int var4 = this.equipment[5];
+      int var5 = this.equipment[9];
+      this.equipment[5] = var5;
+      this.equipment[9] = var4;
       this.aq = 0L;
 
       int var6;
       for(var6 = 0; var6 < 12; ++var6) {
          this.aq = (this.aq * 800274196296009541L << 4) * 4410892792882131853L;
-         if (this.an[var6] >= 256) {
-            this.aq += 4410892792882131853L * (long)(this.an[var6] - 256);
+         if (this.equipment[var6] >= 256) {
+            this.aq += 4410892792882131853L * (long)(this.equipment[var6] - 256);
          }
       }
 
-      if (this.an[0] >= 256) {
-         this.aq += (long)(this.an[0] - 256 >> 4) * 4410892792882131853L;
+      if (this.equipment[0] >= 256) {
+         this.aq += (long)(this.equipment[0] - 256 >> 4) * 4410892792882131853L;
       }
 
-      if (this.an[1] >= 256) {
-         this.aq += (long)(this.an[1] - 256 >> 8) * 4410892792882131853L;
+      if (this.equipment[1] >= 256) {
+         this.aq += (long)(this.equipment[1] - 256 >> 8) * 4410892792882131853L;
       }
 
       for(var6 = 0; var6 < 5; ++var6) {
@@ -217,39 +217,39 @@ public class PlayerAppearance {
 
       this.aq = 4410892792882131853L * (800274196296009541L * this.aq << 1);
       this.aq += (long)this.au * -7585466391638339447L;
-      this.an[5] = var4;
-      this.an[9] = var5;
+      this.equipment[5] = var4;
+      this.equipment[9] = var5;
       if (var2 != 0L && this.aq * 800274196296009541L != var2 || this.isFemale) {
          ar.remove(var2);
       }
 
    }
 
-   public it aa(SeqType var1, int var2, SeqType var3, int var4) {
+   public Model getModel(SeqType var1, int var2, SeqType var3, int var4) {
       if (-1 != -2131733097 * this.ab) {
-         return AbstractArchive.getNPCType(this.ab * -2131733097).ab(var1, var2, var3, var4, (hv)null);
+         return AbstractArchive.getNPCType(this.ab * -2131733097).getModel(var1, var2, var3, var4, (hv)null);
       } else {
          long var6 = this.aq * 800274196296009541L;
-         int[] var8 = this.an;
+         int[] var8 = this.equipment;
          if (var1 != null && (var1.ad * -932726919 >= 0 || var1.ae * -170018527 >= 0)) {
             var8 = new int[12];
 
             for(int var9 = 0; var9 < 12; ++var9) {
-               var8[var9] = this.an[var9];
+               var8[var9] = this.equipment[var9];
             }
 
             if (-932726919 * var1.ad >= 0) {
-               var6 += (long)(-932726919 * var1.ad - this.an[5] << 40);
+               var6 += (long)(-932726919 * var1.ad - this.equipment[5] << 40);
                var8[5] = var1.ad * -932726919;
             }
 
             if (-170018527 * var1.ae >= 0) {
-               var6 += (long)(var1.ae * -170018527 - this.an[3] << 48);
+               var6 += (long)(var1.ae * -170018527 - this.equipment[3] << 48);
                var8[3] = var1.ae * -170018527;
             }
          }
 
-         it var21 = (it)ar.get(var6);
+         Model var21 = (Model)ar.get(var6);
          if (null == var21) {
             boolean var10 = false;
 
@@ -267,7 +267,7 @@ public class PlayerAppearance {
 
             if (var10) {
                if (-1L != 1976929687773021041L * this.al) {
-                  var21 = (it)ar.get(1976929687773021041L * this.al);
+                  var21 = (Model)ar.get(1976929687773021041L * this.al);
                }
 
                if (null == var21) {
@@ -328,15 +328,15 @@ public class PlayerAppearance {
                   }
                }
 
-               var21 = var24.bb(64, 850, -30, -50, -30);
+               var21 = var24.light(64, 850, -30, -50, -30);
                ar.put(var21, var6);
                this.al = var6 * 3107045911833599377L;
             }
          }
 
-         it var22;
+         Model var22;
          if (var1 == null && var3 == null) {
-            var22 = var21.aa(true);
+            var22 = var21.toSharedSequenceModel(true);
          } else if (var1 != null && null != var3) {
             var22 = var1.at(var21, var2, var3, var4);
          } else if (null != var1) {
@@ -357,7 +357,7 @@ public class PlayerAppearance {
 
          int var4;
          for(int var3 = 0; var3 < 12; ++var3) {
-            var4 = this.an[var3];
+            var4 = this.equipment[var3];
             if (var4 >= 256 && var4 < 512 && !dn.getIDKType(var4 - 256).loadChatHeadModel()) {
                var2 = true;
             }
@@ -375,7 +375,7 @@ public class PlayerAppearance {
 
             int var6;
             for(int var5 = 0; var5 < 12; ++var5) {
-               var6 = this.an[var5];
+               var6 = this.equipment[var5];
                UnlitModel var7;
                if (var6 >= 256 && var6 < 512) {
                   var7 = dn.getIDKType(var6 - 256).getChatHeadModel();
@@ -410,10 +410,10 @@ public class PlayerAppearance {
    }
 
    public int getChatHeadId() {
-      return this.ab * -2131733097 == -1 ? (this.an[11] << 5) + (this.an[8] << 10) + (this.aw[0] << 25) + (this.aw[4] << 20) + (this.an[0] << 15) + this.an[1] : 305419896 + AbstractArchive.getNPCType(this.ab * -2131733097).ab * -1115372301;
+      return this.ab * -2131733097 == -1 ? (this.equipment[11] << 5) + (this.equipment[8] << 10) + (this.aw[0] << 25) + (this.aw[4] << 20) + (this.equipment[0] << 15) + this.equipment[1] : 305419896 + AbstractArchive.getNPCType(this.ab * -2131733097).id * -1115372301;
    }
 
    void ax() {
-      this.an(this.af, this.an, this.aw, 1693987821 * this.au, -2131733097 * this.ab);
+      this.an(this.af, this.equipment, this.aw, 1693987821 * this.au, -2131733097 * this.ab);
    }
 }

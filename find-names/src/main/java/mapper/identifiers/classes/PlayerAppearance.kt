@@ -1,6 +1,7 @@
 package mapper.identifiers.classes
 
 import mapper.abstractclasses.IdentityMapper
+import mapper.abstractclasses.OrderMapper
 import mapper.annotations.DependsOn
 import mapper.annotations.MethodParameters
 import mapper.predicateutilities.and
@@ -8,7 +9,9 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.Class2
 import mapper.wrappers.Field2
+import mapper.wrappers.Instruction2
 import mapper.wrappers.Method2
+import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.*
 
 class PlayerAppearance : IdentityMapper.Class() {
@@ -19,10 +22,10 @@ class PlayerAppearance : IdentityMapper.Class() {
             .and { it.instanceFields.count { it.type == IntArray::class.type } >= 2 }
 
     //TODO
-//    @DependsOn(Model::class)
-//    class getModel : InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
-//    }
+    @DependsOn(Model::class)
+    class getModel : InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
+    }
 
 //    class npcTransformId : InstanceField() {
 //        override val predicate = predicateOf<Field2> { it.type == INT_TYPE }
@@ -32,10 +35,10 @@ class PlayerAppearance : IdentityMapper.Class() {
         override val predicate = predicateOf<Field2> { it.type == BOOLEAN_TYPE }
     }
 
-//    @DependsOn(getModel::class)
-//    class equipment : OrderMapper.InMethod.Field(getModel::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == IntArray::class.type }
-//    }
+    @DependsOn(getModel::class)
+    class equipment : OrderMapper.InMethod.Field(getModel::class, 0) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
+    }
 
 //    @DependsOn(equipment::class)
 //    class bodyColors : InstanceField() {

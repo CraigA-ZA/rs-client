@@ -12,7 +12,7 @@ public class SeqType extends DualNode {
    boolean[] aj;
    int lefthand = 0;
    int ax = 0;
-   int[] ah;
+   int[] frameIds2;
    int[] as;
    public boolean ak = false;
    public boolean by = false;
@@ -105,14 +105,14 @@ public class SeqType extends DualNode {
          this.be = var1.g1() * 1672364297;
       } else if (var2 == 12) {
          var4 = var1.g1();
-         this.ah = new int[var4];
+         this.frameIds2 = new int[var4];
 
          for(var5 = 0; var5 < var4; ++var5) {
-            this.ah[var5] = var1.cl();
+            this.frameIds2[var5] = var1.cl();
          }
 
          for(var5 = 0; var5 < var4; ++var5) {
-            this.ah[var5] += var1.cl() << 16;
+            this.frameIds2[var5] += var1.cl() << 16;
          }
       } else if (var2 == 13) {
          var4 = var1.g1();
@@ -151,7 +151,7 @@ public class SeqType extends DualNode {
 
    }
 
-   void au() {
+   void postDecode() {
       if (1069382699 * this.bb == -1) {
          if (null == this.as && null == this.aj) {
             this.bb = 0;
@@ -170,57 +170,57 @@ public class SeqType extends DualNode {
 
    }
 
-   public it ab(it var1, int var2) {
-      it var5;
+   public Model ab(Model var1, int var2) {
+      Model var5;
       if (!this.ao()) {
          var2 = this.frameIds[var2];
          AnimFrameset var7 = kb.getAnimFrameset(var2 >> 16);
          var2 &= 65535;
          if (null == var7) {
-            return var1.aa(true);
+            return var1.toSharedSequenceModel(true);
          } else {
-            var5 = var1.aa(!var7.hasAlphaTransform(var2));
-            var5.ar(var7, var2);
+            var5 = var1.toSharedSequenceModel(!var7.hasAlphaTransform(var2));
+            var5.animate(var7, var2);
             return var5;
          }
       } else {
          fh var4 = Obj.av_renamed(this.frameCount * 1238147375);
          if (null == var4) {
-            return var1.aa(true);
+            return var1.toSharedSequenceModel(true);
          } else {
-            var5 = var1.aa(!var4.au());
+            var5 = var1.toSharedSequenceModel(!var4.au());
             var5.am(var4, var2);
             return var5;
          }
       }
    }
 
-   it aq(it var1, int var2, int var3) {
-      it var6;
+   Model animateObject(Model var1, int var2, int var3) {
+      Model var6;
       if (!this.ao()) {
          var2 = this.frameIds[var2];
          AnimFrameset var9 = kb.getAnimFrameset(var2 >> 16);
          var2 &= 65535;
          if (var9 == null) {
-            return var1.aa(true);
+            return var1.toSharedSequenceModel(true);
          } else {
-            var6 = var1.aa(!var9.hasAlphaTransform(var2));
+            var6 = var1.toSharedSequenceModel(!var9.hasAlphaTransform(var2));
             var3 &= 3;
             if (var3 == 1) {
-               var6.bb();
+               var6.rotateY270Ccw();
             } else if (var3 == 2) {
-               var6.by();
+               var6.rotateY180();
             } else if (var3 == 3) {
-               var6.ap();
+               var6.rotateY90Ccw();
             }
 
-            var6.ar(var9, var2);
+            var6.animate(var9, var2);
             if (var3 == 1) {
-               var6.ap();
+               var6.rotateY90Ccw();
             } else if (var3 == 2) {
-               var6.by();
+               var6.rotateY180();
             } else if (var3 == 3) {
-               var6.bb();
+               var6.rotateY270Ccw();
             }
 
             return var6;
@@ -228,25 +228,25 @@ public class SeqType extends DualNode {
       } else {
          fh var5 = Obj.av_renamed(1238147375 * this.frameCount);
          if (null == var5) {
-            return var1.aa(true);
+            return var1.toSharedSequenceModel(true);
          } else {
-            var6 = var1.aa(!var5.au());
+            var6 = var1.toSharedSequenceModel(!var5.au());
             var3 &= 3;
             if (var3 == 1) {
-               var6.bb();
+               var6.rotateY270Ccw();
             } else if (var3 == 2) {
-               var6.by();
+               var6.rotateY180();
             } else if (var3 == 3) {
-               var6.ap();
+               var6.rotateY90Ccw();
             }
 
             var6.am(var5, var2);
             if (1 == var3) {
-               var6.ap();
+               var6.rotateY90Ccw();
             } else if (var3 == 2) {
-               var6.by();
+               var6.rotateY180();
             } else if (3 == var3) {
-               var6.bb();
+               var6.rotateY270Ccw();
             }
 
             return var6;
@@ -254,8 +254,8 @@ public class SeqType extends DualNode {
       }
    }
 
-   it al(it var1, int var2) {
-      it var5;
+   Model al(Model var1, int var2) {
+      Model var5;
       if (!this.ao()) {
          var2 = this.frameIds[var2];
          AnimFrameset var7 = kb.getAnimFrameset(var2 >> 16);
@@ -264,7 +264,7 @@ public class SeqType extends DualNode {
             return var1.ay(true);
          } else {
             var5 = var1.ay(!var7.hasAlphaTransform(var2));
-            var5.ar(var7, var2);
+            var5.animate(var7, var2);
             return var5;
          }
       } else {
@@ -279,11 +279,11 @@ public class SeqType extends DualNode {
       }
    }
 
-   public it at(it var1, int var2, SeqType var3, int var4) {
+   public Model at(Model var1, int var2, SeqType var3, int var4) {
       if (af && !this.ao() && !var3.ao()) {
          return this.aa(var1, var2, var3, var4);
       } else {
-         it var6 = var1.aa(false);
+         Model var6 = var1.toSharedSequenceModel(false);
          boolean var7 = false;
          AnimFrameset var8 = null;
          AnimBase var9 = null;
@@ -310,12 +310,12 @@ public class SeqType extends DualNode {
             }
 
             if (!var3.ao() && (this.as == null || -1 == var4)) {
-               var6.ar(var8, var2);
+               var6.animate(var8, var2);
                return var6;
             }
 
             if (this.as == null || var4 == -1) {
-               var6.ar(var8, var2);
+               var6.animate(var8, var2);
                return var6;
             }
 
@@ -351,12 +351,12 @@ public class SeqType extends DualNode {
             var6.ad(var8, var2, this.as, false);
          }
 
-         var6.av();
+         var6.resetBounds();
          return var6;
       }
    }
 
-   it aa(it var1, int var2, SeqType var3, int var4) {
+   Model aa(Model var1, int var2, SeqType var3, int var4) {
       var2 = this.frameIds[var2];
       AnimFrameset var6 = kb.getAnimFrameset(var2 >> 16);
       var2 &= 65535;
@@ -366,44 +366,44 @@ public class SeqType extends DualNode {
          var4 = var3.frameIds[var4];
          AnimFrameset var7 = kb.getAnimFrameset(var4 >> 16);
          var4 &= 65535;
-         it var8;
+         Model var8;
          if (null == var7) {
-            var8 = var1.aa(!var6.hasAlphaTransform(var2));
-            var8.ar(var6, var2);
+            var8 = var1.toSharedSequenceModel(!var6.hasAlphaTransform(var2));
+            var8.animate(var6, var2);
             return var8;
          } else {
-            var8 = var1.aa(!var6.hasAlphaTransform(var2) & !var7.hasAlphaTransform(var4));
-            var8.ak(var6, var2, var7, var4, this.as);
+            var8 = var1.toSharedSequenceModel(!var6.hasAlphaTransform(var2) & !var7.hasAlphaTransform(var4));
+            var8.animate2(var6, var2, var7, var4, this.as);
             return var8;
          }
       }
    }
 
-   public it ay(it var1, int var2) {
+   public Model animateComponent(Model var1, int var2) {
       if (!this.ao()) {
          int var4 = this.frameIds[var2];
          AnimFrameset var5 = kb.getAnimFrameset(var4 >> 16);
          var4 &= 65535;
          if (var5 == null) {
-            return var1.aa(true);
+            return var1.toSharedSequenceModel(true);
          } else {
             AnimFrameset var6 = null;
             int var7 = 0;
-            if (this.ah != null && var2 < this.ah.length) {
-               var7 = this.ah[var2];
+            if (this.frameIds2 != null && var2 < this.frameIds2.length) {
+               var7 = this.frameIds2[var2];
                var6 = kb.getAnimFrameset(var7 >> 16);
                var7 &= 65535;
             }
 
-            it var8;
+            Model var8;
             if (null != var6 && 65535 != var7) {
-               var8 = var1.aa(!var5.hasAlphaTransform(var4) & !var6.hasAlphaTransform(var7));
-               var8.ar(var5, var4);
-               var8.ar(var6, var7);
+               var8 = var1.toSharedSequenceModel(!var5.hasAlphaTransform(var4) & !var6.hasAlphaTransform(var7));
+               var8.animate(var5, var4);
+               var8.animate(var6, var7);
                return var8;
             } else {
-               var8 = var1.aa(!var5.hasAlphaTransform(var4));
-               var8.ar(var5, var4);
+               var8 = var1.toSharedSequenceModel(!var5.hasAlphaTransform(var4));
+               var8.animate(var5, var4);
                return var8;
             }
          }

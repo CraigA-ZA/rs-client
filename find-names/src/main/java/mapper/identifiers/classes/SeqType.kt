@@ -2,7 +2,9 @@ package mapper.identifiers.classes
 
 import mapper.abstractclasses.IdentityMapper
 import mapper.abstractclasses.OrderMapper
+import mapper.abstractclasses.UniqueMapper
 import mapper.annotations.DependsOn
+import mapper.annotations.MethodParameters
 import mapper.identifiers.ConstructorPutField
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
@@ -41,12 +43,12 @@ class SeqType : IdentityMapper.Class() {
         override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
-//    @MethodParameters()
-//    class postDecode : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
-//                .and { it.arguments.size in 0..1 }
-//                .and { it.instructions.none { it.isMethod } }
-//    }
+    @MethodParameters()
+    class postDecode : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
+                .and { it.arguments.size in 0..1 }
+                .and { it.instructions.none { it.isMethod } }
+    }
 
     @DependsOn(decode0::class)
     class frameLengths : OrderMapper.InMethod.Field(decode0::class, 0) {
@@ -63,38 +65,38 @@ class SeqType : IdentityMapper.Class() {
 //    class animateSpotAnimation : UniqueMapper.InMethod.Method(SpotType.getModel::class) {
 //        override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodOwner == type<SeqType>() }
 //    }
-    //TODO
+//    TODO
 
-//    @MethodParameters("model", "frame", "orientation")
-//    @DependsOn(LocType.getModelDynamic::class)
-//    class animateObject : UniqueMapper.InMethod.Method(LocType.getModelDynamic::class) {
-//        override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodOwner == type<SeqType>() }
-//    }
+    @MethodParameters("model", "frame", "orientation")
+    @DependsOn(LocType.getModelDynamic::class)
+    class animateObject : UniqueMapper.InMethod.Method(LocType.getModelDynamic::class) {
+        override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodOwner == type<SeqType>() }
+    }
 
 //    @MethodParameters("model", "frame", "sequence", "sequenceFrame")
 //    @DependsOn(Model::class)
 //    class animateSequence2 : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
 //                .and { it.arguments.size in 4..5 }
-//                .and { it.arguments.startsWith(type<Model>(), INT_TYPE, type<SeqType>(), INT_TYPE) }
+//                .and { it.arguments.startsWith(type<Model>(), Type.INT_TYPE, type<SeqType>(), Type.INT_TYPE) }
 //    }
-
+//
 //    @MethodParameters("model", "frame")
 //    @DependsOn(animateSequence2::class)
 //    class animateSequence : UniqueMapper.InMethod.Method(animateSequence2::class) {
 //        override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodOwner == type<SeqType>() }
 //    }
-//
-//    @MethodParameters("model", "frame")
-//    @DependsOn(Component.getModel::class)
-//    class animateComponent : UniqueMapper.InMethod.Method(Component.getModel::class) {
-//        override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodOwner == type<SeqType>() }
-//    }
 
-//    @DependsOn(animateComponent::class)
-//    class frameIds2 : OrderMapper.InMethod.Field(animateComponent::class, 1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == IntArray::class.type }
-//    }
+    @MethodParameters("model", "frame")
+    @DependsOn(Component.getModel::class)
+    class animateComponent : UniqueMapper.InMethod.Method(Component.getModel::class) {
+        override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodOwner == type<SeqType>() }
+    }
+
+    @DependsOn(animateComponent::class)
+    class frameIds2 : OrderMapper.InMethod.Field(animateComponent::class, 1) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == IntArray::class.type }
+    }
 
     class frameCount : ConstructorPutField(SeqType::class, 0, Type.INT_TYPE)
 }

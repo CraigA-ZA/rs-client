@@ -450,15 +450,15 @@ class ao implements TlsAuthentication {
                                     var21 = -1526544909 * var11.sequenceId;
                                  }
 
-                                 it var36 = null;
+                                 Model var36 = null;
                                  var23 = 0;
                                  if (-1 != -2006098851 * var11.itemId) {
                                     ObjType var38 = HeadbarUpdate.getObjType(-2006098851 * var11.itemId);
                                     if (var38 != null) {
                                        var38 = var38.getCountObj(var11.itemQuantity * 1336975799);
-                                       var36 = var38.at(1);
+                                       var36 = var38.getModel(1);
                                        if (null != var36) {
-                                          var36.ai();
+                                          var36.calculateBoundsCylinder();
                                           var23 = 1550732737 * var36.height / 2;
                                        } else {
                                           fw.ma_renamed(var11);
@@ -466,12 +466,12 @@ class ao implements TlsAuthentication {
                                     }
                                  } else if (var11.modelType * -123768459 == 5) {
                                     if (0 == -168077555 * var11.modelId) {
-                                       var36 = Client.vh.aa((SeqType)null, -1, (SeqType)null, -1);
+                                       var36 = Client.vh.getModel((SeqType)null, -1, (SeqType)null, -1);
                                     } else {
                                        var36 = MusicPatchNode.localPlayer.getModel();
                                     }
                                  } else if (-123768459 * var11.modelType == 7) {
-                                    var36 = var11.dd.aa((SeqType)null, -1, Inventory.getSeqType(MusicPatchNode.localPlayer.readySequence * 1590591885, (byte)121), 424813829 * MusicPatchNode.localPlayer.spotAnimationFrameCycle);
+                                    var36 = var11.dd.getModel((SeqType)null, -1, Inventory.getSeqType(MusicPatchNode.localPlayer.readySequence * 1590591885, (byte)121), 424813829 * MusicPatchNode.localPlayer.spotAnimationFrameCycle);
                                  } else {
                                     NPCType var39 = null;
                                     hv var40 = null;
@@ -493,7 +493,7 @@ class ao implements TlsAuthentication {
                                        var27 = 1575517389 * var11.modelFrame;
                                     }
 
-                                    var36 = var11.ag(var42, var27, var33, MusicPatchNode.localPlayer.appearance, var39, var40);
+                                    var36 = var11.getModel(var42, var27, var33, MusicPatchNode.localPlayer.appearance, var39, var40);
                                     if (var36 == null && Component.bj) {
                                        fw.ma_renamed(var11);
                                     }
@@ -506,7 +506,7 @@ class ao implements TlsAuthentication {
                                     if (!var11.isIf3) {
                                        var36.bx(0, var11.modelAngleY * -480949115, 0, var11.modelAngleX * 797932055, 0, var41, var25);
                                     } else {
-                                       var36.ai();
+                                       var36.calculateBoundsCylinder();
                                        if (var11.modelOrthog) {
                                           var36.bo(0, -480949115 * var11.modelAngleY, -1023931993 * var11.modelAngleZ, 797932055 * var11.modelAngleX, var11.modelOffsetX * 1909456039, var11.modelOffsetY * 844501061 + var41 + var23, var25 + var11.modelOffsetY * 844501061, 942674363 * var11.modelZoom);
                                        } else {

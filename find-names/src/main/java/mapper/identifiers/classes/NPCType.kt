@@ -44,26 +44,26 @@ class NPCType : IdentityMapper.Class() {
                 .and { it.instructions.any { it.opcode == Opcodes.BIPUSH && it.intOperand == 17 } }
     }
 
-//    @DependsOn(Client.getNPCType::class)
-//    class id : OrderMapper.InMethod.Field(Client.getNPCType::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<NPCType>() }
-//    }
+    @DependsOn(Client.getNPCType::class)
+    class id : OrderMapper.InMethod.Field(Client.getNPCType::class, 0) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE && it.fieldOwner == type<NPCType>() }
+    }
 
-//    @MethodParameters("s1", "n1", "s2", "n2")
-//    @DependsOn(Model::class)
-//    class getModel : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
-//    }
+    @MethodParameters("s1", "n1", "s2", "n2")
+    @DependsOn(Model::class)
+    class getModel : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
+    }
 
-//    @DependsOn(getModel::class)
-//    class resizeh : OrderMapper.InMethod.Field(getModel::class, -1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
-//    }
-//
-//    @DependsOn(getModel::class)
-//    class resizev : OrderMapper.InMethod.Field(getModel::class, -2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
-//    }
+    @DependsOn(getModel::class)
+    class resizeh : OrderMapper.InMethod.Field(getModel::class, -1) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
+    }
+
+    @DependsOn(getModel::class)
+    class resizev : OrderMapper.InMethod.Field(getModel::class, -2) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
+    }
 
     @MethodParameters()
     class transform : IdentityMapper.InstanceMethod() {

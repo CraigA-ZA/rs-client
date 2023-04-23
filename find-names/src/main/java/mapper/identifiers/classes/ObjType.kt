@@ -21,12 +21,11 @@ class ObjType : IdentityMapper.Class() {
             .and { it.instanceFields.count { it.type == ShortArray::class.type } == 4 }
             .and { it.instanceFields.count { it.type == Array<String>::class.type } == 2 }
 
-//    @MethodParameters("quantity")
-//    @DependsOn(Model::class)
-//    class getModel : InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
-//    }
-    //TODO
+    @MethodParameters("quantity")
+    @DependsOn(Model::class)
+    class getModel : InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
+    }
 
     class name : InstanceField() {
         override val predicate = predicateOf<Field2> { it.type == String::class.type }

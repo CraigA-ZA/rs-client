@@ -21,7 +21,7 @@ public final class Player extends Actor {
    int animationCycleStart;
    int tileX;
    int tileY;
-   it ah;
+   Model model0;
    String[] actions = new String[3];
    PlayerAppearance appearance;
    TriBool ap;
@@ -254,60 +254,60 @@ public final class Player extends Actor {
       return this.appearance != null && -1 != -2131733097 * this.appearance.ab ? AbstractArchive.getNPCType(-2131733097 * this.appearance.ab).size * 1458410691 : 1;
    }
 
-   protected final it getModel() {
+   protected final Model getModel() {
       if (this.appearance == null) {
          return null;
       } else {
          SeqType var2 = this.ct * -1372355773 != -1 && 0 == this.dm * 1253892101 ? Inventory.getSeqType(this.ct * -1372355773, (byte)73) : null;
          SeqType var3 = -1 == this.spotAnimationFrame * -1302441815 || this.isUnanimated || this.spotAnimationFrame * -1302441815 == this.readySequence * 1590591885 && var2 != null ? null : Inventory.getSeqType(this.spotAnimationFrame * -1302441815, (byte)57);
-         it var4 = this.appearance.aa(var2, -41215169 * this.cp, var3, 424813829 * this.spotAnimationFrameCycle);
+         Model var4 = this.appearance.getModel(var2, -41215169 * this.cp, var3, 424813829 * this.spotAnimationFrameCycle);
          if (var4 == null) {
             return null;
          } else {
-            var4.ai();
+            var4.calculateBoundsCylinder();
             this.de = 2070391287 * var4.height;
-            int var5 = var4.ao;
+            int var5 = var4.indicesCount;
             if (!this.isUnanimated) {
                var4 = this.cp(var4);
             }
 
-            if (!this.isUnanimated && this.ah != null) {
+            if (!this.isUnanimated && this.model0 != null) {
                if (Client.ep * -1886224337 >= this.animationCycleEnd * -935505685) {
-                  this.ah = null;
+                  this.model0 = null;
                }
 
                if (-1886224337 * Client.ep >= -1402262375 * this.animationCycleStart && -1886224337 * Client.ep < -935505685 * this.animationCycleEnd) {
-                  it var6 = this.ah;
+                  Model var6 = this.model0;
                   var6.be(this.ax * 1793688517 - 1144428983 * this.bx, this.ai * 1238902143 - 561204023 * this.aa, 240546619 * this.ag - -411750205 * this.bo);
                   if (this.dd * -1751341433 == 512) {
-                     var6.ap();
-                     var6.ap();
-                     var6.ap();
+                     var6.rotateY90Ccw();
+                     var6.rotateY90Ccw();
+                     var6.rotateY90Ccw();
                   } else if (1024 == -1751341433 * this.dd) {
-                     var6.ap();
-                     var6.ap();
+                     var6.rotateY90Ccw();
+                     var6.rotateY90Ccw();
                   } else if (1536 == -1751341433 * this.dd) {
-                     var6.ap();
+                     var6.rotateY90Ccw();
                   }
 
-                  it[] var7 = new it[]{var4, var6};
-                  var4 = new it(var7, 2);
+                  Model[] var7 = new Model[]{var4, var6};
+                  var4 = new Model(var7, 2);
                   if (this.dd * -1751341433 == 512) {
-                     var6.ap();
+                     var6.rotateY90Ccw();
                   } else if (1024 == this.dd * -1751341433) {
-                     var6.ap();
-                     var6.ap();
+                     var6.rotateY90Ccw();
+                     var6.rotateY90Ccw();
                   } else if (-1751341433 * this.dd == 1536) {
-                     var6.ap();
-                     var6.ap();
-                     var6.ap();
+                     var6.rotateY90Ccw();
+                     var6.rotateY90Ccw();
+                     var6.rotateY90Ccw();
                   }
 
                   var6.be(this.bx * 1144428983 - 1793688517 * this.ax, 561204023 * this.aa - this.ai * 1238902143, -411750205 * this.bo - this.ag * 240546619);
                }
             }
 
-            var4.bx = true;
+            var4.isSingleTile = true;
             if (this.dq != 0 && Client.ep * -1886224337 >= this.dh * 1182789041 && Client.ep * -1886224337 < 707232483 * this.dp) {
                var4.cj = this.du;
                var4.ch = this.db;

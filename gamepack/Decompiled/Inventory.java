@@ -15,7 +15,7 @@ public class Inventory extends Node {
       } else {
          byte[] var3 = SpotType.SpotType_archive.takeFile(13, var0);
          var2 = new SpotType();
-         var2.au = var0 * 903573465;
+         var2.id = var0 * 903573465;
          if (var3 != null) {
             var2.decode(new Packet(var3));
          }
@@ -44,7 +44,7 @@ public class Inventory extends Node {
             var2.decode(new Packet(var3));
          }
 
-         var2.au();
+         var2.postDecode();
          SeqType.SeqType_cached.put(var2, (long)var0);
          return var2;
       }

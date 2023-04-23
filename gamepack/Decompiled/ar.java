@@ -432,7 +432,7 @@ class ar implements SSLSession {
 
                if (null != var23) {
                   var20 = mi.an_renamed(ClientProt.cc, Client.packetWriter.au);
-                  var20.bit.p2LE(-1115372301 * var23.ab);
+                  var20.bit.p2LE(-1115372301 * var23.id);
                   Client.packetWriter.aw(var20);
                }
             }

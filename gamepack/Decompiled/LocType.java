@@ -120,7 +120,7 @@ public class LocType extends DualNode {
       }
    }
 
-   void aw() {
+   void postDecode() {
       if (this.interactable * 415653149 == -1) {
          this.interactable = 0;
          if (null != this.aa && (null == this.ay || this.ay[0] == 10)) {
@@ -590,11 +590,11 @@ public class LocType extends DualNode {
                throw new IllegalStateException();
             }
 
-            var10 = var11.bb(64 + this.ambient * 1284125631, 768 + -18088891 * this.contrast, -50, -10, -50);
+            var10 = var11.light(64 + this.ambient * 1284125631, 768 + -18088891 * this.contrast, -50, -10, -50);
          } else {
             var11.bo = (short)(1284125631 * this.ambient + 64);
             var11.bz = (short)(this.contrast * -18088891 + 768);
-            var11.ad();
+            var11.computeNormals();
             var10 = var11;
          }
 
@@ -614,8 +614,8 @@ public class LocType extends DualNode {
             throw new IllegalStateException();
          }
 
-         if (var10 instanceof it) {
-            var10 = ((it)var10).at(var3, var4, var5, var6, true, this.hillChange * -1437543955);
+         if (var10 instanceof Model) {
+            var10 = ((Model)var10).at(var3, var4, var5, var6, true, this.hillChange * -1437543955);
          } else if (var10 instanceof UnlitModel) {
             if (var7 >= -1) {
                throw new IllegalStateException();
@@ -628,7 +628,7 @@ public class LocType extends DualNode {
       return (Entity)var10;
    }
 
-   public final it at(int var1, int var2, int[][] var3, int var4, int var5, int var6) {
+   public final Model getModel(int var1, int var2, int[][] var3, int var4, int var5, int var6) {
       long var8;
       if (null == this.ay) {
          var8 = (long)((-1529817365 * this.at << 10) + var2);
@@ -636,14 +636,14 @@ public class LocType extends DualNode {
          var8 = (long)((this.at * -1529817365 << 10) + (var1 << 3) + var2);
       }
 
-      it var10 = (it)aq.get(var8);
+      Model var10 = (Model)aq.get(var8);
       if (var10 == null) {
          UnlitModel var11 = this.getUnlitModel(var1, var2);
          if (var11 == null) {
             return null;
          }
 
-         var10 = var11.bb(this.ambient * 1284125631 + 64, 768 + -18088891 * this.contrast, -50, -10, -50);
+         var10 = var11.light(this.ambient * 1284125631 + 64, 768 + -18088891 * this.contrast, -50, -10, -50);
          aq.put(var10, var8);
       }
 
@@ -654,7 +654,7 @@ public class LocType extends DualNode {
       return var10;
    }
 
-   public final it aa(int var1, int var2, int[][] var3, int var4, int var5, int var6, SeqType var7, int var8) {
+   public final Model getModelDynamic(int var1, int var2, int[][] var3, int var4, int var5, int var6, SeqType var7, int var8) {
       long var10;
       if (null == this.ay) {
          var10 = (long)(var2 + (this.at * -1529817365 << 10));
@@ -662,14 +662,14 @@ public class LocType extends DualNode {
          var10 = (long)(var2 + (this.at * -1529817365 << 10) + (var1 << 3));
       }
 
-      it var12 = (it)aq.get(var10);
+      Model var12 = (Model)aq.get(var10);
       if (var12 == null) {
          UnlitModel var13 = this.getUnlitModel(var1, var2);
          if (var13 == null) {
             return null;
          }
 
-         var12 = var13.bb(64 + this.ambient * 1284125631, 768 + this.contrast * -18088891, -50, -10, -50);
+         var12 = var13.light(64 + this.ambient * 1284125631, 768 + this.contrast * -18088891, -50, -10, -50);
          aq.put(var12, var10);
       }
 
@@ -677,9 +677,9 @@ public class LocType extends DualNode {
          return var12;
       } else {
          if (null != var7) {
-            var12 = var7.aq(var12, var8, var2);
+            var12 = var7.animateObject(var12, var8, var2);
          } else {
-            var12 = var12.aa(true);
+            var12 = var12.toSharedSequenceModel(true);
          }
 
          if (-1437543955 * this.hillChange >= 0) {
@@ -790,7 +790,7 @@ public class LocType extends DualNode {
       UnlitModel var13 = new UnlitModel(var4, 0 == var2 && !var5 && !var12, this.recol_s == null, this.retex_s == null, true);
       if (4 == var1 && var2 > 3) {
          var13.ar(256);
-         var13.am(45, 0, -45);
+         var13.offset(45, 0, -45);
       }
 
       var2 &= 3;
@@ -815,11 +815,11 @@ public class LocType extends DualNode {
       }
 
       if (var5) {
-         var13.az(this.resizeX * -60584503, this.resizeY * -950870759, -1734306655 * this.resizeZ);
+         var13.resize(this.resizeX * -60584503, this.resizeY * -950870759, -1734306655 * this.resizeZ);
       }
 
       if (var12) {
-         var13.am(105607279 * this.offsetX, this.offsetY * -1068622067, this.offsetZ * 629285153);
+         var13.offset(105607279 * this.offsetX, this.offsetY * -1068622067, this.offsetZ * 629285153);
       }
 
       return var13;

@@ -18,7 +18,7 @@ public class SecureRandomCallable implements Callable {
       var0.modelType = 883531787;
       var0.dd = new PlayerAppearance(var1);
       if (!var2) {
-         var0.dd.an = Arrays.copyOf(var0.dd.af, var0.dd.af.length);
+         var0.dd.equipment = Arrays.copyOf(var0.dd.af, var0.dd.af.length);
          var0.dd.ax();
       }
 

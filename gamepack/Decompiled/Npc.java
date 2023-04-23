@@ -145,28 +145,28 @@ public final class Npc extends Actor {
       this.bo = this.size * 254242752 + -1887439488 * this.pathY[0];
    }
 
-   protected final it getModel() {
+   protected final Model getModel() {
       if (this.type == null) {
          return null;
       } else {
          SeqType var2 = -1 != -1372355773 * this.ct && 1253892101 * this.dm == 0 ? Inventory.getSeqType(-1372355773 * this.ct, (byte)94) : null;
          SeqType var3 = -1 != -1302441815 * this.spotAnimationFrame && (this.spotAnimationFrame * -1302441815 != this.readySequence * 1590591885 || var2 == null) ? Inventory.getSeqType(-1302441815 * this.spotAnimationFrame, (byte)39) : null;
-         it var4 = null;
+         Model var4 = null;
          if (this.aq != null && this.aq.au) {
-            var4 = MusicPatchNode.localPlayer.appearance.aa(var2, -41215169 * this.cp, var3, this.spotAnimationFrameCycle * 424813829);
+            var4 = MusicPatchNode.localPlayer.appearance.getModel(var2, -41215169 * this.cp, var3, this.spotAnimationFrameCycle * 424813829);
          } else {
-            var4 = this.type.ab(var2, this.cp * -41215169, var3, this.spotAnimationFrameCycle * 424813829, this.aq);
+            var4 = this.type.getModel(var2, this.cp * -41215169, var3, this.spotAnimationFrameCycle * 424813829, this.aq);
          }
 
          if (null == var4) {
             return null;
          } else {
-            var4.ai();
+            var4.calculateBoundsCylinder();
             this.de = var4.height * 2070391287;
-            int var5 = var4.ao;
+            int var5 = var4.indicesCount;
             var4 = this.cp(var4);
             if (1458410691 * this.type.size == 1) {
-               var4.bx = true;
+               var4.isSingleTile = true;
             }
 
             if (this.dq != 0 && Client.ep * -1886224337 >= 1182789041 * this.dh && -1886224337 * Client.ep < 707232483 * this.dp) {

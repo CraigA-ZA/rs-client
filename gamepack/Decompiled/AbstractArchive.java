@@ -156,7 +156,7 @@ public abstract class AbstractArchive {
       } else {
          byte[] var3 = NPCType.NPCType_archive.takeFile(9, var0);
          var2 = new NPCType();
-         var2.ab = -1772751813 * var0;
+         var2.id = -1772751813 * var0;
          if (null != var3) {
             var2.decode(new Packet(var3));
          }

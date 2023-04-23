@@ -80,7 +80,7 @@ public class gh extends gn {
       Object var26;
       if (var6 == 22) {
          if (-1 == var12 && null == var11.multi) {
-            var26 = var11.at(22, var5, var19, var21, var20, var22);
+            var26 = var11.getModel(22, var5, var19, var21, var20, var22);
          } else {
             var26 = new DynamicObject(var4, 22, var5, var1, var2, var3, var12, var11.bh, (Entity)null);
          }
@@ -93,7 +93,7 @@ public class gh extends gn {
       } else if (var6 != 10 && var6 != 11) {
          if (var6 >= 12) {
             if (-1 == var12 && null == var11.multi) {
-               var26 = var11.at(var6, var5, var19, var21, var20, var22);
+               var26 = var11.getModel(var6, var5, var19, var21, var20, var22);
             } else {
                var26 = new DynamicObject(var4, var6, var5, var1, var2, var3, var12, var11.bh, (Entity)null);
             }
@@ -105,7 +105,7 @@ public class gh extends gn {
 
          } else if (var6 == 0) {
             if (-1 == var12 && var11.multi == null) {
-               var26 = var11.at(0, var5, var19, var21, var20, var22);
+               var26 = var11.getModel(0, var5, var19, var21, var20, var22);
             } else {
                var26 = new DynamicObject(var4, 0, var5, var1, var2, var3, var12, var11.bh, (Entity)null);
             }
@@ -117,7 +117,7 @@ public class gh extends gn {
 
          } else if (1 == var6) {
             if (-1 == var12 && var11.multi == null) {
-               var26 = var11.at(1, var5, var19, var21, var20, var22);
+               var26 = var11.getModel(1, var5, var19, var21, var20, var22);
             } else {
                var26 = new DynamicObject(var4, 1, var5, var1, var2, var3, var12, var11.bh, (Entity)null);
             }
@@ -134,8 +134,8 @@ public class gh extends gn {
                Object var28;
                Object var36;
                if (var12 == -1 && var11.multi == null) {
-                  var36 = var11.at(2, 4 + var5, var19, var21, var20, var22);
-                  var28 = var11.at(2, var34, var19, var21, var20, var22);
+                  var36 = var11.getModel(2, 4 + var5, var19, var21, var20, var22);
+                  var28 = var11.getModel(2, var34, var19, var21, var20, var22);
                } else {
                   var36 = new DynamicObject(var4, 2, var5 + 4, var1, var2, var3, var12, var11.bh, (Entity)null);
                   var28 = new DynamicObject(var4, 2, var34, var1, var2, var3, var12, var11.bh, (Entity)null);
@@ -148,7 +148,7 @@ public class gh extends gn {
 
             } else if (var6 == 3) {
                if (var12 == -1 && null == var11.multi) {
-                  var26 = var11.at(3, var5, var19, var21, var20, var22);
+                  var26 = var11.getModel(3, var5, var19, var21, var20, var22);
                } else {
                   var26 = new DynamicObject(var4, 3, var5, var1, var2, var3, var12, var11.bh, (Entity)null);
                }
@@ -160,7 +160,7 @@ public class gh extends gn {
 
             } else if (var6 == 9) {
                if (var12 == -1 && var11.multi == null) {
-                  var26 = var11.at(var6, var5, var19, var21, var20, var22);
+                  var26 = var11.getModel(var6, var5, var19, var21, var20, var22);
                } else {
                   var26 = new DynamicObject(var4, var6, var5, var1, var2, var3, var12, var11.bh, (Entity)null);
                }
@@ -172,7 +172,7 @@ public class gh extends gn {
 
             } else if (4 == var6) {
                if (-1 == var12 && null == var11.multi) {
-                  var26 = var11.at(4, var5, var19, var21, var20, var22);
+                  var26 = var11.getModel(4, var5, var19, var21, var20, var22);
                } else {
                   var26 = new DynamicObject(var4, 4, var5, var1, var2, var3, var12, var11.bh, (Entity)null);
                }
@@ -189,7 +189,7 @@ public class gh extends gn {
                   }
 
                   if (-1 == var12 && var11.multi == null) {
-                     var29 = var11.at(4, var5, var19, var21, var20, var22);
+                     var29 = var11.getModel(4, var5, var19, var21, var20, var22);
                   } else {
                      var29 = new DynamicObject(var4, 4, var5, var1, var2, var3, var12, var11.bh, (Entity)null);
                   }
@@ -203,7 +203,7 @@ public class gh extends gn {
                   }
 
                   if (var12 == -1 && var11.multi == null) {
-                     var29 = var11.at(4, 4 + var5, var19, var21, var20, var22);
+                     var29 = var11.getModel(4, 4 + var5, var19, var21, var20, var22);
                   } else {
                      var29 = new DynamicObject(var4, 4, var5 + 4, var1, var2, var3, var12, var11.bh, (Entity)null);
                   }
@@ -212,7 +212,7 @@ public class gh extends gn {
                } else if (var6 == 7) {
                   int var35 = var5 + 2 & 3;
                   if (var12 == -1 && var11.multi == null) {
-                     var26 = var11.at(4, 4 + var35, var19, var21, var20, var22);
+                     var26 = var11.getModel(4, 4 + var35, var19, var21, var20, var22);
                   } else {
                      var26 = new DynamicObject(var4, 4, 4 + var35, var1, var2, var3, var12, var11.bh, (Entity)null);
                   }
@@ -228,8 +228,8 @@ public class gh extends gn {
                   int var31 = var5 + 2 & 3;
                   Object var30;
                   if (-1 == var12 && var11.multi == null) {
-                     var29 = var11.at(4, 4 + var5, var19, var21, var20, var22);
-                     var30 = var11.at(4, 4 + var31, var19, var21, var20, var22);
+                     var29 = var11.getModel(4, 4 + var5, var19, var21, var20, var22);
+                     var30 = var11.getModel(4, 4 + var31, var19, var21, var20, var22);
                   } else {
                      var29 = new DynamicObject(var4, 4, var5 + 4, var1, var2, var3, var12, var11.bh, (Entity)null);
                      var30 = new DynamicObject(var4, 4, 4 + var31, var1, var2, var3, var12, var11.bh, (Entity)null);
@@ -241,7 +241,7 @@ public class gh extends gn {
          }
       } else {
          if (var12 == -1 && var11.multi == null) {
-            var26 = var11.at(10, var5, var19, var21, var20, var22);
+            var26 = var11.getModel(10, var5, var19, var21, var20, var22);
          } else {
             var26 = new DynamicObject(var4, 10, var5, var1, var2, var3, var12, var11.bh, (Entity)null);
          }

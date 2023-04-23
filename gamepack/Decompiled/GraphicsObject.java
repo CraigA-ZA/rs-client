@@ -59,9 +59,9 @@ public final class GraphicsObject extends Entity {
 
    }
 
-   protected final it getModel() {
+   protected final Model getModel() {
       SpotType var2 = Inventory.getSpotType(-1107802607 * this.id);
-      it var3;
+      Model var3;
       if (!this.isFinished) {
          var3 = var2.au(158616165 * this.frame);
       } else {

@@ -353,7 +353,7 @@ public class ObjType extends DualNode {
          return null;
       } else {
          if (this.ambient * 614283261 != 128 || this.contrast * 1552043943 != 128 || -302979231 * this.team != 128) {
-            var8.az(this.ambient * 614283261, this.contrast * 1552043943, -302979231 * this.team);
+            var8.resize(this.ambient * 614283261, this.contrast * 1552043943, -302979231 * this.team);
          }
 
          if (this.av != null) {
@@ -372,7 +372,7 @@ public class ObjType extends DualNode {
       }
    }
 
-   public final it at(int var1) {
+   public final Model getModel(int var1) {
       if (null != this.bh && var1 > 1) {
          int var3 = -1;
 
@@ -383,11 +383,11 @@ public class ObjType extends DualNode {
          }
 
          if (-1 != var3) {
-            return HeadbarUpdate.getObjType(var3).at(1);
+            return HeadbarUpdate.getObjType(var3).getModel(1);
          }
       }
 
-      it var12 = (it)ay.get((long)(-264956633 * this.ai));
+      Model var12 = (Model)ay.get((long)(-264956633 * this.ai));
       if (null != var12) {
          return var12;
       } else {
@@ -396,7 +396,7 @@ public class ObjType extends DualNode {
             return null;
          } else {
             if (this.ambient * 614283261 != 128 || this.contrast * 1552043943 != 128 || 128 != this.team * -302979231) {
-               var13.az(614283261 * this.ambient, 1552043943 * this.contrast, -302979231 * this.team);
+               var13.resize(614283261 * this.ambient, 1552043943 * this.contrast, -302979231 * this.team);
             }
 
             int var5;
@@ -412,8 +412,8 @@ public class ObjType extends DualNode {
                }
             }
 
-            var12 = var13.bb(64 + 2093614773 * this.boughtlink, 1794294545 * this.boughttemplate + 768, -50, -10, -50);
-            var12.bx = true;
+            var12 = var13.light(64 + 2093614773 * this.boughtlink, 1794294545 * this.boughttemplate + 768, -50, -10, -50);
+            var12.isSingleTile = true;
             ay.put(var12, (long)(this.ai * -264956633));
             return var12;
          }
@@ -495,11 +495,11 @@ public class ObjType extends DualNode {
          }
 
          if (0 == var1 && 0 != this.womanwearyoff * 1328855603) {
-            var6.am(0, this.womanwearyoff * 1328855603, 0);
+            var6.offset(0, this.womanwearyoff * 1328855603, 0);
          }
 
          if (1 == var1 && -846717499 * this.manhead != 0) {
-            var6.am(0, -846717499 * this.manhead, 0);
+            var6.offset(0, -846717499 * this.manhead, 0);
          }
 
          int var14;

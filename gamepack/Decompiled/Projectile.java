@@ -151,13 +151,13 @@ public final class Projectile extends Entity {
 
    }
 
-   protected final it getModel() {
+   protected final Model getModel() {
       SpotType var2 = Inventory.getSpotType(19084173 * this.id);
-      it var3 = var2.au(-693399445 * this.frame);
+      Model var3 = var2.au(-693399445 * this.frame);
       if (var3 == null) {
          return null;
       } else {
-         var3.bi(-1585330521 * this.pitch);
+         var3.rotateZ(-1585330521 * this.pitch);
          return var3;
       }
    }

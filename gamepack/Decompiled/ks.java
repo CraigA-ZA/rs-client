@@ -18,13 +18,13 @@ public class ks {
 
    public static void ba_renamed(Component var0, int var1) {
       ObjType var3 = HeadbarUpdate.getObjType(var1);
-      var0.dd.an[-1935812527 * var3.shiftclickindex] = 512 + var1;
+      var0.dd.equipment[-1935812527 * var3.shiftclickindex] = 512 + var1;
       if (-1719338253 * var3.manwear != -1) {
-         var0.dd.an[var3.manwear * -1719338253] = 0;
+         var0.dd.equipment[var3.manwear * -1719338253] = 0;
       }
 
       if (var3.manwear2 * 723093341 != -1) {
-         var0.dd.an[var3.manwear2 * 723093341] = 0;
+         var0.dd.equipment[var3.manwear2 * 723093341] = 0;
       }
 
       var0.dd.ax();

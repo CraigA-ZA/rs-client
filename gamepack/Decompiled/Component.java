@@ -5,7 +5,7 @@ import java.util.Iterator;
 public class Component extends Node {
    public static boolean bj;
    static EvictingDualNodeHashTable bm = new EvictingDualNodeHashTable(8);
-   static EvictingDualNodeHashTable bo = new EvictingDualNodeHashTable(50);
+   static EvictingDualNodeHashTable Component_cachedModels = new EvictingDualNodeHashTable(50);
    static EvictingDualNodeHashTable bx = new EvictingDualNodeHashTable(200);
    static EvictingDualNodeHashTable Component_cachedFonts = new EvictingDualNodeHashTable(20);
    static pk bd;
@@ -724,7 +724,7 @@ public class Component extends Node {
       }
    }
 
-   public it ag(SeqType var1, int var2, boolean var3, PlayerAppearance var4, NPCType var5, hv var6) {
+   public Model getModel(SeqType var1, int var2, boolean var3, PlayerAppearance var4, NPCType var5, hv var6) {
       bj = false;
       int var8;
       int var9;
@@ -741,7 +741,7 @@ public class Component extends Node {
             return null;
          }
 
-         var9 = var5.ab * -1115372301;
+         var9 = var5.id * -1115372301;
       }
 
       if (0 == var8) {
@@ -758,7 +758,7 @@ public class Component extends Node {
             var10 |= var6.af * -1176524468931644747L << 20;
          }
 
-         it var12 = (it)bo.get(var10);
+         Model var12 = (Model)Component_cachedModels.get(var10);
          if (var12 == null) {
             UnlitModel var13 = null;
             int var14 = 64;
@@ -790,12 +790,12 @@ public class Component extends Node {
                return null;
             }
 
-            var12 = var13.bb(var14, var15, -50, -10, -50);
-            bo.put(var12, var10);
+            var12 = var13.light(var14, var15, -50, -10, -50);
+            Component_cachedModels.put(var12, var10);
          }
 
          if (var1 != null) {
-            var12 = var1.ay(var12, var2);
+            var12 = var1.animateComponent(var12, var2);
          }
 
          return var12;

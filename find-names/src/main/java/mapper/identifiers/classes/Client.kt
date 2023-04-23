@@ -1082,10 +1082,10 @@ class Client : IdentityMapper.Class() {
         override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == type<EvictingDualNodeHashTable>() }
     }
 
-//    @DependsOn(Component.getModel::class, EvictingDualNodeHashTable::class)
-//    class Component_cachedModels : UniqueMapper.InMethod.Field(Component.getModel::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == type<EvictingDualNodeHashTable>() }
-//    }
+    @DependsOn(Component.getModel::class, EvictingDualNodeHashTable::class)
+    class Component_cachedModels : UniqueMapper.InMethod.Field(Component.getModel::class) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == type<EvictingDualNodeHashTable>() }
+    }
 
     @DependsOn(StudioGame::class)
     class studioGame : IdentityMapper.StaticField() {
@@ -1861,15 +1861,15 @@ class Client : IdentityMapper.Class() {
                 .nextWithin(4) { it.opcode == PUTSTATIC && it.fieldType == LONG_TYPE }
     }
 
-//    @DependsOn(Model.draw::class)
-//    class modelViewportXs : OrderMapper.InMethod.Field(Model.draw::class, -6) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
-//    }
-//
-//    @DependsOn(Model.draw::class)
-//    class modelViewportYs : OrderMapper.InMethod.Field(Model.draw::class, -5) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
-//    }
+    @DependsOn(Model.draw::class)
+    class modelViewportXs : OrderMapper.InMethod.Field(Model.draw::class, -6) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
+    }
+
+    @DependsOn(Model.draw::class)
+    class modelViewportYs : OrderMapper.InMethod.Field(Model.draw::class, -5) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
+    }
 
 //    @DependsOn(Rasterizer3D::class)
 //    class Rasterizer3D_method1 : IdentityMapper.StaticMethod() {
@@ -1952,15 +1952,15 @@ class Client : IdentityMapper.Class() {
                 .and { it.instructions.none { it.opcode == BIPUSH || it.isMethod } }
     }
 
-//    @DependsOn(Model.rotateZ::class)
-//    class Model_sine : OrderMapper.InMethod.Field(Model.rotateZ::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
-//    }
-//
-//    @DependsOn(Model.rotateZ::class)
-//    class Model_cosine : OrderMapper.InMethod.Field(Model.rotateZ::class, 1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
-//    }
+    @DependsOn(Model.rotateZ::class)
+    class Model_sine : OrderMapper.InMethod.Field(Model.rotateZ::class, 0) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
+    }
+
+    @DependsOn(Model.rotateZ::class)
+    class Model_cosine : OrderMapper.InMethod.Field(Model.rotateZ::class, 1) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
+    }
 //
 //    @DependsOn(EvictingDualNodeHashTable::class, NPCType.getModel::class)
 //    class NPCType_cachedModels : UniqueMapper.InMethod.Field(NPCType.getModel::class) {

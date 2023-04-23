@@ -120,7 +120,7 @@ public class WorldMapSection1 implements WorldMapSection {
          }
       }
 
-      it var22 = var10.at(1);
+      Model var22 = var10.getModel(1);
       if (var22 == null) {
          return null;
       } else {
@@ -167,7 +167,7 @@ public class WorldMapSection1 implements WorldMapSection {
 
          int var19 = var18 * Rasterizer3D.Rasterizer3D_sine[415331477 * var10.xan2d] >> 16;
          int var20 = var18 * Rasterizer3D.Rasterizer3D_cosine[415331477 * var10.xan2d] >> 16;
-         var22.ai();
+         var22.calculateBoundsCylinder();
          var22.bx(0, -2044433177 * var10.yan2d, var10.zan2d * 450595207, var10.xan2d * 415331477, var10.xof2d * 151912273, 1550732737 * var22.height / 2 + var19 + -271411709 * var10.yof2d, var20 + var10.yof2d * -271411709);
          if (-1276549997 * var10.cg != -1) {
             var23.ax(0, 0);

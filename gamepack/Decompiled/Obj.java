@@ -19,8 +19,8 @@ public final class Obj extends Entity {
       }
    }
 
-   protected final it getModel() {
-      return HeadbarUpdate.getObjType(176307405 * this.id).at(-1745152527 * this.quantity);
+   protected final Model getModel() {
+      return HeadbarUpdate.getObjType(176307405 * this.id).getModel(-1745152527 * this.quantity);
    }
 
    static fh av_renamed(int var0) {

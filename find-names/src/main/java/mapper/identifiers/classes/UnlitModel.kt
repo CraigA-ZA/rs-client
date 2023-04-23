@@ -8,6 +8,7 @@ import mapper.annotations.MethodParameters
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
+import mapper.predicateutilities.withDimensions
 import mapper.wrappers.Class2
 import mapper.wrappers.Field2
 import mapper.wrappers.Instruction2
@@ -57,61 +58,62 @@ class UnlitModel : IdentityMapper.Class() {
         override val predicate = predicateOf<Instruction2> { it.isField && it.fieldType == ShortArray::class.type }
     }
 
-//    @MethodParameters("a", "b", "c", "d", "e")
-//    @DependsOn(Model::class)
-//    class light : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
-//    }
+    @MethodParameters("a", "b", "c", "d", "e")
+    @DependsOn(Model::class)
+    class light : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
+    }
 
-//    @DependsOn(light::class)
-//    class faceLabelsAlpha : OrderMapper.InMethod.Field(light::class, -1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == Array<IntArray>::class.type }
-//    }
-//
-//    @DependsOn(light::class)
-//    class vertexLabels : OrderMapper.InMethod.Field(light::class, -2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == Array<IntArray>::class.type }
-//    }
-//
-//    @DependsOn(light::class)
-//    class faceAlphas : OrderMapper.InMethod.Field(light::class, -1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == ByteArray::class.type }
-//    }
-//
-//    @DependsOn(light::class)
-//    class indices3 : OrderMapper.InMethod.Field(light::class, -1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
-//    }
-//
-//    @DependsOn(light::class)
-//    class indices2 : OrderMapper.InMethod.Field(light::class, -2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
-//    }
-//
-//    @DependsOn(light::class)
-//    class indices1 : OrderMapper.InMethod.Field(light::class, -3) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
-//    }
-//
-//    @DependsOn(light::class)
-//    class verticesZ : OrderMapper.InMethod.Field(light::class, -4) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
-//    }
-//
-//    @DependsOn(light::class)
-//    class verticesY : OrderMapper.InMethod.Field(light::class, -5) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
-//    }
-//
-//    @DependsOn(light::class)
-//    class verticesX : OrderMapper.InMethod.Field(light::class, -6) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
-//    }
+    @DependsOn(light::class)
+    class faceLabelsAlpha : OrderMapper.InMethod.Field(light::class, -1) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == Array<IntArray>::class.type }
+    }
+
+    @DependsOn(light::class)
+    class vertexLabels : OrderMapper.InMethod.Field(light::class, -2) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == Array<IntArray>::class.type }
+    }
+
+    @DependsOn(light::class)
+    class faceAlphas : OrderMapper.InMethod.Field(light::class, -1) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == ByteArray::class.type }
+    }
+
+    @DependsOn(light::class)
+    class indices3 : OrderMapper.InMethod.Field(light::class, -1) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
+    }
+
+    @DependsOn(light::class)
+    class indices2 : OrderMapper.InMethod.Field(light::class, -2) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
+    }
+
+    @DependsOn(light::class)
+    class indices1 : OrderMapper.InMethod.Field(light::class, -3) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
+    }
+
+    @DependsOn(light::class)
+    class verticesZ : OrderMapper.InMethod.Field(light::class, -4) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
+    }
+
+    @DependsOn(light::class)
+    class verticesY : OrderMapper.InMethod.Field(light::class, -5) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
+    }
+
+    @DependsOn(light::class)
+    class verticesX : OrderMapper.InMethod.Field(light::class, -6) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
+    }
 
     class isBoundsCalculated : IdentityMapper.InstanceField() {
         override val predicate = predicateOf<Field2> { it.type == BOOLEAN_TYPE }
     }
 
+    //TODO
 //    @DependsOn(FaceNormal::class)
 //    class faceNormals : IdentityMapper.InstanceField() {
 //        override val predicate = predicateOf<Field2> { it.type == type<FaceNormal>().withDimensions(1) }
@@ -123,19 +125,18 @@ class UnlitModel : IdentityMapper.Class() {
                 .and { it.instructions.none { it.isMethod || it.opcode == Opcodes.LDC || it.opcode == Opcodes.IADD } }
     }
 
-//    @DependsOn(light::class)
-//    class computeNormals : OrderMapper.InMethod.Method(light::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.isMethod }
-//    }
+    @DependsOn(light::class)
+    class computeNormals : OrderMapper.InMethod.Method(light::class, 0) {
+        override val predicate = predicateOf<Instruction2> { it.isMethod }
+    }
 
-    //TODO
-//    @DependsOn(LocType.getUnlitModel::class, UnlitModel::class)
-//    class resize : OrderMapper.InMethod.Method(LocType.getUnlitModel::class, -2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == INVOKEVIRTUAL && it.methodOwner == type<UnlitModel>() && it.methodType.argumentTypes.size == 3 }
-//    }
-//
-//    @DependsOn(LocType.getUnlitModel::class, UnlitModel::class)
-//    class offset : OrderMapper.InMethod.Method(LocType.getUnlitModel::class, -1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == INVOKEVIRTUAL && it.methodOwner == type<UnlitModel>() && it.methodType.argumentTypes.size == 3 }
-//    }
+    @DependsOn(LocType.getUnlitModel::class, UnlitModel::class)
+    class resize : OrderMapper.InMethod.Method(LocType.getUnlitModel::class, -2) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.INVOKEVIRTUAL && it.methodOwner == type<UnlitModel>() && it.methodType.argumentTypes.size == 3 }
+    }
+
+    @DependsOn(LocType.getUnlitModel::class, UnlitModel::class)
+    class offset : OrderMapper.InMethod.Method(LocType.getUnlitModel::class, -1) {
+        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.INVOKEVIRTUAL && it.methodOwner == type<UnlitModel>() && it.methodType.argumentTypes.size == 3 }
+    }
 }

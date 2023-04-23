@@ -42,7 +42,7 @@ public class DynamicObject extends Entity {
 
    }
 
-   protected final it getModel() {
+   protected final Model getModel() {
       int var3;
       if (null != this.seqType) {
          int var2 = -1886224337 * Client.ep - this.cycleStart * -287053661;
@@ -107,7 +107,7 @@ public class DynamicObject extends Entity {
          int var10 = var9[var5][var8] + var9[var5][var7] + var9[var6][var7] + var9[var6][var8] >> 2;
          int var11 = (var3 << 6) + (this.au * 1815829493 << 7);
          int var12 = (var4 << 6) + (this.ab * -1893774471 << 7);
-         return var13.aa(-373027479 * this.type, this.orientation * 1904322241, var9, var11, var10, var12, this.seqType, 1017637335 * this.frame);
+         return var13.getModelDynamic(-373027479 * this.type, this.orientation * 1904322241, var9, var11, var10, var12, this.seqType, 1017637335 * this.frame);
       }
    }
 

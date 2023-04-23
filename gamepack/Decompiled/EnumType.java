@@ -1356,12 +1356,12 @@ public class EnumType extends DualNode {
                int var27 = var26[var22][var25] + var26[var23][var24] + var26[var22][var24] + var26[var23][var25] >> 2;
                int var28 = (var7 << 7) + (var20 << 6);
                int var29 = (var21 << 6) + (var8 << 7);
-               it var30 = var19.at(var13, var14, var26, var28, var27, var29);
+               Model var30 = var19.getModel(var13, var14, var26, var28, var27, var29);
                if (var30 != null) {
                   bz.jz_renamed(GameShell.plane * -1727408401, var7, var8, var15, -1, 0, 0, 31, var10 + 1, 1 + var16);
                   var18.animationCycleStart = (Client.ep * -1886224337 + var10) * -746690647;
                   var18.animationCycleEnd = -377301053 * (var16 + Client.ep * -1886224337);
-                  var18.ah = var30;
+                  var18.model0 = var30;
                   var18.ax = var7 * -494827904 + -247413952 * var20;
                   var18.ag = var8 * -856229504 + var21 * -428114752;
                   var18.ai = var27 * 1514773119;
