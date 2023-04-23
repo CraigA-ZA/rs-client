@@ -158,10 +158,10 @@ public abstract class AbstractArchive {
          var2 = new hs();
          var2.ab = -1772751813 * var0;
          if (null != var3) {
-            var2.decode(new Packet(var3));
+            var2.ac(new Packet(var3));
          }
 
-         var2.postDecode();
+         var2.aw();
          hs.ac.put(var2, (long)var0);
          return var2;
       }

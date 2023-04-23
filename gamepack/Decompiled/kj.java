@@ -561,7 +561,7 @@ public class kj {
                throw new IllegalStateException();
             }
 
-            if (var1 < Client.so[var0].gIsaac1()) {
+            if (var1 < Client.so[var0].ac()) {
                fz var3 = (fz)Client.so[var0].aw.get(var1);
                if (-1 != var3.af) {
                   if (var2 <= -1) {

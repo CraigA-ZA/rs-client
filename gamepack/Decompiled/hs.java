@@ -86,21 +86,21 @@ public class hs extends DualNode {
       return (int)(var0 >>> 7 & 127L);
    }
 
-   void postDecode() {
+   void aw() {
    }
 
-   void decode(Packet var1) {
+   void ac(Packet var1) {
       while(true) {
          int var3 = var1.g1();
          if (0 == var3) {
             return;
          }
 
-         this.decode0(var1, var3);
+         this.au(var1, var3);
       }
    }
 
-   void decode0(Packet var1, int var2) {
+   void au(Packet var1, int var2) {
       int var4;
       int var5;
       if (1 == var2) {

@@ -10,7 +10,7 @@ public class fq extends fu {
       this.af = 1937399629;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.cl() * -1937399629;
       var1.g1();
       if (var1.g1() != 255) {
@@ -21,7 +21,7 @@ public class fq extends fu {
    }
 
    void an(gj var1) {
-      var1.animate(-1141502341 * this.af);
+      var1.aw(-1141502341 * this.af);
    }
 
    static final void at_renamed(byte[] var0, int var1, int var2, Scene var3, CollisionMap[] var4) {

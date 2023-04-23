@@ -12,7 +12,7 @@ public class FloorOverlayType extends DualNode {
    public int rgb = 0;
    public int ay;
 
-   public void reset() {
+   public void an() {
       if (-2085280195 * this.rgb2 != -1) {
          this.setHsl(this.rgb2 * -2085280195);
          this.aa = this.saturation * 1074072567;

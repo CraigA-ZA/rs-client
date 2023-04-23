@@ -49,7 +49,7 @@ public class ms implements Enumerated {
                      }
                   }
                } else {
-                  var5.at.skipSubStreams(var7);
+                  var5.at.ao(var7);
                }
 
                if (var5.ai == null) {
@@ -66,7 +66,7 @@ public class ms implements Enumerated {
                      }
                   }
                } else {
-                  var5.ai.skipSubStreams(var7);
+                  var5.ai.ao(var7);
                   if (!var5.ai.hasNext()) {
                      var5.ai = null;
                   }

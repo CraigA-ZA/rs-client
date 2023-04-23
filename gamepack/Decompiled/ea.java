@@ -82,7 +82,7 @@ public class ea extends AbstractUserComparator {
 
          var4 = (238 + (int)(Math.random() * 20.0) - 10 << 16) + (238 + (int)(Math.random() * 20.0) - 10 << 8) + (238 + (int)(Math.random() * 20.0) - 10);
          var5 = 238 + (int)(Math.random() * 20.0) - 10 << 16;
-         UrlRequester.tk.clearAll();
+         UrlRequester.tk.ac();
 
          int var7;
          for(var6 = 1; var6 < 103; ++var6) {

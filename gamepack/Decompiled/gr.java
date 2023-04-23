@@ -29,7 +29,7 @@ public class gr {
             var4 = new fk(this);
          }
 
-         ((fu)var4).write(var1);
+         ((fu)var4).af(var1);
          this.aw.addFirst((Node)var4);
       }
 

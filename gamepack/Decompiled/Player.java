@@ -153,7 +153,7 @@ public final class Player extends Actor {
       }
 
       this.username = new Username(var1.cw(), co.loginType);
-      this.clearAll();
+      this.ac();
       this.ay();
       this.ai();
       if (MusicPatchNode.localPlayer == this) {
@@ -195,7 +195,7 @@ public final class Player extends Actor {
       this.appearance.af(var15, var6, var17, var18, var16, var3, var5, var14);
    }
 
-   boolean isFromFriend() {
+   boolean aw() {
       if (this.ap == TriBool.TriBool_unknown) {
          this.at();
       }
@@ -203,7 +203,7 @@ public final class Player extends Actor {
       return this.ap == TriBool.TriBool_true;
    }
 
-   void clearAll() {
+   void ac() {
       this.ap = TriBool.TriBool_unknown;
    }
 

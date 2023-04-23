@@ -12,7 +12,7 @@ public class ff extends fb {
       this.this$0 = var1;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.g4s() * 710939539;
       this.an = var1.cw();
    }

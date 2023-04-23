@@ -151,7 +151,7 @@ public class SeqType extends DualNode {
 
    }
 
-   void removeAll() {
+   void au() {
       if (1069382699 * this.bb == -1) {
          if (null == this.frameIds && null == this.aj) {
             this.bb = 0;
@@ -188,7 +188,7 @@ public class SeqType extends DualNode {
          if (null == var4) {
             return var1.aa(true);
          } else {
-            var5 = var1.aa(!var4.loadModel());
+            var5 = var1.aa(!var4.au());
             var5.am(var4, var2);
             return var5;
          }
@@ -230,7 +230,7 @@ public class SeqType extends DualNode {
          if (null == var5) {
             return var1.aa(true);
          } else {
-            var6 = var1.aa(!var5.loadModel());
+            var6 = var1.aa(!var5.au());
             var3 &= 3;
             if (var3 == 1) {
                var6.bb();
@@ -272,7 +272,7 @@ public class SeqType extends DualNode {
          if (var4 == null) {
             return var1.ay(true);
          } else {
-            var5 = var1.ay(!var4.loadModel());
+            var5 = var1.ay(!var4.au());
             var5.am(var4, var2);
             return var5;
          }

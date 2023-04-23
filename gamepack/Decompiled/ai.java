@@ -282,7 +282,7 @@ class ai extends DefaultTlsClient {
             boolean var4;
             if (!var2) {
                var4 = 0 != (Client.mk * -1387790283 & 1);
-               var3 = var4 && var0.isFromFriend();
+               var3 = var4 && var0.aw();
             }
 
             var4 = var3;

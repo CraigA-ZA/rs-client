@@ -77,7 +77,7 @@ public class fc extends fb {
       this.this$0 = var1;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.cw();
       var1.g4s();
    }

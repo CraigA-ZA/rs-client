@@ -9,7 +9,7 @@ public class PacketBitNode extends Node {
    PacketBitNode() {
    }
 
-   public void clearAll() {
+   public void ac() {
       if (ab * 380401923 < packetBitNodes.length) {
          packetBitNodes[(ab += -1882670677) * 380401923 - 1] = this;
       }

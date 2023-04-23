@@ -44,7 +44,7 @@ public class Inventory extends Node {
             var2.decode(new Packet(var3));
          }
 
-         var2.removeAll();
+         var2.au();
          SeqType.SeqType_cached.put(var2, (long)var0);
          return var2;
       }

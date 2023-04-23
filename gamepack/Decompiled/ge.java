@@ -31,7 +31,7 @@ public class ge extends fb {
       this.an = null;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       if (var1.g1() != 255) {
          var1.index -= -1516355947;
          this.af = var1.g8s() * 3404272251065138399L;

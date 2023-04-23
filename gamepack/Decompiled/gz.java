@@ -12,18 +12,18 @@ public class gz extends DualNode {
       return new ey[]{ey.af, ey.an, ey.aw, ey.ac, ey.au, ey.ab};
    }
 
-   void decode(Packet var1) {
+   void an(Packet var1) {
       while(true) {
          int var3 = var1.g1();
          if (var3 == 0) {
             return;
          }
 
-         this.decode0(var1, var3);
+         this.aw(var1, var3);
       }
    }
 
-   void decode0(Packet var1, int var2) {
+   void aw(Packet var1, int var2) {
       if (5 == var2) {
          this.ac = var1.cl() * 1851631081;
       }

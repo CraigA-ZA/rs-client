@@ -49,7 +49,7 @@ public class fa {
             var4 = new gs(this);
          }
 
-         ((fb)var4).write(var1);
+         ((fb)var4).af(var1);
          this.aw.addFirst((Node)var4);
       }
 

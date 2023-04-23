@@ -23,17 +23,17 @@ public class Message extends DualNode {
       this.fillSenderUsername();
       this.prefix = var3;
       this.sender = var4;
-      this.reset();
-      this.removeAll();
+      this.an();
+      this.au();
    }
 
-   void reset() {
+   void an() {
       this.isFromFriend0 = TriBool.TriBool_unknown;
    }
 
    final boolean isFromFriend() {
       if (this.isFromFriend0 == TriBool.TriBool_unknown) {
-         this.clearAll();
+         this.ac();
       }
 
       return this.isFromFriend0 == TriBool.TriBool_true;
@@ -49,11 +49,11 @@ public class Message extends DualNode {
       ga.aa = 1504627152;
    }
 
-   void clearAll() {
+   void ac() {
       this.isFromFriend0 = World.friendSystem.friendsList.contains(this.senderUsername) ? TriBool.TriBool_true : TriBool.TriBool_false;
    }
 
-   void removeAll() {
+   void au() {
       this.isFromIgnored0 = TriBool.TriBool_unknown;
    }
 

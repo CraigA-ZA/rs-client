@@ -650,7 +650,7 @@ public class Component extends Node {
 
    void ax(Rasterizer3D var1) {
       if (this.do) {
-         var1.fillSenderUsername();
+         var1.al();
       }
 
       if (this.di) {
@@ -940,7 +940,7 @@ public class Component extends Node {
       return !this.isIf3 || 883712245 * this.bg == 0 || this.bg * 883712245 == 11 || this.hasListener || 1338 == this.clientCode * 1021339961 || 12 == 883712245 * this.bg;
    }
 
-   public boolean isVisible() {
+   public boolean as() {
       return 11 == 883712245 * this.bg || 12 == this.bg * 883712245;
    }
 

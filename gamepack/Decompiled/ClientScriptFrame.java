@@ -62,7 +62,7 @@ public class ClientScriptFrame {
                   String[] var29 = var18.bi;
                   if (var29 != null) {
                      for(var21 = 4; var21 >= 0; --var21) {
-                        if ((var19 == null || var19.hasAlphaTransform(var21)) && null != var29[var21]) {
+                        if ((var19 == null || var19.an(var21)) && null != var29[var21]) {
                            var22 = 0;
                            if (0 == var21) {
                               var22 = 3;

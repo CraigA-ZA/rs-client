@@ -1424,7 +1424,7 @@ public class EnumType extends DualNode {
                   var35 = new Obj();
                   var35.id = var8 * -968355835;
                   var35.quantity = var3 * -1785382127;
-                  var35.advance(var4);
+                  var35.af(var4);
                   if (Client.objStacks[GameShell.plane * -1727408401][var6][var7] == null) {
                      Client.objStacks[GameShell.plane * -1727408401][var6][var7] = new NodeDeque();
                   }
@@ -1507,7 +1507,7 @@ public class EnumType extends DualNode {
                         if (null != var32) {
                            for(var35 = (Obj)var32.last(); null != var35; var35 = (Obj)var32.previous()) {
                               if ((var3 & 32767) == 176307405 * var35.id) {
-                                 var35.advance(var7);
+                                 var35.af(var7);
                                  break;
                               }
                            }

@@ -34,7 +34,7 @@ public class MusicPatchNode extends Node {
    MusicPatchNode() {
    }
 
-   void remove2() {
+   void af() {
       this.patch = null;
       this.rawSound = null;
       this.ac = null;

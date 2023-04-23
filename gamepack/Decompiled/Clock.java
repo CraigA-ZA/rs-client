@@ -4,7 +4,7 @@ public abstract class Clock {
 
    static final void np_renamed(int var0, int var1, boolean var2) {
       if (Client.so[var0] != null) {
-         if (var1 >= 0 && var1 < Client.so[var0].gIsaac1()) {
+         if (var1 >= 0 && var1 < Client.so[var0].ac()) {
             fz var4 = (fz)Client.so[var0].aw.get(var1);
             PacketBitNode var5 = mi.an_renamed(ClientProt.dg, Client.packetWriter.au);
             var5.bit.bu(4 + DynamicObject.bc_renamed(var4.aw.af()));

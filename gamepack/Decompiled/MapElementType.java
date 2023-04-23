@@ -126,7 +126,7 @@ public class MapElementType extends DualNode {
 
    }
 
-   void removeAll() {
+   void au() {
       if (this.ah != null) {
          for(int var2 = 0; var2 < this.ah.length; var2 += 2) {
             if (this.ah[var2] < 2140325741 * this.av) {

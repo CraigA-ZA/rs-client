@@ -16,7 +16,7 @@ public class ft extends fb {
       this.aw = 0;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       if (var1.g1() != 255) {
          var1.index -= -1516355947;
          this.af = var1.g8s() * 5362405580622353499L;

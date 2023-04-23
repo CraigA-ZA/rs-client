@@ -226,7 +226,7 @@ public class sh implements Enumerated {
                   Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = fq.av.aq;
                   return 1;
                } else if (3855 == var0) {
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = fq.av.gIsaac1();
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = fq.av.ac();
                   return 1;
                } else if (3856 == var0) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];

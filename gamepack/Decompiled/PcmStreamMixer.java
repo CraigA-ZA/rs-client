@@ -12,7 +12,7 @@ public class PcmStreamMixer extends PcmStream {
       var1.remove();
    }
 
-   void clear() {
+   void aw() {
       if (this.aw > 0) {
          for(PcmStreamMixerListener var1 = (PcmStreamMixerListener)this.an.last(); var1 != null; var1 = (PcmStreamMixerListener)this.an.previous()) {
             var1.af -= this.aw;
@@ -75,7 +75,7 @@ public class PcmStreamMixer extends PcmStream {
          var2 += var4;
          var3 -= var4;
          this.aw += var4;
-         this.clear();
+         this.aw();
          PcmStreamMixerListener var5 = (PcmStreamMixerListener)this.an.last();
          synchronized(var5) {
             int var7 = var5.update(this);
@@ -115,7 +115,7 @@ public class PcmStreamMixer extends PcmStream {
          this.skipSubStreams(var2);
          var1 -= var2;
          this.aw += var2;
-         this.clear();
+         this.aw();
          PcmStreamMixerListener var3 = (PcmStreamMixerListener)this.an.last();
          synchronized(var3) {
             int var5 = var3.update(this);

@@ -236,7 +236,7 @@ public class ay {
                            var55.decode(new Packet(var56), var18);
                         }
 
-                        var55.reset();
+                        var55.an();
                         FloorUnderlayType.FloorUnderlayType_cached.put(var55, (long)var18);
                         var52 = var55;
                      }
@@ -270,7 +270,7 @@ public class ay {
                            var57.decode(new Packet(var58), var19);
                         }
 
-                        var57.reset();
+                        var57.an();
                         FloorUnderlayType.FloorUnderlayType_cached.put(var57, (long)var19);
                         var54 = var57;
                      }
@@ -372,7 +372,7 @@ public class ay {
                                     var37.decode(new Packet(var38), var36);
                                  }
 
-                                 var37.reset();
+                                 var37.an();
                                  FloorOverlayType.an.put(var37, (long)var36);
                                  var60 = var37;
                               }
@@ -409,7 +409,7 @@ public class ay {
                                  var39.decode(new Packet(var40), var62);
                               }
 
-                              var39.reset();
+                              var39.an();
                               FloorOverlayType.an.put(var39, (long)var62);
                               var37 = var39;
                            }

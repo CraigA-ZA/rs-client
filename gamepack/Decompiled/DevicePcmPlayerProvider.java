@@ -266,7 +266,7 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   cz.ad = -2003412602;
                } else {
                   AbstractFont.AbstractFont_modIconSprites = bx.kg;
-                  dp.jz.removeAll();
+                  dp.jz.au();
                   int var2 = (int)(Math.random() * 21.0) - 10;
                   int var3 = (int)(Math.random() * 21.0) - 10;
                   var4 = (int)(Math.random() * 21.0) - 10;

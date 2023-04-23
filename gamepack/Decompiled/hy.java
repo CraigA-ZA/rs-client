@@ -457,7 +457,7 @@ public class hy implements be {
                if (null != var23 && var6.ay(var0, var1, var2, var17, var10, var11, (Entity)var23, 11 == var5 ? 256 : 0, var20, var22) && var9.bo) {
                   var24 = 15;
                   if (var23 instanceof it) {
-                     var24 = ((it)var23).transformedSize() / 4;
+                     var24 = ((it)var23).ah() / 4;
                      if (var24 > 30) {
                         var24 = 30;
                      }

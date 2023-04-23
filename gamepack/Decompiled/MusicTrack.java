@@ -323,7 +323,7 @@ public class MusicTrack extends Node {
 
    }
 
-   void reset() {
+   void an() {
       if (this.table == null) {
          this.table = new NodeHashTable(16);
          int[] var1 = new int[16];

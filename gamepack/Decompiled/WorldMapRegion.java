@@ -238,7 +238,7 @@ public class WorldMapRegion {
                }
 
                Rasterizer3D var12 = new Rasterizer3D(-1205724864 * this.ay, -1205724864 * this.ay);
-               var12.clearAll();
+               var12.ac();
                if (this.al != null) {
                   this.ah(var2, var3, var10);
                } else {
@@ -357,7 +357,7 @@ public class WorldMapRegion {
                var13.decode(new Packet(var14), var8);
             }
 
-            var13.reset();
+            var13.an();
             FloorOverlayType.an.put(var13, (long)var8);
             var12 = var13;
          }
@@ -455,7 +455,7 @@ public class WorldMapRegion {
                   var11.decode(new Packet(var12), var7);
                }
 
-               var11.reset();
+               var11.an();
                FloorOverlayType.an.put(var11, (long)var7);
                var10 = var11;
             }

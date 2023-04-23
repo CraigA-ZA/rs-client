@@ -7,7 +7,7 @@ public final class Obj extends Entity {
    Obj() {
    }
 
-   void advance(int var1) {
+   void af(int var1) {
       this.ac = 1318728709 * var1;
    }
 

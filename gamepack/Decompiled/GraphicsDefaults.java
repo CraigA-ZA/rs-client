@@ -19,7 +19,7 @@ public class GraphicsDefaults {
          byte[] var3 = gz.af.takeFile(16, var0);
          var2 = new gz();
          if (var3 != null) {
-            var2.decode(new Packet(var3));
+            var2.an(new Packet(var3));
          }
 
          gz.aw.put(var2, (long)var0);

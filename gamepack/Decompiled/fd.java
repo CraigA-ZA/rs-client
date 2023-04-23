@@ -89,7 +89,7 @@ public class fd extends fb {
       this.af = 1030741753;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.cl() * -1030741753;
    }
 

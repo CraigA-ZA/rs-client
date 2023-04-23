@@ -35,7 +35,7 @@ public class fv extends fb {
       this.this$0 = var1;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.g1() == 1;
       this.an = var1.g1s();
       this.aw = var1.g1s();
@@ -227,7 +227,7 @@ public class fv extends fb {
          }
 
          if ((var6 & 8192) != 0) {
-            var5.advance(var1.g1());
+            var5.aw(var1.g1());
          }
 
          int[] var15;

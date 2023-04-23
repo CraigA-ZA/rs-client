@@ -977,14 +977,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             int var9;
             try {
                if (1 == ly.au * 926096579) {
-                  var9 = sa.midiPcmStream.size();
+                  var9 = sa.midiPcmStream.an();
                   if (var9 > 0 && sa.midiPcmStream.isReady()) {
                      var9 -= -1128553755 * ga.aa;
                      if (var9 < 0) {
                         var9 = 0;
                      }
 
-                     sa.midiPcmStream.advance(var9);
+                     sa.midiPcmStream.af(var9);
                   } else {
                      sa.midiPcmStream.ao();
                      sa.midiPcmStream.removeAll();
@@ -1080,7 +1080,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                if (sa.midiPcmStream.loadMusicTrack(ia.musicTrack, ly.af, ly.soundCache, 22050)) {
                   sa.midiPcmStream.clearAll();
-                  sa.midiPcmStream.advance(-280777997 * dn.at);
+                  sa.midiPcmStream.af(-280777997 * dn.at);
                   sa.midiPcmStream.setMusicTrack(ia.musicTrack, ev.musicTrackBoolean);
                   ly.au = 0;
                   ia.musicTrack = null;

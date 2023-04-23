@@ -261,7 +261,7 @@ public class ix {
                         ol.mm_renamed(var10, MouseHandler.MouseHandler_lastButton * 2020601481 - var27, 1163896205 * MouseHandler.as - var12);
                      }
 
-                     if (var10.isVisible()) {
+                     if (var10.as()) {
                         if (var22) {
                            Client.re.addFirst(new hf(0, -2063363905 * MouseHandler.ay - var27, -1224153235 * MouseHandler.ao - var12, var10));
                         }

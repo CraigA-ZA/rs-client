@@ -63,7 +63,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
       while(var1.hasNext()) {
          Message var2 = (Message)var1.next();
-         var2.reset();
+         var2.an();
       }
 
    }
@@ -89,7 +89,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       var6.ao = var3.bc;
       if (var3.bu != null) {
          var6.ag = var3;
-         var6.clear();
+         var6.aw();
       }
 
       cr.af.addFirst(var6);

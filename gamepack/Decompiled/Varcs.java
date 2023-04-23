@@ -34,7 +34,7 @@ public class Varcs {
             byte[] var5 = lh.af.takeFile(19, var2);
             var4 = new VarcInt();
             if (var5 != null) {
-               var4.decode(new Packet(var5));
+               var4.af(new Packet(var5));
             }
 
             VarcInt.an.put(var4, (long)var2);

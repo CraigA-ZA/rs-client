@@ -59,7 +59,7 @@ public abstract class fu extends Node {
                if (null != var19 && var19.isVisible() && !var19.az && MusicPatchNode.localPlayer != var19) {
                   var13 = 1144428983 * var19.bx / 32 - 1144428983 * MusicPatchNode.localPlayer.bx / 32;
                   int var14 = -411750205 * var19.bo / 32 - -411750205 * MusicPatchNode.localPlayer.bo / 32;
-                  if (var19.isFromFriend()) {
+                  if (var19.aw()) {
                      qc.ns_renamed(var1, var2, var13, var14, sf.kt[3], var5);
                   } else if (-55850951 * MusicPatchNode.localPlayer.animationCycleEnd != 0 && -55850951 * var19.animationCycleEnd != 0 && -55850951 * MusicPatchNode.localPlayer.animationCycleEnd == -55850951 * var19.animationCycleEnd) {
                      qc.ns_renamed(var1, var2, var13, var14, sf.kt[4], var5);
@@ -116,7 +116,7 @@ public abstract class fu extends Node {
       }
    }
 
-   abstract void write(Packet var1);
+   abstract void af(Packet var1);
 
    abstract void an(gj var1);
 }

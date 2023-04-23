@@ -494,7 +494,7 @@ public class it extends Entity {
       }
    }
 
-   public int transformedSize() {
+   public int ah() {
       this.ai();
       return this.bm;
    }
@@ -528,10 +528,10 @@ public class it extends Entity {
       ic var4 = var3.an();
       if (var4 != null) {
          var3.an().au(var1, var2);
-         this.aj(var3.an(), var1.gIsaac1());
+         this.aj(var3.an(), var1.ac());
       }
 
-      if (var1.loadModel()) {
+      if (var1.au()) {
          this.as(var1, var2);
       }
 
@@ -626,11 +626,11 @@ public class it extends Entity {
       if (var7 != null) {
          var7.ab(var2, var3, var4, var5);
          if (var6) {
-            this.aj(var7, var2.gIsaac1());
+            this.aj(var7, var2.ac());
          }
       }
 
-      if (!var5 && var2.loadModel()) {
+      if (!var5 && var2.au()) {
          this.as(var2, var3);
       }
 

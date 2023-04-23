@@ -17,7 +17,7 @@ public class ga extends fu {
       this.this$0 = var1;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.cz();
       if (null != this.af) {
          var1.g1();

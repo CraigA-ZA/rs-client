@@ -65,11 +65,11 @@ public final class Rasterizer3D extends Rasterizer2D {
       return var1;
    }
 
-   public void clearAll() {
+   public void ac() {
       Rasterizer2D_replace(this.af, this.an, this.aw, (float[])null);
    }
 
-   public void removeAll() {
+   public void au() {
       if (this.an != this.ab || this.aw != this.aq) {
          int[] var1 = new int[this.ab * this.aq];
 
@@ -141,7 +141,7 @@ public final class Rasterizer3D extends Rasterizer2D {
       this.ac = this.ab - this.an - this.ac;
    }
 
-   public void fillSenderUsername() {
+   public void al() {
       int[] var1 = new int[this.an * this.aw];
       int var2 = 0;
 

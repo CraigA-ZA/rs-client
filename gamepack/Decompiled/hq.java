@@ -120,7 +120,7 @@ public class hq extends DualNode {
       }
    }
 
-   void postDecode() {
+   void aw() {
       if (this.aj * 415653149 == -1) {
          this.aj = 0;
          if (null != this.aa && (null == this.ay || this.ay[0] == 10)) {
@@ -140,7 +140,7 @@ public class hq extends DualNode {
 
    }
 
-   void decode(Packet var1) {
+   void ac(Packet var1) {
       while(true) {
          int var3 = var1.g1();
          if (var3 == 0) {
@@ -544,7 +544,7 @@ public class hq extends DualNode {
       }
    }
 
-   public final boolean loadChatHeadModel() {
+   public final boolean aq() {
       if (this.aa == null) {
          return true;
       } else {

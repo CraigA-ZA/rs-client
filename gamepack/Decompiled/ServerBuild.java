@@ -20,10 +20,10 @@ public class ServerBuild {
          byte[] var3 = sm.af.takeFile(39, var0);
          var2 = new sm();
          if (var3 != null) {
-            var2.decode(new Packet(var3));
+            var2.aw(new Packet(var3));
          }
 
-         var2.removeAll();
+         var2.au();
          sm.an.put(var2, (long)var0);
          return var2;
       }

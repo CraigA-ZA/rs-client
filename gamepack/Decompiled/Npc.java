@@ -24,7 +24,7 @@ public final class Npc extends Actor {
       return (var2 * 1.0075567F - 75.56675F) / var2;
    }
 
-   void advance(int var1) {
+   void aw(int var1) {
       this.au = 1731572173 * var1;
    }
 

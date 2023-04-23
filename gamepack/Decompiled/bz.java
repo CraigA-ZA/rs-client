@@ -61,7 +61,7 @@ public class bz {
             MapElementType.MapElementType_cached[var3] = new MapElementType(var3);
             if (var4 != null) {
                MapElementType.MapElementType_cached[var3].decode(new Packet(var4));
-               MapElementType.MapElementType_cached[var3].removeAll();
+               MapElementType.MapElementType_cached[var3].au();
             }
          }
 
@@ -383,7 +383,7 @@ public class bz {
          boolean var9 = var1 < var76;
          int var10 = -2;
          int var11;
-         if (var0.overheadText != null && (!var9 || !var0.ci && (Client.sj * -1963411823 == 4 || !var0.ce && (0 == -1963411823 * Client.sj || Client.sj * -1963411823 == 3 || Client.sj * -1963411823 == 1 && ((Player)var0).isFromFriend())))) {
+         if (var0.overheadText != null && (!var9 || !var0.ci && (Client.sj * -1963411823 == 4 || !var0.ce && (0 == -1963411823 * Client.sj || Client.sj * -1963411823 == 3 || Client.sj * -1963411823 == 1 && ((Player)var0).aw())))) {
             var11 = -767387641 * var0.de;
             ot.worldToScreen(var0.bx * 1144428983, -411750205 * var0.bo, var11);
             if (Client.mz * -1848743379 > -1 && Client.overheadTextCount * 734988573 < 1025553311 * Client.lq) {
@@ -1005,6 +1005,6 @@ public class bz {
       var11.at = 1233957891 * var6;
       var11.ai = var8 * 237969965;
       var11.ag = var9 * 376812409;
-      var11.advance(var7);
+      var11.af(var7);
    }
 }

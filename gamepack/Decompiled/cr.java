@@ -19,7 +19,7 @@ public final class cr extends Node {
    cr() {
    }
 
-   void clear() {
+   void aw() {
       int var2 = 1671764667 * this.al;
       hq var3 = this.ag.ao();
       if (null != var3) {

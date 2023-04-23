@@ -12,7 +12,7 @@ public class gs extends fb {
          byte[] var3 = VarBitType.af.takeFile(14, var0);
          var2 = new VarBitType();
          if (var3 != null) {
-            var2.decode(new Packet(var3));
+            var2.aw(new Packet(var3));
          }
 
          VarBitType.VarBitType_cached.put(var2, (long)var0);
@@ -56,7 +56,7 @@ public class gs extends fb {
       this.af = 536303009;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.cl() * -536303009;
    }
 

@@ -32,7 +32,7 @@ public class fh extends DualNode {
       this.at = ot.al.submit(new fi(this, var6, var7));
    }
 
-   void decode0(Packet var1, int var2) {
+   void an(Packet var1, int var2) {
       var1.cl();
       var1.cl();
       this.au = var1.g1() * 2106398559;
@@ -94,7 +94,7 @@ public class fh extends DualNode {
 
    }
 
-   public boolean isFromFriend() {
+   public boolean aw() {
       if (null == this.at && this.aa == null) {
          return true;
       } else {
@@ -126,11 +126,11 @@ public class fh extends DualNode {
       }
    }
 
-   public int gIsaac1() {
+   public int ac() {
       return this.au * -744553313;
    }
 
-   public boolean loadModel() {
+   public boolean au() {
       return this.ab;
    }
 

@@ -61,10 +61,6 @@ public class NameMapper {
                 return name;
             }
 
-            if(owner.equals("bl")) {
-                System.out.println("poes");
-            }
-
             String newName = getNewFieldNameFromHierarchy(owner, name, descriptor, new HashSet<>());
             return newName != null ? newName : name;
         }
@@ -86,20 +82,25 @@ public class NameMapper {
                     return fieldMap.get(new Pair(parentName, name + descriptor));
                 }
 
-                // Search in all child classes of the parent class
-//                Set<ClassNode> children = builder.getChildClassNodes(builder.getClassNode(parentName));
-//                for (ClassNode child : children) {
-//                    if (hasNewFieldName(child.name, name, descriptor)) {
-//                        return fieldMap.get(new Pair(child.name, name + descriptor));
-//                    }
-//                    if (!visitedNodes.contains(child.name)) {
-//                        visitedNodes.add(child.name);
-//                        String childNewName = getNewFieldNameFromHierarchy(child.name, name, descriptor, visitedNodes);
-//                        if (childNewName != null) {
-//                            return childNewName;
-//                        }
-//                    }
-//                }
+                //If the parent of this class actually has a field with a matching name, then we can check the children too. But otherwise we cant assume that siblings remapped names will apply to this node as well.
+                ClassNode thisParentNode = builder.getClassNode(parentName);
+                if(thisParentNode.fields.stream().anyMatch(fieldNode -> fieldNode.name.equals(name) && fieldNode.desc.equals(descriptor))) {
+
+                    // Search in all child classes of the parent class
+                    Set<ClassNode> children = builder.getChildClassNodes(thisParentNode);
+                    for (ClassNode child : children) {
+                        if (hasNewFieldName(child.name, name, descriptor)) {
+                            return fieldMap.get(new Pair(child.name, name + descriptor));
+                        }
+                        if (!visitedNodes.contains(child.name)) {
+                            visitedNodes.add(child.name);
+                            String childNewName = getNewFieldNameFromHierarchy(child.name, name, descriptor, visitedNodes);
+                            if (childNewName != null) {
+                                return childNewName;
+                            }
+                        }
+                    }
+                }
 
                 parentName = builder.getClassNode(parentName).superName;
             }
@@ -149,17 +150,21 @@ public class NameMapper {
                     return methodMap.get(new Pair(parentName, name + descriptor));
                 }
 
-                // Search in all child classes of the parent class
-                Set<ClassNode> children = builder.getChildClassNodes(builder.getClassNode(parentName));
-                for (ClassNode child : children) {
-                    if (hasNewName(child.name, name, descriptor)) {
-                        return methodMap.get(new Pair(child.name, name + descriptor));
-                    }
-                    if (!visitedNodes.contains(child.name)) {
-                        visitedNodes.add(child.name);
-                        String childNewName = getNewMethodNameFromHierarchy(child.name, name, descriptor, visitedNodes);
-                        if (childNewName != null) {
-                            return childNewName;
+                //If the parent of this class actually has a field with a matching name, then we can check the children too. But otherwise we cant assume that siblings remapped names will apply to this node as well.
+                ClassNode thisParentNode = builder.getClassNode(parentName);
+                if(thisParentNode.methods.stream().anyMatch(methodNode -> methodNode.name.equals(name) && methodNode.desc.equals(descriptor))) {
+                    // Search in all child classes of the parent class
+                    Set<ClassNode> children = builder.getChildClassNodes(thisParentNode);
+                    for (ClassNode child : children) {
+                        if (hasNewName(child.name, name, descriptor)) {
+                            return methodMap.get(new Pair(child.name, name + descriptor));
+                        }
+                        if (!visitedNodes.contains(child.name)) {
+                            visitedNodes.add(child.name);
+                            String childNewName = getNewMethodNameFromHierarchy(child.name, name, descriptor, visitedNodes);
+                            if (childNewName != null) {
+                                return childNewName;
+                            }
                         }
                     }
                 }

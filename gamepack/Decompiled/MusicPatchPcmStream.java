@@ -101,9 +101,9 @@ public class MusicPatchPcmStream extends PcmStream {
 
             RawPcmStream var11 = var1.stream;
             if (this.superStream.az[1021419297 * var1.af] == 0) {
-               var1.stream = RawPcmStream.ac_renamed(var1.rawSound, var11.ad(), var11.ag(), var11.transformedSize());
+               var1.stream = RawPcmStream.ac_renamed(var1.rawSound, var11.ad(), var11.ag(), var11.ah());
             } else {
-               var1.stream = RawPcmStream.ac_renamed(var1.rawSound, var11.ad(), 0, var11.transformedSize());
+               var1.stream = RawPcmStream.ac_renamed(var1.rawSound, var11.ad(), 0, var11.ah());
                this.superStream.ar(var1, var1.patch.aw[-630482265 * var1.ab] < 0);
                var1.stream.as(var9, var11.ag());
             }
@@ -130,9 +130,9 @@ public class MusicPatchPcmStream extends PcmStream {
          var1.ak = (var4 * var2 + -89170073 * var1.ak & 1048575) * -1999877033;
          if (var5 <= var2) {
             if (this.superStream.az[var1.af * 1021419297] == 0) {
-               var1.stream = RawPcmStream.ac_renamed(var1.rawSound, var1.stream.ad(), var1.stream.ag(), var1.stream.transformedSize());
+               var1.stream = RawPcmStream.ac_renamed(var1.rawSound, var1.stream.ad(), var1.stream.ag(), var1.stream.ah());
             } else {
-               var1.stream = RawPcmStream.ac_renamed(var1.rawSound, var1.stream.ad(), 0, var1.stream.transformedSize());
+               var1.stream = RawPcmStream.ac_renamed(var1.rawSound, var1.stream.ad(), 0, var1.stream.ah());
                this.superStream.ar(var1, var1.patch.aw[var1.ab * -630482265] < 0);
             }
 

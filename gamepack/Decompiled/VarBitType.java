@@ -20,18 +20,18 @@ public class VarBitType extends DualNode {
    VarBitType() {
    }
 
-   void decode(Packet var1) {
+   void aw(Packet var1) {
       while(true) {
          int var3 = var1.g1();
          if (var3 == 0) {
             return;
          }
 
-         this.decode0(var1, var3);
+         this.ac(var1, var3);
       }
    }
 
-   void decode0(Packet var1, int var2) {
+   void ac(Packet var1, int var2) {
       if (var2 == 1) {
          this.aw = var1.cl() * -893309655;
          this.ac = var1.g1() * -1466027509;

@@ -50,7 +50,7 @@ public class fg extends fu {
       this.af = null;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       if (var1.g1() != 255) {
          var1.index -= -1516355947;
          var1.g8s();
@@ -83,7 +83,7 @@ public class fg extends fu {
 
    static final void nn_renamed(int var0, int var1) {
       gj var3 = var0 >= 0 ? Client.so[var0] : MouseHandler.sx;
-      if (var3 != null && var1 >= 0 && var1 < var3.gIsaac1()) {
+      if (var3 != null && var1 >= 0 && var1 < var3.ac()) {
          fz var4 = (fz)var3.aw.get(var1);
          if (var4.af == -1) {
             String var5 = var4.aw.af();

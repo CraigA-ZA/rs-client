@@ -28,7 +28,7 @@ public class eh implements Callable {
 
       while(var1.hasNext()) {
          Message var2 = (Message)var1.next();
-         var2.removeAll();
+         var2.au();
       }
 
    }

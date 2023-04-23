@@ -10,8 +10,8 @@ public class FloorUnderlayType extends DualNode {
    public int aq;
    public int au;
 
-   public void reset() {
-      this.setHsl(this.rgb * 86825461);
+   public void an() {
+      this.au(this.rgb * 86825461);
    }
 
    public void decode(Packet var1, int var2) {
@@ -32,7 +32,7 @@ public class FloorUnderlayType extends DualNode {
 
    }
 
-   void setHsl(int var1) {
+   void au(int var1) {
       double var3 = (double)(var1 >> 16 & 255) / 256.0;
       double var5 = (double)(var1 >> 8 & 255) / 256.0;
       double var7 = (double)(var1 & 255) / 256.0;

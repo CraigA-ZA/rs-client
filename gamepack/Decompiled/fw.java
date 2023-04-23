@@ -271,10 +271,10 @@ public class fw extends fb {
          var2 = new hq();
          var2.at = var0 * -1113054781;
          if (var3 != null) {
-            var2.decode(new Packet(var3));
+            var2.ac(new Packet(var3));
          }
 
-         var2.postDecode();
+         var2.aw();
          if (var2.br) {
             var2.am = 0;
             var2.as = false;
@@ -307,7 +307,7 @@ public class fw extends fb {
       this.this$0 = var1;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.g4s() * 1125554619;
       this.ac = var1.g4s() * -1773346325;
       this.an = var1.g1() * 1126530805;

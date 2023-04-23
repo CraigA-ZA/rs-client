@@ -72,7 +72,7 @@ public class aj {
       if (null == var2) {
          return 2;
       } else {
-         return var2.isFromFriend() ? 0 : 1;
+         return var2.aw() ? 0 : 1;
       }
    }
 }

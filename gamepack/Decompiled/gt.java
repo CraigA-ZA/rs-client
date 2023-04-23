@@ -19,7 +19,7 @@ public class gt extends fb {
       this.this$0 = var1;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.g4s() * 1614047765;
       this.an = var1.g8s() * -6759767620667767595L;
    }

@@ -30,7 +30,7 @@ public class HeadbarUpdate extends Node {
             var2.decode(new Packet(var3));
          }
 
-         var2.reset();
+         var2.an();
          if (-1 != -1375068187 * var2.resizez) {
             var2.au(getObjType(var2.resizez * -1375068187), getObjType(1399852547 * var2.certtemplate));
          }

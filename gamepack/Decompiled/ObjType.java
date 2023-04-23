@@ -101,7 +101,7 @@ public class ObjType extends DualNode {
       this.cy = 115270063;
    }
 
-   void reset() {
+   void an() {
       if (this.stackable * 1552863327 == 1) {
          this.xan2d = 0;
       }

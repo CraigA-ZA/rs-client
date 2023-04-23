@@ -24,7 +24,7 @@ public abstract class ii extends Rasterizer2D {
       if (926096579 * ly.au != 0) {
          dn.at = var0 * 111967803;
       } else {
-         sa.midiPcmStream.advance(var0);
+         sa.midiPcmStream.af(var0);
       }
 
    }

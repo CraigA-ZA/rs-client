@@ -39,7 +39,7 @@ public class fo extends fb {
       this.af = -2034222333;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.cl() * 2034222333;
       this.an = var1.g4s() * 1848917875;
       this.aw = var1.g1() * 108318663;

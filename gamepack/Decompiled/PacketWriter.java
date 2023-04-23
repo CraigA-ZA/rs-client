@@ -42,7 +42,7 @@ public class PacketWriter {
             this.serverPacket0Length -= -56666229 * var2.ac;
             var2.remove();
             var2.bit.bg();
-            var2.clearAll();
+            var2.ac();
          }
       }
 

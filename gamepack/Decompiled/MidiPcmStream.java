@@ -36,16 +36,16 @@ public class MidiPcmStream extends PcmStream {
       this.ap();
    }
 
-   public synchronized void advance(int var1) {
+   public synchronized void af(int var1) {
       this.an = 1881678515 * var1;
    }
 
-   public int size() {
+   public int an() {
       return 1380277371 * this.an;
    }
 
    public synchronized boolean loadMusicTrack(MusicTrack var1, AbstractArchive var2, SoundCache var3, int var4) {
-      var1.reset();
+      var1.an();
       boolean var6 = true;
       int[] var7 = null;
       if (var4 > 0) {
@@ -265,7 +265,7 @@ public class MidiPcmStream extends PcmStream {
                   this.patchStream.mixer.addSubStream(var3.stream);
                }
 
-               var3.remove2();
+               var3.af();
             }
 
             if (var3.ag * -602614853 < 0) {
@@ -793,7 +793,7 @@ public class MidiPcmStream extends PcmStream {
                this.patchStream.mixer.addSubStream(var1.stream);
             }
 
-            var1.remove2();
+            var1.af();
             if (var1.ag * -602614853 >= 0) {
                var1.remove();
                if (1959190999 * var1.au > 0 && this.by[1021419297 * var1.af][1959190999 * var1.au] == var1) {
@@ -807,7 +807,7 @@ public class MidiPcmStream extends PcmStream {
             return false;
          }
       } else {
-         var1.remove2();
+         var1.af();
          var1.remove();
          if (1959190999 * var1.au > 0 && var1 == this.by[var1.af * 1021419297][var1.au * 1959190999]) {
             this.by[1021419297 * var1.af][var1.au * 1959190999] = null;

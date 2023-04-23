@@ -44,7 +44,7 @@ public class RawPcmStream extends PcmStream {
       this.aw = var3;
       this.ac = 8192;
       this.af = 0;
-      this.removeAll();
+      this.au();
    }
 
    RawPcmStream(RawSound var1, int var2, int var3, int var4) {
@@ -56,7 +56,7 @@ public class RawPcmStream extends PcmStream {
       this.aw = var3;
       this.ac = var4;
       this.af = 0;
-      this.removeAll();
+      this.au();
    }
 
    public static RawPcmStream aw_renamed(RawSound var0, int var1, int var2) {
@@ -67,7 +67,7 @@ public class RawPcmStream extends PcmStream {
       return var0.samples != null && var0.samples.length != 0 ? new RawPcmStream(var0, var1, var2, var3) : null;
    }
 
-   void removeAll() {
+   void au() {
       this.au = this.aw;
       this.ab = af_renamed(this.aw, this.ac);
       this.aq = an_renamed(this.aw, this.ac);
@@ -77,26 +77,26 @@ public class RawPcmStream extends PcmStream {
       this.al = var1;
    }
 
-   public synchronized void skipSubStreams(int var1) {
-      this.ai(var1 << 6, this.transformedSize());
+   public synchronized void ao(int var1) {
+      this.ai(var1 << 6, this.ah());
    }
 
    synchronized void ax(int var1) {
-      this.ai(var1, this.transformedSize());
+      this.ai(var1, this.ah());
    }
 
    synchronized void ai(int var1, int var2) {
       this.aw = var1;
       this.ac = var2;
       this.ao = 0;
-      this.removeAll();
+      this.au();
    }
 
    public synchronized int ag() {
       return this.aw == Integer.MIN_VALUE ? 0 : this.aw;
    }
 
-   public synchronized int transformedSize() {
+   public synchronized int ah() {
       return this.ac < 0 ? -1 : this.ac;
    }
 
@@ -128,13 +128,13 @@ public class RawPcmStream extends PcmStream {
          }
 
          this.ao = 0;
-         this.removeAll();
+         this.au();
       }
 
    }
 
    public synchronized void as(int var1, int var2) {
-      this.aj(var1, var2, this.transformedSize());
+      this.aj(var1, var2, this.ah());
    }
 
    public synchronized void aj(int var1, int var2, int var3) {
@@ -450,7 +450,7 @@ public class RawPcmStream extends PcmStream {
             }
 
             this.ao = 0;
-            this.removeAll();
+            this.au();
          } else {
             this.au += this.ax * var1;
             this.ab += this.ai * var1;
@@ -731,7 +731,7 @@ public class RawPcmStream extends PcmStream {
             this.remove();
             return true;
          } else {
-            this.removeAll();
+            this.au();
             return false;
          }
       } else {

@@ -8,14 +8,14 @@ public class sz extends DualNode {
    sz() {
    }
 
-   void decode(Packet var1) {
+   void aw(Packet var1) {
       while(true) {
          int var3 = var1.g1();
          if (var3 == 0) {
             return;
          }
 
-         this.decode0(var1, var3);
+         this.au(var1, var3);
       }
    }
 
@@ -23,7 +23,7 @@ public class sz extends DualNode {
       return this.aw == null ? null : this.aw[var1];
    }
 
-   void decode0(Packet var1, int var2) {
+   void au(Packet var1, int var2) {
       if (var2 == 3) {
          int var4 = var1.g1();
          if (this.aw == null) {

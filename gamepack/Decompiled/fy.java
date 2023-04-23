@@ -23,7 +23,7 @@ public class fy extends fb {
       this.af = 722551969;
    }
 
-   void write(Packet var1) {
+   void af(Packet var1) {
       this.af = var1.cl() * -722551969;
       this.an = var1.g1s();
    }

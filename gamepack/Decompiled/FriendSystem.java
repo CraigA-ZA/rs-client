@@ -24,7 +24,7 @@ public class FriendSystem {
 
       for(int var4 = 0; var4 < ds.ab * -2010934433; ++var4) {
          Player var5 = Client.players[ds.aq[var4]];
-         var5.clearAll();
+         var5.ac();
       }
 
       GameShell.al_renamed();
@@ -141,7 +141,7 @@ public class FriendSystem {
 
             for(int var6 = 0; var6 < -2010934433 * ds.ab; ++var6) {
                Player var5 = Client.players[ds.aq[var6]];
-               var5.clearAll();
+               var5.ac();
             }
 
             GameShell.al_renamed();

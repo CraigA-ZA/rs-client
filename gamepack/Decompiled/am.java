@@ -68,7 +68,7 @@ public class am {
    static void an_renamed() {
       for(cr var1 = (cr)cr.af.last(); var1 != null; var1 = (cr)cr.af.previous()) {
          if (var1.ag != null) {
-            var1.clear();
+            var1.aw();
          }
       }
 
