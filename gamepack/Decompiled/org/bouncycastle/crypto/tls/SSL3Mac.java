@@ -7,11 +7,11 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.util.Arrays;
 
 public class SSL3Mac implements Mac {
-   byte[] secret;
    static final byte[] IPAD = genPad((byte)54, 48);
    static final byte[] OPAD = genPad((byte)92, 48);
-   Digest digest;
+   byte[] secret;
    int padLength;
+   Digest digest;
 
    public int doFinal(byte[] var1, int var2) {
       byte[] var3 = new byte[this.digest.getDigestSize()];

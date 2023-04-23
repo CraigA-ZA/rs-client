@@ -7,8 +7,8 @@ import org.bouncycastle.crypto.StreamCipher;
 import org.bouncycastle.crypto.params.KeyParameter;
 
 public class RC4Engine implements StreamCipher {
-   byte[] workingKey = null;
    byte[] engineState = null;
+   byte[] workingKey = null;
    int x = 0;
    int y = 0;
 

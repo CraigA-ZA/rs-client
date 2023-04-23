@@ -19,8 +19,8 @@ import org.bouncycastle.math.ec.FixedPointCombMultiplier;
 
 public class ECDSASigner implements ECConstants, DSA {
    SecureRandom random;
-   final DSAKCalculator kCalculator;
    ECKeyParameters key;
+   final DSAKCalculator kCalculator;
 
    public BigInteger calculateE(BigInteger var1, byte[] var2) {
       int var3 = var1.bitLength();

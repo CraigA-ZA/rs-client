@@ -3,8 +3,8 @@ package org.bouncycastle.crypto.params;
 import org.bouncycastle.util.Arrays;
 
 public class DHValidationParameters {
-   int counter;
    byte[] seed;
+   int counter;
 
    public int hashCode() {
       return this.counter ^ Arrays.hashCode(this.seed);

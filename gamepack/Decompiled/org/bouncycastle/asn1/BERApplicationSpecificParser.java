@@ -3,8 +3,8 @@ package org.bouncycastle.asn1;
 import java.io.IOException;
 
 public class BERApplicationSpecificParser implements ASN1ApplicationSpecificParser {
-   final ASN1StreamParser parser;
    final int tag;
+   final ASN1StreamParser parser;
 
    public ASN1Primitive getLoadedObject() throws IOException {
       return new BERApplicationSpecific(this.tag, this.parser.readVector());

@@ -3,8 +3,8 @@ package org.bouncycastle.math.ec;
 import java.math.BigInteger;
 
 public abstract class WNafUtil {
-   static final int[] DEFAULT_WINDOW_SIZE_CUTOFFS = new int[]{13, 41, 121, 337, 897, 2305};
    static final byte[] EMPTY_BYTES = new byte[0];
+   static final int[] DEFAULT_WINDOW_SIZE_CUTOFFS = new int[]{13, 41, 121, 337, 897, 2305};
    static final int[] EMPTY_INTS = new int[0];
    static final ECPoint[] EMPTY_POINTS = new ECPoint[0];
 

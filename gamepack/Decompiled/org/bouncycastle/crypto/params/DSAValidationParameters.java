@@ -4,8 +4,8 @@ import org.bouncycastle.util.Arrays;
 
 public class DSAValidationParameters {
    byte[] seed;
-   int usageIndex;
    int counter;
+   int usageIndex;
 
    public boolean gm(Object var1) {
       if (!(var1 instanceof DSAValidationParameters)) {

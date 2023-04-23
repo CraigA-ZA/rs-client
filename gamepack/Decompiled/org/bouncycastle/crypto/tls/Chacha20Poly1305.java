@@ -12,12 +12,12 @@ import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Pack;
 
 public class Chacha20Poly1305 implements TlsCipher {
-   public byte[] decryptIV;
-   public TlsContext context;
    static final byte[] ZEROES = new byte[15];
-   public ChaCha7539Engine decryptCipher;
+   public byte[] decryptIV;
    public byte[] encryptIV;
+   public ChaCha7539Engine decryptCipher;
    public ChaCha7539Engine encryptCipher;
+   public TlsContext context;
 
    public byte[] calculateNonce(long var1, byte[] var3) {
       byte[] var4 = new byte[12];

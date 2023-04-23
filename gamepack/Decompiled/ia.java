@@ -1,37 +1,67 @@
 import java.net.URL;
 
 public abstract class ia {
-   public static AbstractRasterProvider rasterProvider;
-   public static MusicTrack musicTrack;
-   public int aw;
+   public static MusicTrack ao;
+   public static AbstractRasterProvider bn;
    public int ac;
-   public int an;
    public int af;
+   public int an;
+   public int aw;
 
-   protected abstract boolean af(int var1, int var2, int var3, CollisionMap var4);
+   protected ia() {
+   }
 
-   static final void jc_renamed(boolean var0) {
-      for(int var2 = 0; var2 < 265474485 * Client.iw; ++var2) {
-         Npc var3 = Client.npcs[Client.iy[var2]];
-         if (var3 != null && var3.as() && var0 == var3.af.bm && var3.af.aa()) {
-            int var4 = var3.bx * 1144428983 >> 7;
-            int var5 = var3.bo * -411750205 >> 7;
-            if (var4 >= 0 && var4 < 104 && var5 >= 0 && var5 < 104) {
-               if (1 == var3.bm * 353040509 && 64 == (var3.bx * 1144428983 & 127) && 64 == (-411750205 * var3.bo & 127)) {
-                  if (Client.mw * 2041464667 == Client.mt[var4][var5]) {
-                     continue;
+   static boolean aw_renamed(String var0, int var1, String var2) {
+      if (var1 == 0) {
+         try {
+            if (!bx.an.startsWith("win")) {
+               throw new Exception();
+            } else if (!var0.startsWith("http://") && !var0.startsWith("https://")) {
+               throw new Exception();
+            } else {
+               String var11 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?&=,.%+-_#:/*";
+
+               for(int var5 = 0; var5 < var0.length(); ++var5) {
+                  if (var11.indexOf(var0.charAt(var5)) == -1) {
+                     throw new Exception();
                   }
-
-                  Client.mt[var4][var5] = 2041464667 * Client.mw;
                }
 
-               long var6 = ir.aa_renamed(0, 0, 1, !var3.af.bg, Client.iy[var2]);
-               var3.bd = -14183397 * Client.ep;
-               bx.scene.ao(GameShell.plane * -1727408401, 1144428983 * var3.bx, -411750205 * var3.bo, fq.getTileHeight(1119756096 * var3.bm - 64 + 1144428983 * var3.bx, 1119756096 * var3.bm - 64 + var3.bo * -411750205, -1727408401 * GameShell.plane), 60 + (1119756096 * var3.bm - 64), var3, var3.bz * -1703696531, var6, var3.an);
+               Runtime.getRuntime().exec("cmd /c start \"j\" \"" + var0 + "\"");
+               return true;
             }
+         } catch (Throwable var6) {
+            return false;
          }
-      }
+      } else if (1 == var1) {
+         try {
+            Object var4 = by.aw_renamed(bx.af, var2, new Object[]{(new URL(bx.af.getCodeBase(), var0)).toString()});
+            return var4 != null;
+         } catch (Throwable var7) {
+            return false;
+         }
+      } else if (2 == var1) {
+         try {
+            bx.af.getAppletContext().showDocument(new URL(bx.af.getCodeBase(), var0), "_blank");
+            return true;
+         } catch (Exception var8) {
+            return false;
+         }
+      } else if (3 == var1) {
+         try {
+            by.an_renamed(bx.af, "loggedout");
+         } catch (Throwable var10) {
+         }
 
+         try {
+            bx.af.getAppletContext().showDocument(new URL(bx.af.getCodeBase(), var0), "_top");
+            return true;
+         } catch (Exception var9) {
+            return false;
+         }
+      } else {
+         throw new IllegalArgumentException();
+      }
    }
 
    public static byte[] ac_renamed(CharSequence var0) {
@@ -104,59 +134,29 @@ public abstract class ia {
       return var3;
    }
 
-   protected ia() {
-   }
-
-   static boolean aw_renamed(String var0, int var1, String var2) {
-      if (var1 == 0) {
-         try {
-            if (!bx.an.startsWith("win")) {
-               throw new Exception();
-            } else if (!var0.startsWith("http://") && !var0.startsWith("https://")) {
-               throw new Exception();
-            } else {
-               String var11 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?&=,.%+-_#:/*";
-
-               for(int var5 = 0; var5 < var0.length(); ++var5) {
-                  if (var11.indexOf(var0.charAt(var5)) == -1) {
-                     throw new Exception();
+   static final void jc_renamed(boolean var0) {
+      for(int var2 = 0; var2 < 265474485 * Client.iw; ++var2) {
+         Npc var3 = Client.iu[Client.iy[var2]];
+         if (var3 != null && var3.isVisible() && var0 == var3.af.bm && var3.af.aa()) {
+            int var4 = var3.bx * 1144428983 >> 7;
+            int var5 = var3.bo * -411750205 >> 7;
+            if (var4 >= 0 && var4 < 104 && var5 >= 0 && var5 < 104) {
+               if (1 == var3.bm * 353040509 && 64 == (var3.bx * 1144428983 & 127) && 64 == (-411750205 * var3.bo & 127)) {
+                  if (Client.mw * 2041464667 == Client.mt[var4][var5]) {
+                     continue;
                   }
+
+                  Client.mt[var4][var5] = 2041464667 * Client.mw;
                }
 
-               Runtime.getRuntime().exec("cmd /c start \"j\" \"" + var0 + "\"");
-               return true;
+               long var6 = ir.aa_renamed(0, 0, 1, !var3.af.bg, Client.iy[var2]);
+               var3.bd = -14183397 * Client.ep;
+               bx.js.ao(GameShell.mh * -1727408401, 1144428983 * var3.bx, -411750205 * var3.bo, fq.getTileHeight(1119756096 * var3.bm - 64 + 1144428983 * var3.bx, 1119756096 * var3.bm - 64 + var3.bo * -411750205, -1727408401 * GameShell.mh), 60 + (1119756096 * var3.bm - 64), var3, var3.bz * -1703696531, var6, var3.an);
             }
-         } catch (Throwable var6) {
-            return false;
          }
-      } else if (1 == var1) {
-         try {
-            Object var4 = by.aw_renamed(bx.af, var2, new Object[]{(new URL(bx.af.getCodeBase(), var0)).toString()});
-            return var4 != null;
-         } catch (Throwable var7) {
-            return false;
-         }
-      } else if (2 == var1) {
-         try {
-            bx.af.getAppletContext().showDocument(new URL(bx.af.getCodeBase(), var0), "_blank");
-            return true;
-         } catch (Exception var8) {
-            return false;
-         }
-      } else if (3 == var1) {
-         try {
-            by.an_renamed(bx.af, "loggedout");
-         } catch (Throwable var10) {
-         }
-
-         try {
-            bx.af.getAppletContext().showDocument(new URL(bx.af.getCodeBase(), var0), "_top");
-            return true;
-         } catch (Exception var9) {
-            return false;
-         }
-      } else {
-         throw new IllegalArgumentException();
       }
+
    }
+
+   protected abstract boolean af(int var1, int var2, int var3, CollisionMap var4);
 }

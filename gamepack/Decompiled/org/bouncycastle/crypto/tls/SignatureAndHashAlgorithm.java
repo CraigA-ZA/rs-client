@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class SignatureAndHashAlgorithm {
-   public short signature;
    public short hash;
+   public short signature;
 
    public int ahh() {
       return this.getHash() << 16 | this.getSignature();

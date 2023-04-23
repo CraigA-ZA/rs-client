@@ -4,10 +4,10 @@ import org.bouncycastle.util.Memoable;
 import org.bouncycastle.util.Pack;
 
 public class MD5Digest extends GeneralDigest implements EncodableDigest {
+   int H1;
    int H2;
    int H3;
    int H4;
-   int H1;
    int xOff;
    int[] X = new int[16];
 

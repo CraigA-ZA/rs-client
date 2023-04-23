@@ -16,17 +16,17 @@ import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
 import org.bouncycastle.jcajce.provider.util.AsymKeyInfoConverter;
 
 public final class BouncyCastleProvider extends Provider implements ConfProvider {
-   static final String[] SECURE_RANDOMS = new String[]{"DRBG"};
    public static final ProvConf CONFIGURATION = new BCProvConf();
    static String info = "BouncyCastle Security Provider v1.56";
+   static final String[] ASYMMETRIC_CIPHERS = new String[]{"DSA", "DH", "EC", "RSA", "GOST", "ECGOST", "ElGamal", "DSTU4145"};
+   static final String[] ASYMMETRIC_GENERIC = new String[]{"X509", "IES"};
+   static final String[] DIGESTS = new String[]{"GOST3411", "Keccak", "MD2", "MD4", "MD5", "SHA1", "RIPEMD128", "RIPEMD160", "RIPEMD256", "RIPEMD320", "SHA224", "SHA256", "SHA384", "SHA512", "SHA3", "Skein", "SM3", "Tiger", "Whirlpool", "Blake2b"};
+   static final String[] KEYSTORES = new String[]{"BC", "BCFKS", "PKCS12"};
+   static final String[] SECURE_RANDOMS = new String[]{"DRBG"};
+   static final String[] SYMMETRIC_CIPHERS = new String[]{"AES", "ARC4", "Blowfish", "Camellia", "CAST5", "CAST6", "ChaCha", "DES", "DESede", "GOST28147", "Grainv1", "Grain128", "HC128", "HC256", "IDEA", "Noekeon", "RC2", "RC5", "RC6", "Rijndael", "Salsa20", "SEED", "Serpent", "Shacal2", "Skipjack", "SM4", "TEA", "Twofish", "Threefish", "VMPC", "VMPCKSA3", "XTEA", "XSalsa20", "OpenSSLPBKDF"};
    static final String[] SYMMETRIC_GENERIC = new String[]{"PBEPBKDF2", "PBEPKCS12", "TLSKDF"};
    static final String[] SYMMETRIC_MACS = new String[]{"SipHash", "Poly1305"};
-   static final String[] SYMMETRIC_CIPHERS = new String[]{"AES", "ARC4", "Blowfish", "Camellia", "CAST5", "CAST6", "ChaCha", "DES", "DESede", "GOST28147", "Grainv1", "Grain128", "HC128", "HC256", "IDEA", "Noekeon", "RC2", "RC5", "RC6", "Rijndael", "Salsa20", "SEED", "Serpent", "Shacal2", "Skipjack", "SM4", "TEA", "Twofish", "Threefish", "VMPC", "VMPCKSA3", "XTEA", "XSalsa20", "OpenSSLPBKDF"};
-   static final String[] ASYMMETRIC_GENERIC = new String[]{"X509", "IES"};
    static final Map keyInfoConverters = new HashMap();
-   static final String[] DIGESTS = new String[]{"GOST3411", "Keccak", "MD2", "MD4", "MD5", "SHA1", "RIPEMD128", "RIPEMD160", "RIPEMD256", "RIPEMD320", "SHA224", "SHA256", "SHA384", "SHA512", "SHA3", "Skein", "SM3", "Tiger", "Whirlpool", "Blake2b"};
-   static final String[] ASYMMETRIC_CIPHERS = new String[]{"DSA", "DH", "EC", "RSA", "GOST", "ECGOST", "ElGamal", "DSTU4145"};
-   static final String[] KEYSTORES = new String[]{"BC", "BCFKS", "PKCS12"};
 
    public static PublicKey getPublicKey(SubjectPublicKeyInfo var0) throws IOException {
       AsymKeyInfoConverter var1 = getAsymmetricKeyInfoConverter(var0.getAlgorithm().getAlgorithm());

@@ -5,8 +5,8 @@ import org.bouncycastle.math.raw.Nat;
 import org.bouncycastle.math.raw.Nat256;
 
 public class SecP256R1Field {
-   static final int[] PExt = new int[]{1, 0, 0, -2, -1, -1, -2, 1, -2, 1, -2, 1, 1, -2, 2, -2};
    static final int[] P = new int[]{-1, -1, -1, 0, 0, 0, 1, -1};
+   static final int[] PExt = new int[]{1, 0, 0, -2, -1, -1, -2, 1, -2, 1, -2, 1, 1, -2, 2, -2};
 
    public static void multiplyAddToExt(int[] var0, int[] var1, int[] var2) {
       int var3 = Nat256.mulAddTo(var0, var1, var2);

@@ -1,24 +1,24 @@
 public class LoginProt implements ClientProt0 {
-   public static final LoginProt au = new LoginProt(19);
-   static final LoginProt an = new LoginProt(15);
    public static final LoginProt ac = new LoginProt(18);
+   public static final LoginProt af = new LoginProt(14);
+   public static final LoginProt au = new LoginProt(19);
    public static final LoginProt aw = new LoginProt(16);
    static final LoginProt ab = new LoginProt(27);
-   public static final LoginProt af = new LoginProt(14);
+   static final LoginProt an = new LoginProt(15);
    static final LoginProt[] al = new LoginProt[32];
-   public final int id;
+   public final int aq;
 
    static {
       LoginProt[] var0 = bz.af_renamed();
 
       for(int var1 = 0; var1 < var0.length; ++var1) {
-         al[var0[var1].id * 537668749] = var0[var1];
+         al[var0[var1].aq * 537668749] = var0[var1];
       }
 
    }
 
    LoginProt(int var1) {
-      this.id = var1 * 1990948421;
+      this.aq = var1 * 1990948421;
    }
 
    public static int aq_renamed(int var0) {

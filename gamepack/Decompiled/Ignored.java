@@ -3,17 +3,21 @@ import java.awt.Desktop.Action;
 import java.net.URI;
 
 public class Ignored extends User {
-   int id;
+   int af;
 
-   public int an(User var1) {
+   Ignored() {
+   }
+
+   int compareTo00(Ignored var1) {
+      return this.af * -1260376973 - var1.af * -1260376973;
+   }
+
+   public int compareTo0(User var1) {
       return this.compareTo00((Ignored)var1);
    }
 
    public int compareTo(Object var1) {
       return this.compareTo00((Ignored)var1);
-   }
-
-   Ignored() {
    }
 
    public static void af_renamed(String var0, boolean var1, boolean var2) {
@@ -37,9 +41,5 @@ public class Ignored extends User {
          ia.aw_renamed(var0, 3, "openjs");
       }
 
-   }
-
-   int compareTo00(Ignored var1) {
-      return this.id * -1260376973 - var1.id * -1260376973;
    }
 }

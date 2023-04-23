@@ -1,23 +1,27 @@
 import java.util.LinkedList;
 
 public abstract class jz {
-   short[][][] ai;
-   int aq;
-   int al;
-   int at;
-   byte[][][] ag;
-   int ay = -282687267;
-   int ao = -1837401609;
-   short[][][] ax;
-   int aa;
-   int au;
-   byte[][][] ah;
-   jl[][][][] av;
-   boolean ar;
    boolean am;
+   boolean ar;
+   byte[][][] ag;
+   byte[][][] ah;
+   int aa;
    int ab;
+   int al;
+   int ao = -1837401609;
+   int aq;
+   int at;
+   int au;
+   int ay = -282687267;
+   jl[][][][] av;
+   short[][][] ai;
+   short[][][] ax;
 
-   abstract void an(Packet var1);
+   jz() {
+      new LinkedList();
+      this.ar = false;
+      this.am = false;
+   }
 
    boolean ae() {
       return this.ar && this.am;
@@ -33,6 +37,16 @@ public abstract class jz {
          }
 
       }
+   }
+
+   void by() {
+      this.ax = (short[][][])null;
+      this.ai = (short[][][])null;
+      this.ag = (byte[][][])null;
+      this.ah = (byte[][][])null;
+      this.av = (jl[][][][])null;
+      this.ar = false;
+      this.am = false;
    }
 
    void bb(int var1, int var2, Packet var3) {
@@ -99,27 +113,13 @@ public abstract class jz {
       return this.aq * -1159667627;
    }
 
+   public static synchronized byte[] ac_renamed(int var0) {
+      return ByteArrayPool.ByteArrayPool_get(var0, false);
+   }
+
    int bx() {
       return this.al * -1674687277;
    }
 
-   jz() {
-      new LinkedList();
-      this.ar = false;
-      this.am = false;
-   }
-
-   void by() {
-      this.ax = (short[][][])null;
-      this.ai = (short[][][])null;
-      this.ag = (byte[][][])null;
-      this.ah = (byte[][][])null;
-      this.av = (jl[][][][])null;
-      this.ar = false;
-      this.am = false;
-   }
-
-   public static synchronized byte[] ac_renamed(int var0) {
-      return ByteArrayPool.ByteArrayPool_get(var0, false);
-   }
+   abstract void an(Packet var1);
 }

@@ -1,22 +1,9 @@
 public class fx extends fb {
+   static Font ip;
+   String an;
    long af;
    // $FF: synthetic field
    final fa this$0;
-   String an;
-   static Font fontBold12;
-
-   void an(fj var1) {
-      var1.aq(-8453460473841490933L * this.af, this.an, 0, -706420067);
-   }
-
-   void af(Packet var1) {
-      if (var1.g1() != 255) {
-         var1.index -= -1516355947;
-         this.af = var1.g8s() * -8391907036145317981L;
-      }
-
-      this.an = var1.cz();
-   }
 
    static void af_renamed() {
       Tiles.aw = -256673141;
@@ -38,5 +25,18 @@ public class fx extends fb {
       this.this$0 = var1;
       this.af = 8391907036145317981L;
       this.an = null;
+   }
+
+   void write(Packet var1) {
+      if (var1.g1() != 255) {
+         var1.at -= -1516355947;
+         this.af = var1.g8s() * -8391907036145317981L;
+      }
+
+      this.an = var1.cz();
+   }
+
+   void an(fj var1) {
+      var1.aq(-8453460473841490933L * this.af, this.an, 0, -706420067);
    }
 }

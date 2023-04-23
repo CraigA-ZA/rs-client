@@ -5,8 +5,8 @@ import java.security.Permission;
 import java.util.StringTokenizer;
 
 public class ProvConfPermission extends BasicPermission {
-   final String actions;
    final int permissionMask;
+   final String actions;
 
    int calculateMask(String var1) {
       StringTokenizer var2 = new StringTokenizer(org.bouncycastle.util.Strings.toLowerCase(var1), " ,");

@@ -3,6 +3,14 @@ final class dy implements lx {
    // $FF: synthetic field
    final Component val$cc;
 
+   static final String ao_renamed(int var0) {
+      if (var0 < 100000) {
+         return "<col=ffff00>" + var0 + "</col>";
+      } else {
+         return var0 < 10000000 ? "<col=ffffff>" + var0 / 1000 + Strings.gv + "</col>" : "<col=00ff80>" + var0 / 1000000 + Strings.gp + "</col>";
+      }
+   }
+
    dy(Component var1) {
       this.val$cc = var1;
    }
@@ -15,14 +23,6 @@ final class dy implements lx {
          np.jk_renamed().addFirst(var2);
       }
 
-   }
-
-   static final String ao_renamed(int var0) {
-      if (var0 < 100000) {
-         return "<col=ffff00>" + var0 + "</col>";
-      } else {
-         return var0 < 10000000 ? "<col=ffffff>" + var0 / 1000 + Strings.gv + "</col>" : "<col=00ff80>" + var0 / 1000000 + Strings.gp + "</col>";
-      }
    }
 
    static final int ai_renamed(int var0, int var1, int var2) {

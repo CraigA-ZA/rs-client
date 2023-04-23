@@ -12,9 +12,9 @@ import org.bouncycastle.util.io.Streams;
 
 public class TlsRSAKeyExchange extends AbstractTlsKeyExchange {
    public byte[] premasterSecret;
+   public AsymmetricKeyParameter serverPublicKey = null;
    public RSAKeyParameters rsaServerPublicKey = null;
    public TlsEncryptionCredentials serverCredentials = null;
-   public AsymmetricKeyParameter serverPublicKey = null;
 
    public void validateCertificateRequest(CertificateRequest var1) throws IOException {
       short[] var2 = var1.getCertificateTypes();

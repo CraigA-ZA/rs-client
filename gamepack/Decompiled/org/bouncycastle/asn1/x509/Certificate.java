@@ -9,8 +9,8 @@ import org.bouncycastle.asn1.DERBitString;
 import org.bouncycastle.asn1.x500.X500Name;
 
 public class Certificate extends ASN1Object {
-   DERBitString sig;
    ASN1Sequence seq;
+   DERBitString sig;
    AlgorithmIdentifier sigAlgId;
    TBSCertificate tbsCert;
 

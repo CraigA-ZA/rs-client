@@ -4,8 +4,23 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class ry implements rn {
-   final ts an;
    Map af;
+   final ts an;
+
+   public ry(ts var1) {
+      this.an = var1;
+   }
+
+   public int af(int var1) {
+      if (this.af != null) {
+         te var3 = (te)this.af.get(var1);
+         if (var3 != null) {
+            return (Integer)var3.an;
+         }
+      }
+
+      return (Integer)this.an.aw(var1);
+   }
 
    public void an(int var1, Object var2) {
       if (null == this.af) {
@@ -22,22 +37,7 @@ public class ry implements rn {
 
    }
 
-   public ry(ts var1) {
-      this.an = var1;
-   }
-
    public Iterator iterator() {
       return this.af == null ? Collections.emptyList().iterator() : this.af.values().iterator();
-   }
-
-   public int af(int var1) {
-      if (this.af != null) {
-         te var3 = (te)this.af.get(var1);
-         if (var3 != null) {
-            return (Integer)var3.an;
-         }
-      }
-
-      return (Integer)this.an.aw(var1);
    }
 }

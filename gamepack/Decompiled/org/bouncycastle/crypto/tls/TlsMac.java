@@ -8,12 +8,12 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.util.Arrays;
 
 public class TlsMac {
-   public int macLength;
-   public TlsContext context;
-   public Mac mac;
+   public byte[] secret;
    public int digestBlockSize;
    public int digestOverhead;
-   public byte[] secret;
+   public int macLength;
+   public Mac mac;
+   public TlsContext context;
 
    public int getSize() {
       return this.macLength;

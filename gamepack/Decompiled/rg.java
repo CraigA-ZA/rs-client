@@ -2,21 +2,13 @@ public class rg {
    public final Object af;
    public final Object an;
 
-   public String toString() {
-      return this.af + ", " + this.an;
+   public rg(Object var1, Object var2) {
+      this.af = var1;
+      this.an = var2;
    }
 
-   public int hashCode() {
-      int var1 = 0;
-      if (null != this.af) {
-         var1 += this.af.hashCode();
-      }
-
-      if (this.an != null) {
-         var1 += 31 * this.an.hashCode();
-      }
-
-      return var1;
+   public String toString() {
+      return this.af + ", " + this.an;
    }
 
    public boolean equals(Object var1) {
@@ -44,8 +36,16 @@ public class rg {
       }
    }
 
-   public rg(Object var1, Object var2) {
-      this.af = var1;
-      this.an = var2;
+   public int hashCode() {
+      int var1 = 0;
+      if (null != this.af) {
+         var1 += this.af.hashCode();
+      }
+
+      if (this.an != null) {
+         var1 += 31 * this.an.hashCode();
+      }
+
+      return var1;
    }
 }

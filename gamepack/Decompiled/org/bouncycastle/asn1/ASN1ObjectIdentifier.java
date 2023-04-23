@@ -9,8 +9,8 @@ import org.bouncycastle.util.Arrays;
 
 public class ASN1ObjectIdentifier extends ASN1Primitive {
    static final ConcurrentMap pool = new ConcurrentHashMap();
-   final String identifier;
    byte[] body;
+   final String identifier;
 
    boolean asn1Equals(ASN1Primitive var1) {
       if (var1 == this) {

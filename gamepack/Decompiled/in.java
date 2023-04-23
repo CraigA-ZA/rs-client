@@ -3,19 +3,15 @@ import java.io.IOException;
 
 public class in {
    public static int[] ac = new int[2048];
-   static final ii at;
-   static int[] aw = new int[2048];
-   public static jg ab;
-   public static int[] au = new int[2048];
    public static int[] af = new int[65536];
-   static int[] an = new int[512];
-   static final ii al;
+   public static int[] au = new int[2048];
+   public static jg ab;
    static ii aq;
    static int ai;
-
-   in() throws Throwable {
-      throw new Error();
-   }
+   static int[] an = new int[512];
+   static int[] aw = new int[2048];
+   static final ii al;
+   static final ii at;
 
    static {
       int var0;
@@ -38,6 +34,10 @@ public class in {
       aq = al;
    }
 
+   in() throws Throwable {
+      throw new Error();
+   }
+
    public static AccessFile getPreferencesFile(String var0, String var1, boolean var2) {
       File var4 = new File(my.au, "preferences" + var0 + ".dat");
       if (var4.exists()) {
@@ -55,7 +55,7 @@ public class in {
          var5 = "_wip";
       }
 
-      File var6 = new File(hd.userHomeDirectory, "jagex_" + var1 + "_preferences" + var0 + var5 + ".dat");
+      File var6 = new File(hd.az, "jagex_" + var1 + "_preferences" + var0 + var5 + ".dat");
       AccessFile var7;
       if (!var2 && var6.exists()) {
          try {
@@ -76,14 +76,14 @@ public class in {
    static int ar_renamed(int var0, ClientScript var1, boolean var2) {
       Component var4 = var2 ? SoundSystem.ag : an.ai;
       if (var0 == 1800) {
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = hc.af_renamed(KeyHandler.getComponentClickMask(var4));
+         Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = hc.af_renamed(KeyHandler.getComponentClickMask(var4));
          return 1;
       } else if (var0 != 1801) {
          if (1802 == var0) {
-            if (null == var4.opbase) {
-               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
+            if (null == var4.eh) {
+               Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = "";
             } else {
-               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var4.opbase;
+               Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = var4.eh;
             }
 
             return 1;
@@ -91,12 +91,12 @@ public class in {
             return 2;
          }
       } else {
-         int var5 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         int var5 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
          --var5;
-         if (null != var4.ops && var5 < var4.ops.length && var4.ops[var5] != null) {
-            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var4.ops[var5];
+         if (null != var4.ek && var5 < var4.ek.length && var4.ek[var5] != null) {
+            Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = var4.ek[var5];
          } else {
-            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
+            Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = "";
          }
 
          return 1;

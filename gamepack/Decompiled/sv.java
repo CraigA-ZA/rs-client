@@ -1,6 +1,29 @@
 public final class sv {
    static Bzip2State al = new Bzip2State();
 
+   sv() throws Throwable {
+      throw new Error();
+   }
+
+   public static int af_renamed(byte[] var0, int var1, byte[] var2, int var3, int var4) {
+      synchronized(al) {
+         al.aq = var2;
+         al.al = var4 * -294994265;
+         al.aa = var0;
+         al.ay = 0;
+         al.ao = var1 * -1652051505;
+         al.av = 0;
+         al.ah = 0;
+         al.at = 0;
+         al.ax = 0;
+         aw(al);
+         var1 -= al.ao * -1452165841;
+         al.aq = null;
+         al.aa = null;
+         return var1;
+      }
+   }
+
    static void an(Bzip2State var0) {
       byte var2 = var0.ai;
       int var3 = var0.ag * -845006579;
@@ -121,107 +144,6 @@ public final class sv {
       var0.aa = var8;
       var0.ay = var9 * -1766382583;
       var0.ao = var10 * -1652051505;
-   }
-
-   sv() throws Throwable {
-      throw new Error();
-   }
-
-   static byte ac(Bzip2State var0) {
-      return (byte)ab(8, var0);
-   }
-
-   static void aq(Bzip2State var0) {
-      var0.ap = 0;
-
-      for(int var1 = 0; var1 < 256; ++var1) {
-         if (var0.by[var1]) {
-            var0.bi[var0.ap * -1198613029] = (byte)var1;
-            var0.ap += -1808394669;
-         }
-      }
-
-   }
-
-   static void al_renamed(int[] var0, int[] var1, int[] var2, byte[] var3, int var4, int var5, int var6) {
-      int var7 = 0;
-
-      int var8;
-      for(var8 = var4; var8 <= var5; ++var8) {
-         for(int var9 = 0; var9 < var6; ++var9) {
-            if (var3[var9] == var8) {
-               var2[var7] = var9;
-               ++var7;
-            }
-         }
-      }
-
-      for(var8 = 0; var8 < 23; ++var8) {
-         var1[var8] = 0;
-      }
-
-      for(var8 = 0; var8 < var6; ++var8) {
-         ++var1[var3[var8] + 1];
-      }
-
-      for(var8 = 1; var8 < 23; ++var8) {
-         var1[var8] += var1[var8 - 1];
-      }
-
-      for(var8 = 0; var8 < 23; ++var8) {
-         var0[var8] = 0;
-      }
-
-      int var10 = 0;
-
-      for(var8 = var4; var8 <= var5; ++var8) {
-         var10 += var1[var8 + 1] - var1[var8];
-         var0[var8] = var10 - 1;
-         var10 <<= 1;
-      }
-
-      for(var8 = var4 + 1; var8 <= var5; ++var8) {
-         var1[var8] = (var0[var8 - 1] + 1 << 1) - var1[var8];
-      }
-
-   }
-
-   static int ab(int var0, Bzip2State var1) {
-      while(var1.av * -208048185 < var0) {
-         var1.ah = (var1.ah * -993525011 << 8 | var1.aq[var1.al * 1648560407] & 255) * -348869915;
-         var1.av += -394457160;
-         var1.al += -294994265;
-         var1.at += -806810571;
-         if (var1.at * -1956977123 == 0) {
-         }
-      }
-
-      int var2 = var1.ah * -993525011 >> var1.av * -208048185 - var0 & (1 << var0) - 1;
-      var1.av -= var0 * -1123048969;
-      return var2;
-   }
-
-   public static int af_renamed(byte[] var0, int var1, byte[] var2, int var3, int var4) {
-      synchronized(al) {
-         al.aq = var2;
-         al.al = var4 * -294994265;
-         al.aa = var0;
-         al.ay = 0;
-         al.ao = var1 * -1652051505;
-         al.av = 0;
-         al.ah = 0;
-         al.at = 0;
-         al.ax = 0;
-         aw(al);
-         var1 -= al.ao * -1452165841;
-         al.aq = null;
-         al.aa = null;
-         return var1;
-      }
-   }
-
-   static byte au(Bzip2State var0) {
-      return (byte)ab(1, var0);
    }
 
    static void aw(Bzip2State var0) {
@@ -591,5 +513,83 @@ public final class sv {
 
          return;
       }
+   }
+
+   static byte ac(Bzip2State var0) {
+      return (byte)ab(8, var0);
+   }
+
+   static byte au(Bzip2State var0) {
+      return (byte)ab(1, var0);
+   }
+
+   static int ab(int var0, Bzip2State var1) {
+      while(var1.av * -208048185 < var0) {
+         var1.ah = (var1.ah * -993525011 << 8 | var1.aq[var1.al * 1648560407] & 255) * -348869915;
+         var1.av += -394457160;
+         var1.al += -294994265;
+         var1.at += -806810571;
+         if (var1.at * -1956977123 == 0) {
+         }
+      }
+
+      int var2 = var1.ah * -993525011 >> var1.av * -208048185 - var0 & (1 << var0) - 1;
+      var1.av -= var0 * -1123048969;
+      return var2;
+   }
+
+   static void aq(Bzip2State var0) {
+      var0.ap = 0;
+
+      for(int var1 = 0; var1 < 256; ++var1) {
+         if (var0.by[var1]) {
+            var0.bi[var0.ap * -1198613029] = (byte)var1;
+            var0.ap += -1808394669;
+         }
+      }
+
+   }
+
+   static void al_renamed(int[] var0, int[] var1, int[] var2, byte[] var3, int var4, int var5, int var6) {
+      int var7 = 0;
+
+      int var8;
+      for(var8 = var4; var8 <= var5; ++var8) {
+         for(int var9 = 0; var9 < var6; ++var9) {
+            if (var3[var9] == var8) {
+               var2[var7] = var9;
+               ++var7;
+            }
+         }
+      }
+
+      for(var8 = 0; var8 < 23; ++var8) {
+         var1[var8] = 0;
+      }
+
+      for(var8 = 0; var8 < var6; ++var8) {
+         ++var1[var3[var8] + 1];
+      }
+
+      for(var8 = 1; var8 < 23; ++var8) {
+         var1[var8] += var1[var8 - 1];
+      }
+
+      for(var8 = 0; var8 < 23; ++var8) {
+         var0[var8] = 0;
+      }
+
+      int var10 = 0;
+
+      for(var8 = var4; var8 <= var5; ++var8) {
+         var10 += var1[var8 + 1] - var1[var8];
+         var0[var8] = var10 - 1;
+         var10 <<= 1;
+      }
+
+      for(var8 = var4 + 1; var8 <= var5; ++var8) {
+         var1[var8] = (var0[var8 - 1] + 1 << 1) - var1[var8];
+      }
+
    }
 }

@@ -1,254 +1,106 @@
 public class hs extends DualNode {
-   static AbstractArchive aw;
-   static AbstractArchive an;
-   public int am;
    static EvictingDualNodeHashTable ac = new EvictingDualNodeHashTable(64);
    static EvictingDualNodeHashTable au = new EvictingDualNodeHashTable(50);
-   public int ab;
-   public String aq;
-   public boolean bu;
-   int[] at;
-   public int bj;
+   static AbstractArchive an;
+   static AbstractArchive aw;
+   int bd;
+   int bo;
+   int br;
+   int bs;
    int bt;
-   public int ao;
-   public int ax;
-   public int ai;
-   public int ag;
-   public int ah;
-   public int av;
-   public int ak;
+   int bz;
+   int[] aa;
+   int[] at;
+   int[] bq;
+   IterableNodeHashTable bv;
+   short[] ap;
+   short[] ba;
+   short[] bb;
    public boolean bf;
-   public int as;
-   public short[] by;
+   public boolean bg;
+   public boolean bk;
    public boolean bm;
-   public int az;
+   public boolean bu;
+   public int ab;
    public int ad;
    public int ae;
-   short[] ap;
-   int bs;
-   short[] bb;
-   public short[] bi;
-   public String[] be;
-   public boolean bk;
+   public int ag;
+   public int ah;
+   public int ai;
    public int aj;
-   int bo;
-   int bz;
-   IterableNodeHashTable bv;
+   public int ak;
    public int al;
-   int bd;
-   public int[] bn;
-   public int bx;
-   int br;
-   public boolean bg;
+   public int am;
+   public int ao;
    public int ar;
+   public int as;
+   public int av;
+   public int ax;
    public int ay;
-   int[] bq;
-   short[] ba;
-   int[] aa;
+   public int az;
+   public int bj;
+   public int bx;
+   public int[] bn;
+   public String aq;
+   public String[] be;
+   public short[] bi;
+   public short[] by;
 
-   void ac(Packet var1) {
+   hs() {
+      this.aq = Strings.at;
+      this.al = -1159021589;
+      this.ay = -1304162881;
+      this.ao = -1526449071;
+      this.ax = -1325267127;
+      this.ai = -1653161499;
+      this.ag = 820247353;
+      this.ah = -1030172671;
+      this.av = 2142663477;
+      this.ar = -1104808909;
+      this.am = 1535672631;
+      this.as = 257868351;
+      this.aj = 1734270145;
+      this.ak = 237251001;
+      this.az = 1296177123;
+      this.ad = 2136803683;
+      this.ae = -2044090389;
+      this.be = new String[5];
+      this.bk = true;
+      this.bx = 959716425;
+      this.bo = 1835076736;
+      this.bz = 2129768832;
+      this.bm = false;
+      this.bd = 0;
+      this.bt = 0;
+      this.bj = -1472822432;
+      this.bs = -1998015621;
+      this.br = -17057377;
+      this.bg = true;
+      this.bu = true;
+      this.bf = false;
+      this.bq = null;
+      this.ba = null;
+   }
+
+   public static int aq(long var0) {
+      return (int)(var0 >>> 7 & 127L);
+   }
+
+   void postDecode() {
+   }
+
+   void decode(Packet var1) {
       while(true) {
          int var3 = var1.g1();
          if (0 == var3) {
             return;
          }
 
-         this.au(var1, var3);
+         this.decode0(var1, var3);
       }
    }
 
-   public final it ab(SeqType var1, int var2, SeqType var3, int var4, hv var5) {
-      if (null != this.bn) {
-         hs var11 = this.at();
-         return var11 == null ? null : var11.ab(var1, var2, var3, var4, var5);
-      } else {
-         long var7 = (long)(this.ab * -1115372301);
-         if (null != var5) {
-            var7 |= -1176524468931644747L * var5.af << 16;
-         }
-
-         it var9 = (it)au.get(var7);
-         if (var9 == null) {
-            UnlitModel var10 = this.al(this.at, var5);
-            if (var10 == null) {
-               return null;
-            }
-
-            var9 = var10.bb(64 + this.bd * -1500709613, this.bt * -2057653211 + 850, -30, -50, -30);
-            au.put(var9, var7);
-         }
-
-         it var12;
-         if (null != var1 && var3 != null) {
-            var12 = var1.at(var9, var2, var3, var4);
-         } else if (var1 != null) {
-            var12 = var1.ab(var9, var2);
-         } else if (var3 != null) {
-            var12 = var3.ab(var9, var4);
-         } else {
-            var12 = var9.aa(true);
-         }
-
-         if (this.bo * 1661958697 != 128 || this.bz * 521320011 != 128) {
-            var12.bk(this.bo * 1661958697, this.bz * 521320011, 1661958697 * this.bo);
-         }
-
-         return var12;
-      }
-   }
-
-   public final UnlitModel aq(hv var1) {
-      if (null != this.bn) {
-         hs var3 = this.at();
-         return null == var3 ? null : var3.aq(var1);
-      } else {
-         return this.al(this.aa, var1);
-      }
-   }
-
-   UnlitModel al(int[] var1, hv var2) {
-      int[] var4 = var1;
-      if (var2 != null && var2.an != null) {
-         var4 = var2.an;
-      }
-
-      if (null == var4) {
-         return null;
-      } else {
-         boolean var5 = false;
-
-         for(int var6 = 0; var6 < var4.length; ++var6) {
-            if (var4[var6] != -1 && !aw.tryLoadFile(var4[var6], 0)) {
-               var5 = true;
-            }
-         }
-
-         if (var5) {
-            return null;
-         } else {
-            UnlitModel[] var10 = new UnlitModel[var4.length];
-
-            for(int var7 = 0; var7 < var4.length; ++var7) {
-               var10[var7] = UnlitModel.af_renamed(aw, var4[var7], 0);
-            }
-
-            UnlitModel var11;
-            if (var10.length == 1) {
-               var11 = var10[0];
-               if (null == var11) {
-                  var11 = new UnlitModel(var10, var10.length);
-               }
-            } else {
-               var11 = new UnlitModel(var10, var10.length);
-            }
-
-            short[] var8;
-            int var9;
-            if (null != this.ap) {
-               var8 = this.by;
-               if (var2 != null && null != var2.aw) {
-                  var8 = var2.aw;
-               }
-
-               for(var9 = 0; var9 < this.ap.length; ++var9) {
-                  var11.recolor(this.ap[var9], var8[var9]);
-               }
-            }
-
-            if (this.bb != null) {
-               var8 = this.bi;
-               if (null != var2 && var2.ac != null) {
-                  var8 = var2.ac;
-               }
-
-               for(var9 = 0; var9 < this.bb.length; ++var9) {
-                  var11.retexture(this.bb[var9], var8[var9]);
-               }
-            }
-
-            return var11;
-         }
-      }
-   }
-
-   public final hs at() {
-      int var2 = -1;
-      if (-1 != 1781845069 * this.bs) {
-         var2 = WorldMapSection1.af_renamed(1781845069 * this.bs);
-      } else if (2051988897 * this.br != -1) {
-         var2 = Varps.Varps_main[this.br * 2051988897];
-      }
-
-      int var3;
-      if (var2 >= 0 && var2 < this.bn.length - 1) {
-         var3 = this.bn[var2];
-      } else {
-         var3 = this.bn[this.bn.length - 1];
-      }
-
-      return var3 != -1 ? AbstractArchive.an_renamed(var3) : null;
-   }
-
-   public boolean aa() {
-      if (this.bn == null) {
-         return true;
-      } else {
-         int var2 = -1;
-         if (-1 != this.bs * 1781845069) {
-            var2 = WorldMapSection1.af_renamed(this.bs * 1781845069);
-         } else if (-1 != 2051988897 * this.br) {
-            var2 = Varps.Varps_main[2051988897 * this.br];
-         }
-
-         if (var2 >= 0 && var2 < this.bn.length) {
-            return -1 != this.bn[var2];
-         } else {
-            return this.bn[this.bn.length - 1] != -1;
-         }
-      }
-   }
-
-   public int ay(int var1, int var2) {
-      IterableNodeHashTable var5 = this.bv;
-      int var4;
-      if (null == var5) {
-         var4 = var2;
-      } else {
-         IntegerNode var6 = (IntegerNode)var5.get((long)var1);
-         if (null == var6) {
-            var4 = var2;
-         } else {
-            var4 = var6.integer;
-         }
-      }
-
-      return var4;
-   }
-
-   void aw() {
-   }
-
-   public boolean ai() {
-      return null != this.bq && this.ba != null;
-   }
-
-   public int[] ag() {
-      return this.bq;
-   }
-
-   public int ah(int var1) {
-      return null != this.bq && var1 < this.bq.length ? this.bq[var1] : -1;
-   }
-
-   public short[] av() {
-      return this.ba;
-   }
-
-   public short ar(int var1) {
-      return null != this.ba && var1 < this.ba.length ? this.ba[var1] : -1;
-   }
-
-   void au(Packet var1, int var2) {
+   void decode0(Packet var1, int var2) {
       int var4;
       int var5;
       if (1 == var2) {
@@ -279,7 +131,7 @@ public class hs extends DualNode {
          var1.cl();
       } else if (var2 >= 30 && var2 < 35) {
          this.be[var2 - 30] = var1.cw();
-         if (this.be[var2 - 30].equalsIgnoreCase(Strings.Strings_hidden)) {
+         if (this.be[var2 - 30].equalsIgnoreCase(Strings.ac)) {
             this.be[var2 - 30] = null;
          }
       } else if (40 == var2) {
@@ -404,47 +256,195 @@ public class hs extends DualNode {
 
    }
 
-   hs() {
-      this.aq = Strings.Strings_null;
-      this.al = -1159021589;
-      this.ay = -1304162881;
-      this.ao = -1526449071;
-      this.ax = -1325267127;
-      this.ai = -1653161499;
-      this.ag = 820247353;
-      this.ah = -1030172671;
-      this.av = 2142663477;
-      this.ar = -1104808909;
-      this.am = 1535672631;
-      this.as = 257868351;
-      this.aj = 1734270145;
-      this.ak = 237251001;
-      this.az = 1296177123;
-      this.ad = 2136803683;
-      this.ae = -2044090389;
-      this.be = new String[5];
-      this.bk = true;
-      this.bx = 959716425;
-      this.bo = 1835076736;
-      this.bz = 2129768832;
-      this.bm = false;
-      this.bd = 0;
-      this.bt = 0;
-      this.bj = -1472822432;
-      this.bs = -1998015621;
-      this.br = -17057377;
-      this.bg = true;
-      this.bu = true;
-      this.bf = false;
-      this.bq = null;
-      this.ba = null;
+   public final it ab(SeqType var1, int var2, SeqType var3, int var4, hv var5) {
+      if (null != this.bn) {
+         hs var11 = this.at();
+         return var11 == null ? null : var11.ab(var1, var2, var3, var4, var5);
+      } else {
+         long var7 = (long)(this.ab * -1115372301);
+         if (null != var5) {
+            var7 |= -1176524468931644747L * var5.af << 16;
+         }
+
+         it var9 = (it)au.get(var7);
+         if (var9 == null) {
+            UnlitModel var10 = this.al(this.at, var5);
+            if (var10 == null) {
+               return null;
+            }
+
+            var9 = var10.bb(64 + this.bd * -1500709613, this.bt * -2057653211 + 850, -30, -50, -30);
+            au.put(var9, var7);
+         }
+
+         it var12;
+         if (null != var1 && var3 != null) {
+            var12 = var1.at(var9, var2, var3, var4);
+         } else if (var1 != null) {
+            var12 = var1.ab(var9, var2);
+         } else if (var3 != null) {
+            var12 = var3.ab(var9, var4);
+         } else {
+            var12 = var9.aa(true);
+         }
+
+         if (this.bo * 1661958697 != 128 || this.bz * 521320011 != 128) {
+            var12.bk(this.bo * 1661958697, this.bz * 521320011, 1661958697 * this.bo);
+         }
+
+         return var12;
+      }
+   }
+
+   public final UnlitModel aq(hv var1) {
+      if (null != this.bn) {
+         hs var3 = this.at();
+         return null == var3 ? null : var3.aq(var1);
+      } else {
+         return this.al(this.aa, var1);
+      }
+   }
+
+   UnlitModel al(int[] var1, hv var2) {
+      int[] var4 = var1;
+      if (var2 != null && var2.an != null) {
+         var4 = var2.an;
+      }
+
+      if (null == var4) {
+         return null;
+      } else {
+         boolean var5 = false;
+
+         for(int var6 = 0; var6 < var4.length; ++var6) {
+            if (var4[var6] != -1 && !aw.tryLoadFile(var4[var6], 0)) {
+               var5 = true;
+            }
+         }
+
+         if (var5) {
+            return null;
+         } else {
+            UnlitModel[] var10 = new UnlitModel[var4.length];
+
+            for(int var7 = 0; var7 < var4.length; ++var7) {
+               var10[var7] = UnlitModel.af_renamed(aw, var4[var7], 0);
+            }
+
+            UnlitModel var11;
+            if (var10.length == 1) {
+               var11 = var10[0];
+               if (null == var11) {
+                  var11 = new UnlitModel(var10, var10.length);
+               }
+            } else {
+               var11 = new UnlitModel(var10, var10.length);
+            }
+
+            short[] var8;
+            int var9;
+            if (null != this.ap) {
+               var8 = this.by;
+               if (var2 != null && null != var2.aw) {
+                  var8 = var2.aw;
+               }
+
+               for(var9 = 0; var9 < this.ap.length; ++var9) {
+                  var11.recolor(this.ap[var9], var8[var9]);
+               }
+            }
+
+            if (this.bb != null) {
+               var8 = this.bi;
+               if (null != var2 && var2.ac != null) {
+                  var8 = var2.ac;
+               }
+
+               for(var9 = 0; var9 < this.bb.length; ++var9) {
+                  var11.retexture(this.bb[var9], var8[var9]);
+               }
+            }
+
+            return var11;
+         }
+      }
+   }
+
+   public final hs at() {
+      int var2 = -1;
+      if (-1 != 1781845069 * this.bs) {
+         var2 = WorldMapSection1.af_renamed(1781845069 * this.bs);
+      } else if (2051988897 * this.br != -1) {
+         var2 = Varps.aw[this.br * 2051988897];
+      }
+
+      int var3;
+      if (var2 >= 0 && var2 < this.bn.length - 1) {
+         var3 = this.bn[var2];
+      } else {
+         var3 = this.bn[this.bn.length - 1];
+      }
+
+      return var3 != -1 ? AbstractArchive.an_renamed(var3) : null;
+   }
+
+   public boolean aa() {
+      if (this.bn == null) {
+         return true;
+      } else {
+         int var2 = -1;
+         if (-1 != this.bs * 1781845069) {
+            var2 = WorldMapSection1.af_renamed(this.bs * 1781845069);
+         } else if (-1 != 2051988897 * this.br) {
+            var2 = Varps.aw[2051988897 * this.br];
+         }
+
+         if (var2 >= 0 && var2 < this.bn.length) {
+            return -1 != this.bn[var2];
+         } else {
+            return this.bn[this.bn.length - 1] != -1;
+         }
+      }
+   }
+
+   public int ay(int var1, int var2) {
+      IterableNodeHashTable var5 = this.bv;
+      int var4;
+      if (null == var5) {
+         var4 = var2;
+      } else {
+         IntegerNode var6 = (IntegerNode)var5.get((long)var1);
+         if (null == var6) {
+            var4 = var2;
+         } else {
+            var4 = var6.af;
+         }
+      }
+
+      return var4;
    }
 
    public String ao(int var1, String var2) {
       return EnumType.an_renamed(this.bv, var1, var2);
    }
 
-   public static int aq(long var0) {
-      return (int)(var0 >>> 7 & 127L);
+   public boolean ai() {
+      return null != this.bq && this.ba != null;
+   }
+
+   public int[] ag() {
+      return this.bq;
+   }
+
+   public int ah(int var1) {
+      return null != this.bq && var1 < this.bq.length ? this.bq[var1] : -1;
+   }
+
+   public short[] av() {
+      return this.ba;
+   }
+
+   public short ar(int var1) {
+      return null != this.ba && var1 < this.ba.length ? this.ba[var1] : -1;
    }
 }

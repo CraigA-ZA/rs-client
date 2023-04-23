@@ -1,17 +1,25 @@
 public class Timer {
-   public boolean aw = false;
-   long an = -5863289074674602131L;
-   long af = -5350971994514083981L;
-   long ac = 0L;
-   long au = 0L;
-   long ab = 0L;
-   int aq = 0;
-   int al = 0;
-   int at = 0;
    int aa = 0;
+   int al = 0;
+   int aq = 0;
+   int at = 0;
+   long ab = 0L;
+   long ac = 0L;
+   long af = -5350971994514083981L;
+   long an = -5863289074674602131L;
+   long au = 0L;
+   public boolean aw = false;
 
    public void af() {
       this.af = Formatting.af_renamed() * 5350971994514083981L;
+   }
+
+   public void an() {
+      if (this.af * -5348577498961612219L != -1L) {
+         this.au = (Formatting.af_renamed() - -5348577498961612219L * this.af) * 6923964062330699407L;
+         this.af = -5350971994514083981L;
+      }
+
    }
 
    public void aw(int var1) {
@@ -70,13 +78,5 @@ public class Timer {
       var1.p2(-3830165 * this.al);
       var1.p2(1920442979 * this.at);
       var1.p2(this.aa * -1000691937);
-   }
-
-   public void an() {
-      if (this.af * -5348577498961612219L != -1L) {
-         this.au = (Formatting.af_renamed() - -5348577498961612219L * this.af) * 6923964062330699407L;
-         this.af = -5350971994514083981L;
-      }
-
    }
 }

@@ -1,11 +1,7 @@
 public class gx {
+   static int ut;
    public short[] ac;
    public short[] aw;
-   static int ut;
-
-   public static int bw_renamed(String var0) {
-      return var0.length() + 2;
-   }
 
    gx(int var1) {
       ObjType var2 = HeadbarUpdate.getObjType(var1);
@@ -21,15 +17,8 @@ public class gx {
 
    }
 
-   public static void ac_renamed(Packet var0, int var1) {
-      if (null != gc.randomDat) {
-         try {
-            gc.randomDat.seek(0L);
-            gc.randomDat.write(var0.array, var1, 24);
-         } catch (Exception var4) {
-         }
-      }
-
+   public static int bw_renamed(String var0) {
+      return var0.length() + 2;
    }
 
    static Rasterizer3D at_renamed() {
@@ -50,5 +39,16 @@ public class gx {
 
       pk.ay_renamed();
       return var1;
+   }
+
+   public static void ac_renamed(Packet var0, int var1) {
+      if (null != gc.ao) {
+         try {
+            gc.ao.seek(0L);
+            gc.ao.write(var0.al, var1, 24);
+         } catch (Exception var4) {
+         }
+      }
+
    }
 }

@@ -11,13 +11,13 @@ import java.util.Vector;
 import org.bouncycastle.util.Arrays;
 
 public class TlsClientProtocol extends TlsProtocol {
-   public CertificateStatus certificateStatus = null;
    TlsClientContextImpl tlsClientContext = null;
    public byte[] selectedSessionID = null;
-   public TlsAuthentication authentication = null;
-   public TlsKeyExchange keyExchange = null;
-   public TlsClient tlsClient = null;
    public CertificateRequest certificateRequest = null;
+   public CertificateStatus certificateStatus = null;
+   public TlsAuthentication authentication = null;
+   public TlsClient tlsClient = null;
+   public TlsKeyExchange keyExchange = null;
 
    public TlsPeer getPeer() {
       return this.tlsClient;

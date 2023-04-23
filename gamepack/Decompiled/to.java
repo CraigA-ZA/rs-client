@@ -1,10 +1,6 @@
 public abstract class to {
    static final String[] ao = new String[32];
 
-   to() throws Throwable {
-      throw new Error();
-   }
-
    static {
       ao[0] = "MEMBERS";
       ao[1] = "QUICKCHAT";
@@ -38,5 +34,9 @@ public abstract class to {
       ao[29] = "DEADMAN";
       ao[30] = "SEASONAL";
       ao[31] = "EXTERNAL_PARTNER_ONLY";
+   }
+
+   to() throws Throwable {
+      throw new Error();
    }
 }

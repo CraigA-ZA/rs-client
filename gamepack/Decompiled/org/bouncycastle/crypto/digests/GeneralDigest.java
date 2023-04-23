@@ -5,9 +5,9 @@ import org.bouncycastle.util.Memoable;
 import org.bouncycastle.util.Pack;
 
 public abstract class GeneralDigest implements ExtendedDigest, Memoable {
-   final byte[] xBuf = new byte[4];
-   long byteCount;
    int xBufOff;
+   long byteCount;
+   final byte[] xBuf = new byte[4];
 
    public GeneralDigest() {
       this.xBufOff = 0;

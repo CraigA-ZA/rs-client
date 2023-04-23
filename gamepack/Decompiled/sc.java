@@ -1,6 +1,6 @@
 public class sc {
-   static final int aw = (int)(Math.pow(2.0, 4.0) - 1.0) * 1010976615;
    static final int ac = (int)(Math.pow(2.0, 8.0) - 1.0) * 998296027;
+   static final int aw = (int)(Math.pow(2.0, 4.0) - 1.0) * 1010976615;
 
    sc() throws Throwable {
       throw new Error();

@@ -12,10 +12,10 @@ import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.DERSequence;
 
 public class DomainParameters extends ASN1Object {
-   final ASN1Integer p;
    final ASN1Integer g;
-   final ASN1Integer q;
    final ASN1Integer j;
+   final ASN1Integer p;
+   final ASN1Integer q;
    final ValidationParams validationParams;
 
    public BigInteger getG() {

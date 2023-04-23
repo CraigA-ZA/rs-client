@@ -4,8 +4,8 @@ import org.bouncycastle.crypto.Digest;
 
 class CombinedHash implements TlsHandshakeHash {
    public Digest md5;
-   public TlsContext context;
    public Digest sha1;
+   public TlsContext context;
 
    CombinedHash(CombinedHash var1) {
       this.context = var1.context;

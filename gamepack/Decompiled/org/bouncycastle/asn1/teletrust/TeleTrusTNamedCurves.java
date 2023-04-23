@@ -8,23 +8,23 @@ import org.bouncycastle.asn1.x9.X9ECParametersHolder;
 import org.bouncycastle.math.ec.ECCurve;
 
 public class TeleTrusTNamedCurves {
-   static X9ECParametersHolder brainpoolP224t1 = new TeleTrusTNamedCurves$6();
+   static X9ECParametersHolder brainpoolP160r1 = new TeleTrusTNamedCurves$1();
    static X9ECParametersHolder brainpoolP160t1 = new TeleTrusTNamedCurves$2();
-   static X9ECParametersHolder brainpoolP320t1 = new TeleTrusTNamedCurves$10();
+   static X9ECParametersHolder brainpoolP192r1 = new TeleTrusTNamedCurves$3();
    static X9ECParametersHolder brainpoolP192t1 = new TeleTrusTNamedCurves$4();
-   static X9ECParametersHolder brainpoolP384t1 = new TeleTrusTNamedCurves$12();
-   static final Hashtable objIds = new Hashtable();
+   static X9ECParametersHolder brainpoolP224r1 = new TeleTrusTNamedCurves$5();
+   static X9ECParametersHolder brainpoolP224t1 = new TeleTrusTNamedCurves$6();
    static X9ECParametersHolder brainpoolP256r1 = new TeleTrusTNamedCurves$7();
    static X9ECParametersHolder brainpoolP256t1 = new TeleTrusTNamedCurves$8();
    static X9ECParametersHolder brainpoolP320r1 = new TeleTrusTNamedCurves$9();
-   static X9ECParametersHolder brainpoolP160r1 = new TeleTrusTNamedCurves$1();
+   static X9ECParametersHolder brainpoolP320t1 = new TeleTrusTNamedCurves$10();
    static X9ECParametersHolder brainpoolP384r1 = new TeleTrusTNamedCurves$11();
-   static X9ECParametersHolder brainpoolP192r1 = new TeleTrusTNamedCurves$3();
+   static X9ECParametersHolder brainpoolP384t1 = new TeleTrusTNamedCurves$12();
    static X9ECParametersHolder brainpoolP512r1 = new TeleTrusTNamedCurves$13();
    static X9ECParametersHolder brainpoolP512t1 = new TeleTrusTNamedCurves$14();
-   static X9ECParametersHolder brainpoolP224r1 = new TeleTrusTNamedCurves$5();
    static final Hashtable curves = new Hashtable();
    static final Hashtable names = new Hashtable();
+   static final Hashtable objIds = new Hashtable();
 
    public static X9ECParameters getByName(String var0) {
       ASN1ObjectIdentifier var1 = (ASN1ObjectIdentifier)objIds.get(org.bouncycastle.util.Strings.toLowerCase(var0));

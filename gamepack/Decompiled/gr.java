@@ -1,7 +1,11 @@
 public class gr {
-   long an = -9024109114974923449L;
    long af;
+   long an = -9024109114974923449L;
    IterableNodeDeque aw = new IterableNodeDeque();
+
+   public gr(Packet var1) {
+      this.af(var1);
+   }
 
    void af(Packet var1) {
       this.af = var1.g8s() * 7340227119084236931L;
@@ -25,7 +29,7 @@ public class gr {
             var4 = new fk(this);
          }
 
-         ((fu)var4).af(var1);
+         ((fu)var4).write(var1);
          this.aw.addFirst((Node)var4);
       }
 
@@ -43,17 +47,13 @@ public class gr {
       }
    }
 
-   public gr(Packet var1) {
-      this.af(var1);
-   }
-
    static void kw_renamed() {
-      Client.menuOptionsCount = 0;
-      Client.isMiniMenuOpen = false;
-      Client.menuActions[0] = Strings.Strings_cancel;
-      Client.menuTargetNames[0] = "";
-      Client.menuArguments1[0] = 1006;
-      Client.menuShiftClick[0] = false;
-      Client.menuOptionsCount = 1153055221;
+      Client.ne = 0;
+      Client.nt = false;
+      Client.og[0] = Strings.jl;
+      Client.ok[0] = "";
+      Client.nh[0] = 1006;
+      Client.ox[0] = false;
+      Client.ne = 1153055221;
    }
 }

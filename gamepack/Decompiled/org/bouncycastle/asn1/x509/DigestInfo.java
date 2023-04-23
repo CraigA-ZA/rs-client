@@ -11,8 +11,8 @@ import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
 
 public class DigestInfo extends ASN1Object {
-   AlgorithmIdentifier algId;
    byte[] digest;
+   AlgorithmIdentifier algId;
 
    public static DigestInfo getInstance(Object var0) {
       if (var0 instanceof DigestInfo) {

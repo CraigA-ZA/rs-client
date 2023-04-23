@@ -12,28 +12,28 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.util.Arrays;
 
 public class OCBBlockCipher implements AEADBlockCipher {
+   boolean forEncryption;
+   byte[] Checksum;
+   byte[] KtopInput = null;
+   byte[] L_Asterisk;
+   byte[] L_Dollar;
+   byte[] OffsetHASH;
+   byte[] OffsetMAIN = new byte[16];
+   byte[] OffsetMAIN_0 = new byte[16];
+   byte[] Stretch = new byte[24];
+   byte[] Sum;
+   byte[] hashBlock;
+   byte[] initialAssociatedText;
+   byte[] macBlock;
+   byte[] mainBlock;
+   int hashBlockPos;
+   int macSize;
+   int mainBlockPos;
+   Vector L;
+   long hashBlockCount;
    long mainBlockCount;
    BlockCipher hashCipher;
    BlockCipher mainCipher;
-   boolean forEncryption;
-   byte[] L_Asterisk;
-   byte[] KtopInput = null;
-   Vector L;
-   byte[] OffsetMAIN = new byte[16];
-   byte[] L_Dollar;
-   byte[] Stretch = new byte[24];
-   byte[] OffsetMAIN_0 = new byte[16];
-   byte[] hashBlock;
-   byte[] mainBlock;
-   byte[] initialAssociatedText;
-   int mainBlockPos;
-   int hashBlockPos;
-   byte[] Checksum;
-   byte[] OffsetHASH;
-   byte[] Sum;
-   long hashBlockCount;
-   int macSize;
-   byte[] macBlock;
 
    public void processMainBlock(byte[] var1, int var2) {
       if (var1.length < var2 + 16) {

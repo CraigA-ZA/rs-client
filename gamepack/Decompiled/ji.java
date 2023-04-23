@@ -1,4 +1,8 @@
 public class ji extends ii {
+   ji(jg var1) {
+      super(var1);
+   }
+
    void ab(int var1, int var2, int var3, int var4, int var5, int var6, float var7, float var8, float var9, int var10, int var11, int var12) {
       int var13 = var5 - var4;
       int var14 = var2 - var1;
@@ -506,422 +510,111 @@ public class ji extends ii {
       }
    }
 
-   void bs(int[] var1, int[] var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10, int var11, int var12, int var13, int var14, int var15) {
+   final void bj(int[] var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
       if (this.al.af) {
-         if (var7 > this.al.ag * 571147771) {
-            var7 = this.al.ag * 571147771;
+         if (var6 > this.al.ag * 571147771) {
+            var6 = this.al.ag * 571147771;
          }
 
-         if (var6 < 0) {
-            var6 = 0;
+         if (var5 < 0) {
+            var5 = 0;
          }
       }
 
-      if (var6 < var7) {
-         var5 += var6;
-         var8 += var9 * var6;
-         int var18 = var7 - var6;
-         int var16;
-         int var10000;
-         int var17;
-         int var19;
-         int var20;
-         int var21;
-         int var22;
-         int var23;
-         int var24;
-         if (this.an) {
-            var24 = var6 - this.al.ax * 93675259;
-            var10 += (var13 >> 3) * var24;
-            var11 += (var14 >> 3) * var24;
-            var12 += (var15 >> 3) * var24;
-            var23 = var12 >> 12;
-            if (var23 != 0) {
-               var19 = var10 / var23;
-               var20 = var11 / var23;
-               if (var19 < 0) {
-                  var19 = 0;
-               } else if (var19 > 4032) {
-                  var19 = 4032;
+      if (var5 < var6) {
+         var2 += var5;
+         var7 += var8 * var5;
+         int var9;
+         int var10;
+         int var11;
+         int var12;
+         if (this.al.an) {
+            var4 = var6 - var5 >> 2;
+            var8 <<= 2;
+            if (this.al.aw * 918495667 == 0) {
+               if (var4 > 0) {
+                  do {
+                     var9 = (var7 & (var7 >> 31 & 1) - 1) >> 8;
+                     var3 = this.aq[var9];
+                     var7 += var8;
+                     var1[var2++] = var3;
+                     var1[var2++] = var3;
+                     var1[var2++] = var3;
+                     var1[var2++] = var3;
+                     --var4;
+                  } while(var4 > 0);
+               }
+
+               var4 = var6 - var5 & 3;
+               if (var4 > 0) {
+                  var9 = (var7 & (var7 >> 31 & 1) - 1) >> 8;
+                  var3 = this.aq[var9];
+
+                  do {
+                     var1[var2++] = var3;
+                     --var4;
+                  } while(var4 > 0);
                }
             } else {
-               var19 = 0;
-               var20 = 0;
+               var9 = this.al.aw * 918495667;
+               var10 = 256 - this.al.aw * 918495667;
+               if (var4 > 0) {
+                  do {
+                     var11 = (var7 & (var7 >> 31 & 1) - 1) >> 8;
+                     var3 = this.aq[var11];
+                     var7 += var8;
+                     var3 = ((var3 & 16711935) * var10 >> 8 & 16711935) + ((var3 & '\uff00') * var10 >> 8 & '\uff00');
+                     var12 = var1[var2];
+                     var1[var2++] = var3 + ((var12 & 16711935) * var9 >> 8 & 16711935) + ((var12 & '\uff00') * var9 >> 8 & '\uff00');
+                     var12 = var1[var2];
+                     var1[var2++] = var3 + ((var12 & 16711935) * var9 >> 8 & 16711935) + ((var12 & '\uff00') * var9 >> 8 & '\uff00');
+                     var12 = var1[var2];
+                     var1[var2++] = var3 + ((var12 & 16711935) * var9 >> 8 & 16711935) + ((var12 & '\uff00') * var9 >> 8 & '\uff00');
+                     var12 = var1[var2];
+                     var1[var2++] = var3 + ((var12 & 16711935) * var9 >> 8 & 16711935) + ((var12 & '\uff00') * var9 >> 8 & '\uff00');
+                     --var4;
+                  } while(var4 > 0);
+               }
+
+               var4 = var6 - var5 & 3;
+               if (var4 > 0) {
+                  var11 = (var7 & (var7 >> 31 & 1) - 1) >> 8;
+                  var3 = this.aq[var11];
+                  var3 = ((var3 & 16711935) * var10 >> 8 & 16711935) + ((var3 & '\uff00') * var10 >> 8 & '\uff00');
+
+                  do {
+                     var12 = var1[var2];
+                     var1[var2++] = var3 + ((var12 & 16711935) * var9 >> 8 & 16711935) + ((var12 & '\uff00') * var9 >> 8 & '\uff00');
+                     --var4;
+                  } while(var4 > 0);
+               }
             }
 
-            var10 += var13;
-            var11 += var14;
-            var12 += var15;
-            var23 = var12 >> 12;
-            if (var23 != 0) {
-               var21 = var10 / var23;
-               var22 = var11 / var23;
-               if (var21 < 0) {
-                  var21 = 0;
-               } else if (var21 > 4032) {
-                  var21 = 4032;
-               }
-            } else {
-               var21 = 0;
-               var22 = 0;
-            }
-
-            var3 = (var19 << 20) + var20;
-            var17 = (var21 - var19 >> 3 << 20) + (var22 - var20 >> 3);
-            var18 >>= 3;
-            var9 <<= 3;
-            var16 = var8 >> 8;
-            if (this.af) {
-               if (var18 > 0) {
-                  do {
-                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var10000 = var3 + var17;
-                     var19 = var21;
-                     var20 = var22;
-                     var10 += var13;
-                     var11 += var14;
-                     var12 += var15;
-                     var23 = var12 >> 12;
-                     if (var23 != 0) {
-                        var21 = var10 / var23;
-                        var22 = var11 / var23;
-                        if (var21 < 0) {
-                           var21 = 0;
-                        } else if (var21 > 4032) {
-                           var21 = 4032;
-                        }
-                     } else {
-                        var21 = 0;
-                        var22 = 0;
-                     }
-
-                     var3 = (var19 << 20) + var20;
-                     var17 = (var21 - var19 >> 3 << 20) + (var22 - var20 >> 3);
-                     var8 += var9;
-                     var16 = var8 >> 8;
-                     --var18;
-                  } while(var18 > 0);
-               }
-
-               var18 = var7 - var6 & 7;
-               if (var18 > 0) {
-                  do {
-                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     --var18;
-                  } while(var18 > 0);
-               }
-            } else {
-               if (var18 > 0) {
-                  do {
-                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var10000 = var3 + var17;
-                     var19 = var21;
-                     var20 = var22;
-                     var10 += var13;
-                     var11 += var14;
-                     var12 += var15;
-                     var23 = var12 >> 12;
-                     if (var23 != 0) {
-                        var21 = var10 / var23;
-                        var22 = var11 / var23;
-                        if (var21 < 0) {
-                           var21 = 0;
-                        } else if (var21 > 4032) {
-                           var21 = 4032;
-                        }
-                     } else {
-                        var21 = 0;
-                        var22 = 0;
-                     }
-
-                     var3 = (var19 << 20) + var20;
-                     var17 = (var21 - var19 >> 3 << 20) + (var22 - var20 >> 3);
-                     var8 += var9;
-                     var16 = var8 >> 8;
-                     --var18;
-                  } while(var18 > 0);
-               }
-
-               var18 = var7 - var6 & 7;
-               if (var18 > 0) {
-                  do {
-                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     --var18;
-                  } while(var18 > 0);
-               }
-            }
          } else {
-            var24 = var6 - this.al.ax * 93675259;
-            var10 += (var13 >> 3) * var24;
-            var11 += (var14 >> 3) * var24;
-            var12 += (var15 >> 3) * var24;
-            var23 = var12 >> 14;
-            if (var23 != 0) {
-               var19 = var10 / var23;
-               var20 = var11 / var23;
-               if (var19 < 0) {
-                  var19 = 0;
-               } else if (var19 > 16256) {
-                  var19 = 16256;
-               }
+            var4 = var6 - var5;
+            if (this.al.aw * 918495667 == 0) {
+               do {
+                  var9 = (var7 & (var7 >> 31 & 1) - 1) >> 8;
+                  var1[var2++] = this.aq[var9];
+                  var7 += var8;
+                  --var4;
+               } while(var4 > 0);
             } else {
-               var19 = 0;
-               var20 = 0;
+               var9 = this.al.aw * 918495667;
+               var10 = 256 - this.al.aw * 918495667;
+
+               do {
+                  var11 = (var7 & (var7 >> 31 & 1) - 1) >> 8;
+                  var3 = this.aq[var11];
+                  var7 += var8;
+                  var3 = ((var3 & 16711935) * var10 >> 8 & 16711935) + ((var3 & '\uff00') * var10 >> 8 & '\uff00');
+                  var12 = var1[var2];
+                  var1[var2++] = var3 + ((var12 & 16711935) * var9 >> 8 & 16711935) + ((var12 & '\uff00') * var9 >> 8 & '\uff00');
+                  --var4;
+               } while(var4 > 0);
             }
 
-            var10 += var13;
-            var11 += var14;
-            var12 += var15;
-            var23 = var12 >> 14;
-            if (var23 != 0) {
-               var21 = var10 / var23;
-               var22 = var11 / var23;
-               if (var21 < 0) {
-                  var21 = 0;
-               } else if (var21 > 16256) {
-                  var21 = 16256;
-               }
-            } else {
-               var21 = 0;
-               var22 = 0;
-            }
-
-            var3 = (var19 << 18) + var20;
-            var17 = (var21 - var19 >> 3 << 18) + (var22 - var20 >> 3);
-            var18 >>= 3;
-            var9 <<= 3;
-            var16 = var8 >> 8;
-            if (this.af) {
-               if (var18 > 0) {
-                  do {
-                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var10000 = var3 + var17;
-                     var19 = var21;
-                     var20 = var22;
-                     var10 += var13;
-                     var11 += var14;
-                     var12 += var15;
-                     var23 = var12 >> 14;
-                     if (var23 != 0) {
-                        var21 = var10 / var23;
-                        var22 = var11 / var23;
-                        if (var21 < 0) {
-                           var21 = 0;
-                        } else if (var21 > 16256) {
-                           var21 = 16256;
-                        }
-                     } else {
-                        var21 = 0;
-                        var22 = 0;
-                     }
-
-                     var3 = (var19 << 18) + var20;
-                     var17 = (var21 - var19 >> 3 << 18) + (var22 - var20 >> 3);
-                     var8 += var9;
-                     var16 = var8 >> 8;
-                     --var18;
-                  } while(var18 > 0);
-               }
-
-               var18 = var7 - var6 & 7;
-               if (var18 > 0) {
-                  do {
-                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
-                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
-                     --var18;
-                  } while(var18 > 0);
-               }
-            } else {
-               if (var18 > 0) {
-                  do {
-                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var10000 = var3 + var17;
-                     var19 = var21;
-                     var20 = var22;
-                     var10 += var13;
-                     var11 += var14;
-                     var12 += var15;
-                     var23 = var12 >> 14;
-                     if (var23 != 0) {
-                        var21 = var10 / var23;
-                        var22 = var11 / var23;
-                        if (var21 < 0) {
-                           var21 = 0;
-                        } else if (var21 > 16256) {
-                           var21 = 16256;
-                        }
-                     } else {
-                        var21 = 0;
-                        var22 = 0;
-                     }
-
-                     var3 = (var19 << 18) + var20;
-                     var17 = (var21 - var19 >> 3 << 18) + (var22 - var20 >> 3);
-                     var8 += var9;
-                     var16 = var8 >> 8;
-                     --var18;
-                  } while(var18 > 0);
-               }
-
-               var18 = var7 - var6 & 7;
-               if (var18 > 0) {
-                  do {
-                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
-                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     }
-
-                     ++var5;
-                     var3 += var17;
-                     --var18;
-                  } while(var18 > 0);
-               }
-            }
          }
-
       }
    }
 
@@ -1482,7 +1175,7 @@ public class ji extends ii {
          var24 = this.al.aq.ac(var22);
          this.ab(var1, var2, var3, var4, var5, var6, var7, var8, var9, FloorDecoration.aw_renamed(var24, var10), FloorDecoration.aw_renamed(var24, var11), FloorDecoration.aw_renamed(var24, var12));
       } else {
-         this.an = this.al.aq.ab(var22);
+         this.an = this.al.aq.isLowDetail(var22);
          this.af = this.al.aq.au(var22);
          var24 = var5 - var4;
          int var25 = var2 - var1;
@@ -2098,115 +1791,7 @@ public class ji extends ii {
       }
    }
 
-   final void bj(int[] var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
-      if (this.al.af) {
-         if (var6 > this.al.ag * 571147771) {
-            var6 = this.al.ag * 571147771;
-         }
-
-         if (var5 < 0) {
-            var5 = 0;
-         }
-      }
-
-      if (var5 < var6) {
-         var2 += var5;
-         var7 += var8 * var5;
-         int var9;
-         int var10;
-         int var11;
-         int var12;
-         if (this.al.an) {
-            var4 = var6 - var5 >> 2;
-            var8 <<= 2;
-            if (this.al.aw * 918495667 == 0) {
-               if (var4 > 0) {
-                  do {
-                     var9 = (var7 & (var7 >> 31 & 1) - 1) >> 8;
-                     var3 = this.aq[var9];
-                     var7 += var8;
-                     var1[var2++] = var3;
-                     var1[var2++] = var3;
-                     var1[var2++] = var3;
-                     var1[var2++] = var3;
-                     --var4;
-                  } while(var4 > 0);
-               }
-
-               var4 = var6 - var5 & 3;
-               if (var4 > 0) {
-                  var9 = (var7 & (var7 >> 31 & 1) - 1) >> 8;
-                  var3 = this.aq[var9];
-
-                  do {
-                     var1[var2++] = var3;
-                     --var4;
-                  } while(var4 > 0);
-               }
-            } else {
-               var9 = this.al.aw * 918495667;
-               var10 = 256 - this.al.aw * 918495667;
-               if (var4 > 0) {
-                  do {
-                     var11 = (var7 & (var7 >> 31 & 1) - 1) >> 8;
-                     var3 = this.aq[var11];
-                     var7 += var8;
-                     var3 = ((var3 & 16711935) * var10 >> 8 & 16711935) + ((var3 & '\uff00') * var10 >> 8 & '\uff00');
-                     var12 = var1[var2];
-                     var1[var2++] = var3 + ((var12 & 16711935) * var9 >> 8 & 16711935) + ((var12 & '\uff00') * var9 >> 8 & '\uff00');
-                     var12 = var1[var2];
-                     var1[var2++] = var3 + ((var12 & 16711935) * var9 >> 8 & 16711935) + ((var12 & '\uff00') * var9 >> 8 & '\uff00');
-                     var12 = var1[var2];
-                     var1[var2++] = var3 + ((var12 & 16711935) * var9 >> 8 & 16711935) + ((var12 & '\uff00') * var9 >> 8 & '\uff00');
-                     var12 = var1[var2];
-                     var1[var2++] = var3 + ((var12 & 16711935) * var9 >> 8 & 16711935) + ((var12 & '\uff00') * var9 >> 8 & '\uff00');
-                     --var4;
-                  } while(var4 > 0);
-               }
-
-               var4 = var6 - var5 & 3;
-               if (var4 > 0) {
-                  var11 = (var7 & (var7 >> 31 & 1) - 1) >> 8;
-                  var3 = this.aq[var11];
-                  var3 = ((var3 & 16711935) * var10 >> 8 & 16711935) + ((var3 & '\uff00') * var10 >> 8 & '\uff00');
-
-                  do {
-                     var12 = var1[var2];
-                     var1[var2++] = var3 + ((var12 & 16711935) * var9 >> 8 & 16711935) + ((var12 & '\uff00') * var9 >> 8 & '\uff00');
-                     --var4;
-                  } while(var4 > 0);
-               }
-            }
-
-         } else {
-            var4 = var6 - var5;
-            if (this.al.aw * 918495667 == 0) {
-               do {
-                  var9 = (var7 & (var7 >> 31 & 1) - 1) >> 8;
-                  var1[var2++] = this.aq[var9];
-                  var7 += var8;
-                  --var4;
-               } while(var4 > 0);
-            } else {
-               var9 = this.al.aw * 918495667;
-               var10 = 256 - this.al.aw * 918495667;
-
-               do {
-                  var11 = (var7 & (var7 >> 31 & 1) - 1) >> 8;
-                  var3 = this.aq[var11];
-                  var7 += var8;
-                  var3 = ((var3 & 16711935) * var10 >> 8 & 16711935) + ((var3 & '\uff00') * var10 >> 8 & '\uff00');
-                  var12 = var1[var2];
-                  var1[var2++] = var3 + ((var12 & 16711935) * var9 >> 8 & 16711935) + ((var12 & '\uff00') * var9 >> 8 & '\uff00');
-                  --var4;
-               } while(var4 > 0);
-            }
-
-         }
-      }
-   }
-
-   void br(int[] var1, int[] var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10, int var11, int var12, int var13, int var14, int var15) {
+   void bs(int[] var1, int[] var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10, int var11, int var12, int var13, int var14, int var15) {
       if (this.al.af) {
          if (var7 > this.al.ag * 571147771) {
             var7 = this.al.ag * 571147771;
@@ -2222,6 +1807,7 @@ public class ji extends ii {
          var8 += var9 * var6;
          int var18 = var7 - var6;
          int var16;
+         int var10000;
          int var17;
          int var19;
          int var20;
@@ -2231,32 +1817,42 @@ public class ji extends ii {
          int var24;
          if (this.an) {
             var24 = var6 - this.al.ax * 93675259;
-            var10 += var13 * var24;
-            var11 += var14 * var24;
-            var12 += var15 * var24;
+            var10 += (var13 >> 3) * var24;
+            var11 += (var14 >> 3) * var24;
+            var12 += (var15 >> 3) * var24;
             var23 = var12 >> 12;
             if (var23 != 0) {
                var19 = var10 / var23;
                var20 = var11 / var23;
+               if (var19 < 0) {
+                  var19 = 0;
+               } else if (var19 > 4032) {
+                  var19 = 4032;
+               }
             } else {
                var19 = 0;
                var20 = 0;
             }
 
-            var10 += var13 * var18;
-            var11 += var14 * var18;
-            var12 += var15 * var18;
+            var10 += var13;
+            var11 += var14;
+            var12 += var15;
             var23 = var12 >> 12;
             if (var23 != 0) {
                var21 = var10 / var23;
                var22 = var11 / var23;
+               if (var21 < 0) {
+                  var21 = 0;
+               } else if (var21 > 4032) {
+                  var21 = 4032;
+               }
             } else {
                var21 = 0;
                var22 = 0;
             }
 
             var3 = (var19 << 20) + var20;
-            var17 = ((var21 - var19) / var18 << 20) + (var22 - var20) / var18;
+            var17 = (var21 - var19 >> 3 << 20) + (var22 - var20 >> 3);
             var18 >>= 3;
             var9 <<= 3;
             var16 = var8 >> 8;
@@ -2286,7 +1882,28 @@ public class ji extends ii {
                      var3 += var17;
                      var4 = var2[(var3 & 4032) + (var3 >>> 26)];
                      var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
+                     var10000 = var3 + var17;
+                     var19 = var21;
+                     var20 = var22;
+                     var10 += var13;
+                     var11 += var14;
+                     var12 += var15;
+                     var23 = var12 >> 12;
+                     if (var23 != 0) {
+                        var21 = var10 / var23;
+                        var22 = var11 / var23;
+                        if (var21 < 0) {
+                           var21 = 0;
+                        } else if (var21 > 4032) {
+                           var21 = 4032;
+                        }
+                     } else {
+                        var21 = 0;
+                        var22 = 0;
+                     }
+
+                     var3 = (var19 << 20) + var20;
+                     var17 = (var21 - var19 >> 3 << 20) + (var22 - var20 >> 3);
                      var8 += var9;
                      var16 = var8 >> 8;
                      --var18;
@@ -2352,7 +1969,28 @@ public class ji extends ii {
                      }
 
                      ++var5;
-                     var3 += var17;
+                     var10000 = var3 + var17;
+                     var19 = var21;
+                     var20 = var22;
+                     var10 += var13;
+                     var11 += var14;
+                     var12 += var15;
+                     var23 = var12 >> 12;
+                     if (var23 != 0) {
+                        var21 = var10 / var23;
+                        var22 = var11 / var23;
+                        if (var21 < 0) {
+                           var21 = 0;
+                        } else if (var21 > 4032) {
+                           var21 = 4032;
+                        }
+                     } else {
+                        var21 = 0;
+                        var22 = 0;
+                     }
+
+                     var3 = (var19 << 20) + var20;
+                     var17 = (var21 - var19 >> 3 << 20) + (var22 - var20 >> 3);
                      var8 += var9;
                      var16 = var8 >> 8;
                      --var18;
@@ -2374,32 +2012,42 @@ public class ji extends ii {
             }
          } else {
             var24 = var6 - this.al.ax * 93675259;
-            var10 += var13 * var24;
-            var11 += var14 * var24;
-            var12 += var15 * var24;
+            var10 += (var13 >> 3) * var24;
+            var11 += (var14 >> 3) * var24;
+            var12 += (var15 >> 3) * var24;
             var23 = var12 >> 14;
             if (var23 != 0) {
                var19 = var10 / var23;
                var20 = var11 / var23;
+               if (var19 < 0) {
+                  var19 = 0;
+               } else if (var19 > 16256) {
+                  var19 = 16256;
+               }
             } else {
                var19 = 0;
                var20 = 0;
             }
 
-            var10 += var13 * var18;
-            var11 += var14 * var18;
-            var12 += var15 * var18;
+            var10 += var13;
+            var11 += var14;
+            var12 += var15;
             var23 = var12 >> 14;
             if (var23 != 0) {
                var21 = var10 / var23;
                var22 = var11 / var23;
+               if (var21 < 0) {
+                  var21 = 0;
+               } else if (var21 > 16256) {
+                  var21 = 16256;
+               }
             } else {
                var21 = 0;
                var22 = 0;
             }
 
             var3 = (var19 << 18) + var20;
-            var17 = ((var21 - var19) / var18 << 18) + (var22 - var20) / var18;
+            var17 = (var21 - var19 >> 3 << 18) + (var22 - var20 >> 3);
             var18 >>= 3;
             var9 <<= 3;
             var16 = var8 >> 8;
@@ -2429,7 +2077,28 @@ public class ji extends ii {
                      var3 += var17;
                      var4 = var2[(var3 & 16256) + (var3 >>> 25)];
                      var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
-                     var3 += var17;
+                     var10000 = var3 + var17;
+                     var19 = var21;
+                     var20 = var22;
+                     var10 += var13;
+                     var11 += var14;
+                     var12 += var15;
+                     var23 = var12 >> 14;
+                     if (var23 != 0) {
+                        var21 = var10 / var23;
+                        var22 = var11 / var23;
+                        if (var21 < 0) {
+                           var21 = 0;
+                        } else if (var21 > 16256) {
+                           var21 = 16256;
+                        }
+                     } else {
+                        var21 = 0;
+                        var22 = 0;
+                     }
+
+                     var3 = (var19 << 18) + var20;
+                     var17 = (var21 - var19 >> 3 << 18) + (var22 - var20 >> 3);
                      var8 += var9;
                      var16 = var8 >> 8;
                      --var18;
@@ -2495,7 +2164,28 @@ public class ji extends ii {
                      }
 
                      ++var5;
-                     var3 += var17;
+                     var10000 = var3 + var17;
+                     var19 = var21;
+                     var20 = var22;
+                     var10 += var13;
+                     var11 += var14;
+                     var12 += var15;
+                     var23 = var12 >> 14;
+                     if (var23 != 0) {
+                        var21 = var10 / var23;
+                        var22 = var11 / var23;
+                        if (var21 < 0) {
+                           var21 = 0;
+                        } else if (var21 > 16256) {
+                           var21 = 16256;
+                        }
+                     } else {
+                        var21 = 0;
+                        var22 = 0;
+                     }
+
+                     var3 = (var19 << 18) + var20;
+                     var17 = (var21 - var19 >> 3 << 18) + (var22 - var20 >> 3);
                      var8 += var9;
                      var16 = var8 >> 8;
                      --var18;
@@ -2527,7 +2217,7 @@ public class ji extends ii {
          var24 = this.al.aq.ac(var22);
          this.ab(var1, var2, var3, var4, var5, var6, var7, var8, var9, FloorDecoration.aw_renamed(var24, var10), FloorDecoration.aw_renamed(var24, var11), FloorDecoration.aw_renamed(var24, var12));
       } else {
-         this.an = this.al.aq.ab(var22);
+         this.an = this.al.aq.isLowDetail(var22);
          this.af = this.al.aq.au(var22);
          var24 = var5 - var4;
          int var25 = var2 - var1;
@@ -3144,7 +2834,317 @@ public class ji extends ii {
       }
    }
 
-   ji(jg var1) {
-      super(var1);
+   void br(int[] var1, int[] var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10, int var11, int var12, int var13, int var14, int var15) {
+      if (this.al.af) {
+         if (var7 > this.al.ag * 571147771) {
+            var7 = this.al.ag * 571147771;
+         }
+
+         if (var6 < 0) {
+            var6 = 0;
+         }
+      }
+
+      if (var6 < var7) {
+         var5 += var6;
+         var8 += var9 * var6;
+         int var18 = var7 - var6;
+         int var16;
+         int var17;
+         int var19;
+         int var20;
+         int var21;
+         int var22;
+         int var23;
+         int var24;
+         if (this.an) {
+            var24 = var6 - this.al.ax * 93675259;
+            var10 += var13 * var24;
+            var11 += var14 * var24;
+            var12 += var15 * var24;
+            var23 = var12 >> 12;
+            if (var23 != 0) {
+               var19 = var10 / var23;
+               var20 = var11 / var23;
+            } else {
+               var19 = 0;
+               var20 = 0;
+            }
+
+            var10 += var13 * var18;
+            var11 += var14 * var18;
+            var12 += var15 * var18;
+            var23 = var12 >> 12;
+            if (var23 != 0) {
+               var21 = var10 / var23;
+               var22 = var11 / var23;
+            } else {
+               var21 = 0;
+               var22 = 0;
+            }
+
+            var3 = (var19 << 20) + var20;
+            var17 = ((var21 - var19) / var18 << 20) + (var22 - var20) / var18;
+            var18 >>= 3;
+            var9 <<= 3;
+            var16 = var8 >> 8;
+            if (this.af) {
+               if (var18 > 0) {
+                  do {
+                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var8 += var9;
+                     var16 = var8 >> 8;
+                     --var18;
+                  } while(var18 > 0);
+               }
+
+               var18 = var7 - var6 & 7;
+               if (var18 > 0) {
+                  do {
+                     var4 = var2[(var3 & 4032) + (var3 >>> 26)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     --var18;
+                  } while(var18 > 0);
+               }
+            } else {
+               if (var18 > 0) {
+                  do {
+                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     var8 += var9;
+                     var16 = var8 >> 8;
+                     --var18;
+                  } while(var18 > 0);
+               }
+
+               var18 = var7 - var6 & 7;
+               if (var18 > 0) {
+                  do {
+                     if ((var4 = var2[(var3 & 4032) + (var3 >>> 26)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     --var18;
+                  } while(var18 > 0);
+               }
+            }
+         } else {
+            var24 = var6 - this.al.ax * 93675259;
+            var10 += var13 * var24;
+            var11 += var14 * var24;
+            var12 += var15 * var24;
+            var23 = var12 >> 14;
+            if (var23 != 0) {
+               var19 = var10 / var23;
+               var20 = var11 / var23;
+            } else {
+               var19 = 0;
+               var20 = 0;
+            }
+
+            var10 += var13 * var18;
+            var11 += var14 * var18;
+            var12 += var15 * var18;
+            var23 = var12 >> 14;
+            if (var23 != 0) {
+               var21 = var10 / var23;
+               var22 = var11 / var23;
+            } else {
+               var21 = 0;
+               var22 = 0;
+            }
+
+            var3 = (var19 << 18) + var20;
+            var17 = ((var21 - var19) / var18 << 18) + (var22 - var20) / var18;
+            var18 >>= 3;
+            var9 <<= 3;
+            var16 = var8 >> 8;
+            if (this.af) {
+               if (var18 > 0) {
+                  do {
+                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     var8 += var9;
+                     var16 = var8 >> 8;
+                     --var18;
+                  } while(var18 > 0);
+               }
+
+               var18 = var7 - var6 & 7;
+               if (var18 > 0) {
+                  do {
+                     var4 = var2[(var3 & 16256) + (var3 >>> 25)];
+                     var1[var5++] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     var3 += var17;
+                     --var18;
+                  } while(var18 > 0);
+               }
+            } else {
+               if (var18 > 0) {
+                  do {
+                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     var8 += var9;
+                     var16 = var8 >> 8;
+                     --var18;
+                  } while(var18 > 0);
+               }
+
+               var18 = var7 - var6 & 7;
+               if (var18 > 0) {
+                  do {
+                     if ((var4 = var2[(var3 & 16256) + (var3 >>> 25)]) != 0) {
+                        var1[var5] = ((var4 & 16711935) * var16 & -16711936) + ((var4 & '\uff00') * var16 & 16711680) >> 8;
+                     }
+
+                     ++var5;
+                     var3 += var17;
+                     --var18;
+                  } while(var18 > 0);
+               }
+            }
+         }
+
+      }
    }
 }

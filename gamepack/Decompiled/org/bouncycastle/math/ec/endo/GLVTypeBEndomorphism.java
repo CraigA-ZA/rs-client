@@ -7,9 +7,9 @@ import org.bouncycastle.math.ec.ECPointMap;
 import org.bouncycastle.math.ec.ScaleXPointMap;
 
 public class GLVTypeBEndomorphism implements GLVEndomorphism {
-   public final GLVTypeBParameters parameters;
-   public final ECPointMap pointMap;
    public final ECCurve curve;
+   public final ECPointMap pointMap;
+   public final GLVTypeBParameters parameters;
 
    public BigInteger[] decomposeScalar(BigInteger var1) {
       int var2 = this.parameters.getBits();

@@ -1,24 +1,24 @@
 public class VorbisCodebook {
-   int[] lengths;
-   int dimensions;
-   float[][] multiplicands;
-   int[] mults;
-   int entries;
+   float[][] au;
+   int af;
+   int an;
    int[] ab;
+   int[] ac;
+   int[] aw;
 
-   int aw() {
-      int var1;
-      for(var1 = 0; this.ab[var1] >= 0; var1 = VorbisSample.VorbisSample_readBit() != 0 ? this.ab[var1] : var1 + 1) {
+   static int af_renamed(int var0, int var1) {
+      int var2;
+      for(var2 = (int)Math.pow((double)var0, 1.0 / (double)var1) + 1; ClientScript.af_renamed(var2, var1) > var0; --var2) {
       }
 
-      return ~this.ab[var1];
+      return var2;
    }
 
    VorbisCodebook() {
       VorbisSample.VorbisSample_readBits(24);
-      this.dimensions = VorbisSample.VorbisSample_readBits(16);
-      this.entries = VorbisSample.VorbisSample_readBits(24);
-      this.lengths = new int[this.entries];
+      this.af = VorbisSample.VorbisSample_readBits(16);
+      this.an = VorbisSample.VorbisSample_readBits(24);
+      this.aw = new int[this.an];
       boolean var1 = VorbisSample.VorbisSample_readBit() != 0;
       int var2;
       int var3;
@@ -26,21 +26,21 @@ public class VorbisCodebook {
       if (var1) {
          var2 = 0;
 
-         for(var3 = VorbisSample.VorbisSample_readBits(5) + 1; var2 < this.entries; ++var3) {
-            int var4 = VorbisSample.VorbisSample_readBits(LoginProt.aq_renamed(this.entries - var2));
+         for(var3 = VorbisSample.VorbisSample_readBits(5) + 1; var2 < this.an; ++var3) {
+            int var4 = VorbisSample.VorbisSample_readBits(LoginProt.aq_renamed(this.an - var2));
 
             for(var5 = 0; var5 < var4; ++var5) {
-               this.lengths[var2++] = var3;
+               this.aw[var2++] = var3;
             }
          }
       } else {
          boolean var15 = VorbisSample.VorbisSample_readBit() != 0;
 
-         for(var3 = 0; var3 < this.entries; ++var3) {
+         for(var3 = 0; var3 < this.an; ++var3) {
             if (var15 && VorbisSample.VorbisSample_readBit() == 0) {
-               this.lengths[var3] = 0;
+               this.aw[var3] = 0;
             } else {
-               this.lengths[var3] = VorbisSample.VorbisSample_readBits(5) + 1;
+               this.aw[var3] = VorbisSample.VorbisSample_readBits(5) + 1;
             }
          }
       }
@@ -54,31 +54,31 @@ public class VorbisCodebook {
          boolean var6 = VorbisSample.VorbisSample_readBit() != 0;
          int var7;
          if (var2 == 1) {
-            var7 = af_renamed(this.entries, this.dimensions);
+            var7 = af_renamed(this.an, this.af);
          } else {
-            var7 = this.entries * this.dimensions;
+            var7 = this.an * this.af;
          }
 
-         this.mults = new int[var7];
+         this.ac = new int[var7];
 
          int var8;
          for(var8 = 0; var8 < var7; ++var8) {
-            this.mults[var8] = VorbisSample.VorbisSample_readBits(var5);
+            this.ac[var8] = VorbisSample.VorbisSample_readBits(var5);
          }
 
-         this.multiplicands = new float[this.entries][this.dimensions];
+         this.au = new float[this.an][this.af];
          float var9;
          int var10;
          int var11;
          if (var2 == 1) {
-            for(var8 = 0; var8 < this.entries; ++var8) {
+            for(var8 = 0; var8 < this.an; ++var8) {
                var9 = 0.0F;
                var10 = 1;
 
-               for(var11 = 0; var11 < this.dimensions; ++var11) {
+               for(var11 = 0; var11 < this.af; ++var11) {
                   int var12 = var8 / var10 % var7;
-                  float var13 = (float)this.mults[var12] * var17 + var16 + var9;
-                  this.multiplicands[var8][var11] = var13;
+                  float var13 = (float)this.ac[var12] * var17 + var16 + var9;
+                  this.au[var8][var11] = var13;
                   if (var6) {
                      var9 = var13;
                   }
@@ -87,13 +87,13 @@ public class VorbisCodebook {
                }
             }
          } else {
-            for(var8 = 0; var8 < this.entries; ++var8) {
+            for(var8 = 0; var8 < this.an; ++var8) {
                var9 = 0.0F;
-               var10 = var8 * this.dimensions;
+               var10 = var8 * this.af;
 
-               for(var11 = 0; var11 < this.dimensions; ++var11) {
-                  float var18 = (float)this.mults[var10] * var17 + var16 + var9;
-                  this.multiplicands[var8][var11] = var18;
+               for(var11 = 0; var11 < this.af; ++var11) {
+                  float var18 = (float)this.ac[var10] * var17 + var16 + var9;
+                  this.au[var8][var11] = var18;
                   if (var6) {
                      var9 = var18;
                   }
@@ -107,7 +107,7 @@ public class VorbisCodebook {
    }
 
    void an() {
-      int[] var1 = new int[this.entries];
+      int[] var1 = new int[this.an];
       int[] var2 = new int[33];
 
       int var3;
@@ -117,8 +117,8 @@ public class VorbisCodebook {
       int var7;
       int var8;
       int var10;
-      for(var3 = 0; var3 < this.entries; ++var3) {
-         var4 = this.lengths[var3];
+      for(var3 = 0; var3 < this.an; ++var3) {
+         var4 = this.aw[var3];
          if (var4 != 0) {
             var5 = 1 << 32 - var4;
             var6 = var2[var4];
@@ -159,8 +159,8 @@ public class VorbisCodebook {
       this.ab = new int[8];
       int var11 = 0;
 
-      for(var3 = 0; var3 < this.entries; ++var3) {
-         var4 = this.lengths[var3];
+      for(var3 = 0; var3 < this.an; ++var3) {
+         var4 = this.aw[var3];
          if (var4 != 0) {
             var5 = var1[var3];
             var6 = 0;
@@ -199,15 +199,15 @@ public class VorbisCodebook {
 
    }
 
-   float[] ac() {
-      return this.multiplicands[this.aw()];
-   }
-
-   static int af_renamed(int var0, int var1) {
-      int var2;
-      for(var2 = (int)Math.pow((double)var0, 1.0 / (double)var1) + 1; ClientScript.af_renamed(var2, var1) > var0; --var2) {
+   int aw() {
+      int var1;
+      for(var1 = 0; this.ab[var1] >= 0; var1 = VorbisSample.VorbisSample_readBit() != 0 ? this.ab[var1] : var1 + 1) {
       }
 
-      return var2;
+      return ~this.ab[var1];
+   }
+
+   float[] ac() {
+      return this.au[this.aw()];
    }
 }

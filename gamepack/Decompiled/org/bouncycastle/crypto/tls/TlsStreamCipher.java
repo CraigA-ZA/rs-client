@@ -9,12 +9,12 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.util.Arrays;
 
 public class TlsStreamCipher implements TlsCipher {
-   public TlsMac writeMac;
-   public StreamCipher encryptCipher;
-   public StreamCipher decryptCipher;
    public boolean usesNonce;
-   public TlsMac readMac;
+   public StreamCipher decryptCipher;
+   public StreamCipher encryptCipher;
    public TlsContext context;
+   public TlsMac readMac;
+   public TlsMac writeMac;
 
    public byte[] decodeCiphertext(long var1, short var3, byte[] var4, int var5, int var6) throws IOException {
       if (this.usesNonce) {

@@ -1,57 +1,126 @@
 public class hq extends DualNode {
-   short[] ah;
-   static AbstractArchive an;
-   static EvictingDualNodeHashTable ac = new EvictingDualNodeHashTable(4096);
    public static EvictingDualNodeHashTable au = new EvictingDualNodeHashTable(500);
-   static EvictingDualNodeHashTable ab = new EvictingDualNodeHashTable(30);
-   int bd;
+   static boolean af = false;
    static UnlitModel[] al = new UnlitModel[4];
+   static EvictingDualNodeHashTable ab = new EvictingDualNodeHashTable(30);
+   static EvictingDualNodeHashTable ac = new EvictingDualNodeHashTable(4096);
+   static EvictingDualNodeHashTable aq = new EvictingDualNodeHashTable(30);
+   static AbstractArchive an;
+   boolean az;
+   boolean br;
+   boolean bx;
+   int ak;
+   int bb;
+   int bd;
+   int bf;
+   int bj;
+   int bm;
+   int bn;
+   int bq;
+   int bt;
    int by;
+   int bz;
    int[] aa;
    int[] ay;
-   public int ae;
-   public int[] bc;
-   short[] ai;
-   short[] ag;
-   short[] ax;
-   public int av;
-   public int ar;
-   public String[] bi;
-   public boolean as;
-   public int aj;
-   int ak;
-   public int am;
-   public boolean ad;
-   boolean az;
-   public int ap;
-   public int be;
-   int bb;
-   public String ao;
-   static EvictingDualNodeHashTable aq = new EvictingDualNodeHashTable(30);
-   public int at;
-   boolean bx;
-   public boolean bo;
-   int bz;
-   int bm;
-   static boolean af = false;
-   int bt;
-   int bj;
-   int bn;
-   public boolean bs;
-   boolean br;
-   public int bk;
-   public int[] bu;
-   int bf;
-   int bq;
-   public int ba;
-   public int bv;
    IterableNodeHashTable bw;
-   public int bp;
-   public int bl;
+   short[] ag;
+   short[] ah;
+   short[] ai;
+   short[] ax;
+   public boolean ad;
+   public boolean as;
    public boolean bh;
+   public boolean bo;
+   public boolean bs;
+   public int ae;
+   public int aj;
+   public int am;
+   public int ap;
+   public int ar;
+   public int at;
+   public int av;
+   public int ba;
+   public int be;
    public int bg;
+   public int bk;
+   public int bl;
+   public int bp;
+   public int bv;
+   public int[] bc;
+   public int[] bu;
+   public String ao;
+   public String[] bi;
 
-   void aw() {
+   public static boolean au_renamed(int var0) {
+      return 0 != (var0 >> 22 & 1);
+   }
+
+   hq() {
+      this.ao = Strings.at;
+      this.av = 1205654711;
+      this.ar = 1159818229;
+      this.am = -1581132706;
+      this.as = true;
+      this.aj = -1041321269;
+      this.ak = -657077221;
+      this.az = false;
+      this.ad = false;
+      this.ae = 1142530427;
+      this.ap = -233970928;
+      this.by = 0;
+      this.bb = 0;
+      this.bi = new String[5];
+      this.be = 1683785829;
+      this.bk = 476568133;
+      this.bx = false;
+      this.bo = true;
+      this.bz = -133284736;
+      this.bm = -845704064;
+      this.bd = -2060996480;
+      this.bt = 0;
+      this.bj = 0;
+      this.bn = 0;
+      this.bs = false;
+      this.br = false;
+      this.bg = -1776888457;
+      this.bf = -1157714067;
+      this.bq = 1863808827;
+      this.ba = 38705135;
+      this.bv = 0;
+      this.bl = 0;
+      this.bp = 0;
+      this.bh = true;
+   }
+
+   static ClientScript aw_renamed(int var0, int var1) {
+      ClientScript var3 = (ClientScript)ClientScript.af.get((long)(var0 << 16));
+      if (var3 != null) {
+         return var3;
+      } else {
+         String var4 = String.valueOf(var0);
+         int var5 = ey.fj.getGroupId(var4);
+         if (var5 == -1) {
+            return null;
+         } else {
+            byte[] var6 = ey.fj.takeFileFlat(var5);
+            if (var6 != null) {
+               if (var6.length <= 1) {
+                  return null;
+               }
+
+               var3 = bz.loadClientScript(var6);
+               if (var3 != null) {
+                  ClientScript.af.put(var3, (long)(var0 << 16));
+                  return var3;
+               }
+            }
+
+            return null;
+         }
+      }
+   }
+
+   void postDecode() {
       if (this.aj * 415653149 == -1) {
          this.aj = 0;
          if (null != this.aa && (null == this.ay || this.ay[0] == 10)) {
@@ -71,7 +140,7 @@ public class hq extends DualNode {
 
    }
 
-   void ac(Packet var1) {
+   void decode(Packet var1) {
       while(true) {
          int var3 = var1.g1();
          if (var3 == 0) {
@@ -102,7 +171,7 @@ public class hq extends DualNode {
                }
 
                if (!af) {
-                  var1.index += -254100545 * var4;
+                  var1.at += -254100545 * var4;
                   return;
                }
 
@@ -133,7 +202,7 @@ public class hq extends DualNode {
          var4 = var1.g1();
          if (var4 > 0) {
             if (this.aa != null && !af) {
-               var1.index += var4 * 1262255402;
+               var1.at += var4 * 1262255402;
             } else {
                this.ay = null;
                this.aa = new int[var4];
@@ -225,7 +294,7 @@ public class hq extends DualNode {
 
             if (var2 < 35) {
                this.bi[var2 - 30] = var1.cw();
-               if (this.bi[var2 - 30].equalsIgnoreCase(Strings.Strings_hidden)) {
+               if (this.bi[var2 - 30].equalsIgnoreCase(Strings.ac)) {
                   if (var3 == -1) {
                      throw new IllegalStateException();
                   }
@@ -475,41 +544,18 @@ public class hq extends DualNode {
       }
    }
 
-   hq() {
-      this.ao = Strings.Strings_null;
-      this.av = 1205654711;
-      this.ar = 1159818229;
-      this.am = -1581132706;
-      this.as = true;
-      this.aj = -1041321269;
-      this.ak = -657077221;
-      this.az = false;
-      this.ad = false;
-      this.ae = 1142530427;
-      this.ap = -233970928;
-      this.by = 0;
-      this.bb = 0;
-      this.bi = new String[5];
-      this.be = 1683785829;
-      this.bk = 476568133;
-      this.bx = false;
-      this.bo = true;
-      this.bz = -133284736;
-      this.bm = -845704064;
-      this.bd = -2060996480;
-      this.bt = 0;
-      this.bj = 0;
-      this.bn = 0;
-      this.bs = false;
-      this.br = false;
-      this.bg = -1776888457;
-      this.bf = -1157714067;
-      this.bq = 1863808827;
-      this.ba = 38705135;
-      this.bv = 0;
-      this.bl = 0;
-      this.bp = 0;
-      this.bh = true;
+   public final boolean loadChatHeadModel() {
+      if (this.aa == null) {
+         return true;
+      } else {
+         boolean var2 = true;
+
+         for(int var3 = 0; var3 < this.aa.length; ++var3) {
+            var2 &= go.aw.tryLoadFile(this.aa[var3] & '\uffff', 0);
+         }
+
+         return var2;
+      }
    }
 
    public final Entity al(int var1, int var2, int[][] var3, int var4, int var5, int var6, byte var7) {
@@ -580,6 +626,32 @@ public class hq extends DualNode {
       }
 
       return (Entity)var10;
+   }
+
+   public final it at(int var1, int var2, int[][] var3, int var4, int var5, int var6) {
+      long var8;
+      if (null == this.ay) {
+         var8 = (long)((-1529817365 * this.at << 10) + var2);
+      } else {
+         var8 = (long)((this.at * -1529817365 << 10) + (var1 << 3) + var2);
+      }
+
+      it var10 = (it)aq.get(var8);
+      if (var10 == null) {
+         UnlitModel var11 = this.ay(var1, var2);
+         if (var11 == null) {
+            return null;
+         }
+
+         var10 = var11.bb(this.by * 1284125631 + 64, 768 + -18088891 * this.bb, -50, -10, -50);
+         aq.put(var10, var8);
+      }
+
+      if (this.ak * -1437543955 >= 0) {
+         var10 = var10.at(var3, var4, var5, var6, true, -1437543955 * this.ak);
+      }
+
+      return var10;
    }
 
    public final it aa(int var1, int var2, int[][] var3, int var4, int var5, int var6, SeqType var7, int var8) {
@@ -758,7 +830,7 @@ public class hq extends DualNode {
       if (-1 != 1411927451 * this.bf) {
          var2 = WorldMapSection1.af_renamed(1411927451 * this.bf);
       } else if (1685173773 * this.bq != -1) {
-         var2 = Varps.Varps_main[this.bq * 1685173773];
+         var2 = Varps.aw[this.bq * 1685173773];
       }
 
       int var3;
@@ -771,30 +843,25 @@ public class hq extends DualNode {
       return -1 != var3 ? fw.an_renamed(var3) : null;
    }
 
-   public final it at(int var1, int var2, int[][] var3, int var4, int var5, int var6) {
-      long var8;
-      if (null == this.ay) {
-         var8 = (long)((-1529817365 * this.at << 10) + var2);
+   public int ax(int var1, int var2) {
+      IterableNodeHashTable var5 = this.bw;
+      int var4;
+      if (null == var5) {
+         var4 = var2;
       } else {
-         var8 = (long)((this.at * -1529817365 << 10) + (var1 << 3) + var2);
-      }
-
-      it var10 = (it)aq.get(var8);
-      if (var10 == null) {
-         UnlitModel var11 = this.ay(var1, var2);
-         if (var11 == null) {
-            return null;
+         IntegerNode var6 = (IntegerNode)var5.get((long)var1);
+         if (null == var6) {
+            var4 = var2;
+         } else {
+            var4 = var6.af;
          }
-
-         var10 = var11.bb(this.by * 1284125631 + 64, 768 + -18088891 * this.bb, -50, -10, -50);
-         aq.put(var10, var8);
       }
 
-      if (this.ak * -1437543955 >= 0) {
-         var10 = var10.at(var3, var4, var5, var6, true, -1437543955 * this.ak);
-      }
+      return var4;
+   }
 
-      return var10;
+   public String ai(int var1, String var2) {
+      return EnumType.an_renamed(this.bw, var1, var2);
    }
 
    public boolean ah() {
@@ -814,48 +881,17 @@ public class hq extends DualNode {
       }
    }
 
-   public int ax(int var1, int var2) {
-      IterableNodeHashTable var5 = this.bw;
-      int var4;
-      if (null == var5) {
-         var4 = var2;
-      } else {
-         IntegerNode var6 = (IntegerNode)var5.get((long)var1);
-         if (null == var6) {
-            var4 = var2;
-         } else {
-            var4 = var6.integer;
-         }
-      }
-
-      return var4;
-   }
-
-   public final boolean aq() {
-      if (this.aa == null) {
-         return true;
-      } else {
-         boolean var2 = true;
-
-         for(int var3 = 0; var3 < this.aa.length; ++var3) {
-            var2 &= go.aw.tryLoadFile(this.aa[var3] & '\uffff', 0);
-         }
-
-         return var2;
-      }
-   }
-
    static int ae_renamed(int var0, ClientScript var1, boolean var2) {
       if (var0 == 3200) {
-         Interpreter.Interpreter_intStackSize -= 1281407919;
-         fh.he_renamed(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539], Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize], Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 2]);
+         Interpreter.at -= 1281407919;
+         fh.he_renamed(Interpreter.al[Interpreter.at * -964267539], Interpreter.al[1 + -964267539 * Interpreter.at], Interpreter.al[Interpreter.at * -964267539 + 2]);
          return 1;
       } else if (var0 == 3201) {
-         an.hf_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+         an.hf_renamed(Interpreter.al[(Interpreter.at -= 427135973) * -964267539]);
          return 1;
       } else if (var0 == 3202) {
-         Interpreter.Interpreter_intStackSize -= 854271946;
-         CollisionMap.hy_renamed(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539], Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1]);
+         Interpreter.at -= 854271946;
+         CollisionMap.hy_renamed(Interpreter.al[Interpreter.at * -964267539], Interpreter.al[-964267539 * Interpreter.at + 1]);
          return 1;
       } else {
          dt var4;
@@ -872,24 +908,24 @@ public class hq extends DualNode {
                   int var11;
                   int var13;
                   if (3216 == var0) {
-                     var11 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                     var11 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                      var13 = 0;
                      dt var17 = (dt)StructType.findEnumerated(ArchiveDiskAction.au_renamed(), var11);
                      if (var17 != null) {
                         var13 = dt.af != var17 ? 1 : 0;
                      }
 
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var13;
+                     Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var13;
                      return 1;
                   } else if (3218 == var0) {
-                     var11 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                     var11 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                      var13 = 0;
                      dk var16 = (dk)StructType.findEnumerated(em.au_renamed(), var11);
                      if (var16 != null) {
                         var13 = var16 != dk.af ? 1 : 0;
                      }
 
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var13;
+                     Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var13;
                      return 1;
                   } else if (3217 != var0 && var0 != 3219) {
                      return 2;
@@ -900,7 +936,7 @@ public class hq extends DualNode {
                      boolean var15 = true;
                      int var8;
                      if (3217 == var0) {
-                        var8 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                        var8 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                         var4 = (dt)StructType.findEnumerated(ArchiveDiskAction.au_renamed(), var8);
                         if (null == var4) {
                            throw new RuntimeException(String.format("Unrecognized device option %d", var8));
@@ -908,7 +944,7 @@ public class hq extends DualNode {
                      }
 
                      if (var0 == 3219) {
-                        var8 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                        var8 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                         var5 = (dk)StructType.findEnumerated(em.au_renamed(), var8);
                         if (null == var5) {
                            throw new RuntimeException(String.format("Unrecognized game option %d", var8));
@@ -955,8 +991,8 @@ public class hq extends DualNode {
                         }
                      }
 
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var14;
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var7;
+                     Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var14;
+                     Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var7;
                      return 1;
                   }
                }
@@ -965,7 +1001,7 @@ public class hq extends DualNode {
                var5 = dk.af;
                var9 = false;
                if (3214 == var0) {
-                  var7 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var7 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                   var4 = (dt)StructType.findEnumerated(ArchiveDiskAction.au_renamed(), var7);
                   if (var4 == null) {
                      throw new RuntimeException(String.format("Unrecognized device option %d", var7));
@@ -973,7 +1009,7 @@ public class hq extends DualNode {
                }
 
                if (var0 == 3215) {
-                  var7 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var7 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                   var5 = (dk)StructType.findEnumerated(em.au_renamed(), var7);
                   if (null == var5) {
                      throw new RuntimeException(String.format("Unrecognized game option %d", var7));
@@ -981,7 +1017,7 @@ public class hq extends DualNode {
                }
 
                if (3210 == var0) {
-                  var7 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var7 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                   var4 = (dt)StructType.findEnumerated(ArchiveDiskAction.au_renamed(), var7);
                   if (var4 == null) {
                      var5 = (dk)StructType.findEnumerated(em.au_renamed(), var7);
@@ -1002,16 +1038,16 @@ public class hq extends DualNode {
                if (var5 == dk.af) {
                   switch (var4.aq * -2060299987) {
                      case 1:
-                        var6 = aj.clientPreferences.al() ? 1 : 0;
+                        var6 = aj.vb.al() ? 1 : 0;
                         break;
                      case 2:
-                        var6 = aj.clientPreferences.aa() ? 1 : 0;
+                        var6 = aj.vb.aa() ? 1 : 0;
                         break;
                      case 3:
-                        var6 = aj.clientPreferences.ax() ? 1 : 0;
+                        var6 = aj.vb.ax() ? 1 : 0;
                         break;
                      case 4:
-                        var6 = aj.clientPreferences.ag();
+                        var6 = aj.vb.ag();
                         break;
                      case 5:
                         var6 = da.mh_renamed();
@@ -1023,18 +1059,18 @@ public class hq extends DualNode {
                } else {
                   switch (var5.ab * 358560065) {
                      case 1:
-                        var6 = aj.clientPreferences.ab() ? 1 : 0;
+                        var6 = aj.vb.ab() ? 1 : 0;
                         break;
                      case 2:
-                        var7 = aj.clientPreferences.am();
+                        var7 = aj.vb.am();
                         var6 = Math.round((float)(var7 * 100) / 255.0F);
                         break;
                      case 3:
-                        var7 = aj.clientPreferences.aj();
+                        var7 = aj.vb.aj();
                         var6 = Math.round((float)(var7 * 100) / 127.0F);
                         break;
                      case 4:
-                        var7 = aj.clientPreferences.az();
+                        var7 = aj.vb.az();
                         var6 = Math.round((float)(100 * var7) / 127.0F);
                         break;
                      default:
@@ -1043,15 +1079,15 @@ public class hq extends DualNode {
                   }
                }
 
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var6;
+               Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var6;
                return 1;
             }
          } else {
             var4 = dt.af;
             var5 = dk.af;
-            var6 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+            var6 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
             if (3212 == var0) {
-               var7 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+               var7 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                var4 = (dt)StructType.findEnumerated(ArchiveDiskAction.au_renamed(), var7);
                if (var4 == null) {
                   throw new RuntimeException(String.format("Unrecognized device option %d", var7));
@@ -1059,7 +1095,7 @@ public class hq extends DualNode {
             }
 
             if (var0 == 3213) {
-               var7 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+               var7 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                var5 = (dk)StructType.findEnumerated(em.au_renamed(), var7);
                if (var5 == null) {
                   throw new RuntimeException(String.format("Unrecognized game option %d", var7));
@@ -1067,7 +1103,7 @@ public class hq extends DualNode {
             }
 
             if (var0 == 3209) {
-               var7 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+               var7 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                var4 = (dt)StructType.findEnumerated(ArchiveDiskAction.au_renamed(), var7);
                if (null == var4) {
                   var5 = (dk)StructType.findEnumerated(em.au_renamed(), var7);
@@ -1088,20 +1124,20 @@ public class hq extends DualNode {
             if (dk.af == var5) {
                switch (-2060299987 * var4.aq) {
                   case 1:
-                     aj.clientPreferences.aq(1 == var6);
+                     aj.vb.aq(1 == var6);
                      break;
                   case 2:
-                     aj.clientPreferences.at(1 == var6);
+                     aj.vb.at(1 == var6);
                      break;
                   case 3:
-                     aj.clientPreferences.ay(1 == var6);
+                     aj.vb.ay(1 == var6);
                      break;
                   case 4:
                      if (var6 < 0) {
                         var6 = 0;
                      }
 
-                     aj.clientPreferences.ai(var6);
+                     aj.vb.ai(var6);
                      break;
                   case 5:
                      cm.mc_renamed(var6);
@@ -1113,7 +1149,7 @@ public class hq extends DualNode {
             } else {
                switch (var5.ab * 358560065) {
                   case 1:
-                     aj.clientPreferences.au(var6 == 1);
+                     aj.vb.au(var6 == 1);
                      break;
                   case 2:
                      var6 = Math.min(Math.max(var6, 0), 100);
@@ -1139,41 +1175,5 @@ public class hq extends DualNode {
             return 1;
          }
       }
-   }
-
-   public String ai(int var1, String var2) {
-      return EnumType.an_renamed(this.bw, var1, var2);
-   }
-
-   static ClientScript aw_renamed(int var0, int var1) {
-      ClientScript var3 = (ClientScript)ClientScript.ClientScript_cached.get((long)(var0 << 16));
-      if (var3 != null) {
-         return var3;
-      } else {
-         String var4 = String.valueOf(var0);
-         int var5 = ey.archive16.cy(var4);
-         if (var5 == -1) {
-            return null;
-         } else {
-            byte[] var6 = ey.archive16.cn(var5);
-            if (var6 != null) {
-               if (var6.length <= 1) {
-                  return null;
-               }
-
-               var3 = bz.loadClientScript(var6);
-               if (var3 != null) {
-                  ClientScript.ClientScript_cached.put(var3, (long)(var0 << 16));
-                  return var3;
-               }
-            }
-
-            return null;
-         }
-      }
-   }
-
-   public static boolean au_renamed(int var0) {
-      return 0 != (var0 >> 22 & 1);
    }
 }

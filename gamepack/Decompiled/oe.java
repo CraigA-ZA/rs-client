@@ -6,11 +6,15 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class oe extends AbstractQueue {
-   Map an;
    int au;
+   int aw;
+   Map an;
    oh[] af;
    final Comparator ac;
-   int aw;
+
+   public oe(int var1) {
+      this(var1, (Comparator)null);
+   }
 
    public oe(int var1, Comparator var2) {
       this.au = 0;
@@ -19,8 +23,28 @@ public class oe extends AbstractQueue {
       this.ac = var2;
    }
 
+   void af() {
+      int var2 = 1 + (this.af.length << 1);
+      this.af = (oh[])((oh[])Arrays.copyOf(this.af, var2));
+   }
+
    public int size() {
       return -1960181101 * this.aw;
+   }
+
+   static Object[] ac_renamed(Packet var0, int[] var1) {
+      int var3 = var0.cd();
+      Object[] var4 = new Object[var3 * var1.length];
+
+      for(int var5 = 0; var5 < var3; ++var5) {
+         for(int var6 = 0; var6 < var1.length; ++var6) {
+            int var7 = var6 + var5 * var1.length;
+            sh var8 = da.an_renamed(var1[var6]);
+            var4[var7] = var8.at(var0);
+         }
+      }
+
+      return var4;
    }
 
    public boolean offer(Object var1) {
@@ -160,10 +184,6 @@ public class oe extends AbstractQueue {
       return this.an.containsKey(var1);
    }
 
-   public Iterator iterator() {
-      return new os(this);
-   }
-
    public Object[] toArray() {
       Object[] var1 = super.toArray();
       if (this.ac != null) {
@@ -175,27 +195,7 @@ public class oe extends AbstractQueue {
       return var1;
    }
 
-   void af() {
-      int var2 = 1 + (this.af.length << 1);
-      this.af = (oh[])((oh[])Arrays.copyOf(this.af, var2));
-   }
-
-   public oe(int var1) {
-      this(var1, (Comparator)null);
-   }
-
-   static Object[] ac_renamed(Packet var0, int[] var1) {
-      int var3 = var0.cd();
-      Object[] var4 = new Object[var3 * var1.length];
-
-      for(int var5 = 0; var5 < var3; ++var5) {
-         for(int var6 = 0; var6 < var1.length; ++var6) {
-            int var7 = var6 + var5 * var1.length;
-            sh var8 = da.an_renamed(var1[var6]);
-            var4[var7] = var8.at(var0);
-         }
-      }
-
-      return var4;
+   public Iterator iterator() {
+      return new os(this);
    }
 }

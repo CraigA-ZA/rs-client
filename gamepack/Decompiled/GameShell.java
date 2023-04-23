@@ -21,109 +21,279 @@ import java.net.URL;
 import java.util.Iterator;
 
 public abstract class GameShell extends Applet implements Runnable, FocusListener, WindowListener {
-   java.awt.Canvas bk;
-   static GameShell gameShell = null;
-   static int aw = 0;
-   int maxCanvasHeight;
-   boolean hasErrored = false;
-   protected static TaskHandler taskHandler;
+   protected static KeyHandler bq = new KeyHandler();
+   protected static TaskHandler af;
+   protected static int aa = 0;
+   public static int aj;
+   static GameShell an = null;
+   static boolean au = false;
    static int al = -2033050820;
    static int at = -341822119;
-   protected static int aa = 0;
-   volatile long bt = 0L;
-   static long[] ag = new long[32];
-   protected int contentWidth;
-   static volatile boolean hasFocus = true;
-   protected int contentHeight;
-   int canvasY = 0;
-   public static int aj;
-   int az;
-   int ad;
-   int maxCanvasWidth;
-   Frame frame;
-   protected boolean by = false;
-   protected static KeyHandler KeyHandler_instance = new KeyHandler();
-   static long[] ax = new long[32];
-   volatile boolean bx = true;
+   static int aw = 0;
    static int bz = -1669766140;
+   static int mh;
+   static long ac = 0L;
+   static long bl = 4496549445389278039L;
+   static long bv = -3922098655801851377L;
+   static long[] ag = new long[32];
+   static long[] ax = new long[32];
+   static volatile boolean bu = true;
+   MouseWheelHandler bs;
+   boolean ab = false;
    boolean bm = false;
+   int ad;
+   int ae;
+   int am = 0;
+   int ap;
+   int as = 0;
+   int az;
+   java.awt.Canvas bk;
+   Frame be;
+   Clipboard br;
+   final EventQueue bg;
+   protected boolean by = false;
+   protected int ar;
+   protected int av;
    volatile boolean bd = false;
-   static boolean isKilled = false;
-   MouseWheelHandler mouseWheelHandler;
-   int canvasX = 0;
-   final EventQueue eventQueue;
-   static long stopTimeMs = 0L;
-   Clipboard clipboard;
-   static long garbageCollectorLastCollectionTime = -3922098655801851377L;
-   static long garbageCollectorLastCheckTimeMs = 4496549445389278039L;
-   static int plane;
+   volatile boolean bx = true;
+   volatile long bt = 0L;
+
+   static void al_renamed() {
+      Iterator var1 = Messages.an.iterator();
+
+      while(var1.hasNext()) {
+         Message var2 = (Message)var1.next();
+         var2.reset();
+      }
+
+   }
+
+   static void ac_renamed(int var0, int var1, int var2, hq var3, int var4) {
+      cr var6 = new cr();
+      var6.an = var0 * 241949401;
+      var6.aw = -255427968 * var1;
+      var6.ac = -274968704 * var2;
+      int var7 = var3.av * -1339930361;
+      int var8 = var3.ar * -1659393955;
+      if (1 == var4 || 3 == var4) {
+         var7 = -1659393955 * var3.ar;
+         var8 = -1339930361 * var3.av;
+      }
+
+      var6.au = (var1 + var7) * -1490504832;
+      var6.ab = 905187968 * (var2 + var8);
+      var6.al = -853803453 * var3.ba;
+      var6.aq = var3.bv * -981504640;
+      var6.aa = var3.bl * -1756454329;
+      var6.ay = var3.bp * -1723341761;
+      var6.ao = var3.bc;
+      if (var3.bu != null) {
+         var6.ag = var3;
+         var6.clear();
+      }
+
+      cr.af.addFirst(var6);
+      if (var6.ao != null) {
+         var6.ax = (var6.aa * -442346035 + (int)(Math.random() * (double)(var6.ay * -1018564833 - var6.aa * -442346035))) * -713890281;
+      }
+
+   }
+
+   protected GameShell() {
+      EventQueue var1 = null;
+
+      try {
+         var1 = Toolkit.getDefaultToolkit().getSystemEventQueue();
+      } catch (Throwable var3) {
+      }
+
+      this.bg = var1;
+      DevicePcmPlayerProvider var2 = new DevicePcmPlayerProvider();
+      PcmPlayer.ax = var2;
+   }
+
+   protected final void setMaxCanvasSize(int var1, int var2) {
+      if (var1 != 2087275977 * this.ae || 83534669 * this.ap != var2) {
+         this.bi();
+      }
+
+      this.ae = var1 * -753509255;
+      this.ap = var2 * -438874747;
+   }
 
    final void at(Object var1) {
-      if (null != this.eventQueue) {
-         for(int var3 = 0; var3 < 50 && this.eventQueue.peekEvent() != null; ++var3) {
+      if (null != this.bg) {
+         for(int var3 = 0; var3 < 50 && this.bg.peekEvent() != null; ++var3) {
             PlayerAppearance.af(1L);
          }
 
          if (null != var1) {
-            this.eventQueue.postEvent(new ActionEvent(var1, 1001, "dummy"));
+            this.bg.postEvent(new ActionEvent(var1, 1001, "dummy"));
          }
 
       }
    }
 
    protected MouseWheel mouseWheel() {
-      if (this.mouseWheelHandler == null) {
-         this.mouseWheelHandler = new MouseWheelHandler();
-         this.mouseWheelHandler.addTo(this.bk);
+      if (this.bs == null) {
+         this.bs = new MouseWheelHandler();
+         this.bs.addTo(this.bk);
       }
 
-      return this.mouseWheelHandler;
+      return this.bs;
+   }
+
+   protected void setUpClipboard() {
+      this.br = this.getToolkit().getSystemClipboard();
+   }
+
+   protected void clipboardSetString(String var1) {
+      this.br.setContents(new StringSelection(var1), (ClipboardOwner)null);
+   }
+
+   protected Clipboard ax() {
+      return this.br;
+   }
+
+   protected final void ai() {
+      gs.af_renamed();
+      bq.aw(this.bk);
+   }
+
+   protected final void ag() {
+      bq.au();
+   }
+
+   protected void ah(be var1, int var2) {
+      bq.af(var1, var2);
+   }
+
+   protected final void av() {
+      pc.af_renamed(this.bk);
+   }
+
+   final void ar() {
+      Container var2 = this.container();
+      if (null != var2) {
+         Bounds var3 = this.getFrameContentBounds();
+         this.av = Math.max(944313703 * var3.aw, 69014751 * this.az) * -2050638615;
+         this.ar = Math.max(var3.ac * -1376251093, 1673949127 * this.ad) * -1550051949;
+         if (-927540391 * this.av <= 0) {
+            this.av = -2050638615;
+         }
+
+         if (-1747234661 * this.ar <= 0) {
+            this.ar = -1550051949;
+         }
+
+         aj = Math.min(-927540391 * this.av, 2087275977 * this.ae) * 2082454245;
+         kd.ak = Math.min(-1747234661 * this.ar, 83534669 * this.ap) * -16547605;
+         this.am = (this.av * -927540391 - -1687260435 * aj) / 2 * 1463717787;
+         this.as = 0;
+         this.bk.setSize(aj * -1687260435, kd.ak * 1658005443);
+         ia.bn = new RasterProvider(-1687260435 * aj, 1658005443 * kd.ak, this.bk, this.by);
+         if (var2 == this.be) {
+            Insets var4 = this.be.getInsets();
+            this.bk.setLocation(var4.left + -744210797 * this.am, this.as * 895830209 + var4.top);
+         } else {
+            this.bk.setLocation(this.am * -744210797, 895830209 * this.as);
+         }
+
+         this.bx = true;
+         this.am();
+      }
+   }
+
+   void clearBackground() {
+      int var2 = -744210797 * this.am;
+      int var3 = 895830209 * this.as;
+      int var4 = -927540391 * this.av - -1687260435 * aj - var2;
+      int var5 = this.ar * -1747234661 - kd.ak * 1658005443 - var3;
+      if (var2 > 0 || var4 > 0 || var3 > 0 || var5 > 0) {
+         try {
+            Container var6 = this.container();
+            int var7 = 0;
+            int var8 = 0;
+            if (var6 == this.be) {
+               Insets var9 = this.be.getInsets();
+               var7 = var9.left;
+               var8 = var9.top;
+            }
+
+            Graphics var11 = var6.getGraphics();
+            var11.setColor(Color.black);
+            if (var2 > 0) {
+               var11.fillRect(var7, var8, var2, -1747234661 * this.ar);
+            }
+
+            if (var3 > 0) {
+               var11.fillRect(var7, var8, -927540391 * this.av, var3);
+            }
+
+            if (var4 > 0) {
+               var11.fillRect(var7 + this.av * -927540391 - var4, var8, var4, this.ar * -1747234661);
+            }
+
+            if (var5 > 0) {
+               var11.fillRect(var7, var8 + this.ar * -1747234661 - var5, -927540391 * this.av, var5);
+            }
+         } catch (Exception var10) {
+         }
+      }
+
    }
 
    final void aj() {
-      KeyHandler_instance.ac(this.bk);
+      bq.ac(this.bk);
       java.awt.Canvas var2 = this.bk;
-      var2.removeMouseListener(MouseHandler.MouseHandler_instance);
-      var2.removeMouseMotionListener(MouseHandler.MouseHandler_instance);
-      var2.removeFocusListener(MouseHandler.MouseHandler_instance);
-      MouseHandler.MouseHandler_currentButton0 = 0;
-      if (this.mouseWheelHandler != null) {
-         this.mouseWheelHandler.removeFrom(this.bk);
+      var2.removeMouseListener(MouseHandler.ac);
+      var2.removeMouseMotionListener(MouseHandler.ac);
+      var2.removeFocusListener(MouseHandler.ac);
+      MouseHandler.ab = 0;
+      if (this.bs != null) {
+         this.bs.removeFrom(this.bk);
       }
 
       this.az();
-      KeyHandler_instance.aw(this.bk);
+      bq.aw(this.bk);
       pc.af_renamed(this.bk);
-      if (this.mouseWheelHandler != null) {
-         this.mouseWheelHandler.addTo(this.bk);
+      if (this.bs != null) {
+         this.bs.addTo(this.bk);
       }
 
       this.bi();
    }
 
-   protected Clipboard ax() {
-      return this.clipboard;
-   }
+   protected final void ak(int var1, int var2, int var3, int var4) {
+      try {
+         if (null != an) {
+            aw += -914573903;
+            if (aw * 1470919505 >= 3) {
+               this.error("alreadyloaded");
+               return;
+            }
 
-   protected final void ai() {
-      gs.af_renamed();
-      KeyHandler_instance.aw(this.bk);
-   }
+            this.getAppletContext().showDocument(this.getDocumentBase(), "_self");
+            return;
+         }
 
-   protected final void setMaxCanvasSize(int var1, int var2) {
-      if (var1 != 2087275977 * this.maxCanvasWidth || 83534669 * this.maxCanvasHeight != var2) {
-         this.bi();
+         an = this;
+         aj = var1 * 2082454245;
+         kd.ak = -16547605 * var2;
+         ClientError.aw = var3 * -136548689;
+         qh.ac = 767373001 * var4;
+         dn.af = this;
+         if (null == af) {
+            af = new TaskHandler();
+         }
+
+         af.newThreadTask(this, 1);
+      } catch (Exception var7) {
+         ob.af_renamed((String)null, var7);
+         this.error("crash");
       }
 
-      this.maxCanvasWidth = var1 * -753509255;
-      this.maxCanvasHeight = var2 * -438874747;
    }
-
-   protected void ah(be var1, int var2) {
-      KeyHandler_instance.af(var1, var2);
-   }
-
-   protected abstract void am();
 
    final synchronized void az() {
       Container var2 = this.container();
@@ -135,8 +305,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       aj = Math.max(var2.getWidth(), this.az * 69014751) * 2082454245;
       kd.ak = Math.max(var2.getHeight(), this.ad * 1673949127) * -16547605;
       Insets var3;
-      if (null != this.frame) {
-         var3 = this.frame.getInsets();
+      if (null != this.be) {
+         var3 = this.be.getInsets();
          aj -= (var3.right + var3.left) * 2082454245;
          kd.ak -= (var3.bottom + var3.top) * -16547605;
       }
@@ -148,21 +318,21 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       this.bk.setSize(-1687260435 * aj, 1658005443 * kd.ak);
       this.bk.setVisible(true);
       this.bk.setBackground(Color.BLACK);
-      if (this.frame == var2) {
-         var3 = this.frame.getInsets();
-         this.bk.setLocation(var3.left + -744210797 * this.canvasX, var3.top + 895830209 * this.canvasY);
+      if (this.be == var2) {
+         var3 = this.be.getInsets();
+         this.bk.setLocation(var3.left + -744210797 * this.am, var3.top + 895830209 * this.as);
       } else {
-         this.bk.setLocation(this.canvasX * -744210797, this.canvasY * 895830209);
+         this.bk.setLocation(this.am * -744210797, this.as * 895830209);
       }
 
       this.bk.addFocusListener(this);
       this.bk.requestFocus();
       this.bx = true;
-      if (null != ia.rasterProvider && 1313069155 * ia.rasterProvider.ac == aj * -1687260435 && 1658005443 * kd.ak == 1695726685 * ia.rasterProvider.au) {
-         ((RasterProvider)ia.rasterProvider).setComponent(this.bk);
-         ia.rasterProvider.drawFull(0, 0);
+      if (null != ia.bn && 1313069155 * ia.bn.ac == aj * -1687260435 && 1658005443 * kd.ak == 1695726685 * ia.bn.au) {
+         ((RasterProvider)ia.bn).setComponent(this.bk);
+         ia.bn.drawFull(0, 0);
       } else {
-         ia.rasterProvider = new RasterProvider(-1687260435 * aj, kd.ak * 1658005443, this.bk, this.by);
+         ia.bn = new RasterProvider(-1687260435 * aj, kd.ak * 1658005443, this.bk, this.by);
       }
 
       this.bd = false;
@@ -172,8 +342,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    protected void ad(boolean var1) {
       if (var1 != this.by) {
          this.by = var1;
-         ia.rasterProvider.am(var1);
-         ia.rasterProvider.ar();
+         ia.bn.am(var1);
+         ia.bn.ar();
       }
 
    }
@@ -206,10 +376,10 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
    public void run() {
       try {
-         if (null != TaskHandler.javaVendor) {
-            String var1 = TaskHandler.javaVendor.toLowerCase();
+         if (null != TaskHandler.af) {
+            String var1 = TaskHandler.af.toLowerCase();
             if (var1.indexOf("sun") != -1 || var1.indexOf("apple") != -1) {
-               String var2 = TaskHandler.javaVersion;
+               String var2 = TaskHandler.an;
                if (var2.equals("1.1") || var2.startsWith("1.1.") || var2.equals("1.2") || var2.startsWith("1.2.") || var2.equals("1.3") || var2.startsWith("1.3.") || var2.equals("1.4") || var2.startsWith("1.4.") || var2.equals("1.5") || var2.startsWith("1.5.") || var2.equals("1.6.0")) {
                   this.error("wrongjava");
                   return;
@@ -234,10 +404,10 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          this.setFocusCycleRoot(true);
          this.az();
          this.bm();
-         pj.clock = fc.al_renamed();
+         pj.ay = fc.al_renamed();
 
-         while(951500247553634275L * stopTimeMs == 0L || Formatting.af_renamed() < 951500247553634275L * stopTimeMs) {
-            DirectByteArrayCopier.aq = pj.clock.wait(al * 2118369515, -1500331287 * at) * 89306205;
+         while(951500247553634275L * ac == 0L || Formatting.af_renamed() < 951500247553634275L * ac) {
+            DirectByteArrayCopier.aq = pj.ay.wait(al * 2118369515, -1500331287 * at) * 89306205;
 
             for(int var6 = 0; var6 < DirectByteArrayCopier.aq * -873938955; ++var6) {
                this.ap();
@@ -263,117 +433,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       }
 
       synchronized(this) {
-         AbstractByteArrayCopier.bf = hasFocus;
+         AbstractByteArrayCopier.bf = bu;
       }
 
       this.bd();
    }
-
-   final void bb() {
-      Bounds var2 = this.getFrameContentBounds();
-      if (var2.aw * 944313703 != -927540391 * this.contentWidth || -1747234661 * this.contentHeight != var2.ac * -1376251093 || this.bm) {
-         this.ar();
-         this.bm = false;
-      }
-
-   }
-
-   protected abstract void bd();
-
-   public final void start() {
-      if (gameShell == this && !isKilled) {
-         stopTimeMs = 0L;
-      }
-   }
-
-   public final void stop() {
-      if (gameShell == this && !isKilled) {
-         stopTimeMs = (Formatting.af_renamed() + 4000L) * -2406892942717923893L;
-      }
-   }
-
-   public final void destroy() {
-      if (this == gameShell && !isKilled) {
-         stopTimeMs = Formatting.af_renamed() * -2406892942717923893L;
-         PlayerAppearance.af(5000L);
-         this.kill();
-      }
-   }
-
-   public final void update(Graphics var1) {
-      this.paint(var1);
-   }
-
-   public final synchronized void paint(Graphics var1) {
-      if (gameShell == this && !isKilled) {
-         this.bx = true;
-         if (Formatting.af_renamed() - -6171487387477770437L * this.bt > 1000L) {
-            Rectangle var2 = var1.getClipBounds();
-            if (var2 == null || var2.width >= aj * -1687260435 && var2.height >= 1658005443 * kd.ak) {
-               this.bd = true;
-            }
-         }
-
-      }
-   }
-
-   public final void focusGained(FocusEvent var1) {
-      hasFocus = true;
-      this.bx = true;
-   }
-
-   final void ar() {
-      Container var2 = this.container();
-      if (null != var2) {
-         Bounds var3 = this.getFrameContentBounds();
-         this.contentWidth = Math.max(944313703 * var3.aw, 69014751 * this.az) * -2050638615;
-         this.contentHeight = Math.max(var3.ac * -1376251093, 1673949127 * this.ad) * -1550051949;
-         if (-927540391 * this.contentWidth <= 0) {
-            this.contentWidth = -2050638615;
-         }
-
-         if (-1747234661 * this.contentHeight <= 0) {
-            this.contentHeight = -1550051949;
-         }
-
-         aj = Math.min(-927540391 * this.contentWidth, 2087275977 * this.maxCanvasWidth) * 2082454245;
-         kd.ak = Math.min(-1747234661 * this.contentHeight, 83534669 * this.maxCanvasHeight) * -16547605;
-         this.canvasX = (this.contentWidth * -927540391 - -1687260435 * aj) / 2 * 1463717787;
-         this.canvasY = 0;
-         this.bk.setSize(aj * -1687260435, kd.ak * 1658005443);
-         ia.rasterProvider = new RasterProvider(-1687260435 * aj, 1658005443 * kd.ak, this.bk, this.by);
-         if (var2 == this.frame) {
-            Insets var4 = this.frame.getInsets();
-            this.bk.setLocation(var4.left + -744210797 * this.canvasX, this.canvasY * 895830209 + var4.top);
-         } else {
-            this.bk.setLocation(this.canvasX * -744210797, 895830209 * this.canvasY);
-         }
-
-         this.bx = true;
-         this.am();
-      }
-   }
-
-   protected final void ag() {
-      KeyHandler_instance.au();
-   }
-
-   public final void windowClosing(WindowEvent var1) {
-      this.destroy();
-   }
-
-   public final void windowDeactivated(WindowEvent var1) {
-   }
-
-   protected abstract void kill0();
-
-   public final void windowIconified(WindowEvent var1) {
-   }
-
-   public final void windowOpened(WindowEvent var1) {
-   }
-
-   public abstract void init();
 
    void by() {
       Container var2 = this.container();
@@ -391,11 +455,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          this.bx = true;
          this.bk.setSize(aj * -1687260435, 1658005443 * kd.ak);
          this.bk.setVisible(true);
-         if (var2 == this.frame) {
-            Insets var8 = this.frame.getInsets();
-            this.bk.setLocation(-744210797 * this.canvasX + var8.left, var8.top + 895830209 * this.canvasY);
+         if (var2 == this.be) {
+            Insets var8 = this.be.getInsets();
+            this.bk.setLocation(-744210797 * this.am + var8.left, var8.top + 895830209 * this.as);
          } else {
-            this.bk.setLocation(this.canvasX * -744210797, 895830209 * this.canvasY);
+            this.bk.setLocation(this.am * -744210797, 895830209 * this.as);
          }
       }
 
@@ -404,7 +468,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       }
 
       this.bb();
-      this.bt(this.bx);
+      this.draw(this.bx);
       if (this.bx) {
          this.clearBackground();
       }
@@ -412,61 +476,22 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       this.bx = false;
    }
 
-   protected abstract void bt(boolean var1);
-
-   protected final void drawInitial(int var1, String var2, boolean var3) {
-      try {
-         Graphics var5 = this.bk.getGraphics();
-         if (null == jn.bb) {
-            jn.bb = new java.awt.Font("Helvetica", 1, 13);
-            bb.pauseFontMetrics = this.bk.getFontMetrics(jn.bb);
-         }
-
-         if (var3) {
-            var5.setColor(Color.black);
-            var5.fillRect(0, 0, -1687260435 * aj, 1658005443 * kd.ak);
-         }
-
-         Color var6 = new Color(140, 17, 17);
-
-         try {
-            if (PacketWriter.pauseImage == null) {
-               PacketWriter.pauseImage = this.bk.createImage(304, 34);
-            }
-
-            Graphics var7 = PacketWriter.pauseImage.getGraphics();
-            var7.setColor(var6);
-            var7.drawRect(0, 0, 303, 33);
-            var7.fillRect(2, 2, 3 * var1, 30);
-            var7.setColor(Color.black);
-            var7.drawRect(1, 1, 301, 31);
-            var7.fillRect(var1 * 3 + 2, 2, 300 - 3 * var1, 30);
-            var7.setFont(jn.bb);
-            var7.setColor(Color.white);
-            var7.drawString(var2, (304 - bb.pauseFontMetrics.stringWidth(var2)) / 2, 22);
-            var5.drawImage(PacketWriter.pauseImage, aj * -1687260435 / 2 - 152, kd.ak * 1658005443 / 2 - 18, (ImageObserver)null);
-         } catch (Exception var10) {
-            int var8 = -1687260435 * aj / 2 - 152;
-            int var9 = 1658005443 * kd.ak / 2 - 18;
-            var5.setColor(var6);
-            var5.drawRect(var8, var9, 303, 33);
-            var5.fillRect(var8 + 2, 2 + var9, var1 * 3, 30);
-            var5.setColor(Color.black);
-            var5.drawRect(1 + var8, var9 + 1, 301, 31);
-            var5.fillRect(3 * var1 + 2 + var8, var9 + 2, 300 - 3 * var1, 30);
-            var5.setFont(jn.bb);
-            var5.setColor(Color.white);
-            var5.drawString(var2, var8 + (304 - bb.pauseFontMetrics.stringWidth(var2)) / 2, 22 + var9);
-         }
-      } catch (Exception var11) {
-         this.bk.repaint();
+   final void bb() {
+      Bounds var2 = this.getFrameContentBounds();
+      if (var2.aw * 944313703 != -927540391 * this.av || -1747234661 * this.ar != var2.ac * -1376251093 || this.bm) {
+         this.ar();
+         this.bm = false;
       }
 
    }
 
+   final void bi() {
+      this.bm = true;
+   }
+
    final synchronized void kill() {
-      if (!isKilled) {
-         isKilled = true;
+      if (!au) {
+         au = true;
 
          try {
             this.bk.removeFocusListener(this);
@@ -478,16 +503,16 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          } catch (Exception var5) {
          }
 
-         if (this.frame != null) {
+         if (this.be != null) {
             try {
                System.exit(0);
             } catch (Throwable var4) {
             }
          }
 
-         if (null != taskHandler) {
+         if (null != af) {
             try {
-               taskHandler.close();
+               af.close();
             } catch (Exception var3) {
             }
          }
@@ -496,9 +521,133 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       }
    }
 
+   public final void start() {
+      if (an == this && !au) {
+         ac = 0L;
+      }
+   }
+
+   public final void stop() {
+      if (an == this && !au) {
+         ac = (Formatting.af_renamed() + 4000L) * -2406892942717923893L;
+      }
+   }
+
+   public final void destroy() {
+      if (this == an && !au) {
+         ac = Formatting.af_renamed() * -2406892942717923893L;
+         PlayerAppearance.af(5000L);
+         this.kill();
+      }
+   }
+
+   public final void update(Graphics var1) {
+      this.paint(var1);
+   }
+
+   public final synchronized void paint(Graphics var1) {
+      if (an == this && !au) {
+         this.bx = true;
+         if (Formatting.af_renamed() - -6171487387477770437L * this.bt > 1000L) {
+            Rectangle var2 = var1.getClipBounds();
+            if (var2 == null || var2.width >= aj * -1687260435 && var2.height >= 1658005443 * kd.ak) {
+               this.bd = true;
+            }
+         }
+
+      }
+   }
+
+   public final void focusGained(FocusEvent var1) {
+      bu = true;
+      this.bx = true;
+   }
+
+   public final void focusLost(FocusEvent var1) {
+      bu = false;
+   }
+
+   public final void windowActivated(WindowEvent var1) {
+   }
+
+   public final void windowClosed(WindowEvent var1) {
+   }
+
+   public final void windowClosing(WindowEvent var1) {
+      this.destroy();
+   }
+
+   public final void windowDeactivated(WindowEvent var1) {
+   }
+
+   public final void windowDeiconified(WindowEvent var1) {
+   }
+
+   public final void windowIconified(WindowEvent var1) {
+   }
+
+   public final void windowOpened(WindowEvent var1) {
+   }
+
+   protected final void drawInitial(int var1, String var2, boolean var3) {
+      try {
+         Graphics var5 = this.bk.getGraphics();
+         if (null == jn.bb) {
+            jn.bb = new java.awt.Font("Helvetica", 1, 13);
+            bb.bi = this.bk.getFontMetrics(jn.bb);
+         }
+
+         if (var3) {
+            var5.setColor(Color.black);
+            var5.fillRect(0, 0, -1687260435 * aj, 1658005443 * kd.ak);
+         }
+
+         Color var6 = new Color(140, 17, 17);
+
+         try {
+            if (PacketWriter.bo == null) {
+               PacketWriter.bo = this.bk.createImage(304, 34);
+            }
+
+            Graphics var7 = PacketWriter.bo.getGraphics();
+            var7.setColor(var6);
+            var7.drawRect(0, 0, 303, 33);
+            var7.fillRect(2, 2, 3 * var1, 30);
+            var7.setColor(Color.black);
+            var7.drawRect(1, 1, 301, 31);
+            var7.fillRect(var1 * 3 + 2, 2, 300 - 3 * var1, 30);
+            var7.setFont(jn.bb);
+            var7.setColor(Color.white);
+            var7.drawString(var2, (304 - bb.bi.stringWidth(var2)) / 2, 22);
+            var5.drawImage(PacketWriter.bo, aj * -1687260435 / 2 - 152, kd.ak * 1658005443 / 2 - 18, (ImageObserver)null);
+         } catch (Exception var10) {
+            int var8 = -1687260435 * aj / 2 - 152;
+            int var9 = 1658005443 * kd.ak / 2 - 18;
+            var5.setColor(var6);
+            var5.drawRect(var8, var9, 303, 33);
+            var5.fillRect(var8 + 2, 2 + var9, var1 * 3, 30);
+            var5.setColor(Color.black);
+            var5.drawRect(1 + var8, var9 + 1, 301, 31);
+            var5.fillRect(3 * var1 + 2 + var8, var9 + 2, 300 - 3 * var1, 30);
+            var5.setFont(jn.bb);
+            var5.setColor(Color.white);
+            var5.drawString(var2, var8 + (304 - bb.bi.stringWidth(var2)) / 2, 22 + var9);
+         }
+      } catch (Exception var11) {
+         this.bk.repaint();
+      }
+
+   }
+
+   protected final void bs() {
+      PacketWriter.bo = null;
+      jn.bb = null;
+      bb.bi = null;
+   }
+
    protected void error(String var1) {
-      if (!this.hasErrored) {
-         this.hasErrored = true;
+      if (!this.ab) {
+         this.ab = true;
          System.out.println("error_game_" + var1);
 
          try {
@@ -509,14 +658,16 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       }
    }
 
-   protected abstract void bm();
+   Container container() {
+      return (Container)(null != this.be ? this.be : this);
+   }
 
    Bounds getFrameContentBounds() {
       Container var2 = this.container();
       int var3 = Math.max(var2.getWidth(), this.az * 69014751);
       int var4 = Math.max(var2.getHeight(), 1673949127 * this.ad);
-      if (null != this.frame) {
-         Insets var5 = this.frame.getInsets();
+      if (null != this.be) {
+         Insets var5 = this.be.getInsets();
          var3 -= var5.right + var5.left;
          var4 -= var5.top + var5.bottom;
       }
@@ -524,172 +675,21 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       return new Bounds(var3, var4);
    }
 
-   protected abstract void ba();
-
-   protected void clipboardSetString(String var1) {
-      this.clipboard.setContents(new StringSelection(var1), (ClipboardOwner)null);
-   }
-
-   public final void windowClosed(WindowEvent var1) {
-   }
-
-   protected GameShell() {
-      EventQueue var1 = null;
-
-      try {
-         var1 = Toolkit.getDefaultToolkit().getSystemEventQueue();
-      } catch (Throwable var3) {
-      }
-
-      this.eventQueue = var1;
-      DevicePcmPlayerProvider var2 = new DevicePcmPlayerProvider();
-      PcmPlayer.pcmPlayerProvider = var2;
-   }
-
-   public final void windowDeiconified(WindowEvent var1) {
-   }
-
-   public final void focusLost(FocusEvent var1) {
-      hasFocus = false;
-   }
-
-   static void al_renamed() {
-      Iterator var1 = Messages.Messages_hashTable.iterator();
-
-      while(var1.hasNext()) {
-         Message var2 = (Message)var1.next();
-         var2.an();
-      }
-
-   }
-
-   final void bi() {
-      this.bm = true;
-   }
-
-   public final void windowActivated(WindowEvent var1) {
-   }
-
-   protected final void ak(int var1, int var2, int var3, int var4) {
-      try {
-         if (null != gameShell) {
-            aw += -914573903;
-            if (aw * 1470919505 >= 3) {
-               this.error("alreadyloaded");
-               return;
-            }
-
-            this.getAppletContext().showDocument(this.getDocumentBase(), "_self");
-            return;
-         }
-
-         gameShell = this;
-         aj = var1 * 2082454245;
-         kd.ak = -16547605 * var2;
-         ClientError.aw = var3 * -136548689;
-         qh.ac = 767373001 * var4;
-         dn.af = this;
-         if (null == taskHandler) {
-            taskHandler = new TaskHandler();
-         }
-
-         taskHandler.newThreadTask(this, 1);
-      } catch (Exception var7) {
-         ob.af_renamed((String)null, var7);
-         this.error("crash");
-      }
-
-   }
-
-   Container container() {
-      return (Container)(null != this.frame ? this.frame : this);
-   }
-
-   protected void setUpClipboard() {
-      this.clipboard = this.getToolkit().getSystemClipboard();
-   }
-
-   protected final void bs() {
-      PacketWriter.pauseImage = null;
-      jn.bb = null;
-      bb.pauseFontMetrics = null;
-   }
-
-   protected final void av() {
-      pc.af_renamed(this.bk);
-   }
-
    protected final boolean hasFrame() {
-      return this.frame != null;
+      return this.be != null;
    }
 
-   void clearBackground() {
-      int var2 = -744210797 * this.canvasX;
-      int var3 = 895830209 * this.canvasY;
-      int var4 = -927540391 * this.contentWidth - -1687260435 * aj - var2;
-      int var5 = this.contentHeight * -1747234661 - kd.ak * 1658005443 - var3;
-      if (var2 > 0 || var4 > 0 || var3 > 0 || var5 > 0) {
-         try {
-            Container var6 = this.container();
-            int var7 = 0;
-            int var8 = 0;
-            if (var6 == this.frame) {
-               Insets var9 = this.frame.getInsets();
-               var7 = var9.left;
-               var8 = var9.top;
-            }
+   protected abstract void am();
 
-            Graphics var11 = var6.getGraphics();
-            var11.setColor(Color.black);
-            if (var2 > 0) {
-               var11.fillRect(var7, var8, var2, -1747234661 * this.contentHeight);
-            }
+   protected abstract void bd();
 
-            if (var3 > 0) {
-               var11.fillRect(var7, var8, -927540391 * this.contentWidth, var3);
-            }
+   protected abstract void kill0();
 
-            if (var4 > 0) {
-               var11.fillRect(var7 + this.contentWidth * -927540391 - var4, var8, var4, this.contentHeight * -1747234661);
-            }
+   public abstract void init();
 
-            if (var5 > 0) {
-               var11.fillRect(var7, var8 + this.contentHeight * -1747234661 - var5, -927540391 * this.contentWidth, var5);
-            }
-         } catch (Exception var10) {
-         }
-      }
+   protected abstract void draw(boolean var1);
 
-   }
+   protected abstract void bm();
 
-   static void ac_renamed(int var0, int var1, int var2, hq var3, int var4) {
-      cr var6 = new cr();
-      var6.an = var0 * 241949401;
-      var6.aw = -255427968 * var1;
-      var6.ac = -274968704 * var2;
-      int var7 = var3.av * -1339930361;
-      int var8 = var3.ar * -1659393955;
-      if (1 == var4 || 3 == var4) {
-         var7 = -1659393955 * var3.ar;
-         var8 = -1339930361 * var3.av;
-      }
-
-      var6.au = (var1 + var7) * -1490504832;
-      var6.ab = 905187968 * (var2 + var8);
-      var6.al = -853803453 * var3.ba;
-      var6.aq = var3.bv * -981504640;
-      var6.aa = var3.bl * -1756454329;
-      var6.ay = var3.bp * -1723341761;
-      var6.ao = var3.bc;
-      if (var3.bu != null) {
-         var6.ag = var3;
-         var6.aw();
-      }
-
-      cr.af.addFirst(var6);
-      if (var6.ao != null) {
-         var6.ax = (var6.aa * -442346035 + (int)(Math.random() * (double)(var6.ay * -1018564833 - var6.aa * -442346035))) * -713890281;
-      }
-
-   }
+   protected abstract void ba();
 }

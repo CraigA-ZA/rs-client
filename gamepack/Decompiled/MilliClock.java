@@ -1,22 +1,22 @@
 public class MilliClock extends Clock {
    static int ux;
+   int ab;
    int an = 1682640640;
+   int au = 0;
    int aw = 889500577;
    long ac = Formatting.af_renamed() * 3111052400392486887L;
-   int ab;
-   int au = 0;
    long[] af = new long[10];
-
-   public void mark() {
-      for(int var2 = 0; var2 < 10; ++var2) {
-         this.af[var2] = 0L;
-      }
-
-   }
 
    MilliClock() {
       for(int var1 = 0; var1 < 10; ++var1) {
          this.af[var1] = this.ac * -3320355304386370601L;
+      }
+
+   }
+
+   public void mark() {
+      for(int var2 = 0; var2 < 10; ++var2) {
+         this.af[var2] = 0L;
       }
 
    }

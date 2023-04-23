@@ -1,10 +1,10 @@
 public class AnimFrameset extends DualNode {
-   AnimFrame[] frames;
+   AnimFrame[] af;
 
    AnimFrameset(AbstractArchive var1, AbstractArchive var2, int var3, boolean var4) {
       NodeDeque var5 = new NodeDeque();
       int var6 = var1.cq(var3);
-      this.frames = new AnimFrame[var6];
+      this.af = new AnimFrame[var6];
       int[] var7 = var1.ck(var3);
 
       for(int var8 = 0; var8 < var7.length; ++var8) {
@@ -13,7 +13,7 @@ public class AnimFrameset extends DualNode {
          int var11 = (var9[0] & 255) << 8 | var9[1] & 255;
 
          for(AnimBase var12 = (AnimBase)var5.last(); null != var12; var12 = (AnimBase)var5.previous()) {
-            if (var12.transformCount * 1427390003 == var11) {
+            if (var12.ab * 1427390003 == var11) {
                var10 = var12;
                break;
             }
@@ -31,13 +31,13 @@ public class AnimFrameset extends DualNode {
             var5.addFirst(var10);
          }
 
-         this.frames[var7[var8]] = new AnimFrame(var9, var10);
+         this.af[var7[var8]] = new AnimFrame(var9, var10);
       }
 
    }
 
    public boolean hasAlphaTransform(int var1) {
-      return this.frames[var1].transparency;
+      return this.af[var1].ay;
    }
 
    static float aw_renamed(qs var0, float var1, float var2, float var3) {

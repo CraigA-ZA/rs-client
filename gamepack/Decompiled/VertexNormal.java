@@ -1,8 +1,8 @@
 public class VertexNormal {
    int ac;
+   int af;
    int an;
    int aw;
-   int af;
 
    VertexNormal() {
    }

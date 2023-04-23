@@ -5,13 +5,13 @@ import java.io.IOException;
 import java.util.Hashtable;
 
 public final class SessionParameters$Builder {
-   byte[] srpIdentity = null;
-   byte[] masterSecret = null;
-   int cipherSuite = -1;
-   short compressionAlgorithm = -1;
-   byte[] pskIdentity = null;
-   Certificate peerCertificate = null;
    byte[] encodedServerExtensions = null;
+   byte[] masterSecret = null;
+   byte[] pskIdentity = null;
+   byte[] srpIdentity = null;
+   int cipherSuite = -1;
+   Certificate peerCertificate = null;
+   short compressionAlgorithm = -1;
 
    public SessionParameters$Builder setCompressionAlgorithm(short var1) {
       this.compressionAlgorithm = var1;

@@ -3,23 +3,64 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 public final class Tiles {
-   static byte[][][] al;
-   static final int[] am = new int[]{1, 2, 4, 8};
-   static int[][] at;
-   static short[][][] au;
-   static int aw = -256673141;
-   static byte[][][] aq;
-   static int[][][] Tiles_heights = new int[4][105][105];
-   static int[] ay;
-   static final int[] ak = new int[]{0, -1, 0, 1};
-   static byte[][][] Tiles_renderFlags = new byte[4][104][104];
-   static final int[] as = new int[]{16, 32, 64, 128};
-   static final int[] aj = new int[]{1, 0, -1, 0};
    static byte[][][] ab;
-   static final int[] az = new int[]{1, -1, -1, 1};
-   static final int[] ad = new int[]{-1, -1, 1, 1};
+   static byte[][][] al;
+   static byte[][][] an = new byte[4][104][104];
+   static byte[][][] aq;
    static int ae = ((int)(Math.random() * 17.0) - 8) * 1514061769;
    static int ap = ((int)(Math.random() * 33.0) - 16) * 1193325609;
+   static int aw = -256673141;
+   static int[] ay;
+   static int[][] at;
+   static int[][][] af = new int[4][105][105];
+   static short[][][] au;
+   static final int[] ad = new int[]{-1, -1, 1, 1};
+   static final int[] aj = new int[]{1, 0, -1, 0};
+   static final int[] ak = new int[]{0, -1, 0, 1};
+   static final int[] am = new int[]{1, 2, 4, 8};
+   static final int[] as = new int[]{16, 32, 64, 128};
+   static final int[] az = new int[]{1, -1, -1, 1};
+
+   Tiles() throws Throwable {
+      throw new Error();
+   }
+
+   public static void ax_renamed() {
+      in.ab.af();
+   }
+
+   public static void aw_renamed() {
+      try {
+         File var1 = new File(hd.az, "random.dat");
+         int var3;
+         if (var1.exists()) {
+            gc.ao = new BufferedFile(new AccessFile(var1, "rw", 25L), 24, 0);
+         } else {
+            label40:
+            for(int var2 = 0; var2 < Formatting.ar.length; ++var2) {
+               for(var3 = 0; var3 < fe.av.length; ++var3) {
+                  File var4 = new File(fe.av[var3] + Formatting.ar[var2] + File.separatorChar + "random.dat");
+                  if (var4.exists()) {
+                     gc.ao = new BufferedFile(new AccessFile(var4, "rw", 25L), 24, 0);
+                     break label40;
+                  }
+               }
+            }
+         }
+
+         if (gc.ao == null) {
+            RandomAccessFile var6 = new RandomAccessFile(var1, "rw");
+            var3 = var6.read();
+            var6.seek(0L);
+            var6.write(var3);
+            var6.seek(0L);
+            var6.close();
+            gc.ao = new BufferedFile(new AccessFile(var1, "rw", 25L), 24, 0);
+         }
+      } catch (IOException var5) {
+      }
+
+   }
 
    static final void aa(byte[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, Scene var8, CollisionMap[] var9) {
       Packet var10 = new Packet(var0);
@@ -99,7 +140,7 @@ public final class Tiles {
                var37 = var3 + var31;
                if (var29 > 0 && var37 > 0 && var29 < 103 && var37 < 103) {
                   int var38 = var1;
-                  if (2 == (Tiles_renderFlags[1][var29][var37] & 2)) {
+                  if (2 == (an[1][var29][var37] & 2)) {
                      var38 = var1 - 1;
                   }
 
@@ -113,46 +154,5 @@ public final class Tiles {
             }
          }
       }
-   }
-
-   Tiles() throws Throwable {
-      throw new Error();
-   }
-
-   public static void ax_renamed() {
-      in.ab.af();
-   }
-
-   public static void aw_renamed() {
-      try {
-         File var1 = new File(hd.userHomeDirectory, "random.dat");
-         int var3;
-         if (var1.exists()) {
-            gc.randomDat = new BufferedFile(new AccessFile(var1, "rw", 25L), 24, 0);
-         } else {
-            label40:
-            for(int var2 = 0; var2 < Formatting.ar.length; ++var2) {
-               for(var3 = 0; var3 < fe.cacheDirectoryLocations.length; ++var3) {
-                  File var4 = new File(fe.cacheDirectoryLocations[var3] + Formatting.ar[var2] + File.separatorChar + "random.dat");
-                  if (var4.exists()) {
-                     gc.randomDat = new BufferedFile(new AccessFile(var4, "rw", 25L), 24, 0);
-                     break label40;
-                  }
-               }
-            }
-         }
-
-         if (gc.randomDat == null) {
-            RandomAccessFile var6 = new RandomAccessFile(var1, "rw");
-            var3 = var6.read();
-            var6.seek(0L);
-            var6.write(var3);
-            var6.seek(0L);
-            var6.close();
-            gc.randomDat = new BufferedFile(new AccessFile(var1, "rw", 25L), 24, 0);
-         }
-      } catch (IOException var5) {
-      }
-
    }
 }

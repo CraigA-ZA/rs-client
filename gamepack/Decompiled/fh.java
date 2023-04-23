@@ -3,30 +3,36 @@ import java.util.List;
 import java.util.concurrent.Future;
 
 public class fh extends DualNode {
-   int af;
-   ek[][] aw = (ek[][])null;
-   public AnimBase ac;
-   int au = 0;
-   public ek[][] an = (ek[][])null;
-   static int aq;
-   Future at;
-   List aa;
    static fj ah;
+   static int aq;
    boolean ab;
+   ek[][] aw = (ek[][])null;
+   int af;
+   int au = 0;
+   List aa;
+   Future at;
+   public ek[][] an = (ek[][])null;
+   public AnimBase ac;
 
-   static void he_renamed(int var0, int var1, int var2) {
-      if (aj.clientPreferences.aj() != 0 && 0 != var1 && Client.soundEffectCount * -297150195 < 50) {
-         Client.tu[Client.soundEffectCount * -297150195] = var0;
-         Client.tr[Client.soundEffectCount * -297150195] = var1;
-         Client.tg[Client.soundEffectCount * -297150195] = var2;
-         Client.soundEffects[-297150195 * Client.soundEffectCount] = null;
-         Client.tb[Client.soundEffectCount * -297150195] = 0;
-         Client.soundEffectCount += 831233477;
+   fh(AbstractArchive var1, AbstractArchive var2, int var3, boolean var4) {
+      this.af = 1049522741 * var3;
+      byte[] var5 = var1.takeFile(-1156919267 * this.af >> 16 & '\uffff', this.af * -1156919267 & '\uffff');
+      Packet var6 = new Packet(var5);
+      int var7 = var6.g1();
+      int var8 = var6.cl();
+      byte[] var9;
+      if (var4) {
+         var9 = var2.getFile(0, var8);
+      } else {
+         var9 = var2.getFile(var8, 0);
       }
 
+      this.ac = new AnimBase(var8, var9);
+      this.aa = new ArrayList();
+      this.at = ot.al.submit(new fi(this, var6, var7));
    }
 
-   void an(Packet var1, int var2) {
+   void decode0(Packet var1, int var2) {
       var1.cl();
       var1.cl();
       this.au = var1.g1() * 2106398559;
@@ -88,78 +94,7 @@ public class fh extends DualNode {
 
    }
 
-   public boolean au() {
-      return this.ab;
-   }
-
-   public void ab(int var1, ew var2, int var3, int var4) {
-      qj var6;
-      synchronized(qj.an) {
-         if (0 == -910698341 * qj.ac) {
-            var6 = new qj();
-         } else {
-            qj.an[(qj.ac -= -564638317) * -910698341].ab();
-            var6 = qj.an[-910698341 * qj.ac];
-         }
-      }
-
-      this.aq(var6, var3, var2, var1);
-      this.at(var6, var3, var2, var1);
-      this.al(var6, var3, var2, var1);
-      var2.au(var6);
-      var6.an();
-   }
-
-   void al(qj var1, int var2, ew var3, int var4) {
-      float[] var6 = var3.aa(this.au * -744553313);
-      float var7 = var6[0];
-      float var8 = var6[1];
-      float var9 = var6[2];
-      if (null != this.aw[var2]) {
-         ek var10 = this.aw[var2][3];
-         ek var11 = this.aw[var2][4];
-         ek var12 = this.aw[var2][5];
-         if (var10 != null) {
-            var7 = var10.aw(var4);
-         }
-
-         if (var11 != null) {
-            var8 = var11.aw(var4);
-         }
-
-         if (var12 != null) {
-            var9 = var12.aw(var4);
-         }
-      }
-
-      var1.au[12] = var7;
-      var1.au[13] = var8;
-      var1.au[14] = var9;
-   }
-
-   fh(AbstractArchive var1, AbstractArchive var2, int var3, boolean var4) {
-      this.af = 1049522741 * var3;
-      byte[] var5 = var1.takeFile(-1156919267 * this.af >> 16 & '\uffff', this.af * -1156919267 & '\uffff');
-      Packet var6 = new Packet(var5);
-      int var7 = var6.g1();
-      int var8 = var6.cl();
-      byte[] var9;
-      if (var4) {
-         var9 = var2.getFile(0, var8);
-      } else {
-         var9 = var2.getFile(var8, 0);
-      }
-
-      this.ac = new AnimBase(var8, var9);
-      this.aa = new ArrayList();
-      this.at = ot.al.submit(new fi(this, var6, var7));
-   }
-
-   public int ac() {
-      return this.au * -744553313;
-   }
-
-   public boolean aw() {
+   public boolean isFromFriend() {
       if (null == this.at && this.aa == null) {
          return true;
       } else {
@@ -189,6 +124,32 @@ public class fh extends DualNode {
             return true;
          }
       }
+   }
+
+   public int gIsaac1() {
+      return this.au * -744553313;
+   }
+
+   public boolean loadModel() {
+      return this.ab;
+   }
+
+   public void ab(int var1, ew var2, int var3, int var4) {
+      qj var6;
+      synchronized(qj.an) {
+         if (0 == -910698341 * qj.ac) {
+            var6 = new qj();
+         } else {
+            qj.an[(qj.ac -= -564638317) * -910698341].ab();
+            var6 = qj.an[-910698341 * qj.ac];
+         }
+      }
+
+      this.aq(var6, var3, var2, var1);
+      this.at(var6, var3, var2, var1);
+      this.al(var6, var3, var2, var1);
+      var2.au(var6);
+      var6.an();
    }
 
    void aq(qj var1, int var2, ew var3, int var4) {
@@ -242,6 +203,33 @@ public class fh extends DualNode {
       var14.an();
    }
 
+   void al(qj var1, int var2, ew var3, int var4) {
+      float[] var6 = var3.aa(this.au * -744553313);
+      float var7 = var6[0];
+      float var8 = var6[1];
+      float var9 = var6[2];
+      if (null != this.aw[var2]) {
+         ek var10 = this.aw[var2][3];
+         ek var11 = this.aw[var2][4];
+         ek var12 = this.aw[var2][5];
+         if (var10 != null) {
+            var7 = var10.aw(var4);
+         }
+
+         if (var11 != null) {
+            var8 = var11.aw(var4);
+         }
+
+         if (var12 != null) {
+            var9 = var12.aw(var4);
+         }
+      }
+
+      var1.au[12] = var7;
+      var1.au[13] = var8;
+      var1.au[14] = var9;
+   }
+
    void at(qj var1, int var2, ew var3, int var4) {
       float[] var6 = var3.ay(-744553313 * this.au);
       float var7 = var6[0];
@@ -277,6 +265,18 @@ public class fh extends DualNode {
       var15.aa(var7, var8, var9);
       var1.ao(var15);
       var15.an();
+   }
+
+   static void he_renamed(int var0, int var1, int var2) {
+      if (aj.vb.aj() != 0 && 0 != var1 && Client.tl * -297150195 < 50) {
+         Client.tu[Client.tl * -297150195] = var0;
+         Client.tr[Client.tl * -297150195] = var1;
+         Client.tg[Client.tl * -297150195] = var2;
+         Client.ti[-297150195 * Client.tl] = null;
+         Client.tb[Client.tl * -297150195] = 0;
+         Client.tl += 831233477;
+      }
+
    }
 
    static final void il_renamed(int var0, int var1, int var2) {

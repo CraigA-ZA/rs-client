@@ -1,8 +1,8 @@
 import java.io.IOException;
 
 public class he implements be {
+   static Archive gr;
    boolean an = false;
-   static Archive archive13;
    boolean aw = false;
    Component af = null;
 
@@ -22,6 +22,10 @@ public class he implements be {
          }
       }
 
+   }
+
+   public Component ai() {
+      return this.af;
    }
 
    public void ag() {
@@ -70,6 +74,19 @@ public class he implements be {
       }
    }
 
+   public boolean an(int var1) {
+      switch (var1) {
+         case 81:
+            this.aw = false;
+            return false;
+         case 82:
+            this.an = false;
+            return false;
+         default:
+            return false;
+      }
+   }
+
    public boolean aw(char var1) {
       if (this.af == null) {
          return false;
@@ -96,19 +113,6 @@ public class he implements be {
 
    public boolean ac(boolean var1) {
       return false;
-   }
-
-   public boolean an(int var1) {
-      switch (var1) {
-         case 81:
-            this.aw = false;
-            return false;
-         case 82:
-            this.an = false;
-            return false;
-         default:
-            return false;
-      }
    }
 
    boolean ah(int var1) {
@@ -249,22 +253,12 @@ public class he implements be {
       }
    }
 
-   public Component ai() {
-      return this.af;
-   }
-
-   static void ax_renamed(String var0, String var1, String var2) {
-      cz.Login_response1 = var0;
-      cz.Login_response2 = var1;
-      cz.Login_response3 = var2;
-   }
-
    static ClientPreferences readClientPreferences() {
       AccessFile var1 = null;
       ClientPreferences var2 = new ClientPreferences();
 
       try {
-         var1 = in.getPreferencesFile("", Client.studioGame.name, false);
+         var1 = in.getPreferencesFile("", Client.cc.aq, false);
          byte[] var3 = new byte[(int)var1.length()];
 
          int var5;
@@ -287,5 +281,11 @@ public class he implements be {
       }
 
       return var2;
+   }
+
+   static void ax_renamed(String var0, String var1, String var2) {
+      cz.cs = var0;
+      cz.cc = var1;
+      cz.cn = var2;
    }
 }

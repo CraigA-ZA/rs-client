@@ -3,15 +3,15 @@ package org.bouncycastle.math.ec.endo;
 import java.math.BigInteger;
 
 public class GLVTypeBParameters {
+   public final int bits;
+   public final BigInteger beta;
+   public final BigInteger g1;
    public final BigInteger g2;
    public final BigInteger lambda;
-   public final int bits;
    public final BigInteger v1A;
+   public final BigInteger v1B;
    public final BigInteger v2A;
    public final BigInteger v2B;
-   public final BigInteger g1;
-   public final BigInteger v1B;
-   public final BigInteger beta;
 
    public BigInteger getV1A() {
       return this.v1A;

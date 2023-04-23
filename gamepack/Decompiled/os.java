@@ -3,22 +3,18 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class os implements Iterator {
-   oe af;
-   int aw;
-   int an = 0;
    static IndexedSprite al;
-
-   public boolean hasNext() {
-      return this.an * 1092736727 < -1960181101 * this.af.aw;
-   }
+   int an = 0;
+   int aw;
+   oe af;
 
    os(oe var1) {
       this.aw = 1950564823 * this.af.au;
       this.af = var1;
    }
 
-   public void remove() {
-      throw new UnsupportedOperationException();
+   public boolean hasNext() {
+      return this.an * 1092736727 < -1960181101 * this.af.aw;
    }
 
    public Object next() {
@@ -31,5 +27,9 @@ public class os implements Iterator {
       } else {
          throw new NoSuchElementException();
       }
+   }
+
+   public void remove() {
+      throw new UnsupportedOperationException();
    }
 }

@@ -1,16 +1,16 @@
 public class DesktopPlatformInfoProvider implements PlatformInfoProvider {
-   int ac;
+   static int nj;
    int ab;
+   int ac;
    int au;
-   static int menuHeight;
 
-   public PlatformInfo af() {
+   public PlatformInfo get() {
       byte var2;
-      if (WorldMapSectionType.osNameLowerCase.startsWith("win")) {
+      if (WorldMapSectionType.aj.startsWith("win")) {
          var2 = 1;
-      } else if (WorldMapSectionType.osNameLowerCase.startsWith("mac")) {
+      } else if (WorldMapSectionType.aj.startsWith("mac")) {
          var2 = 2;
-      } else if (WorldMapSectionType.osNameLowerCase.startsWith("linux")) {
+      } else if (WorldMapSectionType.aj.startsWith("linux")) {
          var2 = 3;
       } else {
          var2 = 4;
@@ -146,18 +146,6 @@ public class DesktopPlatformInfoProvider implements PlatformInfoProvider {
 
    }
 
-   void ac(String var1) {
-      String[] var3 = var1.split("\\.");
-
-      try {
-         this.ac = Integer.parseInt(var3[0]) * 1615373015;
-         this.au = Integer.parseInt(var3[1]) * -1249303783;
-         this.ab = Integer.parseInt(var3[2]) * -633230097;
-      } catch (Exception var5) {
-      }
-
-   }
-
    void aw(String var1) {
       String[] var3 = var1.split("\\.");
 
@@ -166,6 +154,18 @@ public class DesktopPlatformInfoProvider implements PlatformInfoProvider {
          var3 = var3[2].split("_");
          this.au = Integer.parseInt(var3[0]) * -1249303783;
          this.ab = Integer.parseInt(var3[1]) * -633230097;
+      } catch (Exception var5) {
+      }
+
+   }
+
+   void ac(String var1) {
+      String[] var3 = var1.split("\\.");
+
+      try {
+         this.ac = Integer.parseInt(var3[0]) * 1615373015;
+         this.au = Integer.parseInt(var3[1]) * -1249303783;
+         this.ab = Integer.parseInt(var3[2]) * -633230097;
       } catch (Exception var5) {
       }
 

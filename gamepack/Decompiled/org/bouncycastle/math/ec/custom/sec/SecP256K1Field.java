@@ -5,9 +5,9 @@ import org.bouncycastle.math.raw.Nat;
 import org.bouncycastle.math.raw.Nat256;
 
 public class SecP256K1Field {
-   static final int[] PExtInv = new int[]{-954529, -1955, -2, -1, -1, -1, -1, -1, 1953, 2};
-   static final int[] PExt = new int[]{954529, 1954, 1, 0, 0, 0, 0, 0, -1954, -3, -1, -1, -1, -1, -1, -1};
    static final int[] P = new int[]{-977, -2, -1, -1, -1, -1, -1, -1};
+   static final int[] PExt = new int[]{954529, 1954, 1, 0, 0, 0, 0, 0, -1954, -3, -1, -1, -1, -1, -1, -1};
+   static final int[] PExtInv = new int[]{-954529, -1955, -2, -1, -1, -1, -1, -1, 1953, 2};
 
    public static void addOne(int[] var0, int[] var1) {
       int var2 = Nat.inc(8, var0, var1);

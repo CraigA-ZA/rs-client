@@ -8,11 +8,11 @@ import org.bouncycastle.crypto.paddings.BlockCipherPadding;
 
 public class CBCBlockCipherMac implements Mac {
    byte[] buf;
-   BlockCipherPadding padding;
-   int bufOff;
-   BlockCipher cipher;
-   int macSize;
    byte[] mac;
+   int bufOff;
+   int macSize;
+   BlockCipher cipher;
+   BlockCipherPadding padding;
 
    public void reset() {
       for(int var1 = 0; var1 < this.buf.length; ++var1) {

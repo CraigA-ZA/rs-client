@@ -11,38 +11,14 @@ import org.bouncycastle.crypto.tls.TlsClientProtocol;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 public class ah extends SSLSocketFactory {
-   SecureRandom af = new SecureRandom();
    public static ah an;
-
-   public String[] getDefaultCipherSuites() {
-      return null;
-   }
-
-   public String[] getSupportedCipherSuites() {
-      return null;
-   }
-
-   public Socket createSocket(String var1) throws IOException, UnknownHostException {
-      return null;
-   }
+   SecureRandom af = new SecureRandom();
 
    static {
       if (Security.getProvider("BC") == null) {
          Security.addProvider(new BouncyCastleProvider());
       }
 
-   }
-
-   public Socket createSocket(InetAddress var1) throws IOException {
-      return null;
-   }
-
-   public Socket createSocket(InetAddress var1, int var2, InetAddress var3) throws IOException {
-      return null;
-   }
-
-   public Socket createSocket(String var1, int var2, InetAddress var3) throws IOException, UnknownHostException {
-      return null;
    }
 
    public Socket createSocket(Socket var1, String var2, int var3, boolean var4) throws IOException {
@@ -56,6 +32,30 @@ public class ah extends SSLSocketFactory {
 
       TlsClientProtocol var5 = new TlsClientProtocol(var1.getInputStream(), var1.getOutputStream(), this.af);
       return this.af(var2, var5);
+   }
+
+   public String[] getDefaultCipherSuites() {
+      return null;
+   }
+
+   public String[] getSupportedCipherSuites() {
+      return null;
+   }
+
+   public Socket createSocket(String var1) throws IOException, UnknownHostException {
+      return null;
+   }
+
+   public Socket createSocket(InetAddress var1) throws IOException {
+      return null;
+   }
+
+   public Socket createSocket(String var1, int var2, InetAddress var3) throws IOException, UnknownHostException {
+      return null;
+   }
+
+   public Socket createSocket(InetAddress var1, int var2, InetAddress var3) throws IOException {
+      return null;
    }
 
    SSLSocket af(String var1, TlsClientProtocol var2) {

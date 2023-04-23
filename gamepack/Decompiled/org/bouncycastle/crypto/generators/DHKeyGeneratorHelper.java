@@ -7,9 +7,9 @@ import org.bouncycastle.math.ec.WNafUtil;
 import org.bouncycastle.util.BigIntegers;
 
 class DHKeyGeneratorHelper {
-   static final DHKeyGeneratorHelper INSTANCE = new DHKeyGeneratorHelper();
    static final BigInteger ONE = BigInteger.valueOf(1L);
    static final BigInteger TWO = BigInteger.valueOf(2L);
+   static final DHKeyGeneratorHelper INSTANCE = new DHKeyGeneratorHelper();
 
    BigInteger calculatePrivate(DHParameters var1, SecureRandom var2) {
       int var3 = var1.getL();

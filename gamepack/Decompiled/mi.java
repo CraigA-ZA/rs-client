@@ -1,8 +1,30 @@
 public class mi {
    static final mi af = new mi(51, 27, 800, 0, 16, 16);
    static final mi an = new mi(25, 28, 800, 656, 40, 40);
-   final int aw;
    final int ac;
+   final int aw;
+
+   public static PacketBitNode an_renamed(ClientProt var0, Isaac var1) {
+      PacketBitNode var3 = SpotType.af_renamed();
+      var3.af = var0;
+      var3.an = -474143459 * var0.dd;
+      if (-1 == var3.an * -1245059367) {
+         var3.aw = new PacketBit(260);
+      } else if (var3.an * -1245059367 == -2) {
+         var3.aw = new PacketBit(10000);
+      } else if (var3.an * -1245059367 <= 18) {
+         var3.aw = new PacketBit(20);
+      } else if (-1245059367 * var3.an <= 98) {
+         var3.aw = new PacketBit(100);
+      } else {
+         var3.aw = new PacketBit(260);
+      }
+
+      var3.aw.an(var1);
+      var3.aw.pIsaac1(1546470819 * var3.af.dq);
+      var3.ac = 0;
+      return var3;
+   }
 
    mi(int var1, int var2, int var3, int var4, int var5, int var6) {
       this.aw = -383400655 * var5;
@@ -16,14 +38,14 @@ public class mi {
       }
 
       int var4 = var0.gBit(2);
-      Player var5 = Client.players[var1];
+      Player var5 = Client.mc[var1];
       if (var4 == 0) {
          if (var3) {
-            var5.isUnanimated = false;
-         } else if (-549033243 * Client.localPlayerIndex == var1) {
+            var5.bi = false;
+         } else if (-549033243 * Client.mg == var1) {
             throw new RuntimeException();
          } else {
-            ds.Players_regions[var1] = (jm.ib * -1232093375 + var5.dy[0] >> 13 << 14) + (var5.ad * -1900490645 << 28) + (var5.ds[0] + Scenery.jc * 827352769 >> 13);
+            ds.aa[var1] = (jm.ib * -1232093375 + var5.dy[0] >> 13 << 14) + (var5.ad * -1900490645 << 28) + (var5.ds[0] + Scenery.jc * 827352769 >> 13);
             if (var5.cx * -283165269 != -1) {
                ds.ay[var1] = var5.cx * -283165269;
             } else {
@@ -31,7 +53,7 @@ public class mi {
             }
 
             ds.ao[var1] = var5.cr * 1005900761;
-            Client.players[var1] = null;
+            Client.mc[var1] = null;
             if (var0.gBit(1) != 0) {
                kb.updateExternalPlayer(var0, var1);
             }
@@ -67,15 +89,15 @@ public class mi {
                ++var8;
             }
 
-            if (var1 == -549033243 * Client.localPlayerIndex && (1144428983 * var5.bx < 1536 || -411750205 * var5.bo < 1536 || var5.bx * 1144428983 >= 11776 || var5.bo * -411750205 >= 11776)) {
+            if (var1 == -549033243 * Client.mg && (1144428983 * var5.bx < 1536 || -411750205 * var5.bo < 1536 || var5.bx * 1144428983 >= 11776 || var5.bo * -411750205 >= 11776)) {
                var5.resetPath(var7, var8);
-               var5.isUnanimated = false;
+               var5.bi = false;
             } else if (var3) {
-               var5.isUnanimated = true;
-               var5.tileX = -700518347 * var7;
-               var5.tileY = var8 * -1699085727;
+               var5.bi = true;
+               var5.be = -700518347 * var7;
+               var5.bk = var8 * -1699085727;
             } else {
-               var5.isUnanimated = false;
+               var5.bi = false;
                var5.av(var7, var8, ds.ac[var1]);
             }
 
@@ -129,15 +151,15 @@ public class mi {
                var8 += 2;
             }
 
-            if (var1 == Client.localPlayerIndex * -549033243 && (1144428983 * var5.bx < 1536 || var5.bo * -411750205 < 1536 || var5.bx * 1144428983 >= 11776 || var5.bo * -411750205 >= 11776)) {
+            if (var1 == Client.mg * -549033243 && (1144428983 * var5.bx < 1536 || var5.bo * -411750205 < 1536 || var5.bx * 1144428983 >= 11776 || var5.bo * -411750205 >= 11776)) {
                var5.resetPath(var7, var8);
-               var5.isUnanimated = false;
+               var5.bi = false;
             } else if (var3) {
-               var5.isUnanimated = true;
-               var5.tileX = -700518347 * var7;
-               var5.tileY = -1699085727 * var8;
+               var5.bi = true;
+               var5.be = -700518347 * var7;
+               var5.bk = -1699085727 * var8;
             } else {
-               var5.isUnanimated = false;
+               var5.bi = false;
                var5.av(var7, var8, ds.ac[var1]);
             }
 
@@ -162,21 +184,21 @@ public class mi {
 
                var11 = var9 + var5.dy[0];
                var12 = var5.ds[0] + var10;
-               if (-549033243 * Client.localPlayerIndex == var1 && (1144428983 * var5.bx < 1536 || var5.bo * -411750205 < 1536 || var5.bx * 1144428983 >= 11776 || -411750205 * var5.bo >= 11776)) {
+               if (-549033243 * Client.mg == var1 && (1144428983 * var5.bx < 1536 || var5.bo * -411750205 < 1536 || var5.bx * 1144428983 >= 11776 || -411750205 * var5.bo >= 11776)) {
                   var5.resetPath(var11, var12);
-                  var5.isUnanimated = false;
+                  var5.bi = false;
                } else if (var3) {
-                  var5.isUnanimated = true;
-                  var5.tileX = -700518347 * var11;
-                  var5.tileY = -1699085727 * var12;
+                  var5.bi = true;
+                  var5.be = -700518347 * var11;
+                  var5.bk = -1699085727 * var12;
                } else {
-                  var5.isUnanimated = false;
+                  var5.bi = false;
                   var5.av(var11, var12, ds.ac[var1]);
                }
 
                var5.ad = (byte)(-1900490645 * var5.ad + var8 & 3) * -1829675965;
-               if (var1 == Client.localPlayerIndex * -549033243) {
-                  GameShell.plane = var5.ad * 1128021573;
+               if (var1 == Client.mg * -549033243) {
+                  GameShell.mh = var5.ad * 1128021573;
                }
 
             } else {
@@ -186,50 +208,28 @@ public class mi {
                var10 = var7 & 16383;
                var11 = (var9 + var5.dy[0] + -1232093375 * jm.ib & 16383) - -1232093375 * jm.ib;
                var12 = (var10 + var5.ds[0] + 827352769 * Scenery.jc & 16383) - Scenery.jc * 827352769;
-               if (-549033243 * Client.localPlayerIndex != var1 || var5.bx * 1144428983 >= 1536 && -411750205 * var5.bo >= 1536 && var5.bx * 1144428983 < 11776 && var5.bo * -411750205 < 11776) {
+               if (-549033243 * Client.mg != var1 || var5.bx * 1144428983 >= 1536 && -411750205 * var5.bo >= 1536 && var5.bx * 1144428983 < 11776 && var5.bo * -411750205 < 11776) {
                   if (var3) {
-                     var5.isUnanimated = true;
-                     var5.tileX = -700518347 * var11;
-                     var5.tileY = -1699085727 * var12;
+                     var5.bi = true;
+                     var5.be = -700518347 * var11;
+                     var5.bk = -1699085727 * var12;
                   } else {
-                     var5.isUnanimated = false;
+                     var5.bi = false;
                      var5.av(var11, var12, ds.ac[var1]);
                   }
                } else {
                   var5.resetPath(var11, var12);
-                  var5.isUnanimated = false;
+                  var5.bi = false;
                }
 
                var5.ad = -1829675965 * (byte)(var8 + var5.ad * -1900490645 & 3);
-               if (-549033243 * Client.localPlayerIndex == var1) {
-                  GameShell.plane = var5.ad * 1128021573;
+               if (-549033243 * Client.mg == var1) {
+                  GameShell.mh = var5.ad * 1128021573;
                }
 
             }
          }
       }
-   }
-
-   public static PacketBitNode an_renamed(ClientProt var0, Isaac var1) {
-      PacketBitNode var3 = SpotType.af_renamed();
-      var3.af = var0;
-      var3.an = -474143459 * var0.length;
-      if (-1 == var3.an * -1245059367) {
-         var3.bit = new PacketBit(260);
-      } else if (var3.an * -1245059367 == -2) {
-         var3.bit = new PacketBit(10000);
-      } else if (var3.an * -1245059367 <= 18) {
-         var3.bit = new PacketBit(20);
-      } else if (-1245059367 * var3.an <= 98) {
-         var3.bit = new PacketBit(100);
-      } else {
-         var3.bit = new PacketBit(260);
-      }
-
-      var3.bit.an(var1);
-      var3.bit.pIsaac1(1546470819 * var3.af.id);
-      var3.ac = 0;
-      return var3;
    }
 
    static int az_renamed() {

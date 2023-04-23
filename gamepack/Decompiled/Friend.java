@@ -1,9 +1,8 @@
 public class Friend extends Buddy {
-   boolean an;
    boolean af;
+   boolean an;
 
-   public int compareTo(Object var1) {
-      return this.compareTo00((Friend)var1);
+   Friend() {
    }
 
    int compareTo00(Friend var1) {
@@ -28,10 +27,11 @@ public class Friend extends Buddy {
       }
    }
 
-   Friend() {
+   public int compareTo0(User var1) {
+      return this.compareTo00((Friend)var1);
    }
 
-   public int an(User var1) {
+   public int compareTo(Object var1) {
       return this.compareTo00((Friend)var1);
    }
 
@@ -39,18 +39,10 @@ public class Friend extends Buddy {
       WorldMapRegion.au.aq();
    }
 
-   static String lg_renamed(int var0) {
-      if (var0 < 0) {
-         return "";
-      } else {
-         return Client.menuTargetNames[var0].length() > 0 ? Client.menuActions[var0] + Strings.Strings_space + Client.menuTargetNames[var0] : Client.menuActions[var0];
-      }
-   }
-
    static final void jn_renamed() {
       Client.ma = 0;
-      int var1 = jm.ib * -1232093375 + (1144428983 * MusicPatchNode.localPlayer.bx >> 7);
-      int var2 = Scenery.jc * 827352769 + (-411750205 * MusicPatchNode.localPlayer.bo >> 7);
+      int var1 = jm.ib * -1232093375 + (1144428983 * MusicPatchNode.mi.bx >> 7);
+      int var2 = Scenery.jc * 827352769 + (-411750205 * MusicPatchNode.mi.bo >> 7);
       if (var1 >= 3053 && var1 <= 3156 && var2 >= 3056 && var2 <= 3136) {
          Client.ma = -1041569925;
       }
@@ -63,5 +55,13 @@ public class Friend extends Buddy {
          Client.ma = 0;
       }
 
+   }
+
+   static String lg_renamed(int var0) {
+      if (var0 < 0) {
+         return "";
+      } else {
+         return Client.ok[var0].length() > 0 ? Client.og[var0] + Strings.gk + Client.ok[var0] : Client.og[var0];
+      }
    }
 }

@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class CertificateStatusRequest {
-   public short statusType;
    public Object request;
+   public short statusType;
 
    public static CertificateStatusRequest parse(InputStream var0) throws IOException {
       short var1 = TlsUtils.readUint8(var0);

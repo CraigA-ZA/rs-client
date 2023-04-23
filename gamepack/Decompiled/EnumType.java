@@ -16,73 +16,24 @@ import java.util.Random;
 
 public class EnumType extends DualNode {
    static int ay;
-   public char outputtype;
-   public char inputtype;
-   static EvictingDualNodeHashTable EnumType_cached = new EvictingDualNodeHashTable(64);
-   public String defaultstr;
-   static AbstractArchive EnumType_archive;
+   static EvictingDualNodeHashTable an = new EvictingDualNodeHashTable(64);
+   static AbstractArchive af;
+   public char ac;
+   public char aw;
    public int ab;
-   public int[] keys;
-   public int[] intvals;
-   public String[] strvals;
-   public int outputcount;
+   public int aq;
+   public int[] al;
+   public int[] at;
+   public String au;
+   public String[] aa;
+
+   EnumType() {
+      this.au = Strings.at;
+      this.aq = 0;
+   }
 
    public static void af_renamed(AbstractArchive var0) {
       FloorOverlayType.af = var0;
-   }
-
-   public int size() {
-      return -1067065 * this.outputcount;
-   }
-
-   void decode0(Packet var1, int var2) {
-      if (var2 == 1) {
-         this.inputtype = (char)var1.g1();
-      } else if (2 == var2) {
-         this.outputtype = (char)var1.g1();
-      } else if (var2 == 3) {
-         this.defaultstr = var1.cw();
-      } else if (var2 == 4) {
-         this.ab = var1.g4s() * 740445373;
-      } else {
-         int var4;
-         if (var2 == 5) {
-            this.outputcount = var1.cl() * -408757769;
-            this.keys = new int[-1067065 * this.outputcount];
-            this.strvals = new String[-1067065 * this.outputcount];
-
-            for(var4 = 0; var4 < -1067065 * this.outputcount; ++var4) {
-               this.keys[var4] = var1.g4s();
-               this.strvals[var4] = var1.cw();
-            }
-         } else if (6 == var2) {
-            this.outputcount = var1.cl() * -408757769;
-            this.keys = new int[-1067065 * this.outputcount];
-            this.intvals = new int[this.outputcount * -1067065];
-
-            for(var4 = 0; var4 < this.outputcount * -1067065; ++var4) {
-               this.keys[var4] = var1.g4s();
-               this.intvals[var4] = var1.g4s();
-            }
-         }
-      }
-
-   }
-
-   static final void ic_renamed() {
-      for(int var1 = 0; var1 < 265474485 * Client.iw; ++var1) {
-         int var2 = Client.iy[var1];
-         Npc var3 = Client.npcs[var2];
-         if (null != var3) {
-            ReflectionCheck.ii_renamed(var3, 1458410691 * var3.af.al);
-         }
-      }
-
-   }
-
-   EnumType() {
-      this.defaultstr = Strings.Strings_null;
-      this.outputcount = 0;
    }
 
    static String an_renamed(IterableNodeHashTable var0, int var1, String var2) {
@@ -90,365 +41,67 @@ public class EnumType extends DualNode {
          return var2;
       } else {
          ObjectNode var4 = (ObjectNode)var0.get((long)var1);
-         return var4 == null ? var2 : (String)var4.obj;
+         return var4 == null ? var2 : (String)var4.af;
       }
    }
 
-   static final void jb_renamed(lm var0) {
-      PacketBit var2 = Client.packetWriter.bit;
-      int var3;
-      int var4;
-      int var5;
-      int var6;
-      int var7;
-      int var8;
-      int var9;
-      int var10;
-      int var11;
-      int var12;
-      int var13;
-      int var14;
-      int var15;
-      if (var0 == lm.au) {
-         var3 = var2.cm();
-         var4 = var2.cm();
-         var5 = (var4 >> 4 & 7) + aa.jp * 1555915261;
-         var6 = (var4 & 7) + -191732975 * FontName.jt;
-         var7 = var2.dq() * 4;
-         var8 = var2.ep();
-         var9 = var2.dq();
-         var10 = var2.cl();
-         byte var41 = var2.dj();
-         var12 = var2.df() * 4;
-         var13 = var2.cl();
-         var14 = var2.cy();
-         byte var42 = var2.dx();
-         var15 = var42 + var5;
-         var11 = var41 + var6;
-         if (var5 >= 0 && var6 >= 0 && var5 < 104 && var6 < 104 && var15 >= 0 && var11 >= 0 && var15 < 104 && var11 < 104 && 65535 != var8) {
-            var5 = var5 * 128 + 64;
-            var6 = 64 + var6 * 128;
-            var15 = 64 + var15 * 128;
-            var11 = 128 * var11 + 64;
-            Projectile var43 = new Projectile(var8, -1727408401 * GameShell.plane, var5, var6, fq.getTileHeight(var5, var6, GameShell.plane * -1727408401) - var12, Client.ep * -1886224337 + var10, var13 + -1886224337 * Client.ep, var3, var9, var14, var7);
-            var43.setDestination(var15, var11, fq.getTileHeight(var15, var11, -1727408401 * GameShell.plane) - var7, Client.ep * -1886224337 + var10);
-            Client.projectiles.addFirst(var43);
+   void decode(Packet var1) {
+      while(true) {
+         int var3 = var1.g1();
+         if (var3 == 0) {
+            return;
          }
 
+         this.decode0(var1, var3);
+      }
+   }
+
+   void decode0(Packet var1, int var2) {
+      if (var2 == 1) {
+         this.aw = (char)var1.g1();
+      } else if (2 == var2) {
+         this.ac = (char)var1.g1();
+      } else if (var2 == 3) {
+         this.au = var1.cw();
+      } else if (var2 == 4) {
+         this.ab = var1.g4s() * 740445373;
       } else {
-         if (var0 == lm.an) {
-            var3 = var2.cl();
-            var4 = var2.dx();
-            var5 = var2.dd();
-            var6 = var2.db();
-            var7 = (var6 >> 4 & 7) + 1555915261 * aa.jp;
-            var8 = -191732975 * FontName.jt + (var6 & 7);
-            var9 = var2.cf();
-            var10 = var2.cl();
-            var11 = var2.dd();
-            var12 = var2.cm();
-            var13 = var12 >> 2;
-            var14 = var12 & 3;
-            var15 = Client.jy[var13];
-            int var16 = var2.ep();
-            int var17 = var2.eo();
-            Player var18;
-            if (var3 == -549033243 * Client.localPlayerIndex) {
-               var18 = MusicPatchNode.localPlayer;
-            } else {
-               var18 = Client.players[var3];
+         int var4;
+         if (var2 == 5) {
+            this.aq = var1.cl() * -408757769;
+            this.al = new int[-1067065 * this.aq];
+            this.aa = new String[-1067065 * this.aq];
+
+            for(var4 = 0; var4 < -1067065 * this.aq; ++var4) {
+               this.al[var4] = var1.g4s();
+               this.aa[var4] = var1.cw();
             }
+         } else if (6 == var2) {
+            this.aq = var1.cl() * -408757769;
+            this.al = new int[-1067065 * this.aq];
+            this.at = new int[this.aq * -1067065];
 
-            if (null != var18) {
-               hq var19 = fw.an_renamed(var17);
-               int var20;
-               int var21;
-               if (1 != var14 && var14 != 3) {
-                  var20 = -1339930361 * var19.av;
-                  var21 = var19.ar * -1659393955;
-               } else {
-                  var20 = -1659393955 * var19.ar;
-                  var21 = var19.av * -1339930361;
-               }
-
-               int var22 = var7 + (var20 >> 1);
-               int var23 = var7 + (var20 + 1 >> 1);
-               int var24 = (var21 >> 1) + var8;
-               int var25 = (1 + var21 >> 1) + var8;
-               int[][] var26 = Tiles.Tiles_heights[GameShell.plane * -1727408401];
-               int var27 = var26[var22][var25] + var26[var23][var24] + var26[var22][var24] + var26[var23][var25] >> 2;
-               int var28 = (var7 << 7) + (var20 << 6);
-               int var29 = (var21 << 6) + (var8 << 7);
-               it var30 = var19.at(var13, var14, var26, var28, var27, var29);
-               if (var30 != null) {
-                  bz.jz_renamed(GameShell.plane * -1727408401, var7, var8, var15, -1, 0, 0, 31, var10 + 1, 1 + var16);
-                  var18.headIconPrayer = (Client.ep * -1886224337 + var10) * -746690647;
-                  var18.animationCycleStart = -377301053 * (var16 + Client.ep * -1886224337);
-                  var18.ah = var30;
-                  var18.ax = var7 * -494827904 + -247413952 * var20;
-                  var18.ag = var8 * -856229504 + var21 * -428114752;
-                  var18.ai = var27 * 1514773119;
-                  byte var31;
-                  if (var9 > var11) {
-                     var31 = (byte)var9;
-                     var9 = var11;
-                     var11 = var31;
-                  }
-
-                  if (var4 > var5) {
-                     var31 = (byte)var4;
-                     var4 = var5;
-                     var5 = var31;
-                  }
-
-                  var18.av = (var7 + var9) * -890592649;
-                  var18.am = 1649066605 * (var7 + var11);
-                  var18.ar = -751305383 * (var8 + var4);
-                  var18.as = (var5 + var8) * 105031851;
-               }
-            }
-         }
-
-         if (var0 == lm.ay) {
-            var3 = var2.dq();
-            var4 = (var3 >> 4 & 7) + 1555915261 * aa.jp;
-            var5 = (var3 & 7) + -191732975 * FontName.jt;
-            var6 = var2.cx();
-            var7 = var2.eo();
-            var8 = var2.cx();
-            if (var4 >= 0 && var5 >= 0 && var4 < 104 && var5 < 104) {
-               NodeDeque var39 = Client.objStacks[-1727408401 * GameShell.plane][var4][var5];
-               if (var39 != null) {
-                  for(Obj var34 = (Obj)var39.last(); var34 != null; var34 = (Obj)var39.previous()) {
-                     if ((var7 & 32767) == 176307405 * var34.id && var8 == -1745152527 * var34.quantity) {
-                        var34.quantity = var6 * -1785382127;
-                        break;
-                     }
-                  }
-
-                  em.kd_renamed(var4, var5);
-               }
-            }
-
-         } else {
-            Obj var35;
-            if (lm.aa == var0) {
-               var2.db();
-               var3 = var2.en();
-               var4 = var2.db();
-               var5 = var2.cm();
-               var6 = 1555915261 * aa.jp + (var5 >> 4 & 7);
-               var7 = FontName.jt * -191732975 + (var5 & 7);
-               var8 = var2.ep();
-               var2.da();
-               var2.ep();
-               var2.df();
-               if (var6 >= 0 && var7 >= 0 && var6 < 104 && var7 < 104) {
-                  var35 = new Obj();
-                  var35.id = var8 * -968355835;
-                  var35.quantity = var3 * -1785382127;
-                  var35.af(var4);
-                  if (Client.objStacks[GameShell.plane * -1727408401][var6][var7] == null) {
-                     Client.objStacks[GameShell.plane * -1727408401][var6][var7] = new NodeDeque();
-                  }
-
-                  Client.objStacks[GameShell.plane * -1727408401][var6][var7].addFirst(var35);
-                  em.kd_renamed(var6, var7);
-               }
-
-            } else if (var0 == lm.ab) {
-               var3 = var2.cm();
-               var4 = var2.dq();
-               var5 = 1555915261 * aa.jp + (var4 >> 4 & 7);
-               var6 = (var4 & 7) + -191732975 * FontName.jt;
-               var7 = var2.df();
-               var8 = var7 >> 2;
-               var9 = var7 & 3;
-               var10 = Client.jy[var8];
-               var11 = var2.da();
-               if (var5 >= 0 && var6 >= 0 && var5 < 104 && var6 < 104) {
-                  bz.jz_renamed(-1727408401 * GameShell.plane, var5, var6, var10, var11, var8, var9, var3, 0, -1);
-               }
-
-            } else {
-               NodeDeque var32;
-               if (lm.at == var0) {
-                  var3 = var2.df();
-                  var4 = (var3 >> 4 & 7) + aa.jp * 1555915261;
-                  var5 = (var3 & 7) + FontName.jt * -191732975;
-                  var6 = var2.da();
-                  var7 = var2.er();
-                  if (var4 >= 0 && var5 >= 0 && var4 < 104 && var5 < 104) {
-                     var32 = Client.objStacks[-1727408401 * GameShell.plane][var4][var5];
-                     if (null != var32) {
-                        for(var35 = (Obj)var32.last(); null != var35; var35 = (Obj)var32.previous()) {
-                           if ((var6 & 32767) == 176307405 * var35.id && -1745152527 * var35.quantity == var7) {
-                              var35.ga();
-                              break;
-                           }
-                        }
-
-                        if (var32.last() == null) {
-                           Client.objStacks[GameShell.plane * -1727408401][var4][var5] = null;
-                        }
-
-                        em.kd_renamed(var4, var5);
-                     }
-                  }
-
-               } else {
-                  if (lm.aq == var0) {
-                     var3 = var2.eo();
-                     var4 = var2.df();
-                     var5 = var4 >> 4 & 15;
-                     var6 = var4 & 7;
-                     var7 = var2.db();
-                     var8 = 1555915261 * aa.jp + (var7 >> 4 & 7);
-                     var9 = (var7 & 7) + -191732975 * FontName.jt;
-                     var10 = var2.dq();
-                     if (var8 >= 0 && var9 >= 0 && var8 < 104 && var9 < 104) {
-                        var11 = var5 + 1;
-                        if (MusicPatchNode.localPlayer.dy[0] >= var8 - var11 && MusicPatchNode.localPlayer.dy[0] <= var11 + var8 && MusicPatchNode.localPlayer.ds[0] >= var9 - var11 && MusicPatchNode.localPlayer.ds[0] <= var9 + var11 && aj.clientPreferences.az() != 0 && var6 > 0 && -297150195 * Client.soundEffectCount < 50) {
-                           Client.tu[Client.soundEffectCount * -297150195] = var3;
-                           Client.tr[Client.soundEffectCount * -297150195] = var6;
-                           Client.tg[-297150195 * Client.soundEffectCount] = var10;
-                           Client.soundEffects[Client.soundEffectCount * -297150195] = null;
-                           Client.tb[Client.soundEffectCount * -297150195] = (var9 << 8) + (var8 << 16) + var5;
-                           Client.soundEffectCount += 831233477;
-                        }
-                     }
-                  }
-
-                  if (var0 == lm.al) {
-                     var3 = var2.eo();
-                     var4 = var2.df();
-                     var5 = (var4 >> 4 & 7) + aa.jp * 1555915261;
-                     var6 = (var4 & 7) + FontName.jt * -191732975;
-                     var7 = var2.db();
-                     if (var5 >= 0 && var6 >= 0 && var5 < 104 && var6 < 104) {
-                        var32 = Client.objStacks[GameShell.plane * -1727408401][var5][var6];
-                        if (null != var32) {
-                           for(var35 = (Obj)var32.last(); null != var35; var35 = (Obj)var32.previous()) {
-                              if ((var3 & 32767) == 176307405 * var35.id) {
-                                 var35.af(var7);
-                                 break;
-                              }
-                           }
-                        }
-                     }
-
-                  } else if (var0 != lm.ac) {
-                     if (lm.af == var0) {
-                        var3 = var2.db();
-                        var4 = aa.jp * 1555915261 + (var3 >> 4 & 7);
-                        var5 = FontName.jt * -191732975 + (var3 & 7);
-                        var6 = var2.cm();
-                        var7 = var6 >> 2;
-                        var8 = var6 & 3;
-                        var9 = Client.jy[var7];
-                        if (var4 >= 0 && var5 >= 0 && var4 < 104 && var5 < 104) {
-                           bz.jz_renamed(-1727408401 * GameShell.plane, var4, var5, var9, -1, var7, var8, 31, 0, -1);
-                        }
-
-                     } else if (var0 == lm.aw) {
-                        var3 = var2.df();
-                        var4 = var2.cl();
-                        var5 = var2.dq();
-                        var6 = (var5 >> 4 & 7) + 1555915261 * aa.jp;
-                        var7 = FontName.jt * -191732975 + (var5 & 7);
-                        var8 = var2.da();
-                        if (var6 >= 0 && var7 >= 0 && var6 < 104 && var7 < 104) {
-                           var6 = 128 * var6 + 64;
-                           var7 = 128 * var7 + 64;
-                           GraphicsObject var33 = new GraphicsObject(var8, GameShell.plane * -1727408401, var6, var7, fq.getTileHeight(var6, var7, GameShell.plane * -1727408401) - var3, var4, -1886224337 * Client.ep);
-                           Client.graphicsObjects.addFirst(var33);
-                        }
-
-                     }
-                  } else {
-                     var3 = var2.cm();
-                     var4 = (var3 >> 4 & 7) + aa.jp * 1555915261;
-                     var5 = (var3 & 7) + FontName.jt * -191732975;
-                     var6 = var2.da();
-                     var7 = var2.df();
-                     var8 = var7 >> 2;
-                     var9 = var7 & 3;
-                     var10 = Client.jy[var8];
-                     if (var4 >= 0 && var5 >= 0 && var4 < 103 && var5 < 103) {
-                        if (var10 == 0) {
-                           Wall var36 = bx.scene.az(GameShell.plane * -1727408401, var4, var5);
-                           if (var36 != null) {
-                              var12 = InterfaceParent.at(-4009183385476919801L * var36.tag);
-                              if (2 == var8) {
-                                 var36.entity1 = new DynamicObject(var12, 2, var9 + 4, -1727408401 * GameShell.plane, var4, var5, var6, false, var36.entity1);
-                                 var36.entity2 = new DynamicObject(var12, 2, var9 + 1 & 3, -1727408401 * GameShell.plane, var4, var5, var6, false, var36.entity2);
-                              } else {
-                                 var36.entity1 = new DynamicObject(var12, var8, var9, GameShell.plane * -1727408401, var4, var5, var6, false, var36.entity1);
-                              }
-
-                              return;
-                           }
-                        }
-
-                        if (1 == var10) {
-                           WallDecoration var37 = bx.scene.ad(GameShell.plane * -1727408401, var4, var5);
-                           if (null != var37) {
-                              var12 = InterfaceParent.at(-4691380879163567243L * var37.tag);
-                              if (4 != var8 && var8 != 5) {
-                                 if (6 == var8) {
-                                    var37.entity1 = new DynamicObject(var12, 4, 4 + var9, -1727408401 * GameShell.plane, var4, var5, var6, false, var37.entity1);
-                                 } else if (7 == var8) {
-                                    var37.entity1 = new DynamicObject(var12, 4, (2 + var9 & 3) + 4, GameShell.plane * -1727408401, var4, var5, var6, false, var37.entity1);
-                                 } else if (var8 == 8) {
-                                    var37.entity1 = new DynamicObject(var12, 4, 4 + var9, -1727408401 * GameShell.plane, var4, var5, var6, false, var37.entity1);
-                                    var37.entity2 = new DynamicObject(var12, 4, 4 + (2 + var9 & 3), -1727408401 * GameShell.plane, var4, var5, var6, false, var37.entity2);
-                                 }
-                              } else {
-                                 var37.entity1 = new DynamicObject(var12, 4, var9, GameShell.plane * -1727408401, var4, var5, var6, false, var37.entity1);
-                              }
-
-                              return;
-                           }
-                        }
-
-                        if (var10 == 2) {
-                           Scenery var38 = bx.scene.ae(-1727408401 * GameShell.plane, var4, var5);
-                           if (11 == var8) {
-                              var8 = 10;
-                           }
-
-                           if (null != var38) {
-                              var38.entity = new DynamicObject(InterfaceParent.at(5016412888503339625L * var38.ax), var8, var9, GameShell.plane * -1727408401, var4, var5, var6, false, var38.entity);
-                              return;
-                           }
-                        }
-
-                        if (var10 == 3) {
-                           FloorDecoration var40 = bx.scene.ap(-1727408401 * GameShell.plane, var4, var5);
-                           if (var40 != null) {
-                              var40.entity = new DynamicObject(InterfaceParent.at(3423223696102332293L * var40.tag), 22, var9, -1727408401 * GameShell.plane, var4, var5, var6, false, var40.entity);
-                              return;
-                           }
-                        }
-
-                        hu.ju_renamed(-1727408401 * GameShell.plane, var4, var5, var10, var6);
-                     }
-
-                  }
-               }
+            for(var4 = 0; var4 < this.aq * -1067065; ++var4) {
+               this.al[var4] = var1.g4s();
+               this.at[var4] = var1.g4s();
             }
          }
       }
+
+   }
+
+   public int size() {
+      return -1067065 * this.aq;
    }
 
    static void ab_renamed(GameShell var0, Font var1, Font var2) {
       if (cz.di) {
          bz.ag_renamed(var0);
       } else {
-         if ((1 == -1222491879 * MouseHandler.ar || !su.ev && 4 == MouseHandler.ar * -1222491879) && 2020601481 * MouseHandler.MouseHandler_lastButton >= 765 + cz.aw * 578342931 - 50 && 1163896205 * MouseHandler.as >= 453) {
-            aj.clientPreferences.at(!aj.clientPreferences.aa());
-            if (!aj.clientPreferences.aa()) {
-               sh.an_renamed(pj.archive6, "scape main", "", 255, false);
+         if ((1 == -1222491879 * MouseHandler.ar || !su.ev && 4 == MouseHandler.ar * -1222491879) && 2020601481 * MouseHandler.am >= 765 + cz.aw * 578342931 - 50 && 1163896205 * MouseHandler.as >= 453) {
+            aj.vb.at(!aj.vb.aa());
+            if (!aj.vb.aa()) {
+               sh.an_renamed(pj.fw, "scape main", "", 255, false);
             } else {
                FloorUnderlayType.au_renamed();
             }
@@ -461,14 +114,14 @@ public class EnumType extends DualNode {
 
             long var4 = Formatting.af_renamed();
             boolean var6;
-            if (null != Client.archiveLoaders && Client.wy * -397497277 < Client.archiveLoaders.size()) {
+            if (null != Client.we && Client.wy * -397497277 < Client.we.size()) {
                while(true) {
-                  if (-397497277 * Client.wy >= Client.archiveLoaders.size()) {
+                  if (-397497277 * Client.wy >= Client.we.size()) {
                      var6 = true;
                      break;
                   }
 
-                  ArchiveLoader var7 = (ArchiveLoader)Client.archiveLoaders.get(-397497277 * Client.wy);
+                  ArchiveLoader var7 = (ArchiveLoader)Client.we.get(-397497277 * Client.wy);
                   if (!var7.af()) {
                      var6 = false;
                      break;
@@ -497,7 +150,7 @@ public class EnumType extends DualNode {
                      var8 = 463;
                      var9 = 100;
                      byte var10 = 35;
-                     if (2020601481 * MouseHandler.MouseHandler_lastButton >= var40 && 2020601481 * MouseHandler.MouseHandler_lastButton <= var40 + var9 && MouseHandler.as * 1163896205 >= var8 && MouseHandler.as * 1163896205 <= var8 + var10) {
+                     if (2020601481 * MouseHandler.am >= var40 && 2020601481 * MouseHandler.am <= var40 + var9 && MouseHandler.as * 1163896205 >= var8 && MouseHandler.as * 1163896205 <= var8 + var10) {
                         cz.ar_renamed();
                         return;
                      }
@@ -509,7 +162,7 @@ public class EnumType extends DualNode {
                }
 
                var40 = -1222491879 * MouseHandler.ar;
-               var8 = 2020601481 * MouseHandler.MouseHandler_lastButton;
+               var8 = 2020601481 * MouseHandler.am;
                var9 = MouseHandler.as * 1163896205;
                if (var40 == 0) {
                   var8 = -2063363905 * MouseHandler.ay;
@@ -542,10 +195,10 @@ public class EnumType extends DualNode {
                   var13 = fy.az * 950254081 + 80;
                   if (var40 == 1 && var8 >= var13 - 75 && var8 <= 75 + var13 && var9 >= var44 - 20 && var9 <= 20 + var44 || var75) {
                      if ((-205173751 * Client.ce & 33554432) != 0) {
-                        cz.Login_response0 = "";
-                        cz.Login_response1 = Strings.Strings_thisIsABetaWorld;
-                        cz.Login_response2 = Strings.Strings_yourNormalAccountWillNotBeAffected;
-                        cz.Login_response3 = Strings.jq;
+                        cz.ci = "";
+                        cz.cs = Strings.jo;
+                        cz.cc = Strings.jk;
+                        cz.cn = Strings.jq;
                         ee.ak_renamed(1);
                         if (Client.hb && null != cz.ca && cz.ca.length() > 0) {
                            cz.dm = 1153152795;
@@ -554,16 +207,16 @@ public class EnumType extends DualNode {
                         }
                      } else if ((-205173751 * Client.ce & 4) != 0) {
                         if ((-205173751 * Client.ce & 1024) != 0) {
-                           cz.Login_response1 = Strings.Strings_thisIsAHighRiskPvpWorld;
-                           cz.Login_response2 = Strings.Strings_playersCanAttackEachOtherAlmostEverywhere;
-                           cz.Login_response3 = Strings.Strings_andTheProtectItemPrayerWontWork;
+                           cz.cs = Strings.ji;
+                           cz.cc = Strings.jg;
+                           cz.cn = Strings.jx;
                         } else {
-                           cz.Login_response1 = Strings.Strings_thisIsAPvpWorld;
-                           cz.Login_response2 = Strings.Strings_playersCanAttackEachOther;
-                           cz.Login_response3 = Strings.Strings_almostEverywhere;
+                           cz.cs = Strings.ij;
+                           cz.cc = Strings.id;
+                           cz.cn = Strings.it;
                         }
 
-                        cz.Login_response0 = Strings.Strings_warning;
+                        cz.ci = Strings.im;
                         ee.ak_renamed(1);
                         if (Client.hb && cz.ca != null && cz.ca.length() > 0) {
                            cz.dm = 1153152795;
@@ -571,10 +224,10 @@ public class EnumType extends DualNode {
                            cz.dm = 0;
                         }
                      } else if ((Client.ce * -205173751 & 1024) != 0) {
-                        cz.Login_response1 = Strings.Strings_thisIsAHighRiskWorld;
-                        cz.Login_response2 = Strings.Strings_theProtectItemPrayerWill;
-                        cz.Login_response3 = Strings.Strings_notWorkOnThisWorld;
-                        cz.Login_response0 = Strings.Strings_warning;
+                        cz.cs = Strings.ix;
+                        cz.cc = Strings.ib;
+                        cz.cn = Strings.jc;
+                        cz.ci = Strings.im;
                         ee.ak_renamed(1);
                         if (Client.hb && cz.ca != null && cz.ca.length() > 0) {
                            cz.dm = 1153152795;
@@ -653,16 +306,16 @@ public class EnumType extends DualNode {
                         if (1 == var40 && var8 >= var13 - 75 && var8 <= 75 + var13 && var9 >= var44 - 20 && var9 <= var44 + 20) {
                            cz.ca = cz.ca.trim();
                            if (cz.ca.length() == 0) {
-                              he.ax_renamed(Strings.em, Strings.Strings_pleaseEnterYourUsername, Strings.ex);
+                              he.ax_renamed(Strings.em, Strings.ew, Strings.ex);
                               return;
                            }
 
                            if (cz.cu.length() == 0) {
-                              he.ax_renamed(Strings.eh, Strings.Strings_pleaseEnterYourPassword, Strings.ey);
+                              he.ax_renamed(Strings.eh, Strings.ek, Strings.ey);
                               return;
                            }
 
-                           he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
+                           he.ax_renamed(Strings.jm, Strings.jn, Strings.jd);
                            ag.hb_renamed(false);
                            fd.hi_renamed(20);
                            return;
@@ -683,8 +336,8 @@ public class EnumType extends DualNode {
                         cz.cj = var8 >= var13 && var8 < var13 + ChatChannel.cz * 1381277089 && var9 >= var44 && var9 < FloorUnderlayType.cw * -1649414567 + var44;
                         if (var40 == 1 && cz.cj) {
                            Client.hb = !Client.hb;
-                           if (!Client.hb && aj.clientPreferences.ae() != null) {
-                              aj.clientPreferences.ad((String)null);
+                           if (!Client.hb && aj.vb.ae() != null) {
+                              aj.vb.ad((String)null);
                            }
                         }
 
@@ -692,10 +345,10 @@ public class EnumType extends DualNode {
                         var44 = 277;
                         cz.ch = var8 >= var13 && var8 < ChatChannel.cz * 1381277089 + var13 && var9 >= var44 && var9 < var44 + FloorUnderlayType.cw * -1649414567;
                         if (1 == var40 && cz.ch) {
-                           aj.clientPreferences.aq(!aj.clientPreferences.al());
-                           if (!aj.clientPreferences.al()) {
+                           aj.vb.aq(!aj.vb.al());
+                           if (!aj.vb.al()) {
                               cz.ca = "";
-                              aj.clientPreferences.ad((String)null);
+                              aj.vb.ad((String)null);
                               if (Client.hb && null != cz.ca && cz.ca.length() > 0) {
                                  cz.dm = 1153152795;
                               } else {
@@ -757,16 +410,16 @@ public class EnumType extends DualNode {
                                     if (546317845 * var11.ai == 84) {
                                        cz.ca = cz.ca.trim();
                                        if (cz.ca.length() == 0) {
-                                          he.ax_renamed(Strings.em, Strings.Strings_pleaseEnterYourUsername, Strings.ex);
+                                          he.ax_renamed(Strings.em, Strings.ew, Strings.ex);
                                           return;
                                        }
 
                                        if (cz.cu.length() == 0) {
-                                          he.ax_renamed(Strings.eh, Strings.Strings_pleaseEnterYourPassword, Strings.ey);
+                                          he.ax_renamed(Strings.eh, Strings.ek, Strings.ey);
                                           return;
                                        }
 
-                                       he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
+                                       he.ax_renamed(Strings.jm, Strings.jn, Strings.jd);
                                        ag.hb_renamed(false);
                                        fd.hi_renamed(20);
                                        return;
@@ -775,7 +428,7 @@ public class EnumType extends DualNode {
 
                                  if ((var11.av(82) || var11.av(87)) && 67 == var11.ai * 546317845) {
                                     Clipboard var55 = Toolkit.getDefaultToolkit().getSystemClipboard();
-                                    var61 = var55.getContents(ClientScriptFrame.client);
+                                    var61 = var55.getContents(ClientScriptFrame.bc);
                                     var50 = 20 - cz.cu.length();
                                     break;
                                  }
@@ -858,7 +511,7 @@ public class EnumType extends DualNode {
                                  hp.ct = Integer.parseInt(Messages.cp) * -209153533;
                                  Messages.cp = "";
                                  ag.hb_renamed(true);
-                                 he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
+                                 he.ax_renamed(Strings.jm, Strings.jn, Strings.jd);
                                  fd.hi_renamed(20);
                                  return;
                               }
@@ -911,7 +564,7 @@ public class EnumType extends DualNode {
                                        hp.ct = Integer.parseInt(Messages.cp) * -209153533;
                                        Messages.cp = "";
                                        ag.hb_renamed(true);
-                                       he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
+                                       he.ax_renamed(Strings.jm, Strings.jn, Strings.jd);
                                        fd.hi_renamed(20);
                                        return;
                                     }
@@ -974,17 +627,17 @@ public class EnumType extends DualNode {
 
                                        Packet var77 = new Packet(var73);
                                        var77.bh(var18);
-                                       var77.index = var73 * -1516355947;
+                                       var77.at = var73 * -1516355947;
                                        var77.tinyKeyEncryptAll(var69);
-                                       Packet var82 = new Packet(var77.index * -1633313603 + -1633313603 * var62.index + var58.index * -1633313603 + 5);
+                                       Packet var82 = new Packet(var77.at * -1633313603 + -1633313603 * var62.at + var58.at * -1633313603 + 5);
                                        var82.bu(2);
-                                       var82.bu(var58.index * -1633313603);
-                                       var82.cs(var58.array, 0, -1633313603 * var58.index);
-                                       var82.bu(-1633313603 * var62.index);
-                                       var82.cs(var62.array, 0, var62.index * -1633313603);
-                                       var82.p2(-1633313603 * var77.index);
-                                       var82.cs(var77.array, 0, -1633313603 * var77.index);
-                                       String var80 = WorldMapSectionType.af_renamed(var82.array);
+                                       var82.bu(var58.at * -1633313603);
+                                       var82.cs(var58.al, 0, -1633313603 * var58.at);
+                                       var82.bu(-1633313603 * var62.at);
+                                       var82.cs(var62.al, 0, var62.at * -1633313603);
+                                       var82.p2(-1633313603 * var77.at);
+                                       var82.cs(var77.al, 0, -1633313603 * var77.at);
+                                       String var80 = WorldMapSectionType.af_renamed(var82.al);
 
                                        try {
                                           URL var81 = new URL(InvType.nb_renamed("services", false) + "m=accountappeal/login.ws");
@@ -999,11 +652,11 @@ public class EnumType extends DualNode {
                                           var82 = new Packet(new byte[1000]);
 
                                           while(true) {
-                                             int var87 = var86.read(var82.array, -1633313603 * var82.index, 1000 - var82.index * -1633313603);
+                                             int var87 = var86.read(var82.al, -1633313603 * var82.at, 1000 - var82.at * -1633313603);
                                              if (var87 == -1) {
                                                 var85.close();
                                                 var86.close();
-                                                String var88 = new String(var82.array);
+                                                String var88 = new String(var82.al);
                                                 if (var88.startsWith("OFFLINE")) {
                                                    var50 = 4;
                                                 } else if (var88.startsWith("WRONG")) {
@@ -1015,11 +668,11 @@ public class EnumType extends DualNode {
                                                 } else {
                                                    var82.tinyKeyDecryptAll(var69);
 
-                                                   while(-1633313603 * var82.index > 0 && var82.array[var82.index * -1633313603 - 1] == 0) {
-                                                      var82.index -= -1516355947;
+                                                   while(-1633313603 * var82.at > 0 && var82.al[var82.at * -1633313603 - 1] == 0) {
+                                                      var82.at -= -1516355947;
                                                    }
 
-                                                   var88 = new String(var82.array, 0, var82.index * -1633313603);
+                                                   var88 = new String(var82.al, 0, var82.at * -1633313603);
                                                    if (dj.an_renamed(var88)) {
                                                       Ignored.af_renamed(var88, true, false);
                                                       var50 = 2;
@@ -1030,8 +683,8 @@ public class EnumType extends DualNode {
                                                 break;
                                              }
 
-                                             var82.index += -1516355947 * var87;
-                                             if (var82.index * -1633313603 >= 1000) {
+                                             var82.at += -1516355947 * var87;
+                                             if (var82.at * -1633313603 >= 1000) {
                                                 var50 = 5;
                                                 break;
                                              }
@@ -1148,17 +801,17 @@ public class EnumType extends DualNode {
 
                                              Packet var26 = new Packet(var25);
                                              var26.bh(var20);
-                                             var26.index = var25 * -1516355947;
+                                             var26.at = var25 * -1516355947;
                                              var26.tinyKeyEncryptAll(var24);
-                                             Packet var27 = new Packet(5 + var22.index * -1633313603 + -1633313603 * var23.index + -1633313603 * var26.index);
+                                             Packet var27 = new Packet(5 + var22.at * -1633313603 + -1633313603 * var23.at + -1633313603 * var26.at);
                                              var27.bu(2);
-                                             var27.bu(-1633313603 * var22.index);
-                                             var27.cs(var22.array, 0, var22.index * -1633313603);
-                                             var27.bu(var23.index * -1633313603);
-                                             var27.cs(var23.array, 0, var23.index * -1633313603);
-                                             var27.p2(var26.index * -1633313603);
-                                             var27.cs(var26.array, 0, var26.index * -1633313603);
-                                             String var28 = WorldMapSectionType.af_renamed(var27.array);
+                                             var27.bu(-1633313603 * var22.at);
+                                             var27.cs(var22.al, 0, var22.at * -1633313603);
+                                             var27.bu(var23.at * -1633313603);
+                                             var27.cs(var23.al, 0, var23.at * -1633313603);
+                                             var27.p2(var26.at * -1633313603);
+                                             var27.cs(var26.al, 0, var26.at * -1633313603);
+                                             String var28 = WorldMapSectionType.af_renamed(var27.al);
 
                                              try {
                                                 URL var29 = new URL(InvType.nb_renamed("services", false) + "m=accountappeal/login.ws");
@@ -1173,11 +826,11 @@ public class EnumType extends DualNode {
                                                 var27 = new Packet(new byte[1000]);
 
                                                 while(true) {
-                                                   int var33 = var32.read(var27.array, var27.index * -1633313603, 1000 - var27.index * -1633313603);
+                                                   int var33 = var32.read(var27.al, var27.at * -1633313603, 1000 - var27.at * -1633313603);
                                                    if (var33 == -1) {
                                                       var31.close();
                                                       var32.close();
-                                                      String var89 = new String(var27.array);
+                                                      String var89 = new String(var27.al);
                                                       if (var89.startsWith("OFFLINE")) {
                                                          var19 = 4;
                                                       } else if (var89.startsWith("WRONG")) {
@@ -1189,11 +842,11 @@ public class EnumType extends DualNode {
                                                       } else {
                                                          var27.tinyKeyDecryptAll(var24);
 
-                                                         while(var27.index * -1633313603 > 0 && 0 == var27.array[var27.index * -1633313603 - 1]) {
-                                                            var27.index -= -1516355947;
+                                                         while(var27.at * -1633313603 > 0 && 0 == var27.al[var27.at * -1633313603 - 1]) {
+                                                            var27.at -= -1516355947;
                                                          }
 
-                                                         var89 = new String(var27.array, 0, var27.index * -1633313603);
+                                                         var89 = new String(var27.al, 0, var27.at * -1633313603);
                                                          if (dj.an_renamed(var89)) {
                                                             Ignored.af_renamed(var89, true, false);
                                                             var19 = 2;
@@ -1204,8 +857,8 @@ public class EnumType extends DualNode {
                                                       break;
                                                    }
 
-                                                   var27.index += -1516355947 * var33;
-                                                   if (var27.index * -1633313603 >= 1000) {
+                                                   var27.at += -1516355947 * var33;
+                                                   if (var27.at * -1633313603 >= 1000) {
                                                       var19 = 5;
                                                       break;
                                                    }
@@ -1478,7 +1131,7 @@ public class EnumType extends DualNode {
                                  var12 = cz.ak * 678588245 + 180;
                                  var45 = 209;
                                  if (546317845 * var41.ai == 84 || 1 == var40 && var8 >= var12 - 109 && var8 <= 109 + var12 && var9 >= var45 && var9 <= var45 + 68) {
-                                    he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
+                                    he.ax_renamed(Strings.jm, Strings.jn, Strings.jd);
                                     Client.gy = sr.an;
                                     ag.hb_renamed(false);
                                     fd.hi_renamed(20);
@@ -1504,7 +1157,7 @@ public class EnumType extends DualNode {
                                  var12 = fy.az * 950254081 - 80;
                                  var45 = 311;
                                  if (1 == var40 && var8 >= var12 - 75 && var8 <= var12 + 75 && var9 >= var45 - 20 && var9 <= var45 + 20) {
-                                    aj.clientPreferences.ap(Client.cl * 976454555);
+                                    aj.vb.ap(Client.cl * 976454555);
                                     cz.ay_renamed(true);
                                  }
 
@@ -1607,14 +1260,361 @@ public class EnumType extends DualNode {
       }
    }
 
-   void decode(Packet var1) {
-      while(true) {
-         int var3 = var1.g1();
-         if (var3 == 0) {
-            return;
+   static final void ic_renamed() {
+      for(int var1 = 0; var1 < 265474485 * Client.iw; ++var1) {
+         int var2 = Client.iy[var1];
+         Npc var3 = Client.iu[var2];
+         if (null != var3) {
+            ReflectionCheck.ii_renamed(var3, 1458410691 * var3.af.al);
+         }
+      }
+
+   }
+
+   static final void jb_renamed(lm var0) {
+      PacketBit var2 = Client.in.ab;
+      int var3;
+      int var4;
+      int var5;
+      int var6;
+      int var7;
+      int var8;
+      int var9;
+      int var10;
+      int var11;
+      int var12;
+      int var13;
+      int var14;
+      int var15;
+      if (var0 == lm.au) {
+         var3 = var2.g1();
+         var4 = var2.g1();
+         var5 = (var4 >> 4 & 7) + aa.jp * 1555915261;
+         var6 = (var4 & 7) + -191732975 * FontName.jt;
+         var7 = var2.dq() * 4;
+         var8 = var2.ep();
+         var9 = var2.dq();
+         var10 = var2.cl();
+         byte var41 = var2.dj();
+         var12 = var2.g1n() * 4;
+         var13 = var2.cl();
+         var14 = var2.cy();
+         byte var42 = var2.dx();
+         var15 = var42 + var5;
+         var11 = var41 + var6;
+         if (var5 >= 0 && var6 >= 0 && var5 < 104 && var6 < 104 && var15 >= 0 && var11 >= 0 && var15 < 104 && var11 < 104 && 65535 != var8) {
+            var5 = var5 * 128 + 64;
+            var6 = 64 + var6 * 128;
+            var15 = 64 + var15 * 128;
+            var11 = 128 * var11 + 64;
+            Projectile var43 = new Projectile(var8, -1727408401 * GameShell.mh, var5, var6, fq.getTileHeight(var5, var6, GameShell.mh * -1727408401) - var12, Client.ep * -1886224337 + var10, var13 + -1886224337 * Client.ep, var3, var9, var14, var7);
+            var43.setDestination(var15, var11, fq.getTileHeight(var15, var11, -1727408401 * GameShell.mh) - var7, Client.ep * -1886224337 + var10);
+            Client.na.addFirst(var43);
          }
 
-         this.decode0(var1, var3);
+      } else {
+         if (var0 == lm.an) {
+            var3 = var2.cl();
+            var4 = var2.dx();
+            var5 = var2.dd();
+            var6 = var2.db();
+            var7 = (var6 >> 4 & 7) + 1555915261 * aa.jp;
+            var8 = -191732975 * FontName.jt + (var6 & 7);
+            var9 = var2.g1s();
+            var10 = var2.cl();
+            var11 = var2.dd();
+            var12 = var2.g1();
+            var13 = var12 >> 2;
+            var14 = var12 & 3;
+            var15 = Client.jy[var13];
+            int var16 = var2.ep();
+            int var17 = var2.eo();
+            Player var18;
+            if (var3 == -549033243 * Client.mg) {
+               var18 = MusicPatchNode.mi;
+            } else {
+               var18 = Client.mc[var3];
+            }
+
+            if (null != var18) {
+               hq var19 = fw.an_renamed(var17);
+               int var20;
+               int var21;
+               if (1 != var14 && var14 != 3) {
+                  var20 = -1339930361 * var19.av;
+                  var21 = var19.ar * -1659393955;
+               } else {
+                  var20 = -1659393955 * var19.ar;
+                  var21 = var19.av * -1339930361;
+               }
+
+               int var22 = var7 + (var20 >> 1);
+               int var23 = var7 + (var20 + 1 >> 1);
+               int var24 = (var21 >> 1) + var8;
+               int var25 = (1 + var21 >> 1) + var8;
+               int[][] var26 = Tiles.af[GameShell.mh * -1727408401];
+               int var27 = var26[var22][var25] + var26[var23][var24] + var26[var22][var24] + var26[var23][var25] >> 2;
+               int var28 = (var7 << 7) + (var20 << 6);
+               int var29 = (var21 << 6) + (var8 << 7);
+               it var30 = var19.at(var13, var14, var26, var28, var27, var29);
+               if (var30 != null) {
+                  bz.jz_renamed(GameShell.mh * -1727408401, var7, var8, var15, -1, 0, 0, 31, var10 + 1, 1 + var16);
+                  var18.ay = (Client.ep * -1886224337 + var10) * -746690647;
+                  var18.ao = -377301053 * (var16 + Client.ep * -1886224337);
+                  var18.ah = var30;
+                  var18.ax = var7 * -494827904 + -247413952 * var20;
+                  var18.ag = var8 * -856229504 + var21 * -428114752;
+                  var18.ai = var27 * 1514773119;
+                  byte var31;
+                  if (var9 > var11) {
+                     var31 = (byte)var9;
+                     var9 = var11;
+                     var11 = var31;
+                  }
+
+                  if (var4 > var5) {
+                     var31 = (byte)var4;
+                     var4 = var5;
+                     var5 = var31;
+                  }
+
+                  var18.av = (var7 + var9) * -890592649;
+                  var18.am = 1649066605 * (var7 + var11);
+                  var18.ar = -751305383 * (var8 + var4);
+                  var18.as = (var5 + var8) * 105031851;
+               }
+            }
+         }
+
+         if (var0 == lm.ay) {
+            var3 = var2.dq();
+            var4 = (var3 >> 4 & 7) + 1555915261 * aa.jp;
+            var5 = (var3 & 7) + -191732975 * FontName.jt;
+            var6 = var2.g4s();
+            var7 = var2.eo();
+            var8 = var2.g4s();
+            if (var4 >= 0 && var5 >= 0 && var4 < 104 && var5 < 104) {
+               NodeDeque var39 = Client.nr[-1727408401 * GameShell.mh][var4][var5];
+               if (var39 != null) {
+                  for(Obj var34 = (Obj)var39.last(); var34 != null; var34 = (Obj)var39.previous()) {
+                     if ((var7 & 32767) == 176307405 * var34.af && var8 == -1745152527 * var34.an) {
+                        var34.an = var6 * -1785382127;
+                        break;
+                     }
+                  }
+
+                  em.kd_renamed(var4, var5);
+               }
+            }
+
+         } else {
+            Obj var35;
+            if (lm.aa == var0) {
+               var2.db();
+               var3 = var2.en();
+               var4 = var2.db();
+               var5 = var2.g1();
+               var6 = 1555915261 * aa.jp + (var5 >> 4 & 7);
+               var7 = FontName.jt * -191732975 + (var5 & 7);
+               var8 = var2.ep();
+               var2.da();
+               var2.ep();
+               var2.g1n();
+               if (var6 >= 0 && var7 >= 0 && var6 < 104 && var7 < 104) {
+                  var35 = new Obj();
+                  var35.af = var8 * -968355835;
+                  var35.an = var3 * -1785382127;
+                  var35.advance(var4);
+                  if (Client.nr[GameShell.mh * -1727408401][var6][var7] == null) {
+                     Client.nr[GameShell.mh * -1727408401][var6][var7] = new NodeDeque();
+                  }
+
+                  Client.nr[GameShell.mh * -1727408401][var6][var7].addFirst(var35);
+                  em.kd_renamed(var6, var7);
+               }
+
+            } else if (var0 == lm.ab) {
+               var3 = var2.g1();
+               var4 = var2.dq();
+               var5 = 1555915261 * aa.jp + (var4 >> 4 & 7);
+               var6 = (var4 & 7) + -191732975 * FontName.jt;
+               var7 = var2.g1n();
+               var8 = var7 >> 2;
+               var9 = var7 & 3;
+               var10 = Client.jy[var8];
+               var11 = var2.da();
+               if (var5 >= 0 && var6 >= 0 && var5 < 104 && var6 < 104) {
+                  bz.jz_renamed(-1727408401 * GameShell.mh, var5, var6, var10, var11, var8, var9, var3, 0, -1);
+               }
+
+            } else {
+               NodeDeque var32;
+               if (lm.at == var0) {
+                  var3 = var2.g1n();
+                  var4 = (var3 >> 4 & 7) + aa.jp * 1555915261;
+                  var5 = (var3 & 7) + FontName.jt * -191732975;
+                  var6 = var2.da();
+                  var7 = var2.er();
+                  if (var4 >= 0 && var5 >= 0 && var4 < 104 && var5 < 104) {
+                     var32 = Client.nr[-1727408401 * GameShell.mh][var4][var5];
+                     if (null != var32) {
+                        for(var35 = (Obj)var32.last(); null != var35; var35 = (Obj)var32.previous()) {
+                           if ((var6 & 32767) == 176307405 * var35.af && -1745152527 * var35.an == var7) {
+                              var35.remove();
+                              break;
+                           }
+                        }
+
+                        if (var32.last() == null) {
+                           Client.nr[GameShell.mh * -1727408401][var4][var5] = null;
+                        }
+
+                        em.kd_renamed(var4, var5);
+                     }
+                  }
+
+               } else {
+                  if (lm.aq == var0) {
+                     var3 = var2.eo();
+                     var4 = var2.g1n();
+                     var5 = var4 >> 4 & 15;
+                     var6 = var4 & 7;
+                     var7 = var2.db();
+                     var8 = 1555915261 * aa.jp + (var7 >> 4 & 7);
+                     var9 = (var7 & 7) + -191732975 * FontName.jt;
+                     var10 = var2.dq();
+                     if (var8 >= 0 && var9 >= 0 && var8 < 104 && var9 < 104) {
+                        var11 = var5 + 1;
+                        if (MusicPatchNode.mi.dy[0] >= var8 - var11 && MusicPatchNode.mi.dy[0] <= var11 + var8 && MusicPatchNode.mi.ds[0] >= var9 - var11 && MusicPatchNode.mi.ds[0] <= var9 + var11 && aj.vb.az() != 0 && var6 > 0 && -297150195 * Client.tl < 50) {
+                           Client.tu[Client.tl * -297150195] = var3;
+                           Client.tr[Client.tl * -297150195] = var6;
+                           Client.tg[-297150195 * Client.tl] = var10;
+                           Client.ti[Client.tl * -297150195] = null;
+                           Client.tb[Client.tl * -297150195] = (var9 << 8) + (var8 << 16) + var5;
+                           Client.tl += 831233477;
+                        }
+                     }
+                  }
+
+                  if (var0 == lm.al) {
+                     var3 = var2.eo();
+                     var4 = var2.g1n();
+                     var5 = (var4 >> 4 & 7) + aa.jp * 1555915261;
+                     var6 = (var4 & 7) + FontName.jt * -191732975;
+                     var7 = var2.db();
+                     if (var5 >= 0 && var6 >= 0 && var5 < 104 && var6 < 104) {
+                        var32 = Client.nr[GameShell.mh * -1727408401][var5][var6];
+                        if (null != var32) {
+                           for(var35 = (Obj)var32.last(); null != var35; var35 = (Obj)var32.previous()) {
+                              if ((var3 & 32767) == 176307405 * var35.af) {
+                                 var35.advance(var7);
+                                 break;
+                              }
+                           }
+                        }
+                     }
+
+                  } else if (var0 != lm.ac) {
+                     if (lm.af == var0) {
+                        var3 = var2.db();
+                        var4 = aa.jp * 1555915261 + (var3 >> 4 & 7);
+                        var5 = FontName.jt * -191732975 + (var3 & 7);
+                        var6 = var2.g1();
+                        var7 = var6 >> 2;
+                        var8 = var6 & 3;
+                        var9 = Client.jy[var7];
+                        if (var4 >= 0 && var5 >= 0 && var4 < 104 && var5 < 104) {
+                           bz.jz_renamed(-1727408401 * GameShell.mh, var4, var5, var9, -1, var7, var8, 31, 0, -1);
+                        }
+
+                     } else if (var0 == lm.aw) {
+                        var3 = var2.g1n();
+                        var4 = var2.cl();
+                        var5 = var2.dq();
+                        var6 = (var5 >> 4 & 7) + 1555915261 * aa.jp;
+                        var7 = FontName.jt * -191732975 + (var5 & 7);
+                        var8 = var2.da();
+                        if (var6 >= 0 && var7 >= 0 && var6 < 104 && var7 < 104) {
+                           var6 = 128 * var6 + 64;
+                           var7 = 128 * var7 + 64;
+                           GraphicsObject var33 = new GraphicsObject(var8, GameShell.mh * -1727408401, var6, var7, fq.getTileHeight(var6, var7, GameShell.mh * -1727408401) - var3, var4, -1886224337 * Client.ep);
+                           Client.np.addFirst(var33);
+                        }
+
+                     }
+                  } else {
+                     var3 = var2.g1();
+                     var4 = (var3 >> 4 & 7) + aa.jp * 1555915261;
+                     var5 = (var3 & 7) + FontName.jt * -191732975;
+                     var6 = var2.da();
+                     var7 = var2.g1n();
+                     var8 = var7 >> 2;
+                     var9 = var7 & 3;
+                     var10 = Client.jy[var8];
+                     if (var4 >= 0 && var5 >= 0 && var4 < 103 && var5 < 103) {
+                        if (var10 == 0) {
+                           Wall var36 = bx.js.az(GameShell.mh * -1727408401, var4, var5);
+                           if (var36 != null) {
+                              var12 = InterfaceParent.at(-4009183385476919801L * var36.al);
+                              if (2 == var8) {
+                                 var36.ab = new DynamicObject(var12, 2, var9 + 4, -1727408401 * GameShell.mh, var4, var5, var6, false, var36.ab);
+                                 var36.aq = new DynamicObject(var12, 2, var9 + 1 & 3, -1727408401 * GameShell.mh, var4, var5, var6, false, var36.aq);
+                              } else {
+                                 var36.ab = new DynamicObject(var12, var8, var9, GameShell.mh * -1727408401, var4, var5, var6, false, var36.ab);
+                              }
+
+                              return;
+                           }
+                        }
+
+                        if (1 == var10) {
+                           WallDecoration var37 = bx.js.ad(GameShell.mh * -1727408401, var4, var5);
+                           if (null != var37) {
+                              var12 = InterfaceParent.at(-4691380879163567243L * var37.aa);
+                              if (4 != var8 && var8 != 5) {
+                                 if (6 == var8) {
+                                    var37.al = new DynamicObject(var12, 4, 4 + var9, -1727408401 * GameShell.mh, var4, var5, var6, false, var37.al);
+                                 } else if (7 == var8) {
+                                    var37.al = new DynamicObject(var12, 4, (2 + var9 & 3) + 4, GameShell.mh * -1727408401, var4, var5, var6, false, var37.al);
+                                 } else if (var8 == 8) {
+                                    var37.al = new DynamicObject(var12, 4, 4 + var9, -1727408401 * GameShell.mh, var4, var5, var6, false, var37.al);
+                                    var37.at = new DynamicObject(var12, 4, 4 + (2 + var9 & 3), -1727408401 * GameShell.mh, var4, var5, var6, false, var37.at);
+                                 }
+                              } else {
+                                 var37.al = new DynamicObject(var12, 4, var9, GameShell.mh * -1727408401, var4, var5, var6, false, var37.al);
+                              }
+
+                              return;
+                           }
+                        }
+
+                        if (var10 == 2) {
+                           Scenery var38 = bx.js.ae(-1727408401 * GameShell.mh, var4, var5);
+                           if (11 == var8) {
+                              var8 = 10;
+                           }
+
+                           if (null != var38) {
+                              var38.ab = new DynamicObject(InterfaceParent.at(5016412888503339625L * var38.ax), var8, var9, GameShell.mh * -1727408401, var4, var5, var6, false, var38.ab);
+                              return;
+                           }
+                        }
+
+                        if (var10 == 3) {
+                           FloorDecoration var40 = bx.js.ap(-1727408401 * GameShell.mh, var4, var5);
+                           if (var40 != null) {
+                              var40.ac = new DynamicObject(InterfaceParent.at(3423223696102332293L * var40.au), 22, var9, -1727408401 * GameShell.mh, var4, var5, var6, false, var40.ac);
+                              return;
+                           }
+                        }
+
+                        hu.ju_renamed(-1727408401 * GameShell.mh, var4, var5, var10, var6);
+                     }
+
+                  }
+               }
+            }
+         }
       }
    }
 }

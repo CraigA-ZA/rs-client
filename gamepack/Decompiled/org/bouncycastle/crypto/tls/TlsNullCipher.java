@@ -6,8 +6,8 @@ import org.bouncycastle.util.Arrays;
 
 public class TlsNullCipher implements TlsCipher {
    public TlsContext context;
-   public TlsMac writeMac;
    public TlsMac readMac;
+   public TlsMac writeMac;
 
    public TlsNullCipher(TlsContext var1) {
       this.context = var1;

@@ -5,9 +5,9 @@ import org.bouncycastle.math.raw.Nat;
 import org.bouncycastle.math.raw.Nat160;
 
 public class SecP160R2Field {
-   static final int[] PExtInv = new int[]{-457489321, -42779, -2, -1, -1, 42777, 2};
    static final int[] P = new int[]{-21389, -2, -1, -1, -1};
    static final int[] PExt = new int[]{457489321, 42778, 1, 0, 0, -42778, -3, -1, -1, -1};
+   static final int[] PExtInv = new int[]{-457489321, -42779, -2, -1, -1, 42777, 2};
 
    public static void squareN(int[] var0, int var1, int[] var2) {
       int[] var3 = Nat160.createExt();

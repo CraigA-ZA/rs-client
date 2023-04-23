@@ -1,13 +1,8 @@
 public class gi {
-   public float[] an;
    // $FF: synthetic field
    final gy this$0;
    public UrlRequest af;
-
-   gi(gy var1) {
-      this.this$0 = var1;
-      this.an = new float[4];
-   }
+   public float[] an;
 
    static long af_renamed(CharSequence var0) {
       long var2 = 0L;
@@ -34,5 +29,10 @@ public class gi {
       }
 
       return var2;
+   }
+
+   gi(gy var1) {
+      this.this$0 = var1;
+      this.an = new float[4];
    }
 }

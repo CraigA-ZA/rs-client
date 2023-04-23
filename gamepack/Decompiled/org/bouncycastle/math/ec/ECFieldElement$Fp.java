@@ -6,8 +6,8 @@ import org.bouncycastle.math.raw.Mod;
 import org.bouncycastle.math.raw.Nat;
 
 public class ECFieldElement$Fp extends ECFieldElement {
-   BigInteger r;
    BigInteger q;
+   BigInteger r;
    BigInteger x;
 
    public ECFieldElement divide(ECFieldElement var1) {

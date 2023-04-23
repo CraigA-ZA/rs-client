@@ -1,52 +1,14 @@
 public class AudioFilter {
-   int[][][] aw = new int[2][2][4];
-   static float[][] ab = new float[2][8];
-   int[][][] ac = new int[2][2][4];
-   int[] au = new int[2];
-   int[] af = new int[2];
    static float al;
+   static float[][] ab = new float[2][8];
    static int at;
    static int[][] aq = new int[2][8];
+   int[] af = new int[2];
+   int[] au = new int[2];
+   int[][][] ac = new int[2][2][4];
+   int[][][] aw = new int[2][2][4];
 
-   final void au(Packet var1, SoundEnvelope var2) {
-      int var3 = var1.g1();
-      this.af[0] = var3 >> 4;
-      this.af[1] = var3 & 15;
-      if (var3 != 0) {
-         this.au[0] = var1.cl();
-         this.au[1] = var1.cl();
-         int var4 = var1.g1();
-
-         int var5;
-         int var6;
-         for(var5 = 0; var5 < 2; ++var5) {
-            for(var6 = 0; var6 < this.af[var5]; ++var6) {
-               this.aw[var5][0][var6] = var1.cl();
-               this.ac[var5][0][var6] = var1.cl();
-            }
-         }
-
-         for(var5 = 0; var5 < 2; ++var5) {
-            for(var6 = 0; var6 < this.af[var5]; ++var6) {
-               if ((var4 & 1 << var5 * 4 << var6) != 0) {
-                  this.aw[var5][1][var6] = var1.cl();
-                  this.ac[var5][1][var6] = var1.cl();
-               } else {
-                  this.aw[var5][1][var6] = this.aw[var5][0][var6];
-                  this.ac[var5][1][var6] = this.ac[var5][0][var6];
-               }
-            }
-         }
-
-         if (var4 != 0 || this.au[1] != this.au[0]) {
-            var2.decodeSegments(var1);
-         }
-      } else {
-         int[] var13 = this.au;
-         this.au[1] = 0;
-         var13[0] = 0;
-      }
-
+   AudioFilter() {
    }
 
    float af(int var1, int var2, float var3) {
@@ -64,9 +26,6 @@ public class AudioFilter {
       float var4 = (float)this.aw[var1][0][var2] + var3 * (float)(this.aw[var1][1][var2] - this.aw[var1][0][var2]);
       var4 *= 1.2207031E-4F;
       return an(var4);
-   }
-
-   AudioFilter() {
    }
 
    int ac(int var1, float var2) {
@@ -118,5 +77,46 @@ public class AudioFilter {
 
          return this.af[var1] * 2;
       }
+   }
+
+   final void au(Packet var1, SoundEnvelope var2) {
+      int var3 = var1.g1();
+      this.af[0] = var3 >> 4;
+      this.af[1] = var3 & 15;
+      if (var3 != 0) {
+         this.au[0] = var1.cl();
+         this.au[1] = var1.cl();
+         int var4 = var1.g1();
+
+         int var5;
+         int var6;
+         for(var5 = 0; var5 < 2; ++var5) {
+            for(var6 = 0; var6 < this.af[var5]; ++var6) {
+               this.aw[var5][0][var6] = var1.cl();
+               this.ac[var5][0][var6] = var1.cl();
+            }
+         }
+
+         for(var5 = 0; var5 < 2; ++var5) {
+            for(var6 = 0; var6 < this.af[var5]; ++var6) {
+               if ((var4 & 1 << var5 * 4 << var6) != 0) {
+                  this.aw[var5][1][var6] = var1.cl();
+                  this.ac[var5][1][var6] = var1.cl();
+               } else {
+                  this.aw[var5][1][var6] = this.aw[var5][0][var6];
+                  this.ac[var5][1][var6] = this.ac[var5][0][var6];
+               }
+            }
+         }
+
+         if (var4 != 0 || this.au[1] != this.au[0]) {
+            var2.decodeSegments(var1);
+         }
+      } else {
+         int[] var13 = this.au;
+         this.au[1] = 0;
+         var13[0] = 0;
+      }
+
    }
 }

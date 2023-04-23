@@ -3,15 +3,57 @@ import java.util.BitSet;
 import java.util.List;
 
 public class gj extends Node {
-   public byte aq;
-   public List aw;
+   static int[] av;
+   boolean af;
+   boolean an = true;
    int[] ac;
    long au;
-   public String ab = null;
    public byte al;
-   boolean af;
-   static int[] av;
-   boolean an = true;
+   public byte aq;
+   public String ab = null;
+   public List aw;
+
+   static final int an_renamed(int var0, int var1, int var2, int var3) {
+      return var2 * var1 - var0 * var3 >> 16;
+   }
+
+   static {
+      new BitSet(65536);
+   }
+
+   public gj(Packet var1) {
+      this.decode(var1);
+   }
+
+   public int[] af() {
+      if (this.ac == null) {
+         String[] var2 = new String[this.aw.size()];
+         this.ac = new int[this.aw.size()];
+
+         for(int var3 = 0; var3 < this.aw.size(); this.ac[var3] = var3++) {
+            var2[var3] = ((fz)this.aw.get(var3)).aw.an();
+         }
+
+         int[] var4 = this.ac;
+         fd.aw_renamed(var2, var4, 0, var2.length - 1);
+      }
+
+      return this.ac;
+   }
+
+   void an(fz var1) {
+      this.aw.add(var1);
+      this.ac = null;
+   }
+
+   void animate(int var1) {
+      this.aw.remove(var1);
+      this.ac = null;
+   }
+
+   public int gIsaac1() {
+      return this.aw.size();
+   }
 
    public int au(String var1) {
       if (!this.an) {
@@ -27,20 +69,7 @@ public class gj extends Node {
       }
    }
 
-   public int ac() {
-      return this.aw.size();
-   }
-
-   void aw(int var1) {
-      this.aw.remove(var1);
-      this.ac = null;
-   }
-
-   static {
-      new BitSet(65536);
-   }
-
-   void ab(Packet var1) {
+   void decode(Packet var1) {
       int var3 = var1.g1();
       if (0 != (var3 & 1)) {
          this.af = true;
@@ -85,34 +114,5 @@ public class gj extends Node {
          }
       }
 
-   }
-
-   public int[] af() {
-      if (this.ac == null) {
-         String[] var2 = new String[this.aw.size()];
-         this.ac = new int[this.aw.size()];
-
-         for(int var3 = 0; var3 < this.aw.size(); this.ac[var3] = var3++) {
-            var2[var3] = ((fz)this.aw.get(var3)).aw.an();
-         }
-
-         int[] var4 = this.ac;
-         fd.aw_renamed(var2, var4, 0, var2.length - 1);
-      }
-
-      return this.ac;
-   }
-
-   public gj(Packet var1) {
-      this.ab(var1);
-   }
-
-   void an(fz var1) {
-      this.aw.add(var1);
-      this.ac = null;
-   }
-
-   static final int an_renamed(int var0, int var1, int var2, int var3) {
-      return var2 * var1 - var0 * var3 >> 16;
    }
 }

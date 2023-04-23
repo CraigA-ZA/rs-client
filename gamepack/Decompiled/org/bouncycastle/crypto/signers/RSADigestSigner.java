@@ -23,11 +23,11 @@ import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.util.Arrays;
 
 public class RSADigestSigner implements Signer {
-   final Digest digest;
+   static final Hashtable oidMap = new Hashtable();
+   boolean forSigning;
    final AlgorithmIdentifier algId;
    final AsymmetricBlockCipher rsaEngine;
-   boolean forSigning;
-   static final Hashtable oidMap = new Hashtable();
+   final Digest digest;
 
    /** @deprecated */
    public String getAlgorithmName() {

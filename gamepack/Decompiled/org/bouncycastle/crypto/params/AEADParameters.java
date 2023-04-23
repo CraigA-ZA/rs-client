@@ -5,8 +5,8 @@ import org.bouncycastle.crypto.CipherParameters;
 public class AEADParameters implements CipherParameters {
    byte[] associatedText;
    byte[] nonce;
-   KeyParameter key;
    int macSize;
+   KeyParameter key;
 
    public int getMacSize() {
       return this.macSize;

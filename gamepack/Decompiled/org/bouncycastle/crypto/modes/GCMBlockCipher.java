@@ -17,29 +17,29 @@ import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Pack;
 
 public class GCMBlockCipher implements AEADBlockCipher {
-   int blocksRemaining;
-   byte[] S_atPre;
-   GCMMultiplier multiplier;
-   GCMExponentiator exp;
-   long atLength;
-   int macSize;
-   byte[] nonce;
+   boolean forEncryption;
    byte[] H;
-   byte[] initialAssociatedText;
    byte[] J0;
-   byte[] bufBlock;
-   byte[] macBlock;
    byte[] S;
    byte[] S_at;
-   boolean forEncryption;
-   byte[] counter;
-   long totalLength;
-   int bufOff;
-   byte[] lastKey;
+   byte[] S_atPre;
    byte[] atBlock;
+   byte[] bufBlock;
+   byte[] counter;
+   byte[] initialAssociatedText;
+   byte[] lastKey;
+   byte[] macBlock;
+   byte[] nonce;
    int atBlockPos;
-   BlockCipher cipher;
+   int blocksRemaining;
+   int bufOff;
+   int macSize;
+   long atLength;
    long atLengthPre;
+   long totalLength;
+   BlockCipher cipher;
+   GCMExponentiator exp;
+   GCMMultiplier multiplier;
 
    public GCMBlockCipher(BlockCipher var1) {
       this(var1, (GCMMultiplier)null);

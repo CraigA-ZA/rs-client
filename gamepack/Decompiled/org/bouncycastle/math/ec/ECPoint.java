@@ -5,12 +5,12 @@ import java.util.Hashtable;
 
 public abstract class ECPoint {
    public static ECFieldElement[] EMPTY_ZS = new ECFieldElement[0];
+   public boolean withCompression;
+   public Hashtable preCompTable;
    public ECCurve curve;
    public ECFieldElement x;
    public ECFieldElement y;
    public ECFieldElement[] zs;
-   public boolean withCompression;
-   public Hashtable preCompTable;
 
    /** @deprecated */
    public boolean isCompressed() {

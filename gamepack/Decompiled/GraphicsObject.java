@@ -1,65 +1,49 @@
 public final class GraphicsObject extends Entity {
-   int frame = 0;
-   int height;
-   int id;
-   boolean isFinished = false;
-   int x;
-   int y;
-   SeqType seqType;
-   int plane;
-   int cycleStart;
-   int frameCycle = 0;
    static boolean sl;
+   boolean aa = false;
+   SeqType aq;
+   int ab;
+   int ac;
+   int af;
+   int al = 0;
+   int an;
+   int at = 0;
+   int au;
+   int aw;
 
    GraphicsObject(int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
-      this.cycleStart = var1 * -1726780687;
-      this.id = 1295796889 * var2;
-      this.plane = var3 * -620581055;
-      this.x = -652580511 * var4;
-      this.y = 186790935 * var5;
-      this.height = 1889540095 * (var7 + var6);
-      int var8 = Inventory.getSpotType(-1107802607 * this.cycleStart).aq * 374130911;
+      this.af = var1 * -1726780687;
+      this.aw = 1295796889 * var2;
+      this.ac = var3 * -620581055;
+      this.au = -652580511 * var4;
+      this.ab = 186790935 * var5;
+      this.an = 1889540095 * (var7 + var6);
+      int var8 = Inventory.getSpotType(-1107802607 * this.af).aq * 374130911;
       if (var8 != -1) {
-         this.isFinished = false;
-         this.seqType = Inventory.getSeqType(var8, (byte)52);
+         this.aa = false;
+         this.aq = Inventory.getSeqType(var8, (byte)52);
       } else {
-         this.isFinished = true;
+         this.aa = true;
       }
 
-   }
-
-   static final void ao(long var0) {
-      ix.ag[(ix.ai += -429048361) * -1048050201 - 1] = var0;
-   }
-
-   protected final it getModel() {
-      SpotType var2 = Inventory.getSpotType(-1107802607 * this.cycleStart);
-      it var3;
-      if (!this.isFinished) {
-         var3 = var2.au(158616165 * this.frameCycle);
-      } else {
-         var3 = var2.au(-1);
-      }
-
-      return var3 == null ? null : var3;
    }
 
    final void advance(int var1) {
-      if (!this.isFinished) {
-         this.frame += var1 * -1521037169;
-         if (!this.seqType.ao()) {
-            while(this.frame * -1355788689 > this.seqType.frameLengths[this.frameCycle * 158616165]) {
-               this.frame -= this.seqType.frameLengths[158616165 * this.frameCycle] * -1521037169;
-               this.frameCycle += 639915885;
-               if (158616165 * this.frameCycle >= this.seqType.ag.length) {
-                  this.isFinished = true;
+      if (!this.aa) {
+         this.at += var1 * -1521037169;
+         if (!this.aq.ao()) {
+            while(this.at * -1355788689 > this.aq.av[this.al * 158616165]) {
+               this.at -= this.aq.av[158616165 * this.al] * -1521037169;
+               this.al += 639915885;
+               if (158616165 * this.al >= this.aq.ag.length) {
+                  this.aa = true;
                   break;
                }
             }
          } else {
-            this.frameCycle += var1 * 639915885;
-            if (this.frameCycle * 158616165 >= this.seqType.ax()) {
-               this.isFinished = true;
+            this.al += var1 * 639915885;
+            if (this.al * 158616165 >= this.aq.ax()) {
+               this.aa = true;
             }
          }
 
@@ -67,12 +51,28 @@ public final class GraphicsObject extends Entity {
    }
 
    public static void an_renamed() {
-      if (MouseHandler.MouseHandler_instance != null) {
-         synchronized(MouseHandler.MouseHandler_instance) {
-            MouseHandler.MouseHandler_instance = null;
+      if (MouseHandler.ac != null) {
+         synchronized(MouseHandler.ac) {
+            MouseHandler.ac = null;
          }
       }
 
+   }
+
+   protected final it getModel() {
+      SpotType var2 = Inventory.getSpotType(-1107802607 * this.af);
+      it var3;
+      if (!this.aa) {
+         var3 = var2.au(158616165 * this.al);
+      } else {
+         var3 = var2.au(-1);
+      }
+
+      return var3 == null ? null : var3;
+   }
+
+   static final void ao(long var0) {
+      ix.ag[(ix.ai += -429048361) * -1048050201 - 1] = var0;
    }
 
    static final void is_renamed(int var0, int var1) {

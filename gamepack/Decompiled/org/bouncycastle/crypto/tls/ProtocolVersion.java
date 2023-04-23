@@ -5,11 +5,11 @@ import java.io.IOException;
 public final class ProtocolVersion {
    public static final ProtocolVersion DTLSv10 = new ProtocolVersion(65279, "DTLS 1.0");
    public static final ProtocolVersion DTLSv12 = new ProtocolVersion(65277, "DTLS 1.2");
+   public static final ProtocolVersion SSLv3 = new ProtocolVersion(768, "SSL 3.0");
+   public static final ProtocolVersion TLSv10 = new ProtocolVersion(769, "TLS 1.0");
    public static final ProtocolVersion TLSv11 = new ProtocolVersion(770, "TLS 1.1");
    public static final ProtocolVersion TLSv12 = new ProtocolVersion(771, "TLS 1.2");
-   public static final ProtocolVersion TLSv10 = new ProtocolVersion(769, "TLS 1.0");
    int version;
-   public static final ProtocolVersion SSLv3 = new ProtocolVersion(768, "SSL 3.0");
    String name;
 
    public int getMinorVersion() {

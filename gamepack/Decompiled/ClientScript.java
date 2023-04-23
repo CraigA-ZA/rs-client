@@ -1,18 +1,17 @@
 public class ClientScript extends DualNode {
-   String an;
-   int[] aw;
-   int[] ac;
-   String[] stringOperands;
+   public static NetFileRequest ai;
+   static EvictingDualNodeHashTable af = new EvictingDualNodeHashTable(128);
    int ab;
+   int al;
    int aq;
    int at;
-   int al;
-   IterableNodeHashTable[] switches;
-   static EvictingDualNodeHashTable ClientScript_cached = new EvictingDualNodeHashTable(128);
-   public static NetFileRequest NetCache_currentResponse;
+   int[] ac;
+   int[] aw;
+   String an;
+   String[] au;
+   IterableNodeHashTable[] aa;
 
-   IterableNodeHashTable[] au(int var1) {
-      return new IterableNodeHashTable[var1];
+   ClientScript() {
    }
 
    public static int af_renamed(int var0, int var1) {
@@ -32,6 +31,7 @@ public class ClientScript extends DualNode {
       }
    }
 
-   ClientScript() {
+   IterableNodeHashTable[] au(int var1) {
+      return new IterableNodeHashTable[var1];
    }
 }

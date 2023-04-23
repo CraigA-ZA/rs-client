@@ -7,14 +7,14 @@ import org.bouncycastle.crypto.prng.RandomGenerator;
 import org.bouncycastle.util.Times;
 
 abstract class AbstractTlsContext implements TlsContext {
-   SecurityParameters securityParameters;
-   RandomGenerator nonceRandom;
-   SecureRandom secureRandom;
-   ProtocolVersion clientVersion = null;
-   TlsSession session = null;
-   ProtocolVersion serverVersion = null;
    static long counter = Times.nanoTime();
    Object userObject = null;
+   SecureRandom secureRandom;
+   RandomGenerator nonceRandom;
+   ProtocolVersion clientVersion = null;
+   ProtocolVersion serverVersion = null;
+   SecurityParameters securityParameters;
+   TlsSession session = null;
 
    public void setUserObject(Object var1) {
       this.userObject = var1;

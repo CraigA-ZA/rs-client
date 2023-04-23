@@ -2,13 +2,19 @@ import java.util.Iterator;
 import java.util.concurrent.Callable;
 
 public class an implements Callable {
-   final Packet af;
+   static Task is;
+   static Iterator wa;
+   static Component ai;
+   final ac an;
    // $FF: synthetic field
    final al this$0;
-   final ac an;
-   static Task is;
-   static Component ai;
-   static Iterator wa;
+   final Packet af;
+
+   an(al var1, Packet var2, ac var3) {
+      this.this$0 = var1;
+      this.af = var2;
+      this.an = var3;
+   }
 
    public Object call() {
       return this.an.af(this.af);
@@ -25,19 +31,11 @@ public class an implements Callable {
    static void hf_renamed(int var0) {
       if (var0 == -1 && !Client.tf) {
          FloorUnderlayType.au_renamed();
-      } else if (-1 != var0 && 1976903761 * Client.tz != var0 && aj.clientPreferences.am() != 0 && !Client.tf) {
-         Actor.aq_renamed(2, pj.archive6, var0, 0, aj.clientPreferences.am(), false);
+      } else if (-1 != var0 && 1976903761 * Client.tz != var0 && aj.vb.am() != 0 && !Client.tf) {
+         Actor.aq_renamed(2, pj.fw, var0, 0, aj.vb.am(), false);
       }
 
       Client.tz = 1225072817 * var0;
-   }
-
-   static void io_renamed() {
-      PacketBitNode var1 = mi.an_renamed(ClientProt.av, Client.packetWriter.au);
-      var1.bit.bu(na.iv_renamed());
-      var1.bit.bf(Client.aj * -1687260435);
-      var1.bit.bf(kd.ak * 1658005443);
-      Client.packetWriter.aw(var1);
    }
 
    static final void ih_renamed() {
@@ -65,9 +63,11 @@ public class an implements Callable {
 
    }
 
-   an(al var1, Packet var2, ac var3) {
-      this.this$0 = var1;
-      this.af = var2;
-      this.an = var3;
+   static void io_renamed() {
+      PacketBitNode var1 = mi.an_renamed(ClientProt.av, Client.in.au);
+      var1.aw.bu(na.iv_renamed());
+      var1.aw.p2(Client.aj * -1687260435);
+      var1.aw.p2(kd.ak * 1658005443);
+      Client.in.aw(var1);
    }
 }

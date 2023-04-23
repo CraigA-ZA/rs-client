@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.Enumeration;
 
 class LazyConstructionEnumeration implements Enumeration {
-   ASN1InputStream aIn;
    Object nextObj;
+   ASN1InputStream aIn;
 
    Object readObject() {
       try {

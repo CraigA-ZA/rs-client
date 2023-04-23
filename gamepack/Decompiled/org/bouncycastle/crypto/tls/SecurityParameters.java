@@ -3,21 +3,21 @@ package org.bouncycastle.crypto.tls;
 import org.bouncycastle.util.Arrays;
 
 public class SecurityParameters {
-   boolean truncatedHMac = false;
-   int cipherSuite = -1;
-   short compressionAlgorithm = 0;
-   byte[] serverRandom = null;
-   int verifyDataLength = -1;
-   boolean extendedMasterSecret = false;
-   byte[] clientRandom = null;
-   int prfAlgorithm = -1;
-   byte[] sessionHash = null;
-   int entity = -1;
-   byte[] pskIdentity = null;
-   short maxFragmentLength = -1;
-   byte[] masterSecret = null;
    boolean encryptThenMAC = false;
+   boolean extendedMasterSecret = false;
+   boolean truncatedHMac = false;
+   byte[] clientRandom = null;
+   byte[] masterSecret = null;
+   byte[] pskIdentity = null;
+   byte[] serverRandom = null;
+   byte[] sessionHash = null;
    byte[] srpIdentity = null;
+   int cipherSuite = -1;
+   int entity = -1;
+   int prfAlgorithm = -1;
+   int verifyDataLength = -1;
+   short compressionAlgorithm = 0;
+   short maxFragmentLength = -1;
 
    public int getCipherSuite() {
       return this.cipherSuite;

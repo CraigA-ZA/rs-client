@@ -4,27 +4,35 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class SecureRandomFuture {
-   Future future;
    static int oo;
-   ExecutorService executor = Executors.newSingleThreadExecutor();
+   ExecutorService af = Executors.newSingleThreadExecutor();
+   Future an;
+
+   SecureRandomFuture() {
+      this.an = this.af.submit(new SecureRandomCallable());
+   }
 
    void shutdown() {
-      this.executor.shutdown();
-      this.executor = null;
+      this.af.shutdown();
+      this.af = null;
    }
 
    boolean isDone() {
-      return this.future.isDone();
+      return this.an.isDone();
    }
 
    SecureRandom get() {
       try {
-         return (SecureRandom)this.future.get();
+         return (SecureRandom)this.an.get();
       } catch (Exception var5) {
          SecureRandom var4 = new SecureRandom();
          var4.nextInt();
          return var4;
       }
+   }
+
+   public static int aw_renamed() {
+      return (MouseHandler.au += -500489753) * -119381545 - 1;
    }
 
    public static int au_renamed(CharSequence var0, int var1, boolean var2) {
@@ -84,14 +92,6 @@ public class SecureRandomFuture {
       } else {
          throw new IllegalArgumentException("" + var1);
       }
-   }
-
-   SecureRandomFuture() {
-      this.future = this.executor.submit(new SecureRandomCallable());
-   }
-
-   public static int aw_renamed() {
-      return (MouseHandler.MouseHandler_idleCycles += -500489753) * -119381545 - 1;
    }
 
    public static String ac_renamed(CharSequence var0) {

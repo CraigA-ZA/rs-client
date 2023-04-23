@@ -6,8 +6,8 @@ import org.bouncycastle.math.raw.Nat224;
 
 public class SecP224R1Field {
    static final int[] P = new int[]{1, 0, 0, -1, -1, -1, -1};
-   static final int[] PExtInv = new int[]{-1, -1, -1, 1, 0, 0, -1, -3, -1, -1, 1};
    static final int[] PExt = new int[]{1, 0, 0, -2, -1, -1, 0, 2, 0, 0, -2, -1, -1, -1};
+   static final int[] PExtInv = new int[]{-1, -1, -1, 1, 0, 0, -1, -3, -1, -1, 1};
 
    public static void subtract(int[] var0, int[] var1, int[] var2) {
       int var3 = Nat224.sub(var0, var1, var2);

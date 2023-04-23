@@ -6,8 +6,8 @@ import java.io.OutputStream;
 import org.bouncycastle.asn1.ocsp.OCSPResponse;
 
 public class CertificateStatus {
-   public short statusType;
    public Object response;
+   public short statusType;
 
    public OCSPResponse getOCSPResponse() {
       if (!isCorrectType((short)1, this.response)) {

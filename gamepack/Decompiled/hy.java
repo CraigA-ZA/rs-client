@@ -1,20 +1,20 @@
 import java.util.Arrays;
 
 public class hy implements be {
-   public int[] aw = new int[128];
-   int aq = 0;
-   boolean[] ay = new boolean[112];
-   int[] au = new int[128];
-   int ab = 0;
-   char[] af = new char[128];
-   int at = 0;
    boolean[] aa = new boolean[112];
-   int[] an = new int[128];
    boolean[] ao = new boolean[112];
-   public char ax;
-   public int ai;
-   public int ac = 0;
+   boolean[] ay = new boolean[112];
+   char[] af = new char[128];
+   int ab = 0;
    int al = 0;
+   int aq = 0;
+   int at = 0;
+   int[] an = new int[128];
+   int[] au = new int[128];
+   public char ax;
+   public int ac = 0;
+   public int ai;
+   public int[] aw = new int[128];
 
    public boolean af(int var1) {
       this.ax(var1);
@@ -23,6 +23,25 @@ public class hy implements be {
       this.ao[var1] = false;
       this.aw[(this.ac += -1818927653) * 1888573011 - 1] = var1;
       return true;
+   }
+
+   public boolean an(int var1) {
+      this.aa[var1] = false;
+      this.ay[var1] = false;
+      this.ao[var1] = true;
+      this.au[(this.ab += -971798147) * 2082731989 - 1] = var1;
+      return true;
+   }
+
+   public boolean aw(char var1) {
+      int var3 = 1 + this.al * -1384260729 & 127;
+      if (var3 != this.aq * 73809669) {
+         this.an[-1384260729 * this.al] = -1;
+         this.af[-1384260729 * this.al] = var1;
+         this.al = -1899169225 * var3;
+      }
+
+      return false;
    }
 
    void ax(int var1) {
@@ -35,8 +54,76 @@ public class hy implements be {
 
    }
 
+   public boolean ac(boolean var1) {
+      return false;
+   }
+
+   public void ai() {
+      this.aq = this.at * -1092387907;
+      this.at = this.al * -206073161;
+      this.ac = 0;
+      this.ab = 0;
+      Arrays.fill(this.ay, false);
+      Arrays.fill(this.ao, false);
+   }
+
+   public final boolean ag() {
+      if (-147657295 * this.at == this.aq * 73809669) {
+         return false;
+      } else {
+         this.ai = -2050262723 * this.an[73809669 * this.aq];
+         this.ax = this.af[73809669 * this.aq];
+         this.aq = -1675774515 * (1 + 73809669 * this.aq & 127);
+         return true;
+      }
+   }
+
+   public boolean ah(int var1) {
+      return var1 >= 0 && var1 < 112 ? this.ay[var1] : false;
+   }
+
+   public boolean av(int var1) {
+      return var1 >= 0 && var1 < 112 ? this.aa[var1] : false;
+   }
+
+   public boolean ar(int var1) {
+      return var1 >= 0 && var1 < 112 ? this.ao[var1] : false;
+   }
+
+   public int[] am() {
+      int[] var2 = new int[this.ac * 1888573011];
+
+      for(int var3 = 0; var3 < 1888573011 * this.ac; ++var3) {
+         var2[var3] = this.aw[var3];
+      }
+
+      return var2;
+   }
+
+   public int[] as() {
+      int[] var2 = new int[2082731989 * this.ab];
+
+      for(int var3 = 0; var3 < this.ab * 2082731989; ++var3) {
+         var2[var3] = this.au[var3];
+      }
+
+      return var2;
+   }
+
+   static final void PcmStream_disable(PcmStream var0) {
+      var0.am = false;
+      if (null != var0.ar) {
+         var0.ar.ab = 0;
+      }
+
+      for(PcmStream var2 = var0.firstSubStream(); var2 != null; var2 = var0.nextSubStream()) {
+         PcmStream_disable(var2);
+      }
+
+   }
+
    static final void ay_renamed(int var0, int var1, int var2, int var3, int var4, int var5, Scene var6, CollisionMap var7) {
-      if (!Client.cu || 0 != (Tiles.Tiles_renderFlags[0][var1][var2] & 2) || (Tiles.Tiles_renderFlags[var0][var1][var2] & 16) == 0) {
+      if (!Client.cu || 0 != (Tiles.an[0][var1][var2] & 2) || (Tiles.an[var0][var1][var2] & 16) == 0) {
          if (var0 < 1401144457 * Tiles.aw) {
             Tiles.aw = -1087180359 * var0;
          }
@@ -72,7 +159,7 @@ public class hy implements be {
             var15 = 1 + var2;
          }
 
-         int[][] var16 = Tiles.Tiles_heights[var0];
+         int[][] var16 = Tiles.af[var0];
          int var17 = var16[var13][var15] + var16[var12][var15] + var16[var12][var14] + var16[var13][var14] >> 2;
          int var18 = (var10 << 6) + (var1 << 7);
          int var19 = (var2 << 7) + (var11 << 6);
@@ -370,7 +457,7 @@ public class hy implements be {
                if (null != var23 && var6.ay(var0, var1, var2, var17, var10, var11, (Entity)var23, 11 == var5 ? 256 : 0, var20, var22) && var9.bo) {
                   var24 = 15;
                   if (var23 instanceof it) {
-                     var24 = ((it)var23).ah() / 4;
+                     var24 = ((it)var23).transformedSize() / 4;
                      if (var24 > 30) {
                         var24 = 30;
                      }
@@ -394,99 +481,12 @@ public class hy implements be {
       }
    }
 
-   public void ai() {
-      this.aq = this.at * -1092387907;
-      this.at = this.al * -206073161;
-      this.ac = 0;
-      this.ab = 0;
-      Arrays.fill(this.ay, false);
-      Arrays.fill(this.ao, false);
-   }
-
-   public int[] as() {
-      int[] var2 = new int[2082731989 * this.ab];
-
-      for(int var3 = 0; var3 < this.ab * 2082731989; ++var3) {
-         var2[var3] = this.au[var3];
-      }
-
-      return var2;
-   }
-
-   public boolean ah(int var1) {
-      return var1 >= 0 && var1 < 112 ? this.ay[var1] : false;
-   }
-
-   public final boolean ag() {
-      if (-147657295 * this.at == this.aq * 73809669) {
-         return false;
-      } else {
-         this.ai = -2050262723 * this.an[73809669 * this.aq];
-         this.ax = this.af[73809669 * this.aq];
-         this.aq = -1675774515 * (1 + 73809669 * this.aq & 127);
-         return true;
-      }
-   }
-
-   public int[] am() {
-      int[] var2 = new int[this.ac * 1888573011];
-
-      for(int var3 = 0; var3 < 1888573011 * this.ac; ++var3) {
-         var2[var3] = this.aw[var3];
-      }
-
-      return var2;
-   }
-
-   public boolean an(int var1) {
-      this.aa[var1] = false;
-      this.ay[var1] = false;
-      this.ao[var1] = true;
-      this.au[(this.ab += -971798147) * 2082731989 - 1] = var1;
-      return true;
-   }
-
-   public boolean ac(boolean var1) {
-      return false;
-   }
-
-   public boolean av(int var1) {
-      return var1 >= 0 && var1 < 112 ? this.aa[var1] : false;
-   }
-
-   public boolean ar(int var1) {
-      return var1 >= 0 && var1 < 112 ? this.ao[var1] : false;
-   }
-
-   public boolean aw(char var1) {
-      int var3 = 1 + this.al * -1384260729 & 127;
-      if (var3 != this.aq * 73809669) {
-         this.an[-1384260729 * this.al] = -1;
-         this.af[-1384260729 * this.al] = var1;
-         this.al = -1899169225 * var3;
-      }
-
-      return false;
-   }
-
-   static final void PcmStream_disable(PcmStream var0) {
-      var0.active = false;
-      if (null != var0.sound) {
-         var0.sound.position = 0;
-      }
-
-      for(PcmStream var2 = var0.ab(); var2 != null; var2 = var0.aq()) {
-         PcmStream_disable(var2);
-      }
-
-   }
-
    static final void in_renamed() {
       int var1 = -2010934433 * ds.ab;
       int[] var2 = ds.aq;
 
       for(int var3 = 0; var3 < var1; ++var3) {
-         Player var4 = Client.players[var2[var3]];
+         Player var4 = Client.mc[var2[var3]];
          if (var4 != null) {
             ReflectionCheck.ii_renamed(var4, 1);
          }

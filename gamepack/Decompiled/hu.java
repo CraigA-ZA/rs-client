@@ -8,6 +8,10 @@ public class hu {
       return new BufferedNetSocket(var0, var1, var2);
    }
 
+   hu() throws Throwable {
+      throw new Error();
+   }
+
    static final boolean ju_renamed(int var0, int var1, int var2, int var3, int var4) {
       dg var6 = null;
 
@@ -24,9 +28,5 @@ public class hu {
       } else {
          return false;
       }
-   }
-
-   hu() throws Throwable {
-      throw new Error();
    }
 }

@@ -9,8 +9,8 @@ import org.bouncycastle.math.raw.Nat256;
 import org.bouncycastle.util.encoders.Hex;
 
 public class Curve25519 extends ECCurve$AbstractFp {
-   public Curve25519Point infinity = new Curve25519Point(this, (ECFieldElement)null, (ECFieldElement)null);
    public static final BigInteger q;
+   public Curve25519Point infinity = new Curve25519Point(this, (ECFieldElement)null, (ECFieldElement)null);
 
    public boolean supportsCoordinateSystem(int var1) {
       switch (var1) {

@@ -7,10 +7,14 @@ import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 
 public class pc {
-   final Map ac = new HashMap();
    public static int[] al;
-   final Map au = new HashMap();
    final DecimalFormat ab = new DecimalFormat();
+   final Map ac = new HashMap();
+   final Map au = new HashMap();
+
+   public pc() {
+      this.ab.setMaximumFractionDigits(2);
+   }
 
    public void af(HttpsURLConnection var1) {
       Iterator var3 = this.ac.entrySet().iterator();
@@ -33,9 +37,26 @@ public class pc {
 
    }
 
+   static void af_renamed(java.awt.Component var0) {
+      var0.addMouseListener(MouseHandler.ac);
+      var0.addMouseMotionListener(MouseHandler.ac);
+      var0.addFocusListener(MouseHandler.ac);
+   }
+
+   public void ac(String var1) {
+      if (null != var1 && !var1.isEmpty()) {
+         this.ac.remove(var1);
+      }
+
+   }
+
    void au(pm var1, String var2) {
       String var4 = String.format("%s %s", var1.af(), var2);
       this.aw("Authorization", var4);
+   }
+
+   public void ab(String var1) {
+      this.au(pm.af, var1);
    }
 
    public void aq(String var1) {
@@ -67,21 +88,6 @@ public class pc {
 
    }
 
-   public void ab(String var1) {
-      this.au(pm.af, var1);
-   }
-
-   public pc() {
-      this.ab.setMaximumFractionDigits(2);
-   }
-
-   public void ac(String var1) {
-      if (null != var1 && !var1.isEmpty()) {
-         this.ac.remove(var1);
-      }
-
-   }
-
    String ax() {
       ArrayList var2 = new ArrayList(this.au.entrySet());
       Collections.sort(var2, new pp(this));
@@ -103,11 +109,5 @@ public class pc {
       }
 
       return var3.toString();
-   }
-
-   static void af_renamed(java.awt.Component var0) {
-      var0.addMouseListener(MouseHandler.MouseHandler_instance);
-      var0.addMouseMotionListener(MouseHandler.MouseHandler_instance);
-      var0.addFocusListener(MouseHandler.MouseHandler_instance);
    }
 }

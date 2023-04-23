@@ -1,8 +1,91 @@
 public class Huffman {
-   int[] af;
-   byte[] an;
    static int[] hk;
+   byte[] an;
+   int[] af;
    int[] aw;
+
+   public Huffman(byte[] var1) {
+      int var2 = var1.length;
+      this.af = new int[var2];
+      this.an = var1;
+      int[] var3 = new int[33];
+      this.aw = new int[8];
+      int var4 = 0;
+
+      for(int var5 = 0; var5 < var2; ++var5) {
+         byte var6 = var1[var5];
+         if (0 != var6) {
+            int var7 = 1 << 32 - var6;
+            int var8 = var3[var6];
+            this.af[var5] = var8;
+            int var9;
+            int var10;
+            int var11;
+            int var12;
+            if (0 != (var8 & var7)) {
+               var9 = var3[var6 - 1];
+            } else {
+               var9 = var8 | var7;
+
+               for(var10 = var6 - 1; var10 >= 1; --var10) {
+                  var11 = var3[var10];
+                  if (var8 != var11) {
+                     break;
+                  }
+
+                  var12 = 1 << 32 - var10;
+                  if ((var11 & var12) != 0) {
+                     var3[var10] = var3[var10 - 1];
+                     break;
+                  }
+
+                  var3[var10] = var11 | var12;
+               }
+            }
+
+            var3[var6] = var9;
+
+            for(var10 = 1 + var6; var10 <= 32; ++var10) {
+               if (var3[var10] == var8) {
+                  var3[var10] = var9;
+               }
+            }
+
+            var10 = 0;
+
+            for(var11 = 0; var11 < var6; ++var11) {
+               var12 = Integer.MIN_VALUE >>> var11;
+               if ((var8 & var12) != 0) {
+                  if (this.aw[var10] == 0) {
+                     this.aw[var10] = var4;
+                  }
+
+                  var10 = this.aw[var10];
+               } else {
+                  ++var10;
+               }
+
+               if (var10 >= this.aw.length) {
+                  int[] var13 = new int[2 * this.aw.length];
+
+                  for(int var14 = 0; var14 < this.aw.length; ++var14) {
+                     var13[var14] = this.aw[var14];
+                  }
+
+                  this.aw = var13;
+               }
+
+               var12 >>>= 1;
+            }
+
+            this.aw[var10] = ~var5;
+            if (var10 >= var4) {
+               var4 = var10 + 1;
+            }
+         }
+      }
+
+   }
 
    int af(byte[] var1, int var2, int var3, byte[] var4, int var5) {
       int var7 = 0;
@@ -185,88 +268,5 @@ public class Huffman {
 
          return var8 + 1 - var2;
       }
-   }
-
-   public Huffman(byte[] var1) {
-      int var2 = var1.length;
-      this.af = new int[var2];
-      this.an = var1;
-      int[] var3 = new int[33];
-      this.aw = new int[8];
-      int var4 = 0;
-
-      for(int var5 = 0; var5 < var2; ++var5) {
-         byte var6 = var1[var5];
-         if (0 != var6) {
-            int var7 = 1 << 32 - var6;
-            int var8 = var3[var6];
-            this.af[var5] = var8;
-            int var9;
-            int var10;
-            int var11;
-            int var12;
-            if (0 != (var8 & var7)) {
-               var9 = var3[var6 - 1];
-            } else {
-               var9 = var8 | var7;
-
-               for(var10 = var6 - 1; var10 >= 1; --var10) {
-                  var11 = var3[var10];
-                  if (var8 != var11) {
-                     break;
-                  }
-
-                  var12 = 1 << 32 - var10;
-                  if ((var11 & var12) != 0) {
-                     var3[var10] = var3[var10 - 1];
-                     break;
-                  }
-
-                  var3[var10] = var11 | var12;
-               }
-            }
-
-            var3[var6] = var9;
-
-            for(var10 = 1 + var6; var10 <= 32; ++var10) {
-               if (var3[var10] == var8) {
-                  var3[var10] = var9;
-               }
-            }
-
-            var10 = 0;
-
-            for(var11 = 0; var11 < var6; ++var11) {
-               var12 = Integer.MIN_VALUE >>> var11;
-               if ((var8 & var12) != 0) {
-                  if (this.aw[var10] == 0) {
-                     this.aw[var10] = var4;
-                  }
-
-                  var10 = this.aw[var10];
-               } else {
-                  ++var10;
-               }
-
-               if (var10 >= this.aw.length) {
-                  int[] var13 = new int[2 * this.aw.length];
-
-                  for(int var14 = 0; var14 < this.aw.length; ++var14) {
-                     var13[var14] = this.aw[var14];
-                  }
-
-                  this.aw = var13;
-               }
-
-               var12 >>>= 1;
-            }
-
-            this.aw[var10] = ~var5;
-            if (var10 >= var4) {
-               var4 = var10 + 1;
-            }
-         }
-      }
-
    }
 }

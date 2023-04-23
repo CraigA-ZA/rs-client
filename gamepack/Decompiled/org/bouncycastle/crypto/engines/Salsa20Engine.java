@@ -10,20 +10,20 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.util.Pack;
 
 public class Salsa20Engine implements SkippingStreamCipher {
-   int index;
-   int cW1;
-   static final int[] TAU_SIGMA = Pack.littleEndianToInt(org.bouncycastle.util.Strings.toByteArray("expand 16-byte kexpand 32-byte k"), 0, 8);
    /** @deprecated */
    public static final byte[] sigma = org.bouncycastle.util.Strings.toByteArray("expand 32-byte k");
    /** @deprecated */
    public static final byte[] tau = org.bouncycastle.util.Strings.toByteArray("expand 16-byte k");
-   public int rounds;
-   int cW2;
-   public int[] x;
-   byte[] keyStream;
+   static final int[] TAU_SIGMA = Pack.littleEndianToInt(org.bouncycastle.util.Strings.toByteArray("expand 16-byte kexpand 32-byte k"), 0, 8);
    boolean initialised;
+   byte[] keyStream;
    int cW0;
+   int cW1;
+   int cW2;
+   int index;
+   public int rounds;
    public int[] engineState;
+   public int[] x;
 
    public void resetCounter() {
       this.engineState[8] = this.engineState[9] = 0;

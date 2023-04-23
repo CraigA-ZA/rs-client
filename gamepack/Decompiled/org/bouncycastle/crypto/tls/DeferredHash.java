@@ -6,10 +6,10 @@ import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.util.Shorts;
 
 class DeferredHash implements TlsHandshakeHash {
-   public TlsContext context;
-   DigestInputBuffer buf;
-   Hashtable hashes;
    Short prfHashAlgorithm;
+   Hashtable hashes;
+   DigestInputBuffer buf;
+   public TlsContext context;
 
    public void update(byte[] var1, int var2, int var3) {
       if (this.buf != null) {

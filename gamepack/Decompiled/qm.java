@@ -1,10 +1,6 @@
 public class qm {
-   static final int[] ax = new int[2048];
    static final int[] ai = new int[2048];
-
-   qm() throws Throwable {
-      throw new Error();
-   }
+   static final int[] ax = new int[2048];
 
    static {
       double var0 = 0.0030679615757712823;
@@ -14,5 +10,9 @@ public class qm {
          ai[var2] = (int)(65536.0 * Math.cos((double)var2 * var0));
       }
 
+   }
+
+   qm() throws Throwable {
+      throw new Error();
    }
 }

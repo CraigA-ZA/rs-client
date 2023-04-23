@@ -10,14 +10,14 @@ import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.util.Arrays;
 
 public class PKCS1Encoding implements AsymmetricBlockCipher {
+   boolean forEncryption;
+   boolean forPrivateKey;
+   boolean useStrictLength;
+   byte[] blockBuffer;
+   byte[] fallback = null;
    int pLen = -1;
    SecureRandom random;
    AsymmetricBlockCipher engine;
-   boolean forEncryption;
-   byte[] blockBuffer;
-   boolean useStrictLength;
-   byte[] fallback = null;
-   boolean forPrivateKey;
 
    static int checkPkcs1Encoding(byte[] var0, int var1) {
       int var2 = 0;

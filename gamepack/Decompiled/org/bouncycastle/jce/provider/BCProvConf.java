@@ -13,18 +13,18 @@ import org.bouncycastle.jcajce.provider.config.ProvConfPermission;
 import org.bouncycastle.jce.spec.ECParameterSpec;
 
 class BCProvConf implements ProvConf {
-   volatile Set acceptableNamedCurves = new HashSet();
-   static Permission BC_EC_LOCAL_PERMISSION = new ProvConfPermission("BC", "threadLocalEcImplicitlyCa");
-   static Permission BC_DH_LOCAL_PERMISSION = new ProvConfPermission("BC", "threadLocalDhDefaultParams");
-   ThreadLocal dhThreadSpec = new ThreadLocal();
-   static Permission BC_EC_CURVE_PERMISSION = new ProvConfPermission("BC", "acceptableEcCurves");
-   volatile Object dhDefaultParams;
-   ThreadLocal ecThreadSpec = new ThreadLocal();
-   volatile ECParameterSpec ecImplicitCaParams;
-   static Permission BC_EC_PERMISSION = new ProvConfPermission("BC", "ecImplicitlyCa");
-   static Permission BC_DH_PERMISSION = new ProvConfPermission("BC", "DhDefaultParams");
    static Permission BC_ADDITIONAL_EC_CURVE_PERMISSION = new ProvConfPermission("BC", "additionalEcParameters");
+   static Permission BC_DH_LOCAL_PERMISSION = new ProvConfPermission("BC", "threadLocalDhDefaultParams");
+   static Permission BC_DH_PERMISSION = new ProvConfPermission("BC", "DhDefaultParams");
+   static Permission BC_EC_CURVE_PERMISSION = new ProvConfPermission("BC", "acceptableEcCurves");
+   static Permission BC_EC_LOCAL_PERMISSION = new ProvConfPermission("BC", "threadLocalEcImplicitlyCa");
+   static Permission BC_EC_PERMISSION = new ProvConfPermission("BC", "ecImplicitlyCa");
+   ThreadLocal dhThreadSpec = new ThreadLocal();
+   ThreadLocal ecThreadSpec = new ThreadLocal();
+   volatile Object dhDefaultParams;
    volatile Map additionalECParameters = new HashMap();
+   volatile Set acceptableNamedCurves = new HashSet();
+   volatile ECParameterSpec ecImplicitCaParams;
 
    public DHParameterSpec getDHDefaultParameters(int var1) {
       Object var2 = this.dhThreadSpec.get();

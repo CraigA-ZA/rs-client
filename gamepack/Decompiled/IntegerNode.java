@@ -1,7 +1,7 @@
 public class IntegerNode extends Node {
-   public int integer;
+   public int af;
 
    public IntegerNode(int var1) {
-      this.integer = var1;
+      this.af = var1;
    }
 }

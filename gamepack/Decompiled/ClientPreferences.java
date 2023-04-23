@@ -3,22 +3,83 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ClientPreferences {
-   int ay = 1301921773;
+   boolean ab = false;
+   boolean al = false;
    boolean aq;
    boolean au;
-   boolean ab = false;
-   int ao = 590995555;
-   boolean al = false;
    double aa = 0.8;
-   int ai = 1923156277;
-   int ax = -1313786027;
    int ah = 1056868117;
-   String rememberedUsername = null;
+   int ai = 1923156277;
+   int ao = 590995555;
    int at;
+   int ax = -1313786027;
+   int ay = 1301921773;
+   String ag = null;
    final Map av = new LinkedHashMap();
 
-   void ao() {
-      this.ay(!this.al);
+   ClientPreferences() {
+      this.af(true);
+   }
+
+   ClientPreferences(Packet var1) {
+      if (var1 != null && var1.al != null) {
+         int var2 = var1.g1();
+         if (var2 >= 0 && var2 <= 10) {
+            if (var1.g1() == 1) {
+               this.au = true;
+            }
+
+            if (var2 > 1) {
+               this.aq = var1.g1() == 1;
+            }
+
+            if (var2 > 3) {
+               this.ah = var1.g1() * 1056868117;
+            }
+
+            if (var2 > 2) {
+               int var3 = var1.g1();
+
+               for(int var4 = 0; var4 < var3; ++var4) {
+                  int var5 = var1.g4s();
+                  int var6 = var1.g4s();
+                  this.av.put(var5, var6);
+               }
+            }
+
+            if (var2 > 4) {
+               this.ag = var1.cz();
+            }
+
+            if (var2 > 5) {
+               this.ab = var1.gbool();
+            }
+
+            if (var2 > 6) {
+               this.aa = (double)var1.g1() / 100.0;
+               this.ay = var1.g1() * -1477768813;
+               this.ao = var1.g1() * -1956827619;
+               this.ax = var1.g1() * -314712533;
+            }
+
+            if (var2 > 7) {
+               this.ai = var1.g1() * -1923156277;
+            }
+
+            if (var2 > 8) {
+               this.al = var1.g1() == 1;
+            }
+
+            if (var2 > 9) {
+               this.at = var1.g4s() * -1873612629;
+            }
+         } else {
+            this.af(true);
+         }
+      } else {
+         this.af(true);
+      }
+
    }
 
    void af(boolean var1) {
@@ -39,7 +100,7 @@ public class ClientPreferences {
          var2.ba((Integer)var4.getValue());
       }
 
-      var2.bh(null != this.rememberedUsername ? this.rememberedUsername : "");
+      var2.bh(null != this.ag ? this.ag : "");
       var2.pbool(this.ab);
       var2.bu((int)(this.aa * 100.0));
       var2.bu(-461734757 * this.ay);
@@ -56,6 +117,10 @@ public class ClientPreferences {
       dn.ac_renamed();
    }
 
+   boolean ab() {
+      return this.au;
+   }
+
    void aq(boolean var1) {
       this.ab = var1;
       dn.ac_renamed();
@@ -65,13 +130,35 @@ public class ClientPreferences {
       return this.ab;
    }
 
+   void at(boolean var1) {
+      this.aq = var1;
+      dn.ac_renamed();
+   }
+
+   boolean aa() {
+      return this.aq;
+   }
+
+   void ay(boolean var1) {
+      this.al = var1;
+      dn.ac_renamed();
+   }
+
+   void ao() {
+      this.ay(!this.al);
+   }
+
    boolean ax() {
       return this.al;
    }
 
-   boolean bk(String var1) {
-      int var3 = this.bo(var1);
-      return this.av.containsKey(var3);
+   void ai(int var1) {
+      this.at = -1873612629 * var1;
+      dn.ac_renamed();
+   }
+
+   int ag() {
+      return this.at * 971082243;
    }
 
    void ah(double var1) {
@@ -111,12 +198,12 @@ public class ClientPreferences {
    }
 
    void ad(String var1) {
-      this.rememberedUsername = var1;
+      this.ag = var1;
       dn.ac_renamed();
    }
 
-   int ag() {
-      return this.at * 971082243;
+   String ae() {
+      return this.ag;
    }
 
    void ap(int var1) {
@@ -137,28 +224,6 @@ public class ClientPreferences {
       return -1016688579 * this.ah;
    }
 
-   String ae() {
-      return this.rememberedUsername;
-   }
-
-   int bx(String var1) {
-      int var3 = this.bo(var1);
-      return !this.av.containsKey(var3) ? 0 : (Integer)this.av.get(var3);
-   }
-
-   void ay(boolean var1) {
-      this.al = var1;
-      dn.ac_renamed();
-   }
-
-   ClientPreferences() {
-      this.af(true);
-   }
-
-   int bo(String var1) {
-      return Actor.al_renamed(var1.toLowerCase());
-   }
-
    void be(String var1, int var2) {
       int var4 = this.bo(var1);
       if (this.av.size() >= 10 && !this.av.containsKey(var4)) {
@@ -169,6 +234,20 @@ public class ClientPreferences {
 
       this.av.put(var4, var2);
       dn.ac_renamed();
+   }
+
+   boolean bk(String var1) {
+      int var3 = this.bo(var1);
+      return this.av.containsKey(var3);
+   }
+
+   int bx(String var1) {
+      int var3 = this.bo(var1);
+      return !this.av.containsKey(var3) ? 0 : (Integer)this.av.get(var3);
+   }
+
+   int bo(String var1) {
+      return Actor.al_renamed(var1.toLowerCase());
    }
 
    static final void aq_renamed(PacketBit var0, int var1, Player var2, int var3) {
@@ -190,7 +269,7 @@ public class ClientPreferences {
             var6 = -1;
          }
 
-         var14 = var0.df();
+         var14 = var0.g1n();
          FloorDecoration.iq_renamed(var2, var6, var14);
       }
 
@@ -207,9 +286,9 @@ public class ClientPreferences {
          var2.bw = var0.cw();
          if (var2.bw.charAt(0) == '~') {
             var2.bw = var2.bw.substring(1);
-            es.an_renamed(2, var2.username.af(), var2.bw);
-         } else if (var2 == MusicPatchNode.localPlayer) {
-            es.an_renamed(2, var2.username.af(), var2.bw);
+            es.an_renamed(2, var2.af.af(), var2.bw);
+         } else if (var2 == MusicPatchNode.mi) {
+            es.an_renamed(2, var2.af.af(), var2.bw);
          }
 
          var2.ce = false;
@@ -223,7 +302,7 @@ public class ClientPreferences {
       int var13;
       int var15;
       if ((var3 & 64) != 0) {
-         var6 = var0.cm();
+         var6 = var0.g1();
          int var11;
          int var12;
          if (var6 > 0) {
@@ -244,7 +323,7 @@ public class ClientPreferences {
                }
 
                var12 = var0.cd();
-               var2.co(var15, var10, var9, var11, Client.ep * -1886224337, var12);
+               var2.addHitmark(var15, var10, var9, var11, Client.ep * -1886224337, var12);
             }
          }
 
@@ -256,10 +335,10 @@ public class ClientPreferences {
                if (32767 != var10) {
                   var11 = var0.cd();
                   var12 = var0.dq();
-                  var13 = var10 > 0 ? var0.df() : var12;
-                  var2.cz(var9, Client.ep * -1886224337, var10, var11, var12, var13);
+                  var13 = var10 > 0 ? var0.g1n() : var12;
+                  var2.addHeadbar(var9, Client.ep * -1886224337, var10, var11, var12, var13);
                } else {
-                  var2.cw(var9);
+                  var2.removeHeadbar(var9);
                }
             }
          }
@@ -275,37 +354,37 @@ public class ClientPreferences {
 
       if (0 != (var3 & 32)) {
          var6 = var0.ep();
-         PlayerType var16 = (PlayerType)StructType.findEnumerated(StudioGame.au_renamed(), var0.cm());
-         boolean var20 = var0.df() == 1;
+         PlayerType var16 = (PlayerType)StructType.findEnumerated(StudioGame.au_renamed(), var0.g1());
+         boolean var20 = var0.g1n() == 1;
          var9 = var0.db();
          var10 = -1633313603 * var0.at;
-         if (var2.username != null && null != var2.appearance) {
+         if (var2.af != null && null != var2.aw) {
             boolean var22 = false;
-            if (var16.isUser && World.friendSystem.aq(var2.username)) {
+            if (var16.aj && World.vt.aq(var2.af)) {
                var22 = true;
             }
 
             if (!var22 && Client.ma * 43311027 == 0 && !var2.az) {
-               ds.ag.index = 0;
-               var0.ct(ds.ag.array, 0, var9);
-               ds.ag.index = 0;
+               ds.ag.at = 0;
+               var0.ct(ds.ag.al, 0, var9);
+               ds.ag.at = 0;
                String var23 = AbstractFont.escapeBrackets(er.ao_renamed(TilePaint.aw_renamed(ds.ag)));
                var2.bw = var23.trim();
                var2.cc = 1732198649 * (var6 >> 8);
                var2.cn = 1666666057 * (var6 & 255);
                var2.cs = -739348018;
                var2.ce = var20;
-               var2.ci = MusicPatchNode.localPlayer != var2 && var16.isUser && "" != Client.ss && var23.toLowerCase().indexOf(Client.ss) == -1;
-               if (var16.isPrivileged) {
+               var2.ci = MusicPatchNode.mi != var2 && var16.aj && "" != Client.ss && var23.toLowerCase().indexOf(Client.ss) == -1;
+               if (var16.as) {
                   var13 = var20 ? 91 : 1;
                } else {
                   var13 = var20 ? 90 : 2;
                }
 
-               if (-1 != var16.id * 2138745227) {
-                  es.an_renamed(var13, ArchiveDiskActionHandler.af_renamed(2138745227 * var16.id) + var2.username.af(), var23);
+               if (-1 != var16.am * 2138745227) {
+                  es.an_renamed(var13, ArchiveDiskActionHandler.af_renamed(2138745227 * var16.am) + var2.af.af(), var23);
                } else {
-                  es.an_renamed(var13, var2.username.af(), var23);
+                  es.an_renamed(var13, var2.af.af(), var23);
                }
             }
          }
@@ -320,18 +399,18 @@ public class ClientPreferences {
       }
 
       if ((var3 & 1024) != 0) {
-         var2.di = var0.cf() * -278393391;
+         var2.di = var0.g1s() * -278393391;
          var2.dl = var0.dx() * -1448856093;
          var2.dr = var0.dj() * 242410523;
          var2.dk = var0.dj() * 2106434927;
          var2.dt = (var0.eo() + Client.ep * -1886224337) * -608537751;
          var2.dv = (var0.cl() + -1886224337 * Client.ep) * -2100738849;
          var2.dz = var0.eo() * -698990457;
-         if (var2.isUnanimated) {
-            var2.di += -1987308883 * var2.tileX;
-            var2.dl += 198846147 * var2.tileY;
-            var2.dr += 580103439 * var2.tileX;
-            var2.dk += var2.tileY * 999446991;
+         if (var2.bi) {
+            var2.di += -1987308883 * var2.be;
+            var2.dl += 198846147 * var2.bk;
+            var2.dr += 580103439 * var2.be;
+            var2.dk += var2.bk * 999446991;
             var2.dn = 0;
          } else {
             var2.di += var2.dy[0] * -278393391;
@@ -351,38 +430,38 @@ public class ClientPreferences {
       }
 
       if (0 != (var3 & 2048)) {
-         var5 = var0.cf();
+         var5 = var0.g1s();
       }
 
       if ((var3 & 8192) != 0) {
          for(var6 = 0; var6 < 3; ++var6) {
-            var2.actions[var6] = var0.cw();
+            var2.aq[var6] = var0.cw();
          }
       }
 
       if ((var3 & '耀') != 0) {
          var2.dh = (-1886224337 * Client.ep + var0.eo()) * -887211183;
          var2.dp = (-1886224337 * Client.ep + var0.cl()) * -368061749;
-         var2.du = var0.cf();
-         var2.db = var0.cf();
+         var2.du = var0.g1s();
+         var2.db = var0.g1s();
          var2.df = var0.dd();
-         var2.dq = (byte)var0.df();
+         var2.dq = (byte)var0.g1n();
       }
 
       if ((var3 & 65536) != 0) {
          var6 = var0.dq();
 
          for(var14 = 0; var14 < var6; ++var14) {
-            var15 = var0.df();
+            var15 = var0.g1n();
             var9 = var0.eo();
-            var10 = var0.cx();
+            var10 = var0.g4s();
             var2.cj(var15, var9, var10 >> 16, var10 & '\uffff');
          }
       }
 
-      if (var2.isUnanimated) {
+      if (var2.bi) {
          if (127 == var5) {
-            var2.resetPath(2039538205 * var2.tileX, var2.tileY * 1584800161);
+            var2.resetPath(2039538205 * var2.be, var2.bk * 1584800161);
          } else {
             iu var18;
             if (var5 != iu.af.au) {
@@ -392,88 +471,9 @@ public class ClientPreferences {
                var18 = ds.ac[var1];
             }
 
-            var2.av(2039538205 * var2.tileX, var2.tileY * 1584800161, var18);
+            var2.av(2039538205 * var2.be, var2.bk * 1584800161, var18);
          }
       }
 
-   }
-
-   boolean ab() {
-      return this.au;
-   }
-
-   ClientPreferences(Packet var1) {
-      if (var1 != null && var1.array != null) {
-         int var2 = var1.g1();
-         if (var2 >= 0 && var2 <= 10) {
-            if (var1.g1() == 1) {
-               this.au = true;
-            }
-
-            if (var2 > 1) {
-               this.aq = var1.g1() == 1;
-            }
-
-            if (var2 > 3) {
-               this.ah = var1.g1() * 1056868117;
-            }
-
-            if (var2 > 2) {
-               int var3 = var1.g1();
-
-               for(int var4 = 0; var4 < var3; ++var4) {
-                  int var5 = var1.g4s();
-                  int var6 = var1.g4s();
-                  this.av.put(var5, var6);
-               }
-            }
-
-            if (var2 > 4) {
-               this.rememberedUsername = var1.cz();
-            }
-
-            if (var2 > 5) {
-               this.ab = var1.gbool();
-            }
-
-            if (var2 > 6) {
-               this.aa = (double)var1.g1() / 100.0;
-               this.ay = var1.g1() * -1477768813;
-               this.ao = var1.g1() * -1956827619;
-               this.ax = var1.g1() * -314712533;
-            }
-
-            if (var2 > 7) {
-               this.ai = var1.g1() * -1923156277;
-            }
-
-            if (var2 > 8) {
-               this.al = var1.g1() == 1;
-            }
-
-            if (var2 > 9) {
-               this.at = var1.g4s() * -1873612629;
-            }
-         } else {
-            this.af(true);
-         }
-      } else {
-         this.af(true);
-      }
-
-   }
-
-   void at(boolean var1) {
-      this.aq = var1;
-      dn.ac_renamed();
-   }
-
-   boolean aa() {
-      return this.aq;
-   }
-
-   void ai(int var1) {
-      this.at = -1873612629 * var1;
-      dn.ac_renamed();
    }
 }

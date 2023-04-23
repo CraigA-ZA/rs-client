@@ -8,9 +8,9 @@ import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.io.Streams;
 
 public abstract class ASN1BitString extends ASN1Primitive implements ASN1String {
-   public final int padBits;
-   public final byte[] data;
    static final char[] table = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+   public final byte[] data;
+   public final int padBits;
 
    public String ahm() {
       return this.getString();

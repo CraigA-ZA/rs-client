@@ -5,5 +5,5 @@ public interface TextureLoader {
 
    boolean au(int var1);
 
-   boolean ab(int var1);
+   boolean isLowDetail(int var1);
 }

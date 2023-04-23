@@ -6,9 +6,9 @@ import org.bouncycastle.math.raw.Nat128;
 import org.bouncycastle.math.raw.Nat256;
 
 public class SecP128R1Field {
+   static final int[] P = new int[]{-1, -1, -1, -3};
    static final int[] PExt = new int[]{1, 0, 0, 4, -2, -1, 3, -4};
    static final int[] PExtInv = new int[]{-1, -1, -1, -5, 1, 0, -4, 3};
-   static final int[] P = new int[]{-1, -1, -1, -3};
 
    public static void multiplyAddToExt(int[] var0, int[] var1, int[] var2) {
       int var3 = Nat128.mulAddTo(var0, var1, var2);

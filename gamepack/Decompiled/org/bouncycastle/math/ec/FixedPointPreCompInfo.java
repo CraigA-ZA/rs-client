@@ -1,8 +1,8 @@
 package org.bouncycastle.math.ec;
 
 public class FixedPointPreCompInfo implements PreCompInfo {
-   public ECPoint[] preComp = null;
    public int width = -1;
+   public ECPoint[] preComp = null;
 
    public ECPoint[] getPreComp() {
       return this.preComp;

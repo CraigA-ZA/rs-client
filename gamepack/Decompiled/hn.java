@@ -1,22 +1,22 @@
 public class hn implements Enumerated {
-   static final hn aw = new hn(0, 2);
-   public final int ac;
-   public static Component[][] interfaceComponents;
-   final int au;
-   static final hn an = new hn(1, 1);
+   public static Component[][] ap;
    static final hn af = new hn(2, 0);
-
-   static final void at_renamed(String var0) {
-      es.an_renamed(30, "", var0);
-   }
-
-   public int af() {
-      return -1332614023 * this.au;
-   }
+   static final hn an = new hn(1, 1);
+   static final hn aw = new hn(0, 2);
+   final int au;
+   public final int ac;
 
    hn(int var1, int var2) {
       this.ac = -441541533 * var1;
       this.au = -1969701431 * var2;
+   }
+
+   public int ordinal() {
+      return -1332614023 * this.au;
+   }
+
+   static final void at_renamed(String var0) {
+      es.an_renamed(30, "", var0);
    }
 
    public static int aq_renamed(CharSequence var0) {

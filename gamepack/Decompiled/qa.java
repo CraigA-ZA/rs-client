@@ -6,6 +6,10 @@ import java.util.Map;
 public class qa implements qq {
    final Map af;
 
+   public qa(Map var1) {
+      this.af = var1;
+   }
+
    public qz af() {
       return null;
    }
@@ -32,9 +36,5 @@ public class qa implements qq {
          var2.insert(0, "?");
          return var2.toString();
       }
-   }
-
-   public qa(Map var1) {
-      this.af = var1;
    }
 }

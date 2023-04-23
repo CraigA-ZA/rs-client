@@ -4,10 +4,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class DERExternal extends ASN1Primitive {
+   int encoding;
+   ASN1Integer indirectReference;
    ASN1ObjectIdentifier directReference;
    ASN1Primitive dataValueDescriptor;
-   ASN1Integer indirectReference;
-   int encoding;
    ASN1Primitive externalContent;
 
    void setExternalContent(ASN1Primitive var1) {

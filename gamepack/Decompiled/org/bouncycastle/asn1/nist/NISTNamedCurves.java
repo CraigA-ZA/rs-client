@@ -8,8 +8,8 @@ import org.bouncycastle.asn1.sec.SECObjectIdentifiers;
 import org.bouncycastle.asn1.x9.X9ECParameters;
 
 public class NISTNamedCurves {
-   static final Hashtable objIds = new Hashtable();
    static final Hashtable names = new Hashtable();
+   static final Hashtable objIds = new Hashtable();
 
    public static X9ECParameters getByName(String var0) {
       ASN1ObjectIdentifier var1 = (ASN1ObjectIdentifier)objIds.get(org.bouncycastle.util.Strings.toUpperCase(var0));

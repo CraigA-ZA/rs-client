@@ -6,9 +6,9 @@ import java.io.InputStream;
 import org.bouncycastle.util.io.Streams;
 
 class DefiniteLengthInputStream extends LimitedInputStream {
-   final int _originalLength;
    static final byte[] EMPTY_BYTES = new byte[0];
    int _remaining;
+   final int _originalLength;
 
    int getRemaining() {
       return this._remaining;

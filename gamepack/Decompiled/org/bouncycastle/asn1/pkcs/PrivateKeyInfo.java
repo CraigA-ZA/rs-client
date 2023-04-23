@@ -18,9 +18,9 @@ import org.bouncycastle.asn1.DERTaggedObject;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 
 public class PrivateKeyInfo extends ASN1Object {
-   AlgorithmIdentifier algId;
    ASN1OctetString privKey;
    ASN1Set attributes;
+   AlgorithmIdentifier algId;
 
    public static PrivateKeyInfo getInstance(ASN1TaggedObject var0, boolean var1) {
       return getInstance(ASN1Sequence.getInstance(var0, var1));

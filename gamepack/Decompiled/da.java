@@ -1,51 +1,21 @@
 public class da {
-   int av;
-   static final da an = new da(1);
-   static final da au = new da(4);
-   static final da ac = new da(3);
-   static final da al = new da(7);
+   static final da aa = new da(9);
    static final da ab = new da(5);
-   static final da aq = new da(6);
-   static final da at = new da(8);
-   static final da ao = new da(11);
+   static final da ac = new da(3);
    static final da af = new da(0);
-   static final da ay = new da(10);
-   static final da aw = new da(2);
-   static final da ax = new da(12);
-   static final da ai = new da(13);
    static final da ag = new da(14);
    static final da ah = new da(15);
-   static final da aa = new da(9);
-
-   da(int var1) {
-      this.av = var1 * 1355363989;
-   }
-
-   static final int mh_renamed() {
-      float var1 = 200.0F * ((float)aj.clientPreferences.av() - 0.5F);
-      return 100 - Math.round(var1);
-   }
-
-   static final void le_renamed(int var0, int var1, int var2, int var3, int var4) {
-      Headbar.ka[0].aw(var0, var1);
-      Headbar.ka[1].aw(var0, var3 + var1 - 16);
-      Rasterizer2D.Rasterizer2D_fillRectangle(var0, var1 + 16, 16, var3 - 32, Client.kq * 40021093);
-      int var6 = (var3 - 32) * var3 / var4;
-      if (var6 < 8) {
-         var6 = 8;
-      }
-
-      int var7 = var2 * (var3 - 32 - var6) / (var4 - var3);
-      Rasterizer2D.Rasterizer2D_fillRectangle(var0, var1 + 16 + var7, 16, var6, 992783339 * Client.kw);
-      Rasterizer2D.Rasterizer2D_drawVerticalLine(var0, 16 + var1 + var7, var6, 1881503647 * Client.kj);
-      Rasterizer2D.Rasterizer2D_drawVerticalLine(var0 + 1, var7 + var1 + 16, var6, Client.kj * 1881503647);
-      Rasterizer2D.Rasterizer2D_drawHorizontalLine(var0, var7 + var1 + 16, 16, Client.kj * 1881503647);
-      Rasterizer2D.Rasterizer2D_drawHorizontalLine(var0, 17 + var1 + var7, 16, 1881503647 * Client.kj);
-      Rasterizer2D.Rasterizer2D_drawVerticalLine(var0 + 15, 16 + var1 + var7, var6, Client.kk * 1155936455);
-      Rasterizer2D.Rasterizer2D_drawVerticalLine(var0 + 14, 17 + var1 + var7, var6 - 1, 1155936455 * Client.kk);
-      Rasterizer2D.Rasterizer2D_drawHorizontalLine(var0, var6 + 15 + var1 + var7, 16, Client.kk * 1155936455);
-      Rasterizer2D.Rasterizer2D_drawHorizontalLine(1 + var0, 14 + var1 + var7 + var6, 15, 1155936455 * Client.kk);
-   }
+   static final da ai = new da(13);
+   static final da al = new da(7);
+   static final da an = new da(1);
+   static final da ao = new da(11);
+   static final da aq = new da(6);
+   static final da at = new da(8);
+   static final da au = new da(4);
+   static final da aw = new da(2);
+   static final da ax = new da(12);
+   static final da ay = new da(10);
+   int av;
 
    public static int af_renamed(float[] var0, int var1, float var2, boolean var3, float var4, boolean var5, float[] var6) {
       float var8 = 0.0F;
@@ -160,5 +130,35 @@ public class da {
       } else {
          return 3 == var2 ? sh.an : null;
       }
+   }
+
+   da(int var1) {
+      this.av = var1 * 1355363989;
+   }
+
+   static final void le_renamed(int var0, int var1, int var2, int var3, int var4) {
+      Headbar.ka[0].aw(var0, var1);
+      Headbar.ka[1].aw(var0, var3 + var1 - 16);
+      Rasterizer2D.Rasterizer2D_fillRectangle(var0, var1 + 16, 16, var3 - 32, Client.kq * 40021093);
+      int var6 = (var3 - 32) * var3 / var4;
+      if (var6 < 8) {
+         var6 = 8;
+      }
+
+      int var7 = var2 * (var3 - 32 - var6) / (var4 - var3);
+      Rasterizer2D.Rasterizer2D_fillRectangle(var0, var1 + 16 + var7, 16, var6, 992783339 * Client.kw);
+      Rasterizer2D.Rasterizer2D_drawVerticalLine(var0, 16 + var1 + var7, var6, 1881503647 * Client.kj);
+      Rasterizer2D.Rasterizer2D_drawVerticalLine(var0 + 1, var7 + var1 + 16, var6, Client.kj * 1881503647);
+      Rasterizer2D.Rasterizer2D_drawHorizontalLine(var0, var7 + var1 + 16, 16, Client.kj * 1881503647);
+      Rasterizer2D.Rasterizer2D_drawHorizontalLine(var0, 17 + var1 + var7, 16, 1881503647 * Client.kj);
+      Rasterizer2D.Rasterizer2D_drawVerticalLine(var0 + 15, 16 + var1 + var7, var6, Client.kk * 1155936455);
+      Rasterizer2D.Rasterizer2D_drawVerticalLine(var0 + 14, 17 + var1 + var7, var6 - 1, 1155936455 * Client.kk);
+      Rasterizer2D.Rasterizer2D_drawHorizontalLine(var0, var6 + 15 + var1 + var7, 16, Client.kk * 1155936455);
+      Rasterizer2D.Rasterizer2D_drawHorizontalLine(1 + var0, 14 + var1 + var7 + var6, 15, 1155936455 * Client.kk);
+   }
+
+   static final int mh_renamed() {
+      float var1 = 200.0F * ((float)aj.vb.av() - 0.5F);
+      return 100 - Math.round(var1);
    }
 }

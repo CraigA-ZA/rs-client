@@ -1,21 +1,21 @@
 public class VarcInt extends DualNode {
    public static EvictingDualNodeHashTable an = new EvictingDualNodeHashTable(64);
-   public boolean persist = false;
+   public boolean aw = false;
 
-   public void af(Packet var1) {
+   public void decode(Packet var1) {
       while(true) {
          int var3 = var1.g1();
          if (0 == var3) {
             return;
          }
 
-         this.an(var1, var3);
+         this.decode0(var1, var3);
       }
    }
 
-   void an(Packet var1, int var2) {
+   void decode0(Packet var1, int var2) {
       if (2 == var2) {
-         this.persist = true;
+         this.aw = true;
       }
 
    }

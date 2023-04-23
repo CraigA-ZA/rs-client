@@ -5,8 +5,8 @@ import java.io.InputStream;
 
 class ConstructedOctetStream extends InputStream {
    boolean _first = true;
-   final ASN1StreamParser _parser;
    InputStream _currentStream;
+   final ASN1StreamParser _parser;
 
    public int read() throws IOException {
       if (this._currentStream == null) {

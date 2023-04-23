@@ -1,16 +1,16 @@
 public class Formatting {
-   static String Formatting_rightArrow = "->";
-   static String Formatting_true = "true";
-   static String Formatting_pipe = "|";
-   static String Formatting_spaceLeftParenthesis = " (";
-   static String Formatting_rightParenthesis = ")";
-   static int qe;
-   static String Formatting_lineBreakTag = "<br>";
-   static String Formatting_colorEndTag = "</col>";
    public static String[] ar;
-   static String Formatting_comma = ",";
-   static Bounds bh;
    static int ls;
+   static int qe;
+   static String ab = "->";
+   static String ac = " (";
+   static String af = "true";
+   static String al = "</col>";
+   static String an = ",";
+   static String aq = "<br>";
+   static String au = ")";
+   static String aw = "|";
+   static Bounds bh;
 
    Formatting() throws Throwable {
       throw new Error();

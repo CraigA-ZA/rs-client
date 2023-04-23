@@ -1,22 +1,37 @@
 public class SpotType extends DualNode {
-   int au;
-   short[] ay;
-   short[] at;
    public static EvictingDualNodeHashTable ac = new EvictingDualNodeHashTable(30);
-   int ab;
-   static AbstractArchive SpotType_archive;
-   public int aq = -1861808927;
-   short[] al;
-   int ai = 0;
-   public static EvictingDualNodeHashTable SpotType_cached = new EvictingDualNodeHashTable(64);
-   short[] aa;
-   int ao = 122094464;
-   int contrast = -370064768;
+   public static EvictingDualNodeHashTable aw = new EvictingDualNodeHashTable(64);
+   static AbstractArchive af;
    static AbstractArchive an;
-   int ambient = 0;
-   int sequence = 0;
+   int ab;
+   int ag = 0;
+   int ah = 0;
+   int ai = 0;
+   int ao = 122094464;
+   int au;
+   int ax = -370064768;
+   short[] aa;
+   short[] al;
+   short[] at;
+   short[] ay;
+   public int aq = -1861808927;
+
+   static PacketBitNode af_renamed() {
+      return PacketBitNode.ab * 380401923 == 0 ? new PacketBitNode() : PacketBitNode.au[(PacketBitNode.ab -= -1882670677) * 380401923];
+   }
 
    SpotType() {
+   }
+
+   void decode(Packet var1) {
+      while(true) {
+         int var3 = var1.g1();
+         if (0 == var3) {
+            return;
+         }
+
+         this.decode0(var1, var3);
+      }
    }
 
    void decode0(Packet var1, int var2) {
@@ -27,13 +42,13 @@ public class SpotType extends DualNode {
       } else if (var2 == 4) {
          this.ao = var1.cl() * -636580345;
       } else if (5 == var2) {
-         this.contrast = var1.cl() * -1110187387;
+         this.ax = var1.cl() * -1110187387;
       } else if (var2 == 6) {
          this.ai = var1.cl() * -1376904751;
       } else if (7 == var2) {
-         this.ambient = var1.g1() * 399649223;
+         this.ag = var1.g1() * 399649223;
       } else if (var2 == 8) {
-         this.sequence = var1.g1() * 1837096875;
+         this.ah = var1.g1() * 1837096875;
       } else {
          int var4;
          int var5;
@@ -69,8 +84,8 @@ public class SpotType extends DualNode {
          var4 = var3.ay(true);
       }
 
-      if (128 != -1761247305 * this.ao || 128 != this.contrast * -1083521459) {
-         var4.bk(-1761247305 * this.ao, this.contrast * -1083521459, this.ao * -1761247305);
+      if (128 != -1761247305 * this.ao || 128 != this.ax * -1083521459) {
+         var4.bk(-1761247305 * this.ao, this.ax * -1083521459, this.ao * -1761247305);
       }
 
       if (-906961103 * this.ai != 0) {
@@ -114,25 +129,10 @@ public class SpotType extends DualNode {
             }
          }
 
-         var2 = var3.bb(this.ambient * 742442999 + 64, 850 + this.sequence * -138140925, -30, -50, -30);
+         var2 = var3.bb(this.ag * 742442999 + 64, 850 + this.ah * -138140925, -30, -50, -30);
          ac.put(var2, (long)(-190570391 * this.au));
       }
 
       return var2;
-   }
-
-   void decode(Packet var1) {
-      while(true) {
-         int var3 = var1.g1();
-         if (0 == var3) {
-            return;
-         }
-
-         this.decode0(var1, var3);
-      }
-   }
-
-   static PacketBitNode af_renamed() {
-      return PacketBitNode.ab * 380401923 == 0 ? new PacketBitNode() : PacketBitNode.packetBitNodes[(PacketBitNode.ab -= -1882670677) * 380401923];
    }
 }

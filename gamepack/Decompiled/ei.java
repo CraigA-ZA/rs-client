@@ -3,13 +3,13 @@ import java.util.concurrent.Callable;
 class ei implements Callable {
    static Archive fg;
    // $FF: synthetic field
-   final int val$workStart;
-   // $FF: synthetic field
    final eh[] val$curveLoadJobs;
    // $FF: synthetic field
    final fh this$0;
    // $FF: synthetic field
    final int val$workEnd;
+   // $FF: synthetic field
+   final int val$workStart;
 
    ei(fh var1, int var2, int var3, eh[] var4) {
       this.this$0 = var1;

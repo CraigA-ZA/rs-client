@@ -4,10 +4,10 @@ import java.math.BigInteger;
 import org.bouncycastle.crypto.CipherParameters;
 
 public class DSAParameters implements CipherParameters {
-   DSAValidationParameters validation;
-   BigInteger q;
-   BigInteger p;
    BigInteger g;
+   BigInteger p;
+   BigInteger q;
+   DSAValidationParameters validation;
 
    public BigInteger getG() {
       return this.g;

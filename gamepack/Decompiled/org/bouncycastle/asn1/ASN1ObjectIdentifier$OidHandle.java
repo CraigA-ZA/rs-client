@@ -3,8 +3,8 @@ package org.bouncycastle.asn1;
 import org.bouncycastle.util.Arrays;
 
 class ASN1ObjectIdentifier$OidHandle {
-   final int key;
    final byte[] enc;
+   final int key;
 
    public int aht() {
       return this.key;

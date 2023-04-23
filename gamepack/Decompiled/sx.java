@@ -1,6 +1,6 @@
 public class sx {
-   short[] an = new short[8];
    int[] af = new int[8];
+   short[] an = new short[8];
 
    public sx(hs var1) {
       int var2 = 0;
@@ -17,6 +17,10 @@ public class sx {
 
    }
 
+   public int[] af() {
+      return this.af;
+   }
+
    public short[] an() {
       return this.an;
    }
@@ -24,10 +28,6 @@ public class sx {
    public void aw(int var1, int var2, short var3) {
       this.af[var1] = var2;
       this.an[var1] = var3;
-   }
-
-   public int[] af() {
-      return this.af;
    }
 
    public void ac(int[] var1, short[] var2) {

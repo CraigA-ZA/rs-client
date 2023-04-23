@@ -1,6 +1,10 @@
 public final class kc {
    final int[] an;
 
+   kc() {
+      this.an = new int[4096];
+   }
+
    public static String af_renamed(CharSequence[] var0, int var1, int var2) {
       if (0 == var2) {
          return "";
@@ -37,10 +41,6 @@ public final class kc {
 
    kc(int[] var1) {
       this.an = var1;
-   }
-
-   kc() {
-      this.an = new int[4096];
    }
 
    final int af(int var1, int var2) {

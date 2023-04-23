@@ -3,8 +3,21 @@ public class gh extends gn {
    // $FF: synthetic field
    final gy this$0;
 
-   public int af() {
-      return 1;
+   public static void aq_renamed() {
+      ParamType.an.clear();
+   }
+
+   public static Component an_renamed(int var0) {
+      int var2 = var0 >> 16;
+      int var3 = var0 & '\uffff';
+      if (hn.ap[var2] == null || hn.ap[var2][var3] == null) {
+         boolean var4 = SoundSystem.loadInterface(var2);
+         if (!var4) {
+            return null;
+         }
+      }
+
+      return hn.ap[var2][var3];
    }
 
    gh(gy var1, String var2, String var3) {
@@ -13,25 +26,12 @@ public class gh extends gn {
       this.af = var3;
    }
 
+   public int af() {
+      return 1;
+   }
+
    public String an() {
       return this.af;
-   }
-
-   public static void aq_renamed() {
-      ParamType.ParamType_cached.clear();
-   }
-
-   public static Component an_renamed(int var0) {
-      int var2 = var0 >> 16;
-      int var3 = var0 & '\uffff';
-      if (hn.interfaceComponents[var2] == null || hn.interfaceComponents[var2][var3] == null) {
-         boolean var4 = SoundSystem.loadInterface(var2);
-         if (!var4) {
-            return null;
-         }
-      }
-
-      return hn.interfaceComponents[var2][var3];
    }
 
    static final void ak_renamed(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, Scene var8, CollisionMap var9) {
@@ -67,7 +67,7 @@ public class gh extends gn {
          var18 = 1 + var3;
       }
 
-      int[][] var19 = Tiles.Tiles_heights[var1];
+      int[][] var19 = Tiles.af[var1];
       int var20 = var19[var15][var17] + var19[var16][var17] + var19[var15][var18] + var19[var16][var18] >> 2;
       int var21 = (var2 << 7) + (var13 << 6);
       int var22 = (var14 << 6) + (var3 << 7);

@@ -3,8 +3,8 @@ package org.bouncycastle.crypto.tls;
 import org.bouncycastle.util.Arrays;
 
 class TlsSessionImpl implements TlsSession {
-   final byte[] sessionID;
    SessionParameters sessionParameters;
+   final byte[] sessionID;
 
    public synchronized SessionParameters exportSessionParameters() {
       return this.sessionParameters == null ? null : this.sessionParameters.copy();

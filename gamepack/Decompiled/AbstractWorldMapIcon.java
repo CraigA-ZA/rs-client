@@ -1,18 +1,12 @@
 public abstract class AbstractWorldMapIcon {
-   public final Coord coord2;
-   int at;
    int aa;
-   public final Coord coord1;
+   int at;
+   public final Coord al;
+   public final Coord aq;
 
-   boolean ak(int var1, int var2) {
-      WorldMapLabel var4 = this.label();
-      if (null == var4) {
-         return false;
-      } else if (var1 >= this.at * -216598991 - var4.width * -31821843 / 2 && var1 <= var4.width * -31821843 / 2 + this.at * -216598991) {
-         return var2 >= this.aa * -1288412757 && var2 <= this.aa * -1288412757 + var4.height * -1401615011;
-      } else {
-         return false;
-      }
+   AbstractWorldMapIcon(Coord var1, Coord var2) {
+      this.al = var1;
+      this.aq = var2;
    }
 
    boolean am(int var1, int var2) {
@@ -22,10 +16,6 @@ public abstract class AbstractWorldMapIcon {
          return this.ak(var1, var2);
       }
    }
-
-   abstract WorldMapLabel label();
-
-   abstract int ac();
 
    boolean as() {
       return this.element() >= 0;
@@ -77,12 +67,22 @@ public abstract class AbstractWorldMapIcon {
       }
    }
 
-   public abstract int element();
-
-   AbstractWorldMapIcon(Coord var1, Coord var2) {
-      this.coord1 = var1;
-      this.coord2 = var2;
+   boolean ak(int var1, int var2) {
+      WorldMapLabel var4 = this.label();
+      if (null == var4) {
+         return false;
+      } else if (var1 >= this.at * -216598991 - var4.an * -31821843 / 2 && var1 <= var4.an * -31821843 / 2 + this.at * -216598991) {
+         return var2 >= this.aa * -1288412757 && var2 <= this.aa * -1288412757 + var4.aw * -1401615011;
+      } else {
+         return false;
+      }
    }
+
+   abstract WorldMapLabel label();
+
+   abstract int ac();
+
+   public abstract int element();
 
    abstract int au();
 }

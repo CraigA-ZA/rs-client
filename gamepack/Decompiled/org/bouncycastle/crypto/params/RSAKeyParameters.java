@@ -4,8 +4,8 @@ import java.math.BigInteger;
 
 public class RSAKeyParameters extends AsymmetricKeyParameter {
    static final BigInteger ONE = BigInteger.valueOf(1L);
-   BigInteger modulus;
    BigInteger exponent;
+   BigInteger modulus;
 
    public BigInteger getExponent() {
       return this.exponent;

@@ -6,10 +6,10 @@ import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.params.KeyParameter;
 
 public class DESedeEngine extends DESEngine {
+   boolean forEncryption;
    int[] workingKey1 = null;
    int[] workingKey2 = null;
    int[] workingKey3 = null;
-   boolean forEncryption;
 
    public String getAlgorithmName() {
       return "DESede";

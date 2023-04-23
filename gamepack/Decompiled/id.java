@@ -1,6 +1,6 @@
 public class id {
-   static Archive archive15;
    static int qp;
+   static Archive fk;
 
    id() throws Throwable {
       throw new Error();

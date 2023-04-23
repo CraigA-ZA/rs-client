@@ -1,12 +1,37 @@
 import java.util.HashMap;
 
 public class nf {
-   Bounds an = new Bounds(0, 0);
-   int[] aw = new int[2048];
-   final HashMap af = new HashMap();
+   static SoundSystem aa;
    int au = 0;
    int[] ac = new int[2048];
-   static SoundSystem soundSystem;
+   int[] aw = new int[2048];
+   Bounds an = new Bounds(0, 0);
+   final HashMap af = new HashMap();
+
+   public nf() {
+      dt.at = new int[2000];
+      int var1 = 0;
+      int var2 = 240;
+
+      int var3;
+      int var4;
+      for(var3 = 12; var1 < 16; var2 -= var3) {
+         var4 = eu.af((double)((float)var2 / 360.0F), 0.9998999834060669, (double)((float)var1 * 0.425F / 16.0F + 0.075F));
+         dt.at[var1] = var4;
+         ++var1;
+      }
+
+      var2 = 48;
+
+      for(var3 = var2 / 6; var1 < dt.at.length; var2 -= var3) {
+         var4 = var1 * 2;
+
+         for(int var5 = eu.af((double)((float)var2 / 360.0F), 0.9998999834060669, 0.5); var1 < var4 && var1 < dt.at.length; ++var1) {
+            dt.at[var1] = var5;
+         }
+      }
+
+   }
 
    void af(int var1) {
       int var3 = 1 + 2 * var1;
@@ -38,6 +63,10 @@ public class nf {
       this.af.put(var1, var18);
    }
 
+   public static MapElementType getMapElementType(int var0) {
+      return var0 >= 0 && var0 < MapElementType.an.length && MapElementType.an[var0] != null ? MapElementType.an[var0] : new MapElementType(var0);
+   }
+
    Rasterizer3D an(int var1) {
       if (!this.af.containsKey(var1)) {
          this.af(var1);
@@ -54,58 +83,8 @@ public class nf {
       }
    }
 
-   void ab(Rasterizer3D var1, Rasterizer3D var2, Bounds var3) {
-      if (0 != var3.aw * 944313703 && var3.ac * -1376251093 != 0) {
-         int var5 = 0;
-         int var6 = 0;
-         if (0 == -844906645 * var3.af) {
-            var5 = var1.an - 944313703 * var3.aw;
-         }
-
-         if (0 == 1864020389 * var3.an) {
-            var6 = var1.aw - var3.ac * -1376251093;
-         }
-
-         int var7 = var1.an * var6 + var5;
-         int var8 = var3.an * 1864020389 * var2.an + var3.af * -844906645;
-
-         for(int var9 = 0; var9 < -1376251093 * var3.ac; ++var9) {
-            for(int var10 = 0; var10 < var3.aw * 944313703; ++var10) {
-               int[] var10000 = var2.af;
-               int var10001 = var8++;
-               var10000[var10001] += var1.af[var7++];
-            }
-
-            var7 += var1.an - 944313703 * var3.aw;
-            var8 += var2.an - 944313703 * var3.aw;
-         }
-
-      }
-   }
-
-   public nf() {
-      dt.at = new int[2000];
-      int var1 = 0;
-      int var2 = 240;
-
-      int var3;
-      int var4;
-      for(var3 = 12; var1 < 16; var2 -= var3) {
-         var4 = eu.af((double)((float)var2 / 360.0F), 0.9998999834060669, (double)((float)var1 * 0.425F / 16.0F + 0.075F));
-         dt.at[var1] = var4;
-         ++var1;
-      }
-
-      var2 = 48;
-
-      for(var3 = var2 / 6; var1 < dt.at.length; var2 -= var3) {
-         var4 = var1 * 2;
-
-         for(int var5 = eu.af((double)((float)var2 / 360.0F), 0.9998999834060669, 0.5); var1 < var4 && var1 < dt.at.length; ++var1) {
-            dt.at[var1] = var5;
-         }
-      }
-
+   public final void ac() {
+      this.au = 0;
    }
 
    public final void au(int var1, int var2, Rasterizer3D var3, float var4) {
@@ -154,11 +133,32 @@ public class nf {
       System.nanoTime();
    }
 
-   public final void ac() {
-      this.au = 0;
-   }
+   void ab(Rasterizer3D var1, Rasterizer3D var2, Bounds var3) {
+      if (0 != var3.aw * 944313703 && var3.ac * -1376251093 != 0) {
+         int var5 = 0;
+         int var6 = 0;
+         if (0 == -844906645 * var3.af) {
+            var5 = var1.an - 944313703 * var3.aw;
+         }
 
-   public static MapElementType getMapElementType(int var0) {
-      return var0 >= 0 && var0 < MapElementType.MapElementType_cached.length && MapElementType.MapElementType_cached[var0] != null ? MapElementType.MapElementType_cached[var0] : new MapElementType(var0);
+         if (0 == 1864020389 * var3.an) {
+            var6 = var1.aw - var3.ac * -1376251093;
+         }
+
+         int var7 = var1.an * var6 + var5;
+         int var8 = var3.an * 1864020389 * var2.an + var3.af * -844906645;
+
+         for(int var9 = 0; var9 < -1376251093 * var3.ac; ++var9) {
+            for(int var10 = 0; var10 < var3.aw * 944313703; ++var10) {
+               int[] var10000 = var2.af;
+               int var10001 = var8++;
+               var10000[var10001] += var1.af[var7++];
+            }
+
+            var7 += var1.an - 944313703 * var3.aw;
+            var8 += var2.an - 944313703 * var3.aw;
+         }
+
+      }
    }
 }

@@ -1,21 +1,26 @@
 public class dp {
-   int[] ao;
-   IndexedSprite[] af;
-   int[] aq = new int[256];
-   int al = 0;
-   int[] at;
-   int[] ah;
-   int[] ay;
-   int[] ar;
    static Rasterizer3D jz;
    int ai = 0;
-   int[] ag;
-   int[] av;
    int aj = 0;
-   int as = 0;
+   int al = 0;
    int am = 0;
-   int[] aa;
+   int as = 0;
    int ax = 0;
+   int[] aa;
+   int[] ag;
+   int[] ah;
+   int[] ao;
+   int[] aq = new int[256];
+   int[] ar;
+   int[] at;
+   int[] av;
+   int[] ay;
+   IndexedSprite[] af;
+
+   dp(IndexedSprite[] var1) {
+      this.af = var1;
+      this.af();
+   }
 
    void af() {
       this.aa = new int[256];
@@ -82,9 +87,17 @@ public class dp {
       this.ah = new int['耀'];
    }
 
-   final int au(int var1, int var2, int var3) {
-      int var5 = 256 - var3;
-      return ((var2 & 16711935) * var3 + (var1 & 16711935) * var5 & -16711936) + (var3 * (var2 & '\uff00') + var5 * (var1 & '\uff00') & 16711680) >> 8;
+   void an() {
+      this.aa = null;
+      this.ay = null;
+      this.ao = null;
+      this.at = null;
+      this.av = null;
+      this.ar = null;
+      this.ag = null;
+      this.ah = null;
+      this.am = 0;
+      this.as = 0;
    }
 
    void aw(int var1, int var2) {
@@ -107,21 +120,6 @@ public class dp {
       }
 
       this.ab(var1);
-   }
-
-   final void ab(int var1) {
-      int var3 = this.at.length;
-      if (-1137135943 * this.ax > 0) {
-         this.aq(-1137135943 * this.ax, this.ay);
-      } else if (this.ai * 564904941 > 0) {
-         this.aq(this.ai * 564904941, this.ao);
-      } else {
-         for(int var4 = 0; var4 < var3; ++var4) {
-            this.at[var4] = this.aa[var4];
-         }
-      }
-
-      this.al(var1);
    }
 
    final void ac(int var1) {
@@ -253,6 +251,66 @@ public class dp {
 
    }
 
+   static ex ab_renamed(int var0) {
+      ex var2 = (ex)StructType.findEnumerated(Messages.au_renamed(), var0);
+      if (null == var2) {
+         var2 = ex.af;
+      }
+
+      return var2;
+   }
+
+   final int au(int var1, int var2, int var3) {
+      int var5 = 256 - var3;
+      return ((var2 & 16711935) * var3 + (var1 & 16711935) * var5 & -16711936) + (var3 * (var2 & '\uff00') + var5 * (var1 & '\uff00') & 16711680) >> 8;
+   }
+
+   final void ab(int var1) {
+      int var3 = this.at.length;
+      if (-1137135943 * this.ax > 0) {
+         this.aq(-1137135943 * this.ax, this.ay);
+      } else if (this.ai * 564904941 > 0) {
+         this.aq(this.ai * 564904941, this.ao);
+      } else {
+         for(int var4 = 0; var4 < var3; ++var4) {
+            this.at[var4] = this.aa[var4];
+         }
+      }
+
+      this.al(var1);
+   }
+
+   final void aq(int var1, int[] var2) {
+      int var4 = this.at.length;
+
+      for(int var5 = 0; var5 < var4; ++var5) {
+         if (var1 > 768) {
+            this.at[var5] = this.au(this.aa[var5], var2[var5], 1024 - var1);
+         } else if (var1 > 256) {
+            this.at[var5] = var2[var5];
+         } else {
+            this.at[var5] = this.au(var2[var5], this.aa[var5], 256 - var1);
+         }
+      }
+
+   }
+
+   static int aw_renamed(PacketBit var0) {
+      int var2 = var0.gBit(2);
+      int var3;
+      if (var2 == 0) {
+         var3 = 0;
+      } else if (var2 == 1) {
+         var3 = var0.gBit(5);
+      } else if (2 == var2) {
+         var3 = var0.gBit(8);
+      } else {
+         var3 = var0.gBit(11);
+      }
+
+      return var3;
+   }
+
    final void al(int var1) {
       int var3 = 0;
 
@@ -266,22 +324,22 @@ public class dp {
             var6 = 0;
          }
 
-         if (var6 + 128 >= ia.rasterProvider.ac * 1313069155) {
-            var8 = ia.rasterProvider.ac * 1313069155 - var6;
+         if (var6 + 128 >= ia.bn.ac * 1313069155) {
+            var8 = ia.bn.ac * 1313069155 - var6;
          }
 
-         int var9 = var6 + (var4 + 8) * ia.rasterProvider.ac * 1313069155;
+         int var9 = var6 + (var4 + 8) * ia.bn.ac * 1313069155;
          var3 += var7;
 
          for(int var10 = var7; var10 < var8; ++var10) {
             int var11 = this.ag[var3++];
-            int var12 = var9 % Rasterizer2D.Rasterizer2D_width;
-            if (0 != var11 && var12 >= Rasterizer2D.Rasterizer2D_xClipStart && var12 < Rasterizer2D.Rasterizer2D_xClipEnd) {
+            int var12 = var9 % Rasterizer2D.ae;
+            if (0 != var11 && var12 >= Rasterizer2D.bk && var12 < Rasterizer2D.bx) {
                int var13 = var11;
                int var14 = 256 - var11;
                var11 = this.at[var11];
-               int var15 = ia.rasterProvider.pixels[var9];
-               ia.rasterProvider.pixels[var9++] = -16777216 | (var13 * (var11 & 16711935) + var14 * (var15 & 16711935) & -16711936) + (var13 * (var11 & '\uff00') + var14 * (var15 & '\uff00') & 16711680) >> 8;
+               int var15 = ia.bn.aw[var9];
+               ia.bn.aw[var9++] = -16777216 | (var13 * (var11 & 16711935) + var14 * (var15 & 16711935) & -16711936) + (var13 * (var11 & '\uff00') + var14 * (var15 & '\uff00') & 16711680) >> 8;
             } else {
                ++var9;
             }
@@ -322,11 +380,11 @@ public class dp {
       if (null != var1) {
          var3 = 0;
 
-         for(var4 = 0; var4 < var1.subHeight; ++var4) {
-            for(var5 = 0; var5 < var1.subWidth; ++var5) {
-               if (var1.pixels[var3++] != 0) {
-                  var6 = var5 + 16 + var1.xOffset;
-                  int var7 = 16 + var4 + var1.yOffset;
+         for(var4 = 0; var4 < var1.ac; ++var4) {
+            for(var5 = 0; var5 < var1.aw; ++var5) {
+               if (var1.af[var3++] != 0) {
+                  var6 = var5 + 16 + var1.au;
+                  int var7 = 16 + var4 + var1.ab;
                   int var8 = var6 + (var7 << 7);
                   this.av[var8] = 0;
                }
@@ -336,92 +394,55 @@ public class dp {
 
    }
 
-   final void aq(int var1, int[] var2) {
-      int var4 = this.at.length;
-
-      for(int var5 = 0; var5 < var4; ++var5) {
-         if (var1 > 768) {
-            this.at[var5] = this.au(this.aa[var5], var2[var5], 1024 - var1);
-         } else if (var1 > 256) {
-            this.at[var5] = var2[var5];
-         } else {
-            this.at[var5] = this.au(var2[var5], this.aa[var5], 256 - var1);
-         }
-      }
-
-   }
-
-   static int aw_renamed(PacketBit var0) {
-      int var2 = var0.gBit(2);
-      int var3;
-      if (var2 == 0) {
-         var3 = 0;
-      } else if (var2 == 1) {
-         var3 = var0.gBit(5);
-      } else if (2 == var2) {
-         var3 = var0.gBit(8);
-      } else {
-         var3 = var0.gBit(11);
-      }
-
-      return var3;
-   }
-
-   dp(IndexedSprite[] var1) {
-      this.af = var1;
-      this.af();
-   }
-
-   static ex ab_renamed(int var0) {
-      ex var2 = (ex)StructType.findEnumerated(Messages.au_renamed(), var0);
-      if (null == var2) {
-         var2 = ex.af;
-      }
-
-      return var2;
+   static final void ar_renamed(String var0, int var1) {
+      PacketBitNode var3 = mi.an_renamed(ClientProt.ba, Client.in.au);
+      var3.aw.bu(DynamicObject.bc_renamed(var0) + 1);
+      var3.aw.bh(var0);
+      var3.aw.bu(var1);
+      Client.in.aw(var3);
    }
 
    static int ac_renamed(int var0, ClientScript var1, boolean var2) {
       int var4;
       int var5;
       if (100 == var0) {
-         Interpreter.Interpreter_intStackSize -= 1281407919;
-         var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-         var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1];
-         int var12 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 2];
+         Interpreter.at -= 1281407919;
+         var4 = Interpreter.al[Interpreter.at * -964267539];
+         var5 = Interpreter.al[Interpreter.at * -964267539 + 1];
+         int var12 = Interpreter.al[-964267539 * Interpreter.at + 2];
          if (var5 == 0) {
             throw new RuntimeException();
          } else {
             Component var7 = gh.an_renamed(var4);
-            if (null == var7.children) {
-               var7.children = new Component[1 + var12];
+            if (null == var7.gz) {
+               var7.gz = new Component[1 + var12];
             }
 
-            if (var7.children.length <= var12) {
+            if (var7.gz.length <= var12) {
                Component[] var8 = new Component[1 + var12];
 
-               for(int var9 = 0; var9 < var7.children.length; ++var9) {
-                  var8[var9] = var7.children[var9];
+               for(int var9 = 0; var9 < var7.gz.length; ++var9) {
+                  var8[var9] = var7.gz[var9];
                }
 
-               var7.children = var8;
+               var7.gz = var8;
             }
 
-            if (var12 > 0 && var7.children[var12 - 1] == null) {
+            if (var12 > 0 && var7.gz[var12 - 1] == null) {
                throw new RuntimeException("" + (var12 - 1));
             } else {
                Component var13 = new Component();
                var13.bg = var5 * -1183495331;
-               var13.parentId = (var13.id = 1 * var7.id) * -1942978835;
-               var13.childIndex = var12 * -1274125071;
-               var13.isIf3 = true;
+               var13.cu = (var13.bs = 1 * var7.bs) * -1942978835;
+               var13.br = var12 * -1274125071;
+               var13.bn = true;
                if (12 == var5) {
                   var13.bt();
                   var13.bj().bp(new dn(var13));
                   var13.bj().bl(new dy(var13));
                }
 
-               var7.children[var12] = var13;
+               var7.gz[var12] = var13;
                if (var2) {
                   SoundSystem.ag = var13;
                } else {
@@ -436,27 +457,27 @@ public class dp {
          Component var10;
          if (var0 == 101) {
             var10 = var2 ? SoundSystem.ag : an.ai;
-            Component var11 = gh.an_renamed(1713081171 * var10.id);
-            var11.children[55577617 * var10.childIndex] = null;
+            Component var11 = gh.an_renamed(1713081171 * var10.bs);
+            var11.gz[55577617 * var10.br] = null;
             fw.ma_renamed(var11);
             return 1;
          } else if (102 == var0) {
-            var10 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
-            var10.children = null;
+            var10 = gh.an_renamed(Interpreter.al[(Interpreter.at -= 427135973) * -964267539]);
+            var10.gz = null;
             fw.ma_renamed(var10);
             return 1;
          } else if (200 != var0) {
             if (201 == var0) {
-               var10 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
+               var10 = gh.an_renamed(Interpreter.al[(Interpreter.at -= 427135973) * -964267539]);
                if (null != var10) {
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1;
+                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 1;
                   if (var2) {
                      SoundSystem.ag = var10;
                   } else {
                      an.ai = var10;
                   }
                } else {
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
+                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 0;
                }
 
                return 1;
@@ -464,44 +485,23 @@ public class dp {
                return 2;
             }
          } else {
-            Interpreter.Interpreter_intStackSize -= 854271946;
-            var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-            var5 = Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539];
+            Interpreter.at -= 854271946;
+            var4 = Interpreter.al[Interpreter.at * -964267539];
+            var5 = Interpreter.al[1 + Interpreter.at * -964267539];
             Component var6 = SoundSystem.getComponentChild(var4, var5);
             if (var6 != null && -1 != var5) {
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1;
+               Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 1;
                if (var2) {
                   SoundSystem.ag = var6;
                } else {
                   an.ai = var6;
                }
             } else {
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
+               Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 0;
             }
 
             return 1;
          }
       }
-   }
-
-   static final void ar_renamed(String var0, int var1) {
-      PacketBitNode var3 = mi.an_renamed(ClientProt.ba, Client.packetWriter.au);
-      var3.bit.bu(DynamicObject.bc_renamed(var0) + 1);
-      var3.bit.bh(var0);
-      var3.bit.bu(var1);
-      Client.packetWriter.aw(var3);
-   }
-
-   void an() {
-      this.aa = null;
-      this.ay = null;
-      this.ao = null;
-      this.at = null;
-      this.av = null;
-      this.ar = null;
-      this.ag = null;
-      this.ah = null;
-      this.am = 0;
-      this.as = 0;
    }
 }

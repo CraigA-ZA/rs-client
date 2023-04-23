@@ -3,12 +3,12 @@ package org.bouncycastle.crypto.prng;
 import org.bouncycastle.crypto.Digest;
 
 public class DigestRandomGenerator implements RandomGenerator {
-   Digest digest;
-   long stateCounter;
-   long seedCounter;
+   static long CYCLE_COUNT = 10L;
    byte[] seed;
    byte[] state;
-   static long CYCLE_COUNT = 10L;
+   long seedCounter;
+   long stateCounter;
+   Digest digest;
 
    public void addSeedMaterial(byte[] var1) {
       synchronized(this) {

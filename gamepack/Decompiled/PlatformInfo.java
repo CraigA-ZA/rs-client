@@ -1,43 +1,30 @@
 public class PlatformInfo extends Node {
-   int bf;
-   boolean bz;
-   int bm;
-   int bd;
-   int bt;
-   int bq;
-   int bn;
-   int ce;
-   String ca;
-   String cs;
-   int bw;
    boolean bs;
+   boolean bz;
    int bc;
+   int bd;
+   int bf;
+   int bg;
+   int bh;
+   int bj;
+   int bm;
+   int bn;
+   int bo;
+   int bq;
+   int br;
+   int bt;
+   int bw;
+   int ce;
+   int cn;
+   int[] cc = new int[3];
    String ba;
-   String bv;
    String bl;
    String bp;
-   int bh;
-   int bg;
-   int bj;
+   String bv;
+   String ca;
    String ci;
-   int[] cc = new int[3];
+   String cs;
    String cu;
-   int cn;
-   int bo;
-   int br;
-
-   public int size() {
-      int var2 = 39;
-      var2 += gx.bw_renamed(this.ba);
-      var2 += gx.bw_renamed(this.bv);
-      var2 += gx.bw_renamed(this.bl);
-      var2 += gx.bw_renamed(this.bp);
-      var2 += gx.bw_renamed(this.ci);
-      var2 += gx.bw_renamed(this.cs);
-      var2 += gx.bw_renamed(this.ca);
-      var2 += gx.bw_renamed(this.cu);
-      return var2;
-   }
 
    PlatformInfo(int var1, boolean var2, int var3, int var4, int var5, int var6, int var7, boolean var8, int var9, int var10, int var11, int var12, String var13, String var14, String var15, String var16, int var17, int var18, int var19, int var20, String var21, String var22, int[] var23, int var24, String var25, String var26) {
       this.bo = -1752231917 * var1;
@@ -100,5 +87,18 @@ public class PlatformInfo extends Node {
       var1.ba(this.cn * -656820395);
       var1.pjstr(this.ca);
       var1.pjstr(this.cu);
+   }
+
+   public int size() {
+      int var2 = 39;
+      var2 += gx.bw_renamed(this.ba);
+      var2 += gx.bw_renamed(this.bv);
+      var2 += gx.bw_renamed(this.bl);
+      var2 += gx.bw_renamed(this.bp);
+      var2 += gx.bw_renamed(this.ci);
+      var2 += gx.bw_renamed(this.cs);
+      var2 += gx.bw_renamed(this.ca);
+      var2 += gx.bw_renamed(this.cu);
+      return var2;
    }
 }

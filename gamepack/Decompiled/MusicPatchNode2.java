@@ -1,13 +1,16 @@
 public class MusicPatchNode2 {
-   byte[] an;
    byte[] af;
-   int aw;
-   int ac;
-   int at;
+   byte[] an;
    int ab;
-   int aq;
+   int ac;
    int al;
+   int aq;
+   int at;
    int au;
+   int aw;
+
+   MusicPatchNode2() {
+   }
 
    public static IndexedSprite au_renamed(AbstractArchive var0, String var1, String var2) {
       if (!var0.cv(var1, var2)) {
@@ -33,8 +36,5 @@ public class MusicPatchNode2 {
 
          return var6;
       }
-   }
-
-   MusicPatchNode2() {
    }
 }

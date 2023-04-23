@@ -2,30 +2,12 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class av implements ThreadFactory {
-   final ThreadGroup af;
-   final AtomicInteger an;
+   static int uq;
+   static IndexedSprite[] dl;
    // $FF: synthetic field
    final ag this$0;
-   static IndexedSprite[] dl;
-   static int uq;
-
-   static int bc_renamed(int var0, ClientScript var1, boolean var2) {
-      return 2;
-   }
-
-   public Thread newThread(Runnable var1) {
-      Thread var2 = new Thread(this.af, var1, this.this$0.an + "-rest-request-" + this.an.getAndIncrement(), 0L);
-      var2.setDaemon(true);
-      var2.setPriority(5);
-      return var2;
-   }
-
-   av(ag var1) {
-      this.this$0 = var1;
-      this.an = new AtomicInteger(1);
-      SecurityManager var2 = System.getSecurityManager();
-      this.af = null != var2 ? var2.getThreadGroup() : Thread.currentThread().getThreadGroup();
-   }
+   final ThreadGroup af;
+   final AtomicInteger an;
 
    public static int af_renamed(CharSequence var0, CharSequence var1, Language var2) {
       int var4 = var0.length();
@@ -139,5 +121,23 @@ public class av implements ThreadFactory {
 
          return 0;
       }
+   }
+
+   av(ag var1) {
+      this.this$0 = var1;
+      this.an = new AtomicInteger(1);
+      SecurityManager var2 = System.getSecurityManager();
+      this.af = null != var2 ? var2.getThreadGroup() : Thread.currentThread().getThreadGroup();
+   }
+
+   public Thread newThread(Runnable var1) {
+      Thread var2 = new Thread(this.af, var1, this.this$0.an + "-rest-request-" + this.an.getAndIncrement(), 0L);
+      var2.setDaemon(true);
+      var2.setPriority(5);
+      return var2;
+   }
+
+   static int bc_renamed(int var0, ClientScript var1, boolean var2) {
+      return 2;
    }
 }

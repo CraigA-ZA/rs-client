@@ -5,30 +5,178 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
 
 public class mz {
-   int bo = 0;
-   int bd = 0;
-   int ap = 0;
-   boolean as = false;
    boolean aj = true;
-   int ak = 0;
+   boolean as = false;
    boolean az = false;
    int ad = 0;
+   int ae = 0;
+   int ak = 0;
+   int ap = 0;
+   int bb = 0;
+   int bd = 0;
+   int be = 0;
+   int bi = 0;
+   int bk = 1473042979;
+   int bm = 0;
+   int bo = 0;
+   int bx = 763922309;
+   int by = 0;
+   int bz = 0;
+   lx bj;
+   lx bt;
    oq am = new oq();
    oq ar = new oq();
-   int by = 0;
-   int bb = 0;
-   int bi = 0;
-   int be = 0;
-   int bk = 1473042979;
-   int bx = 763922309;
-   int bz = 0;
-   int bm = 0;
-   int ae = 0;
-   lx bt;
-   lx bj;
 
-   public void ai(int var1) {
-      this.ad = var1 * 258208179;
+   public static PacketBitNode af_renamed(int var0, String var1, Language var2, int var3) {
+      PacketBitNode var5 = mi.an_renamed(ClientProt.ax, Client.in.au);
+      var5.aw.bu(0);
+      int var6 = -1633313603 * var5.aw.at;
+      var5.aw.bu(var0);
+      String var7 = var1.toLowerCase();
+      byte var8 = 0;
+      if (var7.startsWith(Strings.hs)) {
+         var8 = 0;
+         var1 = var1.substring(Strings.hs.length());
+      } else if (var7.startsWith(Strings.hl)) {
+         var8 = 1;
+         var1 = var1.substring(Strings.hl.length());
+      } else if (var7.startsWith(Strings.hr)) {
+         var8 = 2;
+         var1 = var1.substring(Strings.hr.length());
+      } else if (var7.startsWith(Strings.hg)) {
+         var8 = 3;
+         var1 = var1.substring(Strings.hg.length());
+      } else if (var7.startsWith(Strings.ht)) {
+         var8 = 4;
+         var1 = var1.substring(Strings.ht.length());
+      } else if (var7.startsWith(Strings.hq)) {
+         var8 = 5;
+         var1 = var1.substring(Strings.hq.length());
+      } else if (var7.startsWith(Strings.hk)) {
+         var8 = 6;
+         var1 = var1.substring(Strings.hk.length());
+      } else if (var7.startsWith(Strings.hp)) {
+         var8 = 7;
+         var1 = var1.substring(Strings.hp.length());
+      } else if (var7.startsWith(Strings.hf)) {
+         var8 = 8;
+         var1 = var1.substring(Strings.hf.length());
+      } else if (var7.startsWith(Strings.if)) {
+         var8 = 9;
+         var1 = var1.substring(Strings.if.length());
+      } else if (var7.startsWith(Strings.iu)) {
+         var8 = 10;
+         var1 = var1.substring(Strings.iu.length());
+      } else if (var7.startsWith(Strings.iy)) {
+         var8 = 11;
+         var1 = var1.substring(Strings.iy.length());
+      } else if (Language.af != var2) {
+         if (var7.startsWith(Strings.hn)) {
+            var8 = 0;
+            var1 = var1.substring(Strings.hn.length());
+         } else if (var7.startsWith(Strings.hh)) {
+            var8 = 1;
+            var1 = var1.substring(Strings.hh.length());
+         } else if (var7.startsWith(Strings.hc)) {
+            var8 = 2;
+            var1 = var1.substring(Strings.hc.length());
+         } else if (var7.startsWith(Strings.ho)) {
+            var8 = 3;
+            var1 = var1.substring(Strings.ho.length());
+         } else if (var7.startsWith(Strings.hb)) {
+            var8 = 4;
+            var1 = var1.substring(Strings.hb.length());
+         } else if (var7.startsWith(Strings.hz)) {
+            var8 = 5;
+            var1 = var1.substring(Strings.hz.length());
+         } else if (var7.startsWith(Strings.ha)) {
+            var8 = 6;
+            var1 = var1.substring(Strings.ha.length());
+         } else if (var7.startsWith(Strings.he)) {
+            var8 = 7;
+            var1 = var1.substring(Strings.he.length());
+         } else if (var7.startsWith(Strings.hy)) {
+            var8 = 8;
+            var1 = var1.substring(Strings.hy.length());
+         } else if (var7.startsWith(Strings.ia)) {
+            var8 = 9;
+            var1 = var1.substring(Strings.ia.length());
+         } else if (var7.startsWith(Strings.iw)) {
+            var8 = 10;
+            var1 = var1.substring(Strings.iw.length());
+         } else if (var7.startsWith(Strings.iz)) {
+            var8 = 11;
+            var1 = var1.substring(Strings.iz.length());
+         }
+      }
+
+      var7 = var1.toLowerCase();
+      byte var9 = 0;
+      if (var7.startsWith(Strings.ig)) {
+         var9 = 1;
+         var1 = var1.substring(Strings.ig.length());
+      } else if (var7.startsWith(Strings.il)) {
+         var9 = 2;
+         var1 = var1.substring(Strings.il.length());
+      } else if (var7.startsWith(Strings.in)) {
+         var9 = 3;
+         var1 = var1.substring(Strings.in.length());
+      } else if (var7.startsWith(Strings.ii)) {
+         var9 = 4;
+         var1 = var1.substring(Strings.ii.length());
+      } else if (var7.startsWith(Strings.ie)) {
+         var9 = 5;
+         var1 = var1.substring(Strings.ie.length());
+      } else if (Language.af != var2) {
+         if (var7.startsWith(Strings.ih)) {
+            var9 = 1;
+            var1 = var1.substring(Strings.ih.length());
+         } else if (var7.startsWith(Strings.is)) {
+            var9 = 2;
+            var1 = var1.substring(Strings.is.length());
+         } else if (var7.startsWith(Strings.ic)) {
+            var9 = 3;
+            var1 = var1.substring(Strings.ic.length());
+         } else if (var7.startsWith(Strings.ik)) {
+            var9 = 4;
+            var1 = var1.substring(Strings.ik.length());
+         } else if (var7.startsWith(Strings.iq)) {
+            var9 = 5;
+            var1 = var1.substring(Strings.iq.length());
+         }
+      }
+
+      var5.aw.bu(var8);
+      var5.aw.bu(var9);
+      WorldMapArea.an_renamed(var5.aw, var1);
+      if (var0 == ms.ac.ordinal()) {
+         var5.aw.bu(var3);
+      }
+
+      var5.aw.cu(var5.aw.at * -1633313603 - var6);
+      return var5;
+   }
+
+   public static void af_renamed(boolean var0) {
+      if (var0 && null != Rasterizer2D.by) {
+         in.aq = in.at;
+      } else {
+         in.aq = in.al;
+      }
+
+   }
+
+   mz() {
+      this.ar.ay(1);
+      this.am.ay(1);
+   }
+
+   void af() {
+      this.ak = (-870124373 * this.ak + 1) % 60 * -867080701;
+      if (2106407237 * this.be > 0) {
+         this.be -= 238055821;
+      }
+
    }
 
    public boolean an(boolean var1) {
@@ -66,6 +214,31 @@ public class mz {
       return true;
    }
 
+   boolean ab(AbstractFont var1) {
+      boolean var3 = !this.az;
+      this.ar.aa(var1);
+      this.am.aa(var1);
+      this.az = true;
+      var3 |= this.ay(this.bm * -466889091, this.bd * 607166941);
+      var3 |= this.ap(this.bb * 542296527, this.by * 1350344153);
+      if (this.cj()) {
+         this.dm();
+         var3 = true;
+      }
+
+      return var3;
+   }
+
+   public static IndexedSprite[] ac_renamed(AbstractArchive var0, String var1, String var2) {
+      if (!var0.cv(var1, var2)) {
+         return null;
+      } else {
+         int var4 = var0.getGroupId(var1);
+         int var5 = var0.getFileId(var4, var2);
+         return cv.af_renamed(var0, var4, var5);
+      }
+   }
+
    public boolean aq(int var1, int var2) {
       boolean var4 = this.bo * -212351097 != var1 || var2 != 1953737631 * this.bz;
       this.bo = -1340125641 * var1;
@@ -88,6 +261,16 @@ public class mz {
       }
 
       return var3;
+   }
+
+   public boolean at(int var1) {
+      this.ar.al(var1);
+      if (this.cj()) {
+         this.dm();
+         return true;
+      } else {
+         return false;
+      }
    }
 
    public boolean aa(int var1) {
@@ -133,8 +316,8 @@ public class mz {
       this.ar.ax(var1);
    }
 
-   public int cf() {
-      return this.bx * -522869069;
+   public void ai(int var1) {
+      this.ad = var1 * 258208179;
    }
 
    public void ag(int var1) {
@@ -161,6 +344,10 @@ public class mz {
       }
    }
 
+   public void ar() {
+      this.az = false;
+   }
+
    public boolean am(int var1) {
       if (this.dw(var1)) {
          this.ad();
@@ -173,17 +360,42 @@ public class mz {
       return true;
    }
 
-   public void bj(boolean var1) {
-      if (1350344153 * this.by < this.ar.au()) {
-         int var3 = this.ct();
-         this.ch(this.ar.az(1350344153 * this.by, var3), var1, (byte)102);
+   public void as() {
+      if (!this.ad() && this.by * 1350344153 > 0) {
+         int var2 = this.ar.as(this.by * 1350344153 - 1);
+         this.dm();
+         this.ap(var2, var2);
       }
 
    }
 
-   public void by(boolean var1) {
-      rg var3 = this.cw(this.by * 1350344153);
-      this.ch((Integer)var3.af, var1, (byte)41);
+   public void aj() {
+      if (!this.ad() && this.by * 1350344153 < this.ar.au()) {
+         int var2 = this.ar.as(1350344153 * this.by);
+         this.dm();
+         this.ap(var2, var2);
+      }
+
+   }
+
+   public void ak() {
+      if (!this.ad() && 1350344153 * this.by > 0) {
+         rg var2 = this.cz(1350344153 * this.by - 1);
+         int var3 = this.ar.aj((Integer)var2.af, 1350344153 * this.by);
+         this.dm();
+         this.ap(var3, var3);
+      }
+
+   }
+
+   public void az() {
+      if (!this.ad() && this.by * 1350344153 < this.ar.au()) {
+         rg var2 = this.cz(this.by * 1350344153);
+         int var3 = this.ar.aj(1350344153 * this.by, (Integer)var2.an);
+         this.dm();
+         this.ap(var3, var3);
+      }
+
    }
 
    boolean ad() {
@@ -197,10 +409,8 @@ public class mz {
       }
    }
 
-   public void bs(boolean var1) {
-      oa var3 = this.ar.ai(0, 1350344153 * this.by);
-      rg var4 = var3.aq();
-      this.ch(this.ar.ak((Integer)var4.af, 1953737631 * this.bz + 607166941 * this.bd), var1, (byte)118);
+   public void ae() {
+      this.ap(0, this.ar.au());
    }
 
    public boolean ap(int var1, int var2) {
@@ -233,34 +443,22 @@ public class mz {
       }
    }
 
+   public void by(boolean var1) {
+      rg var3 = this.cw(this.by * 1350344153);
+      this.ch((Integer)var3.af, var1, (byte)41);
+   }
+
+   public void bb(boolean var1) {
+      rg var3 = this.cw(1350344153 * this.by);
+      this.ch((Integer)var3.an, var1, (byte)31);
+   }
+
    public void bi(boolean var1) {
       this.ch(0, var1, (byte)6);
    }
 
-   public void bg(int var1, int var2) {
-      if (this.az && this.ce()) {
-         var1 += -466889091 * this.bm;
-         var2 += this.bd * 607166941;
-         rg var4 = this.dc();
-         int var5 = this.ar.ak(var1 - (Integer)var4.af, var2 - (Integer)var4.an);
-         rg var6;
-         rg var7;
-         switch (this.ae * -971547877) {
-            case 0:
-               this.ap(this.bb * 542296527, var5);
-               break;
-            case 1:
-               var6 = this.cz(-600117957 * this.bi);
-               var7 = this.cz(var5);
-               this.co(var6, var7);
-               break;
-            case 2:
-               var6 = this.cw(this.bi * -600117957);
-               var7 = this.cw(var5);
-               this.co(var6, var7);
-         }
-      }
-
+   public void be(boolean var1) {
+      this.ch(this.ar.au(), var1, (byte)85);
    }
 
    public void bk(boolean var1) {
@@ -277,6 +475,14 @@ public class mz {
          this.ch(Math.max(542296527 * this.bb, this.by * 1350344153), var1, (byte)121);
       } else if (this.by * 1350344153 < this.ar.au()) {
          this.ch(1 + 1350344153 * this.by, var1, (byte)8);
+      }
+
+   }
+
+   public void bo(boolean var1) {
+      if (1350344153 * this.by > 0) {
+         rg var3 = this.cz(1350344153 * this.by - 1);
+         this.ch((Integer)var3.af, var1, (byte)53);
       }
 
    }
@@ -311,10 +517,24 @@ public class mz {
 
    }
 
+   public void bj(boolean var1) {
+      if (1350344153 * this.by < this.ar.au()) {
+         int var3 = this.ct();
+         this.ch(this.ar.az(1350344153 * this.by, var3), var1, (byte)102);
+      }
+
+   }
+
    public void bn(boolean var1) {
       oa var3 = this.ar.ai(0, this.by * 1350344153);
       rg var4 = var3.aq();
       this.ch(this.ar.ak((Integer)var4.af, 607166941 * this.bd), var1, (byte)12);
+   }
+
+   public void bs(boolean var1) {
+      oa var3 = this.ar.ai(0, 1350344153 * this.by);
+      rg var4 = var3.aq();
+      this.ch(this.ar.ak((Integer)var4.af, 1953737631 * this.bz + 607166941 * this.bd), var1, (byte)118);
    }
 
    public void br(int var1, int var2, boolean var3, boolean var4) {
@@ -364,6 +584,32 @@ public class mz {
 
    }
 
+   public void bg(int var1, int var2) {
+      if (this.az && this.ce()) {
+         var1 += -466889091 * this.bm;
+         var2 += this.bd * 607166941;
+         rg var4 = this.dc();
+         int var5 = this.ar.ak(var1 - (Integer)var4.af, var2 - (Integer)var4.an);
+         rg var6;
+         rg var7;
+         switch (this.ae * -971547877) {
+            case 0:
+               this.ap(this.bb * 542296527, var5);
+               break;
+            case 1:
+               var6 = this.cz(-600117957 * this.bi);
+               var7 = this.cz(var5);
+               this.co(var6, var7);
+               break;
+            case 2:
+               var6 = this.cw(this.bi * -600117957);
+               var7 = this.cw(var5);
+               this.co(var6, var7);
+         }
+      }
+
+   }
+
    public void bu(Clipboard var1) {
       oa var3 = this.ar.ai(542296527 * this.bb, this.by * 1350344153);
       if (!var3.aw()) {
@@ -375,19 +621,12 @@ public class mz {
 
    }
 
-   boolean ab(AbstractFont var1) {
-      boolean var3 = !this.az;
-      this.ar.aa(var1);
-      this.am.aa(var1);
-      this.az = true;
-      var3 |= this.ay(this.bm * -466889091, this.bd * 607166941);
-      var3 |= this.ap(this.bb * 542296527, this.by * 1350344153);
-      if (this.cj()) {
-         this.dm();
-         var3 = true;
+   public void bf(Clipboard var1) {
+      if (this.cv()) {
+         this.bu(var1);
+         this.ad();
       }
 
-      return var3;
    }
 
    public void bq(Clipboard var1) {
@@ -406,8 +645,21 @@ public class mz {
 
    }
 
+   public void ba() {
+      this.bd = Math.max(0, this.bd * 607166941 - this.ar.ap()) * -2081112459;
+   }
+
+   public void bv() {
+      int var2 = Math.max(0, this.ar.ae() - 1953737631 * this.bz);
+      this.bd = Math.min(var2, 607166941 * this.bd + this.ar.ap()) * -2081112459;
+   }
+
    public void bl(lx var1) {
       this.bt = var1;
+   }
+
+   public void bp(lx var1) {
+      this.bj = var1;
    }
 
    public oq bc() {
@@ -446,25 +698,32 @@ public class mz {
       return this.az;
    }
 
+   public int cu() {
+      return this.bm * -466889091;
+   }
+
+   public int ck() {
+      return 607166941 * this.bd;
+   }
+
    public int cq() {
       return this.ar.bi();
    }
 
-   public static void af_renamed(boolean var0) {
-      if (var0 && null != Rasterizer2D.by) {
-         in.aq = in.at;
-      } else {
-         in.aq = in.al;
-      }
-
+   public int cm() {
+      return this.ar.be();
    }
 
-   public int cg() {
-      return this.ar.bk();
+   public int cf() {
+      return this.bx * -522869069;
    }
 
    public int cl() {
       return this.ad * 1959011707;
+   }
+
+   public int cg() {
+      return this.ar.bk();
    }
 
    public int cr() {
@@ -634,6 +893,17 @@ public class mz {
       this.ay(var13, var14);
    }
 
+   boolean cd(int var1) {
+      return 32 == var1 || 10 == var1 || 9 == var1;
+   }
+
+   void dm() {
+      if (this.bt != null) {
+         this.bt.af();
+      }
+
+   }
+
    boolean dw(int var1) {
       switch (-947277461 * this.ap) {
          case 1:
@@ -658,296 +928,26 @@ public class mz {
       }
    }
 
-   void dm() {
-      if (this.bt != null) {
-         this.bt.af();
-      }
-
-   }
-
    rg dc() {
       int var2 = this.ar.bo(this.bo * -212351097);
       int var3 = this.ar.bz(this.bz * 1953737631);
       return new rg(var2, var3);
    }
 
-   public void aj() {
-      if (!this.ad() && this.by * 1350344153 < this.ar.au()) {
-         int var2 = this.ar.as(1350344153 * this.by);
-         this.dm();
-         this.ap(var2, var2);
-      }
-
-   }
-
-   mz() {
-      this.ar.ay(1);
-      this.am.ay(1);
-   }
-
-   public int cu() {
-      return this.bm * -466889091;
-   }
-
-   public void as() {
-      if (!this.ad() && this.by * 1350344153 > 0) {
-         int var2 = this.ar.as(this.by * 1350344153 - 1);
-         this.dm();
-         this.ap(var2, var2);
-      }
-
-   }
-
-   public void ar() {
-      this.az = false;
-   }
-
-   public void bb(boolean var1) {
-      rg var3 = this.cw(1350344153 * this.by);
-      this.ch((Integer)var3.an, var1, (byte)31);
-   }
-
-   public void be(boolean var1) {
-      this.ch(this.ar.au(), var1, (byte)85);
-   }
-
-   public static PacketBitNode af_renamed(int var0, String var1, Language var2, int var3) {
-      PacketBitNode var5 = mi.an_renamed(ClientProt.ax, Client.packetWriter.au);
-      var5.bit.bu(0);
-      int var6 = -1633313603 * var5.bit.at;
-      var5.bit.bu(var0);
-      String var7 = var1.toLowerCase();
-      byte var8 = 0;
-      if (var7.startsWith(Strings.hs)) {
-         var8 = 0;
-         var1 = var1.substring(Strings.hs.length());
-      } else if (var7.startsWith(Strings.hl)) {
-         var8 = 1;
-         var1 = var1.substring(Strings.hl.length());
-      } else if (var7.startsWith(Strings.hr)) {
-         var8 = 2;
-         var1 = var1.substring(Strings.hr.length());
-      } else if (var7.startsWith(Strings.hg)) {
-         var8 = 3;
-         var1 = var1.substring(Strings.hg.length());
-      } else if (var7.startsWith(Strings.ht)) {
-         var8 = 4;
-         var1 = var1.substring(Strings.ht.length());
-      } else if (var7.startsWith(Strings.hq)) {
-         var8 = 5;
-         var1 = var1.substring(Strings.hq.length());
-      } else if (var7.startsWith(Strings.hk)) {
-         var8 = 6;
-         var1 = var1.substring(Strings.hk.length());
-      } else if (var7.startsWith(Strings.hp)) {
-         var8 = 7;
-         var1 = var1.substring(Strings.hp.length());
-      } else if (var7.startsWith(Strings.hf)) {
-         var8 = 8;
-         var1 = var1.substring(Strings.hf.length());
-      } else if (var7.startsWith(Strings.if)) {
-         var8 = 9;
-         var1 = var1.substring(Strings.if.length());
-      } else if (var7.startsWith(Strings.iu)) {
-         var8 = 10;
-         var1 = var1.substring(Strings.iu.length());
-      } else if (var7.startsWith(Strings.iy)) {
-         var8 = 11;
-         var1 = var1.substring(Strings.iy.length());
-      } else if (Language.af != var2) {
-         if (var7.startsWith(Strings.hn)) {
-            var8 = 0;
-            var1 = var1.substring(Strings.hn.length());
-         } else if (var7.startsWith(Strings.hh)) {
-            var8 = 1;
-            var1 = var1.substring(Strings.hh.length());
-         } else if (var7.startsWith(Strings.hc)) {
-            var8 = 2;
-            var1 = var1.substring(Strings.hc.length());
-         } else if (var7.startsWith(Strings.ho)) {
-            var8 = 3;
-            var1 = var1.substring(Strings.ho.length());
-         } else if (var7.startsWith(Strings.hb)) {
-            var8 = 4;
-            var1 = var1.substring(Strings.hb.length());
-         } else if (var7.startsWith(Strings.hz)) {
-            var8 = 5;
-            var1 = var1.substring(Strings.hz.length());
-         } else if (var7.startsWith(Strings.ha)) {
-            var8 = 6;
-            var1 = var1.substring(Strings.ha.length());
-         } else if (var7.startsWith(Strings.he)) {
-            var8 = 7;
-            var1 = var1.substring(Strings.he.length());
-         } else if (var7.startsWith(Strings.hy)) {
-            var8 = 8;
-            var1 = var1.substring(Strings.hy.length());
-         } else if (var7.startsWith(Strings.ia)) {
-            var8 = 9;
-            var1 = var1.substring(Strings.ia.length());
-         } else if (var7.startsWith(Strings.iw)) {
-            var8 = 10;
-            var1 = var1.substring(Strings.iw.length());
-         } else if (var7.startsWith(Strings.iz)) {
-            var8 = 11;
-            var1 = var1.substring(Strings.iz.length());
-         }
-      }
-
-      var7 = var1.toLowerCase();
-      byte var9 = 0;
-      if (var7.startsWith(Strings.ig)) {
-         var9 = 1;
-         var1 = var1.substring(Strings.ig.length());
-      } else if (var7.startsWith(Strings.il)) {
-         var9 = 2;
-         var1 = var1.substring(Strings.il.length());
-      } else if (var7.startsWith(Strings.in)) {
-         var9 = 3;
-         var1 = var1.substring(Strings.in.length());
-      } else if (var7.startsWith(Strings.ii)) {
-         var9 = 4;
-         var1 = var1.substring(Strings.ii.length());
-      } else if (var7.startsWith(Strings.ie)) {
-         var9 = 5;
-         var1 = var1.substring(Strings.ie.length());
-      } else if (Language.af != var2) {
-         if (var7.startsWith(Strings.ih)) {
-            var9 = 1;
-            var1 = var1.substring(Strings.ih.length());
-         } else if (var7.startsWith(Strings.is)) {
-            var9 = 2;
-            var1 = var1.substring(Strings.is.length());
-         } else if (var7.startsWith(Strings.ic)) {
-            var9 = 3;
-            var1 = var1.substring(Strings.ic.length());
-         } else if (var7.startsWith(Strings.ik)) {
-            var9 = 4;
-            var1 = var1.substring(Strings.ik.length());
-         } else if (var7.startsWith(Strings.iq)) {
-            var9 = 5;
-            var1 = var1.substring(Strings.iq.length());
-         }
-      }
-
-      var5.bit.bu(var8);
-      var5.bit.bu(var9);
-      WorldMapArea.an_renamed(var5.bit, var1);
-      if (var0 == ms.ac.af()) {
-         var5.bit.bu(var3);
-      }
-
-      var5.bit.cu(var5.bit.at * -1633313603 - var6);
-      return var5;
-   }
-
-   public void bp(lx var1) {
-      this.bj = var1;
-   }
-
-   public void bf(Clipboard var1) {
-      if (this.cv()) {
-         this.bu(var1);
-         this.ad();
-      }
-
-   }
-
-   public void ba() {
-      this.bd = Math.max(0, this.bd * 607166941 - this.ar.ap()) * -2081112459;
-   }
-
-   public void bv() {
-      int var2 = Math.max(0, this.ar.ae() - 1953737631 * this.bz);
-      this.bd = Math.min(var2, 607166941 * this.bd + this.ar.ap()) * -2081112459;
-   }
-
-   void af() {
-      this.ak = (-870124373 * this.ak + 1) % 60 * -867080701;
-      if (2106407237 * this.be > 0) {
-         this.be -= 238055821;
-      }
-
-   }
-
-   public void ak() {
-      if (!this.ad() && 1350344153 * this.by > 0) {
-         rg var2 = this.cz(1350344153 * this.by - 1);
-         int var3 = this.ar.aj((Integer)var2.af, 1350344153 * this.by);
-         this.dm();
-         this.ap(var3, var3);
-      }
-
-   }
-
-   public int ck() {
-      return 607166941 * this.bd;
-   }
-
-   boolean cd(int var1) {
-      return 32 == var1 || 10 == var1 || 9 == var1;
-   }
-
-   public int cm() {
-      return this.ar.be();
-   }
-
-   public boolean at(int var1) {
-      this.ar.al(var1);
-      if (this.cj()) {
-         this.dm();
-         return true;
-      } else {
-         return false;
-      }
-   }
-
-   public void az() {
-      if (!this.ad() && this.by * 1350344153 < this.ar.au()) {
-         rg var2 = this.cz(this.by * 1350344153);
-         int var3 = this.ar.aj(1350344153 * this.by, (Integer)var2.an);
-         this.dm();
-         this.ap(var3, var3);
-      }
-
-   }
-
-   public void bo(boolean var1) {
-      if (1350344153 * this.by > 0) {
-         rg var3 = this.cz(1350344153 * this.by - 1);
-         this.ch((Integer)var3.af, var1, (byte)53);
-      }
-
-   }
-
-   public void ae() {
-      this.ap(0, this.ar.au());
-   }
-
-   public static IndexedSprite[] ac_renamed(AbstractArchive var0, String var1, String var2) {
-      if (!var0.cv(var1, var2)) {
-         return null;
-      } else {
-         int var4 = var0.getGroupId(var1);
-         int var5 = var0.getFileId(var4, var2);
-         return cv.af_renamed(var0, var4, var5);
-      }
-   }
-
    static Component bm_renamed(int var0, Component var1, int var2, int var3, int var4, int var5, int var6, float[] var7) {
       Component var9 = new Component();
       var9.bg = -1183495331 * var0;
-      var9.parentId = -1942978835 * var1.id;
-      var9.childIndex = -1274125071 * var2;
-      var9.isIf3 = true;
-      var9.xAlignment = 1656805111 * var3;
-      var9.yAlignment = -362988363 * var4;
-      var9.widthAlignment = 387308049 * var5;
-      var9.heightAlignment = -480958745 * var6;
-      var9.rawX = 1806877347 * (int)((float)(-794961409 * var1.width) * var7[0]);
-      var9.rawY = 1231090287 * (int)((float)(1473950221 * var1.height) * var7[1]);
-      var9.rawWidth = -1495372107 * (int)((float)(-794961409 * var1.width) * var7[2]);
-      var9.rawHeight = 1193771871 * (int)(var7[3] * (float)(1473950221 * var1.height));
+      var9.cu = -1942978835 * var1.bs;
+      var9.br = -1274125071 * var2;
+      var9.bn = true;
+      var9.bq = 1656805111 * var3;
+      var9.ba = -362988363 * var4;
+      var9.bv = 387308049 * var5;
+      var9.bl = -480958745 * var6;
+      var9.bp = 1806877347 * (int)((float)(-794961409 * var1.cs) * var7[0]);
+      var9.bc = 1231090287 * (int)((float)(1473950221 * var1.cc) * var7[1]);
+      var9.bh = -1495372107 * (int)((float)(-794961409 * var1.cs) * var7[2]);
+      var9.bw = 1193771871 * (int)(var7[3] * (float)(1473950221 * var1.cc));
       return var9;
    }
 }

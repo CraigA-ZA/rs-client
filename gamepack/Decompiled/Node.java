@@ -1,18 +1,18 @@
 public class Node {
-   public long key;
-   public Node previous;
-   public Node next;
-
-   public boolean hasNext() {
-      return this.next != null;
-   }
+   public long hr;
+   public Node hc;
+   public Node hg;
 
    public void remove() {
-      if (this.next != null) {
-         this.next.previous = this.previous;
-         this.previous.next = this.next;
-         this.previous = null;
-         this.next = null;
+      if (this.hg != null) {
+         this.hg.hc = this.hc;
+         this.hc.hg = this.hg;
+         this.hc = null;
+         this.hg = null;
       }
+   }
+
+   public boolean hasNext() {
+      return this.hg != null;
    }
 }

@@ -7,13 +7,13 @@ import java.util.Hashtable;
 import org.bouncycastle.util.Integers;
 
 public class TlsExtensionsUtils {
+   public static final Integer EXT_encrypt_then_mac = Integers.valueOf(22);
+   public static final Integer EXT_extended_master_secret = Integers.valueOf(23);
+   public static final Integer EXT_heartbeat = Integers.valueOf(15);
    public static final Integer EXT_max_fragment_length = Integers.valueOf(1);
    public static final Integer EXT_padding = Integers.valueOf(21);
-   public static final Integer EXT_status_request = Integers.valueOf(5);
-   public static final Integer EXT_heartbeat = Integers.valueOf(15);
-   public static final Integer EXT_encrypt_then_mac = Integers.valueOf(22);
    public static final Integer EXT_server_name = Integers.valueOf(0);
-   public static final Integer EXT_extended_master_secret = Integers.valueOf(23);
+   public static final Integer EXT_status_request = Integers.valueOf(5);
    public static final Integer EXT_truncated_hmac = Integers.valueOf(4);
 
    public static short getMaxFragmentLengthExtension(Hashtable var0) throws IOException {

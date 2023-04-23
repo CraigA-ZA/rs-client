@@ -9,8 +9,8 @@ import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.util.encoders.Hex;
 
 public class SecP224K1Curve extends ECCurve$AbstractFp {
-   public SecP224K1Point infinity = new SecP224K1Point(this, (ECFieldElement)null, (ECFieldElement)null);
    public static final BigInteger q = new BigInteger(1, Hex.decode("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFE56D"));
+   public SecP224K1Point infinity = new SecP224K1Point(this, (ECFieldElement)null, (ECFieldElement)null);
 
    public int getFieldSize() {
       return q.bitLength();

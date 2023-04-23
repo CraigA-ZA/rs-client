@@ -1,17 +1,17 @@
 public class tz {
-   int ao;
-   int an;
-   int aw;
-   int ac;
-   int au;
+   boolean aa;
    int ab;
+   int ac;
+   int ai;
+   int al = 0;
+   int an;
+   int ao;
    int aq;
    int at = 0;
-   int al = 0;
-   int ay;
-   boolean aa;
+   int au;
+   int aw;
    int ax;
-   int ai;
+   int ay;
 
    public void af(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, boolean var9) {
       this.an = 452324461 * var1;
@@ -23,6 +23,13 @@ public class tz {
       this.al = -1791669253 * var7;
       this.at = 1315090237 * var8;
       this.aa = var9;
+   }
+
+   public void an(int var1, int var2, int var3, int var4) {
+      this.ay = var1 * -1716104877;
+      this.ao = 1360885335 * var2;
+      this.ax = var3 * 270310371;
+      this.ai = -2112142917 * var4;
    }
 
    public void aw(oq var1, Font var2) {
@@ -54,7 +61,7 @@ public class tz {
             for(var17 = 0; var17 < var13.ac(); ++var17) {
                om var18 = var13.al(var17);
                var19 = var18.an * 1620071571 + var8;
-               int var20 = var2.ay(var18.af);
+               int var20 = var2.charWidth(var18.af);
                int var21 = -727185157 * var18.aw + var9 - var4;
                Rasterizer2D.Rasterizer2D_fillRectangle(var19, var21, var20, var16, -1287309 * this.ai);
             }
@@ -84,12 +91,5 @@ public class tz {
          }
 
       }
-   }
-
-   public void an(int var1, int var2, int var3, int var4) {
-      this.ay = var1 * -1716104877;
-      this.ao = 1360885335 * var2;
-      this.ax = var3 * 270310371;
-      this.ai = -2112142917 * var4;
    }
 }

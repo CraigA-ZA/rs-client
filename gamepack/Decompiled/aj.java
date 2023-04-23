@@ -6,28 +6,10 @@ import java.net.HttpURLConnection;
 import java.util.Map;
 
 public class aj {
+   static ClientPreferences vb;
+   final int af;
    final String aw;
    final Map an;
-   final int af;
-   static ClientPreferences clientPreferences;
-
-   aj(String var1) {
-      this.af = 1056936272;
-      this.an = null;
-      this.aw = "";
-   }
-
-   public int af() {
-      return this.af * -673848331;
-   }
-
-   public Map an() {
-      return this.an;
-   }
-
-   public String aw() {
-      return this.aw;
-   }
 
    aj(HttpURLConnection var1) throws IOException {
       this.af = var1.getResponseCode() * -1146261411;
@@ -50,6 +32,29 @@ public class aj {
       this.aw = var2.toString();
    }
 
+   aj(String var1) {
+      this.af = 1056936272;
+      this.an = null;
+      this.aw = "";
+   }
+
+   public int af() {
+      return this.af * -673848331;
+   }
+
+   public Map an() {
+      return this.an;
+   }
+
+   public String aw() {
+      return this.aw;
+   }
+
+   static int ac_renamed(int var0, int var1) {
+      long var3 = (long)(var1 + (var0 << 16));
+      return ClientScript.ai != null && ClientScript.ai.hr == var3 ? 1510710551 * NetCache.ah.at / (NetCache.ah.al.length - ClientScript.ai.aw) + 1 : 0;
+   }
+
    public static int ag_renamed(int var0) {
       fh var3 = (fh)SeqType.aa.get((long)var0);
       fh var2;
@@ -67,12 +72,7 @@ public class aj {
       if (null == var2) {
          return 2;
       } else {
-         return var2.aw() ? 0 : 1;
+         return var2.isFromFriend() ? 0 : 1;
       }
-   }
-
-   static int ac_renamed(int var0, int var1) {
-      long var3 = (long)(var1 + (var0 << 16));
-      return ClientScript.NetCache_currentResponse != null && ClientScript.NetCache_currentResponse.hr == var3 ? 1510710551 * NetCache.ah.index / (NetCache.ah.array.length - ClientScript.NetCache_currentResponse.padding) + 1 : 0;
    }
 }

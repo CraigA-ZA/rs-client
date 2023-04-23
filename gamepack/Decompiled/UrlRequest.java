@@ -1,16 +1,12 @@
 import java.net.URL;
 
 public class UrlRequest {
-   volatile int ac;
-   static int aw = 589984538;
-   static int an = -1187714911;
-   final URL url;
-   volatile byte[] response0;
    public static int at;
-
-   public boolean isDone() {
-      return -349727197 * this.ac != 1340146847 * an;
-   }
+   static int an = -1187714911;
+   static int aw = 589984538;
+   final URL af;
+   volatile byte[] au;
+   volatile int ac;
 
    static int ac(int var0, double var1) {
       double var3 = (double)(var0 >> 16) / 256.0;
@@ -25,17 +21,21 @@ public class UrlRequest {
       return var11 + (var10 << 8) + (var9 << 16);
    }
 
-   public byte[] getResponse() {
-      return this.response0;
-   }
-
    UrlRequest(URL var1) {
       this.ac = an * -856794795;
-      this.url = var1;
+      this.af = var1;
+   }
+
+   public boolean isDone() {
+      return -349727197 * this.ac != 1340146847 * an;
+   }
+
+   public byte[] getResponse() {
+      return this.au;
    }
 
    public String aw() {
-      return this.url.toString();
+      return this.af.toString();
    }
 
    static void as_renamed() {

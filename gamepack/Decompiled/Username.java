@@ -1,6 +1,11 @@
 public class Username implements Comparable {
-   String an;
    String af;
+   String an;
+
+   public Username(String var1) {
+      this.af = var1;
+      this.an = bk.aw_renamed(var1, LoginType.af);
+   }
 
    public Username(String var1, LoginType var2) {
       this.af = var1;
@@ -34,9 +39,12 @@ public class Username implements Comparable {
       }
    }
 
-   public Username(String var1) {
-      this.af = var1;
-      this.an = bk.aw_renamed(var1, LoginType.af);
+   public int hashCode() {
+      return null == this.an ? 0 : this.an.hashCode();
+   }
+
+   public String toString() {
+      return this.af();
    }
 
    public int compareTo0(Username var1) {
@@ -49,13 +57,5 @@ public class Username implements Comparable {
 
    public int compareTo(Object var1) {
       return this.compareTo0((Username)var1);
-   }
-
-   public int hashCode() {
-      return null == this.an ? 0 : this.an.hashCode();
-   }
-
-   public String toString() {
-      return this.af();
    }
 }

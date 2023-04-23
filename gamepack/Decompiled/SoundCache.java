@@ -1,8 +1,13 @@
 public class SoundCache {
-   AbstractArchive an;
-   NodeHashTable aw = new NodeHashTable(256);
-   NodeHashTable ac = new NodeHashTable(256);
    AbstractArchive af;
+   AbstractArchive an;
+   NodeHashTable ac = new NodeHashTable(256);
+   NodeHashTable aw = new NodeHashTable(256);
+
+   public SoundCache(AbstractArchive var1, AbstractArchive var2) {
+      this.af = var1;
+      this.an = var2;
+   }
 
    RawSound af(int var1, int var2, int[] var3) {
       int var5 = var2 ^ (var1 << 4 & '\uffff' | var1 >>> 12);
@@ -21,7 +26,7 @@ public class SoundCache {
             var8 = var9.toRawSound();
             this.ac.put(var8, var6);
             if (var3 != null) {
-               var3[0] -= var8.samples.length;
+               var3[0] -= var8.an.length;
             }
 
             return var8;
@@ -69,7 +74,7 @@ public class SoundCache {
                return null;
             }
          } else {
-            var9.ga();
+            var9.remove();
             this.ac.put(var8, var6);
             return var8;
          }
@@ -94,10 +99,5 @@ public class SoundCache {
       } else {
          throw new RuntimeException();
       }
-   }
-
-   public SoundCache(AbstractArchive var1, AbstractArchive var2) {
-      this.af = var1;
-      this.an = var2;
    }
 }

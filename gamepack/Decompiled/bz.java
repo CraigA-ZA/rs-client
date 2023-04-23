@@ -1,7 +1,12 @@
 public class bz {
-   int aq;
-   int al;
    static int lg;
+   int al;
+   int aq;
+
+   bz(int var1, int var2) {
+      this.aq = 426904267 * var1;
+      this.al = 1169393169 * var2;
+   }
 
    boolean af(be var1) {
       if (null == var1) {
@@ -20,6 +25,99 @@ public class bz {
                return false;
          }
       }
+   }
+
+   static LoginProt[] af_renamed() {
+      return new LoginProt[]{LoginProt.ac, LoginProt.ab, LoginProt.an, LoginProt.aw, LoginProt.af, LoginProt.au};
+   }
+
+   public static ParamType getParamType(int var0) {
+      ParamType var2 = (ParamType)ParamType.an.get((long)var0);
+      if (null != var2) {
+         return var2;
+      } else {
+         byte[] var3 = ParamType.af.takeFile(11, var0);
+         var2 = new ParamType();
+         if (var3 != null) {
+            var2.decode(new Packet(var3));
+         }
+
+         var2.postDecode();
+         ParamType.an.put(var2, (long)var0);
+         return var2;
+      }
+   }
+
+   public static boolean af_renamed(AbstractArchive var0, AbstractArchive var1) {
+      MapElementType.af = var1;
+      if (!var0.cc()) {
+         return false;
+      } else {
+         mo.aw = var0.cq(35) * 827991417;
+         MapElementType.an = new MapElementType[mo.aw * -1703136055];
+
+         for(int var3 = 0; var3 < mo.aw * -1703136055; ++var3) {
+            byte[] var4 = var0.takeFile(35, var3);
+            MapElementType.an[var3] = new MapElementType(var3);
+            if (var4 != null) {
+               MapElementType.an[var3].decode(new Packet(var4));
+               MapElementType.an[var3].removeAll();
+            }
+         }
+
+         return true;
+      }
+   }
+
+   static ClientScript loadClientScript(byte[] var0) {
+      ClientScript var2 = new ClientScript();
+      Packet var3 = new Packet(var0);
+      var3.at = -1516355947 * (var3.al.length - 2);
+      int var4 = var3.cl();
+      int var5 = var3.al.length - 2 - var4 - 12;
+      var3.at = -1516355947 * var5;
+      int var6 = var3.g4s();
+      var2.ab = var3.cl() * -140315817;
+      var2.aq = var3.cl() * -1816416047;
+      var2.al = var3.cl() * -603637105;
+      var2.at = var3.cl() * -751032223;
+      int var7 = var3.g1();
+      int var8;
+      int var9;
+      if (var7 > 0) {
+         var2.aa = var2.au(var7);
+
+         for(var8 = 0; var8 < var7; ++var8) {
+            var9 = var3.cl();
+            IterableNodeHashTable var10 = new IterableNodeHashTable(var9 > 0 ? co.ab_renamed(var9) : 1);
+            var2.aa[var8] = var10;
+
+            while(var9-- > 0) {
+               int var11 = var3.g4s();
+               int var12 = var3.g4s();
+               var10.put(new IntegerNode(var12), (long)var11);
+            }
+         }
+      }
+
+      var3.at = 0;
+      var2.an = var3.cz();
+      var2.aw = new int[var6];
+      var2.ac = new int[var6];
+      var2.au = new String[var6];
+
+      for(var8 = 0; -1633313603 * var3.at < var5; var2.aw[var8++] = var9) {
+         var9 = var3.cl();
+         if (var9 == 3) {
+            var2.au[var8] = var3.cw();
+         } else if (var9 < 100 && var9 != 21 && var9 != 38 && 39 != var9) {
+            var2.ac[var8] = var3.g4s();
+         } else {
+            var2.ac[var8] = var3.g1();
+         }
+      }
+
+      return var2;
    }
 
    static final void ay_renamed() {
@@ -48,8 +146,223 @@ public class bz {
       }
    }
 
-   static LoginProt[] af_renamed() {
-      return new LoginProt[]{LoginProt.ac, LoginProt.ab, LoginProt.an, LoginProt.aw, LoginProt.af, LoginProt.au};
+   static int aw_renamed(int var0, ClientScript var1, boolean var2) {
+      if (var0 < 1000) {
+         return dp.ac_renamed(var0, var1, var2);
+      } else if (var0 < 1100) {
+         return fs.au_renamed(var0, var1, var2);
+      } else if (var0 < 1200) {
+         return bx.ab_renamed(var0, var1, var2);
+      } else if (var0 < 1300) {
+         return Varcs.aq_renamed(var0, var1, var2);
+      } else if (var0 < 1400) {
+         return StructType.al_renamed(var0, var1, var2);
+      } else if (var0 < 1500) {
+         return em.ao_renamed(var0, var1, var2, (byte)-1);
+      } else if (var0 < 1600) {
+         return jn.ax_renamed(var0, var1, var2);
+      } else if (var0 < 1700) {
+         return AbstractUserComparator.ai_renamed(var0, var1, var2);
+      } else if (var0 < 1800) {
+         return DefaultsGroup.ag_renamed(var0, var1, var2);
+      } else if (var0 < 1900) {
+         return in.ar_renamed(var0, var1, var2);
+      } else if (var0 < 2000) {
+         return ai.am_renamed(var0, var1, var2);
+      } else if (var0 < 2100) {
+         return fs.au_renamed(var0, var1, var2);
+      } else if (var0 < 2200) {
+         return bx.ab_renamed(var0, var1, var2);
+      } else if (var0 < 2300) {
+         return Varcs.aq_renamed(var0, var1, var2);
+      } else if (var0 < 2400) {
+         return StructType.al_renamed(var0, var1, var2);
+      } else if (var0 < 2500) {
+         return em.ao_renamed(var0, var1, var2, (byte)-1);
+      } else if (var0 < 2600) {
+         return bx.as_renamed(var0, var1, var2);
+      } else if (var0 < 2700) {
+         return MouseHandler.aj_renamed(var0, var1, var2);
+      } else if (var0 < 2800) {
+         return TilePaint.ak_renamed(var0, var1, var2);
+      } else if (var0 < 2900) {
+         return az_renamed(var0, var1, var2);
+      } else if (var0 < 3000) {
+         return ai.am_renamed(var0, var1, var2);
+      } else if (var0 < 3200) {
+         return NetFileRequest.ad_renamed(var0, var1, var2);
+      } else if (var0 < 3300) {
+         return hq.ae_renamed(var0, var1, var2);
+      } else if (var0 < 3400) {
+         return fe.ap_renamed(var0, var1, var2);
+      } else if (var0 < 3500) {
+         return ow.by_renamed(var0, var1, var2);
+      } else if (var0 < 3600) {
+         return HitmarkType.bb_renamed(var0, var1, var2);
+      } else if (var0 < 3700) {
+         return WorldMapAreaData.bi_renamed(var0, var1, var2);
+      } else if (var0 < 3800) {
+         return FloorOverlayType.be_renamed(var0, var1, var2);
+      } else if (var0 < 3900) {
+         return sh.bk_renamed(var0, var1, var2);
+      } else if (var0 < 4000) {
+         return am.bx_renamed(var0, var1, var2);
+      } else if (var0 < 4100) {
+         return eb.bo_renamed(var0, var1, var2);
+      } else if (var0 < 4200) {
+         return cm.bz_renamed(var0, var1, var2);
+      } else if (var0 < 4300) {
+         return MusicPatchPcmStream.bm_renamed(var0, var1, var2);
+      } else if (var0 < 5100) {
+         return eg.bd_renamed(var0, var1, var2);
+      } else if (var0 < 5400) {
+         return ej.bt_renamed(var0, var1, var2);
+      } else if (var0 < 5600) {
+         return TaskHandler.bj_renamed(var0, var1, var2);
+      } else if (var0 < 5700) {
+         return Client.bn_renamed(var0, var1, var2);
+      } else if (var0 < 6300) {
+         return mg.bg_renamed(var0, var1, var2);
+      } else if (var0 < 6600) {
+         return WorldMapArea.bu_renamed(var0, var1, var2);
+      } else if (var0 < 6700) {
+         return MouseRecorder.bf_renamed(var0, var1, var2);
+      } else if (var0 < 6800) {
+         return ks.bq_renamed(var0, var1, var2);
+      } else if (var0 < 6900) {
+         return NetFileRequest.ba_renamed(var0, var1, var2);
+      } else if (var0 < 7000) {
+         return eu.bv_renamed(var0, var1, var2);
+      } else if (var0 < 7100) {
+         return SoundSystem.bl_renamed(var0, var1, var2);
+      } else if (var0 < 7200) {
+         return gt.bp_renamed(var0, var1, var2);
+      } else if (var0 < 7300) {
+         return av.bc_renamed(var0, var1, var2);
+      } else if (var0 < 7500) {
+         return ey.bh_renamed(var0, var1, var2);
+      } else if (var0 < 7600) {
+         return fw.bw_renamed(var0, var1, var2);
+      } else {
+         return var0 < 7700 ? FriendSystem.ce_renamed(var0, var1, var2) : 2;
+      }
+   }
+
+   static int az_renamed(int var0, ClientScript var1, boolean var2) {
+      Component var4 = gh.an_renamed(Interpreter.al[(Interpreter.at -= 427135973) * -964267539]);
+      if (2800 == var0) {
+         Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = hc.af_renamed(KeyHandler.getComponentClickMask(var4));
+         return 1;
+      } else if (var0 != 2801) {
+         if (2802 == var0) {
+            if (null == var4.eh) {
+               Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = "";
+            } else {
+               Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = var4.eh;
+            }
+
+            return 1;
+         } else {
+            return 2;
+         }
+      } else {
+         int var5 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
+         --var5;
+         if (var4.ek != null && var5 < var4.ek.length && null != var4.ek[var5]) {
+            Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = var4.ek[var5];
+         } else {
+            Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = "";
+         }
+
+         return 1;
+      }
+   }
+
+   static void ag_renamed(GameShell var0) {
+      hy var2 = Client.sh;
+      hy var3 = var2;
+
+      while(var3.ag()) {
+         if (546317845 * var3.ai == 13) {
+            fd.am_renamed();
+            return;
+         }
+
+         if (var3.ai * 546317845 == 96) {
+            if (1246310743 * cz.dh > 0 && null != PlayerType.dz) {
+               cz.dh -= -1379513753;
+            }
+         } else if (97 == 546317845 * var3.ai && cz.dh * 1246310743 < 1959698517 * cz.dp && null != ai.dg) {
+            cz.dh += -1379513753;
+         }
+      }
+
+      if (1 == -1222491879 * MouseHandler.ar || !su.ev && -1222491879 * MouseHandler.ar == 4) {
+         int var4 = cz.aw * 578342931 + 280;
+         if (MouseHandler.am * 2020601481 >= var4 && MouseHandler.am * 2020601481 <= var4 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
+            ta.an_renamed(0, 0);
+            return;
+         }
+
+         if (2020601481 * MouseHandler.am >= 15 + var4 && MouseHandler.am * 2020601481 <= var4 + 80 && 1163896205 * MouseHandler.as >= 4 && 1163896205 * MouseHandler.as <= 18) {
+            ta.an_renamed(0, 1);
+            return;
+         }
+
+         int var5 = 390 + 578342931 * cz.aw;
+         if (MouseHandler.am * 2020601481 >= var5 && MouseHandler.am * 2020601481 <= var5 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
+            ta.an_renamed(1, 0);
+            return;
+         }
+
+         if (MouseHandler.am * 2020601481 >= var5 + 15 && 2020601481 * MouseHandler.am <= var5 + 80 && MouseHandler.as * 1163896205 >= 4 && 1163896205 * MouseHandler.as <= 18) {
+            ta.an_renamed(1, 1);
+            return;
+         }
+
+         int var6 = 500 + cz.aw * 578342931;
+         if (MouseHandler.am * 2020601481 >= var6 && 2020601481 * MouseHandler.am <= var6 + 14 && 1163896205 * MouseHandler.as >= 4 && 1163896205 * MouseHandler.as <= 18) {
+            ta.an_renamed(2, 0);
+            return;
+         }
+
+         if (2020601481 * MouseHandler.am >= var6 + 15 && MouseHandler.am * 2020601481 <= 80 + var6 && MouseHandler.as * 1163896205 >= 4 && MouseHandler.as * 1163896205 <= 18) {
+            ta.an_renamed(2, 1);
+            return;
+         }
+
+         int var7 = cz.aw * 578342931 + 610;
+         if (MouseHandler.am * 2020601481 >= var7 && MouseHandler.am * 2020601481 <= var7 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
+            ta.an_renamed(3, 0);
+            return;
+         }
+
+         if (2020601481 * MouseHandler.am >= 15 + var7 && MouseHandler.am * 2020601481 <= 80 + var7 && MouseHandler.as * 1163896205 >= 4 && MouseHandler.as * 1163896205 <= 18) {
+            ta.an_renamed(3, 1);
+            return;
+         }
+
+         if (2020601481 * MouseHandler.am >= 708 + cz.aw * 578342931 && MouseHandler.as * 1163896205 >= 4 && 2020601481 * MouseHandler.am <= 708 + cz.aw * 578342931 + 50 && 1163896205 * MouseHandler.as <= 20) {
+            fd.am_renamed();
+            return;
+         }
+
+         if (cz.de * 248569915 != -1) {
+            World var8 = bx.au[248569915 * cz.de];
+            FloorOverlayType.ah_renamed(var8);
+            fd.am_renamed();
+            return;
+         }
+
+         if (cz.dh * 1246310743 > 0 && null != PlayerType.dz && 2020601481 * MouseHandler.am >= 0 && MouseHandler.am * 2020601481 <= PlayerType.dz.aw && 1163896205 * MouseHandler.as >= 1658005443 * kd.ak / 2 - 50 && 1163896205 * MouseHandler.as <= 1658005443 * kd.ak / 2 + 50) {
+            cz.dh -= -1379513753;
+         }
+
+         if (1246310743 * cz.dh < cz.dp * 1959698517 && null != ai.dg && MouseHandler.am * 2020601481 >= GameShell.aj * -1687260435 - ai.dg.aw - 5 && MouseHandler.am * 2020601481 <= GameShell.aj * -1687260435 && MouseHandler.as * 1163896205 >= kd.ak * 1658005443 / 2 - 50 && MouseHandler.as * 1163896205 <= kd.ak * 1658005443 / 2 + 50) {
+            cz.dh += -1379513753;
+         }
+      }
+
    }
 
    static final void drawActor2d(Actor var0, int var1, int var2, int var3, int var4, int var5) {
@@ -70,19 +383,19 @@ public class bz {
          boolean var9 = var1 < var76;
          int var10 = -2;
          int var11;
-         if (var0.overheadText != null && (!var9 || !var0.ci && (Client.sj * -1963411823 == 4 || !var0.ce && (0 == -1963411823 * Client.sj || Client.sj * -1963411823 == 3 || Client.sj * -1963411823 == 1 && ((Player)var0).aw())))) {
+         if (var0.bw != null && (!var9 || !var0.ci && (Client.sj * -1963411823 == 4 || !var0.ce && (0 == -1963411823 * Client.sj || Client.sj * -1963411823 == 3 || Client.sj * -1963411823 == 1 && ((Player)var0).isFromFriend())))) {
             var11 = -767387641 * var0.de;
             ot.worldToScreen(var0.bx * 1144428983, -411750205 * var0.bo, var11);
-            if (Client.mz * -1848743379 > -1 && Client.overheadTextCount * 734988573 < 1025553311 * Client.lq) {
-               Client.overheadTextXOffsets[734988573 * Client.overheadTextCount] = fx.fontBold12.ao(var0.overheadText) / 2;
-               Client.le[Client.overheadTextCount * 734988573] = fx.fontBold12.al;
-               Client.lj[734988573 * Client.overheadTextCount] = -1848743379 * Client.mz;
-               Client.ll[Client.overheadTextCount * 734988573] = 318977283 * Client.mu - var10;
-               Client.lx[Client.overheadTextCount * 734988573] = var0.movementFrame * -1337884343;
-               Client.lo[734988573 * Client.overheadTextCount] = var0.walkBackSequence * 819594233;
-               Client.lw[Client.overheadTextCount * 734988573] = -536830723 * var0.movementSequence;
-               Client.overheadText[Client.overheadTextCount * 734988573] = var0.overheadText;
-               Client.overheadTextCount += -1973288651;
+            if (Client.mz * -1848743379 > -1 && Client.ld * 734988573 < 1025553311 * Client.lq) {
+               Client.lb[734988573 * Client.ld] = fx.ip.stringWidth(var0.bw) / 2;
+               Client.le[Client.ld * 734988573] = fx.ip.al;
+               Client.lj[734988573 * Client.ld] = -1848743379 * Client.mz;
+               Client.ll[Client.ld * 734988573] = 318977283 * Client.mu - var10;
+               Client.lx[Client.ld * 734988573] = var0.cc * -1337884343;
+               Client.lo[734988573 * Client.ld] = var0.cn * 819594233;
+               Client.lw[Client.ld * 734988573] = -536830723 * var0.cs;
+               Client.lr[Client.ld * 734988573] = var0.bw;
+               Client.ld += -1973288651;
                var10 += 12;
             }
          }
@@ -90,49 +403,49 @@ public class bz {
          int var16;
          int var23;
          int var24;
-         if (!var0.headbars.at()) {
+         if (!var0.cg.at()) {
             eg.jd_renamed(var0, -767387641 * var0.de + 15);
 
-            for(Headbar var77 = (Headbar)var0.headbars.last(); null != var77; var77 = (Headbar)var0.headbars.previous()) {
+            for(Headbar var77 = (Headbar)var0.cg.last(); null != var77; var77 = (Headbar)var0.cg.previous()) {
                HeadbarUpdate var12 = var77.get(-1886224337 * Client.ep);
                if (null == var12) {
                   if (var77.isEmpty()) {
-                     var77.ga();
+                     var77.remove();
                   }
                } else {
-                  HeadbarType var13 = var77.type;
+                  HeadbarType var13 = var77.aw;
                   Rasterizer3D var14 = var13.ac();
                   Rasterizer3D var15 = var13.aw();
                   int var17 = 0;
                   if (var14 != null && var15 != null) {
-                     if (var13.widthPadding * 166630382 < var15.an) {
-                        var17 = -2064168457 * var13.widthPadding;
+                     if (var13.ah * 166630382 < var15.an) {
+                        var17 = -2064168457 * var13.ah;
                      }
 
                      var16 = var15.an - var17 * 2;
                   } else {
-                     var16 = 279738407 * var13.width;
+                     var16 = 279738407 * var13.ag;
                   }
 
                   int var18 = 255;
                   boolean var19 = true;
-                  int var20 = -1886224337 * Client.ep - var12.health2 * -1225111563;
-                  int var21 = var12.health * -2028064551 * var16 / (var13.width * 279738407);
+                  int var20 = -1886224337 * Client.ep - var12.af * -1225111563;
+                  int var21 = var12.aw * -2028064551 * var16 / (var13.ag * 279738407);
                   int var22;
                   int var91;
-                  if (var12.cycleOffset * -2116244499 > var20) {
-                     var22 = var13.int4 * 294055185 == 0 ? 0 : 294055185 * var13.int4 * (var20 / (294055185 * var13.int4));
-                     var23 = var16 * 1250696899 * var12.cycle / (279738407 * var13.width);
-                     var91 = var23 + var22 * (var21 - var23) / (-2116244499 * var12.cycleOffset);
+                  if (var12.ac * -2116244499 > var20) {
+                     var22 = var13.ay * 294055185 == 0 ? 0 : 294055185 * var13.ay * (var20 / (294055185 * var13.ay));
+                     var23 = var16 * 1250696899 * var12.an / (279738407 * var13.ag);
+                     var91 = var23 + var22 * (var21 - var23) / (-2116244499 * var12.ac);
                   } else {
                      var91 = var21;
-                     var22 = var13.int5 * -407931959 + var12.cycleOffset * -2116244499 - var20;
-                     if (var13.int3 * -471494485 >= 0) {
-                        var18 = (var22 << 8) / (var13.int5 * -407931959 - -471494485 * var13.int3);
+                     var22 = var13.ao * -407931959 + var12.ac * -2116244499 - var20;
+                     if (var13.aa * -471494485 >= 0) {
+                        var18 = (var22 << 8) / (var13.ao * -407931959 - -471494485 * var13.aa);
                      }
                   }
 
-                  if (-2028064551 * var12.health > 0 && var91 < 1) {
+                  if (-2028064551 * var12.aw > 0 && var91 < 1) {
                      var91 = 1;
                   }
 
@@ -186,9 +499,9 @@ public class bz {
             if (var9) {
                var79 = 15 + -767387641 * var0.de;
                ot.worldToScreen(1144428983 * var0.bx, -411750205 * var0.bo, var79);
-               AbstractFont var81 = (AbstractFont)Client.im.get(FontName.FontName_plain12);
+               AbstractFont var81 = (AbstractFont)Client.im.get(FontName.an);
                var10 += 4;
-               var81.drawCentered(var78.username.af(), Client.mz * -1848743379 + var2, Client.mu * 318977283 + var3 - var10, 16777215, 0);
+               var81.drawCentered(var78.af.af(), Client.mz * -1848743379 + var2, Client.mu * 318977283 + var3 - var10, 16777215, 0);
                var10 += 18;
             }
          }
@@ -199,18 +512,18 @@ public class bz {
                return;
             }
 
-            if (-1 != var78.combatLevel * -1875167049 || -1 != -1905401649 * var78.headIconPk) {
+            if (-1 != var78.ac * -1875167049 || -1 != -1905401649 * var78.au) {
                var79 = 15 + -767387641 * var0.de;
                ot.worldToScreen(var0.bx * 1144428983, -411750205 * var0.bo, var79);
                if (-1848743379 * Client.mz > -1) {
-                  if (-1875167049 * var78.combatLevel != -1) {
+                  if (-1875167049 * var78.ac != -1) {
                      var10 += 25;
-                     bt.jl[var78.combatLevel * -1875167049].ax(var2 + Client.mz * -1848743379 - 12, 318977283 * Client.mu + var3 - var10);
+                     bt.jl[var78.ac * -1875167049].ax(var2 + Client.mz * -1848743379 - 12, 318977283 * Client.mu + var3 - var10);
                   }
 
-                  if (-1905401649 * var78.headIconPk != -1) {
+                  if (-1905401649 * var78.au != -1) {
                      var10 += 25;
-                     qj.kc[-1905401649 * var78.headIconPk].ax(Client.mz * -1848743379 + var2 - 12, var3 + Client.mu * 318977283 - var10);
+                     qj.kc[-1905401649 * var78.au].ax(Client.mz * -1848743379 + var2 - 12, var3 + Client.mu * 318977283 - var10);
                   }
                }
             }
@@ -234,7 +547,7 @@ public class bz {
                      long var86 = (long)var82[var85] << 8 | (long)var83[var85];
                      Rasterizer3D var89 = (Rasterizer3D)Client.wx.an(var86);
                      if (var89 == null) {
-                        Rasterizer3D[] var90 = eb.an_renamed(rr.archive7, var82[var85], 0);
+                        Rasterizer3D[] var90 = eb.an_renamed(rr.fv, var82[var85], 0);
                         if (null != var90 && var83[var85] < var90.length) {
                            var89 = var90[var83[var85]];
                            Client.wx.aw(var86, var89);
@@ -261,8 +574,8 @@ public class bz {
          }
 
          for(var11 = 0; var11 < 4; ++var11) {
-            var79 = var0.hitmarkCycles[var11];
-            int var84 = var0.hitmarkTypes[var11];
+            var79 = var0.cm[var11];
+            int var84 = var0.ck[var11];
             HitmarkType var87 = null;
             int var88 = 0;
             if (var84 >= 0) {
@@ -270,12 +583,12 @@ public class bz {
                   continue;
                }
 
-               var87 = ew.getHitmarkType(var0.hitmarkTypes[var11]);
+               var87 = ew.getHitmarkType(var0.ck[var11]);
                var88 = 292771999 * var87.ai;
-               if (var87 != null && null != var87.transforms) {
+               if (var87 != null && null != var87.ae) {
                   var87 = var87.transform();
                   if (var87 == null) {
-                     var0.hitmarkCycles[var11] = -1;
+                     var0.cm[var11] = -1;
                      continue;
                   }
                }
@@ -283,18 +596,18 @@ public class bz {
                continue;
             }
 
-            var16 = var0.hitmarkValues2[var11];
+            var16 = var0.cf[var11];
             HitmarkType var93 = null;
             if (var16 >= 0) {
                var93 = ew.getHitmarkType(var16);
-               if (null != var93 && var93.transforms != null) {
+               if (null != var93 && var93.ae != null) {
                   var93 = var93.transform();
                }
             }
 
             if (var79 - var88 <= -1886224337 * Client.ep) {
                if (null == var87) {
-                  var0.hitmarkCycles[var11] = -1;
+                  var0.cm[var11] = -1;
                } else {
                   eg.jd_renamed(var0, var0.de * -767387641 / 2);
                   if (Client.mz * -1848743379 > -1) {
@@ -431,28 +744,28 @@ public class bz {
 
                      Font var98 = var87.getFont();
                      if (null == var98) {
-                        var98 = Language.fontPlain11;
+                        var98 = Language.ir;
                      }
 
                      Font var45;
                      if (null != var93) {
                         var45 = var93.getFont();
                         if (var45 == null) {
-                           var45 = Language.fontPlain11;
+                           var45 = Language.ir;
                         }
                      } else {
-                        var45 = Language.fontPlain11;
+                        var45 = Language.ir;
                      }
 
                      String var46 = null;
                      String var47 = null;
                      boolean var48 = false;
                      int var49 = 0;
-                     var46 = var87.getString(var0.hitmarkValues[var11]);
-                     int var99 = var98.ao(var46);
+                     var46 = var87.getString(var0.cq[var11]);
+                     int var99 = var98.stringWidth(var46);
                      if (var93 != null) {
-                        var47 = var93.getString(var0.hitmarkTypes2[var11]);
-                        var49 = var45.ao(var47);
+                        var47 = var93.getString(var0.cl[var11]);
+                        var49 = var45.stringWidth(var47);
                      }
 
                      int var50 = 0;
@@ -536,8 +849,8 @@ public class bz {
                         }
                      }
 
-                     var63 = var0.hitmarkCycles[var11] - -1886224337 * Client.ep;
-                     int var64 = var87.transformVarbit * 895105585 - 895105585 * var87.transformVarbit * var63 / (292771999 * var87.ai);
+                     var63 = var0.cm[var11] - -1886224337 * Client.ep;
+                     int var64 = var87.am * 895105585 - 895105585 * var87.am * var63 / (292771999 * var87.ai);
                      int var65 = 498242719 * var87.as * var63 / (var87.ai * 292771999) + -(var87.as * 498242719);
                      int var66 = var2 + -1848743379 * Client.mz - (var52 >> 1) + var64;
                      int var67 = var3 + Client.mu * 318977283 - 12 + var65;
@@ -594,7 +907,7 @@ public class bz {
                            var97.am(var66 + var57 - var30, var67, var74);
                         }
 
-                        var98.am(var46, var56 + var66, var70, var87.ax * -2000718353, 0, var74);
+                        var98.drawAlpha(var46, var56 + var66, var70, var87.ax * -2000718353, 0, var74);
                         if (null != var93) {
                            if (null != var31) {
                               var31.am(var58 + var66 - var39, var67, var74);
@@ -614,7 +927,7 @@ public class bz {
                               var34.am(var61 + var66 - var42, var67, var74);
                            }
 
-                           var45.am(var47, var66 + var62, var73, var93.ax * -2000718353, 0, var74);
+                           var45.drawAlpha(var47, var66 + var62, var73, var93.ax * -2000718353, 0, var74);
                         }
                      } else {
                         if (var96 != null) {
@@ -635,7 +948,7 @@ public class bz {
                            var97.ax(var66 + var57 - var30, var67);
                         }
 
-                        var98.ar(var46, var66 + var56, var70, var87.ax * -2000718353 | -16777216, 0);
+                        var98.draw(var46, var66 + var56, var70, var87.ax * -2000718353 | -16777216, 0);
                         if (null != var93) {
                            if (var31 != null) {
                               var31.ax(var58 + var66 - var39, var67);
@@ -655,7 +968,7 @@ public class bz {
                               var34.ax(var66 + var61 - var42, var67);
                            }
 
-                           var45.ar(var47, var66 + var62, var73, var93.ax * -2000718353 | -16777216, 0);
+                           var45.draw(var47, var66 + var62, var73, var93.ax * -2000718353 | -16777216, 0);
                         }
                      }
                   }
@@ -664,87 +977,6 @@ public class bz {
          }
 
       }
-   }
-
-   static int az_renamed(int var0, ClientScript var1, boolean var2) {
-      Component var4 = gh.an_renamed(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
-      if (2800 == var0) {
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = hc.af_renamed(KeyHandler.getComponentClickMask(var4));
-         return 1;
-      } else if (var0 != 2801) {
-         if (2802 == var0) {
-            if (null == var4.opbase) {
-               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
-            } else {
-               Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var4.opbase;
-            }
-
-            return 1;
-         } else {
-            return 2;
-         }
-      } else {
-         int var5 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-         --var5;
-         if (var4.ops != null && var5 < var4.ops.length && null != var4.ops[var5]) {
-            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var4.ops[var5];
-         } else {
-            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
-         }
-
-         return 1;
-      }
-   }
-
-   static ClientScript loadClientScript(byte[] var0) {
-      ClientScript var2 = new ClientScript();
-      Packet var3 = new Packet(var0);
-      var3.index = -1516355947 * (var3.array.length - 2);
-      int var4 = var3.cl();
-      int var5 = var3.array.length - 2 - var4 - 12;
-      var3.index = -1516355947 * var5;
-      int var6 = var3.g4s();
-      var2.ab = var3.cl() * -140315817;
-      var2.aq = var3.cl() * -1816416047;
-      var2.al = var3.cl() * -603637105;
-      var2.at = var3.cl() * -751032223;
-      int var7 = var3.g1();
-      int var8;
-      int var9;
-      if (var7 > 0) {
-         var2.switches = var2.au(var7);
-
-         for(var8 = 0; var8 < var7; ++var8) {
-            var9 = var3.cl();
-            IterableNodeHashTable var10 = new IterableNodeHashTable(var9 > 0 ? co.ab_renamed(var9) : 1);
-            var2.switches[var8] = var10;
-
-            while(var9-- > 0) {
-               int var11 = var3.g4s();
-               int var12 = var3.g4s();
-               var10.put(new IntegerNode(var12), (long)var11);
-            }
-         }
-      }
-
-      var3.index = 0;
-      var2.an = var3.cz();
-      var2.aw = new int[var6];
-      var2.ac = new int[var6];
-      var2.stringOperands = new String[var6];
-
-      for(var8 = 0; -1633313603 * var3.index < var5; var2.aw[var8++] = var9) {
-         var9 = var3.cl();
-         if (var9 == 3) {
-            var2.stringOperands[var8] = var3.cw();
-         } else if (var9 < 100 && var9 != 21 && var9 != 38 && 39 != var9) {
-            var2.ac[var8] = var3.g4s();
-         } else {
-            var2.ac[var8] = var3.g1();
-         }
-      }
-
-      return var2;
    }
 
    static final void jz_renamed(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9) {
@@ -773,238 +1005,6 @@ public class bz {
       var11.at = 1233957891 * var6;
       var11.ai = var8 * 237969965;
       var11.ag = var9 * 376812409;
-      var11.af(var7);
-   }
-
-   public static boolean af_renamed(AbstractArchive var0, AbstractArchive var1) {
-      MapElementType.af = var1;
-      if (!var0.cc()) {
-         return false;
-      } else {
-         mo.MapElementType_count = var0.cq(35) * 827991417;
-         MapElementType.MapElementType_cached = new MapElementType[mo.MapElementType_count * -1703136055];
-
-         for(int var3 = 0; var3 < mo.MapElementType_count * -1703136055; ++var3) {
-            byte[] var4 = var0.takeFile(35, var3);
-            MapElementType.MapElementType_cached[var3] = new MapElementType(var3);
-            if (var4 != null) {
-               MapElementType.MapElementType_cached[var3].decode(new Packet(var4));
-               MapElementType.MapElementType_cached[var3].au();
-            }
-         }
-
-         return true;
-      }
-   }
-
-   static void ag_renamed(GameShell var0) {
-      hy var2 = Client.sh;
-      hy var3 = var2;
-
-      while(var3.ag()) {
-         if (546317845 * var3.ai == 13) {
-            fd.am_renamed();
-            return;
-         }
-
-         if (var3.ai * 546317845 == 96) {
-            if (1246310743 * cz.dh > 0 && null != PlayerType.dz) {
-               cz.dh -= -1379513753;
-            }
-         } else if (97 == 546317845 * var3.ai && cz.dh * 1246310743 < 1959698517 * cz.dp && null != ai.dg) {
-            cz.dh += -1379513753;
-         }
-      }
-
-      if (1 == -1222491879 * MouseHandler.ar || !su.ev && -1222491879 * MouseHandler.ar == 4) {
-         int var4 = cz.aw * 578342931 + 280;
-         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var4 && MouseHandler.MouseHandler_lastButton * 2020601481 <= var4 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
-            ta.an_renamed(0, 0);
-            return;
-         }
-
-         if (2020601481 * MouseHandler.MouseHandler_lastButton >= 15 + var4 && MouseHandler.MouseHandler_lastButton * 2020601481 <= var4 + 80 && 1163896205 * MouseHandler.as >= 4 && 1163896205 * MouseHandler.as <= 18) {
-            ta.an_renamed(0, 1);
-            return;
-         }
-
-         int var5 = 390 + 578342931 * cz.aw;
-         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var5 && MouseHandler.MouseHandler_lastButton * 2020601481 <= var5 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
-            ta.an_renamed(1, 0);
-            return;
-         }
-
-         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var5 + 15 && 2020601481 * MouseHandler.MouseHandler_lastButton <= var5 + 80 && MouseHandler.as * 1163896205 >= 4 && 1163896205 * MouseHandler.as <= 18) {
-            ta.an_renamed(1, 1);
-            return;
-         }
-
-         int var6 = 500 + cz.aw * 578342931;
-         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var6 && 2020601481 * MouseHandler.MouseHandler_lastButton <= var6 + 14 && 1163896205 * MouseHandler.as >= 4 && 1163896205 * MouseHandler.as <= 18) {
-            ta.an_renamed(2, 0);
-            return;
-         }
-
-         if (2020601481 * MouseHandler.MouseHandler_lastButton >= var6 + 15 && MouseHandler.MouseHandler_lastButton * 2020601481 <= 80 + var6 && MouseHandler.as * 1163896205 >= 4 && MouseHandler.as * 1163896205 <= 18) {
-            ta.an_renamed(2, 1);
-            return;
-         }
-
-         int var7 = cz.aw * 578342931 + 610;
-         if (MouseHandler.MouseHandler_lastButton * 2020601481 >= var7 && MouseHandler.MouseHandler_lastButton * 2020601481 <= var7 + 14 && 1163896205 * MouseHandler.as >= 4 && MouseHandler.as * 1163896205 <= 18) {
-            ta.an_renamed(3, 0);
-            return;
-         }
-
-         if (2020601481 * MouseHandler.MouseHandler_lastButton >= 15 + var7 && MouseHandler.MouseHandler_lastButton * 2020601481 <= 80 + var7 && MouseHandler.as * 1163896205 >= 4 && MouseHandler.as * 1163896205 <= 18) {
-            ta.an_renamed(3, 1);
-            return;
-         }
-
-         if (2020601481 * MouseHandler.MouseHandler_lastButton >= 708 + cz.aw * 578342931 && MouseHandler.as * 1163896205 >= 4 && 2020601481 * MouseHandler.MouseHandler_lastButton <= 708 + cz.aw * 578342931 + 50 && 1163896205 * MouseHandler.as <= 20) {
-            fd.am_renamed();
-            return;
-         }
-
-         if (cz.de * 248569915 != -1) {
-            World var8 = bx.worlds[248569915 * cz.de];
-            FloorOverlayType.ah_renamed(var8);
-            fd.am_renamed();
-            return;
-         }
-
-         if (cz.dh * 1246310743 > 0 && null != PlayerType.dz && 2020601481 * MouseHandler.MouseHandler_lastButton >= 0 && MouseHandler.MouseHandler_lastButton * 2020601481 <= PlayerType.dz.subWidth && 1163896205 * MouseHandler.as >= 1658005443 * kd.ak / 2 - 50 && 1163896205 * MouseHandler.as <= 1658005443 * kd.ak / 2 + 50) {
-            cz.dh -= -1379513753;
-         }
-
-         if (1246310743 * cz.dh < cz.dp * 1959698517 && null != ai.dg && MouseHandler.MouseHandler_lastButton * 2020601481 >= GameShell.aj * -1687260435 - ai.dg.subWidth - 5 && MouseHandler.MouseHandler_lastButton * 2020601481 <= GameShell.aj * -1687260435 && MouseHandler.as * 1163896205 >= kd.ak * 1658005443 / 2 - 50 && MouseHandler.as * 1163896205 <= kd.ak * 1658005443 / 2 + 50) {
-            cz.dh += -1379513753;
-         }
-      }
-
-   }
-
-   static int aw_renamed(int var0, ClientScript var1, boolean var2) {
-      if (var0 < 1000) {
-         return dp.ac_renamed(var0, var1, var2);
-      } else if (var0 < 1100) {
-         return fs.au_renamed(var0, var1, var2);
-      } else if (var0 < 1200) {
-         return bx.ab_renamed(var0, var1, var2);
-      } else if (var0 < 1300) {
-         return Varcs.aq_renamed(var0, var1, var2);
-      } else if (var0 < 1400) {
-         return StructType.al_renamed(var0, var1, var2);
-      } else if (var0 < 1500) {
-         return em.ao_renamed(var0, var1, var2, (byte)-1);
-      } else if (var0 < 1600) {
-         return jn.ax_renamed(var0, var1, var2);
-      } else if (var0 < 1700) {
-         return AbstractUserComparator.ai_renamed(var0, var1, var2);
-      } else if (var0 < 1800) {
-         return DefaultsGroup.ag_renamed(var0, var1, var2);
-      } else if (var0 < 1900) {
-         return in.ar_renamed(var0, var1, var2);
-      } else if (var0 < 2000) {
-         return ai.am_renamed(var0, var1, var2);
-      } else if (var0 < 2100) {
-         return fs.au_renamed(var0, var1, var2);
-      } else if (var0 < 2200) {
-         return bx.ab_renamed(var0, var1, var2);
-      } else if (var0 < 2300) {
-         return Varcs.aq_renamed(var0, var1, var2);
-      } else if (var0 < 2400) {
-         return StructType.al_renamed(var0, var1, var2);
-      } else if (var0 < 2500) {
-         return em.ao_renamed(var0, var1, var2, (byte)-1);
-      } else if (var0 < 2600) {
-         return bx.as_renamed(var0, var1, var2);
-      } else if (var0 < 2700) {
-         return MouseHandler.aj_renamed(var0, var1, var2);
-      } else if (var0 < 2800) {
-         return TilePaint.ak_renamed(var0, var1, var2);
-      } else if (var0 < 2900) {
-         return az_renamed(var0, var1, var2);
-      } else if (var0 < 3000) {
-         return ai.am_renamed(var0, var1, var2);
-      } else if (var0 < 3200) {
-         return NetFileRequest.ad_renamed(var0, var1, var2);
-      } else if (var0 < 3300) {
-         return hq.ae_renamed(var0, var1, var2);
-      } else if (var0 < 3400) {
-         return fe.ap_renamed(var0, var1, var2);
-      } else if (var0 < 3500) {
-         return ow.by_renamed(var0, var1, var2);
-      } else if (var0 < 3600) {
-         return HitmarkType.bb_renamed(var0, var1, var2);
-      } else if (var0 < 3700) {
-         return WorldMapAreaData.bi_renamed(var0, var1, var2);
-      } else if (var0 < 3800) {
-         return FloorOverlayType.be_renamed(var0, var1, var2);
-      } else if (var0 < 3900) {
-         return sh.bk_renamed(var0, var1, var2);
-      } else if (var0 < 4000) {
-         return am.bx_renamed(var0, var1, var2);
-      } else if (var0 < 4100) {
-         return eb.bo_renamed(var0, var1, var2);
-      } else if (var0 < 4200) {
-         return cm.bz_renamed(var0, var1, var2);
-      } else if (var0 < 4300) {
-         return MusicPatchPcmStream.bm_renamed(var0, var1, var2);
-      } else if (var0 < 5100) {
-         return eg.bd_renamed(var0, var1, var2);
-      } else if (var0 < 5400) {
-         return ej.bt_renamed(var0, var1, var2);
-      } else if (var0 < 5600) {
-         return TaskHandler.bj_renamed(var0, var1, var2);
-      } else if (var0 < 5700) {
-         return Client.bn_renamed(var0, var1, var2);
-      } else if (var0 < 6300) {
-         return mg.bg_renamed(var0, var1, var2);
-      } else if (var0 < 6600) {
-         return WorldMapArea.bu_renamed(var0, var1, var2);
-      } else if (var0 < 6700) {
-         return MouseRecorder.bf_renamed(var0, var1, var2);
-      } else if (var0 < 6800) {
-         return ks.bq_renamed(var0, var1, var2);
-      } else if (var0 < 6900) {
-         return NetFileRequest.ba_renamed(var0, var1, var2);
-      } else if (var0 < 7000) {
-         return eu.bv_renamed(var0, var1, var2);
-      } else if (var0 < 7100) {
-         return SoundSystem.bl_renamed(var0, var1, var2);
-      } else if (var0 < 7200) {
-         return gt.bp_renamed(var0, var1, var2);
-      } else if (var0 < 7300) {
-         return av.bc_renamed(var0, var1, var2);
-      } else if (var0 < 7500) {
-         return ey.bh_renamed(var0, var1, var2);
-      } else if (var0 < 7600) {
-         return fw.bw_renamed(var0, var1, var2);
-      } else {
-         return var0 < 7700 ? FriendSystem.ce_renamed(var0, var1, var2) : 2;
-      }
-   }
-
-   public static ParamType getParamType(int var0) {
-      ParamType var2 = (ParamType)ParamType.ParamType_cached.get((long)var0);
-      if (null != var2) {
-         return var2;
-      } else {
-         byte[] var3 = ParamType.af.takeFile(11, var0);
-         var2 = new ParamType();
-         if (var3 != null) {
-            var2.decode(new Packet(var3));
-         }
-
-         var2.postDecode();
-         ParamType.ParamType_cached.put(var2, (long)var0);
-         return var2;
-      }
-   }
-
-   bz(int var1, int var2) {
-      this.aq = 426904267 * var1;
-      this.al = 1169393169 * var2;
+      var11.advance(var7);
    }
 }

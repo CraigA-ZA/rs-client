@@ -1,51 +1,18 @@
 public class MusicPatch extends Node {
-   RawSound[] rawSounds = new RawSound[128];
-   short[] aw = new short[128];
-   int af;
+   RawSound[] an = new RawSound[128];
    byte[] ac = new byte[128];
-   byte[] au = new byte[128];
-   MusicPatchNode2[] ab = new MusicPatchNode2[128];
    byte[] aq = new byte[128];
+   byte[] au = new byte[128];
+   int af;
    int[] al = new int[128];
-
-   boolean af(SoundCache var1, byte[] var2, int[] var3) {
-      boolean var5 = true;
-      int var6 = 0;
-      RawSound var7 = null;
-
-      for(int var8 = 0; var8 < 128; ++var8) {
-         if (var2 == null || var2[var8] != 0) {
-            int var9 = this.al[var8];
-            if (var9 != 0) {
-               if (var9 != var6) {
-                  var6 = var9--;
-                  if (0 == (var9 & 1)) {
-                     var7 = var1.aw(var9 >> 2, var3);
-                  } else {
-                     var7 = var1.ac(var9 >> 2, var3);
-                  }
-
-                  if (null == var7) {
-                     var5 = false;
-                  }
-               }
-
-               if (null != var7) {
-                  this.rawSounds[var8] = var7;
-                  this.al[var8] = 0;
-               }
-            }
-         }
-      }
-
-      return var5;
-   }
+   MusicPatchNode2[] ab = new MusicPatchNode2[128];
+   short[] aw = new short[128];
 
    MusicPatch(byte[] var1) {
       Packet var2 = new Packet(var1);
 
       int var3;
-      for(var3 = 0; 0 != var2.array[var3 + var2.index * -1633313603]; ++var3) {
+      for(var3 = 0; 0 != var2.al[var3 + var2.at * -1633313603]; ++var3) {
       }
 
       byte[] var4 = new byte[var3];
@@ -55,13 +22,13 @@ public class MusicPatch extends Node {
          var4[var5] = var2.g1s();
       }
 
-      var2.index += -1516355947;
+      var2.at += -1516355947;
       ++var3;
-      var5 = var2.index * -1633313603;
-      var2.index += var3 * -1516355947;
+      var5 = var2.at * -1633313603;
+      var2.at += var3 * -1516355947;
 
       int var6;
-      for(var6 = 0; var2.array[-1633313603 * var2.index + var6] != 0; ++var6) {
+      for(var6 = 0; var2.al[-1633313603 * var2.at + var6] != 0; ++var6) {
       }
 
       byte[] var7 = new byte[var6];
@@ -71,13 +38,13 @@ public class MusicPatch extends Node {
          var7[var8] = var2.g1s();
       }
 
-      var2.index += -1516355947;
+      var2.at += -1516355947;
       ++var6;
-      var8 = var2.index * -1633313603;
-      var2.index += -1516355947 * var6;
+      var8 = var2.at * -1633313603;
+      var2.at += -1516355947 * var6;
 
       int var9;
-      for(var9 = 0; var2.array[-1633313603 * var2.index + var9] != 0; ++var9) {
+      for(var9 = 0; var2.al[-1633313603 * var2.at + var9] != 0; ++var9) {
       }
 
       byte[] var10 = new byte[var9];
@@ -86,7 +53,7 @@ public class MusicPatch extends Node {
          var10[var11] = var2.g1s();
       }
 
-      var2.index += -1516355947;
+      var2.at += -1516355947;
       ++var9;
       byte[] var38 = new byte[var9];
       int var12;
@@ -137,7 +104,7 @@ public class MusicPatch extends Node {
       byte[] var42 = var14 > 0 ? new byte[var14 * 2] : null;
 
       int var17;
-      for(var17 = 0; var2.array[var17 + -1633313603 * var2.index] != 0; ++var17) {
+      for(var17 = 0; var2.al[var17 + -1633313603 * var2.at] != 0; ++var17) {
       }
 
       byte[] var18 = new byte[var17];
@@ -147,7 +114,7 @@ public class MusicPatch extends Node {
          var18[var19] = var2.g1s();
       }
 
-      var2.index += -1516355947;
+      var2.at += -1516355947;
       ++var17;
       var19 = 0;
 
@@ -202,7 +169,7 @@ public class MusicPatch extends Node {
                   var20 = -1;
                }
 
-               var23 = var2.array[var5++] - 1;
+               var23 = var2.al[var5++] - 1;
             }
 
             this.aq[var24] = (byte)var23;
@@ -223,7 +190,7 @@ public class MusicPatch extends Node {
                   var20 = -1;
                }
 
-               var24 = var2.array[var8++] + 16 << 2;
+               var24 = var2.al[var8++] + 16 << 2;
             }
 
             this.au[var25] = (byte)var24;
@@ -482,6 +449,39 @@ public class MusicPatch extends Node {
          }
       }
 
+   }
+
+   boolean af(SoundCache var1, byte[] var2, int[] var3) {
+      boolean var5 = true;
+      int var6 = 0;
+      RawSound var7 = null;
+
+      for(int var8 = 0; var8 < 128; ++var8) {
+         if (var2 == null || var2[var8] != 0) {
+            int var9 = this.al[var8];
+            if (var9 != 0) {
+               if (var9 != var6) {
+                  var6 = var9--;
+                  if (0 == (var9 & 1)) {
+                     var7 = var1.aw(var9 >> 2, var3);
+                  } else {
+                     var7 = var1.ac(var9 >> 2, var3);
+                  }
+
+                  if (null == var7) {
+                     var5 = false;
+                  }
+               }
+
+               if (null != var7) {
+                  this.an[var8] = var7;
+                  this.al[var8] = 0;
+               }
+            }
+         }
+      }
+
+      return var5;
    }
 
    void clear() {

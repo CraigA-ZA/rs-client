@@ -4,13 +4,13 @@ import java.math.BigInteger;
 import org.bouncycastle.crypto.CipherParameters;
 
 public class DHParameters implements CipherParameters {
+   int l;
    int m;
+   BigInteger g;
+   BigInteger j;
    BigInteger p;
    BigInteger q;
-   BigInteger j;
-   BigInteger g;
    DHValidationParameters validation;
-   int l;
 
    public boolean equals(Object var1) {
       if (!(var1 instanceof DHParameters)) {

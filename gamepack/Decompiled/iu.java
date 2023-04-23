@@ -6,12 +6,16 @@ import java.io.StringWriter;
 
 public class iu implements Enumerated {
    public static final iu ac = new iu((byte)2);
+   public static final iu af = new iu((byte)-1);
    public static final iu an = new iu((byte)0);
    public static final iu aw = new iu((byte)1);
-   public static final iu af = new iu((byte)-1);
    public byte au;
 
-   public int af() {
+   iu(byte var1) {
+      this.au = var1;
+   }
+
+   public int ordinal() {
       return this.au;
    }
 
@@ -19,8 +23,8 @@ public class iu implements Enumerated {
       String var2;
       if (var0 instanceof ClientError) {
          ClientError var3 = (ClientError)var0;
-         var2 = var3.message + " | ";
-         var0 = var3.cause;
+         var2 = var3.ab + " | ";
+         var0 = var3.aq;
       } else {
          var2 = "";
       }
@@ -61,9 +65,5 @@ public class iu implements Enumerated {
             var2 = var2 + var8 + ' ';
          }
       }
-   }
-
-   iu(byte var1) {
-      this.au = var1;
    }
 }

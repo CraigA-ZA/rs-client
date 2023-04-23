@@ -10,8 +10,8 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DERSequence;
 
 public class ElGamalParameter extends ASN1Object {
-   ASN1Integer p;
    ASN1Integer g;
+   ASN1Integer p;
 
    public static ElGamalParameter getInstance(Object var0) {
       if (var0 instanceof ElGamalParameter) {

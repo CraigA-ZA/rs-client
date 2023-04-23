@@ -1,33 +1,20 @@
 public class hc extends DualNode {
-   static Archive archive10;
+   static Archive ff;
 
    public static int af_renamed(int var0) {
       return var0 >> 11 & 63;
-   }
-
-   hc() throws Throwable {
-      throw new Error();
    }
 
    static {
       new EvictingDualNodeHashTable(64);
    }
 
-   public static void af_renamed(AbstractArchive var0) {
-      ParamType.af = var0;
+   hc() throws Throwable {
+      throw new Error();
    }
 
-   static final boolean aj_renamed(int var0, int var1) {
-      hq var3 = fw.an_renamed(var0);
-      if (11 == var1) {
-         var1 = 10;
-      }
-
-      if (var1 >= 5 && var1 <= 8) {
-         var1 = 4;
-      }
-
-      return var3.ab(var1);
+   public static void af_renamed(AbstractArchive var0) {
+      ParamType.af = var0;
    }
 
    public static StructType an_renamed(int var0) {
@@ -45,5 +32,18 @@ public class hc extends DualNode {
          StructType.an.put(var2, (long)var0);
          return var2;
       }
+   }
+
+   static final boolean aj_renamed(int var0, int var1) {
+      hq var3 = fw.an_renamed(var0);
+      if (11 == var1) {
+         var1 = 10;
+      }
+
+      if (var1 >= 5 && var1 <= 8) {
+         var1 = 4;
+      }
+
+      return var3.ab(var1);
    }
 }

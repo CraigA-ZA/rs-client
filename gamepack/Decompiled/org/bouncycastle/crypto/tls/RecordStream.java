@@ -6,26 +6,26 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 class RecordStream {
-   ProtocolVersion writeVersion = null;
    static int DEFAULT_PLAINTEXT_LIMIT = 16384;
-   TlsCompression readCompression = null;
+   boolean restrictReadVersion = true;
+   int ciphertextLimit;
+   int compressedLimit;
+   int plaintextLimit;
+   ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+   InputStream input;
    OutputStream output;
-   TlsProtocol handler;
+   long readSeqNo = 0L;
+   long writeSeqNo = 0L;
    ProtocolVersion readVersion = null;
-   TlsCompression writeCompression = null;
+   ProtocolVersion writeVersion = null;
    TlsCipher pendingCipher = null;
    TlsCipher readCipher = null;
    TlsCipher writeCipher = null;
-   long readSeqNo = 0L;
-   long writeSeqNo = 0L;
    TlsCompression pendingCompression = null;
+   TlsCompression readCompression = null;
+   TlsCompression writeCompression = null;
    TlsHandshakeHash handshakeHash = null;
-   ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-   InputStream input;
-   boolean restrictReadVersion = true;
-   int plaintextLimit;
-   int compressedLimit;
-   int ciphertextLimit;
+   TlsProtocol handler;
 
    void setReadVersion(ProtocolVersion var1) {
       this.readVersion = var1;

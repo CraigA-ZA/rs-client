@@ -15,13 +15,13 @@ import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.math.field.PolynomialExtensionField;
 
 public class X9ECParameters extends ASN1Object implements X9ObjectIdentifiers {
+   static final BigInteger ONE = BigInteger.valueOf(1L);
    byte[] seed;
+   BigInteger h;
+   BigInteger n;
+   X9ECPoint g;
    X9FieldID fieldID;
    ECCurve curve;
-   static final BigInteger ONE = BigInteger.valueOf(1L);
-   BigInteger n;
-   BigInteger h;
-   X9ECPoint g;
 
    X9ECParameters(ASN1Sequence var1) {
       if (var1.getObjectAt(0) instanceof ASN1Integer && ((ASN1Integer)var1.getObjectAt(0)).getValue().equals(ONE)) {

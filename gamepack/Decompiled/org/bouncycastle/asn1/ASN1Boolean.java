@@ -4,11 +4,11 @@ import java.io.IOException;
 import org.bouncycastle.util.Arrays;
 
 public class ASN1Boolean extends ASN1Primitive {
-   final byte[] value;
-   static final byte[] FALSE_VALUE = new byte[]{0};
-   static final byte[] TRUE_VALUE = new byte[]{-1};
    public static final ASN1Boolean FALSE = new ASN1Boolean(false);
    public static final ASN1Boolean TRUE = new ASN1Boolean(true);
+   static final byte[] FALSE_VALUE = new byte[]{0};
+   static final byte[] TRUE_VALUE = new byte[]{-1};
+   final byte[] value;
 
    public int ahh() {
       return this.value[0];

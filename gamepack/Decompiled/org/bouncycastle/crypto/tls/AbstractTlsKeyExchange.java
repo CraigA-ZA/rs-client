@@ -5,9 +5,9 @@ import java.io.InputStream;
 import java.util.Vector;
 
 public abstract class AbstractTlsKeyExchange implements TlsKeyExchange {
-   public TlsContext context;
-   public Vector supportedSignatureAlgorithms;
    public int keyExchange;
+   public Vector supportedSignatureAlgorithms;
+   public TlsContext context;
 
    public void processServerKeyExchange(InputStream var1) throws IOException {
       if (!this.requiresServerKeyExchange()) {

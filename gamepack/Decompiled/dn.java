@@ -1,30 +1,10 @@
 import java.applet.Applet;
 
 final class dn implements lx {
+   public static int at;
    public static Applet af;
    // $FF: synthetic field
    final Component val$cc;
-   public static int at;
-
-   dn(Component var1) {
-      this.val$cc = var1;
-   }
-
-   public static IDKType getIDKType(int var0) {
-      IDKType var2 = (IDKType)IDKType.IDKType_cached.get((long)var0);
-      if (null != var2) {
-         return var2;
-      } else {
-         byte[] var3 = IDKType.IDKType_archive.takeFile(3, var0);
-         var2 = new IDKType();
-         if (null != var3) {
-            var2.decode(new Packet(var3));
-         }
-
-         IDKType.IDKType_cached.put(var2, (long)var0);
-         return var2;
-      }
-   }
 
    public static byte af_renamed(char var0) {
       byte var2;
@@ -93,13 +73,29 @@ final class dn implements lx {
       return var2;
    }
 
+   public static IDKType getIDKType(int var0) {
+      IDKType var2 = (IDKType)IDKType.ac.get((long)var0);
+      if (null != var2) {
+         return var2;
+      } else {
+         byte[] var3 = IDKType.af.takeFile(3, var0);
+         var2 = new IDKType();
+         if (null != var3) {
+            var2.decode(new Packet(var3));
+         }
+
+         IDKType.ac.put(var2, (long)var0);
+         return var2;
+      }
+   }
+
    static void ac_renamed() {
       AccessFile var1 = null;
 
       try {
-         var1 = in.getPreferencesFile("", Client.studioGame.name, true);
-         Packet var2 = aj.clientPreferences.toBuffer();
-         var1.write(var2.array, 0, var2.index * -1633313603);
+         var1 = in.getPreferencesFile("", Client.cc.aq, true);
+         Packet var2 = aj.vb.toBuffer();
+         var1.write(var2.al, 0, var2.at * -1633313603);
       } catch (Exception var4) {
       }
 
@@ -110,6 +106,10 @@ final class dn implements lx {
       } catch (Exception var3) {
       }
 
+   }
+
+   dn(Component var1) {
+      this.val$cc = var1;
    }
 
    public void af() {

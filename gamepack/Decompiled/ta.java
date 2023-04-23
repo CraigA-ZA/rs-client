@@ -1,9 +1,18 @@
 public class ta implements Enumerated {
-   public final int ac;
+   public static final ta af = new ta(0, 0);
    static final ta an = new ta(1, 1);
    static final ta aw = new ta(2, 2);
    final int au;
-   public static final ta af = new ta(0, 0);
+   public final int ac;
+
+   ta(int var1, int var2) {
+      this.ac = var1 * -311706931;
+      this.au = -1236781981 * var2;
+   }
+
+   public int ordinal() {
+      return -1089213109 * this.au;
+   }
 
    static void an_renamed(int var0, int var1) {
       int[] var3 = new int[4];
@@ -22,15 +31,6 @@ public class ta implements Enumerated {
 
       World.at = var3;
       World.al = var4;
-      ex.aw_renamed(bx.worlds, 0, bx.worlds.length - 1, World.at, World.al);
-   }
-
-   public int af() {
-      return -1089213109 * this.au;
-   }
-
-   ta(int var1, int var2) {
-      this.ac = var1 * -311706931;
-      this.au = -1236781981 * var2;
+      ex.aw_renamed(bx.au, 0, bx.au.length - 1, World.at, World.al);
    }
 }

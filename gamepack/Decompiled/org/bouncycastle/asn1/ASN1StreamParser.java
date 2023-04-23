@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class ASN1StreamParser {
-   final int _limit;
    final byte[][] tmpBuffers;
+   final int _limit;
    final InputStream _in;
 
    public ASN1Encodable readObject() throws IOException {

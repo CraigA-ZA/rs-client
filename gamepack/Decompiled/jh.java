@@ -1,8 +1,31 @@
 public class jh extends jz {
+   int ac;
    int af;
    int an;
    int aw;
-   int ac;
+
+   jh() {
+   }
+
+   void af(Packet var1) {
+      int var3 = var1.g1();
+      if (var3 != 1780364927 * kb.an.aw) {
+         throw new IllegalStateException("");
+      } else {
+         this.at = var1.g1() * -1676456091;
+         this.aa = var1.g1() * -981846019;
+         this.au = var1.cl() * 81463585;
+         this.ab = var1.cl() * -814397553;
+         this.af = var1.g1() * 117916141;
+         this.an = var1.g1() * 579263121;
+         this.aq = var1.cl() * 1330978045;
+         this.al = var1.cl() * -775427237;
+         this.aw = var1.g1() * 658944493;
+         this.ac = var1.g1() * 1599120557;
+         this.ay = var1.gSmart2or4() * 282687267;
+         this.ao = var1.gSmart2or4() * 1837401609;
+      }
+   }
 
    void an(Packet var1) {
       this.aa = Math.min(1632558421 * this.aa, 4) * -981846019;
@@ -65,32 +88,9 @@ public class jh extends jz {
       return 1219256101 * this.ac;
    }
 
-   jh() {
-   }
-
-   void af(Packet var1) {
-      int var3 = var1.g1();
-      if (var3 != 1780364927 * kb.an.aw) {
-         throw new IllegalStateException("");
-      } else {
-         this.at = var1.g1() * -1676456091;
-         this.aa = var1.g1() * -981846019;
-         this.au = var1.cl() * 81463585;
-         this.ab = var1.cl() * -814397553;
-         this.af = var1.g1() * 117916141;
-         this.an = var1.g1() * 579263121;
-         this.aq = var1.cl() * 1330978045;
-         this.al = var1.cl() * -775427237;
-         this.aw = var1.g1() * 658944493;
-         this.ac = var1.g1() * 1599120557;
-         this.ay = var1.gSmart2or4() * 282687267;
-         this.ao = var1.gSmart2or4() * 1837401609;
-      }
-   }
-
    static void jq_renamed() {
       for(hf var1 = (hf)Client.re.last(); null != var1; var1 = (hf)Client.re.previous()) {
-         var1.ga();
+         var1.remove();
       }
 
    }

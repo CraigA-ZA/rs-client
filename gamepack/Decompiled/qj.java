@@ -1,13 +1,27 @@
 import java.util.Arrays;
 
 public final class qj {
-   public static final qj ab;
-   public static qj[] an = new qj[0];
    public static int ac;
-   static Rasterizer3D[] kc;
+   public static qj[] an = new qj[0];
+   public static final qj ab;
    static int aw;
-   public float[] au = new float[16];
    static int jg;
+   static Rasterizer3D[] kc;
+   public float[] au = new float[16];
+
+   static {
+      WorldMapSection2.af_renamed(100);
+      ab = new qj();
+   }
+
+   public void an() {
+      synchronized(an) {
+         if (-910698341 * ac < -2095080743 * aw - 1) {
+            an[(ac += -564638317) * -910698341 - 1] = this;
+         }
+
+      }
+   }
 
    public qj() {
       this.ab();
@@ -17,31 +31,8 @@ public final class qj {
       this.al(var1);
    }
 
-   public float[] au() {
-      float[] var2 = new float[]{(float)(-Math.asin((double)this.au[6])), 0.0F, 0.0F};
-      double var3 = Math.cos((double)var2[0]);
-      double var5;
-      double var7;
-      if (Math.abs(var3) > 0.005) {
-         var5 = (double)this.au[2];
-         var7 = (double)this.au[10];
-         double var9 = (double)this.au[4];
-         double var11 = (double)this.au[5];
-         var2[1] = (float)Math.atan2(var5, var7);
-         var2[2] = (float)Math.atan2(var9, var11);
-      } else {
-         var5 = (double)this.au[1];
-         var7 = (double)this.au[0];
-         if (this.au[6] < 0.0F) {
-            var2[1] = (float)Math.atan2(var5, var7);
-         } else {
-            var2[1] = (float)(-Math.atan2(var5, var7));
-         }
-
-         var2[2] = 0.0F;
-      }
-
-      return var2;
+   public qj(Packet var1, boolean var2) {
+      this.aw(var1, var2);
    }
 
    void aw(Packet var1, boolean var2) {
@@ -76,13 +67,31 @@ public final class qj {
       return var2;
    }
 
-   public void an() {
-      synchronized(an) {
-         if (-910698341 * ac < -2095080743 * aw - 1) {
-            an[(ac += -564638317) * -910698341 - 1] = this;
+   public float[] au() {
+      float[] var2 = new float[]{(float)(-Math.asin((double)this.au[6])), 0.0F, 0.0F};
+      double var3 = Math.cos((double)var2[0]);
+      double var5;
+      double var7;
+      if (Math.abs(var3) > 0.005) {
+         var5 = (double)this.au[2];
+         var7 = (double)this.au[10];
+         double var9 = (double)this.au[4];
+         double var11 = (double)this.au[5];
+         var2[1] = (float)Math.atan2(var5, var7);
+         var2[2] = (float)Math.atan2(var9, var11);
+      } else {
+         var5 = (double)this.au[1];
+         var7 = (double)this.au[0];
+         if (this.au[6] < 0.0F) {
+            var2[1] = (float)Math.atan2(var5, var7);
+         } else {
+            var2[1] = (float)(-Math.atan2(var5, var7));
          }
 
+         var2[2] = 0.0F;
       }
+
+      return var2;
    }
 
    public void ab() {
@@ -102,6 +111,10 @@ public final class qj {
       this.au[13] = 0.0F;
       this.au[14] = 0.0F;
       this.au[15] = 1.0F;
+   }
+
+   static fl[] au_renamed() {
+      return new fl[]{fl.af, fl.an, fl.aw, fl.ac, fl.au, fl.ab, fl.aq, fl.al, fl.at};
    }
 
    public void aq() {
@@ -129,6 +142,13 @@ public final class qj {
 
    public void at(float var1) {
       this.aa(var1, var1, var1);
+   }
+
+   public void aa(float var1, float var2, float var3) {
+      this.ab();
+      this.au[0] = var1;
+      this.au[5] = var2;
+      this.au[10] = var3;
    }
 
    public void ay(qj var1) {
@@ -219,52 +239,6 @@ public final class qj {
       return this.au[8] * this.au[7] * this.au[2] * this.au[13] + this.au[2] * this.au[5] * this.au[11] * this.au[12] + (this.au[4] * this.au[2] * this.au[9] * this.au[15] + this.au[12] * this.au[1] * this.au[7] * this.au[10] + (this.au[8] * this.au[6] * this.au[1] * this.au[15] + this.au[14] * this.au[1] * this.au[4] * this.au[11] + (this.au[0] * this.au[7] * this.au[9] * this.au[14] + this.au[0] * this.au[6] * this.au[11] * this.au[13] + (this.au[5] * this.au[0] * this.au[10] * this.au[15] - this.au[14] * this.au[5] * this.au[0] * this.au[11] - this.au[15] * this.au[0] * this.au[6] * this.au[9]) - this.au[10] * this.au[0] * this.au[7] * this.au[13] - this.au[1] * this.au[4] * this.au[10] * this.au[15]) - this.au[12] * this.au[11] * this.au[1] * this.au[6] - this.au[14] * this.au[1] * this.au[7] * this.au[8]) - this.au[2] * this.au[4] * this.au[11] * this.au[13] - this.au[15] * this.au[2] * this.au[5] * this.au[8]) - this.au[12] * this.au[9] * this.au[2] * this.au[7] - this.au[9] * this.au[3] * this.au[4] * this.au[14] + this.au[13] * this.au[10] * this.au[4] * this.au[3] + this.au[3] * this.au[5] * this.au[8] * this.au[14] - this.au[12] * this.au[5] * this.au[3] * this.au[10] - this.au[8] * this.au[6] * this.au[3] * this.au[13] + this.au[12] * this.au[3] * this.au[6] * this.au[9];
    }
 
-   public String toString() {
-      StringBuilder var1 = new StringBuilder();
-      this.au();
-      this.ac();
-
-      for(int var2 = 0; var2 < 4; ++var2) {
-         for(int var3 = 0; var3 < 4; ++var3) {
-            if (var3 > 0) {
-               var1.append("\t");
-            }
-
-            float var4 = this.au[var3 + var2 * 4];
-            if (Math.sqrt((double)(var4 * var4)) < 9.999999747378752E-5) {
-               var4 = 0.0F;
-            }
-
-            var1.append(var4);
-         }
-
-         var1.append("\n");
-      }
-
-      return var1.toString();
-   }
-
-   public boolean equals(Object var1) {
-      if (!(var1 instanceof qj)) {
-         return false;
-      } else {
-         qj var2 = (qj)var1;
-
-         for(int var3 = 0; var3 < 16; ++var3) {
-            if (var2.au[var3] != this.au[var3]) {
-               return false;
-            }
-         }
-
-         return true;
-      }
-   }
-
-   static {
-      WorldMapSection2.af_renamed(100);
-      ab = new qj();
-   }
-
    public void ah() {
       float var2 = 1.0F / this.ag();
       float var3 = var2 * (this.au[7] * this.au[9] * this.au[14] + this.au[11] * this.au[6] * this.au[13] + (this.au[5] * this.au[10] * this.au[15] - this.au[14] * this.au[5] * this.au[11] - this.au[6] * this.au[9] * this.au[15]) - this.au[13] * this.au[7] * this.au[10]);
@@ -301,15 +275,52 @@ public final class qj {
       this.au[15] = var18;
    }
 
-   public qj(Packet var1, boolean var2) {
-      this.aw(var1, var2);
+   public String toString() {
+      StringBuilder var1 = new StringBuilder();
+      this.au();
+      this.ac();
+
+      for(int var2 = 0; var2 < 4; ++var2) {
+         for(int var3 = 0; var3 < 4; ++var3) {
+            if (var3 > 0) {
+               var1.append("\t");
+            }
+
+            float var4 = this.au[var3 + var2 * 4];
+            if (Math.sqrt((double)(var4 * var4)) < 9.999999747378752E-5) {
+               var4 = 0.0F;
+            }
+
+            var1.append(var4);
+         }
+
+         var1.append("\n");
+      }
+
+      return var1.toString();
    }
 
-   public void aa(float var1, float var2, float var3) {
-      this.ab();
-      this.au[0] = var1;
-      this.au[5] = var2;
-      this.au[10] = var3;
+   public int hashCode() {
+      boolean var1 = true;
+      int var2 = 1;
+      var2 = var2 * 31 + Arrays.hashCode(this.au);
+      return var2;
+   }
+
+   public boolean equals(Object var1) {
+      if (!(var1 instanceof qj)) {
+         return false;
+      } else {
+         qj var2 = (qj)var1;
+
+         for(int var3 = 0; var3 < 16; ++var3) {
+            if (var2.au[var3] != this.au[var3]) {
+               return false;
+            }
+         }
+
+         return true;
+      }
    }
 
    public float[] av() {
@@ -323,19 +334,8 @@ public final class qj {
       return var2;
    }
 
-   public int hashCode() {
-      boolean var1 = true;
-      int var2 = 1;
-      var2 = var2 * 31 + Arrays.hashCode(this.au);
-      return var2;
-   }
-
    static final int ig_renamed(int var0) {
       return Math.abs(var0 - -1010818347 * ek.kh) > 1024 ? (var0 < -1010818347 * ek.kh ? 1 : -1) * 2048 + var0 : var0;
-   }
-
-   static fl[] au_renamed() {
-      return new fl[]{fl.af, fl.an, fl.aw, fl.ac, fl.au, fl.ab, fl.aq, fl.al, fl.at};
    }
 
    static final void kn_renamed() {
@@ -344,32 +344,32 @@ public final class qj {
       while(!var1) {
          var1 = true;
 
-         for(int var2 = 0; var2 < 730065501 * Client.menuOptionsCount - 1; ++var2) {
-            if (Client.menuArguments1[var2] < 1000 && Client.menuArguments1[var2 + 1] > 1000) {
-               String var3 = Client.menuTargetNames[var2];
-               Client.menuTargetNames[var2] = Client.menuTargetNames[1 + var2];
-               Client.menuTargetNames[var2 + 1] = var3;
-               String var4 = Client.menuActions[var2];
-               Client.menuActions[var2] = Client.menuActions[1 + var2];
-               Client.menuActions[var2 + 1] = var4;
-               int var5 = Client.menuArguments1[var2];
-               Client.menuArguments1[var2] = Client.menuArguments1[var2 + 1];
-               Client.menuArguments1[var2 + 1] = var5;
-               var5 = Client.menuArguments0[var2];
-               Client.menuArguments0[var2] = Client.menuArguments0[1 + var2];
-               Client.menuArguments0[1 + var2] = var5;
-               var5 = Client.menuArguments2[var2];
-               Client.menuArguments2[var2] = Client.menuArguments2[var2 + 1];
-               Client.menuArguments2[1 + var2] = var5;
-               var5 = Client.menuOpcodes[var2];
-               Client.menuOpcodes[var2] = Client.menuOpcodes[1 + var2];
-               Client.menuOpcodes[var2 + 1] = var5;
+         for(int var2 = 0; var2 < 730065501 * Client.ne - 1; ++var2) {
+            if (Client.nh[var2] < 1000 && Client.nh[var2 + 1] > 1000) {
+               String var3 = Client.ok[var2];
+               Client.ok[var2] = Client.ok[1 + var2];
+               Client.ok[var2 + 1] = var3;
+               String var4 = Client.og[var2];
+               Client.og[var2] = Client.og[1 + var2];
+               Client.og[var2 + 1] = var4;
+               int var5 = Client.nh[var2];
+               Client.nh[var2] = Client.nh[var2 + 1];
+               Client.nh[var2 + 1] = var5;
+               var5 = Client.nk[var2];
+               Client.nk[var2] = Client.nk[1 + var2];
+               Client.nk[1 + var2] = var5;
+               var5 = Client.ni[var2];
+               Client.ni[var2] = Client.ni[var2 + 1];
+               Client.ni[1 + var2] = var5;
+               var5 = Client.nq[var2];
+               Client.nq[var2] = Client.nq[1 + var2];
+               Client.nq[var2 + 1] = var5;
                var5 = Client.oi[var2];
                Client.oi[var2] = Client.oi[1 + var2];
                Client.oi[1 + var2] = var5;
-               boolean var6 = Client.menuShiftClick[var2];
-               Client.menuShiftClick[var2] = Client.menuShiftClick[1 + var2];
-               Client.menuShiftClick[1 + var2] = var6;
+               boolean var6 = Client.ox[var2];
+               Client.ox[var2] = Client.ox[1 + var2];
+               Client.ox[1 + var2] = var6;
                var1 = false;
             }
          }

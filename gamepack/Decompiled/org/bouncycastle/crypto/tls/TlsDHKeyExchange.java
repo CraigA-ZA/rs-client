@@ -13,12 +13,12 @@ import org.bouncycastle.crypto.params.DHPublicKeyParameters;
 import org.bouncycastle.crypto.util.PublicKeyFactory;
 
 public class TlsDHKeyExchange extends AbstractTlsKeyExchange {
-   public DHPrivateKeyParameters dhAgreePrivateKey;
-   public DHParameters dhParameters;
    public AsymmetricKeyParameter serverPublicKey;
-   public TlsSigner tlsSigner;
-   public TlsAgreementCredentials agreementCredentials;
+   public DHParameters dhParameters;
+   public DHPrivateKeyParameters dhAgreePrivateKey;
    public DHPublicKeyParameters dhAgreePublicKey;
+   public TlsAgreementCredentials agreementCredentials;
+   public TlsSigner tlsSigner;
 
    public DHParameters validateDHParameters(DHParameters var1) throws IOException {
       if (var1.getP().bitLength() < this.getMinimumPrimeBits()) {

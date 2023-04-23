@@ -3,16 +3,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class pk {
-   final oe ac;
-   final Map an;
-   final Comparator af;
-   final long au;
-   final py ab;
-   final oe aw;
    final int aq;
+   final Comparator af;
+   final Map an;
+   final long au;
+   final oe ac;
+   final oe aw;
+   final py ab;
 
-   boolean af() {
-      return this.aq * 1638192103 != -1;
+   public pk(int var1, py var2) {
+      this(-1L, var1, var2);
    }
 
    pk(long var1, int var3, py var4) {
@@ -36,8 +36,24 @@ public final class pk {
 
    }
 
-   public pk(int var1, py var2) {
-      this(-1L, var1, var2);
+   boolean af() {
+      return this.aq * 1638192103 != -1;
+   }
+
+   public Object an(Object var1) {
+      synchronized(this) {
+         if (-1L != -5966338096779578459L * this.au) {
+            this.au();
+         }
+
+         pj var4 = (pj)this.an.get(var1);
+         if (null == var4) {
+            return null;
+         } else {
+            this.ac(var4, false);
+            return var4.af;
+         }
+      }
    }
 
    public Object aw(Object var1, Object var2) {
@@ -114,31 +130,6 @@ public final class pk {
       }
    }
 
-   public static void ay_renamed() {
-      tx.ac = null;
-      ar.au = null;
-      dd.ab = null;
-      fd.aq = null;
-      pc.al = null;
-      VarBitType.at = (byte[][])null;
-   }
-
-   public Object an(Object var1) {
-      synchronized(this) {
-         if (-1L != -5966338096779578459L * this.au) {
-            this.au();
-         }
-
-         pj var4 = (pj)this.an.get(var1);
-         if (null == var4) {
-            return null;
-         } else {
-            this.ac(var4, false);
-            return var4.af;
-         }
-      }
-   }
-
    public void ab() {
       synchronized(this) {
          this.an.clear();
@@ -148,5 +139,14 @@ public final class pk {
          }
 
       }
+   }
+
+   public static void ay_renamed() {
+      tx.ac = null;
+      ar.au = null;
+      dd.ab = null;
+      fd.aq = null;
+      pc.al = null;
+      VarBitType.at = (byte[][])null;
    }
 }

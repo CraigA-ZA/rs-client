@@ -1,24 +1,6 @@
 public class td {
    int[] af;
 
-   public int af(int var1) {
-      int var3 = (this.af.length >> 1) - 1;
-      int var4 = var1 & var3;
-
-      while(true) {
-         int var5 = this.af[1 + var4 + var4];
-         if (-1 == var5) {
-            return -1;
-         }
-
-         if (this.af[var4 + var4] == var1) {
-            return var5;
-         }
-
-         var4 = 1 + var4 & var3;
-      }
-   }
-
    public td(int[] var1) {
       int var2;
       for(var2 = 1; var2 <= (var1.length >> 1) + var1.length; var2 <<= 1) {
@@ -39,5 +21,23 @@ public class td {
          this.af[var4 + var4] = var1[var3];
       }
 
+   }
+
+   public int af(int var1) {
+      int var3 = (this.af.length >> 1) - 1;
+      int var4 = var1 & var3;
+
+      while(true) {
+         int var5 = this.af[1 + var4 + var4];
+         if (-1 == var5) {
+            return -1;
+         }
+
+         if (this.af[var4 + var4] == var1) {
+            return var5;
+         }
+
+         var4 = 1 + var4 & var3;
+      }
    }
 }

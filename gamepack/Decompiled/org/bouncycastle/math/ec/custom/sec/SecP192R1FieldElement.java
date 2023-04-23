@@ -7,8 +7,8 @@ import org.bouncycastle.math.raw.Nat192;
 import org.bouncycastle.util.Arrays;
 
 public class SecP192R1FieldElement extends ECFieldElement {
-   public int[] x;
    public static final BigInteger Q;
+   public int[] x;
 
    public ECFieldElement sqrt() {
       int[] var1 = this.x;

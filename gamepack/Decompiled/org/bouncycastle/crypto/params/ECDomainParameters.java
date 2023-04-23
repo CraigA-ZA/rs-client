@@ -7,11 +7,11 @@ import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.util.Arrays;
 
 public class ECDomainParameters implements ECConstants {
-   BigInteger h;
    byte[] seed;
-   ECPoint G;
+   BigInteger h;
    BigInteger n;
    ECCurve curve;
+   ECPoint G;
 
    public int ahh() {
       int var1 = this.curve.hashCode();

@@ -6,8 +6,8 @@ import org.bouncycastle.math.raw.Nat160;
 
 public class SecP160R1Field {
    static final int[] P = new int[]{Integer.MAX_VALUE, -1, -1, -1, -1};
-   static final int[] PExtInv = new int[]{-1, -1073741826, -1, -1, -1, 1, 1};
    static final int[] PExt = new int[]{1, 1073741825, 0, 0, 0, -2, -2, -1, -1, -1};
+   static final int[] PExtInv = new int[]{-1, -1073741826, -1, -1, -1, 1, 1};
 
    public static void squareN(int[] var0, int var1, int[] var2) {
       int[] var3 = Nat160.createExt();

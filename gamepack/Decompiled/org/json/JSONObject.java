@@ -11,57 +11,11 @@ import java.util.Map;
 import java.util.TreeSet;
 
 public class JSONObject {
-   Map map;
    public static final Object NULL = new JSONObject$Null((JSONObject$1)null);
+   Map map;
 
-   void populateInternalMap(Object var1, boolean var2) {
-      Class var3 = var1.getClass();
-      if (var3.getClassLoader() == null) {
-         var2 = false;
-      }
-
-      Method[] var4 = var2 ? var3.getMethods() : var3.getDeclaredMethods();
-
-      for(int var5 = 0; var5 < var4.length; ++var5) {
-         try {
-            Method var6 = var4[var5];
-            String var7 = var6.getName();
-            String var8 = "";
-            if (var7.startsWith("get")) {
-               var8 = var7.substring(3);
-            } else if (var7.startsWith("is")) {
-               var8 = var7.substring(2);
-            }
-
-            if (var8.length() > 0 && Character.isUpperCase(var8.charAt(0)) && var6.getParameterTypes().length == 0) {
-               if (var8.length() == 1) {
-                  var8 = var8.toLowerCase();
-               } else if (!Character.isUpperCase(var8.charAt(1))) {
-                  var8 = var8.substring(0, 1).toLowerCase() + var8.substring(1);
-               }
-
-               Object var9 = var6.invoke(var1, (Object[])null);
-               if (var9 == null) {
-                  this.map.put(var8, NULL);
-               } else if (var9.getClass().isArray()) {
-                  this.map.put(var8, new JSONArray(var9, var2));
-               } else if (var9 instanceof Collection) {
-                  this.map.put(var8, new JSONArray((Collection)var9, var2));
-               } else if (var9 instanceof Map) {
-                  this.map.put(var8, new JSONObject((Map)var9, var2));
-               } else if (this.isStandardProperty(var9.getClass())) {
-                  this.map.put(var8, var9);
-               } else if (!var9.getClass().getPackage().getName().startsWith("java") && var9.getClass().getClassLoader() != null) {
-                  this.map.put(var8, new JSONObject(var9, var2));
-               } else {
-                  this.map.put(var8, var9.toString());
-               }
-            }
-         } catch (Exception var10) {
-            throw new RuntimeException(var10);
-         }
-      }
-
+   public JSONObject() {
+      this.map = new HashMap();
    }
 
    public JSONObject(JSONObject var1, String[] var2) throws JSONException {
@@ -121,13 +75,22 @@ public class JSONObject {
       this.map = (Map)(var1 == null ? new HashMap() : var1);
    }
 
-   public JSONObject put(String var1, double var2) throws JSONException {
-      this.put(var1, (Object)(new Double(var2)));
-      return this;
+   public JSONObject(Map var1, boolean var2) {
+      this.map = new HashMap();
+      if (var1 != null) {
+         Iterator var3 = var1.entrySet().iterator();
+
+         while(var3.hasNext()) {
+            Map.Entry var4 = (Map.Entry)var3.next();
+            this.map.put(var4.getKey(), new JSONObject(var4.getValue(), var2));
+         }
+      }
+
    }
 
-   public double optDouble(String var1) {
-      return this.optDouble(var1, Double.NaN);
+   public JSONObject(Object var1) {
+      this();
+      this.populateInternalMap(var1, false);
    }
 
    public JSONObject(Object var1, boolean var2) {
@@ -135,12 +98,58 @@ public class JSONObject {
       this.populateInternalMap(var1, var2);
    }
 
-   public JSONObject() {
-      this.map = new HashMap();
+   void populateInternalMap(Object var1, boolean var2) {
+      Class var3 = var1.getClass();
+      if (var3.getClassLoader() == null) {
+         var2 = false;
+      }
+
+      Method[] var4 = var2 ? var3.getMethods() : var3.getDeclaredMethods();
+
+      for(int var5 = 0; var5 < var4.length; ++var5) {
+         try {
+            Method var6 = var4[var5];
+            String var7 = var6.getName();
+            String var8 = "";
+            if (var7.startsWith("get")) {
+               var8 = var7.substring(3);
+            } else if (var7.startsWith("is")) {
+               var8 = var7.substring(2);
+            }
+
+            if (var8.length() > 0 && Character.isUpperCase(var8.charAt(0)) && var6.getParameterTypes().length == 0) {
+               if (var8.length() == 1) {
+                  var8 = var8.toLowerCase();
+               } else if (!Character.isUpperCase(var8.charAt(1))) {
+                  var8 = var8.substring(0, 1).toLowerCase() + var8.substring(1);
+               }
+
+               Object var9 = var6.invoke(var1, (Object[])null);
+               if (var9 == null) {
+                  this.map.put(var8, NULL);
+               } else if (var9.getClass().isArray()) {
+                  this.map.put(var8, new JSONArray(var9, var2));
+               } else if (var9 instanceof Collection) {
+                  this.map.put(var8, new JSONArray((Collection)var9, var2));
+               } else if (var9 instanceof Map) {
+                  this.map.put(var8, new JSONObject((Map)var9, var2));
+               } else if (this.isStandardProperty(var9.getClass())) {
+                  this.map.put(var8, var9);
+               } else if (!var9.getClass().getPackage().getName().startsWith("java") && var9.getClass().getClassLoader() != null) {
+                  this.map.put(var8, new JSONObject(var9, var2));
+               } else {
+                  this.map.put(var8, var9.toString());
+               }
+            }
+         } catch (Exception var10) {
+            throw new RuntimeException(var10);
+         }
+      }
+
    }
 
-   public int length() {
-      return this.map.size();
+   boolean isStandardProperty(Class var1) {
+      return var1.isPrimitive() || var1.isAssignableFrom(Byte.class) || var1.isAssignableFrom(Short.class) || var1.isAssignableFrom(Integer.class) || var1.isAssignableFrom(Long.class) || var1.isAssignableFrom(Float.class) || var1.isAssignableFrom(Double.class) || var1.isAssignableFrom(Character.class) || var1.isAssignableFrom(String.class) || var1.isAssignableFrom(Boolean.class);
    }
 
    public JSONObject(Object var1, String[] var2) {
@@ -162,12 +171,18 @@ public class JSONObject {
       this(new JSONTokener(var1));
    }
 
-   public long optLong(String var1, long var2) {
-      try {
-         return this.getLong(var1);
-      } catch (Exception var5) {
-         return var2;
+   public JSONObject accumulate(String var1, Object var2) throws JSONException {
+      testValidity(var2);
+      Object var3 = this.opt(var1);
+      if (var3 == null) {
+         this.put(var1, var2 instanceof JSONArray ? (new JSONArray()).put(var2) : var2);
+      } else if (var3 instanceof JSONArray) {
+         ((JSONArray)var3).put(var2);
+      } else {
+         this.put(var1, (Object)(new JSONArray()).put(var3).put(var2));
       }
+
+      return this;
    }
 
    public JSONObject append(String var1, Object var2) throws JSONException {
@@ -186,12 +201,23 @@ public class JSONObject {
       return this;
    }
 
-   public JSONObject putOpt(String var1, Object var2) throws JSONException {
-      if (var1 != null && var2 != null) {
-         this.put(var1, var2);
-      }
+   public static String doubleToString(double var0) {
+      if (!Double.isInfinite(var0) && !Double.isNaN(var0)) {
+         String var2 = Double.toString(var0);
+         if (var2.indexOf(46) > 0 && var2.indexOf(101) < 0 && var2.indexOf(69) < 0) {
+            while(var2.endsWith("0")) {
+               var2 = var2.substring(0, var2.length() - 1);
+            }
 
-      return this;
+            if (var2.endsWith(".")) {
+               var2 = var2.substring(0, var2.length() - 1);
+            }
+         }
+
+         return var2;
+      } else {
+         return "null";
+      }
    }
 
    public Object get(String var1) throws JSONException {
@@ -231,37 +257,21 @@ public class JSONObject {
       return var2 instanceof Number ? ((Number)var2).intValue() : (int)this.getDouble(var1);
    }
 
-   public JSONArray names() {
-      JSONArray var1 = new JSONArray();
-      Iterator var2 = this.keys();
-
-      while(var2.hasNext()) {
-         var1.put(var2.next());
+   public JSONArray getJSONArray(String var1) throws JSONException {
+      Object var2 = this.get(var1);
+      if (var2 instanceof JSONArray) {
+         return (JSONArray)var2;
+      } else {
+         throw new JSONException("JSONObject[" + quote(var1) + "] is not a JSONArray.");
       }
-
-      return var1.length() == 0 ? null : var1;
    }
 
-   public String ahj() {
-      try {
-         Iterator var1 = this.keys();
-         StringBuffer var2 = new StringBuffer("{");
-
-         while(var1.hasNext()) {
-            if (var2.length() > 1) {
-               var2.append(',');
-            }
-
-            Object var3 = var1.next();
-            var2.append(quote(var3.toString()));
-            var2.append(':');
-            var2.append(valueToString(this.map.get(var3)));
-         }
-
-         var2.append('}');
-         return var2.toString();
-      } catch (Exception var4) {
-         return null;
+   public JSONObject getJSONObject(String var1) throws JSONException {
+      Object var2 = this.get(var1);
+      if (var2 instanceof JSONObject) {
+         return (JSONObject)var2;
+      } else {
+         throw new JSONException("JSONObject[" + quote(var1) + "] is not a JSONObject.");
       }
    }
 
@@ -286,22 +296,24 @@ public class JSONObject {
       }
    }
 
-   public static String doubleToString(double var0) {
-      if (!Double.isInfinite(var0) && !Double.isNaN(var0)) {
-         String var2 = Double.toString(var0);
-         if (var2.indexOf(46) > 0 && var2.indexOf(101) < 0 && var2.indexOf(69) < 0) {
-            while(var2.endsWith("0")) {
-               var2 = var2.substring(0, var2.length() - 1);
-            }
-
-            if (var2.endsWith(".")) {
-               var2 = var2.substring(0, var2.length() - 1);
-            }
-         }
-
-         return var2;
+   public static String[] getNames(Object var0) {
+      if (var0 == null) {
+         return null;
       } else {
-         return "null";
+         Class var1 = var0.getClass();
+         Field[] var2 = var1.getFields();
+         int var3 = var2.length;
+         if (var3 == 0) {
+            return null;
+         } else {
+            String[] var4 = new String[var3];
+
+            for(int var5 = 0; var5 < var3; ++var5) {
+               var4[var5] = var2[var5].getName();
+            }
+
+            return var4;
+         }
       }
    }
 
@@ -309,18 +321,8 @@ public class JSONObject {
       return this.get(var1).toString();
    }
 
-   public JSONObject accumulate(String var1, Object var2) throws JSONException {
-      testValidity(var2);
-      Object var3 = this.opt(var1);
-      if (var3 == null) {
-         this.put(var1, var2 instanceof JSONArray ? (new JSONArray()).put(var2) : var2);
-      } else if (var3 instanceof JSONArray) {
-         ((JSONArray)var3).put(var2);
-      } else {
-         this.put(var1, (Object)(new JSONArray()).put(var3).put(var2));
-      }
-
-      return this;
+   public boolean has(String var1) {
+      return this.map.containsKey(var1);
    }
 
    public boolean isNull(String var1) {
@@ -331,22 +333,19 @@ public class JSONObject {
       return this.map.keySet().iterator();
    }
 
-   static void testValidity(Object var0) throws JSONException {
-      if (var0 != null) {
-         if (var0 instanceof Double) {
-            if (((Double)var0).isInfinite() || ((Double)var0).isNaN()) {
-               throw new JSONException("JSON does not allow non-finite numbers.");
-            }
-         } else if (var0 instanceof Float && (((Float)var0).isInfinite() || ((Float)var0).isNaN())) {
-            throw new JSONException("JSON does not allow non-finite numbers.");
-         }
-      }
-
+   public int length() {
+      return this.map.size();
    }
 
-   public JSONObject(Object var1) {
-      this();
-      this.populateInternalMap(var1, false);
+   public JSONArray names() {
+      JSONArray var1 = new JSONArray();
+      Iterator var2 = this.keys();
+
+      while(var2.hasNext()) {
+         var1.put(var2.next());
+      }
+
+      return var1.length() == 0 ? null : var1;
    }
 
    public static String numberToString(Number var0) throws JSONException {
@@ -385,27 +384,13 @@ public class JSONObject {
       }
    }
 
-   public String ahp() {
-      try {
-         Iterator var1 = this.keys();
-         StringBuffer var2 = new StringBuffer("{");
+   public JSONObject put(String var1, Collection var2) throws JSONException {
+      this.put(var1, (Object)(new JSONArray(var2)));
+      return this;
+   }
 
-         while(var1.hasNext()) {
-            if (var2.length() > 1) {
-               var2.append(',');
-            }
-
-            Object var3 = var1.next();
-            var2.append(quote(var3.toString()));
-            var2.append(':');
-            var2.append(valueToString(this.map.get(var3)));
-         }
-
-         var2.append('}');
-         return var2.toString();
-      } catch (Exception var4) {
-         return null;
-      }
+   public double optDouble(String var1) {
+      return this.optDouble(var1, Double.NaN);
    }
 
    public double optDouble(String var1, double var2) {
@@ -439,14 +424,16 @@ public class JSONObject {
       return var2 instanceof JSONObject ? (JSONObject)var2 : null;
    }
 
-   public JSONObject put(String var1, boolean var2) throws JSONException {
-      this.put(var1, (Object)(var2 ? Boolean.TRUE : Boolean.FALSE));
-      return this;
+   public long optLong(String var1) {
+      return this.optLong(var1, 0L);
    }
 
-   public JSONObject put(String var1, Map var2) throws JSONException {
-      this.put(var1, (Object)(new JSONObject(var2)));
-      return this;
+   public long optLong(String var1, long var2) {
+      try {
+         return this.getLong(var1);
+      } catch (Exception var5) {
+         return var2;
+      }
    }
 
    public String optString(String var1) {
@@ -458,56 +445,14 @@ public class JSONObject {
       return var3 != null ? var3.toString() : var2;
    }
 
-   public static String[] getNames(Object var0) {
-      if (var0 == null) {
-         return null;
-      } else {
-         Class var1 = var0.getClass();
-         Field[] var2 = var1.getFields();
-         int var3 = var2.length;
-         if (var3 == 0) {
-            return null;
-         } else {
-            String[] var4 = new String[var3];
-
-            for(int var5 = 0; var5 < var3; ++var5) {
-               var4[var5] = var2[var5].getName();
-            }
-
-            return var4;
-         }
-      }
+   public JSONObject put(String var1, boolean var2) throws JSONException {
+      this.put(var1, (Object)(var2 ? Boolean.TRUE : Boolean.FALSE));
+      return this;
    }
 
-   public Writer write(Writer var1) throws JSONException {
-      try {
-         boolean var2 = false;
-         Iterator var3 = this.keys();
-         var1.write(123);
-
-         for(; var3.hasNext(); var2 = true) {
-            if (var2) {
-               var1.write(44);
-            }
-
-            Object var4 = var3.next();
-            var1.write(quote(var4.toString()));
-            var1.write(58);
-            Object var5 = this.map.get(var4);
-            if (var5 instanceof JSONObject) {
-               ((JSONObject)var5).write(var1);
-            } else if (var5 instanceof JSONArray) {
-               ((JSONArray)var5).write(var1);
-            } else {
-               var1.write(valueToString(var5));
-            }
-         }
-
-         var1.write(125);
-         return var1;
-      } catch (IOException var6) {
-         throw new JSONException(var6);
-      }
+   public JSONObject put(String var1, double var2) throws JSONException {
+      this.put(var1, (Object)(new Double(var2)));
+      return this;
    }
 
    public JSONObject put(String var1, int var2) throws JSONException {
@@ -520,21 +465,24 @@ public class JSONObject {
       return this;
    }
 
-   public JSONObject(Map var1, boolean var2) {
-      this.map = new HashMap();
-      if (var1 != null) {
-         Iterator var3 = var1.entrySet().iterator();
-
-         while(var3.hasNext()) {
-            Map.Entry var4 = (Map.Entry)var3.next();
-            this.map.put(var4.getKey(), new JSONObject(var4.getValue(), var2));
-         }
-      }
-
+   public JSONObject put(String var1, Map var2) throws JSONException {
+      this.put(var1, (Object)(new JSONObject(var2)));
+      return this;
    }
 
-   public boolean has(String var1) {
-      return this.map.containsKey(var1);
+   public JSONObject put(String var1, Object var2) throws JSONException {
+      if (var1 == null) {
+         throw new JSONException("Null key.");
+      } else {
+         if (var2 != null) {
+            testValidity(var2);
+            this.map.put(var1, var2);
+         } else {
+            this.remove(var1);
+         }
+
+         return this;
+      }
    }
 
    public JSONObject putOnce(String var1, Object var2) throws JSONException {
@@ -549,160 +497,12 @@ public class JSONObject {
       return this;
    }
 
-   String toString(int var1, int var2) throws JSONException {
-      int var4 = this.length();
-      if (var4 == 0) {
-         return "{}";
-      } else {
-         Iterator var5 = this.sortedKeys();
-         StringBuffer var6 = new StringBuffer("{");
-         int var7 = var2 + var1;
-         Object var8;
-         if (var4 == 1) {
-            var8 = var5.next();
-            var6.append(quote(var8.toString()));
-            var6.append(": ");
-            var6.append(valueToString(this.map.get(var8), var1, var2));
-         } else {
-            while(true) {
-               int var3;
-               if (!var5.hasNext()) {
-                  if (var6.length() > 1) {
-                     var6.append('\n');
-
-                     for(var3 = 0; var3 < var2; ++var3) {
-                        var6.append(' ');
-                     }
-                  }
-                  break;
-               }
-
-               var8 = var5.next();
-               if (var6.length() > 1) {
-                  var6.append(",\n");
-               } else {
-                  var6.append('\n');
-               }
-
-               for(var3 = 0; var3 < var7; ++var3) {
-                  var6.append(' ');
-               }
-
-               var6.append(quote(var8.toString()));
-               var6.append(": ");
-               var6.append(valueToString(this.map.get(var8), var1, var7));
-            }
-         }
-
-         var6.append('}');
-         return var6.toString();
+   public JSONObject putOpt(String var1, Object var2) throws JSONException {
+      if (var1 != null && var2 != null) {
+         this.put(var1, var2);
       }
-   }
 
-   public long optLong(String var1) {
-      return this.optLong(var1, 0L);
-   }
-
-   public Object remove(String var1) {
-      return this.map.remove(var1);
-   }
-
-   public Iterator sortedKeys() {
-      return (new TreeSet(this.map.keySet())).iterator();
-   }
-
-   public static Object stringToValue(String var0) {
-      if (var0.equals("")) {
-         return var0;
-      } else if (var0.equalsIgnoreCase("true")) {
-         return Boolean.TRUE;
-      } else if (var0.equalsIgnoreCase("false")) {
-         return Boolean.FALSE;
-      } else if (var0.equalsIgnoreCase("null")) {
-         return NULL;
-      } else {
-         char var1 = var0.charAt(0);
-         if (var1 >= '0' && var1 <= '9' || var1 == '.' || var1 == '-' || var1 == '+') {
-            if (var1 == '0') {
-               if (var0.length() > 2 && (var0.charAt(1) == 'x' || var0.charAt(1) == 'X')) {
-                  try {
-                     return new Integer(Integer.parseInt(var0.substring(2), 16));
-                  } catch (Exception var9) {
-                  }
-               } else {
-                  try {
-                     return new Integer(Integer.parseInt(var0, 8));
-                  } catch (Exception var8) {
-                  }
-               }
-            }
-
-            try {
-               return new Integer(var0);
-            } catch (Exception var7) {
-               try {
-                  return new Long(var0);
-               } catch (Exception var6) {
-                  try {
-                     return new Double(var0);
-                  } catch (Exception var5) {
-                  }
-               }
-            }
-         }
-
-         return var0;
-      }
-   }
-
-   public JSONObject getJSONObject(String var1) throws JSONException {
-      Object var2 = this.get(var1);
-      if (var2 instanceof JSONObject) {
-         return (JSONObject)var2;
-      } else {
-         throw new JSONException("JSONObject[" + quote(var1) + "] is not a JSONObject.");
-      }
-   }
-
-   public JSONArray toJSONArray(JSONArray var1) throws JSONException {
-      if (var1 != null && var1.length() != 0) {
-         JSONArray var2 = new JSONArray();
-
-         for(int var3 = 0; var3 < var1.length(); ++var3) {
-            var2.put(this.opt(var1.getString(var3)));
-         }
-
-         return var2;
-      } else {
-         return null;
-      }
-   }
-
-   public String toString() {
-      try {
-         Iterator var1 = this.keys();
-         StringBuffer var2 = new StringBuffer("{");
-
-         while(var1.hasNext()) {
-            if (var2.length() > 1) {
-               var2.append(',');
-            }
-
-            Object var3 = var1.next();
-            var2.append(quote(var3.toString()));
-            var2.append(':');
-            var2.append(valueToString(this.map.get(var3)));
-         }
-
-         var2.append('}');
-         return var2.toString();
-      } catch (Exception var4) {
-         return null;
-      }
-   }
-
-   public String toString(int var1) throws JSONException {
-      return this.toString(var1, 0);
+      return this;
    }
 
    public static String quote(String var0) {
@@ -757,6 +557,231 @@ public class JSONObject {
          return var5.toString();
       } else {
          return "\"\"";
+      }
+   }
+
+   public Object remove(String var1) {
+      return this.map.remove(var1);
+   }
+
+   public Iterator sortedKeys() {
+      return (new TreeSet(this.map.keySet())).iterator();
+   }
+
+   public static Object stringToValue(String var0) {
+      if (var0.equals("")) {
+         return var0;
+      } else if (var0.equalsIgnoreCase("true")) {
+         return Boolean.TRUE;
+      } else if (var0.equalsIgnoreCase("false")) {
+         return Boolean.FALSE;
+      } else if (var0.equalsIgnoreCase("null")) {
+         return NULL;
+      } else {
+         char var1 = var0.charAt(0);
+         if (var1 >= '0' && var1 <= '9' || var1 == '.' || var1 == '-' || var1 == '+') {
+            if (var1 == '0') {
+               if (var0.length() > 2 && (var0.charAt(1) == 'x' || var0.charAt(1) == 'X')) {
+                  try {
+                     return new Integer(Integer.parseInt(var0.substring(2), 16));
+                  } catch (Exception var9) {
+                  }
+               } else {
+                  try {
+                     return new Integer(Integer.parseInt(var0, 8));
+                  } catch (Exception var8) {
+                  }
+               }
+            }
+
+            try {
+               return new Integer(var0);
+            } catch (Exception var7) {
+               try {
+                  return new Long(var0);
+               } catch (Exception var6) {
+                  try {
+                     return new Double(var0);
+                  } catch (Exception var5) {
+                  }
+               }
+            }
+         }
+
+         return var0;
+      }
+   }
+
+   static void testValidity(Object var0) throws JSONException {
+      if (var0 != null) {
+         if (var0 instanceof Double) {
+            if (((Double)var0).isInfinite() || ((Double)var0).isNaN()) {
+               throw new JSONException("JSON does not allow non-finite numbers.");
+            }
+         } else if (var0 instanceof Float && (((Float)var0).isInfinite() || ((Float)var0).isNaN())) {
+            throw new JSONException("JSON does not allow non-finite numbers.");
+         }
+      }
+
+   }
+
+   public JSONArray toJSONArray(JSONArray var1) throws JSONException {
+      if (var1 != null && var1.length() != 0) {
+         JSONArray var2 = new JSONArray();
+
+         for(int var3 = 0; var3 < var1.length(); ++var3) {
+            var2.put(this.opt(var1.getString(var3)));
+         }
+
+         return var2;
+      } else {
+         return null;
+      }
+   }
+
+   public String ahj() {
+      try {
+         Iterator var1 = this.keys();
+         StringBuffer var2 = new StringBuffer("{");
+
+         while(var1.hasNext()) {
+            if (var2.length() > 1) {
+               var2.append(',');
+            }
+
+            Object var3 = var1.next();
+            var2.append(quote(var3.toString()));
+            var2.append(':');
+            var2.append(valueToString(this.map.get(var3)));
+         }
+
+         var2.append('}');
+         return var2.toString();
+      } catch (Exception var4) {
+         return null;
+      }
+   }
+
+   public String ahp() {
+      try {
+         Iterator var1 = this.keys();
+         StringBuffer var2 = new StringBuffer("{");
+
+         while(var1.hasNext()) {
+            if (var2.length() > 1) {
+               var2.append(',');
+            }
+
+            Object var3 = var1.next();
+            var2.append(quote(var3.toString()));
+            var2.append(':');
+            var2.append(valueToString(this.map.get(var3)));
+         }
+
+         var2.append('}');
+         return var2.toString();
+      } catch (Exception var4) {
+         return null;
+      }
+   }
+
+   public String toString() {
+      try {
+         Iterator var1 = this.keys();
+         StringBuffer var2 = new StringBuffer("{");
+
+         while(var1.hasNext()) {
+            if (var2.length() > 1) {
+               var2.append(',');
+            }
+
+            Object var3 = var1.next();
+            var2.append(quote(var3.toString()));
+            var2.append(':');
+            var2.append(valueToString(this.map.get(var3)));
+         }
+
+         var2.append('}');
+         return var2.toString();
+      } catch (Exception var4) {
+         return null;
+      }
+   }
+
+   public String ahm() {
+      try {
+         Iterator var1 = this.keys();
+         StringBuffer var2 = new StringBuffer("{");
+
+         while(var1.hasNext()) {
+            if (var2.length() > 1) {
+               var2.append((char)176394793);
+            }
+
+            Object var3 = var1.next();
+            var2.append(quote(var3.toString()));
+            var2.append(':');
+            var2.append(valueToString(this.map.get(var3)));
+         }
+
+         var2.append((char)1962249415);
+         return var2.toString();
+      } catch (Exception var4) {
+         return null;
+      }
+   }
+
+   public String toString(int var1) throws JSONException {
+      return this.toString(var1, 0);
+   }
+
+   String toString(int var1, int var2) throws JSONException {
+      int var4 = this.length();
+      if (var4 == 0) {
+         return "{}";
+      } else {
+         Iterator var5 = this.sortedKeys();
+         StringBuffer var6 = new StringBuffer("{");
+         int var7 = var2 + var1;
+         Object var8;
+         if (var4 == 1) {
+            var8 = var5.next();
+            var6.append(quote(var8.toString()));
+            var6.append(": ");
+            var6.append(valueToString(this.map.get(var8), var1, var2));
+         } else {
+            while(true) {
+               int var3;
+               if (!var5.hasNext()) {
+                  if (var6.length() > 1) {
+                     var6.append('\n');
+
+                     for(var3 = 0; var3 < var2; ++var3) {
+                        var6.append(' ');
+                     }
+                  }
+                  break;
+               }
+
+               var8 = var5.next();
+               if (var6.length() > 1) {
+                  var6.append(",\n");
+               } else {
+                  var6.append('\n');
+               }
+
+               for(var3 = 0; var3 < var7; ++var3) {
+                  var6.append(' ');
+               }
+
+               var6.append(quote(var8.toString()));
+               var6.append(": ");
+               var6.append(valueToString(this.map.get(var8), var1, var7));
+            }
+         }
+
+         var6.append('}');
+         return var6.toString();
       }
    }
 
@@ -825,59 +850,34 @@ public class JSONObject {
       }
    }
 
-   boolean isStandardProperty(Class var1) {
-      return var1.isPrimitive() || var1.isAssignableFrom(Byte.class) || var1.isAssignableFrom(Short.class) || var1.isAssignableFrom(Integer.class) || var1.isAssignableFrom(Long.class) || var1.isAssignableFrom(Float.class) || var1.isAssignableFrom(Double.class) || var1.isAssignableFrom(Character.class) || var1.isAssignableFrom(String.class) || var1.isAssignableFrom(Boolean.class);
-   }
-
-   public JSONObject put(String var1, Object var2) throws JSONException {
-      if (var1 == null) {
-         throw new JSONException("Null key.");
-      } else {
-         if (var2 != null) {
-            testValidity(var2);
-            this.map.put(var1, var2);
-         } else {
-            this.remove(var1);
-         }
-
-         return this;
-      }
-   }
-
-   public String ahm() {
+   public Writer write(Writer var1) throws JSONException {
       try {
-         Iterator var1 = this.keys();
-         StringBuffer var2 = new StringBuffer("{");
+         boolean var2 = false;
+         Iterator var3 = this.keys();
+         var1.write(123);
 
-         while(var1.hasNext()) {
-            if (var2.length() > 1) {
-               var2.append((char)176394793);
+         for(; var3.hasNext(); var2 = true) {
+            if (var2) {
+               var1.write(44);
             }
 
-            Object var3 = var1.next();
-            var2.append(quote(var3.toString()));
-            var2.append(':');
-            var2.append(valueToString(this.map.get(var3)));
+            Object var4 = var3.next();
+            var1.write(quote(var4.toString()));
+            var1.write(58);
+            Object var5 = this.map.get(var4);
+            if (var5 instanceof JSONObject) {
+               ((JSONObject)var5).write(var1);
+            } else if (var5 instanceof JSONArray) {
+               ((JSONArray)var5).write(var1);
+            } else {
+               var1.write(valueToString(var5));
+            }
          }
 
-         var2.append((char)1962249415);
-         return var2.toString();
-      } catch (Exception var4) {
-         return null;
-      }
-   }
-
-   public JSONObject put(String var1, Collection var2) throws JSONException {
-      this.put(var1, (Object)(new JSONArray(var2)));
-      return this;
-   }
-
-   public JSONArray getJSONArray(String var1) throws JSONException {
-      Object var2 = this.get(var1);
-      if (var2 instanceof JSONArray) {
-         return (JSONArray)var2;
-      } else {
-         throw new JSONException("JSONObject[" + quote(var1) + "] is not a JSONArray.");
+         var1.write(125);
+         return var1;
+      } catch (IOException var6) {
+         throw new JSONException(var6);
       }
    }
 }

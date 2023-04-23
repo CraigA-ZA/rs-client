@@ -1,31 +1,15 @@
 public class WorldMapIcon1 extends AbstractWorldMapIcon {
-   final int ac;
-   final int aw;
-   final WorldMapLabel label0;
-   final int af;
    public static short[] ax;
-
-   public int an() {
-      return 1767565411 * this.af;
-   }
-
-   int ac() {
-      return -1314083237 * this.aw;
-   }
-
-   WorldMapLabel aw() {
-      return this.label0;
-   }
-
-   int au() {
-      return 1694335235 * this.ac;
-   }
+   final int ac;
+   final int af;
+   final int aw;
+   final WorldMapLabel an;
 
    WorldMapIcon1(Coord var1, Coord var2, int var3, WorldMapLabel var4) {
       super(var1, var2);
       this.af = -1078535861 * var3;
-      this.label0 = var4;
-      MapElementType var5 = nf.getMapElementType(this.an());
+      this.an = var4;
+      MapElementType var5 = nf.getMapElementType(this.element());
       Rasterizer3D var6 = var5.ab(false);
       if (var6 != null) {
          this.aw = -717434413 * var6.an;
@@ -35,5 +19,21 @@ public class WorldMapIcon1 extends AbstractWorldMapIcon {
          this.ac = 0;
       }
 
+   }
+
+   public int element() {
+      return 1767565411 * this.af;
+   }
+
+   WorldMapLabel label() {
+      return this.an;
+   }
+
+   int ac() {
+      return -1314083237 * this.aw;
+   }
+
+   int au() {
+      return 1694335235 * this.ac;
    }
 }

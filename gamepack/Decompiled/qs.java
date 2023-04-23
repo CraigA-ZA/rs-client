@@ -1,6 +1,6 @@
 public class qs {
-   int an;
    float[] af;
+   int an;
 
    qs(float[] var1, int var2) {
       this.af = var1;

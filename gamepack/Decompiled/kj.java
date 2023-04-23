@@ -1,6 +1,10 @@
 public class kj {
-   int af;
    byte[][][] an;
+   int af;
+
+   kj(int var1) {
+      this.af = -1275529919 * var1;
+   }
 
    void af(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
       if (var7 != 0 && -28927295 * this.af != 0 && null != this.an) {
@@ -31,6 +35,20 @@ public class kj {
          return var1 == 11 ? 8 : var1;
       } else {
          return 1;
+      }
+   }
+
+   void ac() {
+      if (null == this.an) {
+         this.an = new byte[8][4][];
+         this.au();
+         this.ab();
+         this.aq();
+         this.al();
+         this.at();
+         this.aa();
+         this.ay();
+         this.ao();
       }
    }
 
@@ -343,6 +361,69 @@ public class kj {
       this.an[4][3] = var2;
    }
 
+   void aa() {
+      byte[] var10000 = new byte[this.af * -28927295 * -28927295 * this.af];
+      boolean var3 = false;
+      byte[] var2 = new byte[this.af * -28927295 * this.af * -28927295];
+      int var6 = 0;
+
+      int var4;
+      int var5;
+      for(var4 = 0; var4 < this.af * -28927295; ++var4) {
+         for(var5 = 0; var5 < -28927295 * this.af; ++var5) {
+            if (var5 <= -28927295 * this.af / 2) {
+               var2[var6] = -1;
+            }
+
+            ++var6;
+         }
+      }
+
+      this.an[5][0] = var2;
+      var2 = new byte[-28927295 * this.af * -28927295 * this.af];
+      var6 = 0;
+
+      for(var4 = 0; var4 < this.af * -28927295; ++var4) {
+         for(var5 = 0; var5 < this.af * -28927295; ++var5) {
+            if (var4 <= this.af * -28927295 / 2) {
+               var2[var6] = -1;
+            }
+
+            ++var6;
+         }
+      }
+
+      this.an[5][1] = var2;
+      var2 = new byte[-28927295 * this.af * this.af * -28927295];
+      var6 = 0;
+
+      for(var4 = 0; var4 < -28927295 * this.af; ++var4) {
+         for(var5 = 0; var5 < -28927295 * this.af; ++var5) {
+            if (var5 >= -28927295 * this.af / 2) {
+               var2[var6] = -1;
+            }
+
+            ++var6;
+         }
+      }
+
+      this.an[5][2] = var2;
+      var2 = new byte[this.af * -28927295 * -28927295 * this.af];
+      var6 = 0;
+
+      for(var4 = 0; var4 < -28927295 * this.af; ++var4) {
+         for(var5 = 0; var5 < this.af * -28927295; ++var5) {
+            if (var4 >= -28927295 * this.af / 2) {
+               var2[var6] = -1;
+            }
+
+            ++var6;
+         }
+      }
+
+      this.an[5][3] = var2;
+   }
+
    void ay() {
       byte[] var10000 = new byte[-28927295 * this.af * -28927295 * this.af];
       boolean var3 = false;
@@ -469,10 +550,6 @@ public class kj {
       this.an[7][3] = var2;
    }
 
-   kj(int var1) {
-      this.af = -1275529919 * var1;
-   }
-
    static final void na_renamed(int var0, int var1, byte var2) {
       if (Client.so[var0] == null) {
          if (var2 <= -1) {
@@ -484,7 +561,7 @@ public class kj {
                throw new IllegalStateException();
             }
 
-            if (var1 < Client.so[var0].ac()) {
+            if (var1 < Client.so[var0].gIsaac1()) {
                fz var3 = (fz)Client.so[var0].aw.get(var1);
                if (-1 != var3.af) {
                   if (var2 <= -1) {
@@ -494,12 +571,12 @@ public class kj {
                   return;
                }
 
-               PacketBitNode var4 = mi.an_renamed(ClientProt.bh, Client.packetWriter.au);
-               var4.bit.bu(3 + DynamicObject.bc_renamed(var3.aw.af()));
-               var4.bit.bu(var0);
-               var4.bit.bf(var1);
-               var4.bit.bh(var3.aw.af());
-               Client.packetWriter.aw(var4);
+               PacketBitNode var4 = mi.an_renamed(ClientProt.bh, Client.in.au);
+               var4.aw.bu(3 + DynamicObject.bc_renamed(var3.aw.af()));
+               var4.aw.bu(var0);
+               var4.aw.p2(var1);
+               var4.aw.bh(var3.aw.af());
+               Client.in.aw(var4);
                return;
             }
 
@@ -508,83 +585,6 @@ public class kj {
             }
          }
 
-      }
-   }
-
-   void aa() {
-      byte[] var10000 = new byte[this.af * -28927295 * -28927295 * this.af];
-      boolean var3 = false;
-      byte[] var2 = new byte[this.af * -28927295 * this.af * -28927295];
-      int var6 = 0;
-
-      int var4;
-      int var5;
-      for(var4 = 0; var4 < this.af * -28927295; ++var4) {
-         for(var5 = 0; var5 < -28927295 * this.af; ++var5) {
-            if (var5 <= -28927295 * this.af / 2) {
-               var2[var6] = -1;
-            }
-
-            ++var6;
-         }
-      }
-
-      this.an[5][0] = var2;
-      var2 = new byte[-28927295 * this.af * -28927295 * this.af];
-      var6 = 0;
-
-      for(var4 = 0; var4 < this.af * -28927295; ++var4) {
-         for(var5 = 0; var5 < this.af * -28927295; ++var5) {
-            if (var4 <= this.af * -28927295 / 2) {
-               var2[var6] = -1;
-            }
-
-            ++var6;
-         }
-      }
-
-      this.an[5][1] = var2;
-      var2 = new byte[-28927295 * this.af * this.af * -28927295];
-      var6 = 0;
-
-      for(var4 = 0; var4 < -28927295 * this.af; ++var4) {
-         for(var5 = 0; var5 < -28927295 * this.af; ++var5) {
-            if (var5 >= -28927295 * this.af / 2) {
-               var2[var6] = -1;
-            }
-
-            ++var6;
-         }
-      }
-
-      this.an[5][2] = var2;
-      var2 = new byte[this.af * -28927295 * -28927295 * this.af];
-      var6 = 0;
-
-      for(var4 = 0; var4 < -28927295 * this.af; ++var4) {
-         for(var5 = 0; var5 < this.af * -28927295; ++var5) {
-            if (var4 >= -28927295 * this.af / 2) {
-               var2[var6] = -1;
-            }
-
-            ++var6;
-         }
-      }
-
-      this.an[5][3] = var2;
-   }
-
-   void ac() {
-      if (null == this.an) {
-         this.an = new byte[8][4][];
-         this.au();
-         this.ab();
-         this.aq();
-         this.al();
-         this.at();
-         this.aa();
-         this.ay();
-         this.ao();
       }
    }
 }

@@ -4,9 +4,9 @@ import java.io.IOException;
 import org.bouncycastle.util.Arrays;
 
 public abstract class ASN1ApplicationSpecific extends ASN1Primitive {
+   public final boolean isConstructed;
    public final byte[] octets;
    public final int tag;
-   public final boolean isConstructed;
 
    void encode(ASN1OutputStream var1) throws IOException {
       int var2 = 64;

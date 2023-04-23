@@ -3,12 +3,22 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class al {
-   final Packet aw;
-   final ac ac;
+   static TextureProvider mp;
    static int gm;
-   Future an;
-   static TextureProvider textureProvider;
    ExecutorService af = Executors.newSingleThreadExecutor();
+   Future an;
+   final ac ac;
+   final Packet aw;
+
+   public al(Packet var1, ac var2) {
+      this.aw = var1;
+      this.ac = var2;
+      this.ac();
+   }
+
+   public boolean af() {
+      return this.an.isDone();
+   }
 
    public void an() {
       this.af.shutdown();
@@ -25,175 +35,6 @@ public class al {
 
    void ac() {
       this.an = this.af.submit(new an(this, this.aw, this.ac));
-   }
-
-   static final void md_renamed(int var0) {
-      ClientProt.mp_renamed();
-      am.an_renamed();
-      int var2 = GraphicsDefaults.af_renamed(var0).ac * -1911979431;
-      if (0 != var2) {
-         int var3 = Varps.Varps_main[var0];
-         if (1 == var2) {
-            if (1 == var3) {
-               ClientScriptFrame.mg(0.9);
-            }
-
-            if (2 == var3) {
-               ClientScriptFrame.mg(0.8);
-            }
-
-            if (3 == var3) {
-               ClientScriptFrame.mg(0.7);
-            }
-
-            if (4 == var3) {
-               ClientScriptFrame.mg(0.6);
-            }
-         }
-
-         if (3 == var2) {
-            if (0 == var3) {
-               dt.mo_renamed(255);
-            }
-
-            if (1 == var3) {
-               dt.mo_renamed(192);
-            }
-
-            if (2 == var3) {
-               dt.mo_renamed(128);
-            }
-
-            if (var3 == 3) {
-               dt.mo_renamed(64);
-            }
-
-            if (4 == var3) {
-               dt.mo_renamed(0);
-            }
-         }
-
-         if (var2 == 4) {
-            if (var3 == 0) {
-               fe.mn_renamed(127);
-            }
-
-            if (1 == var3) {
-               fe.mn_renamed(96);
-            }
-
-            if (var3 == 2) {
-               fe.mn_renamed(64);
-            }
-
-            if (3 == var3) {
-               fe.mn_renamed(32);
-            }
-
-            if (var3 == 4) {
-               fe.mn_renamed(0);
-            }
-         }
-
-         if (var2 == 5) {
-            Client.nb = 1 == var3;
-         }
-
-         if (6 == var2) {
-            Client.py = var3 * 1746693153;
-         }
-
-         if (var2 == 9) {
-         }
-
-         if (10 == var2) {
-            if (var3 == 0) {
-               fp.mi_renamed(127);
-            }
-
-            if (1 == var3) {
-               fp.mi_renamed(96);
-            }
-
-            if (var3 == 2) {
-               fp.mi_renamed(64);
-            }
-
-            if (var3 == 3) {
-               fp.mi_renamed(32);
-            }
-
-            if (4 == var3) {
-               fp.mi_renamed(0);
-            }
-         }
-
-         if (17 == var2) {
-            Client.pt = (var3 & '\uffff') * -1296642255;
-         }
-
-         if (var2 == 18) {
-            Client.em = (dj)StructType.findEnumerated(ej.au_renamed(), var3);
-            if (Client.em == null) {
-               Client.em = dj.af;
-            }
-         }
-
-         if (19 == var2) {
-            if (-1 == var3) {
-               Client.nl = -1035820595;
-            } else {
-               Client.nl = 1035820595 * (var3 & 2047);
-            }
-         }
-
-         if (var2 == 22) {
-            Client.ew = (dj)StructType.findEnumerated(ej.au_renamed(), var3);
-            if (null == Client.ew) {
-               Client.ew = dj.af;
-            }
-         }
-
-      }
-   }
-
-   public boolean af() {
-      return this.an.isDone();
-   }
-
-   public al(Packet var1, ac var2) {
-      this.aw = var1;
-      this.ac = var2;
-      this.ac();
-   }
-
-   static final void at_renamed(Component var0, int var1, byte[] var2, byte[] var3) {
-      if (var0.en == null) {
-         if (null == var2) {
-            return;
-         }
-
-         var0.en = new byte[11][];
-         var0.er = new byte[11][];
-         var0.eg = new int[11];
-         var0.ed = new int[11];
-      }
-
-      var0.en[var1] = var2;
-      if (null != var2) {
-         var0.el = true;
-      } else {
-         var0.el = false;
-
-         for(int var5 = 0; var5 < var0.en.length; ++var5) {
-            if (var0.en[var5] != null) {
-               var0.el = true;
-               break;
-            }
-         }
-      }
-
-      var0.er[var1] = var3;
    }
 
    static void aw_renamed(double var0, int var2, int var3, int var4) {
@@ -319,5 +160,164 @@ public class al {
          }
       }
 
+   }
+
+   static final void at_renamed(Component var0, int var1, byte[] var2, byte[] var3) {
+      if (var0.en == null) {
+         if (null == var2) {
+            return;
+         }
+
+         var0.en = new byte[11][];
+         var0.er = new byte[11][];
+         var0.eg = new int[11];
+         var0.ed = new int[11];
+      }
+
+      var0.en[var1] = var2;
+      if (null != var2) {
+         var0.el = true;
+      } else {
+         var0.el = false;
+
+         for(int var5 = 0; var5 < var0.en.length; ++var5) {
+            if (var0.en[var5] != null) {
+               var0.el = true;
+               break;
+            }
+         }
+      }
+
+      var0.er[var1] = var3;
+   }
+
+   static final void md_renamed(int var0) {
+      ClientProt.mp_renamed();
+      am.an_renamed();
+      int var2 = GraphicsDefaults.af_renamed(var0).ac * -1911979431;
+      if (0 != var2) {
+         int var3 = Varps.aw[var0];
+         if (1 == var2) {
+            if (1 == var3) {
+               ClientScriptFrame.mg(0.9);
+            }
+
+            if (2 == var3) {
+               ClientScriptFrame.mg(0.8);
+            }
+
+            if (3 == var3) {
+               ClientScriptFrame.mg(0.7);
+            }
+
+            if (4 == var3) {
+               ClientScriptFrame.mg(0.6);
+            }
+         }
+
+         if (3 == var2) {
+            if (0 == var3) {
+               dt.mo_renamed(255);
+            }
+
+            if (1 == var3) {
+               dt.mo_renamed(192);
+            }
+
+            if (2 == var3) {
+               dt.mo_renamed(128);
+            }
+
+            if (var3 == 3) {
+               dt.mo_renamed(64);
+            }
+
+            if (4 == var3) {
+               dt.mo_renamed(0);
+            }
+         }
+
+         if (var2 == 4) {
+            if (var3 == 0) {
+               fe.mn_renamed(127);
+            }
+
+            if (1 == var3) {
+               fe.mn_renamed(96);
+            }
+
+            if (var3 == 2) {
+               fe.mn_renamed(64);
+            }
+
+            if (3 == var3) {
+               fe.mn_renamed(32);
+            }
+
+            if (var3 == 4) {
+               fe.mn_renamed(0);
+            }
+         }
+
+         if (var2 == 5) {
+            Client.nb = 1 == var3;
+         }
+
+         if (6 == var2) {
+            Client.py = var3 * 1746693153;
+         }
+
+         if (var2 == 9) {
+         }
+
+         if (10 == var2) {
+            if (var3 == 0) {
+               fp.mi_renamed(127);
+            }
+
+            if (1 == var3) {
+               fp.mi_renamed(96);
+            }
+
+            if (var3 == 2) {
+               fp.mi_renamed(64);
+            }
+
+            if (var3 == 3) {
+               fp.mi_renamed(32);
+            }
+
+            if (4 == var3) {
+               fp.mi_renamed(0);
+            }
+         }
+
+         if (17 == var2) {
+            Client.pt = (var3 & '\uffff') * -1296642255;
+         }
+
+         if (var2 == 18) {
+            Client.em = (dj)StructType.findEnumerated(ej.au_renamed(), var3);
+            if (Client.em == null) {
+               Client.em = dj.af;
+            }
+         }
+
+         if (19 == var2) {
+            if (-1 == var3) {
+               Client.nl = -1035820595;
+            } else {
+               Client.nl = 1035820595 * (var3 & 2047);
+            }
+         }
+
+         if (var2 == 22) {
+            Client.ew = (dj)StructType.findEnumerated(ej.au_renamed(), var3);
+            if (null == Client.ew) {
+               Client.ew = dj.af;
+            }
+         }
+
+      }
    }
 }

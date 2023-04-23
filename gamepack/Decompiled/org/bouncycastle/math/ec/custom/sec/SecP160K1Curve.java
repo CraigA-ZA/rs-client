@@ -9,8 +9,8 @@ import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.util.encoders.Hex;
 
 public class SecP160K1Curve extends ECCurve$AbstractFp {
-   public SecP160K1Point infinity = new SecP160K1Point(this, (ECFieldElement)null, (ECFieldElement)null);
    public static final BigInteger q;
+   public SecP160K1Point infinity = new SecP160K1Point(this, (ECFieldElement)null, (ECFieldElement)null);
 
    public BigInteger getQ() {
       return q;

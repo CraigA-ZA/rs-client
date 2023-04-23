@@ -3,10 +3,10 @@ package org.bouncycastle.asn1;
 import java.io.IOException;
 
 public abstract class ASN1TaggedObject extends ASN1Primitive implements ASN1TaggedObjectParser {
-   ASN1Encodable obj = null;
    boolean empty = false;
    boolean explicit = true;
    int tagNo;
+   ASN1Encodable obj = null;
 
    public ASN1Encodable getObjectParser(int var1, boolean var2) throws IOException {
       switch (var1) {

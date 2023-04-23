@@ -1,45 +1,12 @@
 public class rr extends rm {
-   double aq = 0.0;
-   int an = 0;
-   static Archive archive7;
+   static Archive fv;
+   double ab = 0.0;
    double ac = 0.0;
+   double aq = 0.0;
    double au = 0.0;
    double aw = 0.0;
    int af = 0;
-   double ab = 0.0;
-
-   static final boolean runCs1(Component var0) {
-      if (null == var0.cs1ComparisonValues) {
-         return false;
-      } else {
-         for(int var2 = 0; var2 < var0.cs1ComparisonValues.length; ++var2) {
-            int var3 = ArchiveLoader.lx_renamed(var0, var2);
-            int var4 = var0.cs1Comparisons[var2];
-            if (var0.cs1ComparisonValues[var2] == 2) {
-               if (var3 >= var4) {
-                  return false;
-               }
-            } else if (var0.cs1ComparisonValues[var2] == 3) {
-               if (var3 <= var4) {
-                  return false;
-               }
-            } else if (4 == var0.cs1ComparisonValues[var2]) {
-               if (var3 == var4) {
-                  return false;
-               }
-            } else if (var4 != var3) {
-               return false;
-            }
-         }
-
-         return true;
-      }
-   }
-
-   public int aw() {
-      double var2 = this.ay();
-      return (int)Math.round((double)(this.an * -970289067 - this.af * -925977301) * var2 + (double)(this.af * -925977301));
-   }
+   int an = 0;
 
    public rr(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10) {
       super(var9, var10);
@@ -75,6 +42,17 @@ public class rr extends rm {
       return (int)Math.round(this.aw + this.au * Math.cos(var4));
    }
 
+   public int an() {
+      double var2 = this.ay();
+      double var4 = (this.aq - this.ab) * var2 + this.ab;
+      return (int)Math.round(this.ac + this.au * Math.sin(var4));
+   }
+
+   public int aw() {
+      double var2 = this.ay();
+      return (int)Math.round((double)(this.an * -970289067 - this.af * -925977301) * var2 + (double)(this.af * -925977301));
+   }
+
    public static IndexedSprite aq_renamed(AbstractArchive var0, int var1) {
       byte[] var4 = var0.takeFileFlat(var1);
       boolean var3;
@@ -88,9 +66,31 @@ public class rr extends rm {
       return !var3 ? null : Strings.al_renamed();
    }
 
-   public int an() {
-      double var2 = this.ay();
-      double var4 = (this.aq - this.ab) * var2 + this.ab;
-      return (int)Math.round(this.ac + this.au * Math.sin(var4));
+   static final boolean runCs1(Component var0) {
+      if (null == var0.gf) {
+         return false;
+      } else {
+         for(int var2 = 0; var2 < var0.gf.length; ++var2) {
+            int var3 = ArchiveLoader.lx_renamed(var0, var2);
+            int var4 = var0.gm[var2];
+            if (var0.gf[var2] == 2) {
+               if (var3 >= var4) {
+                  return false;
+               }
+            } else if (var0.gf[var2] == 3) {
+               if (var3 <= var4) {
+                  return false;
+               }
+            } else if (4 == var0.gf[var2]) {
+               if (var3 == var4) {
+                  return false;
+               }
+            } else if (var4 != var3) {
+               return false;
+            }
+         }
+
+         return true;
+      }
    }
 }

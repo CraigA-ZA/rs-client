@@ -1,21 +1,231 @@
 public class IDKType extends DualNode {
-   short[] recol_s;
-   short[] recol_d;
    public static int aw;
-   static EvictingDualNodeHashTable IDKType_cached = new EvictingDualNodeHashTable(64);
-   static AbstractArchive an;
-   int[] head = new int[]{-1, -1, -1, -1, -1};
-   short[] retex_s;
-   short[] retex_d;
-   static AbstractArchive IDKType_archive;
-   public int bodyPart = -1699952575;
-   public boolean ao = false;
-   int[] models;
-   static AbstractSocket js5Socket;
    static int ur;
+   static EvictingDualNodeHashTable ac = new EvictingDualNodeHashTable(64);
+   static AbstractArchive af;
+   static AbstractArchive an;
+   static AbstractSocket fl;
    static Rasterizer3D[] ku;
+   int[] ab;
+   int[] ay = new int[]{-1, -1, -1, -1, -1};
+   short[] aa;
+   short[] al;
+   short[] aq;
+   short[] at;
+   public boolean ao = false;
+   public int au = -1699952575;
 
    IDKType() {
+   }
+
+   void decode(Packet var1) {
+      while(true) {
+         int var3 = var1.g1();
+         if (0 == var3) {
+            return;
+         }
+
+         this.decode0(var1, var3, (byte)33);
+      }
+   }
+
+   void decode0(Packet var1, int var2, byte var3) {
+      if (var2 == 1) {
+         if (var3 <= -1) {
+            throw new IllegalStateException();
+         }
+
+         this.au = var1.g1() * 1699952575;
+      } else {
+         int var4;
+         int var5;
+         if (var2 == 2) {
+            if (var3 <= -1) {
+               return;
+            }
+
+            var4 = var1.g1();
+            this.ab = new int[var4];
+
+            for(var5 = 0; var5 < var4; ++var5) {
+               if (var3 <= -1) {
+                  throw new IllegalStateException();
+               }
+
+               this.ab[var5] = var1.cl();
+            }
+         } else if (var2 == 3) {
+            this.ao = true;
+         } else if (var2 == 40) {
+            if (var3 <= -1) {
+               throw new IllegalStateException();
+            }
+
+            var4 = var1.g1();
+            this.aq = new short[var4];
+            this.al = new short[var4];
+
+            for(var5 = 0; var5 < var4; ++var5) {
+               if (var3 <= -1) {
+                  throw new IllegalStateException();
+               }
+
+               this.aq[var5] = (short)var1.cl();
+               this.al[var5] = (short)var1.cl();
+            }
+         } else if (var2 == 41) {
+            if (var3 <= -1) {
+               return;
+            }
+
+            var4 = var1.g1();
+            this.at = new short[var4];
+            this.aa = new short[var4];
+
+            for(var5 = 0; var5 < var4; ++var5) {
+               if (var3 <= -1) {
+                  throw new IllegalStateException();
+               }
+
+               this.at[var5] = (short)var1.cl();
+               this.aa[var5] = (short)var1.cl();
+            }
+         } else if (var2 >= 60) {
+            if (var3 <= -1) {
+               return;
+            }
+
+            if (var2 < 70) {
+               this.ay[var2 - 60] = var1.cl();
+            }
+         }
+      }
+
+   }
+
+   public boolean loadModel() {
+      if (this.ab == null) {
+         return true;
+      } else {
+         boolean var2 = true;
+
+         for(int var3 = 0; var3 < this.ab.length; ++var3) {
+            if (!an.tryLoadFile(this.ab[var3], 0)) {
+               var2 = false;
+            }
+         }
+
+         return var2;
+      }
+   }
+
+   public UnlitModel getModel() {
+      if (this.ab == null) {
+         return null;
+      } else {
+         UnlitModel[] var2 = new UnlitModel[this.ab.length];
+
+         for(int var3 = 0; var3 < this.ab.length; ++var3) {
+            var2[var3] = UnlitModel.af_renamed(an, this.ab[var3], 0);
+         }
+
+         UnlitModel var5;
+         if (var2.length == 1) {
+            var5 = var2[0];
+         } else {
+            var5 = new UnlitModel(var2, var2.length);
+         }
+
+         int var4;
+         if (this.aq != null) {
+            for(var4 = 0; var4 < this.aq.length; ++var4) {
+               var5.recolor(this.aq[var4], this.al[var4]);
+            }
+         }
+
+         if (this.at != null) {
+            for(var4 = 0; var4 < this.at.length; ++var4) {
+               var5.retexture(this.at[var4], this.aa[var4]);
+            }
+         }
+
+         return var5;
+      }
+   }
+
+   public static String intToString(int var0, boolean var1) {
+      if (var1 && var0 >= 0) {
+         int var4 = var0;
+         String var3;
+         if (var1 && var0 >= 0) {
+            int var5 = 2;
+
+            for(int var6 = var0 / 10; var6 != 0; ++var5) {
+               var6 /= 10;
+            }
+
+            char[] var7 = new char[var5];
+            var7[0] = '+';
+
+            for(int var8 = var5 - 1; var8 > 0; --var8) {
+               int var9 = var4;
+               var4 /= 10;
+               int var10 = var9 - var4 * 10;
+               if (var10 >= 10) {
+                  var7[var8] = (char)(var10 + 87);
+               } else {
+                  var7[var8] = (char)(48 + var10);
+               }
+            }
+
+            var3 = new String(var7);
+         } else {
+            var3 = Integer.toString(var0, 10);
+         }
+
+         return var3;
+      } else {
+         return Integer.toString(var0);
+      }
+   }
+
+   public boolean loadChatHeadModel() {
+      boolean var2 = true;
+
+      for(int var3 = 0; var3 < 5; ++var3) {
+         if (this.ay[var3] != -1 && !an.tryLoadFile(this.ay[var3], 0)) {
+            var2 = false;
+         }
+      }
+
+      return var2;
+   }
+
+   public UnlitModel getChatHeadModel() {
+      UnlitModel[] var2 = new UnlitModel[5];
+      int var3 = 0;
+
+      for(int var4 = 0; var4 < 5; ++var4) {
+         if (this.ay[var4] != -1) {
+            var2[var3++] = UnlitModel.af_renamed(an, this.ay[var4], 0);
+         }
+      }
+
+      UnlitModel var6 = new UnlitModel(var2, var3);
+      int var5;
+      if (null != this.aq) {
+         for(var5 = 0; var5 < this.aq.length; ++var5) {
+            var6.recolor(this.aq[var5], this.al[var5]);
+         }
+      }
+
+      if (null != this.at) {
+         for(var5 = 0; var5 < this.at.length; ++var5) {
+            var6.retexture(this.at[var5], this.aa[var5]);
+         }
+      }
+
+      return var6;
    }
 
    static final boolean al_renamed(byte[] var0, int var1, int var2) {
@@ -51,7 +261,7 @@ public class IDKType extends DualNode {
                if (var14 > 0 && var15 > 0 && var14 < 103 && var15 < 103) {
                   hq var16 = fw.an_renamed(var6);
                   if (var13 != 22 || !Client.cu || 0 != var16.aj * 415653149 || -973955889 * var16.am == 1 || var16.bs) {
-                     if (!var16.aq()) {
+                     if (!var16.loadChatHeadModel()) {
                         Client.jk += 1441978033;
                         var4 = false;
                      }
@@ -71,169 +281,6 @@ public class IDKType extends DualNode {
       }
    }
 
-   void decode0(Packet var1, int var2, byte var3) {
-      if (var2 == 1) {
-         if (var3 <= -1) {
-            throw new IllegalStateException();
-         }
-
-         this.bodyPart = var1.g1() * 1699952575;
-      } else {
-         int var4;
-         int var5;
-         if (var2 == 2) {
-            if (var3 <= -1) {
-               return;
-            }
-
-            var4 = var1.g1();
-            this.models = new int[var4];
-
-            for(var5 = 0; var5 < var4; ++var5) {
-               if (var3 <= -1) {
-                  throw new IllegalStateException();
-               }
-
-               this.models[var5] = var1.cl();
-            }
-         } else if (var2 == 3) {
-            this.ao = true;
-         } else if (var2 == 40) {
-            if (var3 <= -1) {
-               throw new IllegalStateException();
-            }
-
-            var4 = var1.g1();
-            this.retex_s = new short[var4];
-            this.retex_d = new short[var4];
-
-            for(var5 = 0; var5 < var4; ++var5) {
-               if (var3 <= -1) {
-                  throw new IllegalStateException();
-               }
-
-               this.retex_s[var5] = (short)var1.cl();
-               this.retex_d[var5] = (short)var1.cl();
-            }
-         } else if (var2 == 41) {
-            if (var3 <= -1) {
-               return;
-            }
-
-            var4 = var1.g1();
-            this.recol_s = new short[var4];
-            this.recol_d = new short[var4];
-
-            for(var5 = 0; var5 < var4; ++var5) {
-               if (var3 <= -1) {
-                  throw new IllegalStateException();
-               }
-
-               this.recol_s[var5] = (short)var1.cl();
-               this.recol_d[var5] = (short)var1.cl();
-            }
-         } else if (var2 >= 60) {
-            if (var3 <= -1) {
-               return;
-            }
-
-            if (var2 < 70) {
-               this.head[var2 - 60] = var1.cl();
-            }
-         }
-      }
-
-   }
-
-   public UnlitModel getModel() {
-      if (this.models == null) {
-         return null;
-      } else {
-         UnlitModel[] var2 = new UnlitModel[this.models.length];
-
-         for(int var3 = 0; var3 < this.models.length; ++var3) {
-            var2[var3] = UnlitModel.af_renamed(an, this.models[var3], 0);
-         }
-
-         UnlitModel var5;
-         if (var2.length == 1) {
-            var5 = var2[0];
-         } else {
-            var5 = new UnlitModel(var2, var2.length);
-         }
-
-         int var4;
-         if (this.retex_s != null) {
-            for(var4 = 0; var4 < this.retex_s.length; ++var4) {
-               var5.recolor(this.retex_s[var4], this.retex_d[var4]);
-            }
-         }
-
-         if (this.recol_s != null) {
-            for(var4 = 0; var4 < this.recol_s.length; ++var4) {
-               var5.retexture(this.recol_s[var4], this.recol_d[var4]);
-            }
-         }
-
-         return var5;
-      }
-   }
-
-   public boolean loadChatHeadModel() {
-      boolean var2 = true;
-
-      for(int var3 = 0; var3 < 5; ++var3) {
-         if (this.head[var3] != -1 && !an.tryLoadFile(this.head[var3], 0)) {
-            var2 = false;
-         }
-      }
-
-      return var2;
-   }
-
-   public UnlitModel getChatHeadModel() {
-      UnlitModel[] var2 = new UnlitModel[5];
-      int var3 = 0;
-
-      for(int var4 = 0; var4 < 5; ++var4) {
-         if (this.head[var4] != -1) {
-            var2[var3++] = UnlitModel.af_renamed(an, this.head[var4], 0);
-         }
-      }
-
-      UnlitModel var6 = new UnlitModel(var2, var3);
-      int var5;
-      if (null != this.retex_s) {
-         for(var5 = 0; var5 < this.retex_s.length; ++var5) {
-            var6.recolor(this.retex_s[var5], this.retex_d[var5]);
-         }
-      }
-
-      if (null != this.recol_s) {
-         for(var5 = 0; var5 < this.recol_s.length; ++var5) {
-            var6.retexture(this.recol_s[var5], this.recol_d[var5]);
-         }
-      }
-
-      return var6;
-   }
-
-   public boolean loadModel() {
-      if (this.models == null) {
-         return true;
-      } else {
-         boolean var2 = true;
-
-         for(int var3 = 0; var3 < this.models.length; ++var3) {
-            if (!an.tryLoadFile(this.models[var3], 0)) {
-               var2 = false;
-            }
-         }
-
-         return var2;
-      }
-   }
-
    static final boolean aw_renamed(int var0, int var1, int var2, ia var3, CollisionMap var4) {
       int var6 = var0;
       int var7 = var1;
@@ -247,7 +294,7 @@ public class IDKType extends DualNode {
       int var13 = 0;
       iw.al[var12] = var0;
       iw.at[var12++] = var1;
-      int[][] var14 = var4.flags;
+      int[][] var14 = var4.bj;
 
       while(true) {
          label353:
@@ -437,53 +484,6 @@ public class IDKType extends DualNode {
             iw.aw[1 + var8][1 + var9] = 12;
             iw.ac[1 + var8][var9 + 1] = var17;
          }
-      }
-   }
-
-   void decode(Packet var1) {
-      while(true) {
-         int var3 = var1.g1();
-         if (0 == var3) {
-            return;
-         }
-
-         this.decode0(var1, var3, (byte)33);
-      }
-   }
-
-   public static String intToString(int var0, boolean var1) {
-      if (var1 && var0 >= 0) {
-         int var4 = var0;
-         String var3;
-         if (var1 && var0 >= 0) {
-            int var5 = 2;
-
-            for(int var6 = var0 / 10; var6 != 0; ++var5) {
-               var6 /= 10;
-            }
-
-            char[] var7 = new char[var5];
-            var7[0] = '+';
-
-            for(int var8 = var5 - 1; var8 > 0; --var8) {
-               int var9 = var4;
-               var4 /= 10;
-               int var10 = var9 - var4 * 10;
-               if (var10 >= 10) {
-                  var7[var8] = (char)(var10 + 87);
-               } else {
-                  var7[var8] = (char)(48 + var10);
-               }
-            }
-
-            var3 = new String(var7);
-         } else {
-            var3 = Integer.toString(var0, 10);
-         }
-
-         return var3;
-      } else {
-         return Integer.toString(var0);
       }
    }
 }

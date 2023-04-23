@@ -3,11 +3,11 @@ package org.bouncycastle.math.ec;
 import java.math.BigInteger;
 
 public class ECCurve$F2m extends ECCurve$AbstractF2m {
-   int m;
    int k1;
-   ECPoint$F2m infinity;
    int k2;
    int k3;
+   int m;
+   ECPoint$F2m infinity;
 
    public int getM() {
       return this.m;

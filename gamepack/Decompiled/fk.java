@@ -1,12 +1,23 @@
 public class fk extends fu {
-   int af;
    byte an;
+   int af;
    int aw;
    String ac;
    // $FF: synthetic field
    final gr this$0;
 
-   void af(Packet var1) {
+   public static void af_renamed(AbstractArchive var0, AbstractArchive var1, AbstractArchive var2) {
+      SeqType.au = var0;
+      SeqType.ab = var1;
+      SeqType.aq = var2;
+   }
+
+   fk(gr var1) {
+      this.this$0 = var1;
+      this.af = 1435810339;
+   }
+
+   void write(Packet var1) {
       var1.g1();
       this.af = var1.cl() * -1435810339;
       this.an = var1.g1s();
@@ -21,16 +32,5 @@ public class fk extends fu {
       var3.af = this.an;
       var3.an = this.aw * -359370451;
       var3.aw = new Username(this.ac);
-   }
-
-   fk(gr var1) {
-      this.this$0 = var1;
-      this.af = 1435810339;
-   }
-
-   public static void af_renamed(AbstractArchive var0, AbstractArchive var1, AbstractArchive var2) {
-      SeqType.SeqType_archive = var0;
-      SeqType.ab = var1;
-      SeqType.aq = var2;
    }
 }

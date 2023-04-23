@@ -7,10 +7,10 @@ import org.bouncycastle.math.ec.ECPoint;
 
 public class ECParameterSpec implements AlgorithmParameterSpec {
    byte[] seed;
+   BigInteger h;
+   BigInteger n;
    ECCurve curve;
    ECPoint G;
-   BigInteger n;
-   BigInteger h;
 
    public boolean gm(Object var1) {
       if (!(var1 instanceof ECParameterSpec)) {

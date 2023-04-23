@@ -2,11 +2,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class do {
-   static void kf_renamed(int var0, int var1) {
-      PacketBitNode var3 = mi.an_renamed(ClientProt.cp, Client.packetWriter.au);
-      var3.bit.el(var0);
-      var3.bit.dn(var1);
-      Client.packetWriter.aw(var3);
+   do() throws Throwable {
+      throw new Error();
    }
 
    static boolean al_renamed(Date var0) {
@@ -23,7 +20,7 @@ public class do {
 
    static final void ku_renamed(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       if (var2 >= 1 && var3 >= 1 && var2 <= 102 && var3 <= 102) {
-         if (Client.cu && var0 != GameShell.plane * -1727408401) {
+         if (Client.cu && var0 != GameShell.mh * -1727408401) {
             return;
          }
 
@@ -32,71 +29,78 @@ public class do {
          boolean var12 = false;
          boolean var13 = false;
          if (0 == var1) {
-            var9 = bx.scene.by(var0, var2, var3);
+            var9 = bx.js.by(var0, var2, var3);
          }
 
          if (var1 == 1) {
-            var9 = bx.scene.bb(var0, var2, var3);
+            var9 = bx.js.bb(var0, var2, var3);
          }
 
          if (var1 == 2) {
-            var9 = bx.scene.bi(var0, var2, var3);
+            var9 = bx.js.bi(var0, var2, var3);
          }
 
          if (3 == var1) {
-            var9 = bx.scene.be(var0, var2, var3);
+            var9 = bx.js.be(var0, var2, var3);
          }
 
          int var14;
          if (var9 != 0L) {
-            var14 = bx.scene.bk(var0, var2, var3, var9);
+            var14 = bx.js.bk(var0, var2, var3, var9);
             int var16 = InterfaceParent.at(var9);
             int var17 = var14 & 31;
             int var18 = var14 >> 6 & 3;
             hq var15;
             if (0 == var1) {
-               bx.scene.ar(var0, var2, var3);
+               bx.js.ar(var0, var2, var3);
                var15 = fw.an_renamed(var16);
                if (0 != var15.am * -973955889) {
-                  Client.collisionMaps[var0].aq(var2, var3, var17, var18, var15.as);
+                  Client.jr[var0].aq(var2, var3, var17, var18, var15.as);
                }
             }
 
             if (1 == var1) {
-               bx.scene.am(var0, var2, var3);
+               bx.js.am(var0, var2, var3);
             }
 
             if (var1 == 2) {
-               bx.scene.as(var0, var2, var3);
+               bx.js.as(var0, var2, var3);
                var15 = fw.an_renamed(var16);
                if (-1339930361 * var15.av + var2 > 103 || -1339930361 * var15.av + var3 > 103 || var2 + var15.ar * -1659393955 > 103 || -1659393955 * var15.ar + var3 > 103) {
                   return;
                }
 
                if (-973955889 * var15.am != 0) {
-                  Client.collisionMaps[var0].al(var2, var3, -1339930361 * var15.av, var15.ar * -1659393955, var18, var15.as);
+                  Client.jr[var0].al(var2, var3, -1339930361 * var15.av, var15.ar * -1659393955, var18, var15.as);
                }
             }
 
             if (3 == var1) {
-               bx.scene.aj(var0, var2, var3);
+               bx.js.aj(var0, var2, var3);
                var15 = fw.an_renamed(var16);
                if (-973955889 * var15.am == 1) {
-                  Client.collisionMaps[var0].aa(var2, var3);
+                  Client.jr[var0].aa(var2, var3);
                }
             }
          }
 
          if (var4 >= 0) {
             var14 = var0;
-            if (var0 < 3 && 2 == (Tiles.Tiles_renderFlags[1][var2][var3] & 2)) {
+            if (var0 < 3 && 2 == (Tiles.an[1][var2][var3] & 2)) {
                var14 = var0 + 1;
             }
 
-            gh.ak_renamed(var0, var14, var2, var3, var4, var5, var6, var7, bx.scene, Client.collisionMaps[var0]);
+            gh.ak_renamed(var0, var14, var2, var3, var4, var5, var6, var7, bx.js, Client.jr[var0]);
          }
       }
 
+   }
+
+   static void kf_renamed(int var0, int var1) {
+      PacketBitNode var3 = mi.an_renamed(ClientProt.cp, Client.in.au);
+      var3.aw.el(var0);
+      var3.aw.p2LE(var1);
+      Client.in.aw(var3);
    }
 
    static boolean mz_renamed(int var0) {
@@ -107,9 +111,5 @@ public class do {
       }
 
       return false;
-   }
-
-   do() throws Throwable {
-      throw new Error();
    }
 }

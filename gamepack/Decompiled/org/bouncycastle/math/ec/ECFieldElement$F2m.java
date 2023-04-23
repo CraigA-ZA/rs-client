@@ -4,9 +4,9 @@ import java.math.BigInteger;
 import org.bouncycastle.util.Arrays;
 
 public class ECFieldElement$F2m extends ECFieldElement {
+   int m;
    int representation;
    int[] ks;
-   int m;
    LongArray x;
 
    public static void checkFieldElements(ECFieldElement var0, ECFieldElement var1) {

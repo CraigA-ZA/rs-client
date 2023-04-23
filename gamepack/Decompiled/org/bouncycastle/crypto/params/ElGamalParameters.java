@@ -4,9 +4,9 @@ import java.math.BigInteger;
 import org.bouncycastle.crypto.CipherParameters;
 
 public class ElGamalParameters implements CipherParameters {
+   int l;
    BigInteger g;
    BigInteger p;
-   int l;
 
    public ElGamalParameters(BigInteger var1, BigInteger var2) {
       this(var1, var2, 0);

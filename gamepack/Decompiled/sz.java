@@ -2,31 +2,28 @@ public class sz extends DualNode {
    public static EvictingDualNodeHashTable an = new EvictingDualNodeHashTable(64);
    static AbstractArchive af;
    int[][] ac;
-   public int au = 1229882107;
    Object[][] aw;
+   public int au = 1229882107;
 
-   void aw(Packet var1) {
+   sz() {
+   }
+
+   void decode(Packet var1) {
       while(true) {
          int var3 = var1.g1();
          if (var3 == 0) {
             return;
          }
 
-         this.au(var1, var3);
+         this.decode0(var1, var3);
       }
-   }
-
-   void ab() {
-   }
-
-   sz() {
    }
 
    public Object[] ac(int var1) {
       return this.aw == null ? null : this.aw[var1];
    }
 
-   void au(Packet var1, int var2) {
+   void decode0(Packet var1, int var2) {
       if (var2 == 3) {
          int var4 = var1.g1();
          if (this.aw == null) {
@@ -49,5 +46,8 @@ public class sz extends DualNode {
          this.au = var1.dr((byte)53) * -1229882107;
       }
 
+   }
+
+   void ab() {
    }
 }

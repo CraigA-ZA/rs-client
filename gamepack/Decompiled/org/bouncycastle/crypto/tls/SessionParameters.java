@@ -6,13 +6,13 @@ import java.util.Hashtable;
 import org.bouncycastle.util.Arrays;
 
 public final class SessionParameters {
+   byte[] encodedServerExtensions;
+   byte[] masterSecret;
+   byte[] pskIdentity;
    byte[] srpIdentity;
-   short compressionAlgorithm;
    int cipherSuite;
    Certificate peerCertificate;
-   byte[] pskIdentity;
-   byte[] masterSecret;
-   byte[] encodedServerExtensions;
+   short compressionAlgorithm;
 
    public Hashtable readServerExtensions() throws IOException {
       if (this.encodedServerExtensions == null) {

@@ -13,8 +13,8 @@ import org.bouncycastle.asn1.DERBitString;
 import org.bouncycastle.asn1.DERSequence;
 
 public class SubjectPublicKeyInfo extends ASN1Object {
-   AlgorithmIdentifier algId;
    DERBitString keyData;
+   AlgorithmIdentifier algId;
 
    public AlgorithmIdentifier getAlgorithm() {
       return this.algId;

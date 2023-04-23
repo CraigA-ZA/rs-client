@@ -9,8 +9,8 @@ import org.bouncycastle.util.io.Streams;
 
 public class ASN1InputStream extends FilterInputStream implements BERTags {
    final boolean lazyEvaluate;
-   final int limit;
    final byte[][] tmpBuffers;
+   final int limit;
 
    static char[] getBMPCharBuffer(DefiniteLengthInputStream var0) throws IOException {
       int var1 = var0.getRemaining() / 2;

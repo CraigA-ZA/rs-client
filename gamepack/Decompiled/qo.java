@@ -1,7 +1,7 @@
 public class qo {
    static IndexedSprite aq;
-   static final int[] au = new int[16384];
    static final int[] ab = new int[16384];
+   static final int[] au = new int[16384];
 
    static {
       double var0 = 3.834951969714103E-4;

@@ -11,9 +11,9 @@ import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 
 public class DSASigner implements DSA {
-   final DSAKCalculator kCalculator;
-   DSAKeyParameters key;
    SecureRandom random;
+   DSAKeyParameters key;
+   final DSAKCalculator kCalculator;
 
    BigInteger calculateE(BigInteger var1, byte[] var2) {
       if (var1.bitLength() >= var2.length * 8) {

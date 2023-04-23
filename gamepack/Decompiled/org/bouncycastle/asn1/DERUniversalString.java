@@ -5,8 +5,8 @@ import java.io.IOException;
 import org.bouncycastle.util.Arrays;
 
 public class DERUniversalString extends ASN1Primitive implements ASN1String {
-   final byte[] string;
    static final char[] table = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+   final byte[] string;
 
    public DERUniversalString(byte[] var1) {
       this.string = Arrays.clone(var1);

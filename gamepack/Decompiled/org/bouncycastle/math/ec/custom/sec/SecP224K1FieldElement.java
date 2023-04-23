@@ -7,9 +7,9 @@ import org.bouncycastle.math.raw.Nat224;
 import org.bouncycastle.util.Arrays;
 
 public class SecP224K1FieldElement extends ECFieldElement {
+   public static final BigInteger Q;
    static final int[] PRECOMP_POW2;
    public int[] x;
-   public static final BigInteger Q;
 
    public int ahv() {
       return Q.hashCode() ^ Arrays.hashCode((int[])this.x, 0, 7);

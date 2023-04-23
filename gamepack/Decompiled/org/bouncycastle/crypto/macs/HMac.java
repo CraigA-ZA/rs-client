@@ -10,14 +10,14 @@ import org.bouncycastle.util.Integers;
 import org.bouncycastle.util.Memoable;
 
 public class HMac implements Mac {
-   int digestSize;
-   Digest digest;
-   Memoable opadState;
-   int blockLength;
-   Memoable ipadState;
+   static Hashtable blockLengths = new Hashtable();
    byte[] inputPad;
    byte[] outputBuf;
-   static Hashtable blockLengths = new Hashtable();
+   int blockLength;
+   int digestSize;
+   Digest digest;
+   Memoable ipadState;
+   Memoable opadState;
 
    public void reset() {
       this.digest.reset();

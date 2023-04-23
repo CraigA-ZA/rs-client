@@ -7,8 +7,8 @@ import org.bouncycastle.math.raw.Nat256;
 import org.bouncycastle.util.Arrays;
 
 public class Curve25519FieldElement extends ECFieldElement {
-   static final int[] PRECOMP_POW2;
    public static final BigInteger Q;
+   static final int[] PRECOMP_POW2;
    public int[] x;
 
    public boolean gm(Object var1) {

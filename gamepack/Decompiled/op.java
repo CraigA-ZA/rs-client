@@ -1,18 +1,6 @@
 public class op {
-   public static void clearIntArray(int[] var0, int var1, int var2) {
-      for(var2 = var1 + var2 - 7; var1 < var2; var0[var1++] = 0) {
-         var0[var1++] = 0;
-         var0[var1++] = 0;
-         var0[var1++] = 0;
-         var0[var1++] = 0;
-         var0[var1++] = 0;
-         var0[var1++] = 0;
-         var0[var1++] = 0;
-      }
-
-      for(var2 += 7; var1 < var2; var0[var1++] = 0) {
-      }
-
+   op() throws Throwable {
+      throw new Error();
    }
 
    public static void af_renamed(byte[] var0, int var1, byte[] var2, int var3, int var4) {
@@ -61,7 +49,19 @@ public class op {
 
    }
 
-   op() throws Throwable {
-      throw new Error();
+   public static void clearIntArray(int[] var0, int var1, int var2) {
+      for(var2 = var1 + var2 - 7; var1 < var2; var0[var1++] = 0) {
+         var0[var1++] = 0;
+         var0[var1++] = 0;
+         var0[var1++] = 0;
+         var0[var1++] = 0;
+         var0[var1++] = 0;
+         var0[var1++] = 0;
+         var0[var1++] = 0;
+      }
+
+      for(var2 += 7; var1 < var2; var0[var1++] = 0) {
+      }
+
    }
 }

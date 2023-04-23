@@ -1,38 +1,38 @@
 public class RawSound extends AbstractSound {
-   public byte[] samples;
+   int ac;
    public boolean au;
-   public int sampleRate;
-   int end;
-   public int start;
+   public byte[] an;
+   public int af;
+   public int aw;
+
+   RawSound(int var1, byte[] var2, int var3, int var4) {
+      this.af = var1;
+      this.an = var2;
+      this.aw = var3;
+      this.ac = var4;
+   }
 
    RawSound(int var1, byte[] var2, int var3, int var4, boolean var5) {
-      this.sampleRate = var1;
-      this.samples = var2;
-      this.start = var3;
-      this.end = var4;
+      this.af = var1;
+      this.an = var2;
+      this.aw = var3;
+      this.ac = var4;
       this.au = var5;
    }
 
    public RawSound resample(Decimator var1) {
-      this.samples = var1.resample(this.samples);
-      this.sampleRate = var1.scaleRate(this.sampleRate);
-      if (this.start == this.end) {
-         this.start = this.end = var1.scalePosition(this.start);
+      this.an = var1.resample(this.an);
+      this.af = var1.scaleRate(this.af);
+      if (this.aw == this.ac) {
+         this.aw = this.ac = var1.scalePosition(this.aw);
       } else {
-         this.start = var1.scalePosition(this.start);
-         this.end = var1.scalePosition(this.end);
-         if (this.start == this.end) {
-            --this.start;
+         this.aw = var1.scalePosition(this.aw);
+         this.ac = var1.scalePosition(this.ac);
+         if (this.aw == this.ac) {
+            --this.aw;
          }
       }
 
       return this;
-   }
-
-   RawSound(int var1, byte[] var2, int var3, int var4) {
-      this.sampleRate = var1;
-      this.samples = var2;
-      this.start = var3;
-      this.end = var4;
    }
 }

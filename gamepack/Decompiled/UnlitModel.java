@@ -1,46 +1,59 @@
 public class UnlitModel extends Entity {
-   static int[] UnlitModel_cosine;
-   int[][] bb;
-   int verticesCount = 0;
-   int[] au;
-   int[] ab;
-   int[] aq;
-   int faceCount = 0;
-   int[] at;
-   int[] ay;
-   int[] ad;
-   byte[] ax;
-   public short bz;
-   byte[] ag;
-   short[] faceColors;
-   short[] faceTextures;
-   byte ar = 0;
-   int[][] ap;
-   byte[] as;
-   short[] aj;
-   public short bo;
-   int bs;
-   static int[] UnlitModel_sine;
-   int[] ae;
-   short[] az;
-   int[][] by;
-   int bj;
-   int[][] bi;
-   ir[] be;
-   VertexNormal[] bx;
-   byte[] ao;
-   int am;
-   byte[] ai;
-   boolean isBoundsCalculated = false;
-   int bd;
-   int bt;
-   short[] ak;
-   int bn;
-   static int[] br = new int[10000];
-   static int[] bg = new int[10000];
    static int bu = 0;
+   static int[] bf;
+   static int[] bg = new int[10000];
+   static int[] bq;
+   static int[] br = new int[10000];
+   boolean bm = false;
+   byte ar = 0;
+   byte[] ag;
+   byte[] ai;
+   byte[] ao;
+   byte[] as;
+   byte[] ax;
    VertexNormal[] bk;
+   VertexNormal[] bx;
+   int ac = 0;
+   int al = 0;
+   int am;
+   int bd;
+   int bj;
+   int bn;
+   int bs;
+   int bt;
    int[] aa;
+   int[] ab;
+   int[] ad;
+   int[] ae;
+   int[] aq;
+   int[] at;
+   int[] au;
+   int[] ay;
+   int[][] ap;
+   int[][] bb;
+   int[][] bi;
+   int[][] by;
+   ir[] be;
+   short[] ah;
+   short[] aj;
+   short[] ak;
+   short[] av;
+   short[] az;
+   public short bo;
+   public short bz;
+
+   static {
+      bf = in.ac;
+      bq = in.au;
+   }
+
+   UnlitModel() {
+   }
+
+   public static UnlitModel af_renamed(AbstractArchive var0, int var1, int var2) {
+      byte[] var3 = var0.takeFile(var1, var2);
+      return var3 == null ? null : new UnlitModel(var3);
+   }
 
    UnlitModel(byte[] var1) {
       Packet var2 = new Packet(10);
@@ -50,7 +63,7 @@ public class UnlitModel extends Entity {
       } else if (var1[var1.length - 1] == -2 && var1[var1.length - 2] == -1) {
          this.ac(var1);
       } else if (var1[var1.length - 1] == -1 && var1[var1.length - 2] == -1) {
-         this.at(var1);
+         this.readMetrics(var1);
       } else {
          this.aa(var1);
       }
@@ -65,7 +78,7 @@ public class UnlitModel extends Entity {
       Packet var6 = new Packet(var1);
       Packet var7 = new Packet(var1);
       Packet var8 = new Packet(var1);
-      var2.index = (var1.length - 26) * -1516355947;
+      var2.at = (var1.length - 26) * -1516355947;
       int var9 = var2.cl();
       int var10 = var2.cl();
       int var11 = var2.g1();
@@ -88,7 +101,7 @@ public class UnlitModel extends Entity {
       int var28;
       if (var11 > 0) {
          this.as = new byte[var11];
-         var2.index = 0;
+         var2.at = 0;
 
          for(var28 = 0; var28 < var11; ++var28) {
             byte var29 = this.as[var28] = var2.g1s();
@@ -160,8 +173,8 @@ public class UnlitModel extends Entity {
       var28 += var26;
       int var48 = var28;
       var28 += var26 * 2 + var27 * 2;
-      this.verticesCount = var9;
-      this.faceCount = var10;
+      this.ac = var9;
+      this.al = var10;
       this.am = var11;
       this.au = new int[var9];
       this.ab = new int[var9];
@@ -192,7 +205,7 @@ public class UnlitModel extends Entity {
       }
 
       if (var16 == 1) {
-         this.faceTextures = new short[var10];
+         this.av = new short[var10];
       }
 
       if (var16 == 1 && var11 > 0) {
@@ -204,18 +217,18 @@ public class UnlitModel extends Entity {
          this.bi = new int[var9][];
       }
 
-      this.faceColors = new short[var10];
+      this.ah = new short[var10];
       if (var11 > 0) {
          this.aj = new short[var11];
          this.ak = new short[var11];
          this.az = new short[var11];
       }
 
-      var2.index = var11 * -1516355947;
-      var3.index = var40 * -1516355947;
-      var4.index = var41 * -1516355947;
-      var5.index = var42 * -1516355947;
-      var6.index = var34 * -1516355947;
+      var2.at = var11 * -1516355947;
+      var3.at = var40 * -1516355947;
+      var4.at = var41 * -1516355947;
+      var5.at = var42 * -1516355947;
+      var6.at = var34 * -1516355947;
       int var50 = 0;
       int var51 = 0;
       int var52 = 0;
@@ -266,16 +279,16 @@ public class UnlitModel extends Entity {
          }
       }
 
-      var2.index = var39 * -1516355947;
-      var3.index = var30 * -1516355947;
-      var4.index = var32 * -1516355947;
-      var5.index = var35 * -1516355947;
-      var6.index = var33 * -1516355947;
-      var7.index = var37 * -1516355947;
-      var8.index = var38 * -1516355947;
+      var2.at = var39 * -1516355947;
+      var3.at = var30 * -1516355947;
+      var4.at = var32 * -1516355947;
+      var5.at = var35 * -1516355947;
+      var6.at = var33 * -1516355947;
+      var7.at = var37 * -1516355947;
+      var8.at = var38 * -1516355947;
 
       for(var53 = 0; var53 < var10; ++var53) {
-         this.faceColors[var53] = (short)var2.cl();
+         this.ah[var53] = (short)var2.cl();
          if (var12 == 1) {
             this.ao[var53] = var3.g1s();
          }
@@ -293,16 +306,16 @@ public class UnlitModel extends Entity {
          }
 
          if (var16 == 1) {
-            this.faceTextures[var53] = (short)(var7.cl() - 1);
+            this.av[var53] = (short)(var7.cl() - 1);
          }
 
-         if (this.ag != null && this.faceTextures[var53] != -1) {
+         if (this.ag != null && this.av[var53] != -1) {
             this.ag[var53] = (byte)(var8.g1() - 1);
          }
       }
 
-      var2.index = var36 * -1516355947;
-      var3.index = var31 * -1516355947;
+      var2.at = var36 * -1516355947;
+      var3.at = var31 * -1516355947;
       var53 = 0;
       var54 = 0;
       var55 = 0;
@@ -351,12 +364,12 @@ public class UnlitModel extends Entity {
          }
       }
 
-      var2.index = var43 * -1516355947;
-      var3.index = var44 * -1516355947;
-      var4.index = var45 * -1516355947;
-      var5.index = var46 * -1516355947;
-      var6.index = var47 * -1516355947;
-      var7.index = var48 * -1516355947;
+      var2.at = var43 * -1516355947;
+      var3.at = var44 * -1516355947;
+      var4.at = var45 * -1516355947;
+      var5.at = var46 * -1516355947;
+      var6.at = var47 * -1516355947;
+      var7.at = var48 * -1516355947;
 
       for(var57 = 0; var57 < var11; ++var57) {
          var58 = this.as[var57] & 255;
@@ -367,7 +380,7 @@ public class UnlitModel extends Entity {
          }
       }
 
-      var2.index = var28 * -1516355947;
+      var2.at = var28 * -1516355947;
       var57 = var2.g1();
       if (var57 != 0) {
          new UnlitModel0();
@@ -379,7 +392,301 @@ public class UnlitModel extends Entity {
 
    }
 
-   void at(byte[] var1) {
+   void ac(byte[] var1) {
+      boolean var2 = false;
+      boolean var3 = false;
+      Packet var4 = new Packet(var1);
+      Packet var5 = new Packet(var1);
+      Packet var6 = new Packet(var1);
+      Packet var7 = new Packet(var1);
+      Packet var8 = new Packet(var1);
+      var4.at = (var1.length - 23) * -1516355947;
+      int var9 = var4.cl();
+      int var10 = var4.cl();
+      int var11 = var4.g1();
+      int var12 = var4.g1();
+      int var13 = var4.g1();
+      int var14 = var4.g1();
+      int var15 = var4.g1();
+      int var16 = var4.g1();
+      int var17 = var4.g1();
+      int var18 = var4.cl();
+      int var19 = var4.cl();
+      int var20 = var4.cl();
+      int var21 = var4.cl();
+      int var22 = var4.cl();
+      int var23 = 0;
+      byte var24 = (byte)var23;
+      var23 += var9;
+      int var25 = var23;
+      var23 += var10;
+      int var26 = var23;
+      if (var13 == 255) {
+         var23 += var10;
+      }
+
+      int var27 = var23;
+      if (var15 == 1) {
+         var23 += var10;
+      }
+
+      int var28 = var23;
+      if (var12 == 1) {
+         var23 += var10;
+      }
+
+      int var29 = var23;
+      var23 += var22;
+      int var30 = var23;
+      if (var14 == 1) {
+         var23 += var10;
+      }
+
+      int var31 = var23;
+      var23 += var21;
+      int var32 = var23;
+      var23 += var10 * 2;
+      int var33 = var23;
+      var23 += var11 * 6;
+      int var34 = var23;
+      var23 += var18;
+      int var35 = var23;
+      var23 += var19;
+      int var10000 = var23 + var20;
+      this.ac = var9;
+      this.al = var10;
+      this.am = var11;
+      this.au = new int[var9];
+      this.ab = new int[var9];
+      this.aq = new int[var9];
+      this.at = new int[var10];
+      this.aa = new int[var10];
+      this.ay = new int[var10];
+      if (var11 > 0) {
+         this.as = new byte[var11];
+         this.aj = new short[var11];
+         this.ak = new short[var11];
+         this.az = new short[var11];
+      }
+
+      if (var16 == 1) {
+         this.ad = new int[var9];
+      }
+
+      if (var12 == 1) {
+         this.ao = new byte[var10];
+         this.ag = new byte[var10];
+         this.av = new short[var10];
+      }
+
+      if (var13 == 255) {
+         this.ax = new byte[var10];
+      } else {
+         this.ar = (byte)var13;
+      }
+
+      if (var14 == 1) {
+         this.ai = new byte[var10];
+      }
+
+      if (var15 == 1) {
+         this.ae = new int[var10];
+      }
+
+      if (var17 == 1) {
+         this.bb = new int[var9][];
+         this.bi = new int[var9][];
+      }
+
+      this.ah = new short[var10];
+      var4.at = var24 * -1516355947;
+      var5.at = var34 * -1516355947;
+      var6.at = var35 * -1516355947;
+      var7.at = var23 * -1516355947;
+      var8.at = var29 * -1516355947;
+      int var37 = 0;
+      int var38 = 0;
+      int var39 = 0;
+
+      int var40;
+      int var41;
+      int var42;
+      int var43;
+      int var44;
+      for(var40 = 0; var40 < var9; ++var40) {
+         var41 = var4.g1();
+         var42 = 0;
+         if ((var41 & 1) != 0) {
+            var42 = var5.gSmart1or2s();
+         }
+
+         var43 = 0;
+         if ((var41 & 2) != 0) {
+            var43 = var6.gSmart1or2s();
+         }
+
+         var44 = 0;
+         if ((var41 & 4) != 0) {
+            var44 = var7.gSmart1or2s();
+         }
+
+         this.au[var40] = var37 + var42;
+         this.ab[var40] = var38 + var43;
+         this.aq[var40] = var39 + var44;
+         var37 = this.au[var40];
+         var38 = this.ab[var40];
+         var39 = this.aq[var40];
+         if (var16 == 1) {
+            this.ad[var40] = var8.g1();
+         }
+      }
+
+      if (var17 == 1) {
+         for(var40 = 0; var40 < var9; ++var40) {
+            var41 = var8.g1();
+            this.bb[var40] = new int[var41];
+            this.bi[var40] = new int[var41];
+
+            for(var42 = 0; var42 < var41; ++var42) {
+               this.bb[var40][var42] = var8.g1();
+               this.bi[var40][var42] = var8.g1();
+            }
+         }
+      }
+
+      var4.at = var32 * -1516355947;
+      var5.at = var28 * -1516355947;
+      var6.at = var26 * -1516355947;
+      var7.at = var30 * -1516355947;
+      var8.at = var27 * -1516355947;
+
+      for(var40 = 0; var40 < var10; ++var40) {
+         this.ah[var40] = (short)var4.cl();
+         if (var12 == 1) {
+            var41 = var5.g1();
+            if ((var41 & 1) == 1) {
+               this.ao[var40] = 1;
+               var2 = true;
+            } else {
+               this.ao[var40] = 0;
+            }
+
+            if ((var41 & 2) == 2) {
+               this.ag[var40] = (byte)(var41 >> 2);
+               this.av[var40] = this.ah[var40];
+               this.ah[var40] = 127;
+               if (this.av[var40] != -1) {
+                  var3 = true;
+               }
+            } else {
+               this.ag[var40] = -1;
+               this.av[var40] = -1;
+            }
+         }
+
+         if (var13 == 255) {
+            this.ax[var40] = var6.g1s();
+         }
+
+         if (var14 == 1) {
+            this.ai[var40] = var7.g1s();
+         }
+
+         if (var15 == 1) {
+            this.ae[var40] = var8.g1();
+         }
+      }
+
+      var4.at = var31 * -1516355947;
+      var5.at = var25 * -1516355947;
+      var40 = 0;
+      var41 = 0;
+      var42 = 0;
+      var43 = 0;
+
+      int var45;
+      int var46;
+      for(var44 = 0; var44 < var10; ++var44) {
+         var45 = var5.g1();
+         if (var45 == 1) {
+            var40 = var4.gSmart1or2s() + var43;
+            var41 = var4.gSmart1or2s() + var40;
+            var42 = var4.gSmart1or2s() + var41;
+            var43 = var42;
+            this.at[var44] = var40;
+            this.aa[var44] = var41;
+            this.ay[var44] = var42;
+         }
+
+         if (var45 == 2) {
+            var41 = var42;
+            var42 = var4.gSmart1or2s() + var43;
+            var43 = var42;
+            this.at[var44] = var40;
+            this.aa[var44] = var41;
+            this.ay[var44] = var42;
+         }
+
+         if (var45 == 3) {
+            var40 = var42;
+            var42 = var4.gSmart1or2s() + var43;
+            var43 = var42;
+            this.at[var44] = var40;
+            this.aa[var44] = var41;
+            this.ay[var44] = var42;
+         }
+
+         if (var45 == 4) {
+            var46 = var40;
+            var40 = var41;
+            var41 = var46;
+            var42 = var4.gSmart1or2s() + var43;
+            var43 = var42;
+            this.at[var44] = var40;
+            this.aa[var44] = var46;
+            this.ay[var44] = var42;
+         }
+      }
+
+      var4.at = var33 * -1516355947;
+
+      for(var44 = 0; var44 < var11; ++var44) {
+         this.as[var44] = 0;
+         this.aj[var44] = (short)var4.cl();
+         this.ak[var44] = (short)var4.cl();
+         this.az[var44] = (short)var4.cl();
+      }
+
+      if (this.ag != null) {
+         boolean var49 = false;
+
+         for(var45 = 0; var45 < var10; ++var45) {
+            var46 = this.ag[var45] & 255;
+            if (var46 != 255) {
+               if ((this.aj[var46] & '\uffff') == this.at[var45] && (this.ak[var46] & '\uffff') == this.aa[var45] && (this.az[var46] & '\uffff') == this.ay[var45]) {
+                  this.ag[var45] = -1;
+               } else {
+                  var49 = true;
+               }
+            }
+         }
+
+         if (!var49) {
+            this.ag = null;
+         }
+      }
+
+      if (!var3) {
+         this.av = null;
+      }
+
+      if (!var2) {
+         this.ao = null;
+      }
+
+   }
+
+   void readMetrics(byte[] var1) {
       Packet var2 = new Packet(var1);
       Packet var3 = new Packet(var1);
       Packet var4 = new Packet(var1);
@@ -387,7 +694,7 @@ public class UnlitModel extends Entity {
       Packet var6 = new Packet(var1);
       Packet var7 = new Packet(var1);
       Packet var8 = new Packet(var1);
-      var2.index = (var1.length - 23) * -1516355947;
+      var2.at = (var1.length - 23) * -1516355947;
       int var9 = var2.cl();
       int var10 = var2.cl();
       int var11 = var2.g1();
@@ -408,7 +715,7 @@ public class UnlitModel extends Entity {
       int var26;
       if (var11 > 0) {
          this.as = new byte[var11];
-         var2.index = 0;
+         var2.at = 0;
 
          for(var26 = 0; var26 < var11; ++var26) {
             byte var27 = this.as[var26] = var2.g1s();
@@ -483,8 +790,8 @@ public class UnlitModel extends Entity {
       var26 += var24;
       int var46 = var26;
       var26 += var24 * 2 + var25 * 2;
-      this.verticesCount = var9;
-      this.faceCount = var10;
+      this.ac = var9;
+      this.al = var10;
       this.am = var11;
       this.au = new int[var9];
       this.ab = new int[var9];
@@ -515,25 +822,25 @@ public class UnlitModel extends Entity {
       }
 
       if (var16 == 1) {
-         this.faceTextures = new short[var10];
+         this.av = new short[var10];
       }
 
       if (var16 == 1 && var11 > 0) {
          this.ag = new byte[var10];
       }
 
-      this.faceColors = new short[var10];
+      this.ah = new short[var10];
       if (var11 > 0) {
          this.aj = new short[var11];
          this.ak = new short[var11];
          this.az = new short[var11];
       }
 
-      var2.index = var11 * -1516355947;
-      var3.index = var38 * -1516355947;
-      var4.index = var39 * -1516355947;
-      var5.index = var40 * -1516355947;
-      var6.index = var32 * -1516355947;
+      var2.at = var11 * -1516355947;
+      var3.at = var38 * -1516355947;
+      var4.at = var39 * -1516355947;
+      var5.at = var40 * -1516355947;
+      var6.at = var32 * -1516355947;
       int var48 = 0;
       int var49 = 0;
       int var50 = 0;
@@ -571,16 +878,16 @@ public class UnlitModel extends Entity {
          }
       }
 
-      var2.index = var37 * -1516355947;
-      var3.index = var28 * -1516355947;
-      var4.index = var30 * -1516355947;
-      var5.index = var33 * -1516355947;
-      var6.index = var31 * -1516355947;
-      var7.index = var35 * -1516355947;
-      var8.index = var36 * -1516355947;
+      var2.at = var37 * -1516355947;
+      var3.at = var28 * -1516355947;
+      var4.at = var30 * -1516355947;
+      var5.at = var33 * -1516355947;
+      var6.at = var31 * -1516355947;
+      var7.at = var35 * -1516355947;
+      var8.at = var36 * -1516355947;
 
       for(var51 = 0; var51 < var10; ++var51) {
-         this.faceColors[var51] = (short)var2.cl();
+         this.ah[var51] = (short)var2.cl();
          if (var12 == 1) {
             this.ao[var51] = var3.g1s();
          }
@@ -598,16 +905,16 @@ public class UnlitModel extends Entity {
          }
 
          if (var16 == 1) {
-            this.faceTextures[var51] = (short)(var7.cl() - 1);
+            this.av[var51] = (short)(var7.cl() - 1);
          }
 
-         if (this.ag != null && this.faceTextures[var51] != -1) {
+         if (this.ag != null && this.av[var51] != -1) {
             this.ag[var51] = (byte)(var8.g1() - 1);
          }
       }
 
-      var2.index = var34 * -1516355947;
-      var3.index = var29 * -1516355947;
+      var2.at = var34 * -1516355947;
+      var3.at = var29 * -1516355947;
       var51 = 0;
       var52 = 0;
       var53 = 0;
@@ -656,12 +963,12 @@ public class UnlitModel extends Entity {
          }
       }
 
-      var2.index = var41 * -1516355947;
-      var3.index = var42 * -1516355947;
-      var4.index = var43 * -1516355947;
-      var5.index = var44 * -1516355947;
-      var6.index = var45 * -1516355947;
-      var7.index = var46 * -1516355947;
+      var2.at = var41 * -1516355947;
+      var3.at = var42 * -1516355947;
+      var4.at = var43 * -1516355947;
+      var5.at = var44 * -1516355947;
+      var6.at = var45 * -1516355947;
+      var7.at = var46 * -1516355947;
 
       for(var55 = 0; var55 < var11; ++var55) {
          var56 = this.as[var55] & 255;
@@ -672,7 +979,7 @@ public class UnlitModel extends Entity {
          }
       }
 
-      var2.index = var26 * -1516355947;
+      var2.at = var26 * -1516355947;
       var55 = var2.g1();
       if (var55 != 0) {
          new UnlitModel0();
@@ -692,7 +999,7 @@ public class UnlitModel extends Entity {
       Packet var6 = new Packet(var1);
       Packet var7 = new Packet(var1);
       Packet var8 = new Packet(var1);
-      var4.index = (var1.length - 18) * -1516355947;
+      var4.at = (var1.length - 18) * -1516355947;
       int var9 = var4.cl();
       int var10 = var4.cl();
       int var11 = var4.g1();
@@ -746,8 +1053,8 @@ public class UnlitModel extends Entity {
       int var33 = var21;
       var21 += var18;
       int var10000 = var21 + var19;
-      this.verticesCount = var9;
-      this.faceCount = var10;
+      this.ac = var9;
+      this.al = var10;
       this.am = var11;
       this.au = new int[var9];
       this.ab = new int[var9];
@@ -769,7 +1076,7 @@ public class UnlitModel extends Entity {
       if (var12 == 1) {
          this.ao = new byte[var10];
          this.ag = new byte[var10];
-         this.faceTextures = new short[var10];
+         this.av = new short[var10];
       }
 
       if (var13 == 255) {
@@ -786,12 +1093,12 @@ public class UnlitModel extends Entity {
          this.ae = new int[var10];
       }
 
-      this.faceColors = new short[var10];
-      var4.index = var22 * -1516355947;
-      var5.index = var32 * -1516355947;
-      var6.index = var33 * -1516355947;
-      var7.index = var21 * -1516355947;
-      var8.index = var27 * -1516355947;
+      this.ah = new short[var10];
+      var4.at = var22 * -1516355947;
+      var5.at = var32 * -1516355947;
+      var6.at = var33 * -1516355947;
+      var7.at = var21 * -1516355947;
+      var8.at = var27 * -1516355947;
       int var35 = 0;
       int var36 = 0;
       int var37 = 0;
@@ -829,14 +1136,14 @@ public class UnlitModel extends Entity {
          }
       }
 
-      var4.index = var30 * -1516355947;
-      var5.index = var26 * -1516355947;
-      var6.index = var24 * -1516355947;
-      var7.index = var28 * -1516355947;
-      var8.index = var25 * -1516355947;
+      var4.at = var30 * -1516355947;
+      var5.at = var26 * -1516355947;
+      var6.at = var24 * -1516355947;
+      var7.at = var28 * -1516355947;
+      var8.at = var25 * -1516355947;
 
       for(var38 = 0; var38 < var10; ++var38) {
-         this.faceColors[var38] = (short)var4.cl();
+         this.ah[var38] = (short)var4.cl();
          if (var12 == 1) {
             var39 = var5.g1();
             if ((var39 & 1) == 1) {
@@ -848,14 +1155,14 @@ public class UnlitModel extends Entity {
 
             if ((var39 & 2) == 2) {
                this.ag[var38] = (byte)(var39 >> 2);
-               this.faceTextures[var38] = this.faceColors[var38];
-               this.faceColors[var38] = 127;
-               if (this.faceTextures[var38] != -1) {
+               this.av[var38] = this.ah[var38];
+               this.ah[var38] = 127;
+               if (this.av[var38] != -1) {
                   var3 = true;
                }
             } else {
                this.ag[var38] = -1;
-               this.faceTextures[var38] = -1;
+               this.av[var38] = -1;
             }
          }
 
@@ -872,8 +1179,8 @@ public class UnlitModel extends Entity {
          }
       }
 
-      var4.index = var29 * -1516355947;
-      var5.index = var23 * -1516355947;
+      var4.at = var29 * -1516355947;
+      var5.at = var23 * -1516355947;
       var38 = 0;
       var39 = 0;
       var40 = 0;
@@ -923,7 +1230,7 @@ public class UnlitModel extends Entity {
          }
       }
 
-      var4.index = var31 * -1516355947;
+      var4.at = var31 * -1516355947;
 
       for(var42 = 0; var42 < var11; ++var42) {
          this.as[var42] = 0;
@@ -952,7 +1259,7 @@ public class UnlitModel extends Entity {
       }
 
       if (!var3) {
-         this.faceTextures = null;
+         this.av = null;
       }
 
       if (!var2) {
@@ -969,8 +1276,8 @@ public class UnlitModel extends Entity {
       boolean var7 = false;
       boolean var8 = false;
       boolean var9 = false;
-      this.verticesCount = 0;
-      this.faceCount = 0;
+      this.ac = 0;
+      this.al = 0;
       this.am = 0;
       this.ar = -1;
 
@@ -979,8 +1286,8 @@ public class UnlitModel extends Entity {
       for(var10 = 0; var10 < var2; ++var10) {
          var11 = var1[var10];
          if (var11 != null) {
-            this.verticesCount += var11.verticesCount;
-            this.faceCount += var11.faceCount;
+            this.ac += var11.ac;
+            this.al += var11.al;
             this.am += var11.am;
             if (var11.ax != null) {
                var4 = true;
@@ -997,49 +1304,49 @@ public class UnlitModel extends Entity {
             var3 |= var11.ao != null;
             var5 |= var11.ai != null;
             var6 |= var11.ae != null;
-            var7 |= var11.faceTextures != null;
+            var7 |= var11.av != null;
             var8 |= var11.ag != null;
             var9 |= var11.bb != null;
          }
       }
 
-      this.au = new int[this.verticesCount];
-      this.ab = new int[this.verticesCount];
-      this.aq = new int[this.verticesCount];
-      this.ad = new int[this.verticesCount];
-      this.at = new int[this.faceCount];
-      this.aa = new int[this.faceCount];
-      this.ay = new int[this.faceCount];
+      this.au = new int[this.ac];
+      this.ab = new int[this.ac];
+      this.aq = new int[this.ac];
+      this.ad = new int[this.ac];
+      this.at = new int[this.al];
+      this.aa = new int[this.al];
+      this.ay = new int[this.al];
       if (var3) {
-         this.ao = new byte[this.faceCount];
+         this.ao = new byte[this.al];
       }
 
       if (var4) {
-         this.ax = new byte[this.faceCount];
+         this.ax = new byte[this.al];
       }
 
       if (var5) {
-         this.ai = new byte[this.faceCount];
+         this.ai = new byte[this.al];
       }
 
       if (var6) {
-         this.ae = new int[this.faceCount];
+         this.ae = new int[this.al];
       }
 
       if (var7) {
-         this.faceTextures = new short[this.faceCount];
+         this.av = new short[this.al];
       }
 
       if (var8) {
-         this.ag = new byte[this.faceCount];
+         this.ag = new byte[this.al];
       }
 
       if (var9) {
-         this.bb = new int[this.verticesCount][];
-         this.bi = new int[this.verticesCount][];
+         this.bb = new int[this.ac][];
+         this.bi = new int[this.ac][];
       }
 
-      this.faceColors = new short[this.faceCount];
+      this.ah = new short[this.al];
       if (this.am > 0) {
          this.as = new byte[this.am];
          this.aj = new short[this.am];
@@ -1047,56 +1354,56 @@ public class UnlitModel extends Entity {
          this.az = new short[this.am];
       }
 
-      this.verticesCount = 0;
-      this.faceCount = 0;
+      this.ac = 0;
+      this.al = 0;
       this.am = 0;
 
       for(var10 = 0; var10 < var2; ++var10) {
          var11 = var1[var10];
          if (var11 != null) {
             int var12;
-            for(var12 = 0; var12 < var11.faceCount; ++var12) {
+            for(var12 = 0; var12 < var11.al; ++var12) {
                if (var3 && var11.ao != null) {
-                  this.ao[this.faceCount] = var11.ao[var12];
+                  this.ao[this.al] = var11.ao[var12];
                }
 
                if (var4) {
                   if (var11.ax != null) {
-                     this.ax[this.faceCount] = var11.ax[var12];
+                     this.ax[this.al] = var11.ax[var12];
                   } else {
-                     this.ax[this.faceCount] = var11.ar;
+                     this.ax[this.al] = var11.ar;
                   }
                }
 
                if (var5 && var11.ai != null) {
-                  this.ai[this.faceCount] = var11.ai[var12];
+                  this.ai[this.al] = var11.ai[var12];
                }
 
                if (var6 && var11.ae != null) {
-                  this.ae[this.faceCount] = var11.ae[var12];
+                  this.ae[this.al] = var11.ae[var12];
                }
 
                if (var7) {
-                  if (var11.faceTextures != null) {
-                     this.faceTextures[this.faceCount] = var11.faceTextures[var12];
+                  if (var11.av != null) {
+                     this.av[this.al] = var11.av[var12];
                   } else {
-                     this.faceTextures[this.faceCount] = -1;
+                     this.av[this.al] = -1;
                   }
                }
 
                if (var8) {
                   if (var11.ag != null && var11.ag[var12] != -1) {
-                     this.ag[this.faceCount] = (byte)(var11.ag[var12] + this.am);
+                     this.ag[this.al] = (byte)(var11.ag[var12] + this.am);
                   } else {
-                     this.ag[this.faceCount] = -1;
+                     this.ag[this.al] = -1;
                   }
                }
 
-               this.faceColors[this.faceCount] = var11.faceColors[var12];
-               this.at[this.faceCount] = this.ay(var11, var11.at[var12]);
-               this.aa[this.faceCount] = this.ay(var11, var11.aa[var12]);
-               this.ay[this.faceCount] = this.ay(var11, var11.ay[var12]);
-               ++this.faceCount;
+               this.ah[this.al] = var11.ah[var12];
+               this.at[this.al] = this.ay(var11, var11.at[var12]);
+               this.aa[this.al] = this.ay(var11, var11.aa[var12]);
+               this.ay[this.al] = this.ay(var11, var11.ay[var12]);
+               ++this.al;
             }
 
             for(var12 = 0; var12 < var11.am; ++var12) {
@@ -1114,20 +1421,41 @@ public class UnlitModel extends Entity {
 
    }
 
-   static final int bi_renamed(int var0, int var1) {
-      var1 = var1 * (var0 & 127) >> 7;
-      if (var1 < 2) {
-         var1 = 2;
-      } else if (var1 > 126) {
-         var1 = 126;
+   final int ay(UnlitModel var1, int var2) {
+      int var3 = -1;
+      int var4 = var1.au[var2];
+      int var5 = var1.ab[var2];
+      int var6 = var1.aq[var2];
+
+      for(int var7 = 0; var7 < this.ac; ++var7) {
+         if (var4 == this.au[var7] && var5 == this.ab[var7] && var6 == this.aq[var7]) {
+            var3 = var7;
+            break;
+         }
       }
 
-      return (var0 & 'ﾀ') + var1;
+      if (var3 == -1) {
+         this.au[this.ac] = var4;
+         this.ab[this.ac] = var5;
+         this.aq[this.ac] = var6;
+         if (var1.ad != null) {
+            this.ad[this.ac] = var1.ad[var2];
+         }
+
+         if (var1.bb != null) {
+            this.bb[this.ac] = var1.bb[var2];
+            this.bi[this.ac] = var1.bi[var2];
+         }
+
+         var3 = this.ac++;
+      }
+
+      return var3;
    }
 
    public UnlitModel(UnlitModel var1, boolean var2, boolean var3, boolean var4, boolean var5) {
-      this.verticesCount = var1.verticesCount;
-      this.faceCount = var1.faceCount;
+      this.ac = var1.ac;
+      this.al = var1.al;
       this.am = var1.am;
       int var6;
       if (var2) {
@@ -1135,11 +1463,11 @@ public class UnlitModel extends Entity {
          this.ab = var1.ab;
          this.aq = var1.aq;
       } else {
-         this.au = new int[this.verticesCount];
-         this.ab = new int[this.verticesCount];
-         this.aq = new int[this.verticesCount];
+         this.au = new int[this.ac];
+         this.ab = new int[this.ac];
+         this.aq = new int[this.ac];
 
-         for(var6 = 0; var6 < this.verticesCount; ++var6) {
+         for(var6 = 0; var6 < this.ac; ++var6) {
             this.au[var6] = var1.au[var6];
             this.ab[var6] = var1.ab[var6];
             this.aq[var6] = var1.aq[var6];
@@ -1147,35 +1475,35 @@ public class UnlitModel extends Entity {
       }
 
       if (var3) {
-         this.faceColors = var1.faceColors;
+         this.ah = var1.ah;
       } else {
-         this.faceColors = new short[this.faceCount];
+         this.ah = new short[this.al];
 
-         for(var6 = 0; var6 < this.faceCount; ++var6) {
-            this.faceColors[var6] = var1.faceColors[var6];
+         for(var6 = 0; var6 < this.al; ++var6) {
+            this.ah[var6] = var1.ah[var6];
          }
       }
 
-      if (!var4 && var1.faceTextures != null) {
-         this.faceTextures = new short[this.faceCount];
+      if (!var4 && var1.av != null) {
+         this.av = new short[this.al];
 
-         for(var6 = 0; var6 < this.faceCount; ++var6) {
-            this.faceTextures[var6] = var1.faceTextures[var6];
+         for(var6 = 0; var6 < this.al; ++var6) {
+            this.av[var6] = var1.av[var6];
          }
       } else {
-         this.faceTextures = var1.faceTextures;
+         this.av = var1.av;
       }
 
       if (var5) {
          this.ai = var1.ai;
       } else {
-         this.ai = new byte[this.faceCount];
+         this.ai = new byte[this.al];
          if (var1.ai == null) {
-            for(var6 = 0; var6 < this.faceCount; ++var6) {
+            for(var6 = 0; var6 < this.al; ++var6) {
                this.ai[var6] = 0;
             }
          } else {
-            for(var6 = 0; var6 < this.faceCount; ++var6) {
+            for(var6 = 0; var6 < this.al; ++var6) {
                this.ai[var6] = var1.ai[var6];
             }
          }
@@ -1205,6 +1533,46 @@ public class UnlitModel extends Entity {
       this.bz = var1.bz;
    }
 
+   public UnlitModel ao() {
+      UnlitModel var1 = new UnlitModel();
+      if (this.ao != null) {
+         var1.ao = new byte[this.al];
+
+         for(int var2 = 0; var2 < this.al; ++var2) {
+            var1.ao[var2] = this.ao[var2];
+         }
+      }
+
+      var1.ac = this.ac;
+      var1.al = this.al;
+      var1.am = this.am;
+      var1.au = this.au;
+      var1.ab = this.ab;
+      var1.aq = this.aq;
+      var1.at = this.at;
+      var1.aa = this.aa;
+      var1.ay = this.ay;
+      var1.ax = this.ax;
+      var1.ai = this.ai;
+      var1.ag = this.ag;
+      var1.ah = this.ah;
+      var1.av = this.av;
+      var1.ar = this.ar;
+      var1.as = this.as;
+      var1.aj = this.aj;
+      var1.ak = this.ak;
+      var1.az = this.az;
+      var1.ad = this.ad;
+      var1.ae = this.ae;
+      var1.ap = this.ap;
+      var1.by = this.by;
+      var1.bk = this.bk;
+      var1.be = this.be;
+      var1.bo = this.bo;
+      var1.bz = this.bz;
+      return var1;
+   }
+
    public UnlitModel ax(int[][] var1, int var2, int var3, int var4, boolean var5, int var6) {
       this.ap();
       int var7 = var2 + this.bt;
@@ -1222,8 +1590,8 @@ public class UnlitModel extends Entity {
             UnlitModel var11;
             if (var5) {
                var11 = new UnlitModel();
-               var11.verticesCount = this.verticesCount;
-               var11.faceCount = this.faceCount;
+               var11.ac = this.ac;
+               var11.al = this.al;
                var11.am = this.am;
                var11.au = this.au;
                var11.aq = this.aq;
@@ -1234,8 +1602,8 @@ public class UnlitModel extends Entity {
                var11.ax = this.ax;
                var11.ai = this.ai;
                var11.ag = this.ag;
-               var11.faceColors = this.faceColors;
-               var11.faceTextures = this.faceTextures;
+               var11.ah = this.ah;
+               var11.av = this.av;
                var11.ar = this.ar;
                var11.as = this.as;
                var11.aj = this.aj;
@@ -1247,7 +1615,7 @@ public class UnlitModel extends Entity {
                var11.by = this.by;
                var11.bo = this.bo;
                var11.bz = this.bz;
-               var11.ab = new int[var11.verticesCount];
+               var11.ab = new int[var11.ac];
             } else {
                var11 = this;
             }
@@ -1263,7 +1631,7 @@ public class UnlitModel extends Entity {
             int var20;
             int var21;
             if (var6 == 0) {
-               for(var12 = 0; var12 < var11.verticesCount; ++var12) {
+               for(var12 = 0; var12 < var11.ac; ++var12) {
                   var13 = this.au[var12] + var2;
                   var14 = this.aq[var12] + var4;
                   var15 = var13 & 127;
@@ -1276,7 +1644,7 @@ public class UnlitModel extends Entity {
                   var11.ab[var12] = this.ab[var12] + var21 - var3;
                }
             } else {
-               for(var12 = 0; var12 < var11.verticesCount; ++var12) {
+               for(var12 = 0; var12 < var11.ac; ++var12) {
                   var13 = (-this.ab[var12] << 16) / (this.et * 1550732737);
                   if (var13 < var6) {
                      var14 = this.au[var12] + var2;
@@ -1301,57 +1669,6 @@ public class UnlitModel extends Entity {
       }
    }
 
-   public void ag() {
-      for(int var1 = 0; var1 < this.verticesCount; ++var1) {
-         int var2 = this.au[var1];
-         this.au[var1] = this.aq[var1];
-         this.aq[var1] = -var2;
-      }
-
-      this.invalidate();
-   }
-
-   public void av() {
-      for(int var1 = 0; var1 < this.verticesCount; ++var1) {
-         int var2 = this.aq[var1];
-         this.aq[var1] = this.au[var1];
-         this.au[var1] = -var2;
-      }
-
-      this.invalidate();
-   }
-
-   public void ah() {
-      for(int var1 = 0; var1 < this.verticesCount; ++var1) {
-         this.au[var1] = -this.au[var1];
-         this.aq[var1] = -this.aq[var1];
-      }
-
-      this.invalidate();
-   }
-
-   public void am(int var1, int var2, int var3) {
-      for(int var4 = 0; var4 < this.verticesCount; ++var4) {
-         int[] var10000 = this.au;
-         var10000[var4] += var1;
-         var10000 = this.ab;
-         var10000[var4] += var2;
-         var10000 = this.aq;
-         var10000[var4] += var3;
-      }
-
-      this.invalidate();
-   }
-
-   public void recolor(short var1, short var2) {
-      for(int var3 = 0; var3 < this.faceCount; ++var3) {
-         if (this.faceColors[var3] == var1) {
-            this.faceColors[var3] = var2;
-         }
-      }
-
-   }
-
    void ai() {
       int[] var1;
       int var2;
@@ -1362,7 +1679,7 @@ public class UnlitModel extends Entity {
          var1 = new int[256];
          var2 = 0;
 
-         for(var3 = 0; var3 < this.verticesCount; ++var3) {
+         for(var3 = 0; var3 < this.ac; ++var3) {
             var4 = this.ad[var3];
             var10002 = var1[var4]++;
             if (var4 > var2) {
@@ -1377,7 +1694,7 @@ public class UnlitModel extends Entity {
             var1[var3] = 0;
          }
 
-         for(var3 = 0; var3 < this.verticesCount; this.ap[var4][var1[var4]++] = var3++) {
+         for(var3 = 0; var3 < this.ac; this.ap[var4][var1[var4]++] = var3++) {
             var4 = this.ad[var3];
          }
 
@@ -1388,7 +1705,7 @@ public class UnlitModel extends Entity {
          var1 = new int[256];
          var2 = 0;
 
-         for(var3 = 0; var3 < this.faceCount; ++var3) {
+         for(var3 = 0; var3 < this.al; ++var3) {
             var4 = this.ae[var3];
             var10002 = var1[var4]++;
             if (var4 > var2) {
@@ -1403,7 +1720,7 @@ public class UnlitModel extends Entity {
             var1[var3] = 0;
          }
 
-         for(var3 = 0; var3 < this.faceCount; this.by[var4][var1[var4]++] = var3++) {
+         for(var3 = 0; var3 < this.al; this.by[var4][var1[var4]++] = var3++) {
             var4 = this.ae[var3];
          }
 
@@ -1412,13 +1729,88 @@ public class UnlitModel extends Entity {
 
    }
 
-   public void ak() {
-      int var1;
-      for(var1 = 0; var1 < this.verticesCount; ++var1) {
+   public void ag() {
+      for(int var1 = 0; var1 < this.ac; ++var1) {
+         int var2 = this.au[var1];
+         this.au[var1] = this.aq[var1];
+         this.aq[var1] = -var2;
+      }
+
+      this.invalidate();
+   }
+
+   public void ah() {
+      for(int var1 = 0; var1 < this.ac; ++var1) {
+         this.au[var1] = -this.au[var1];
          this.aq[var1] = -this.aq[var1];
       }
 
-      for(var1 = 0; var1 < this.faceCount; ++var1) {
+      this.invalidate();
+   }
+
+   public void av() {
+      for(int var1 = 0; var1 < this.ac; ++var1) {
+         int var2 = this.aq[var1];
+         this.aq[var1] = this.au[var1];
+         this.au[var1] = -var2;
+      }
+
+      this.invalidate();
+   }
+
+   public void ar(int var1) {
+      int var2 = bf[var1];
+      int var3 = bq[var1];
+
+      for(int var4 = 0; var4 < this.ac; ++var4) {
+         int var5 = this.aq[var4] * var2 + this.au[var4] * var3 >> 16;
+         this.aq[var4] = this.aq[var4] * var3 - this.au[var4] * var2 >> 16;
+         this.au[var4] = var5;
+      }
+
+      this.invalidate();
+   }
+
+   public void am(int var1, int var2, int var3) {
+      for(int var4 = 0; var4 < this.ac; ++var4) {
+         int[] var10000 = this.au;
+         var10000[var4] += var1;
+         var10000 = this.ab;
+         var10000[var4] += var2;
+         var10000 = this.aq;
+         var10000[var4] += var3;
+      }
+
+      this.invalidate();
+   }
+
+   public void recolor(short var1, short var2) {
+      for(int var3 = 0; var3 < this.al; ++var3) {
+         if (this.ah[var3] == var1) {
+            this.ah[var3] = var2;
+         }
+      }
+
+   }
+
+   public void retexture(short var1, short var2) {
+      if (this.av != null) {
+         for(int var3 = 0; var3 < this.al; ++var3) {
+            if (this.av[var3] == var1) {
+               this.av[var3] = var2;
+            }
+         }
+
+      }
+   }
+
+   public void ak() {
+      int var1;
+      for(var1 = 0; var1 < this.ac; ++var1) {
+         this.aq[var1] = -this.aq[var1];
+      }
+
+      for(var1 = 0; var1 < this.al; ++var1) {
          int var2 = this.at[var1];
          this.at[var1] = this.ay[var1];
          this.ay[var1] = var2;
@@ -1428,7 +1820,7 @@ public class UnlitModel extends Entity {
    }
 
    public void az(int var1, int var2, int var3) {
-      for(int var4 = 0; var4 < this.verticesCount; ++var4) {
+      for(int var4 = 0; var4 < this.ac; ++var4) {
          this.au[var4] = this.au[var4] * var1 / 128;
          this.ab[var4] = this.ab[var4] * var2 / 128;
          this.aq[var4] = this.aq[var4] * var3 / 128;
@@ -1437,15 +1829,89 @@ public class UnlitModel extends Entity {
       this.invalidate();
    }
 
+   public void ad() {
+      if (this.bk == null) {
+         this.bk = new VertexNormal[this.ac];
+
+         int var1;
+         for(var1 = 0; var1 < this.ac; ++var1) {
+            this.bk[var1] = new VertexNormal();
+         }
+
+         for(var1 = 0; var1 < this.al; ++var1) {
+            int var2 = this.at[var1];
+            int var3 = this.aa[var1];
+            int var4 = this.ay[var1];
+            int var5 = this.au[var3] - this.au[var2];
+            int var6 = this.ab[var3] - this.ab[var2];
+            int var7 = this.aq[var3] - this.aq[var2];
+            int var8 = this.au[var4] - this.au[var2];
+            int var9 = this.ab[var4] - this.ab[var2];
+            int var10 = this.aq[var4] - this.aq[var2];
+            int var11 = var6 * var10 - var9 * var7;
+            int var12 = var7 * var8 - var10 * var5;
+
+            int var13;
+            for(var13 = var5 * var9 - var8 * var6; var11 > 8192 || var12 > 8192 || var13 > 8192 || var11 < -8192 || var12 < -8192 || var13 < -8192; var13 >>= 1) {
+               var11 >>= 1;
+               var12 >>= 1;
+            }
+
+            int var14 = (int)Math.sqrt((double)(var11 * var11 + var12 * var12 + var13 * var13));
+            if (var14 <= 0) {
+               var14 = 1;
+            }
+
+            var11 = var11 * 256 / var14;
+            var12 = var12 * 256 / var14;
+            var13 = var13 * 256 / var14;
+            byte var15;
+            if (this.ao == null) {
+               var15 = 0;
+            } else {
+               var15 = this.ao[var1];
+            }
+
+            if (var15 == 0) {
+               VertexNormal var16 = this.bk[var2];
+               var16.af += var11 * 690600101;
+               var16.an += var12 * -1303307195;
+               var16.aw += var13 * 1279987923;
+               var16.ac += -1992029881;
+               var16 = this.bk[var3];
+               var16.af += var11 * 690600101;
+               var16.an += var12 * -1303307195;
+               var16.aw += var13 * 1279987923;
+               var16.ac += -1992029881;
+               var16 = this.bk[var4];
+               var16.af += var11 * 690600101;
+               var16.an += var12 * -1303307195;
+               var16.aw += var13 * 1279987923;
+               var16.ac += -1992029881;
+            } else if (var15 == 1) {
+               if (this.be == null) {
+                  this.be = new ir[this.al];
+               }
+
+               ir var23 = this.be[var1] = new ir();
+               var23.af = var11 * 769404891;
+               var23.an = var12 * -1145821753;
+               var23.aw = var13 * -2013236337;
+            }
+         }
+
+      }
+   }
+
    void invalidate() {
       this.bk = null;
       this.bx = null;
       this.be = null;
-      this.isBoundsCalculated = false;
+      this.bm = false;
    }
 
    void ap() {
-      if (!this.isBoundsCalculated) {
+      if (!this.bm) {
          this.et = 0;
          this.bd = 0;
          this.bt = 999999;
@@ -1453,7 +1919,7 @@ public class UnlitModel extends Entity {
          this.bn = -99999;
          this.bs = 99999;
 
-         for(int var1 = 0; var1 < this.verticesCount; ++var1) {
+         for(int var1 = 0; var1 < this.ac; ++var1) {
             int var2 = this.au[var1];
             int var3 = this.ab[var1];
             int var4 = this.aq[var1];
@@ -1482,7 +1948,7 @@ public class UnlitModel extends Entity {
             }
          }
 
-         this.isBoundsCalculated = true;
+         this.bm = true;
       }
    }
 
@@ -1494,10 +1960,10 @@ public class UnlitModel extends Entity {
       ++bu;
       int var6 = 0;
       int[] var7 = var1.au;
-      int var8 = var1.verticesCount;
+      int var8 = var1.ac;
 
       int var9;
-      for(var9 = 0; var9 < var0.verticesCount; ++var9) {
+      for(var9 = 0; var9 < var0.ac; ++var9) {
          VertexNormal var10 = var0.bk[var9];
          if (var10.ac * -1837445001 != 0) {
             int var11 = var0.ab[var9] - var3;
@@ -1510,7 +1976,7 @@ public class UnlitModel extends Entity {
                         VertexNormal var15 = var1.bk[var14];
                         if (var12 == var7[var14] && var13 == var1.aq[var14] && var11 == var1.ab[var14] && var15.ac * -1837445001 != 0) {
                            if (var0.bx == null) {
-                              var0.bx = new VertexNormal[var0.verticesCount];
+                              var0.bx = new VertexNormal[var0.ac];
                            }
 
                            if (var1.bx == null) {
@@ -1547,20 +2013,20 @@ public class UnlitModel extends Entity {
       }
 
       if (var6 >= 3 && var5) {
-         for(var9 = 0; var9 < var0.faceCount; ++var9) {
+         for(var9 = 0; var9 < var0.al; ++var9) {
             if (br[var0.at[var9]] == bu && br[var0.aa[var9]] == bu && br[var0.ay[var9]] == bu) {
                if (var0.ao == null) {
-                  var0.ao = new byte[var0.faceCount];
+                  var0.ao = new byte[var0.al];
                }
 
                var0.ao[var9] = 2;
             }
          }
 
-         for(var9 = 0; var9 < var1.faceCount; ++var9) {
+         for(var9 = 0; var9 < var1.al; ++var9) {
             if (bg[var1.at[var9]] == bu && bg[var1.aa[var9]] == bu && bg[var1.ay[var9]] == bu) {
                if (var1.ao == null) {
-                  var1.ao = new byte[var1.faceCount];
+                  var1.ao = new byte[var1.al];
                }
 
                var1.ao[var9] = 2;
@@ -1575,14 +2041,14 @@ public class UnlitModel extends Entity {
       int var6 = (int)Math.sqrt((double)(var3 * var3 + var4 * var4 + var5 * var5));
       int var7 = var2 * var6 >> 8;
       it var8 = new it();
-      var8.ah = new int[this.faceCount];
-      var8.av = new int[this.faceCount];
-      var8.ar = new int[this.faceCount];
+      var8.ah = new int[this.al];
+      var8.av = new int[this.al];
+      var8.ar = new int[this.al];
       if (this.am > 0 && this.ag != null) {
          int[] var9 = new int[this.am];
 
          int var10;
-         for(var10 = 0; var10 < this.faceCount; ++var10) {
+         for(var10 = 0; var10 < this.al; ++var10) {
             if (this.ag[var10] != -1) {
                ++var9[this.ag[var10] & 255];
             }
@@ -1613,9 +2079,9 @@ public class UnlitModel extends Entity {
             }
          }
 
-         var8.aj = new byte[this.faceCount];
+         var8.aj = new byte[this.al];
 
-         for(var11 = 0; var11 < this.faceCount; ++var11) {
+         for(var11 = 0; var11 < this.al; ++var11) {
             if (this.ag[var11] != -1) {
                var8.aj[var11] = (byte)var9[this.ag[var11] & 255];
             } else {
@@ -1624,7 +2090,7 @@ public class UnlitModel extends Entity {
          }
       }
 
-      for(int var22 = 0; var22 < this.faceCount; ++var22) {
+      for(int var22 = 0; var22 < this.al; ++var22) {
          byte var23;
          if (this.ao == null) {
             var23 = 0;
@@ -1640,10 +2106,10 @@ public class UnlitModel extends Entity {
          }
 
          short var12;
-         if (this.faceTextures == null) {
+         if (this.av == null) {
             var12 = -1;
          } else {
-            var12 = this.faceTextures[var22];
+            var12 = this.av[var22];
          }
 
          if (var24 == -2) {
@@ -1662,7 +2128,7 @@ public class UnlitModel extends Entity {
                if (var23 == 1) {
                   var25 = this.be[var22];
                   var14 = var1 + (var3 * var25.af * -18074541 + var4 * var25.an * 1542458359 + var5 * var25.aw * -446870673) / (var7 + var7 / 2);
-                  var8.ah[var22] = bi_renamed(this.faceColors[var22] & '\uffff', var14);
+                  var8.ah[var22] = bi_renamed(this.ah[var22] & '\uffff', var14);
                   var8.ar[var22] = -1;
                } else if (var23 == 3) {
                   var8.ah[var22] = 128;
@@ -1671,7 +2137,7 @@ public class UnlitModel extends Entity {
                   var8.ar[var22] = -2;
                }
             } else {
-               int var15 = this.faceColors[var22] & '\uffff';
+               int var15 = this.ah[var22] & '\uffff';
                if (this.bx != null && this.bx[this.at[var22]] != null) {
                   var13 = this.bx[this.at[var22]];
                } else {
@@ -1735,11 +2201,11 @@ public class UnlitModel extends Entity {
       }
 
       this.ai();
-      var8.al = this.verticesCount;
+      var8.al = this.ac;
       var8.at = this.au;
       var8.aa = this.ab;
       var8.ay = this.aq;
-      var8.ao = this.faceCount;
+      var8.ao = this.al;
       var8.ax = this.at;
       var8.ai = this.aa;
       var8.ag = this.ay;
@@ -1748,10 +2214,21 @@ public class UnlitModel extends Entity {
       var8.az = this.ar;
       var8.bb = this.ap;
       var8.bi = this.by;
-      var8.ak = this.faceTextures;
+      var8.ak = this.av;
       var8.be = this.bb;
       var8.bk = this.bi;
       return var8;
+   }
+
+   static final int bi_renamed(int var0, int var1) {
+      var1 = var1 * (var0 & 127) >> 7;
+      if (var1 < 2) {
+         var1 = 2;
+      } else if (var1 > 126) {
+         var1 = 126;
+      }
+
+      return (var0 & 'ﾀ') + var1;
    }
 
    static final int be_renamed(int var0) {
@@ -1762,482 +2239,5 @@ public class UnlitModel extends Entity {
       }
 
       return var0;
-   }
-
-   static {
-      UnlitModel_sine = in.ac;
-      UnlitModel_cosine = in.au;
-   }
-
-   public UnlitModel ao() {
-      UnlitModel var1 = new UnlitModel();
-      if (this.ao != null) {
-         var1.ao = new byte[this.faceCount];
-
-         for(int var2 = 0; var2 < this.faceCount; ++var2) {
-            var1.ao[var2] = this.ao[var2];
-         }
-      }
-
-      var1.verticesCount = this.verticesCount;
-      var1.faceCount = this.faceCount;
-      var1.am = this.am;
-      var1.au = this.au;
-      var1.ab = this.ab;
-      var1.aq = this.aq;
-      var1.at = this.at;
-      var1.aa = this.aa;
-      var1.ay = this.ay;
-      var1.ax = this.ax;
-      var1.ai = this.ai;
-      var1.ag = this.ag;
-      var1.faceColors = this.faceColors;
-      var1.faceTextures = this.faceTextures;
-      var1.ar = this.ar;
-      var1.as = this.as;
-      var1.aj = this.aj;
-      var1.ak = this.ak;
-      var1.az = this.az;
-      var1.ad = this.ad;
-      var1.ae = this.ae;
-      var1.ap = this.ap;
-      var1.by = this.by;
-      var1.bk = this.bk;
-      var1.be = this.be;
-      var1.bo = this.bo;
-      var1.bz = this.bz;
-      return var1;
-   }
-
-   final int ay(UnlitModel var1, int var2) {
-      int var3 = -1;
-      int var4 = var1.au[var2];
-      int var5 = var1.ab[var2];
-      int var6 = var1.aq[var2];
-
-      for(int var7 = 0; var7 < this.verticesCount; ++var7) {
-         if (var4 == this.au[var7] && var5 == this.ab[var7] && var6 == this.aq[var7]) {
-            var3 = var7;
-            break;
-         }
-      }
-
-      if (var3 == -1) {
-         this.au[this.verticesCount] = var4;
-         this.ab[this.verticesCount] = var5;
-         this.aq[this.verticesCount] = var6;
-         if (var1.ad != null) {
-            this.ad[this.verticesCount] = var1.ad[var2];
-         }
-
-         if (var1.bb != null) {
-            this.bb[this.verticesCount] = var1.bb[var2];
-            this.bi[this.verticesCount] = var1.bi[var2];
-         }
-
-         var3 = this.verticesCount++;
-      }
-
-      return var3;
-   }
-
-   void ac(byte[] var1) {
-      boolean var2 = false;
-      boolean var3 = false;
-      Packet var4 = new Packet(var1);
-      Packet var5 = new Packet(var1);
-      Packet var6 = new Packet(var1);
-      Packet var7 = new Packet(var1);
-      Packet var8 = new Packet(var1);
-      var4.index = (var1.length - 23) * -1516355947;
-      int var9 = var4.cl();
-      int var10 = var4.cl();
-      int var11 = var4.g1();
-      int var12 = var4.g1();
-      int var13 = var4.g1();
-      int var14 = var4.g1();
-      int var15 = var4.g1();
-      int var16 = var4.g1();
-      int var17 = var4.g1();
-      int var18 = var4.cl();
-      int var19 = var4.cl();
-      int var20 = var4.cl();
-      int var21 = var4.cl();
-      int var22 = var4.cl();
-      int var23 = 0;
-      byte var24 = (byte)var23;
-      var23 += var9;
-      int var25 = var23;
-      var23 += var10;
-      int var26 = var23;
-      if (var13 == 255) {
-         var23 += var10;
-      }
-
-      int var27 = var23;
-      if (var15 == 1) {
-         var23 += var10;
-      }
-
-      int var28 = var23;
-      if (var12 == 1) {
-         var23 += var10;
-      }
-
-      int var29 = var23;
-      var23 += var22;
-      int var30 = var23;
-      if (var14 == 1) {
-         var23 += var10;
-      }
-
-      int var31 = var23;
-      var23 += var21;
-      int var32 = var23;
-      var23 += var10 * 2;
-      int var33 = var23;
-      var23 += var11 * 6;
-      int var34 = var23;
-      var23 += var18;
-      int var35 = var23;
-      var23 += var19;
-      int var10000 = var23 + var20;
-      this.verticesCount = var9;
-      this.faceCount = var10;
-      this.am = var11;
-      this.au = new int[var9];
-      this.ab = new int[var9];
-      this.aq = new int[var9];
-      this.at = new int[var10];
-      this.aa = new int[var10];
-      this.ay = new int[var10];
-      if (var11 > 0) {
-         this.as = new byte[var11];
-         this.aj = new short[var11];
-         this.ak = new short[var11];
-         this.az = new short[var11];
-      }
-
-      if (var16 == 1) {
-         this.ad = new int[var9];
-      }
-
-      if (var12 == 1) {
-         this.ao = new byte[var10];
-         this.ag = new byte[var10];
-         this.faceTextures = new short[var10];
-      }
-
-      if (var13 == 255) {
-         this.ax = new byte[var10];
-      } else {
-         this.ar = (byte)var13;
-      }
-
-      if (var14 == 1) {
-         this.ai = new byte[var10];
-      }
-
-      if (var15 == 1) {
-         this.ae = new int[var10];
-      }
-
-      if (var17 == 1) {
-         this.bb = new int[var9][];
-         this.bi = new int[var9][];
-      }
-
-      this.faceColors = new short[var10];
-      var4.index = var24 * -1516355947;
-      var5.index = var34 * -1516355947;
-      var6.index = var35 * -1516355947;
-      var7.index = var23 * -1516355947;
-      var8.index = var29 * -1516355947;
-      int var37 = 0;
-      int var38 = 0;
-      int var39 = 0;
-
-      int var40;
-      int var41;
-      int var42;
-      int var43;
-      int var44;
-      for(var40 = 0; var40 < var9; ++var40) {
-         var41 = var4.g1();
-         var42 = 0;
-         if ((var41 & 1) != 0) {
-            var42 = var5.gSmart1or2s();
-         }
-
-         var43 = 0;
-         if ((var41 & 2) != 0) {
-            var43 = var6.gSmart1or2s();
-         }
-
-         var44 = 0;
-         if ((var41 & 4) != 0) {
-            var44 = var7.gSmart1or2s();
-         }
-
-         this.au[var40] = var37 + var42;
-         this.ab[var40] = var38 + var43;
-         this.aq[var40] = var39 + var44;
-         var37 = this.au[var40];
-         var38 = this.ab[var40];
-         var39 = this.aq[var40];
-         if (var16 == 1) {
-            this.ad[var40] = var8.g1();
-         }
-      }
-
-      if (var17 == 1) {
-         for(var40 = 0; var40 < var9; ++var40) {
-            var41 = var8.g1();
-            this.bb[var40] = new int[var41];
-            this.bi[var40] = new int[var41];
-
-            for(var42 = 0; var42 < var41; ++var42) {
-               this.bb[var40][var42] = var8.g1();
-               this.bi[var40][var42] = var8.g1();
-            }
-         }
-      }
-
-      var4.index = var32 * -1516355947;
-      var5.index = var28 * -1516355947;
-      var6.index = var26 * -1516355947;
-      var7.index = var30 * -1516355947;
-      var8.index = var27 * -1516355947;
-
-      for(var40 = 0; var40 < var10; ++var40) {
-         this.faceColors[var40] = (short)var4.cl();
-         if (var12 == 1) {
-            var41 = var5.g1();
-            if ((var41 & 1) == 1) {
-               this.ao[var40] = 1;
-               var2 = true;
-            } else {
-               this.ao[var40] = 0;
-            }
-
-            if ((var41 & 2) == 2) {
-               this.ag[var40] = (byte)(var41 >> 2);
-               this.faceTextures[var40] = this.faceColors[var40];
-               this.faceColors[var40] = 127;
-               if (this.faceTextures[var40] != -1) {
-                  var3 = true;
-               }
-            } else {
-               this.ag[var40] = -1;
-               this.faceTextures[var40] = -1;
-            }
-         }
-
-         if (var13 == 255) {
-            this.ax[var40] = var6.g1s();
-         }
-
-         if (var14 == 1) {
-            this.ai[var40] = var7.g1s();
-         }
-
-         if (var15 == 1) {
-            this.ae[var40] = var8.g1();
-         }
-      }
-
-      var4.index = var31 * -1516355947;
-      var5.index = var25 * -1516355947;
-      var40 = 0;
-      var41 = 0;
-      var42 = 0;
-      var43 = 0;
-
-      int var45;
-      int var46;
-      for(var44 = 0; var44 < var10; ++var44) {
-         var45 = var5.g1();
-         if (var45 == 1) {
-            var40 = var4.gSmart1or2s() + var43;
-            var41 = var4.gSmart1or2s() + var40;
-            var42 = var4.gSmart1or2s() + var41;
-            var43 = var42;
-            this.at[var44] = var40;
-            this.aa[var44] = var41;
-            this.ay[var44] = var42;
-         }
-
-         if (var45 == 2) {
-            var41 = var42;
-            var42 = var4.gSmart1or2s() + var43;
-            var43 = var42;
-            this.at[var44] = var40;
-            this.aa[var44] = var41;
-            this.ay[var44] = var42;
-         }
-
-         if (var45 == 3) {
-            var40 = var42;
-            var42 = var4.gSmart1or2s() + var43;
-            var43 = var42;
-            this.at[var44] = var40;
-            this.aa[var44] = var41;
-            this.ay[var44] = var42;
-         }
-
-         if (var45 == 4) {
-            var46 = var40;
-            var40 = var41;
-            var41 = var46;
-            var42 = var4.gSmart1or2s() + var43;
-            var43 = var42;
-            this.at[var44] = var40;
-            this.aa[var44] = var46;
-            this.ay[var44] = var42;
-         }
-      }
-
-      var4.index = var33 * -1516355947;
-
-      for(var44 = 0; var44 < var11; ++var44) {
-         this.as[var44] = 0;
-         this.aj[var44] = (short)var4.cl();
-         this.ak[var44] = (short)var4.cl();
-         this.az[var44] = (short)var4.cl();
-      }
-
-      if (this.ag != null) {
-         boolean var49 = false;
-
-         for(var45 = 0; var45 < var10; ++var45) {
-            var46 = this.ag[var45] & 255;
-            if (var46 != 255) {
-               if ((this.aj[var46] & '\uffff') == this.at[var45] && (this.ak[var46] & '\uffff') == this.aa[var45] && (this.az[var46] & '\uffff') == this.ay[var45]) {
-                  this.ag[var45] = -1;
-               } else {
-                  var49 = true;
-               }
-            }
-         }
-
-         if (!var49) {
-            this.ag = null;
-         }
-      }
-
-      if (!var3) {
-         this.faceTextures = null;
-      }
-
-      if (!var2) {
-         this.ao = null;
-      }
-
-   }
-
-   UnlitModel() {
-   }
-
-   public static UnlitModel af_renamed(AbstractArchive var0, int var1, int var2) {
-      byte[] var3 = var0.takeFile(var1, var2);
-      return var3 == null ? null : new UnlitModel(var3);
-   }
-
-   public void retexture(short var1, short var2) {
-      if (this.faceTextures != null) {
-         for(int var3 = 0; var3 < this.faceCount; ++var3) {
-            if (this.faceTextures[var3] == var1) {
-               this.faceTextures[var3] = var2;
-            }
-         }
-
-      }
-   }
-
-   public void ar(int var1) {
-      int var2 = UnlitModel_sine[var1];
-      int var3 = UnlitModel_cosine[var1];
-
-      for(int var4 = 0; var4 < this.verticesCount; ++var4) {
-         int var5 = this.aq[var4] * var2 + this.au[var4] * var3 >> 16;
-         this.aq[var4] = this.aq[var4] * var3 - this.au[var4] * var2 >> 16;
-         this.au[var4] = var5;
-      }
-
-      this.invalidate();
-   }
-
-   public void ad() {
-      if (this.bk == null) {
-         this.bk = new VertexNormal[this.verticesCount];
-
-         int var1;
-         for(var1 = 0; var1 < this.verticesCount; ++var1) {
-            this.bk[var1] = new VertexNormal();
-         }
-
-         for(var1 = 0; var1 < this.faceCount; ++var1) {
-            int var2 = this.at[var1];
-            int var3 = this.aa[var1];
-            int var4 = this.ay[var1];
-            int var5 = this.au[var3] - this.au[var2];
-            int var6 = this.ab[var3] - this.ab[var2];
-            int var7 = this.aq[var3] - this.aq[var2];
-            int var8 = this.au[var4] - this.au[var2];
-            int var9 = this.ab[var4] - this.ab[var2];
-            int var10 = this.aq[var4] - this.aq[var2];
-            int var11 = var6 * var10 - var9 * var7;
-            int var12 = var7 * var8 - var10 * var5;
-
-            int var13;
-            for(var13 = var5 * var9 - var8 * var6; var11 > 8192 || var12 > 8192 || var13 > 8192 || var11 < -8192 || var12 < -8192 || var13 < -8192; var13 >>= 1) {
-               var11 >>= 1;
-               var12 >>= 1;
-            }
-
-            int var14 = (int)Math.sqrt((double)(var11 * var11 + var12 * var12 + var13 * var13));
-            if (var14 <= 0) {
-               var14 = 1;
-            }
-
-            var11 = var11 * 256 / var14;
-            var12 = var12 * 256 / var14;
-            var13 = var13 * 256 / var14;
-            byte var15;
-            if (this.ao == null) {
-               var15 = 0;
-            } else {
-               var15 = this.ao[var1];
-            }
-
-            if (var15 == 0) {
-               VertexNormal var16 = this.bk[var2];
-               var16.af += var11 * 690600101;
-               var16.an += var12 * -1303307195;
-               var16.aw += var13 * 1279987923;
-               var16.ac += -1992029881;
-               var16 = this.bk[var3];
-               var16.af += var11 * 690600101;
-               var16.an += var12 * -1303307195;
-               var16.aw += var13 * 1279987923;
-               var16.ac += -1992029881;
-               var16 = this.bk[var4];
-               var16.af += var11 * 690600101;
-               var16.an += var12 * -1303307195;
-               var16.aw += var13 * 1279987923;
-               var16.ac += -1992029881;
-            } else if (var15 == 1) {
-               if (this.be == null) {
-                  this.be = new ir[this.faceCount];
-               }
-
-               ir var23 = this.be[var1] = new ir();
-               var23.af = var11 * 769404891;
-               var23.an = var12 * -1145821753;
-               var23.aw = var13 * -2013236337;
-            }
-         }
-
-      }
    }
 }

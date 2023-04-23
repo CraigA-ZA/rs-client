@@ -5,9 +5,9 @@ import org.bouncycastle.math.raw.Nat;
 import org.bouncycastle.math.raw.Nat192;
 
 public class SecP192K1Field {
+   static final int[] P = new int[]{-4553, -2, -1, -1, -1, -1};
    static final int[] PExt = new int[]{20729809, 9106, 1, 0, 0, 0, -9106, -3, -1, -1, -1, -1};
    static final int[] PExtInv = new int[]{-20729809, -9107, -2, -1, -1, -1, 9105, 2};
-   static final int[] P = new int[]{-4553, -2, -1, -1, -1, -1};
 
    public static void addExt(int[] var0, int[] var1, int[] var2) {
       int var3 = Nat.add(12, var0, var1, var2);

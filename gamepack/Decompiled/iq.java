@@ -1,11 +1,11 @@
 public class iq {
-   int an;
-   static ServerBuild serverBuild;
-   int ac;
-   int aw;
+   static ServerBuild ci;
    int ab;
+   int ac;
    int af;
+   int an;
    int au;
+   int aw;
 
    iq(int var1, int var2, int var3, int var4, int var5, int var6) {
       this.af = 1721407449 * var1;

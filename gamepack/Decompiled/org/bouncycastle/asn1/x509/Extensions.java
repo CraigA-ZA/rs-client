@@ -13,8 +13,8 @@ import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.DERSequence;
 
 public class Extensions extends ASN1Object {
-   Vector ordering = new Vector();
    Hashtable extensions = new Hashtable();
+   Vector ordering = new Vector();
 
    Extensions(ASN1Sequence var1) {
       Enumeration var2 = var1.getObjects();

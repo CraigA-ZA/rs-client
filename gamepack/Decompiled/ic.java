@@ -2,8 +2,16 @@ public class ic {
    ew[] an;
    int aw;
 
-   public int an() {
-      return this.an.length;
+   ic(Packet var1, int var2) {
+      this.an = new ew[var2];
+      this.aw = var1.g1() * -265983497;
+
+      for(int var3 = 0; var3 < this.an.length; ++var3) {
+         ew var4 = new ew(this.aw * 1558849479, var1, false);
+         this.an[var3] = var4;
+      }
+
+      this.af();
    }
 
    void af() {
@@ -18,16 +26,8 @@ public class ic {
 
    }
 
-   ic(Packet var1, int var2) {
-      this.an = new ew[var2];
-      this.aw = var1.g1() * -265983497;
-
-      for(int var3 = 0; var3 < this.an.length; ++var3) {
-         ew var4 = new ew(this.aw * 1558849479, var1, false);
-         this.an[var3] = var4;
-      }
-
-      this.af();
+   public int an() {
+      return this.an.length;
    }
 
    ew aw(int var1) {
@@ -43,7 +43,7 @@ public class ic {
    }
 
    void ab(fh var1, int var2, boolean[] var3, boolean var4) {
-      int var6 = var1.ac();
+      int var6 = var1.gIsaac1();
       int var7 = 0;
       ew[] var8 = this.ac();
 

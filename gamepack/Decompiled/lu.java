@@ -4,11 +4,19 @@ import java.util.TimeZone;
 
 @lj
 public final class lu {
-   static final HashMap aw = new HashMap();
    static IndexedSprite ab;
+   static final HashMap aw = new HashMap();
 
    static {
       Calendar.getInstance(af_renamed("Europe/London"));
+   }
+
+   lu() throws Throwable {
+      throw new Error();
+   }
+
+   public static boolean af_renamed(int var0) {
+      return 10 == var0 || var0 == 11 || var0 == 12 || 13 == var0 || var0 == 14 || 15 == var0 || 16 == var0 || 17 == var0;
    }
 
    static TimeZone af_renamed(String var0) {
@@ -21,13 +29,5 @@ public final class lu {
 
          return var3;
       }
-   }
-
-   lu() throws Throwable {
-      throw new Error();
-   }
-
-   public static boolean af_renamed(int var0) {
-      return 10 == var0 || var0 == 11 || var0 == 12 || 13 == var0 || var0 == 14 || 15 == var0 || 16 == var0 || 17 == var0;
    }
 }

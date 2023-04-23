@@ -1,8 +1,8 @@
 package org.bouncycastle.crypto.tls;
 
 public class SupplementalDataEntry {
-   public int dataType;
    public byte[] data;
+   public int dataType;
 
    public SupplementalDataEntry(int var1, byte[] var2) {
       this.dataType = var1;

@@ -2,14 +2,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class fw extends fb {
+   static int iz;
+   static int lf;
+   int ac;
    int af;
    int an;
    int aw;
-   static int lf;
    // $FF: synthetic field
    final fa this$0;
-   int ac;
-   static int iz;
 
    public static int af_renamed(int var0, int var1, int var2, ia var3, CollisionMap var4, boolean var5, int[] var6, int[] var7) {
       int var10;
@@ -47,7 +47,7 @@ public class fw extends fb {
          var18 = 0;
          iw.al[var17] = var0;
          iw.at[var17++] = var1;
-         int[][] var19 = var4.flags;
+         int[][] var19 = var4.bj;
 
          boolean var29;
          while(true) {
@@ -239,7 +239,75 @@ public class fw extends fb {
       }
    }
 
-   void af(Packet var1) {
+   static String an_renamed(byte[] var0, int var1, int var2) {
+      StringBuilder var4 = new StringBuilder();
+
+      for(int var5 = var1; var5 < var2 + var1; var5 += 3) {
+         int var6 = var0[var5] & 255;
+         var4.append(ol.af[var6 >>> 2]);
+         if (var5 < var2 - 1) {
+            int var7 = var0[1 + var5] & 255;
+            var4.append(ol.af[(var6 & 3) << 4 | var7 >>> 4]);
+            if (var5 < var2 - 2) {
+               int var8 = var0[var5 + 2] & 255;
+               var4.append(ol.af[(var7 & 15) << 2 | var8 >>> 6]).append(ol.af[var8 & 63]);
+            } else {
+               var4.append(ol.af[(var7 & 15) << 2]).append("=");
+            }
+         } else {
+            var4.append(ol.af[(var6 & 3) << 4]).append("==");
+         }
+      }
+
+      return var4.toString();
+   }
+
+   public static hq an_renamed(int var0) {
+      hq var2 = (hq)hq.ac.get((long)var0);
+      if (null != var2) {
+         return var2;
+      } else {
+         byte[] var3 = hq.an.takeFile(6, var0);
+         var2 = new hq();
+         var2.at = var0 * -1113054781;
+         if (var3 != null) {
+            var2.decode(new Packet(var3));
+         }
+
+         var2.postDecode();
+         if (var2.br) {
+            var2.am = 0;
+            var2.as = false;
+         }
+
+         hq.ac.put(var2, (long)var0);
+         return var2;
+      }
+   }
+
+   public static void ac_renamed() {
+      synchronized(ArchiveDiskActionHandler.ac) {
+         if (0 != -1248352937 * ArchiveDiskActionHandler.aw) {
+            ArchiveDiskActionHandler.aw = 1527846503;
+
+            try {
+               ArchiveDiskActionHandler.ac.wait();
+            } catch (InterruptedException var4) {
+            }
+         }
+
+      }
+   }
+
+   public static void av_renamed(int var0, int var1, int var2, int var3, int var4, int var5, float var6, float var7, float var8, int var9) {
+      in.aq.aq(var0, var1, var2, var3, var4, var5, var6, var7, var8, var9);
+   }
+
+   fw(fa var1) {
+      this.this$0 = var1;
+   }
+
+   void write(Packet var1) {
       this.af = var1.g4s() * 1125554619;
       this.ac = var1.g4s() * -1773346325;
       this.an = var1.g1() * 1126530805;
@@ -248,10 +316,6 @@ public class fw extends fb {
 
    void an(fj var1) {
       var1.av(this.af * 327631731, 116080323 * this.ac, this.an * -2041660067, this.aw * 1801165299);
-   }
-
-   fw(fa var1) {
-      this.this$0 = var1;
    }
 
    static int bw_renamed(int var0, ClientScript var1, boolean var2) {
@@ -265,10 +329,10 @@ public class fw extends fb {
             int var21;
             int var23;
             if (var0 == 7502) {
-               Interpreter.Interpreter_intStackSize -= 1281407919;
-               var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-               var21 = Interpreter.Interpreter_intStack[1 + -964267539 * Interpreter.Interpreter_intStackSize];
-               var6 = Interpreter.Interpreter_intStack[2 + -964267539 * Interpreter.Interpreter_intStackSize];
+               Interpreter.at -= 1281407919;
+               var4 = Interpreter.al[Interpreter.at * -964267539];
+               var21 = Interpreter.al[1 + -964267539 * Interpreter.at];
+               var6 = Interpreter.al[2 + -964267539 * Interpreter.at];
                var23 = oy.af_renamed(var21);
                var8 = BufferedSink.an_renamed(var21);
                int var25 = fv.aw_renamed(var21);
@@ -298,9 +362,9 @@ public class fw extends fb {
                      var17 = var28[var16];
                      sh var29 = da.an_renamed(var17);
                      if (sh.aw == var29) {
-                        Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
+                        Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = "";
                      } else {
-                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = nt.af_renamed(var17);
+                        Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = nt.af_renamed(var17);
                      }
                   }
 
@@ -312,9 +376,9 @@ public class fw extends fb {
                         int var18 = var17 + var6 * var28.length;
                         sh var19 = da.an_renamed(var28[var17]);
                         if (sh.aw == var19) {
-                           Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = (String)var15[var18];
+                           Interpreter.aa[(SecureRandomCallable.ay += -1086551379) * -2017760987 - 1] = (String)var15[var18];
                         } else {
-                           Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (Integer)var15[var18];
+                           Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = (Integer)var15[var18];
                         }
                      }
 
@@ -324,9 +388,9 @@ public class fw extends fb {
                   }
                }
             } else if (var0 == 7503) {
-               Interpreter.Interpreter_intStackSize -= 854271946;
-               var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
-               var21 = Interpreter.Interpreter_intStack[1 + Interpreter.Interpreter_intStackSize * -964267539];
+               Interpreter.at -= 854271946;
+               var4 = Interpreter.al[Interpreter.at * -964267539];
+               var21 = Interpreter.al[1 + Interpreter.at * -964267539];
                var6 = 0;
                var23 = oy.af_renamed(var21);
                var8 = BufferedSink.an_renamed(var21);
@@ -342,29 +406,29 @@ public class fw extends fb {
                   var6 = var12.length / var11.length;
                }
 
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var6;
+               Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var6;
                return 1;
             } else if (7504 != var0 && 7510 != var0) {
                if (7505 == var0) {
-                  var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                   sz var22 = ek.an_renamed(var4);
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 468764621 * var22.au;
+                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 468764621 * var22.au;
                   return 1;
                } else if (var0 == 7506) {
-                  var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                   var21 = -1;
                   if (aa.wf != null && var4 >= 0 && var4 < aa.wf.size()) {
                      var21 = (Integer)aa.wf.get(var4);
                   }
 
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var21;
+                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var21;
                   return 1;
                } else if (7507 != var0 && 7509 != var0) {
                   return 2;
                } else {
-                  var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                   var5 = ClientScriptEvent.cn_renamed(var4);
-                  var6 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+                  var6 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
                   var7 = hf.ov_renamed(var6);
                   if (var7 == null) {
                      throw new RuntimeException();
@@ -384,15 +448,15 @@ public class fw extends fb {
 
                      an.wa = aa.wf.iterator();
                      if (var0 == 7507) {
-                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = aa.wf.size();
+                        Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = aa.wf.size();
                      }
 
                      return 1;
                   }
                }
             } else {
-               Interpreter.Interpreter_intStackSize -= 427135973;
-               var4 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
+               Interpreter.at -= 427135973;
+               var4 = Interpreter.al[-964267539 * Interpreter.at];
                sk var20 = ay.od_renamed(var4);
                if (null == var20) {
                   throw new RuntimeException();
@@ -406,7 +470,7 @@ public class fw extends fb {
                   }
 
                   if (var0 == 7504) {
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var6;
+                     Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = var6;
                   }
 
                   return 1;
@@ -414,17 +478,17 @@ public class fw extends fb {
             }
          } else {
             if (null != an.wa && an.wa.hasNext()) {
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = (Integer)an.wa.next();
+               Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = (Integer)an.wa.next();
             } else {
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
+               Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = -1;
             }
 
             return 1;
          }
       } else {
-         var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         var4 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
          var5 = ClientScriptEvent.cn_renamed(var4);
-         var6 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
+         var6 = Interpreter.al[(Interpreter.at -= 427135973) * -964267539];
          var7 = hf.ov_renamed(var6);
          if (null == var7) {
             throw new RuntimeException();
@@ -435,13 +499,13 @@ public class fw extends fb {
                Client.wi = oy.af_renamed(var6) * 978308099;
                an.wa = aa.wf.iterator();
                if (7500 == var0) {
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = aa.wf.size();
+                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = aa.wf.size();
                }
             } else {
                Client.wi = -978308099;
                an.wa = null;
                if (var0 == 7500) {
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
+                  Interpreter.al[(Interpreter.at += 427135973) * -964267539 - 1] = 0;
                }
             }
 
@@ -450,74 +514,10 @@ public class fw extends fb {
       }
    }
 
-   public static void ac_renamed() {
-      synchronized(ArchiveDiskActionHandler.ArchiveDiskActionHandler_lock) {
-         if (0 != -1248352937 * ArchiveDiskActionHandler.aw) {
-            ArchiveDiskActionHandler.aw = 1527846503;
-
-            try {
-               ArchiveDiskActionHandler.ArchiveDiskActionHandler_lock.wait();
-            } catch (InterruptedException var4) {
-            }
-         }
-
-      }
-   }
-
    public static void ma_renamed(Component var0) {
-      if (var0 != null && 207148199 * Client.rs == -1197721959 * var0.cycle) {
-         Client.rf[372799529 * var0.rootIndex] = true;
+      if (var0 != null && 207148199 * Client.rs == -1197721959 * var0.hv) {
+         Client.rf[372799529 * var0.hd] = true;
       }
 
-   }
-
-   public static hq an_renamed(int var0) {
-      hq var2 = (hq)hq.ac.get((long)var0);
-      if (null != var2) {
-         return var2;
-      } else {
-         byte[] var3 = hq.an.takeFile(6, var0);
-         var2 = new hq();
-         var2.at = var0 * -1113054781;
-         if (var3 != null) {
-            var2.ac(new Packet(var3));
-         }
-
-         var2.aw();
-         if (var2.br) {
-            var2.am = 0;
-            var2.as = false;
-         }
-
-         hq.ac.put(var2, (long)var0);
-         return var2;
-      }
-   }
-
-   public static void av_renamed(int var0, int var1, int var2, int var3, int var4, int var5, float var6, float var7, float var8, int var9) {
-      in.aq.aq(var0, var1, var2, var3, var4, var5, var6, var7, var8, var9);
-   }
-
-   static String an_renamed(byte[] var0, int var1, int var2) {
-      StringBuilder var4 = new StringBuilder();
-
-      for(int var5 = var1; var5 < var2 + var1; var5 += 3) {
-         int var6 = var0[var5] & 255;
-         var4.append(ol.af[var6 >>> 2]);
-         if (var5 < var2 - 1) {
-            int var7 = var0[1 + var5] & 255;
-            var4.append(ol.af[(var6 & 3) << 4 | var7 >>> 4]);
-            if (var5 < var2 - 2) {
-               int var8 = var0[var5 + 2] & 255;
-               var4.append(ol.af[(var7 & 15) << 2 | var8 >>> 6]).append(ol.af[var8 & 63]);
-            } else {
-               var4.append(ol.af[(var7 & 15) << 2]).append("=");
-            }
-         } else {
-            var4.append(ol.af[(var6 & 3) << 4]).append("==");
-         }
-      }
-
-      return var4.toString();
    }
 }

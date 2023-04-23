@@ -1,14 +1,19 @@
 public class ArchiveLoader {
-   final Archive archive;
-   final int aw;
+   static int nc;
    int ac = 0;
-   static int menuWidth;
+   final int aw;
+   final Archive an;
+
+   ArchiveLoader(Archive var1, String var2) {
+      this.an = var1;
+      this.aw = var1.cm() * -1548488391;
+   }
 
    boolean af() {
       this.ac = 0;
 
       for(int var2 = 0; var2 < -17715959 * this.aw; ++var2) {
-         if (!this.archive.ao(var2) || this.archive.ay(var2)) {
+         if (!this.an.ao(var2) || this.an.ay(var2)) {
             this.ac += 1412973495;
          }
       }
@@ -17,9 +22,9 @@ public class ArchiveLoader {
    }
 
    static final int lx_renamed(Component var0, int var1) {
-      if (var0.cs1Instructions != null && var1 < var0.cs1Instructions.length) {
+      if (var0.gc != null && var1 < var0.gc.length) {
          try {
-            int[] var3 = var0.cs1Instructions[var1];
+            int[] var3 = var0.gc[var1];
             int var4 = 0;
             int var5 = 0;
             byte var6 = 0;
@@ -53,7 +58,7 @@ public class ArchiveLoader {
                   var10 += var3[var5++];
                   var11 = gh.an_renamed(var10);
                   var12 = var3[var5++];
-                  if (var12 != -1 && (!HeadbarUpdate.getObjType(var12).stockmarket || Client.ca)) {
+                  if (var12 != -1 && (!HeadbarUpdate.getObjType(var12).bz || Client.ca)) {
                      for(var13 = 0; var13 < var11.gb.length; ++var13) {
                         if (var11.gb[var13] == var12 + 1) {
                            var8 += var11.gp[var13];
@@ -63,7 +68,7 @@ public class ArchiveLoader {
                }
 
                if (var7 == 5) {
-                  var8 = Varps.Varps_main[var3[var5++]];
+                  var8 = Varps.aw[var3[var5++]];
                }
 
                if (6 == var7) {
@@ -71,16 +76,16 @@ public class ArchiveLoader {
                }
 
                if (var7 == 7) {
-                  var8 = Varps.Varps_main[var3[var5++]] * 100 / '뜛';
+                  var8 = Varps.aw[var3[var5++]] * 100 / '뜛';
                }
 
                if (8 == var7) {
-                  var8 = 1302967875 * MusicPatchNode.localPlayer.skillLevel;
+                  var8 = 1302967875 * MusicPatchNode.mi.al;
                }
 
                if (9 == var7) {
                   for(var10 = 0; var10 < 25; ++var10) {
-                     if (Skills.Skills_enabled[var10]) {
+                     if (Skills.an[var10]) {
                         var8 += Client.ny[var10];
                      }
                   }
@@ -91,7 +96,7 @@ public class ArchiveLoader {
                   var10 += var3[var5++];
                   var11 = gh.an_renamed(var10);
                   var12 = var3[var5++];
-                  if (-1 != var12 && (!HeadbarUpdate.getObjType(var12).stockmarket || Client.ca)) {
+                  if (-1 != var12 && (!HeadbarUpdate.getObjType(var12).bz || Client.ca)) {
                      for(var13 = 0; var13 < var11.gb.length; ++var13) {
                         if (var11.gb[var13] == var12 + 1) {
                            var8 = 999999999;
@@ -110,7 +115,7 @@ public class ArchiveLoader {
                }
 
                if (13 == var7) {
-                  var10 = Varps.Varps_main[var3[var5++]];
+                  var10 = Varps.aw[var3[var5++]];
                   int var15 = var3[var5++];
                   var8 = (var10 & 1 << var15) != 0 ? 1 : 0;
                }
@@ -133,11 +138,11 @@ public class ArchiveLoader {
                }
 
                if (var7 == 18) {
-                  var8 = -1232093375 * jm.ib + (MusicPatchNode.localPlayer.bx * 1144428983 >> 7);
+                  var8 = -1232093375 * jm.ib + (MusicPatchNode.mi.bx * 1144428983 >> 7);
                }
 
                if (19 == var7) {
-                  var8 = Scenery.jc * 827352769 + (-411750205 * MusicPatchNode.localPlayer.bo >> 7);
+                  var8 = Scenery.jc * 827352769 + (-411750205 * MusicPatchNode.mi.bo >> 7);
                }
 
                if (20 == var7) {
@@ -172,10 +177,5 @@ public class ArchiveLoader {
       } else {
          return -2;
       }
-   }
-
-   ArchiveLoader(Archive var1, String var2) {
-      this.archive = var1;
-      this.aw = var1.cm() * -1548488391;
    }
 }

@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 class ASN1OutputStream$ImplicitOutStream extends ASN1OutputStream {
+   boolean first;
    // $FF: synthetic field
    final ASN1OutputStream this$0;
-   boolean first;
 
    public ASN1OutputStream$ImplicitOutStream(ASN1OutputStream var1, OutputStream var2) {
       super(var2);

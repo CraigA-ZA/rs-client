@@ -1,13 +1,18 @@
 public class hd implements Enumerated {
+   public static String az;
+   static PcmPlayer tt;
    static final hd af = new hd(0, 0);
    static final hd an = new hd(2, 1);
    static final hd aw = new hd(1, 2);
-   public final int ac;
    final int au;
-   static PcmPlayer pcmPlayer1;
-   public static String userHomeDirectory;
+   public final int ac;
 
-   public int af() {
+   hd(int var1, int var2) {
+      this.ac = -782562361 * var1;
+      this.au = -1771456679 * var2;
+   }
+
+   public int ordinal() {
       return 455418089 * this.au;
    }
 
@@ -22,10 +27,5 @@ public class hd implements Enumerated {
       }
 
       return var3;
-   }
-
-   hd(int var1, int var2) {
-      this.ac = -782562361 * var1;
-      this.au = -1771456679 * var2;
    }
 }

@@ -1,34 +1,38 @@
 public class er extends AbstractUserComparator {
    final boolean af;
 
-   static int aa_renamed(int var0) {
-      Message var2 = (Message)Messages.Messages_hashTable.get((long)var0);
-      if (var2 == null) {
-         return -1;
-      } else {
-         return Messages.Messages_queue.sentinel == var2.ej ? -1 : -1117255211 * ((Message)var2.ej).count;
-      }
+   public er(boolean var1) {
+      this.af = var1;
    }
 
    int af(Buddy var1, Buddy var2) {
-      if (var1.rank * 1922414955 != 1922414955 * var2.rank) {
-         return this.af ? var1.rank * 1922414955 - 1922414955 * var2.rank : var2.rank * 1922414955 - var1.rank * 1922414955;
+      if (var1.aq * 1922414955 != 1922414955 * var2.aq) {
+         return this.af ? var1.aq * 1922414955 - 1922414955 * var2.aq : var2.aq * 1922414955 - var1.aq * 1922414955;
       } else {
          return this.ao(var1, var2);
       }
    }
 
-   public er(boolean var1) {
-      this.af = var1;
+   public int compare(Object var1, Object var2) {
+      return this.af((Buddy)var1, (Buddy)var2);
    }
 
    public static void af_renamed(AbstractArchive var0, AbstractArchive var1) {
-      SpotType.SpotType_archive = var0;
+      SpotType.af = var0;
       SpotType.an = var1;
    }
 
    static long af_renamed(int var0, int var1, int var2) {
       return (long)(var2 << 16 | var0 << 8 | var1);
+   }
+
+   static int aa_renamed(int var0) {
+      Message var2 = (Message)Messages.an.get((long)var0);
+      if (var2 == null) {
+         return -1;
+      } else {
+         return Messages.aw.af == var2.ej ? -1 : -1117255211 * ((Message)var2.ej).af;
+      }
    }
 
    public static String ao_renamed(String var0) {
@@ -70,9 +74,5 @@ public class er extends AbstractUserComparator {
       } else {
          return var0 < 0 ? -1 : 0;
       }
-   }
-
-   public int compare(Object var1, Object var2) {
-      return this.af((Buddy)var1, (Buddy)var2);
    }
 }

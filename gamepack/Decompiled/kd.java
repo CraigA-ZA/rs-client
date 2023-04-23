@@ -1,8 +1,8 @@
 public class kd {
-   static final kd af = new kd(0);
    public static int ak;
-   final int aw;
+   static final kd af = new kd(0);
    static final kd an = new kd(1);
+   final int aw;
 
    kd(int var1) {
       this.aw = 888846731 * var1;

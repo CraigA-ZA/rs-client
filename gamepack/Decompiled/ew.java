@@ -1,18 +1,35 @@
 public class ew {
    boolean aa = true;
-   float[][] ax;
-   float[][] aw;
-   final qj[] ac;
-   qj[] au;
-   qj[] ab;
-   public ew an;
    boolean al = true;
-   qj at = new qj();
-   public final int af;
-   qj ay = new qj();
-   float[][] ao;
    float[][] ai;
+   float[][] ao;
+   float[][] aw;
+   float[][] ax;
    qj aq = new qj();
+   qj at = new qj();
+   qj ay = new qj();
+   qj[] ab;
+   qj[] au;
+   final qj[] ac;
+   public ew an;
+   public final int af;
+
+   public ew(int var1, Packet var2, boolean var3) {
+      this.af = var2.cg() * -1987716595;
+      this.ac = new qj[var1];
+      this.au = new qj[this.ac.length];
+      this.ab = new qj[this.ac.length];
+      this.aw = new float[this.ac.length][3];
+
+      for(int var4 = 0; var4 < this.ac.length; ++var4) {
+         this.ac[var4] = new qj(var2, var3);
+         this.aw[var4][0] = var2.cb();
+         this.aw[var4][1] = var2.cb();
+         this.aw[var4][2] = var2.cb();
+      }
+
+      this.af();
+   }
 
    void af() {
       this.ao = new float[this.ac.length][3];
@@ -44,6 +61,22 @@ public class ew {
       var3.an();
    }
 
+   public static HitmarkType getHitmarkType(int var0) {
+      HitmarkType var2 = (HitmarkType)HitmarkType.ac.get((long)var0);
+      if (var2 != null) {
+         return var2;
+      } else {
+         byte[] var3 = HitmarkType.af.takeFile(32, var0);
+         var2 = new HitmarkType();
+         if (var3 != null) {
+            var2.decode(new Packet(var3));
+         }
+
+         HitmarkType.ac.put(var2, (long)var0);
+         return var2;
+      }
+   }
+
    qj an(int var1) {
       return this.ac[var1];
    }
@@ -61,43 +94,30 @@ public class ew {
       return this.au[var1];
    }
 
-   public qj al(int var1) {
-      if (this.aa) {
-         this.ay.al(this.ac(var1));
-         this.ay.ao(this.aq());
-         this.aa = false;
+   static final void aw_renamed(int var0, int var1, int var2, int var3) {
+      for(int var5 = var1; var5 <= var1 + var3; ++var5) {
+         for(int var6 = var0; var6 <= var2 + var0; ++var6) {
+            if (var6 >= 0 && var6 < 104 && var5 >= 0 && var5 < 104) {
+               Tiles.al[0][var6][var5] = 127;
+               if (var6 == var0 && var6 > 0) {
+                  Tiles.af[0][var6][var5] = Tiles.af[0][var6 - 1][var5];
+               }
+
+               if (var0 + var2 == var6 && var6 < 103) {
+                  Tiles.af[0][var6][var5] = Tiles.af[0][var6 + 1][var5];
+               }
+
+               if (var5 == var1 && var5 > 0) {
+                  Tiles.af[0][var6][var5] = Tiles.af[0][var6][var5 - 1];
+               }
+
+               if (var5 == var1 + var3 && var5 < 103) {
+                  Tiles.af[0][var6][var5] = Tiles.af[0][var6][1 + var5];
+               }
+            }
+         }
       }
 
-      return this.ay;
-   }
-
-   qj ab() {
-      return this.aq;
-   }
-
-   public ew(int var1, Packet var2, boolean var3) {
-      this.af = var2.cg() * -1987716595;
-      this.ac = new qj[var1];
-      this.au = new qj[this.ac.length];
-      this.ab = new qj[this.ac.length];
-      this.aw = new float[this.ac.length][3];
-
-      for(int var4 = 0; var4 < this.ac.length; ++var4) {
-         this.ac[var4] = new qj(var2, var3);
-         this.aw[var4][0] = var2.cb();
-         this.aw[var4][1] = var2.cb();
-         this.aw[var4][2] = var2.cb();
-      }
-
-      this.af();
-   }
-
-   float[] aa(int var1) {
-      return this.ax[var1];
-   }
-
-   float[] ay(int var1) {
-      return this.ai[var1];
    }
 
    qj ac(int var1) {
@@ -115,8 +135,8 @@ public class ew {
       this.aa = true;
    }
 
-   float[] at(int var1) {
-      return this.ao[var1];
+   qj ab() {
+      return this.aq;
    }
 
    qj aq() {
@@ -132,38 +152,22 @@ public class ew {
       return this.at;
    }
 
-   static final void aw_renamed(int var0, int var1, int var2, int var3) {
-      for(int var5 = var1; var5 <= var1 + var3; ++var5) {
-         for(int var6 = var0; var6 <= var2 + var0; ++var6) {
-            if (var6 >= 0 && var6 < 104 && var5 >= 0 && var5 < 104) {
-               Tiles.al[0][var6][var5] = 127;
-               if (var6 == var0 && var6 > 0) {
-                  Tiles.Tiles_heights[0][var6][var5] = Tiles.Tiles_heights[0][var6 - 1][var5];
-               }
-
-               if (var0 + var2 == var6 && var6 < 103) {
-                  Tiles.Tiles_heights[0][var6][var5] = Tiles.Tiles_heights[0][var6 + 1][var5];
-               }
-
-               if (var5 == var1 && var5 > 0) {
-                  Tiles.Tiles_heights[0][var6][var5] = Tiles.Tiles_heights[0][var6][var5 - 1];
-               }
-
-               if (var5 == var1 + var3 && var5 < 103) {
-                  Tiles.Tiles_heights[0][var6][var5] = Tiles.Tiles_heights[0][var6][1 + var5];
-               }
-            }
-         }
+   public qj al(int var1) {
+      if (this.aa) {
+         this.ay.al(this.ac(var1));
+         this.ay.ao(this.aq());
+         this.aa = false;
       }
 
+      return this.ay;
    }
 
    static final void ai_renamed() {
       if (!ix.ac) {
-         int var1 = Scene.Scene_cameraPitchSine;
-         int var2 = Scene.Scene_cameraPitchCosine;
-         int var3 = Scene.Scene_cameraYawSine;
-         int var4 = Scene.Scene_cameraYawCosine;
+         int var1 = Scene.by;
+         int var2 = Scene.bb;
+         int var3 = Scene.bi;
+         int var4 = Scene.be;
          int var5 = 50;
          int var6 = 3500;
          int var7 = (2139535413 * ix.an - TaskHandler.au_renamed()) * var5 / eu.at_renamed();
@@ -191,19 +195,15 @@ public class ew {
       }
    }
 
-   public static HitmarkType getHitmarkType(int var0) {
-      HitmarkType var2 = (HitmarkType)HitmarkType.HitmarkType_cached.get((long)var0);
-      if (var2 != null) {
-         return var2;
-      } else {
-         byte[] var3 = HitmarkType.af.takeFile(32, var0);
-         var2 = new HitmarkType();
-         if (var3 != null) {
-            var2.decode(new Packet(var3));
-         }
+   float[] at(int var1) {
+      return this.ao[var1];
+   }
 
-         HitmarkType.HitmarkType_cached.put(var2, (long)var0);
-         return var2;
-      }
+   float[] aa(int var1) {
+      return this.ax[var1];
+   }
+
+   float[] ay(int var1) {
+      return this.ai[var1];
    }
 }

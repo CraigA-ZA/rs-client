@@ -8,13 +8,13 @@ import org.bouncycastle.util.Arrays;
 
 public class TlsAEADCipher implements TlsCipher {
    public byte[] decryptImplicitNonce;
-   public TlsContext context;
-   public int macSize;
-   public int record_iv_length;
-   public AEADBlockCipher encryptCipher;
-   public AEADBlockCipher decryptCipher;
-   public int nonceMode;
    public byte[] encryptImplicitNonce;
+   public int macSize;
+   public int nonceMode;
+   public int record_iv_length;
+   public AEADBlockCipher decryptCipher;
+   public AEADBlockCipher encryptCipher;
+   public TlsContext context;
 
    public int getPlaintextLimit(int var1) {
       return var1 - this.macSize - this.record_iv_length;

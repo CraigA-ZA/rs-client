@@ -6,9 +6,9 @@ import java.io.InputStream;
 
 class IndefiniteLengthInputStream extends LimitedInputStream {
    boolean _eofOn00 = true;
-   int _b2;
-   int _b1;
    boolean _eofReached = false;
+   int _b1;
+   int _b2;
 
    public int read(byte[] var1, int var2, int var3) throws IOException {
       if (!this._eofOn00 && var3 >= 3) {

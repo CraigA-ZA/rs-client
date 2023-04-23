@@ -1,8 +1,8 @@
 public class nc {
-   static final nc aw = new nc();
-   static final nc an = new nc();
+   public static AbstractArchive ab;
    static final nc af = new nc();
-   public static AbstractArchive ObjType_archive;
+   static final nc an = new nc();
+   static final nc aw = new nc();
 
    nc() {
    }

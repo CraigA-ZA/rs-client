@@ -1,26 +1,39 @@
 public class qc {
-   float an;
-   float aw;
-   float ac;
-   float au;
-   float ab;
-   float aq;
-   float al;
-   float at;
+   static Archive fa;
    float aa;
-   float ay;
-   float ao;
+   float ab;
+   float ac;
    float af;
-   static Archive archive4;
+   float al;
+   float an;
+   float ao;
+   float aq;
+   float at;
+   float au;
+   float aw;
+   float ay;
 
-   public String toString() {
-      return this.af + "," + this.ac + "," + this.aq + "," + this.aa + "\n" + this.an + "," + this.au + "," + this.al + "," + this.ay + "\n" + this.aw + "," + this.ab + "," + this.at + "," + this.ao;
+   static {
+      new qc();
    }
 
-   void au(float var1, float var2, float var3) {
-      this.aa += var1;
-      this.ay += var2;
-      this.ao += var3;
+   qc() {
+      this.af();
+   }
+
+   void af() {
+      this.ao = 0.0F;
+      this.ay = 0.0F;
+      this.aa = 0.0F;
+      this.al = 0.0F;
+      this.aq = 0.0F;
+      this.ab = 0.0F;
+      this.ac = 0.0F;
+      this.aw = 0.0F;
+      this.an = 0.0F;
+      this.at = 1.0F;
+      this.au = 1.0F;
+      this.af = 1.0F;
    }
 
    void an(float var1) {
@@ -74,27 +87,14 @@ public class qc {
       this.ay = var3 * this.ay + var4 * var8;
    }
 
-   static {
-      new qc();
+   void au(float var1, float var2, float var3) {
+      this.aa += var1;
+      this.ay += var2;
+      this.ao += var3;
    }
 
-   void af() {
-      this.ao = 0.0F;
-      this.ay = 0.0F;
-      this.aa = 0.0F;
-      this.al = 0.0F;
-      this.aq = 0.0F;
-      this.ab = 0.0F;
-      this.ac = 0.0F;
-      this.aw = 0.0F;
-      this.an = 0.0F;
-      this.at = 1.0F;
-      this.au = 1.0F;
-      this.af = 1.0F;
-   }
-
-   qc() {
-      this.af();
+   public String toString() {
+      return this.af + "," + this.ac + "," + this.aq + "," + this.aa + "\n" + this.an + "," + this.au + "," + this.al + "," + this.ay + "\n" + this.aw + "," + this.ab + "," + this.at + "," + this.ao;
    }
 
    static final void ns_renamed(int var0, int var1, int var2, int var3, Rasterizer3D var4, SpriteMask var5) {
@@ -107,9 +107,9 @@ public class qc {
             int var11 = var2 * var10 + var3 * var9 >> 16;
             int var12 = var3 * var10 - var9 * var2 >> 16;
             if (var8 > 2500) {
-               var4.bi(var5.height * 1484188043 / 2 + var11 - var4.ab / 2, var5.width * 939947663 / 2 - var12 - var4.aq / 2, var0, var1, 1484188043 * var5.height, 939947663 * var5.width, var5.xStarts, var5.xWidths);
+               var4.bi(var5.af * 1484188043 / 2 + var11 - var4.ab / 2, var5.an * 939947663 / 2 - var12 - var4.aq / 2, var0, var1, 1484188043 * var5.af, 939947663 * var5.an, var5.ac, var5.aw);
             } else {
-               var4.ax(var11 + var0 + var5.height * 1484188043 / 2 - var4.ab / 2, 939947663 * var5.width / 2 + var1 - var12 - var4.aq / 2);
+               var4.ax(var11 + var0 + var5.af * 1484188043 / 2 - var4.ab / 2, 939947663 * var5.an / 2 + var1 - var12 - var4.aq / 2);
             }
 
          }

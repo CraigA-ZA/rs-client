@@ -3,12 +3,12 @@ package org.bouncycastle.asn1;
 import java.io.IOException;
 
 class ASN1Set$1 implements ASN1SetParser {
-   // $FF: synthetic field
-   final ASN1Set val$outer;
-   final int max;
    int index;
+   final int max;
    // $FF: synthetic field
    final ASN1Set this$0;
+   // $FF: synthetic field
+   final ASN1Set val$outer;
 
    public ASN1Encodable readObject() throws IOException {
       if (this.index == this.max) {

@@ -1,28 +1,48 @@
 public class ek {
-   float ak;
-   boolean an;
+   static int kh;
    boolean ab;
-   float az;
+   boolean af;
+   boolean an;
+   boolean av = true;
    ev[] au;
+   ex ac;
    ex aw;
-   float aq;
-   int ar = 0;
-   float at;
    float aa;
    float ag;
-   float ao;
-   float ax;
-   float ai;
-   float al;
    float ah;
-   boolean af;
-   boolean av = true;
-   float[] am;
-   int as;
-   int aj;
-   ex ac;
+   float ai;
+   float ak;
+   float al;
+   float ao;
+   float aq;
+   float at;
+   float ax;
    float ay;
-   static int kh;
+   float az;
+   float[] am;
+   int aj;
+   int ar = 0;
+   int as;
+
+   public static sz an_renamed(int var0) {
+      sz var2 = (sz)sz.an.get((long)var0);
+      if (var2 != null) {
+         return var2;
+      } else {
+         byte[] var3 = sz.af.takeFile(38, var0);
+         var2 = new sz();
+         if (null != var3) {
+            var2.decode(new Packet(var3));
+         }
+
+         var2.ab();
+         sz.an.put(var2, (long)var0);
+         return var2;
+      }
+   }
+
+   ek() {
+   }
 
    int af(Packet var1, int var2) {
       int var4 = var1.cl();
@@ -47,6 +67,20 @@ public class ek {
       return var4;
    }
 
+   void an() {
+      this.as = this.au[0].af * 1112222701;
+      this.aj = this.au[this.at() - 1].af * -261315509;
+      this.am = new float[this.ab() + 1];
+
+      for(int var2 = this.ac(); var2 <= this.au(); ++var2) {
+         this.am[var2 - this.ac()] = GrandExchangeEvent.af_renamed(this, (float)var2);
+      }
+
+      this.au = null;
+      this.ak = GrandExchangeEvent.af_renamed(this, (float)(this.ac() - 1));
+      this.az = GrandExchangeEvent.af_renamed(this, (float)(this.au() + 1));
+   }
+
    public float aw(int var1) {
       if (var1 < this.ac()) {
          return this.ak;
@@ -57,6 +91,14 @@ public class ek {
 
    int ac() {
       return -1357454691 * this.as;
+   }
+
+   int au() {
+      return -26337941 * this.aj;
+   }
+
+   int ab() {
+      return this.au() - this.ac();
    }
 
    int aq(float var1) {
@@ -114,47 +156,5 @@ public class ek {
 
    int at() {
       return null == this.au ? 0 : this.au.length;
-   }
-
-   int ab() {
-      return this.au() - this.ac();
-   }
-
-   ek() {
-   }
-
-   void an() {
-      this.as = this.au[0].af * 1112222701;
-      this.aj = this.au[this.at() - 1].af * -261315509;
-      this.am = new float[this.ab() + 1];
-
-      for(int var2 = this.ac(); var2 <= this.au(); ++var2) {
-         this.am[var2 - this.ac()] = GrandExchangeEvent.af_renamed(this, (float)var2);
-      }
-
-      this.au = null;
-      this.ak = GrandExchangeEvent.af_renamed(this, (float)(this.ac() - 1));
-      this.az = GrandExchangeEvent.af_renamed(this, (float)(this.au() + 1));
-   }
-
-   int au() {
-      return -26337941 * this.aj;
-   }
-
-   public static sz an_renamed(int var0) {
-      sz var2 = (sz)sz.an.get((long)var0);
-      if (var2 != null) {
-         return var2;
-      } else {
-         byte[] var3 = sz.af.takeFile(38, var0);
-         var2 = new sz();
-         if (null != var3) {
-            var2.aw(new Packet(var3));
-         }
-
-         var2.ab();
-         sz.an.put(var2, (long)var0);
-         return var2;
-      }
    }
 }

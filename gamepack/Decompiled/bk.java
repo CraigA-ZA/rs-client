@@ -5,77 +5,6 @@ public class bk {
       ImageIO.setUseCache(false);
    }
 
-   public static long ac_renamed(int var0) {
-      return ix.ag[var0];
-   }
-
-   static final void kt_renamed(PacketBit var0) {
-      var0.importIndex();
-      int var2 = var0.gBit(8);
-      int var3;
-      if (var2 < Client.iw * 265474485) {
-         for(var3 = var2; var3 < 265474485 * Client.iw; ++var3) {
-            Client.nz[(Client.mb += -1359666311) * 216061641 - 1] = Client.iy[var3];
-         }
-      }
-
-      if (var2 > Client.iw * 265474485) {
-         throw new RuntimeException("");
-      } else {
-         Client.iw = 0;
-
-         for(var3 = 0; var3 < var2; ++var3) {
-            int var4 = Client.iy[var3];
-            Npc var5 = Client.npcs[var4];
-            int var6 = var0.gBit(1);
-            if (var6 == 0) {
-               Client.iy[(Client.iw += 1796101277) * 265474485 - 1] = var4;
-               var5.dg = -1014023335 * Client.ep;
-            } else {
-               int var7 = var0.gBit(2);
-               if (0 == var7) {
-                  Client.iy[(Client.iw += 1796101277) * 265474485 - 1] = var4;
-                  var5.dg = Client.ep * -1014023335;
-                  Client.ih[(Client.ig += 1487412345) * 606834121 - 1] = var4;
-               } else {
-                  int var8;
-                  int var9;
-                  if (var7 == 1) {
-                     Client.iy[(Client.iw += 1796101277) * 265474485 - 1] = var4;
-                     var5.dg = Client.ep * -1014023335;
-                     var8 = var0.gBit(3);
-                     var5.aa(var8, iu.aw);
-                     var9 = var0.gBit(1);
-                     if (1 == var9) {
-                        Client.ih[(Client.ig += 1487412345) * 606834121 - 1] = var4;
-                     }
-                  } else if (var7 == 2) {
-                     Client.iy[(Client.iw += 1796101277) * 265474485 - 1] = var4;
-                     var5.dg = -1014023335 * Client.ep;
-                     if (var0.gBit(1) == 1) {
-                        var8 = var0.gBit(3);
-                        var5.aa(var8, iu.ac);
-                        var9 = var0.gBit(3);
-                        var5.aa(var9, iu.ac);
-                     } else {
-                        var8 = var0.gBit(3);
-                        var5.aa(var8, iu.an);
-                     }
-
-                     var8 = var0.gBit(1);
-                     if (var8 == 1) {
-                        Client.ih[(Client.ig += 1487412345) * 606834121 - 1] = var4;
-                     }
-                  } else if (var7 == 3) {
-                     Client.nz[(Client.mb += -1359666311) * 216061641 - 1] = var4;
-                  }
-               }
-            }
-         }
-
-      }
-   }
-
    bk() throws Throwable {
       throw new Error();
    }
@@ -236,6 +165,77 @@ public class bk {
          } else {
             return null;
          }
+      }
+   }
+
+   public static long ac_renamed(int var0) {
+      return ix.ag[var0];
+   }
+
+   static final void kt_renamed(PacketBit var0) {
+      var0.importIndex();
+      int var2 = var0.gBit(8);
+      int var3;
+      if (var2 < Client.iw * 265474485) {
+         for(var3 = var2; var3 < 265474485 * Client.iw; ++var3) {
+            Client.nz[(Client.mb += -1359666311) * 216061641 - 1] = Client.iy[var3];
+         }
+      }
+
+      if (var2 > Client.iw * 265474485) {
+         throw new RuntimeException("");
+      } else {
+         Client.iw = 0;
+
+         for(var3 = 0; var3 < var2; ++var3) {
+            int var4 = Client.iy[var3];
+            Npc var5 = Client.iu[var4];
+            int var6 = var0.gBit(1);
+            if (var6 == 0) {
+               Client.iy[(Client.iw += 1796101277) * 265474485 - 1] = var4;
+               var5.dg = -1014023335 * Client.ep;
+            } else {
+               int var7 = var0.gBit(2);
+               if (0 == var7) {
+                  Client.iy[(Client.iw += 1796101277) * 265474485 - 1] = var4;
+                  var5.dg = Client.ep * -1014023335;
+                  Client.ih[(Client.ig += 1487412345) * 606834121 - 1] = var4;
+               } else {
+                  int var8;
+                  int var9;
+                  if (var7 == 1) {
+                     Client.iy[(Client.iw += 1796101277) * 265474485 - 1] = var4;
+                     var5.dg = Client.ep * -1014023335;
+                     var8 = var0.gBit(3);
+                     var5.aa(var8, iu.aw);
+                     var9 = var0.gBit(1);
+                     if (1 == var9) {
+                        Client.ih[(Client.ig += 1487412345) * 606834121 - 1] = var4;
+                     }
+                  } else if (var7 == 2) {
+                     Client.iy[(Client.iw += 1796101277) * 265474485 - 1] = var4;
+                     var5.dg = -1014023335 * Client.ep;
+                     if (var0.gBit(1) == 1) {
+                        var8 = var0.gBit(3);
+                        var5.aa(var8, iu.ac);
+                        var9 = var0.gBit(3);
+                        var5.aa(var9, iu.ac);
+                     } else {
+                        var8 = var0.gBit(3);
+                        var5.aa(var8, iu.an);
+                     }
+
+                     var8 = var0.gBit(1);
+                     if (var8 == 1) {
+                        Client.ih[(Client.ig += 1487412345) * 606834121 - 1] = var4;
+                     }
+                  } else if (var7 == 3) {
+                     Client.nz[(Client.mb += -1359666311) * 216061641 - 1] = var4;
+                  }
+               }
+            }
+         }
+
       }
    }
 }

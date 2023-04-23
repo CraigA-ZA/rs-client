@@ -10,9 +10,9 @@ import org.bouncycastle.math.ec.ECCurve;
 import org.bouncycastle.util.encoders.Hex;
 
 public class ANSSINamedCurves {
-   static final Hashtable names = new Hashtable();
    static X9ECParametersHolder FRP256v1 = new ANSSINamedCurves$1();
    static final Hashtable curves = new Hashtable();
+   static final Hashtable names = new Hashtable();
    static final Hashtable objIds = new Hashtable();
 
    // $FF: synthetic method

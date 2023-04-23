@@ -4,13 +4,13 @@ import org.bouncycastle.util.Memoable;
 import org.bouncycastle.util.Pack;
 
 public class SHA1Digest extends GeneralDigest implements EncodableDigest {
-   int[] X = new int[80];
    int H1;
-   int H4;
-   int H3;
    int H2;
-   int xOff;
+   int H3;
+   int H4;
    int H5;
+   int xOff;
+   int[] X = new int[80];
 
    public int getDigestSize() {
       return 20;

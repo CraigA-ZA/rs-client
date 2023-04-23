@@ -1,8 +1,8 @@
 package org.bouncycastle.asn1;
 
 public class OIDTokenizer {
-   String oid;
    int index;
+   String oid;
 
    public String nextToken() {
       if (this.index == -1) {

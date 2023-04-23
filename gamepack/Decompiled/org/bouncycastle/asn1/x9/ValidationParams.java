@@ -11,8 +11,8 @@ import org.bouncycastle.asn1.DERBitString;
 import org.bouncycastle.asn1.DERSequence;
 
 public class ValidationParams extends ASN1Object {
-   DERBitString seed;
    ASN1Integer pgenCounter;
+   DERBitString seed;
 
    public ValidationParams(byte[] var1, int var2) {
       if (var1 == null) {

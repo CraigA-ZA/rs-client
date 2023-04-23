@@ -1,19 +1,41 @@
 public class fv extends fb {
-   byte au;
+   static AbstractArchive bk;
+   boolean af;
+   byte ac;
    byte an;
+   byte au;
    byte aw;
    // $FF: synthetic field
    final fa this$0;
-   byte ac;
-   boolean af;
-   static AbstractArchive bk;
+
+   public static ServerBuild af_renamed(int var0) {
+      ServerBuild[] var2 = new ServerBuild[]{ServerBuild.af, ServerBuild.an, ServerBuild.aw, ServerBuild.ac};
+      ServerBuild[] var3 = var2;
+
+      for(int var4 = 0; var4 < var3.length; ++var4) {
+         ServerBuild var5 = var3[var4];
+         if (var0 == var5.ab * -978256915) {
+            return var5;
+         }
+      }
+
+      return null;
+   }
+
+   public static int aw_renamed(int var0) {
+      return (var0 & 265217111 * sc.aw) - 1;
+   }
 
    public static final void ay_renamed() {
       ix.af = false;
       ix.ai = 0;
    }
 
-   void af(Packet var1) {
+   fv(fa var1) {
+      this.this$0 = var1;
+   }
+
+   void write(Packet var1) {
       this.af = var1.g1() == 1;
       this.an = var1.g1s();
       this.aw = var1.g1s();
@@ -29,28 +51,6 @@ public class fv extends fb {
       var1.ao = this.au;
    }
 
-   public static ServerBuild af_renamed(int var0) {
-      ServerBuild[] var2 = new ServerBuild[]{ServerBuild.af, ServerBuild.an, ServerBuild.aw, ServerBuild.ac};
-      ServerBuild[] var3 = var2;
-
-      for(int var4 = 0; var4 < var3.length; ++var4) {
-         ServerBuild var5 = var3[var4];
-         if (var0 == var5.id * -978256915) {
-            return var5;
-         }
-      }
-
-      return null;
-   }
-
-   fv(fa var1) {
-      this.this$0 = var1;
-   }
-
-   public static int aw_renamed(int var0) {
-      return (var0 & 265217111 * sc.aw) - 1;
-   }
-
    static final void kb_renamed(boolean var0, PacketBit var1) {
       Client.mb = 0;
       Client.ig = 0;
@@ -61,16 +61,16 @@ public class fv extends fb {
       int var4;
       for(var3 = 0; var3 < Client.ig * 606834121; ++var3) {
          var4 = Client.ih[var3];
-         Npc var5 = Client.npcs[var4];
-         int var6 = var1.cm();
+         Npc var5 = Client.iu[var4];
+         int var6 = var1.g1();
          int var7;
          if (0 != (var6 & 128)) {
-            var7 = var1.cm();
+            var7 = var1.g1();
             var6 += var7 << 8;
          }
 
          if (0 != (var6 & 256)) {
-            var7 = var1.cm();
+            var7 = var1.g1();
             var6 += var7 << 16;
          }
 
@@ -95,7 +95,7 @@ public class fv extends fb {
                if (2 == var9) {
                   var5.dw = 0;
                }
-            } else if (var7 == -1 || -1372355773 * var5.ct == -1 || Inventory.getSeqType(var7, (byte)116).frameCount * -1932560049 >= Inventory.getSeqType(-1372355773 * var5.ct, (byte)2).frameCount * -1932560049) {
+            } else if (var7 == -1 || -1372355773 * var5.ct == -1 || Inventory.getSeqType(var7, (byte)116).az * -1932560049 >= Inventory.getSeqType(-1372355773 * var5.ct, (byte)2).az * -1932560049) {
                var5.ct = -1690721941 * var7;
                var5.cp = 0;
                var5.cd = 0;
@@ -123,7 +123,7 @@ public class fv extends fb {
          int var11;
          int var12;
          if (0 != (var6 & 4)) {
-            var7 = var1.cm();
+            var7 = var1.g1();
             int var13;
             if (var7 > 0) {
                for(var8 = 0; var8 < var7; ++var8) {
@@ -143,22 +143,22 @@ public class fv extends fb {
                   }
 
                   var13 = var1.cd();
-                  var5.co(var9, var11, var10, var12, -1886224337 * Client.ep, var13);
+                  var5.addHitmark(var9, var11, var10, var12, -1886224337 * Client.ep, var13);
                }
             }
 
-            var8 = var1.df();
+            var8 = var1.g1n();
             if (var8 > 0) {
                for(var9 = 0; var9 < var8; ++var9) {
                   var10 = var1.cd();
                   var11 = var1.cd();
                   if (var11 != 32767) {
                      var12 = var1.cd();
-                     var13 = var1.cm();
-                     int var14 = var11 > 0 ? var1.df() : var13;
-                     var5.cz(var10, -1886224337 * Client.ep, var11, var12, var13, var14);
+                     var13 = var1.g1();
+                     int var14 = var11 > 0 ? var1.g1n() : var13;
+                     var5.addHeadbar(var10, -1886224337 * Client.ep, var11, var12, var13, var14);
                   } else {
-                     var5.cw(var10);
+                     var5.removeHeadbar(var10);
                   }
                }
             }
@@ -194,7 +194,7 @@ public class fv extends fb {
          }
 
          if (0 != (var6 & 16384)) {
-            var5.di = var1.cf() * -278393391;
+            var5.di = var1.g1s() * -278393391;
             var5.dl = var1.dj() * -1448856093;
             var5.dr = var1.dj() * 242410523;
             var5.dk = var1.dj() * 2106434927;
@@ -210,7 +210,7 @@ public class fv extends fb {
          }
 
          if ((var6 & '耀') != 0) {
-            var5.eq = var1.cx() * 1392091407;
+            var5.eq = var1.g4s() * 1392091407;
          }
 
          if ((var6 & 2048) != 0) {
@@ -227,7 +227,7 @@ public class fv extends fb {
          }
 
          if ((var6 & 8192) != 0) {
-            var5.aw(var1.cm());
+            var5.advance(var1.g1());
          }
 
          int[] var15;
@@ -282,7 +282,7 @@ public class fv extends fb {
 
                var19 = false;
                if ((var7 & 16) != 0) {
-                  var19 = var1.cm() == 1;
+                  var19 = var1.g1() == 1;
                }
 
                var18 = (long)((Npc.aa += -1963015503) * 413681233 - 1);
@@ -337,7 +337,7 @@ public class fv extends fb {
 
                var19 = false;
                if (0 != (var7 & 16)) {
-                  var19 = var1.cm() == 1;
+                  var19 = var1.g1() == 1;
                }
 
                var18 = (long)((Npc.al += -1714612375) * -1770985255 - 1);
@@ -352,7 +352,7 @@ public class fv extends fb {
 
             for(var10 = 0; var10 < 8; ++var10) {
                if ((var7 & 1 << var10) != 0) {
-                  var15[var10] = var1.do();
+                  var15[var10] = var1.gSmart2or4();
                   var16[var10] = (short)var1.dm();
                } else {
                   var15[var10] = -1;
@@ -364,7 +364,7 @@ public class fv extends fb {
          }
 
          if (0 != (var6 & 262144)) {
-            var7 = var1.cx();
+            var7 = var1.g4s();
             var5.bj = ((var7 & 1) != 0 ? var1.cl() : -2117504177 * var5.af.ao) * -767436785;
             var5.bn = (0 != (var7 & 2) ? var1.cl() : var5.af.ax * 1635935495) * -603869663;
             var5.bs = (0 != (var7 & 4) ? var1.eo() : var5.af.ai * 849832979) * 1672510249;
@@ -396,18 +396,18 @@ public class fv extends fb {
 
       for(var3 = 0; var3 < 216061641 * Client.mb; ++var3) {
          var4 = Client.nz[var3];
-         if (Client.ep * -1886224337 != Client.npcs[var4].dg * -523202873) {
-            Client.npcs[var4].af = null;
-            Client.npcs[var4] = null;
+         if (Client.ep * -1886224337 != Client.iu[var4].dg * -523202873) {
+            Client.iu[var4].af = null;
+            Client.iu[var4] = null;
          }
       }
 
-      if (-1633313603 * var1.at != Client.packetWriter.al * 889658999) {
-         throw new RuntimeException(var1.at * -1633313603 + Formatting.Formatting_comma + 889658999 * Client.packetWriter.al);
+      if (-1633313603 * var1.at != Client.in.al * 889658999) {
+         throw new RuntimeException(var1.at * -1633313603 + Formatting.an + 889658999 * Client.in.al);
       } else {
          for(var3 = 0; var3 < 265474485 * Client.iw; ++var3) {
-            if (Client.npcs[Client.iy[var3]] == null) {
-               throw new RuntimeException(var3 + Formatting.Formatting_comma + Client.iw * 265474485);
+            if (Client.iu[Client.iy[var3]] == null) {
+               throw new RuntimeException(var3 + Formatting.an + Client.iw * 265474485);
             }
          }
 

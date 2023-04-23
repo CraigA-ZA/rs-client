@@ -4,11 +4,18 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class ag {
+   static UrlRequester iq;
    final int af;
    final String an;
-   static UrlRequester urlRequester;
-   final ThreadPoolExecutor ac;
    final ThreadFactory aw;
+   final ThreadPoolExecutor ac;
+
+   public ag(String var1, int var2, int var3) {
+      this.an = var1;
+      this.af = -1983210819 * var2;
+      this.aw = new av(this);
+      this.ac = this.af(var3);
+   }
 
    final ThreadPoolExecutor af(int var1) {
       return new ThreadPoolExecutor(var1, var1, 0L, TimeUnit.MILLISECONDS, new ArrayBlockingQueue(1905963157 * this.af), this.aw);
@@ -24,15 +31,6 @@ public class ag {
       }
    }
 
-   static final void hb_renamed(boolean var0) {
-      if (var0) {
-         Client.gh = cz.cd ? fp.an : fp.ac;
-      } else {
-         Client.gh = aj.clientPreferences.bk(cz.ca) ? fp.af : fp.aw;
-      }
-
-   }
-
    public final void aw() {
       try {
          this.ac.shutdown();
@@ -42,23 +40,13 @@ public class ag {
 
    }
 
-   public ag(String var1, int var2, int var3) {
-      this.an = var1;
-      this.af = -1983210819 * var2;
-      this.aw = new av(this);
-      this.ac = this.af(var3);
-   }
-
-   static void av_renamed(int var0) {
-      ee.ak_renamed(14);
-      cz.ba = var0 * -1919975363;
-   }
-
-   public static void ag_renamed() {
-      hq.ac.clear();
-      hq.au.clear();
-      hq.ab.clear();
-      hq.aq.clear();
+   static float an_renamed(ek var0, float var1) {
+      if (null == var0) {
+         return 0.0F;
+      } else {
+         float var3 = var1 - var0.aq;
+         return var0.ao + var3 * (var0.ay + var3 * (var0.at * var3 + var0.aa));
+      }
    }
 
    static String ax_renamed(char var0, int var1) {
@@ -71,12 +59,24 @@ public class ag {
       return new String(var3);
    }
 
-   static float an_renamed(ek var0, float var1) {
-      if (null == var0) {
-         return 0.0F;
+   public static void ag_renamed() {
+      hq.ac.clear();
+      hq.au.clear();
+      hq.ab.clear();
+      hq.aq.clear();
+   }
+
+   static void av_renamed(int var0) {
+      ee.ak_renamed(14);
+      cz.ba = var0 * -1919975363;
+   }
+
+   static final void hb_renamed(boolean var0) {
+      if (var0) {
+         Client.gh = cz.cd ? fp.an : fp.ac;
       } else {
-         float var3 = var1 - var0.aq;
-         return var0.ao + var3 * (var0.ay + var3 * (var0.at * var3 + var0.aa));
+         Client.gh = aj.vb.bk(cz.ca) ? fp.af : fp.aw;
       }
+
    }
 }

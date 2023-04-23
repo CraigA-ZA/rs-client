@@ -5,9 +5,9 @@ import org.bouncycastle.math.ec.endo.ECEndomorphism;
 public class ECCurve$Config {
    // $FF: synthetic field
    final ECCurve this$0;
-   public ECEndomorphism endomorphism;
    public int coord;
    public ECMultiplier multiplier;
+   public ECEndomorphism endomorphism;
 
    public ECCurve$Config setMultiplier(ECMultiplier var1) {
       this.multiplier = var1;

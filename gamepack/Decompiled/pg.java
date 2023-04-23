@@ -1,12 +1,12 @@
 import java.util.Comparator;
 
 class pg implements Comparator {
+   static int ab;
    // $FF: synthetic field
    final pk this$0;
-   static int ab;
 
-   public int compare(Object var1, Object var2) {
-      return this.af((pj)var1, (pj)var2);
+   pg(pk var1) {
+      this.this$0 = var1;
    }
 
    int af(pj var1, pj var2) {
@@ -15,14 +15,6 @@ class pg implements Comparator {
       } else {
          return 3457501928509627443L * var1.aw < 3457501928509627443L * var2.aw ? -1 : 0;
       }
-   }
-
-   pg(pk var1) {
-      this.this$0 = var1;
-   }
-
-   public boolean equals(Object var1) {
-      return super.equals(var1);
    }
 
    public static String af_renamed(CharSequence var0) {
@@ -57,5 +49,13 @@ class pg implements Comparator {
       }
 
       return var3.toString();
+   }
+
+   public int compare(Object var1, Object var2) {
+      return this.af((pj)var1, (pj)var2);
+   }
+
+   public boolean equals(Object var1) {
+      return super.equals(var1);
    }
 }

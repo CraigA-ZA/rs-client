@@ -1,25 +1,25 @@
 public final class cr extends Node {
-   int aq;
-   int an;
-   int aw;
-   int au;
-   int ab;
-   int al;
-   int ax;
-   RawPcmStream at;
-   int aa;
-   int ay;
-   int[] ao;
+   static byte[][] jw;
    static NodeDeque af = new NodeDeque();
    RawPcmStream ai;
+   RawPcmStream at;
    hq ag;
+   int aa;
+   int ab;
    int ac;
-   static byte[][] jw;
+   int al;
+   int an;
+   int aq;
+   int au;
+   int aw;
+   int ax;
+   int ay;
+   int[] ao;
 
    cr() {
    }
 
-   void aw() {
+   void clear() {
       int var2 = 1671764667 * this.al;
       hq var3 = this.ag.ao();
       if (null != var3) {
@@ -37,7 +37,7 @@ public final class cr extends Node {
       }
 
       if (var2 != 1671764667 * this.al && this.at != null) {
-         fe.pcmStreamMixer.removeSubStream(this.at);
+         fe.td.removeSubStream(this.at);
          this.at = null;
       }
 

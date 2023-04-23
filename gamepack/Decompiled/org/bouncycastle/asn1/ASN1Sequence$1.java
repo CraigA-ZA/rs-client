@@ -3,12 +3,12 @@ package org.bouncycastle.asn1;
 import java.io.IOException;
 
 class ASN1Sequence$1 implements ASN1SequenceParser {
-   final int max;
    int index;
-   // $FF: synthetic field
-   final ASN1Sequence val$outer;
+   final int max;
    // $FF: synthetic field
    final ASN1Sequence this$0;
+   // $FF: synthetic field
+   final ASN1Sequence val$outer;
 
    ASN1Sequence$1(ASN1Sequence var1, ASN1Sequence var2) {
       this.this$0 = var1;

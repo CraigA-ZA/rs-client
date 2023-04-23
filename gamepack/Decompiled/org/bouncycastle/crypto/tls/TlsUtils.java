@@ -36,14 +36,14 @@ import org.bouncycastle.util.Integers;
 import org.bouncycastle.util.io.Streams;
 
 public class TlsUtils {
-   static final byte[][] SSL3_CONST = genSSL3Const();
-   public static final short[] EMPTY_SHORTS = new short[0];
    public static final byte[] EMPTY_BYTES = new byte[0];
-   public static final long[] EMPTY_LONGS = new long[0];
-   static final byte[] SSL_CLIENT = new byte[]{67, 76, 78, 84};
    public static final int[] EMPTY_INTS = new int[0];
-   static final byte[] SSL_SERVER = new byte[]{83, 82, 86, 82};
    public static final Integer EXT_signature_algorithms = Integers.valueOf(13);
+   public static final long[] EMPTY_LONGS = new long[0];
+   public static final short[] EMPTY_SHORTS = new short[0];
+   static final byte[] SSL_CLIENT = new byte[]{67, 76, 78, 84};
+   static final byte[] SSL_SERVER = new byte[]{83, 82, 86, 82};
+   static final byte[][] SSL3_CONST = genSSL3Const();
 
    public static void readFully(byte[] var0, InputStream var1) throws IOException {
       int var2 = var0.length;

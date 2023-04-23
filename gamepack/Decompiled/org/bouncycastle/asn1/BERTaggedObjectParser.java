@@ -3,9 +3,9 @@ package org.bouncycastle.asn1;
 import java.io.IOException;
 
 public class BERTaggedObjectParser implements ASN1TaggedObjectParser {
-   ASN1StreamParser _parser;
-   int _tagNumber;
    boolean _constructed;
+   int _tagNumber;
+   ASN1StreamParser _parser;
 
    public int getTagNo() {
       return this._tagNumber;

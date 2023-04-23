@@ -9,8 +9,8 @@ import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.util.Arrays;
 
 public class X9ECPoint extends ASN1Object {
-   ECPoint p;
    ECCurve c;
+   ECPoint p;
    final ASN1OctetString encoding;
 
    public byte[] getPointEncoding() {

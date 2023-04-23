@@ -11,9 +11,9 @@ import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.DERSequence;
 
 public class DSAParameter extends ASN1Object {
+   ASN1Integer g;
    ASN1Integer p;
    ASN1Integer q;
-   ASN1Integer g;
 
    public BigInteger getG() {
       return this.g.getPositiveValue();

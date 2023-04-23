@@ -1,11 +1,7 @@
 public class qh {
-   static int[] an;
-   static int[] af = new int['耀'];
    public static int ac;
-
-   qh() throws Throwable {
-      throw new Error();
-   }
+   static int[] af = new int['耀'];
+   static int[] an;
 
    static {
       for(int var0 = 0; var0 < 32768; ++var0) {
@@ -91,5 +87,9 @@ public class qh {
       }
 
       el.af_renamed();
+   }
+
+   qh() throws Throwable {
+      throw new Error();
    }
 }

@@ -11,16 +11,16 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.util.Arrays;
 
 public class CCMBlockCipher implements AEADBlockCipher {
-   byte[] macBlock;
-   int blockSize;
-   BlockCipher cipher;
-   byte[] nonce;
+   boolean forEncryption;
    byte[] initialAssociatedText;
+   byte[] macBlock;
+   byte[] nonce;
+   int blockSize;
    int macSize;
-   CCMBlockCipher$EBAOutStream data = new CCMBlockCipher$EBAOutStream(this);
+   BlockCipher cipher;
    CipherParameters keyParam;
    CCMBlockCipher$EBAOutStream associatedText = new CCMBlockCipher$EBAOutStream(this);
-   boolean forEncryption;
+   CCMBlockCipher$EBAOutStream data = new CCMBlockCipher$EBAOutStream(this);
 
    public byte[] getMac() {
       byte[] var1 = new byte[this.macSize];

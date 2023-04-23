@@ -3,13 +3,13 @@ package org.bouncycastle.math.ec;
 import java.math.BigInteger;
 
 class Tnaf {
-   public static final ZTauElement[] alpha0;
-   static final BigInteger MINUS_TWO;
-   static final BigInteger MINUS_THREE;
-   static final BigInteger MINUS_ONE;
    public static final byte[][] alpha0Tnaf;
    public static final byte[][] alpha1Tnaf;
+   public static final ZTauElement[] alpha0;
    public static final ZTauElement[] alpha1;
+   static final BigInteger MINUS_ONE;
+   static final BigInteger MINUS_THREE;
+   static final BigInteger MINUS_TWO;
 
    public static int getShiftsForCofactor(BigInteger var0) {
       if (var0 != null) {

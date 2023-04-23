@@ -2,85 +2,88 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class it extends Entity {
-   static byte[] an = new byte[1];
-   static int[] cx;
+   static boolean cl = true;
+   static boolean[] br = new boolean[6500];
+   static boolean[] bs = new boolean[6500];
    static byte[] ac = new byte[1];
-   static qj au = new qj();
+   static byte[] an = new byte[1];
+   static char[] bc = new char[6000];
+   static char[][] bh = new char[6000][512];
+   static float[] bf = new float[6500];
+   static float[] ck = new float[10];
+   static int cf;
+   static int cm;
+   static int cq;
+   static int[] ba = new int[6500];
+   static int[] bg = new int[6500];
+   static int[] bl = new int[6500];
+   static int[] bq = new int[6500];
+   static int[] bu = new int[6500];
+   static int[] bv = new int[6500];
+   static int[] bw = new int[12];
+   static int[] ca = new int[10];
+   static int[] cb;
+   static int[] cc = new int[12];
+   static int[] ci = new int[2000];
+   static int[] cn = new int[10];
+   static int[] cs = new int[2000];
+   static int[] cu = new int[10];
+   static int[] cv;
+   static int[] cx;
+   static int[] cy;
+   static int[][] ce = new int[12][2000];
+   static it af = new it();
+   static it aw = new it();
    static qj ab = new qj();
    static qj aq = new qj();
-   public int al = 0;
-   int[] at;
-   int[] aa;
-   static int[] cv;
-   public int ao = 0;
-   int[] ax;
-   int[] ai;
-   int[] ag;
-   static int[][] ce = new int[12][2000];
-   int[] av;
-   int[] ar;
+   static qj au = new qj();
+   static final float cw;
+   byte[] aj;
    byte[] am;
    byte[] as;
-   static float[] ck = new float[10];
-   short[] ak;
-   public byte az = 0;
-   public int ad = 0;
-   byte[] aj;
-   int[] ap;
-   int[][] be;
-   int[][] bb;
-   public boolean bx = false;
-   public byte ch;
-   int[][] bk;
-   static int[] ba = new int[6500];
-   int bo;
-   int bz;
-   int bm;
-   int[] ah;
-   HashMap bj = new HashMap();
-   static it af = new it();
-   static boolean[] bs = new boolean[6500];
-   static boolean[] br = new boolean[6500];
-   static it aw = new it();
-   static int[] bu = new int[6500];
-   static float[] bf = new float[6500];
-   static int[] bq = new int[6500];
    int bd;
-   static int[] bv = new int[6500];
-   static int[] cb;
-   static int cm;
-   static char[][] bh = new char[6000][512];
-   static int[] bw = new int[12];
-   static boolean cl = true;
-   static int[] ci = new int[2000];
-   static int[] cs = new int[2000];
-   static int[] cc = new int[12];
-   static int[] cn = new int[10];
-   static int[] ca = new int[10];
-   static int[] cu = new int[10];
-   int[] by;
-   static int cq;
-   static int[] bg = new int[6500];
-   static int cf;
+   int bm;
+   int bo;
    int bt;
-   static int[] cy;
-   int[][] bi;
-   public byte ct;
-   static char[] bc = new char[6000];
-   public short cd;
-   public byte cj;
-   static final float cw;
+   int bz;
+   int[] aa;
    int[] ae;
-   static int[] bl = new int[6500];
-   public byte cp;
+   int[] ag;
+   int[] ah;
+   int[] ai;
+   int[] ap;
+   int[] ar;
+   int[] at;
+   int[] av;
+   int[] ax;
    int[] ay;
+   int[] by;
+   int[][] bb;
+   int[][] be;
+   int[][] bi;
+   int[][] bk;
+   HashMap bj = new HashMap();
+   short[] ak;
+   public boolean bx = false;
+   public byte az = 0;
+   public byte ch;
+   public byte cj;
+   public byte cp;
+   public byte ct;
+   public int ad = 0;
+   public int al = 0;
+   public int ao = 0;
+   public short cd;
 
-   public it aa(boolean var1) {
-      if (!var1 && an.length < this.ao) {
-         an = new byte[this.ao + 100];
-      }
+   static {
+      cy = in.ac;
+      cx = in.au;
+      cv = in.af;
+      cb = in.aw;
+      cw = Npc.au_renamed(50);
+   }
 
-      return this.ao(var1, af, an);
+   it() {
    }
 
    public it(it[] var1, int var2) {
@@ -121,17 +124,22 @@ public class it extends Entity {
       this.ad = 0;
    }
 
-   public void bi(int var1) {
-      int var2 = cy[var1];
-      int var3 = cx[var1];
-
-      for(int var4 = 0; var4 < this.al; ++var4) {
-         int var5 = this.aa[var4] * var3 - this.ay[var4] * var2 >> 16;
-         this.ay[var4] = this.aa[var4] * var2 + this.ay[var4] * var3 >> 16;
-         this.aa[var4] = var5;
+   void af(int var1, int var2, int var3) {
+      this.at = new int[var1];
+      this.aa = new int[var1];
+      this.ay = new int[var1];
+      this.ax = new int[var2];
+      this.ai = new int[var2];
+      this.ag = new int[var2];
+      this.ah = new int[var2];
+      this.av = new int[var2];
+      this.ar = new int[var2];
+      if (var3 > 0) {
+         this.ae = new int[var3];
+         this.ap = new int[var3];
+         this.by = new int[var3];
       }
 
-      this.av();
    }
 
    void aw(it var1) {
@@ -156,6 +164,58 @@ public class it extends Entity {
          Arrays.fill(this.aj, (byte)-1);
       }
 
+   }
+
+   public void ac(it var1) {
+      if (var1 != null) {
+         this.aw(var1);
+
+         int var2;
+         for(var2 = 0; var2 < var1.ao; ++var2) {
+            this.ax[this.ao] = var1.ax[var2] + this.al;
+            this.ai[this.ao] = var1.ai[var2] + this.al;
+            this.ag[this.ao] = var1.ag[var2] + this.al;
+            this.ah[this.ao] = var1.ah[var2];
+            this.av[this.ao] = var1.av[var2];
+            this.ar[this.ao] = var1.ar[var2];
+            if (this.am != null) {
+               this.am[this.ao] = var1.am != null ? var1.am[var2] : var1.az;
+            }
+
+            if (this.as != null && var1.as != null) {
+               this.as[this.ao] = var1.as[var2];
+            }
+
+            if (this.ak != null) {
+               this.ak[this.ao] = var1.ak != null ? var1.ak[var2] : -1;
+            }
+
+            if (this.aj != null) {
+               if (var1.aj != null && var1.aj[var2] != -1) {
+                  this.aj[this.ao] = (byte)(var1.aj[var2] + this.ad);
+               } else {
+                  this.aj[this.ao] = -1;
+               }
+            }
+
+            ++this.ao;
+         }
+
+         for(var2 = 0; var2 < var1.ad; ++var2) {
+            this.ae[this.ad] = var1.ae[var2] + this.al;
+            this.ap[this.ad] = var1.ap[var2] + this.al;
+            this.by[this.ad] = var1.by[var2] + this.al;
+            ++this.ad;
+         }
+
+         for(var2 = 0; var2 < var1.al; ++var2) {
+            this.at[this.al] = var1.at[var2];
+            this.aa[this.al] = var1.aa[var2];
+            this.ay[this.al] = var1.ay[var2];
+            ++this.al;
+         }
+
+      }
    }
 
    public it at(int[][] var1, int var2, int var3, int var4, boolean var5, int var6) {
@@ -249,6 +309,14 @@ public class it extends Entity {
       } else {
          return this;
       }
+   }
+
+   public it aa(boolean var1) {
+      if (!var1 && an.length < this.ao) {
+         an = new byte[this.ao + 100];
+      }
+
+      return this.ao(var1, af, an);
    }
 
    public it ay(boolean var1) {
@@ -374,14 +442,61 @@ public class it extends Entity {
       }
    }
 
-   public void bb() {
-      for(int var1 = 0; var1 < this.al; ++var1) {
-         int var2 = this.ay[var1];
-         this.ay[var1] = this.at[var1];
-         this.at[var1] = -var2;
-      }
+   public void ai() {
+      if (this.bo != 1) {
+         this.bo = 1;
+         this.et = 0;
+         this.bz = 0;
+         this.bm = 0;
 
-      this.av();
+         for(int var1 = 0; var1 < this.al; ++var1) {
+            int var2 = this.at[var1];
+            int var3 = this.aa[var1];
+            int var4 = this.ay[var1];
+            if (-var3 > this.et * 1550732737) {
+               this.et = -var3 * -644693439;
+            }
+
+            if (var3 > this.bz) {
+               this.bz = var3;
+            }
+
+            int var5 = var2 * var2 + var4 * var4;
+            if (var5 > this.bm) {
+               this.bm = var5;
+            }
+         }
+
+         this.bm = (int)(Math.sqrt((double)this.bm) + 0.99);
+         this.bt = (int)(Math.sqrt((double)(this.bm * this.bm + this.et * 1550732737 * this.et * 1550732737)) + 0.99);
+         this.bd = this.bt + (int)(Math.sqrt((double)(this.bm * this.bm + this.bz * this.bz)) + 0.99);
+      }
+   }
+
+   void ag() {
+      if (this.bo != 2) {
+         this.bo = 2;
+         this.bm = 0;
+
+         for(int var1 = 0; var1 < this.al; ++var1) {
+            int var2 = this.at[var1];
+            int var3 = this.aa[var1];
+            int var4 = this.ay[var1];
+            int var5 = var2 * var2 + var4 * var4 + var3 * var3;
+            if (var5 > this.bm) {
+               this.bm = var5;
+            }
+         }
+
+         this.bm = (int)(Math.sqrt((double)this.bm) + 0.99);
+         this.bt = this.bm;
+         this.bd = this.bm + this.bm;
+      }
+   }
+
+   public int transformedSize() {
+      this.ai();
+      return this.bm;
    }
 
    public void av() {
@@ -389,24 +504,71 @@ public class it extends Entity {
       this.bj.clear();
    }
 
+   public void ar(AnimFrameset var1, int var2) {
+      if (this.bb != null) {
+         if (var2 != -1) {
+            AnimFrame var3 = var1.af[var2];
+            AnimBase var4 = var3.au;
+            cq = 0;
+            cm = 0;
+            cf = 0;
+
+            for(int var5 = 0; var5 < var3.ab; ++var5) {
+               int var6 = var3.aq[var5];
+               this.ae(var4.al[var6], var4.at[var6], var3.al[var5], var3.at[var5], var3.aa[var5]);
+            }
+
+            this.av();
+         }
+      }
+   }
+
    public void am(fh var1, int var2) {
       AnimBase var3 = var1.ac;
       ic var4 = var3.an();
       if (var4 != null) {
          var3.an().au(var1, var2);
-         this.aj(var3.an(), var1.ac());
+         this.aj(var3.an(), var1.gIsaac1());
       }
 
-      if (var1.au()) {
+      if (var1.loadModel()) {
          this.as(var1, var2);
       }
 
       this.av();
    }
 
-   public int ah() {
-      this.ai();
-      return this.bm;
+   void as(fh var1, int var2) {
+      AnimBase var3 = var1.ac;
+
+      for(int var4 = 0; var4 < var3.aq * 1158767581; ++var4) {
+         int var5 = var3.al[var4];
+         if (var5 == 5 && var1.an != null && var1.an[var4] != null && var1.an[var4][0] != null && this.bi != null && this.as != null) {
+            ek var6 = var1.an[var4][0];
+            int[] var7 = var3.at[var4];
+            int var8 = var7.length;
+
+            for(int var9 = 0; var9 < var8; ++var9) {
+               int var10 = var7[var9];
+               if (var10 < this.bi.length) {
+                  int[] var11 = this.bi[var10];
+
+                  for(int var12 = 0; var12 < var11.length; ++var12) {
+                     int var13 = var11[var12];
+                     int var14 = (int)((float)(this.as[var13] & 255) + var6.aw(var2) * 255.0F);
+                     if (var14 < 0) {
+                        var14 = 0;
+                     } else if (var14 > 255) {
+                        var14 = 255;
+                     }
+
+                     this.as[var13] = (byte)var14;
+                  }
+               }
+            }
+         }
+      }
+
    }
 
    void aj(ic var1, int var2) {
@@ -416,9 +578,9 @@ public class it extends Entity {
    public void ak(AnimFrameset var1, int var2, AnimFrameset var3, int var4, int[] var5) {
       if (var2 != -1) {
          if (var5 != null && var4 != -1) {
-            AnimFrame var6 = var1.frames[var2];
-            AnimFrame var7 = var3.frames[var4];
-            AnimBase var8 = var6.base;
+            AnimFrame var6 = var1.af[var2];
+            AnimFrame var7 = var3.af[var4];
+            AnimBase var8 = var6.au;
             cq = 0;
             cm = 0;
             cf = 0;
@@ -427,12 +589,12 @@ public class it extends Entity {
 
             int var11;
             int var12;
-            for(var11 = 0; var11 < var6.transformCount; ++var11) {
-               for(var12 = var6.transforms[var11]; var12 > var10; var10 = var5[var9++]) {
+            for(var11 = 0; var11 < var6.ab; ++var11) {
+               for(var12 = var6.aq[var11]; var12 > var10; var10 = var5[var9++]) {
                }
 
-               if (var12 != var10 || var8.transformTypes[var12] == 0) {
-                  this.ae(var8.transformTypes[var12], var8.transformLabels[var12], var6.xs[var11], var6.ys[var11], var6.zs[var11]);
+               if (var12 != var10 || var8.al[var12] == 0) {
+                  this.ae(var8.al[var12], var8.at[var12], var6.al[var11], var6.at[var11], var6.aa[var11]);
                }
             }
 
@@ -443,12 +605,12 @@ public class it extends Entity {
             var9 = var14 + 1;
             var10 = var5[var14];
 
-            for(var11 = 0; var11 < var7.transformCount; ++var11) {
-               for(var12 = var7.transforms[var11]; var12 > var10; var10 = var5[var9++]) {
+            for(var11 = 0; var11 < var7.ab; ++var11) {
+               for(var12 = var7.aq[var11]; var12 > var10; var10 = var5[var9++]) {
                }
 
-               if (var12 == var10 || var8.transformTypes[var12] == 0) {
-                  this.ae(var8.transformTypes[var12], var8.transformLabels[var12], var7.xs[var11], var7.ys[var11], var7.zs[var11]);
+               if (var12 == var10 || var8.al[var12] == 0) {
+                  this.ae(var8.al[var12], var8.at[var12], var7.al[var11], var7.at[var11], var7.aa[var11]);
                }
             }
 
@@ -459,42 +621,44 @@ public class it extends Entity {
       }
    }
 
-   public void be(int var1, int var2, int var3) {
-      for(int var4 = 0; var4 < this.al; ++var4) {
-         int[] var10000 = this.at;
-         var10000[var4] += var1;
-         var10000 = this.aa;
-         var10000[var4] += var2;
-         var10000 = this.ay;
-         var10000[var4] += var3;
+   public void az(AnimBase var1, fh var2, int var3, boolean[] var4, boolean var5, boolean var6) {
+      ic var7 = var1.an();
+      if (var7 != null) {
+         var7.ab(var2, var3, var4, var5);
+         if (var6) {
+            this.aj(var7, var2.gIsaac1());
+         }
       }
 
-      this.av();
+      if (!var5 && var2.loadModel()) {
+         this.as(var2, var3);
+      }
+
    }
 
    public void ad(AnimFrameset var1, int var2, int[] var3, boolean var4) {
       if (var3 == null) {
          this.ar(var1, var2);
       } else {
-         AnimFrame var5 = var1.frames[var2];
-         AnimBase var6 = var5.base;
+         AnimFrame var5 = var1.af[var2];
+         AnimBase var6 = var5.au;
          int var7 = 0;
          int var8 = var3[var7++];
          cq = 0;
          cm = 0;
          cf = 0;
 
-         for(int var9 = 0; var9 < var5.transformCount; ++var9) {
+         for(int var9 = 0; var9 < var5.ab; ++var9) {
             int var10;
-            for(var10 = var5.transforms[var9]; var10 > var8; var8 = var3[var7++]) {
+            for(var10 = var5.aq[var9]; var10 > var8; var8 = var3[var7++]) {
             }
 
             if (var4) {
-               if (var10 == var8 || var6.transformTypes[var10] == 0) {
-                  this.ae(var6.transformTypes[var10], var6.transformLabels[var10], var5.xs[var9], var5.ys[var9], var5.zs[var9]);
+               if (var10 == var8 || var6.al[var10] == 0) {
+                  this.ae(var6.al[var10], var6.at[var10], var5.al[var9], var5.at[var9], var5.aa[var9]);
                }
-            } else if (var10 != var8 || var6.transformTypes[var10] == 0) {
-               this.ae(var6.transformTypes[var10], var6.transformLabels[var10], var5.xs[var9], var5.ys[var9], var5.zs[var9]);
+            } else if (var10 != var8 || var6.al[var10] == 0) {
+               this.ae(var6.al[var10], var6.at[var10], var5.al[var9], var5.at[var9], var5.aa[var9]);
             }
          }
 
@@ -667,6 +831,16 @@ public class it extends Entity {
       }
    }
 
+   public void ap() {
+      for(int var1 = 0; var1 < this.al; ++var1) {
+         int var2 = this.at[var1];
+         this.at[var1] = this.ay[var1];
+         this.ay[var1] = -var2;
+      }
+
+      this.av();
+   }
+
    public void by() {
       for(int var1 = 0; var1 < this.al; ++var1) {
          this.at[var1] = -this.at[var1];
@@ -676,47 +850,113 @@ public class it extends Entity {
       this.av();
    }
 
-   void as(fh var1, int var2) {
-      AnimBase var3 = var1.ac;
+   public void bb() {
+      for(int var1 = 0; var1 < this.al; ++var1) {
+         int var2 = this.ay[var1];
+         this.ay[var1] = this.at[var1];
+         this.at[var1] = -var2;
+      }
 
-      for(int var4 = 0; var4 < var3.id * 1158767581; ++var4) {
-         int var5 = var3.transformTypes[var4];
-         if (var5 == 5 && var1.an != null && var1.an[var4] != null && var1.an[var4][0] != null && this.bi != null && this.as != null) {
-            ek var6 = var1.an[var4][0];
-            int[] var7 = var3.transformLabels[var4];
-            int var8 = var7.length;
+      this.av();
+   }
 
-            for(int var9 = 0; var9 < var8; ++var9) {
-               int var10 = var7[var9];
-               if (var10 < this.bi.length) {
-                  int[] var11 = this.bi[var10];
+   public void bi(int var1) {
+      int var2 = cy[var1];
+      int var3 = cx[var1];
 
-                  for(int var12 = 0; var12 < var11.length; ++var12) {
-                     int var13 = var11[var12];
-                     int var14 = (int)((float)(this.as[var13] & 255) + var6.aw(var2) * 255.0F);
-                     if (var14 < 0) {
-                        var14 = 0;
-                     } else if (var14 > 255) {
-                        var14 = 255;
-                     }
+      for(int var4 = 0; var4 < this.al; ++var4) {
+         int var5 = this.aa[var4] * var3 - this.ay[var4] * var2 >> 16;
+         this.ay[var4] = this.aa[var4] * var2 + this.ay[var4] * var3 >> 16;
+         this.aa[var4] = var5;
+      }
 
-                     this.as[var13] = (byte)var14;
-                  }
-               }
-            }
+      this.av();
+   }
+
+   public void be(int var1, int var2, int var3) {
+      for(int var4 = 0; var4 < this.al; ++var4) {
+         int[] var10000 = this.at;
+         var10000[var4] += var1;
+         var10000 = this.aa;
+         var10000[var4] += var2;
+         var10000 = this.ay;
+         var10000[var4] += var3;
+      }
+
+      this.av();
+   }
+
+   public void bk(int var1, int var2, int var3) {
+      for(int var4 = 0; var4 < this.al; ++var4) {
+         this.at[var4] = this.at[var4] * var1 / 128;
+         this.aa[var4] = this.aa[var4] * var2 / 128;
+         this.ay[var4] = this.ay[var4] * var3 / 128;
+      }
+
+      this.av();
+   }
+
+   public final void bx(int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+      if (this.bo != 2 && this.bo != 1) {
+         this.ag();
+      }
+
+      int var8 = TaskHandler.au_renamed();
+      int var9 = ax.ab_renamed();
+      int var10 = cy[var1];
+      int var11 = cx[var1];
+      int var12 = cy[var2];
+      int var13 = cx[var2];
+      int var14 = cy[var3];
+      int var15 = cx[var3];
+      int var16 = cy[var4];
+      int var17 = cx[var4];
+      int var18 = var6 * var16 + var7 * var17 >> 16;
+
+      for(int var19 = 0; var19 < this.al; ++var19) {
+         int var20 = this.at[var19];
+         int var21 = this.aa[var19];
+         int var22 = this.ay[var19];
+         int var23;
+         if (var3 != 0) {
+            var23 = var21 * var14 + var20 * var15 >> 16;
+            var21 = var21 * var15 - var20 * var14 >> 16;
+            var20 = var23;
+         }
+
+         if (var1 != 0) {
+            var23 = var21 * var11 - var22 * var10 >> 16;
+            var22 = var21 * var10 + var22 * var11 >> 16;
+            var21 = var23;
+         }
+
+         if (var2 != 0) {
+            var23 = var22 * var12 + var20 * var13 >> 16;
+            var22 = var22 * var13 - var20 * var12 >> 16;
+            var20 = var23;
+         }
+
+         var20 += var5;
+         var21 += var6;
+         var22 += var7;
+         var23 = var21 * var17 - var22 * var16 >> 16;
+         var22 = var21 * var16 + var22 * var17 >> 16;
+         bq[var19] = var22 - var18;
+         bg[var19] = var8 + var20 * eu.at_renamed() / var22;
+         bu[var19] = var9 + var23 * eu.at_renamed() / var22;
+         bf[var19] = Npc.au_renamed(var22);
+         if (this.ad > 0) {
+            ba[var19] = var20;
+            bv[var19] = var23;
+            bl[var19] = var22;
          }
       }
 
-   }
+      try {
+         this.bz(false, false, false, 0L);
+      } catch (Exception var24) {
+      }
 
-   void bn(int var1, qj var2) {
-      float var3 = (float)this.at[var1];
-      float var4 = (float)(-this.aa[var1]);
-      float var5 = (float)(-this.ay[var1]);
-      float var6 = 1.0F;
-      this.at[var1] = (int)(var2.au[0] * var3 + var2.au[4] * var4 + var2.au[8] * var5 + var2.au[12] * var6);
-      this.aa[var1] = -((int)(var2.au[1] * var3 + var2.au[5] * var4 + var2.au[9] * var5 + var2.au[13] * var6));
-      this.ay[var1] = -((int)(var2.au[2] * var3 + var2.au[6] * var4 + var2.au[10] * var5 + var2.au[14] * var6));
    }
 
    public final void bo(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
@@ -782,7 +1022,7 @@ public class it extends Entity {
 
    }
 
-   void df(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, long var9) {
+   void draw(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, long var9) {
       if (this.bo != 1) {
          this.ai();
       }
@@ -1248,43 +1488,6 @@ public class it extends Entity {
 
    }
 
-   void bs(ic var1, int var2) {
-      if (this.be != null) {
-         for(int var3 = 0; var3 < this.al; ++var3) {
-            int[] var4 = this.be[var3];
-            if (var4 != null && var4.length != 0) {
-               int[] var5 = this.bk[var3];
-               au.aq();
-
-               for(int var6 = 0; var6 < var4.length; ++var6) {
-                  int var7 = var4[var6];
-                  ew var8 = var1.aw(var7);
-                  if (var8 != null) {
-                     ab.at((float)var5[var6] / 255.0F);
-                     aq.al(var8.al(var2));
-                     aq.ao(ab);
-                     au.ay(aq);
-                  }
-               }
-
-               this.bn(var3, au);
-            }
-         }
-
-      }
-   }
-
-   static {
-      cy = in.ac;
-      cx = in.au;
-      cv = in.af;
-      cb = in.aw;
-      cw = Npc.au_renamed(50);
-   }
-
-   it() {
-   }
-
    final void bj(int var1) {
       int var2 = TaskHandler.au_renamed();
       int var3 = ax.ab_renamed();
@@ -1484,242 +1687,39 @@ public class it extends Entity {
 
    }
 
-   public void ar(AnimFrameset var1, int var2) {
-      if (this.bb != null) {
-         if (var2 != -1) {
-            AnimFrame var3 = var1.frames[var2];
-            AnimBase var4 = var3.base;
-            cq = 0;
-            cm = 0;
-            cf = 0;
-
-            for(int var5 = 0; var5 < var3.transformCount; ++var5) {
-               int var6 = var3.transforms[var5];
-               this.ae(var4.transformTypes[var6], var4.transformLabels[var6], var3.xs[var5], var3.ys[var5], var3.zs[var5]);
-            }
-
-            this.av();
-         }
-      }
+   void bn(int var1, qj var2) {
+      float var3 = (float)this.at[var1];
+      float var4 = (float)(-this.aa[var1]);
+      float var5 = (float)(-this.ay[var1]);
+      float var6 = 1.0F;
+      this.at[var1] = (int)(var2.au[0] * var3 + var2.au[4] * var4 + var2.au[8] * var5 + var2.au[12] * var6);
+      this.aa[var1] = -((int)(var2.au[1] * var3 + var2.au[5] * var4 + var2.au[9] * var5 + var2.au[13] * var6));
+      this.ay[var1] = -((int)(var2.au[2] * var3 + var2.au[6] * var4 + var2.au[10] * var5 + var2.au[14] * var6));
    }
 
-   public void az(AnimBase var1, fh var2, int var3, boolean[] var4, boolean var5, boolean var6) {
-      ic var7 = var1.an();
-      if (var7 != null) {
-         var7.ab(var2, var3, var4, var5);
-         if (var6) {
-            this.aj(var7, var2.ac());
-         }
-      }
+   void bs(ic var1, int var2) {
+      if (this.be != null) {
+         for(int var3 = 0; var3 < this.al; ++var3) {
+            int[] var4 = this.be[var3];
+            if (var4 != null && var4.length != 0) {
+               int[] var5 = this.bk[var3];
+               au.aq();
 
-      if (!var5 && var2.au()) {
-         this.as(var2, var3);
-      }
-
-   }
-
-   public void ai() {
-      if (this.bo != 1) {
-         this.bo = 1;
-         this.et = 0;
-         this.bz = 0;
-         this.bm = 0;
-
-         for(int var1 = 0; var1 < this.al; ++var1) {
-            int var2 = this.at[var1];
-            int var3 = this.aa[var1];
-            int var4 = this.ay[var1];
-            if (-var3 > this.et * 1550732737) {
-               this.et = -var3 * -644693439;
-            }
-
-            if (var3 > this.bz) {
-               this.bz = var3;
-            }
-
-            int var5 = var2 * var2 + var4 * var4;
-            if (var5 > this.bm) {
-               this.bm = var5;
-            }
-         }
-
-         this.bm = (int)(Math.sqrt((double)this.bm) + 0.99);
-         this.bt = (int)(Math.sqrt((double)(this.bm * this.bm + this.et * 1550732737 * this.et * 1550732737)) + 0.99);
-         this.bd = this.bt + (int)(Math.sqrt((double)(this.bm * this.bm + this.bz * this.bz)) + 0.99);
-      }
-   }
-
-   public void bk(int var1, int var2, int var3) {
-      for(int var4 = 0; var4 < this.al; ++var4) {
-         this.at[var4] = this.at[var4] * var1 / 128;
-         this.aa[var4] = this.aa[var4] * var2 / 128;
-         this.ay[var4] = this.ay[var4] * var3 / 128;
-      }
-
-      this.av();
-   }
-
-   void af(int var1, int var2, int var3) {
-      this.at = new int[var1];
-      this.aa = new int[var1];
-      this.ay = new int[var1];
-      this.ax = new int[var2];
-      this.ai = new int[var2];
-      this.ag = new int[var2];
-      this.ah = new int[var2];
-      this.av = new int[var2];
-      this.ar = new int[var2];
-      if (var3 > 0) {
-         this.ae = new int[var3];
-         this.ap = new int[var3];
-         this.by = new int[var3];
-      }
-
-   }
-
-   public void ap() {
-      for(int var1 = 0; var1 < this.al; ++var1) {
-         int var2 = this.at[var1];
-         this.at[var1] = this.ay[var1];
-         this.ay[var1] = -var2;
-      }
-
-      this.av();
-   }
-
-   void ag() {
-      if (this.bo != 2) {
-         this.bo = 2;
-         this.bm = 0;
-
-         for(int var1 = 0; var1 < this.al; ++var1) {
-            int var2 = this.at[var1];
-            int var3 = this.aa[var1];
-            int var4 = this.ay[var1];
-            int var5 = var2 * var2 + var4 * var4 + var3 * var3;
-            if (var5 > this.bm) {
-               this.bm = var5;
-            }
-         }
-
-         this.bm = (int)(Math.sqrt((double)this.bm) + 0.99);
-         this.bt = this.bm;
-         this.bd = this.bm + this.bm;
-      }
-   }
-
-   public void ac(it var1) {
-      if (var1 != null) {
-         this.aw(var1);
-
-         int var2;
-         for(var2 = 0; var2 < var1.ao; ++var2) {
-            this.ax[this.ao] = var1.ax[var2] + this.al;
-            this.ai[this.ao] = var1.ai[var2] + this.al;
-            this.ag[this.ao] = var1.ag[var2] + this.al;
-            this.ah[this.ao] = var1.ah[var2];
-            this.av[this.ao] = var1.av[var2];
-            this.ar[this.ao] = var1.ar[var2];
-            if (this.am != null) {
-               this.am[this.ao] = var1.am != null ? var1.am[var2] : var1.az;
-            }
-
-            if (this.as != null && var1.as != null) {
-               this.as[this.ao] = var1.as[var2];
-            }
-
-            if (this.ak != null) {
-               this.ak[this.ao] = var1.ak != null ? var1.ak[var2] : -1;
-            }
-
-            if (this.aj != null) {
-               if (var1.aj != null && var1.aj[var2] != -1) {
-                  this.aj[this.ao] = (byte)(var1.aj[var2] + this.ad);
-               } else {
-                  this.aj[this.ao] = -1;
+               for(int var6 = 0; var6 < var4.length; ++var6) {
+                  int var7 = var4[var6];
+                  ew var8 = var1.aw(var7);
+                  if (var8 != null) {
+                     ab.at((float)var5[var6] / 255.0F);
+                     aq.al(var8.al(var2));
+                     aq.ao(ab);
+                     au.ay(aq);
+                  }
                }
+
+               this.bn(var3, au);
             }
-
-            ++this.ao;
-         }
-
-         for(var2 = 0; var2 < var1.ad; ++var2) {
-            this.ae[this.ad] = var1.ae[var2] + this.al;
-            this.ap[this.ad] = var1.ap[var2] + this.al;
-            this.by[this.ad] = var1.by[var2] + this.al;
-            ++this.ad;
-         }
-
-         for(var2 = 0; var2 < var1.al; ++var2) {
-            this.at[this.al] = var1.at[var2];
-            this.aa[this.al] = var1.aa[var2];
-            this.ay[this.al] = var1.ay[var2];
-            ++this.al;
          }
 
       }
-   }
-
-   public final void bx(int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
-      if (this.bo != 2 && this.bo != 1) {
-         this.ag();
-      }
-
-      int var8 = TaskHandler.au_renamed();
-      int var9 = ax.ab_renamed();
-      int var10 = cy[var1];
-      int var11 = cx[var1];
-      int var12 = cy[var2];
-      int var13 = cx[var2];
-      int var14 = cy[var3];
-      int var15 = cx[var3];
-      int var16 = cy[var4];
-      int var17 = cx[var4];
-      int var18 = var6 * var16 + var7 * var17 >> 16;
-
-      for(int var19 = 0; var19 < this.al; ++var19) {
-         int var20 = this.at[var19];
-         int var21 = this.aa[var19];
-         int var22 = this.ay[var19];
-         int var23;
-         if (var3 != 0) {
-            var23 = var21 * var14 + var20 * var15 >> 16;
-            var21 = var21 * var15 - var20 * var14 >> 16;
-            var20 = var23;
-         }
-
-         if (var1 != 0) {
-            var23 = var21 * var11 - var22 * var10 >> 16;
-            var22 = var21 * var10 + var22 * var11 >> 16;
-            var21 = var23;
-         }
-
-         if (var2 != 0) {
-            var23 = var22 * var12 + var20 * var13 >> 16;
-            var22 = var22 * var13 - var20 * var12 >> 16;
-            var20 = var23;
-         }
-
-         var20 += var5;
-         var21 += var6;
-         var22 += var7;
-         var23 = var21 * var17 - var22 * var16 >> 16;
-         var22 = var21 * var16 + var22 * var17 >> 16;
-         bq[var19] = var22 - var18;
-         bg[var19] = var8 + var20 * eu.at_renamed() / var22;
-         bu[var19] = var9 + var23 * eu.at_renamed() / var22;
-         bf[var19] = Npc.au_renamed(var22);
-         if (this.ad > 0) {
-            ba[var19] = var20;
-            bv[var19] = var23;
-            bl[var19] = var22;
-         }
-      }
-
-      try {
-         this.bz(false, false, false, 0L);
-      } catch (Exception var24) {
-      }
-
    }
 }

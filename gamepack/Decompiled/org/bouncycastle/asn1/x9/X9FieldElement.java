@@ -10,8 +10,8 @@ import org.bouncycastle.math.ec.ECFieldElement$F2m;
 import org.bouncycastle.math.ec.ECFieldElement$Fp;
 
 public class X9FieldElement extends ASN1Object {
-   public ECFieldElement f;
    static X9IntegerConverter converter = new X9IntegerConverter();
+   public ECFieldElement f;
 
    public X9FieldElement(BigInteger var1, ASN1OctetString var2) {
       this(new ECFieldElement$Fp(var1, new BigInteger(1, var2.getOctets())));

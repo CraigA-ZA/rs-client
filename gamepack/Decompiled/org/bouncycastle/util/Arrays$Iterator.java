@@ -4,8 +4,8 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class Arrays$Iterator implements Iterator {
-   final Object[] dataArray;
    int position = 0;
+   final Object[] dataArray;
 
    public boolean al() {
       return this.position < this.dataArray.length;

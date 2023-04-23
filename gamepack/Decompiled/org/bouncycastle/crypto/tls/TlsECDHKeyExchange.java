@@ -13,14 +13,14 @@ import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.util.PublicKeyFactory;
 
 public class TlsECDHKeyExchange extends AbstractTlsKeyExchange {
-   public TlsAgreementCredentials agreementCredentials;
-   public AsymmetricKeyParameter serverPublicKey;
-   public short[] clientECPointFormats;
-   public TlsSigner tlsSigner;
-   public short[] serverECPointFormats;
    public int[] namedCurves;
+   public AsymmetricKeyParameter serverPublicKey;
    public ECPrivateKeyParameters ecAgreePrivateKey;
    public ECPublicKeyParameters ecAgreePublicKey;
+   public TlsAgreementCredentials agreementCredentials;
+   public TlsSigner tlsSigner;
+   public short[] clientECPointFormats;
+   public short[] serverECPointFormats;
 
    public void processClientKeyExchange(InputStream var1) throws IOException {
       if (this.ecAgreePublicKey == null) {

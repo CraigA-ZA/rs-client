@@ -9,14 +9,14 @@ import org.bouncycastle.util.BigIntegers;
 import org.bouncycastle.util.Integers;
 
 public abstract class ECCurve {
-   public ECMultiplier multiplier = null;
+   public int coord = 0;
+   public BigInteger cofactor;
    public BigInteger order;
-   public FiniteField field;
    public ECFieldElement a;
    public ECFieldElement b;
-   public BigInteger cofactor;
-   public int coord = 0;
+   public ECMultiplier multiplier = null;
    public ECEndomorphism endomorphism = null;
+   public FiniteField field;
 
    public boolean equals(ECCurve var1) {
       return this == var1 || null != var1 && this.getField().equals(var1.getField()) && this.getA().toBigInteger().equals(var1.getA().toBigInteger()) && this.getB().toBigInteger().equals(var1.getB().toBigInteger());

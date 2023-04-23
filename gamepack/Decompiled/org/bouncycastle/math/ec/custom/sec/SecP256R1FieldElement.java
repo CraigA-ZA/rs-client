@@ -7,8 +7,8 @@ import org.bouncycastle.math.raw.Nat256;
 import org.bouncycastle.util.Arrays;
 
 public class SecP256R1FieldElement extends ECFieldElement {
-   public int[] x;
    public static final BigInteger Q;
+   public int[] x;
 
    public boolean gq(Object var1) {
       if (var1 == this) {

@@ -9,18 +9,18 @@ import org.bouncycastle.asn1.DERBitString;
 import org.bouncycastle.asn1.x500.X500Name;
 
 public class TBSCertificate extends ASN1Object {
-   SubjectPublicKeyInfo subjectPublicKeyInfo;
-   ASN1Integer version;
    ASN1Integer serialNumber;
-   Time endDate;
-   X500Name issuer;
-   Time startDate;
+   ASN1Integer version;
    ASN1Sequence seq;
-   X500Name subject;
-   AlgorithmIdentifier signature;
    DERBitString issuerUniqueId;
    DERBitString subjectUniqueId;
+   X500Name issuer;
+   X500Name subject;
+   AlgorithmIdentifier signature;
    Extensions extensions;
+   SubjectPublicKeyInfo subjectPublicKeyInfo;
+   Time endDate;
+   Time startDate;
 
    public int getVersionNumber() {
       return this.version.getValue().intValue() + 1;

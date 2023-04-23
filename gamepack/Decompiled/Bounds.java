@@ -1,12 +1,16 @@
 public class Bounds {
-   public int aw;
-   public int an;
-   public int af;
    public int ac;
+   public int af;
+   public int an;
+   public int aw;
 
-   public void an(int var1, int var2) {
-      this.aw = -1469434281 * var1;
-      this.ac = 149296003 * var2;
+   public Bounds(int var1, int var2) {
+      this(0, 0, var1, var2);
+   }
+
+   public Bounds(int var1, int var2, int var3, int var4) {
+      this.af(var1, var2);
+      this.an(var3, var4);
    }
 
    public void af(int var1, int var2) {
@@ -14,8 +18,9 @@ public class Bounds {
       this.an = -1859334611 * var2;
    }
 
-   public Bounds(int var1, int var2) {
-      this(0, 0, var1, var2);
+   public void an(int var1, int var2) {
+      this.aw = -1469434281 * var1;
+      this.ac = 149296003 * var2;
    }
 
    public boolean aw(int var1, int var2) {
@@ -24,6 +29,11 @@ public class Bounds {
 
    public String toString() {
       return null;
+   }
+
+   public void ac(Bounds var1, Bounds var2) {
+      this.au(var1, var2);
+      this.ab(var1, var2);
    }
 
    void au(Bounds var1, Bounds var2) {
@@ -66,17 +76,7 @@ public class Bounds {
       return this.aw * 944313703 + this.af * -844906645;
    }
 
-   public void ac(Bounds var1, Bounds var2) {
-      this.au(var1, var2);
-      this.ab(var1, var2);
-   }
-
    int al() {
       return -1376251093 * this.ac + this.an * 1864020389;
-   }
-
-   public Bounds(int var1, int var2, int var3, int var4) {
-      this.af(var1, var2);
-      this.an(var3, var4);
    }
 }

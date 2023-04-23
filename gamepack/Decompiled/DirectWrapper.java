@@ -1,16 +1,16 @@
 public class DirectWrapper extends Wrapper {
-   Object obj;
+   Object af;
+
+   DirectWrapper(Object var1, int var2) {
+      super(var2);
+      this.af = var1;
+   }
 
    Object get() {
-      return this.obj;
+      return this.af;
    }
 
    boolean isSoft() {
       return false;
-   }
-
-   DirectWrapper(Object var1, int var2) {
-      super(var2);
-      this.obj = var1;
    }
 }

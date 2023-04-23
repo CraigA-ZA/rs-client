@@ -3,8 +3,8 @@ package org.bouncycastle.asn1;
 import java.io.InputStream;
 
 abstract class LimitedInputStream extends InputStream {
-   public final InputStream _in;
    int _limit;
+   public final InputStream _in;
 
    int getRemaining() {
       return this._limit;

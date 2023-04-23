@@ -1,11 +1,11 @@
 public final class ju {
-   int aw;
-   int an;
+   static int uh;
    int ac;
    int af;
+   int an;
+   int aw;
    // $FF: synthetic field
    final WorldMapManager this$0;
-   static int uh;
 
    ju(WorldMapManager var1) {
       this.this$0 = var1;

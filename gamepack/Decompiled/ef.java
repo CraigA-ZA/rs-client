@@ -4,8 +4,25 @@ import java.net.URLConnection;
 import javax.net.ssl.HttpsURLConnection;
 
 public class ef extends UrlRequester {
-   final boolean au;
    static String cm;
+   final boolean au;
+
+   public static Object byteArrayToObject(byte[] var0, boolean var1) {
+      if (null == var0) {
+         return null;
+      } else if (var0.length > 136) {
+         DirectByteArrayCopier var3 = new DirectByteArrayCopier();
+         var3.set(var0);
+         return var3;
+      } else {
+         return var1 ? fy.aw_renamed(var0) : var0;
+      }
+   }
+
+   public ef(boolean var1, int var2) {
+      super(var2);
+      this.au = var1;
+   }
 
    void af(UrlRequest var1) throws IOException {
       URLConnection var3 = null;
@@ -17,7 +34,7 @@ public class ef extends UrlRequester {
             try {
                label135: {
                   var10 = true;
-                  String var4 = var1.url.getProtocol();
+                  String var4 = var1.af.getProtocol();
                   if (var4.equals("http")) {
                      var3 = this.ad(var1);
                   } else {
@@ -72,13 +89,13 @@ public class ef extends UrlRequester {
    }
 
    URLConnection ad(UrlRequest var1) throws IOException {
-      URLConnection var3 = var1.url.openConnection();
+      URLConnection var3 = var1.af.openConnection();
       this.aw(var3);
       return var3;
    }
 
    URLConnection ae(UrlRequest var1) throws IOException {
-      HttpsURLConnection var3 = (HttpsURLConnection)var1.url.openConnection();
+      HttpsURLConnection var3 = (HttpsURLConnection)var1.af.openConnection();
       if (!this.au) {
          if (ah.an == null) {
             ah.an = new ah();
@@ -90,22 +107,5 @@ public class ef extends UrlRequester {
 
       this.aw(var3);
       return var3;
-   }
-
-   public static Object byteArrayToObject(byte[] var0, boolean var1) {
-      if (null == var0) {
-         return null;
-      } else if (var0.length > 136) {
-         DirectByteArrayCopier var3 = new DirectByteArrayCopier();
-         var3.set(var0);
-         return var3;
-      } else {
-         return var1 ? fy.aw_renamed(var0) : var0;
-      }
-   }
-
-   public ef(boolean var1, int var2) {
-      super(var2);
-      this.au = var1;
    }
 }

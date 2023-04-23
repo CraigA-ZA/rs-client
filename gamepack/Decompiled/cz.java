@@ -1,55 +1,55 @@
 import java.text.DecimalFormat;
 
 public class cz {
-   static String Login_response3;
-   static boolean cj;
-   static String dc;
-   static IndexedSprite ax;
-   static IndexedSprite ai;
-   static long db;
-   static int ak;
-   static int ad;
-   static int ce;
-   static int ba;
-   static String Login_loadingText;
-   static boolean ch;
-   static String Login_response0;
-   static String Login_response1;
-   static String Login_response2;
-   static int aw = 0;
-   static IndexedSprite ah;
-   static String cu;
-   static int cq;
-   static String[] cm;
-   static String cy;
-   static IndexedSprite au;
    static boolean cd;
-   static int bp;
-   static String dw;
+   static boolean ch;
+   static boolean cj;
    static boolean di;
+   static int ad;
+   static int ak;
+   static int ar;
+   static int aw = 0;
+   static int ba;
+   static int bp;
+   static int ce;
+   static int cq;
    static int de;
    static int dh;
-   static int dp;
    static int dm;
-   static long df;
-   static String[] dq;
+   static int dp;
+   static String ae;
+   static String ca;
+   static String cc;
+   static String ci;
+   static String cn;
+   static String cs;
+   static String cu;
+   static String cy;
+   static String dc;
+   static String dw;
+   static String[] cm;
    static String[] dd;
    static String[] dj;
-   static int ar;
-   static Packet NetCache_reference;
-   static String ca;
+   static String[] dq;
+   static long db;
+   static long df;
+   static Packet as;
+   static IndexedSprite ah;
+   static IndexedSprite ai;
+   static IndexedSprite au;
+   static IndexedSprite ax;
 
    static {
       ak = 2036160930 + 794898887 * aw;
       ad = -2126902070;
-      Login_loadingText = "";
+      ae = "";
       ba = 1919975363;
       bp = -1552230487;
       ce = 0;
-      Login_response0 = "";
-      Login_response1 = "";
-      Login_response2 = "";
-      Login_response3 = "";
+      ci = "";
+      cs = "";
+      cc = "";
+      cn = "";
       ca = "";
       cu = "";
       cq = 0;
@@ -82,7 +82,7 @@ public class cz {
       byte var2 = 0;
       if (!fl.oi_renamed()) {
          var2 = 12;
-      } else if (ClientScriptFrame.client.gn() || ClientScriptFrame.client.gx() || ClientScriptFrame.client.gv()) {
+      } else if (ClientScriptFrame.bc.gn() || ClientScriptFrame.bc.gx() || ClientScriptFrame.bc.gv()) {
          var2 = 10;
       }
 
@@ -103,19 +103,19 @@ public class cz {
 
    }
 
-   static final void nd_renamed() {
-      eh.at_renamed();
-      if (null != es.clanChat) {
-         es.clanChat.ag();
-      }
-
-   }
-
    static void ar_renamed() {
       if (ds.loadWorlds()) {
          di = true;
          dh = 0;
          dp = 0;
+      }
+
+   }
+
+   static final void nd_renamed() {
+      eh.at_renamed();
+      if (null != es.sb) {
+         es.sb.ag();
       }
 
    }

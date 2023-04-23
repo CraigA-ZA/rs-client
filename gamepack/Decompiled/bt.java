@@ -1,50 +1,18 @@
 public class bt {
-   public static IterableNodeDeque reflectionChecks = new IterableNodeDeque();
-   static Rasterizer3D[] jl;
+   public static IterableNodeDeque af = new IterableNodeDeque();
    static int kx;
+   static Rasterizer3D[] jl;
 
    bt() throws Throwable {
       throw new Error();
    }
 
-   static final void la_renamed(int var0, int var1, int var2, int var3, int var4, int var5) {
-      int var7 = var2 - var0;
-      int var8 = var3 - var1;
-      int var9 = var7 >= 0 ? var7 : -var7;
-      int var10 = var8 >= 0 ? var8 : -var8;
-      int var11 = var9;
-      if (var9 < var10) {
-         var11 = var10;
+   static void ie_renamed() {
+      if (null != ey.wt) {
+         ey.wt.ao(GameShell.mh * -1727408401, (1144428983 * MusicPatchNode.mi.bx >> 7) + -1232093375 * jm.ib, 827352769 * Scenery.jc + (MusicPatchNode.mi.bo * -411750205 >> 7), false);
+         ey.wt.bb();
       }
 
-      if (0 != var11) {
-         int var12 = (var7 << 16) / var11;
-         int var13 = (var8 << 16) / var11;
-         if (var13 <= var12) {
-            var12 = -var12;
-         } else {
-            var13 = -var13;
-         }
-
-         int var14 = var5 * var13 >> 17;
-         int var15 = 1 + var13 * var5 >> 17;
-         int var16 = var12 * var5 >> 17;
-         int var17 = var5 * var12 + 1 >> 17;
-         var0 -= Rasterizer2D.Rasterizer2D_xClipStart;
-         var1 -= Rasterizer2D.Rasterizer2D_yClipStart;
-         int var18 = var0 + var14;
-         int var19 = var0 - var15;
-         int var20 = var7 + var0 - var15;
-         int var21 = var0 + var7 + var14;
-         int var22 = var16 + var1;
-         int var23 = var1 - var17;
-         int var24 = var1 + var8 - var17;
-         int var25 = var1 + var8 + var16;
-         gz.ag_renamed(var18, var19, var20);
-         fw.av_renamed(var22, var23, var24, var18, var19, var20, 0.0F, 0.0F, 0.0F, var4);
-         gz.ag_renamed(var18, var20, var21);
-         fw.av_renamed(var22, var24, var25, var18, var20, var21, 0.0F, 0.0F, 0.0F, var4);
-      }
    }
 
    static final void setViewportShape(int var0, int var1, int var2, int var3, boolean var4) {
@@ -104,8 +72,8 @@ public class bt {
          }
       }
 
-      Client.viewportZoom = -787687633 * (var3 * var7 / 334);
-      if (var2 != Client.viewportHeight * 433849721 || 2042096749 * Client.viewportWidth != var3) {
+      Client.vi = -787687633 * (var3 * var7 / 334);
+      if (var2 != Client.vp * 433849721 || 2042096749 * Client.vy != var3) {
          int[] var18 = new int[9];
 
          for(var10 = 0; var10 < var18.length; ++var10) {
@@ -129,16 +97,48 @@ public class bt {
 
       Client.vd = var0 * -1528400137;
       Client.vx = var1 * 2017169511;
-      Client.viewportHeight = var2 * -350989111;
-      Client.viewportWidth = var3 * -538378907;
+      Client.vp = var2 * -350989111;
+      Client.vy = var3 * -538378907;
    }
 
-   static void ie_renamed() {
-      if (null != ey.worldMap0) {
-         ey.worldMap0.ao(GameShell.plane * -1727408401, (1144428983 * MusicPatchNode.localPlayer.bx >> 7) + -1232093375 * jm.ib, 827352769 * Scenery.jc + (MusicPatchNode.localPlayer.bo * -411750205 >> 7), false);
-         ey.worldMap0.bb();
+   static final void la_renamed(int var0, int var1, int var2, int var3, int var4, int var5) {
+      int var7 = var2 - var0;
+      int var8 = var3 - var1;
+      int var9 = var7 >= 0 ? var7 : -var7;
+      int var10 = var8 >= 0 ? var8 : -var8;
+      int var11 = var9;
+      if (var9 < var10) {
+         var11 = var10;
       }
 
+      if (0 != var11) {
+         int var12 = (var7 << 16) / var11;
+         int var13 = (var8 << 16) / var11;
+         if (var13 <= var12) {
+            var12 = -var12;
+         } else {
+            var13 = -var13;
+         }
+
+         int var14 = var5 * var13 >> 17;
+         int var15 = 1 + var13 * var5 >> 17;
+         int var16 = var12 * var5 >> 17;
+         int var17 = var5 * var12 + 1 >> 17;
+         var0 -= Rasterizer2D.bk;
+         var1 -= Rasterizer2D.bi;
+         int var18 = var0 + var14;
+         int var19 = var0 - var15;
+         int var20 = var7 + var0 - var15;
+         int var21 = var0 + var7 + var14;
+         int var22 = var16 + var1;
+         int var23 = var1 - var17;
+         int var24 = var1 + var8 - var17;
+         int var25 = var1 + var8 + var16;
+         gz.ag_renamed(var18, var19, var20);
+         fw.av_renamed(var22, var23, var24, var18, var19, var20, 0.0F, 0.0F, 0.0F, var4);
+         gz.ag_renamed(var18, var20, var21);
+         fw.av_renamed(var22, var24, var25, var18, var20, var21, 0.0F, 0.0F, 0.0F, var4);
+      }
    }
 
    static final void no_renamed() {

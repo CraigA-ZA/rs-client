@@ -1,19 +1,22 @@
 public class jg {
+   static int ou;
+   boolean af = false;
+   int ag;
+   int ah;
+   int ai;
+   int am;
+   int ar;
+   int as;
+   int av;
    int aw = 0;
+   int ax;
+   int[] aj = new int[1024];
    public boolean an = true;
    public int ab = 1538564608;
-   int[] aj = new int[1024];
-   int ai;
    public TextureLoader aq;
-   int ax;
-   int ah;
-   int ag;
-   boolean af = false;
-   int av;
-   int ar;
-   int am;
-   int as;
-   static int ou;
+
+   jg() {
+   }
 
    void af() {
       this.ax = 1695415347 * (571147771 * this.ag / 2);
@@ -22,6 +25,19 @@ public class jg {
       this.ar = 115528311 * this.ag - -2084847753 * this.ax;
       this.am = -(this.ai * 756446203);
       this.as = -1130425185 * this.ah - this.ai * 1303915237;
+   }
+
+   static void an_renamed(int var0, ArchiveDisk var1, Archive var2) {
+      ArchiveDiskAction var4 = new ArchiveDiskAction();
+      var4.af = -1330450855;
+      var4.hr = (long)var0;
+      var4.aw = var1;
+      var4.ac = var2;
+      synchronized(ArchiveDiskActionHandler.af) {
+         ArchiveDiskActionHandler.af.addFirst(var4);
+      }
+
+      eh.aw_renamed();
    }
 
    void an(int var1, int var2, int var3, int var4) {
@@ -33,23 +49,7 @@ public class jg {
       this.as = this.ah * -1130425185 - this.ai * 1303915237;
    }
 
-   jg() {
-   }
-
    void aw(int var1, int var2, int var3) {
       this.af = var1 < 0 || var1 > this.ag * 571147771 || var2 < 0 || var2 > this.ag * 571147771 || var3 < 0 || var3 > this.ag * 571147771;
-   }
-
-   static void an_renamed(int var0, ArchiveDisk var1, Archive var2) {
-      ArchiveDiskAction var4 = new ArchiveDiskAction();
-      var4.type = -1330450855;
-      var4.hr = (long)var0;
-      var4.archiveDisk = var1;
-      var4.archive = var2;
-      synchronized(ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue) {
-         ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue.addFirst(var4);
-      }
-
-      eh.aw_renamed();
    }
 }

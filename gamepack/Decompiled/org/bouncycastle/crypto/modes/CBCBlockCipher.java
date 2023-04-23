@@ -7,12 +7,12 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.util.Arrays;
 
 public class CBCBlockCipher implements BlockCipher {
-   int blockSize;
-   byte[] cbcV;
+   boolean encrypting;
    byte[] IV;
    byte[] cbcNextV;
+   byte[] cbcV;
+   int blockSize;
    BlockCipher cipher = null;
-   boolean encrypting;
 
    int decryptBlock(byte[] var1, int var2, byte[] var3, int var4) throws DataLengthException, IllegalStateException {
       if (var2 + this.blockSize > var1.length) {

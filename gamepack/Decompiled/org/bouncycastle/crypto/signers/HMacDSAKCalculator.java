@@ -9,8 +9,8 @@ import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.BigIntegers;
 
 public class HMacDSAKCalculator implements DSAKCalculator {
-   BigInteger n;
    static final BigInteger ZERO = BigInteger.valueOf(0L);
+   BigInteger n;
    final byte[] K;
    final byte[] V;
    final HMac hMac;

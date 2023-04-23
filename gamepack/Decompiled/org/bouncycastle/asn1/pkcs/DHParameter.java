@@ -10,9 +10,9 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DERSequence;
 
 public class DHParameter extends ASN1Object {
-   ASN1Integer p;
    ASN1Integer g;
    ASN1Integer l;
+   ASN1Integer p;
 
    public BigInteger getP() {
       return this.p.getPositiveValue();

@@ -16,8 +16,8 @@ import org.bouncycastle.math.ec.FixedPointCombMultiplier;
 import org.bouncycastle.math.ec.WNafUtil;
 
 public class ECKeyPairGenerator implements AsymmetricCipherKeyPairGenerator, ECConstants {
-   ECDomainParameters params;
    SecureRandom random;
+   ECDomainParameters params;
 
    public ECMultiplier createBasePointMultiplier() {
       return new FixedPointCombMultiplier();

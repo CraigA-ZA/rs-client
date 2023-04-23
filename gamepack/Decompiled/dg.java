@@ -1,17 +1,17 @@
 public final class dg extends Node {
-   int an;
-   int aw;
-   int ac;
-   int au;
-   int aq;
    int aa;
-   int ai = 0;
-   int at;
-   int al;
    int ab;
-   int ax = 2015793749;
+   int ac;
    int af;
    int ag = -376812409;
+   int ai = 0;
+   int al;
+   int an;
+   int aq;
+   int at;
+   int au;
+   int aw;
+   int ax = 2015793749;
    int ay;
 
    public static AnimFrameset af_renamed(AbstractArchive var0, AbstractArchive var1, int var2, boolean var3) {
@@ -48,18 +48,18 @@ public final class dg extends Node {
       }
    }
 
-   void af(int var1) {
+   dg() {
+   }
+
+   void advance(int var1) {
       this.ax = -1874637045 * var1;
    }
 
-   boolean an(int var1) {
+   boolean hasAlphaTransform(int var1) {
       if (var1 >= 0 && var1 <= 4) {
          return 0 != (-1693875037 * this.ax & 1 << var1);
       } else {
          return true;
       }
-   }
-
-   dg() {
    }
 }

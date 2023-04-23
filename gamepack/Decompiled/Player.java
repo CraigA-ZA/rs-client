@@ -1,42 +1,69 @@
 public final class Player extends Actor {
-   TriBool ap;
-   int team;
-   int ai;
-   int ar;
-   Username username;
-   int combatLevel = -1162421511;
-   int am;
-   int aa;
-   int headIconPrayer;
-   int animationCycleStart;
-   int ax;
-   boolean isHidden;
-   PlayerAppearance appearance;
-   it ah;
-   int ag;
-   int av;
-   int as;
-   int skillLevel;
-   String[] actions = new String[3];
-   int animationCycleEnd;
+   boolean aj;
    boolean az;
+   boolean bi;
+   int aa;
+   int ac = -1162421511;
    int ad;
    int ae;
-   int headIconPk = 914676177;
-   TriBool by;
+   int ag;
+   int ai;
+   int ak;
+   int al;
+   int am;
+   int ao;
+   int ar;
+   int as;
+   int at;
+   int au = 914676177;
+   int av;
+   int ax;
+   int ay;
+   int be;
+   int bk;
+   it ah;
+   String[] aq = new String[3];
+   PlayerAppearance aw;
+   TriBool ap;
    TriBool bb;
-   boolean isUnanimated;
-   int tileX;
-   int tileY;
+   TriBool by;
+   Username af;
+
+   static int af_renamed(int var0, int var1) {
+      Inventory var3 = (Inventory)Inventory.af.get((long)var0);
+      if (var3 == null) {
+         return -1;
+      } else {
+         return var1 >= 0 && var1 < var3.an.length ? var3.an[var1] : -1;
+      }
+   }
+
+   Player() {
+      for(int var1 = 0; var1 < 3; ++var1) {
+         this.aq[var1] = "";
+      }
+
+      this.al = 0;
+      this.at = 0;
+      this.ay = 0;
+      this.ao = 0;
+      this.aj = false;
+      this.ak = 0;
+      this.az = false;
+      this.ap = TriBool.af;
+      this.by = TriBool.af;
+      this.bb = TriBool.af;
+      this.bi = false;
+   }
 
    final void read(Packet var1) {
-      var1.index = 0;
+      var1.at = 0;
       int var3 = var1.g1();
       boolean var4 = true;
-      this.combatLevel = var1.g1s() * 1162421511;
-      this.headIconPk = var1.g1s() * -914676177;
+      this.ac = var1.g1s() * 1162421511;
+      this.au = var1.g1s() * -914676177;
       int var5 = -1;
-      this.animationCycleEnd = 0;
+      this.ak = 0;
       int[] var6 = new int[12];
 
       int var8;
@@ -55,9 +82,9 @@ public final class Player extends Actor {
             }
 
             if (var6[var7] >= 512) {
-               var10 = HeadbarUpdate.getObjType(var6[var7] - 512).placeholderlink * -919846075;
+               var10 = HeadbarUpdate.getObjType(var6[var7] - 512).ck * -919846075;
                if (0 != var10) {
-                  this.animationCycleEnd = -248928759 * var10;
+                  this.ak = -248928759 * var10;
                }
             }
          }
@@ -125,16 +152,16 @@ public final class Player extends Actor {
          this.bf = -140602839;
       }
 
-      this.username = new Username(var1.cw(), co.loginType);
-      this.ac();
+      this.af = new Username(var1.cw(), co.cn);
+      this.clearAll();
       this.ay();
       this.ai();
-      if (MusicPatchNode.localPlayer == this) {
-         ClientError.localPlayerName = this.username.af();
+      if (MusicPatchNode.mi == this) {
+         ClientError.an = this.af.af();
       }
 
-      this.skillLevel = var1.g1() * 225691243;
-      this.team = var1.cl() * 1353643761;
+      this.al = var1.g1() * 225691243;
+      this.at = var1.cl() * 1353643761;
       this.az = var1.g1() == 1;
       if (Client.cs * -1274626977 == 0 && Client.pu * 324465533 >= 2) {
          this.az = false;
@@ -157,83 +184,99 @@ public final class Player extends Actor {
       }
 
       for(var12 = 0; var12 < 3; ++var12) {
-         this.actions[var12] = var1.cw();
+         this.aq[var12] = var1.cw();
       }
 
       int var14 = var1.g1();
-      if (this.appearance == null) {
-         this.appearance = new PlayerAppearance();
+      if (this.aw == null) {
+         this.aw = new PlayerAppearance();
       }
 
-      this.appearance.af(var15, var6, var17, var18, var16, var3, var5, var14);
+      this.aw.af(var15, var6, var17, var18, var16, var3, var5, var14);
    }
 
-   boolean aw() {
-      if (this.ap == TriBool.TriBool_unknown) {
+   boolean isFromFriend() {
+      if (this.ap == TriBool.af) {
          this.at();
       }
 
-      return this.ap == TriBool.TriBool_true;
+      return this.ap == TriBool.an;
+   }
+
+   void clearAll() {
+      this.ap = TriBool.af;
+   }
+
+   void at() {
+      this.ap = World.vt.am(this.af) ? TriBool.an : TriBool.aw;
+   }
+
+   boolean aa() {
+      if (TriBool.af == this.by) {
+         this.ao();
+      }
+
+      return this.by == TriBool.an;
    }
 
    void ay() {
-      this.by = TriBool.TriBool_unknown;
+      this.by = TriBool.af;
    }
 
    void ao() {
-      this.by = es.clanChat != null && es.clanChat.bt(this.username) ? TriBool.TriBool_true : TriBool.TriBool_false;
+      this.by = es.sb != null && es.sb.contains(this.af) ? TriBool.an : TriBool.aw;
    }
 
    void ax() {
       for(int var2 = 0; var2 < 4; ++var2) {
-         if (Client.sg[var2] != null && Client.sg[var2].aw(this.username.af()) != -1 && 2 != var2) {
-            this.bb = TriBool.TriBool_true;
+         if (Client.sg[var2] != null && Client.sg[var2].aw(this.af.af()) != -1 && 2 != var2) {
+            this.bb = TriBool.an;
             return;
          }
       }
 
-      this.bb = TriBool.TriBool_false;
+      this.bb = TriBool.aw;
    }
 
    void ai() {
-      this.bb = TriBool.TriBool_unknown;
+      this.bb = TriBool.af;
    }
 
    boolean ag() {
-      if (this.bb == TriBool.TriBool_unknown) {
+      if (this.bb == TriBool.af) {
          this.ax();
       }
 
-      return this.bb == TriBool.TriBool_true;
+      return this.bb == TriBool.an;
    }
 
-   void ac() {
-      this.ap = TriBool.TriBool_unknown;
+   int transformedSize() {
+      return this.aw != null && -1 != -2131733097 * this.aw.ab ? AbstractArchive.an_renamed(-2131733097 * this.aw.ab).al * 1458410691 : 1;
    }
 
    protected final it getModel() {
-      if (this.appearance == null) {
+      if (this.aw == null) {
          return null;
       } else {
          SeqType var2 = this.ct * -1372355773 != -1 && 0 == this.dm * 1253892101 ? Inventory.getSeqType(this.ct * -1372355773, (byte)73) : null;
-         SeqType var3 = -1 != this.cz * -1302441815 && !this.isHidden && (this.cz * -1302441815 != this.bt * 1590591885 || var2 == null) ? Inventory.getSeqType(this.cz * -1302441815, (byte)57) : null;
-         it var4 = this.appearance.aa(var2, -41215169 * this.cp, var3, 424813829 * this.cw);
+         SeqType var3 = -1 != this.cz * -1302441815 && !this.aj && (this.cz * -1302441815 != this.bt * 1590591885 || var2 == null) ? Inventory.getSeqType(this.cz * -1302441815, (byte)57) : null;
+         it var4 = this.aw.aa(var2, -41215169 * this.cp, var3, 424813829 * this.cw);
          if (var4 == null) {
             return null;
          } else {
             var4.ai();
             this.de = 2070391287 * var4.et;
             int var5 = var4.ao;
-            if (!this.isHidden) {
+            if (!this.aj) {
                var4 = this.cp(var4);
             }
 
-            if (!this.isHidden && this.ah != null) {
-               if (Client.ep * -1886224337 >= this.animationCycleStart * -935505685) {
+            if (!this.aj && this.ah != null) {
+               if (Client.ep * -1886224337 >= this.ao * -935505685) {
                   this.ah = null;
                }
 
-               if (-1886224337 * Client.ep >= -1402262375 * this.headIconPrayer && -1886224337 * Client.ep < -935505685 * this.animationCycleStart) {
+               if (-1886224337 * Client.ep >= -1402262375 * this.ay && -1886224337 * Client.ep < -935505685 * this.ao) {
                   it var6 = this.ah;
                   var6.be(this.ax * 1793688517 - 1144428983 * this.bx, this.ai * 1238902143 - 561204023 * this.aa, 240546619 * this.ag - -411750205 * this.bo);
                   if (this.dd * -1751341433 == 512) {
@@ -280,55 +323,6 @@ public final class Player extends Actor {
       }
    }
 
-   void resetPath(int var1, int var2) {
-      this.dn = 0;
-      this.eo = 0;
-      this.ep = 0;
-      this.dy[0] = var1;
-      this.ds[0] = var2;
-      int var4 = this.transformedSize();
-      this.bx = -1102445696 * this.dy[0] + -551222848 * var4;
-      this.bo = var4 * -943719744 + -1887439488 * this.ds[0];
-   }
-
-   final void am(int var1, int var2, iu var3) {
-      if (this.dn * 1134756167 < 9) {
-         this.dn += 400971895;
-      }
-
-      for(int var5 = 1134756167 * this.dn; var5 > 0; --var5) {
-         this.dy[var5] = this.dy[var5 - 1];
-         this.ds[var5] = this.ds[var5 - 1];
-         this.da[var5] = this.da[var5 - 1];
-      }
-
-      this.dy[0] = var1;
-      this.ds[0] = var2;
-      this.da[0] = var3;
-   }
-
-   final boolean isVisible() {
-      return this.appearance != null;
-   }
-
-   Player() {
-      for(int var1 = 0; var1 < 3; ++var1) {
-         this.actions[var1] = "";
-      }
-
-      this.skillLevel = 0;
-      this.team = 0;
-      this.headIconPrayer = 0;
-      this.animationCycleStart = 0;
-      this.isHidden = false;
-      this.animationCycleEnd = 0;
-      this.az = false;
-      this.ap = TriBool.TriBool_unknown;
-      this.by = TriBool.TriBool_unknown;
-      this.bb = TriBool.TriBool_unknown;
-      this.isUnanimated = false;
-   }
-
    final void av(int var1, int var2, iu var3) {
       if (this.ct * -1372355773 != -1 && Inventory.getSeqType(-1372355773 * this.ct, (byte)61).bi * 1957040329 == 1) {
          this.ct = 1690721941;
@@ -351,20 +345,15 @@ public final class Player extends Actor {
 
    }
 
-   int transformedSize() {
-      return this.appearance != null && -1 != -2131733097 * this.appearance.ab ? AbstractArchive.an_renamed(-2131733097 * this.appearance.ab).al * 1458410691 : 1;
-   }
-
-   void at() {
-      this.ap = World.friendSystem.am(this.username) ? TriBool.TriBool_true : TriBool.TriBool_false;
-   }
-
-   boolean aa() {
-      if (TriBool.TriBool_unknown == this.by) {
-         this.ao();
-      }
-
-      return this.by == TriBool.TriBool_true;
+   void resetPath(int var1, int var2) {
+      this.dn = 0;
+      this.eo = 0;
+      this.ep = 0;
+      this.dy[0] = var1;
+      this.ds[0] = var2;
+      int var4 = this.transformedSize();
+      this.bx = -1102445696 * this.dy[0] + -551222848 * var4;
+      this.bo = var4 * -943719744 + -1887439488 * this.ds[0];
    }
 
    static void au_renamed() {
@@ -389,19 +378,30 @@ public final class Player extends Actor {
          oq.aq = 1643562499;
          gz.al = -1823837761;
          dn.at = 0;
-         ev.musicTrackBoolean = false;
+         ev.ay = false;
          ga.aa = 440964570;
          gn.an_renamed(true);
          ax.an = false;
       }
    }
 
-   static int af_renamed(int var0, int var1) {
-      Inventory var3 = (Inventory)Inventory.itemContainers.get((long)var0);
-      if (var3 == null) {
-         return -1;
-      } else {
-         return var1 >= 0 && var1 < var3.ids.length ? var3.ids[var1] : -1;
+   final void am(int var1, int var2, iu var3) {
+      if (this.dn * 1134756167 < 9) {
+         this.dn += 400971895;
       }
+
+      for(int var5 = 1134756167 * this.dn; var5 > 0; --var5) {
+         this.dy[var5] = this.dy[var5 - 1];
+         this.ds[var5] = this.ds[var5 - 1];
+         this.da[var5] = this.da[var5 - 1];
+      }
+
+      this.dy[0] = var1;
+      this.ds[0] = var2;
+      this.da[0] = var3;
+   }
+
+   final boolean isVisible() {
+      return this.aw != null;
    }
 }

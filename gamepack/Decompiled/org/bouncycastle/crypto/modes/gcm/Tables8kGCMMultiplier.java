@@ -4,8 +4,8 @@ import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Pack;
 
 public class Tables8kGCMMultiplier implements GCMMultiplier {
-   int[][][] M;
    byte[] H;
+   int[][][] M;
 
    public void init(byte[] var1) {
       if (this.M == null) {

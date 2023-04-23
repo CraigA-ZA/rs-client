@@ -16,9 +16,9 @@ import org.bouncycastle.math.ec.ECCurve$F2m;
 import org.bouncycastle.math.ec.ECCurve$Fp;
 
 public class X9Curve extends ASN1Object implements X9ObjectIdentifiers {
+   byte[] seed;
    ASN1ObjectIdentifier fieldIdentifier = null;
    ECCurve curve;
-   byte[] seed;
 
    public X9Curve(X9FieldID var1, ASN1Sequence var2) {
       this.fieldIdentifier = var1.getIdentifier();

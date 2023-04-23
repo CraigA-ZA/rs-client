@@ -3,8 +3,8 @@ package org.bouncycastle.asn1;
 import java.io.IOException;
 
 public class DERNull extends ASN1Null {
-   static final byte[] zeroBytes = new byte[0];
    public static final DERNull INSTANCE = new DERNull();
+   static final byte[] zeroBytes = new byte[0];
 
    int encodedLength() {
       return 2;

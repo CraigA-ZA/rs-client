@@ -1,18 +1,18 @@
 public class qf implements Enumerated {
    static final qf ac = new qf(3, 10);
    static final qf af = new qf(1, 1);
-   static final qf aw = new qf(0, 3);
    static final qf an = new qf(2, 2);
-   final int au;
+   static final qf aw = new qf(0, 3);
    final int ab;
-
-   public int af() {
-      return 2023077401 * this.ab;
-   }
+   final int au;
 
    qf(int var1, int var2) {
       this.au = -199539953 * var1;
       this.ab = var2 * -344766935;
+   }
+
+   public int ordinal() {
+      return 2023077401 * this.ab;
    }
 
    static final boolean ag_renamed(it var0, int var1, int var2, int var3, int var4) {

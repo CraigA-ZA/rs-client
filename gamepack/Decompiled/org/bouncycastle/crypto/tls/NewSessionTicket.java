@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class NewSessionTicket {
-   public long ticketLifetimeHint;
    public byte[] ticket;
+   public long ticketLifetimeHint;
 
    public long getTicketLifetimeHint() {
       return this.ticketLifetimeHint;

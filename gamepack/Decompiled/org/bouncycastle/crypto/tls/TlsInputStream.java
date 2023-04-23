@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 class TlsInputStream extends InputStream {
-   TlsProtocol handler = null;
    byte[] buf = new byte[1];
+   TlsProtocol handler = null;
 
    public int available() throws IOException {
       return this.handler.applicationDataAvailable();

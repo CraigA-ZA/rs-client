@@ -9,8 +9,8 @@ import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.DERTaggedObject;
 
 public class OCSPResponse extends ASN1Object {
-   ResponseBytes responseBytes;
    OCSPResponseStatus responseStatus;
+   ResponseBytes responseBytes;
 
    public ASN1Primitive toASN1Primitive() {
       ASN1EncodableVector var1 = new ASN1EncodableVector();

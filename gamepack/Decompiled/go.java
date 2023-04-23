@@ -1,17 +1,17 @@
 public class go extends fb {
-   int af;
    static AbstractArchive aw;
+   int af;
+   int an;
    // $FF: synthetic field
    final fa this$0;
-   int an;
-
-   void af(Packet var1) {
-      this.af = var1.g4s() * -776659119;
-      this.an = var1.g4s() * -1491225545;
-   }
 
    go(fa var1) {
       this.this$0 = var1;
+   }
+
+   void write(Packet var1) {
+      this.af = var1.g4s() * -776659119;
+      this.an = var1.g4s() * -1491225545;
    }
 
    void an(fj var1) {

@@ -1,7 +1,10 @@
 public class FaceNormal {
+   public int af;
    public int an;
    public int aw;
-   public int af;
+
+   FaceNormal() {
+   }
 
    static void an_renamed(String[] var0, short[] var1, int var2, int var3) {
       if (var2 < var3) {
@@ -33,8 +36,5 @@ public class FaceNormal {
          an_renamed(var0, var1, var6 + 1, var3);
       }
 
-   }
-
-   FaceNormal() {
    }
 }

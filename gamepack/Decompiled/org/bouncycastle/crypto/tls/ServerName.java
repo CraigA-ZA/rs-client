@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class ServerName {
-   public short nameType;
    public Object name;
+   public short nameType;
 
    public String getHostName() {
       if (!isCorrectType((short)0, this.name)) {

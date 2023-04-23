@@ -1,11 +1,11 @@
 public class mt {
-   public Object[] au;
+   bb aw = new bb();
    FaceNormal an = new FaceNormal();
-   public mz af = new mz();
+   public Object[] ab;
    public Object[] ac;
    public Object[] aq;
-   public Object[] ab;
-   bb aw = new bb();
+   public Object[] au;
+   public mz af = new mz();
 
    mt() {
    }

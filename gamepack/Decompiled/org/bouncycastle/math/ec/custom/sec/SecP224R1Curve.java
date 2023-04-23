@@ -8,8 +8,8 @@ import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.util.encoders.Hex;
 
 public class SecP224R1Curve extends ECCurve$AbstractFp {
-   public SecP224R1Point infinity = new SecP224R1Point(this, (ECFieldElement)null, (ECFieldElement)null);
    public static final BigInteger q = new BigInteger(1, Hex.decode("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000000000000001"));
+   public SecP224R1Point infinity = new SecP224R1Point(this, (ECFieldElement)null, (ECFieldElement)null);
 
    public ECPoint createRawPoint(ECFieldElement var1, ECFieldElement var2, ECFieldElement[] var3, boolean var4) {
       return new SecP224R1Point(this, var1, var2, var3, var4);

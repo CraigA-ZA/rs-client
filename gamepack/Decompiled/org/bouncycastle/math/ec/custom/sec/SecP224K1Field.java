@@ -5,9 +5,9 @@ import org.bouncycastle.math.raw.Nat;
 import org.bouncycastle.math.raw.Nat224;
 
 public class SecP224K1Field {
-   static final int[] PExtInv = new int[]{-46280809, -13607, -2, -1, -1, -1, -1, 13605, 2};
-   static final int[] PExt = new int[]{46280809, 13606, 1, 0, 0, 0, 0, -13606, -3, -1, -1, -1, -1, -1};
    static final int[] P = new int[]{-6803, -2, -1, -1, -1, -1, -1};
+   static final int[] PExt = new int[]{46280809, 13606, 1, 0, 0, 0, 0, -13606, -3, -1, -1, -1, -1, -1};
+   static final int[] PExtInv = new int[]{-46280809, -13607, -2, -1, -1, -1, -1, 13605, 2};
 
    public static void reduce(int[] var0, int[] var1) {
       long var2 = Nat224.mul33Add(6803, var0, 7, var0, 0, var1, 0);

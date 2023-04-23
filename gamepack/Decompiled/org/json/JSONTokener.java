@@ -7,25 +7,14 @@ import java.io.StringReader;
 
 public class JSONTokener {
    boolean useLastChar;
-   Reader reader;
    char lastChar;
    int index;
+   Reader reader;
 
-   public String nextTo(String var1) throws JSONException {
-      StringBuffer var3 = new StringBuffer();
-
-      while(true) {
-         char var2 = this.next();
-         if (var1.indexOf(var2) >= 0 || var2 == 0 || var2 == '\n' || var2 == '\r') {
-            if (var2 != 0) {
-               this.back();
-            }
-
-            return var3.toString().trim();
-         }
-
-         var3.append(var2);
-      }
+   public JSONTokener(Reader var1) {
+      this.reader = (Reader)(var1.markSupported() ? var1 : new BufferedReader(var1));
+      this.useLastChar = false;
+      this.index = 0;
    }
 
    public JSONTokener(String var1) {
@@ -137,92 +126,6 @@ public class JSONTokener {
       return var1;
    }
 
-   public char skipTo(char var1) throws JSONException {
-      char var2;
-      try {
-         int var3 = this.index;
-         this.reader.mark(Integer.MAX_VALUE);
-
-         do {
-            var2 = this.next();
-            if (var2 == 0) {
-               this.reader.reset();
-               this.index = var3;
-               return var2;
-            }
-         } while(var2 != var1);
-      } catch (IOException var4) {
-         throw new JSONException(var4);
-      }
-
-      this.back();
-      return var2;
-   }
-
-   public String nextTo(char var1) throws JSONException {
-      StringBuffer var2 = new StringBuffer();
-
-      while(true) {
-         char var3 = this.next();
-         if (var3 == var1 || var3 == 0 || var3 == '\n' || var3 == '\r') {
-            if (var3 != 0) {
-               this.back();
-            }
-
-            return var2.toString().trim();
-         }
-
-         var2.append(var3);
-      }
-   }
-
-   public JSONTokener(Reader var1) {
-      this.reader = (Reader)(var1.markSupported() ? var1 : new BufferedReader(var1));
-      this.useLastChar = false;
-      this.index = 0;
-   }
-
-   public String ahm() {
-      return " at character " + this.index;
-   }
-
-   public Object nextValue() throws JSONException {
-      char var1 = this.nextClean();
-      switch (var1) {
-         case '"':
-         case '\'':
-            return this.nextString(var1);
-         case '(':
-         case '[':
-            this.back();
-            return new JSONArray(this);
-         case '{':
-            this.back();
-            return new JSONObject(this);
-         default:
-            StringBuffer var3;
-            for(var3 = new StringBuffer(); var1 >= ' ' && ",:]}/\\\"[{;=#".indexOf(var1) < 0; var1 = this.next()) {
-               var3.append(var1);
-            }
-
-            this.back();
-            String var2 = var3.toString().trim();
-            if (var2.equals("")) {
-               throw this.syntaxError("Missing value");
-            } else {
-               return JSONObject.stringToValue(var2);
-            }
-      }
-   }
-
-   public JSONException syntaxError(String var1) {
-      return new JSONException(var1 + this.toString());
-   }
-
-   public String toString() {
-      return " at character " + this.index;
-   }
-
    public String nextString(char var1) throws JSONException {
       StringBuffer var3 = new StringBuffer();
 
@@ -285,6 +188,103 @@ public class JSONTokener {
                var3.append(var2);
          }
       }
+   }
+
+   public String nextTo(char var1) throws JSONException {
+      StringBuffer var2 = new StringBuffer();
+
+      while(true) {
+         char var3 = this.next();
+         if (var3 == var1 || var3 == 0 || var3 == '\n' || var3 == '\r') {
+            if (var3 != 0) {
+               this.back();
+            }
+
+            return var2.toString().trim();
+         }
+
+         var2.append(var3);
+      }
+   }
+
+   public String nextTo(String var1) throws JSONException {
+      StringBuffer var3 = new StringBuffer();
+
+      while(true) {
+         char var2 = this.next();
+         if (var1.indexOf(var2) >= 0 || var2 == 0 || var2 == '\n' || var2 == '\r') {
+            if (var2 != 0) {
+               this.back();
+            }
+
+            return var3.toString().trim();
+         }
+
+         var3.append(var2);
+      }
+   }
+
+   public Object nextValue() throws JSONException {
+      char var1 = this.nextClean();
+      switch (var1) {
+         case '"':
+         case '\'':
+            return this.nextString(var1);
+         case '(':
+         case '[':
+            this.back();
+            return new JSONArray(this);
+         case '{':
+            this.back();
+            return new JSONObject(this);
+         default:
+            StringBuffer var3;
+            for(var3 = new StringBuffer(); var1 >= ' ' && ",:]}/\\\"[{;=#".indexOf(var1) < 0; var1 = this.next()) {
+               var3.append(var1);
+            }
+
+            this.back();
+            String var2 = var3.toString().trim();
+            if (var2.equals("")) {
+               throw this.syntaxError("Missing value");
+            } else {
+               return JSONObject.stringToValue(var2);
+            }
+      }
+   }
+
+   public char skipTo(char var1) throws JSONException {
+      char var2;
+      try {
+         int var3 = this.index;
+         this.reader.mark(Integer.MAX_VALUE);
+
+         do {
+            var2 = this.next();
+            if (var2 == 0) {
+               this.reader.reset();
+               this.index = var3;
+               return var2;
+            }
+         } while(var2 != var1);
+      } catch (IOException var4) {
+         throw new JSONException(var4);
+      }
+
+      this.back();
+      return var2;
+   }
+
+   public JSONException syntaxError(String var1) {
+      return new JSONException(var1 + this.toString());
+   }
+
+   public String ahm() {
+      return " at character " + this.index;
+   }
+
+   public String toString() {
+      return " at character " + this.index;
    }
 
    public String ahp() {

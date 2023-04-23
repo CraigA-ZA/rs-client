@@ -5,14 +5,14 @@ import java.util.Hashtable;
 import java.util.Vector;
 
 public abstract class AbstractTlsClient extends AbstractTlsPeer implements TlsClient {
-   public short[] clientECPointFormats;
-   public TlsClientContext context;
-   public Vector supportedSignatureAlgorithms;
-   public short selectedCompressionMethod;
-   public int[] namedCurves;
-   public short[] serverECPointFormats;
    public int selectedCipherSuite;
+   public int[] namedCurves;
+   public Vector supportedSignatureAlgorithms;
    public TlsCipherFactory cipherFactory;
+   public TlsClientContext context;
+   public short selectedCompressionMethod;
+   public short[] clientECPointFormats;
+   public short[] serverECPointFormats;
 
    public Hashtable af() throws IOException {
       Hashtable var1 = null;

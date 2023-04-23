@@ -10,8 +10,8 @@ import org.bouncycastle.crypto.params.DHPublicKeyParameters;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 
 public class DHBasicAgreement implements BasicAgreement {
-   DHParameters dhParams;
    static final BigInteger ONE = BigInteger.valueOf(1L);
+   DHParameters dhParams;
    DHPrivateKeyParameters key;
 
    public void init(CipherParameters var1) {

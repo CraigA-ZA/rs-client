@@ -10,10 +10,10 @@ import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
 import org.bouncycastle.util.BigIntegers;
 
 public class RSABlindedEngine implements AsymmetricBlockCipher {
-   RSACoreEngine core = new RSACoreEngine();
-   SecureRandom random;
-   RSAKeyParameters key;
    static final BigInteger ONE = BigInteger.valueOf(1L);
+   SecureRandom random;
+   RSACoreEngine core = new RSACoreEngine();
+   RSAKeyParameters key;
 
    public void init(boolean var1, CipherParameters var2) {
       this.core.init(var1, var2);

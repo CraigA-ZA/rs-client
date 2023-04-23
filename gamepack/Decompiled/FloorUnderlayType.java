@@ -1,60 +1,38 @@
 public class FloorUnderlayType extends DualNode {
-   int rgb = 0;
-   public int ac;
-   public static AbstractArchive FloorUnderlayType_archive;
-   public int au;
-   public static EvictingDualNodeHashTable FloorUnderlayType_cached = new EvictingDualNodeHashTable(64);
-   public int aq;
-   public int ab;
+   public static EvictingDualNodeHashTable an = new EvictingDualNodeHashTable(64);
+   public static AbstractArchive af;
    static int cw;
    static Archive fr;
    static tf sn;
+   int aw = 0;
+   public int ab;
+   public int ac;
+   public int aq;
+   public int au;
 
-   public static String longToTitleString(long var0) {
-      if (var0 > 0L && var0 < 6582952005840035281L) {
-         if (var0 % 37L == 0L) {
-            return null;
-         } else {
-            int var2 = 0;
-
-            for(long var3 = var0; 0L != var3; var3 /= 37L) {
-               ++var2;
-            }
-
-            StringBuilder var5;
-            char var8;
-            for(var5 = new StringBuilder(var2); 0L != var0; var5.append(var8)) {
-               long var6 = var0;
-               var0 /= 37L;
-               var8 = oy.base37Table[(int)(var6 - var0 * 37L)];
-               if ('_' == var8) {
-                  int var9 = var5.length() - 1;
-                  var5.setCharAt(var9, Character.toUpperCase(var5.charAt(var9)));
-                  var8 = 160;
-               }
-            }
-
-            var5.reverse();
-            var5.setCharAt(0, Character.toUpperCase(var5.charAt(0)));
-            return var5.toString();
-         }
-      } else {
-         return null;
-      }
+   public void reset() {
+      this.setHsl(this.aw * 86825461);
    }
 
-   public void an() {
-      this.au(this.rgb * 86825461);
+   public void decode(Packet var1, int var2) {
+      while(true) {
+         int var4 = var1.g1();
+         if (var4 == 0) {
+            return;
+         }
+
+         this.decode0(var1, var4, var2);
+      }
    }
 
    void decode0(Packet var1, int var2, int var3) {
       if (var2 == 1) {
-         this.rgb = var1.cr() * 1952729693;
+         this.aw = var1.cr() * 1952729693;
       }
 
    }
 
-   void au(int var1) {
+   void setHsl(int var1) {
       double var3 = (double)(var1 >> 16 & 255) / 256.0;
       double var5 = (double)(var1 >> 8 & 255) / 256.0;
       double var7 = (double)(var1 & 255) / 256.0;
@@ -125,19 +103,41 @@ public class FloorUnderlayType extends DualNode {
       this.ac = 1936467539 * (int)((double)(this.aq * -2012234183) * var13);
    }
 
-   public void decode(Packet var1, int var2) {
-      while(true) {
-         int var4 = var1.g1();
-         if (var4 == 0) {
-            return;
-         }
+   public static String longToTitleString(long var0) {
+      if (var0 > 0L && var0 < 6582952005840035281L) {
+         if (var0 % 37L == 0L) {
+            return null;
+         } else {
+            int var2 = 0;
 
-         this.decode0(var1, var4, var2);
+            for(long var3 = var0; 0L != var3; var3 /= 37L) {
+               ++var2;
+            }
+
+            StringBuilder var5;
+            char var8;
+            for(var5 = new StringBuilder(var2); 0L != var0; var5.append(var8)) {
+               long var6 = var0;
+               var0 /= 37L;
+               var8 = oy.af[(int)(var6 - var0 * 37L)];
+               if ('_' == var8) {
+                  int var9 = var5.length() - 1;
+                  var5.setCharAt(var9, Character.toUpperCase(var5.charAt(var9)));
+                  var8 = 160;
+               }
+            }
+
+            var5.reverse();
+            var5.setCharAt(0, Character.toUpperCase(var5.charAt(0)));
+            return var5.toString();
+         }
+      } else {
+         return null;
       }
    }
 
    public static void au_renamed() {
-      sa.midiPcmStream.ao();
+      sa.ac.ao();
       ly.au = -626822165;
       ly.ab = null;
    }

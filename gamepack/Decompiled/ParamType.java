@@ -1,11 +1,36 @@
 public class ParamType extends DualNode {
+   static EvictingDualNodeHashTable an = new EvictingDualNodeHashTable(64);
    static AbstractArchive af;
-   static EvictingDualNodeHashTable ParamType_cached = new EvictingDualNodeHashTable(64);
-   char type;
-   boolean autodisable = true;
-   public String defaultstr;
-   public int defaultint;
    static Rasterizer3D aa;
+   boolean ab = true;
+   char aw;
+   public int ac;
+   public String au;
+
+   ParamType() {
+   }
+
+   public static boolean af_renamed(AbstractArchive var0, AbstractArchive var1, AbstractArchive var2, MidiPcmStream var3) {
+      ly.af = var0;
+      ly.an = var1;
+      ly.aw = var2;
+      sa.ac = var3;
+      return true;
+   }
+
+   void postDecode() {
+   }
+
+   void decode(Packet var1) {
+      while(true) {
+         int var3 = var1.g1();
+         if (var3 == 0) {
+            return;
+         }
+
+         this.decode0(var1, var3);
+      }
+   }
 
    void decode0(Packet var1, int var2) {
       if (1 == var2) {
@@ -25,44 +50,19 @@ public class ParamType extends DualNode {
          }
 
          char var4 = (char)var6;
-         this.type = var4;
+         this.aw = var4;
       } else if (var2 == 2) {
-         this.defaultint = var1.g4s() * 1057254681;
+         this.ac = var1.g4s() * 1057254681;
       } else if (var2 == 4) {
-         this.autodisable = false;
+         this.ab = false;
       } else if (var2 == 5) {
-         this.defaultstr = var1.cw();
+         this.au = var1.cw();
       }
 
-   }
-
-   void decode(Packet var1) {
-      while(true) {
-         int var3 = var1.g1();
-         if (var3 == 0) {
-            return;
-         }
-
-         this.decode0(var1, var3);
-      }
    }
 
    public boolean isString() {
-      return this.type == 's';
-   }
-
-   public static boolean af_renamed(AbstractArchive var0, AbstractArchive var1, AbstractArchive var2, MidiPcmStream var3) {
-      ly.af = var0;
-      ly.an = var1;
-      ly.aw = var2;
-      sa.midiPcmStream = var3;
-      return true;
-   }
-
-   void postDecode() {
-   }
-
-   ParamType() {
+      return this.aw == 's';
    }
 
    static void ac_renamed(ek var0, float var1, float var2, float var3, float var4, float var5, float var6, float var7, float var8) {

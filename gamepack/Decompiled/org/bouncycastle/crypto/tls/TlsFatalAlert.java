@@ -3,8 +3,8 @@ package org.bouncycastle.crypto.tls;
 import java.io.IOException;
 
 public class TlsFatalAlert extends IOException {
-   public short alertDescription;
    public Throwable alertCause;
+   public short alertDescription;
 
    public TlsFatalAlert(short var1) {
       this(var1, (Throwable)null);

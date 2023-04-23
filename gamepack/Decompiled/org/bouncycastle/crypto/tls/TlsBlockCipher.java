@@ -11,13 +11,13 @@ import org.bouncycastle.util.Arrays;
 
 public class TlsBlockCipher implements TlsCipher {
    public boolean encryptThenMAC;
-   public TlsMac writeMac;
-   public TlsContext context;
-   public byte[] randomData;
-   public BlockCipher encryptCipher;
-   public BlockCipher decryptCipher;
    public boolean useExplicitIV;
+   public byte[] randomData;
+   public BlockCipher decryptCipher;
+   public BlockCipher encryptCipher;
+   public TlsContext context;
    public TlsMac readMac;
+   public TlsMac writeMac;
 
    public TlsMac getWriteMac() {
       return this.writeMac;

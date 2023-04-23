@@ -7,6 +7,11 @@ public abstract class qn extends kr implements ts {
       return this.af * -1813265095;
    }
 
+   public Object aw(int var1) {
+      qg var3 = this.af(var1);
+      return null != var3 && var3.ac() ? var3.au() : null;
+   }
+
    public te ac(Packet var1) {
       int var3 = var1.cl();
       qg var4 = this.af(var3);
@@ -36,9 +41,4 @@ public abstract class qn extends kr implements ts {
    }
 
    protected abstract qg af(int var1);
-
-   public Object aw(int var1) {
-      qg var3 = this.af(var1);
-      return null != var3 && var3.ac() ? var3.au() : null;
-   }
 }

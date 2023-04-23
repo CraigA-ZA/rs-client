@@ -1,57 +1,25 @@
 public final class Rasterizer3D extends Rasterizer2D {
-   public int aq;
-   public int an;
-   public int[] af;
-   public int ac;
    int au;
    public int ab;
+   public int ac;
+   public int an;
+   public int aq;
    public int aw;
+   public int[] af;
 
-   public void al() {
-      int[] var1 = new int[this.an * this.aw];
-      int var2 = 0;
-
-      for(int var3 = this.aw - 1; var3 >= 0; --var3) {
-         for(int var4 = 0; var4 < this.an; ++var4) {
-            var1[var2++] = this.af[var4 + var3 * this.an];
-         }
-      }
-
-      this.af = var1;
-      this.au = this.aq - this.aw - this.au;
+   Rasterizer3D() {
    }
 
-   public void be(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int[] var9, int[] var10) {
-      try {
-         int var11 = -var3 / 2;
-         int var12 = -var4 / 2;
-         int var13 = (int)(Math.sin((double)var7 / 326.11) * 65536.0);
-         int var14 = (int)(Math.cos((double)var7 / 326.11) * 65536.0);
-         var13 = var13 * var8 >> 8;
-         var14 = var14 * var8 >> 8;
-         int var15 = (var5 << 16) + var12 * var13 + var11 * var14;
-         int var16 = (var6 << 16) + (var12 * var14 - var11 * var13);
-         int var17 = var1 + var2 * ae;
+   public Rasterizer3D(int var1, int var2) {
+      this(new int[var1 * var2], var1, var2);
+   }
 
-         for(var2 = 0; var2 < var4; ++var2) {
-            int var18 = var9[var2];
-            int var19 = var17 + var18;
-            int var20 = var15 + var14 * var18;
-            int var21 = var16 - var13 * var18;
-
-            for(var1 = -var10[var2]; var1 < 0; ++var1) {
-               ad[var19++] = this.af[(var20 >> 16) + (var21 >> 16) * this.an];
-               var20 += var14;
-               var21 -= var13;
-            }
-
-            var15 += var13;
-            var16 += var14;
-            var17 += ae;
-         }
-      } catch (Exception var22) {
-      }
-
+   public Rasterizer3D(int[] var1, int var2, int var3) {
+      this.af = var1;
+      this.an = this.ab = var2;
+      this.aw = this.aq = var3;
+      this.au = 0;
+      this.ac = 0;
    }
 
    public Rasterizer3D af() {
@@ -97,11 +65,11 @@ public final class Rasterizer3D extends Rasterizer2D {
       return var1;
    }
 
-   public void ac() {
-      ea(this.af, this.an, this.aw, (float[])null);
+   public void clearAll() {
+      Rasterizer2D_replace(this.af, this.an, this.aw, (float[])null);
    }
 
-   public void au() {
+   public void removeAll() {
       if (this.an != this.ab || this.aw != this.aq) {
          int[] var1 = new int[this.ab * this.aq];
 
@@ -159,72 +127,32 @@ public final class Rasterizer3D extends Rasterizer2D {
       }
    }
 
-   public void ap(int var1, int var2, int var3, int var4, int var5) {
-      if (var3 > 0 && var4 > 0) {
-         int var6 = this.an;
-         int var7 = this.aw;
-         int var8 = 0;
-         int var9 = 0;
-         int var10 = this.ab;
-         int var11 = this.aq;
-         int var12 = (var10 << 16) / var3;
-         int var13 = (var11 << 16) / var4;
-         int var14;
-         if (this.ac > 0) {
-            var14 = ((this.ac << 16) + var12 - 1) / var12;
-            var1 += var14;
-            var8 += var14 * var12 - (this.ac << 16);
-         }
+   public void aq() {
+      int[] var1 = new int[this.an * this.aw];
+      int var2 = 0;
 
-         if (this.au > 0) {
-            var14 = ((this.au << 16) + var13 - 1) / var13;
-            var2 += var14;
-            var9 += var14 * var13 - (this.au << 16);
+      for(int var3 = 0; var3 < this.aw; ++var3) {
+         for(int var4 = this.an - 1; var4 >= 0; --var4) {
+            var1[var2++] = this.af[var4 + var3 * this.an];
          }
-
-         if (var6 < var10) {
-            var3 = ((var6 << 16) - var8 + var12 - 1) / var12;
-         }
-
-         if (var7 < var11) {
-            var4 = ((var7 << 16) - var9 + var13 - 1) / var13;
-         }
-
-         var14 = var1 + var2 * ae;
-         int var15 = ae - var3;
-         if (var2 + var4 > be) {
-            var4 -= var2 + var4 - be;
-         }
-
-         int var16;
-         if (var2 < bi) {
-            var16 = bi - var2;
-            var4 -= var16;
-            var14 += var16 * ae;
-            var9 += var13 * var16;
-         }
-
-         if (var1 + var3 > bx) {
-            var16 = var1 + var3 - bx;
-            var3 -= var16;
-            var15 += var16;
-         }
-
-         if (var1 < bk) {
-            var16 = bk - var1;
-            var3 -= var16;
-            var14 += var16;
-            var8 += var12 * var16;
-            var15 += var16;
-         }
-
-         if (var5 == 256) {
-            by_renamed(0, 0, 0, var8, this.af, ad, 0, 0, -var4, var9, var14, var15, var3, var12, var13, var6);
-         } else {
-            bb_renamed(0, 0, 0, var8, this.af, ad, 0, 0, -var4, var9, var14, var15, var3, var12, var13, var6, var5);
-         }
-
       }
+
+      this.af = var1;
+      this.ac = this.ab - this.an - this.ac;
+   }
+
+   public void fillSenderUsername() {
+      int[] var1 = new int[this.an * this.aw];
+      int var2 = 0;
+
+      for(int var3 = this.aw - 1; var3 >= 0; --var3) {
+         for(int var4 = 0; var4 < this.an; ++var4) {
+            var1[var2++] = this.af[var4 + var3 * this.an];
+         }
+      }
+
+      this.af = var1;
+      this.au = this.aq - this.aw - this.au;
    }
 
    public void at(int var1) {
@@ -253,49 +181,15 @@ public final class Rasterizer3D extends Rasterizer2D {
       this.af = var2;
    }
 
-   public void bi(int var1, int var2, int var3, int var4, int var5, int var6, int[] var7, int[] var8) {
-      int var9 = var2 < 0 ? -var2 : 0;
-      int var10 = var2 + this.aw <= var6 ? this.aw : var6 - var2;
-      int var11 = var1 < 0 ? -var1 : 0;
-      int var10000;
-      if (var1 + this.an <= var5) {
-         var10000 = this.an;
-      } else {
-         var10000 = var5 - var1;
-      }
+   public void aa(int var1) {
+      for(int var2 = this.aw - 1; var2 > 0; --var2) {
+         int var3 = var2 * this.an;
 
-      int var13 = var3 + var1 + var11 + (var4 + var2 + var9) * ae;
-      int var14 = var2 + var9;
-
-      for(int var15 = var9; var15 < var10; ++var15) {
-         int var16 = var7[var14];
-         int var17 = var8[var14++];
-         int var18 = var13;
-         int var19;
-         if (var1 < var16) {
-            var19 = var16 - var1;
-            var18 = var13 + (var19 - var11);
-         } else {
-            var19 = var11;
-         }
-
-         int var12;
-         if (var1 + this.an <= var16 + var17) {
-            var12 = this.an;
-         } else {
-            var12 = var16 + var17 - var1;
-         }
-
-         for(int var20 = var19; var20 < var12; ++var20) {
-            int var21 = this.af[var20 + var15 * this.an];
-            if (var21 != 0) {
-               ad[var18++] = var21;
-            } else {
-               ++var18;
+         for(int var4 = this.an - 1; var4 > 0; --var4) {
+            if (this.af[var4 + var3] == 0 && this.af[var4 + var3 - 1 - this.an] != 0) {
+               this.af[var4 + var3] = var1;
             }
          }
-
-         var13 += ae;
       }
 
    }
@@ -342,6 +236,24 @@ public final class Rasterizer3D extends Rasterizer2D {
       if (var6 > 0 && var5 > 0) {
          ao_renamed(ad, this.af, var4, var3, var6, var5, var7, var8);
       }
+   }
+
+   static void ao_renamed(int[] var0, int[] var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+      for(int var8 = -var5; var8 < 0; ++var8) {
+         int var9;
+         for(var9 = var3 + var4 - 3; var3 < var9; var0[var3++] = var1[var2++]) {
+            var0[var3++] = var1[var2++];
+            var0[var3++] = var1[var2++];
+            var0[var3++] = var1[var2++];
+         }
+
+         for(var9 += 3; var3 < var9; var0[var3++] = var1[var2++]) {
+         }
+
+         var3 += var6;
+         var2 += var7;
+      }
+
    }
 
    public void ax(int var1, int var2) {
@@ -526,6 +438,54 @@ public final class Rasterizer3D extends Rasterizer2D {
 
    }
 
+   public void av(int var1, int var2, int var3, int var4) {
+      if (var3 == 256) {
+         this.ax(var1, var2);
+      } else {
+         var1 += this.ac;
+         var2 += this.au;
+         int var5 = var1 + var2 * ae;
+         int var6 = 0;
+         int var7 = this.aw;
+         int var8 = this.an;
+         int var9 = ae - var8;
+         int var10 = 0;
+         int var11;
+         if (var2 < bi) {
+            var11 = bi - var2;
+            var7 -= var11;
+            var2 = bi;
+            var6 += var11 * var8;
+            var5 += var11 * ae;
+         }
+
+         if (var2 + var7 > be) {
+            var7 -= var2 + var7 - be;
+         }
+
+         if (var1 < bk) {
+            var11 = bk - var1;
+            var8 -= var11;
+            var1 = bk;
+            var6 += var11;
+            var5 += var11;
+            var10 += var11;
+            var9 += var11;
+         }
+
+         if (var1 + var8 > bx) {
+            var11 = var1 + var8 - bx;
+            var8 -= var11;
+            var10 += var11;
+            var9 += var11;
+         }
+
+         if (var8 > 0 && var7 > 0) {
+            ar_renamed(ad, this.af, 0, var6, var5, var8, var7, var9, var10, var3, var4);
+         }
+      }
+   }
+
    static void ar_renamed(int[] var0, int[] var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10) {
       int var11 = 256 - var9;
       int var12 = (var10 & 16711935) * var11 & -16711936;
@@ -594,38 +554,162 @@ public final class Rasterizer3D extends Rasterizer2D {
       }
    }
 
-   static void by_renamed(int var0, int var1, int var2, int var3, int[] var4, int[] var5, int var6, int var7, int var8, int var9, int var10, int var11, int var12, int var13, int var14, int var15) {
-      for(int var16 = var3; var8 < 0; ++var8) {
-         var7 = (var9 >> 16) * var15;
+   static void as_renamed(int[] var0, int[] var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9) {
+      int var10 = 256 - var9;
 
-         for(var6 = -var12; var6 < 0; ++var6) {
-            var0 = var4[(var3 >> 16) + var7];
-            if (var0 != 0) {
-               var1 = var5[var10];
-               var2 = var0 + var1;
-               var0 = (var0 & 16711935) + (var1 & 16711935);
-               var1 = (var0 & 16777472) + (var2 - var0 & 65536);
-               var5[var10++] = var2 - var1 | var1 - (var1 >>> 8);
+      for(int var11 = -var6; var11 < 0; ++var11) {
+         for(int var12 = -var5; var12 < 0; ++var12) {
+            var2 = var1[var3++];
+            if (var2 != 0) {
+               int var13 = var0[var4];
+               var0[var4++] = ((var2 & 16711935) * var9 + (var13 & 16711935) * var10 & -16711936) + ((var2 & '\uff00') * var9 + (var13 & '\uff00') * var10 & 16711680) >> 8;
             } else {
-               ++var10;
+               ++var4;
             }
-
-            var3 += var13;
          }
 
-         var9 += var14;
-         var3 = var16;
-         var10 += var11;
+         var4 += var7;
+         var3 += var8;
       }
 
    }
 
-   public Rasterizer3D(int[] var1, int var2, int var3) {
-      this.af = var1;
-      this.an = this.ab = var2;
-      this.aw = this.aq = var3;
-      this.au = 0;
-      this.ac = 0;
+   public void aj(int var1, int var2, int var3, int var4, int var5) {
+      if (var3 > 0 && var4 > 0) {
+         int var6 = this.an;
+         int var7 = this.aw;
+         int var8 = 0;
+         int var9 = 0;
+         int var10 = this.ab;
+         int var11 = this.aq;
+         int var12 = (var10 << 16) / var3;
+         int var13 = (var11 << 16) / var4;
+         int var14;
+         if (this.ac > 0) {
+            var14 = ((this.ac << 16) + var12 - 1) / var12;
+            var1 += var14;
+            var8 += var14 * var12 - (this.ac << 16);
+         }
+
+         if (this.au > 0) {
+            var14 = ((this.au << 16) + var13 - 1) / var13;
+            var2 += var14;
+            var9 += var14 * var13 - (this.au << 16);
+         }
+
+         if (var6 < var10) {
+            var3 = ((var6 << 16) - var8 + var12 - 1) / var12;
+         }
+
+         if (var7 < var11) {
+            var4 = ((var7 << 16) - var9 + var13 - 1) / var13;
+         }
+
+         var14 = var1 + var2 * ae;
+         int var15 = ae - var3;
+         if (var2 + var4 > be) {
+            var4 -= var2 + var4 - be;
+         }
+
+         int var16;
+         if (var2 < bi) {
+            var16 = bi - var2;
+            var4 -= var16;
+            var14 += var16 * ae;
+            var9 += var13 * var16;
+         }
+
+         if (var1 + var3 > bx) {
+            var16 = var1 + var3 - bx;
+            var3 -= var16;
+            var15 += var16;
+         }
+
+         if (var1 < bk) {
+            var16 = bk - var1;
+            var3 -= var16;
+            var14 += var16;
+            var8 += var12 * var16;
+            var15 += var16;
+         }
+
+         ak_renamed(ad, this.af, 0, var8, var9, var14, var15, var3, var4, var12, var13, var6, var5);
+      }
+   }
+
+   static void ak_renamed(int[] var0, int[] var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10, int var11, int var12) {
+      int var13 = 256 - var12;
+      int var14 = var3;
+
+      for(int var15 = -var8; var15 < 0; ++var15) {
+         int var16 = (var4 >> 16) * var11;
+
+         for(int var17 = -var7; var17 < 0; ++var17) {
+            var2 = var1[(var3 >> 16) + var16];
+            if (var2 != 0) {
+               int var18 = var0[var5];
+               var0[var5++] = ((var2 & 16711935) * var12 + (var18 & 16711935) * var13 & -16711936) + ((var2 & '\uff00') * var12 + (var18 & '\uff00') * var13 & 16711680) >> 8;
+            } else {
+               ++var5;
+            }
+
+            var3 += var9;
+         }
+
+         var4 += var10;
+         var3 = var14;
+         var5 += var6;
+      }
+
+   }
+
+   public void az(int var1, int var2, int var3) {
+      var1 += this.ac;
+      var2 += this.au;
+      int var4 = var1 + var2 * ae;
+      int var5 = 0;
+      int var6 = this.aw;
+      int var7 = this.an;
+      int var8 = ae - var7;
+      int var9 = 0;
+      int var10;
+      if (var2 < bi) {
+         var10 = bi - var2;
+         var6 -= var10;
+         var2 = bi;
+         var5 += var10 * var7;
+         var4 += var10 * ae;
+      }
+
+      if (var2 + var6 > be) {
+         var6 -= var2 + var6 - be;
+      }
+
+      if (var1 < bk) {
+         var10 = bk - var1;
+         var7 -= var10;
+         var1 = bk;
+         var5 += var10;
+         var4 += var10;
+         var9 += var10;
+         var8 += var10;
+      }
+
+      if (var1 + var7 > bx) {
+         var10 = var1 + var7 - bx;
+         var7 -= var10;
+         var9 += var10;
+         var8 += var10;
+      }
+
+      if (var7 > 0 && var6 > 0) {
+         if (var3 == 256) {
+            ad_renamed(0, 0, 0, ad, this.af, var5, 0, var4, 0, var7, var6, var8, var9);
+         } else {
+            ae_renamed(0, 0, 0, ad, this.af, var5, 0, var4, 0, var7, var6, var8, var9, var3);
+         }
+
+      }
    }
 
    static void ad_renamed(int var0, int var1, int var2, int[] var3, int[] var4, int var5, int var6, int var7, int var8, int var9, int var10, int var11, int var12) {
@@ -672,56 +756,206 @@ public final class Rasterizer3D extends Rasterizer2D {
 
    }
 
-   public Rasterizer3D(int var1, int var2) {
-      this(new int[var1 * var2], var1, var2);
-   }
-
-   public void av(int var1, int var2, int var3, int var4) {
-      if (var3 == 256) {
-         this.ax(var1, var2);
-      } else {
-         var1 += this.ac;
-         var2 += this.au;
-         int var5 = var1 + var2 * ae;
-         int var6 = 0;
+   public void ap(int var1, int var2, int var3, int var4, int var5) {
+      if (var3 > 0 && var4 > 0) {
+         int var6 = this.an;
          int var7 = this.aw;
-         int var8 = this.an;
-         int var9 = ae - var8;
-         int var10 = 0;
-         int var11;
-         if (var2 < bi) {
-            var11 = bi - var2;
-            var7 -= var11;
-            var2 = bi;
-            var6 += var11 * var8;
-            var5 += var11 * ae;
+         int var8 = 0;
+         int var9 = 0;
+         int var10 = this.ab;
+         int var11 = this.aq;
+         int var12 = (var10 << 16) / var3;
+         int var13 = (var11 << 16) / var4;
+         int var14;
+         if (this.ac > 0) {
+            var14 = ((this.ac << 16) + var12 - 1) / var12;
+            var1 += var14;
+            var8 += var14 * var12 - (this.ac << 16);
          }
 
-         if (var2 + var7 > be) {
-            var7 -= var2 + var7 - be;
+         if (this.au > 0) {
+            var14 = ((this.au << 16) + var13 - 1) / var13;
+            var2 += var14;
+            var9 += var14 * var13 - (this.au << 16);
+         }
+
+         if (var6 < var10) {
+            var3 = ((var6 << 16) - var8 + var12 - 1) / var12;
+         }
+
+         if (var7 < var11) {
+            var4 = ((var7 << 16) - var9 + var13 - 1) / var13;
+         }
+
+         var14 = var1 + var2 * ae;
+         int var15 = ae - var3;
+         if (var2 + var4 > be) {
+            var4 -= var2 + var4 - be;
+         }
+
+         int var16;
+         if (var2 < bi) {
+            var16 = bi - var2;
+            var4 -= var16;
+            var14 += var16 * ae;
+            var9 += var13 * var16;
+         }
+
+         if (var1 + var3 > bx) {
+            var16 = var1 + var3 - bx;
+            var3 -= var16;
+            var15 += var16;
          }
 
          if (var1 < bk) {
-            var11 = bk - var1;
-            var8 -= var11;
-            var1 = bk;
-            var6 += var11;
-            var5 += var11;
-            var10 += var11;
-            var9 += var11;
+            var16 = bk - var1;
+            var3 -= var16;
+            var14 += var16;
+            var8 += var12 * var16;
+            var15 += var16;
          }
 
-         if (var1 + var8 > bx) {
-            var11 = var1 + var8 - bx;
-            var8 -= var11;
-            var10 += var11;
-            var9 += var11;
+         if (var5 == 256) {
+            by_renamed(0, 0, 0, var8, this.af, ad, 0, 0, -var4, var9, var14, var15, var3, var12, var13, var6);
+         } else {
+            bb_renamed(0, 0, 0, var8, this.af, ad, 0, 0, -var4, var9, var14, var15, var3, var12, var13, var6, var5);
          }
 
-         if (var8 > 0 && var7 > 0) {
-            ar_renamed(ad, this.af, 0, var6, var5, var8, var7, var9, var10, var3, var4);
-         }
       }
+   }
+
+   static void by_renamed(int var0, int var1, int var2, int var3, int[] var4, int[] var5, int var6, int var7, int var8, int var9, int var10, int var11, int var12, int var13, int var14, int var15) {
+      for(int var16 = var3; var8 < 0; ++var8) {
+         var7 = (var9 >> 16) * var15;
+
+         for(var6 = -var12; var6 < 0; ++var6) {
+            var0 = var4[(var3 >> 16) + var7];
+            if (var0 != 0) {
+               var1 = var5[var10];
+               var2 = var0 + var1;
+               var0 = (var0 & 16711935) + (var1 & 16711935);
+               var1 = (var0 & 16777472) + (var2 - var0 & 65536);
+               var5[var10++] = var2 - var1 | var1 - (var1 >>> 8);
+            } else {
+               ++var10;
+            }
+
+            var3 += var13;
+         }
+
+         var9 += var14;
+         var3 = var16;
+         var10 += var11;
+      }
+
+   }
+
+   static void bb_renamed(int var0, int var1, int var2, int var3, int[] var4, int[] var5, int var6, int var7, int var8, int var9, int var10, int var11, int var12, int var13, int var14, int var15, int var16) {
+      for(int var17 = var3; var8 < 0; ++var8) {
+         var7 = (var9 >> 16) * var15;
+
+         for(var6 = -var12; var6 < 0; ++var6) {
+            var0 = var4[(var3 >> 16) + var7];
+            if (var0 != 0) {
+               var1 = (var0 & 16711935) * var16;
+               var0 = (var1 & -16711936) + (var0 * var16 - var1 & 16711680) >>> 8;
+               var1 = var5[var10];
+               var2 = var0 + var1;
+               var0 = (var0 & 16711935) + (var1 & 16711935);
+               var1 = (var0 & 16777472) + (var2 - var0 & 65536);
+               var5[var10++] = var2 - var1 | var1 - (var1 >>> 8);
+            } else {
+               ++var10;
+            }
+
+            var3 += var13;
+         }
+
+         var9 += var14;
+         var3 = var17;
+         var10 += var11;
+      }
+
+   }
+
+   public void bi(int var1, int var2, int var3, int var4, int var5, int var6, int[] var7, int[] var8) {
+      int var9 = var2 < 0 ? -var2 : 0;
+      int var10 = var2 + this.aw <= var6 ? this.aw : var6 - var2;
+      int var11 = var1 < 0 ? -var1 : 0;
+      int var10000;
+      if (var1 + this.an <= var5) {
+         var10000 = this.an;
+      } else {
+         var10000 = var5 - var1;
+      }
+
+      int var13 = var3 + var1 + var11 + (var4 + var2 + var9) * ae;
+      int var14 = var2 + var9;
+
+      for(int var15 = var9; var15 < var10; ++var15) {
+         int var16 = var7[var14];
+         int var17 = var8[var14++];
+         int var18 = var13;
+         int var19;
+         if (var1 < var16) {
+            var19 = var16 - var1;
+            var18 = var13 + (var19 - var11);
+         } else {
+            var19 = var11;
+         }
+
+         int var12;
+         if (var1 + this.an <= var16 + var17) {
+            var12 = this.an;
+         } else {
+            var12 = var16 + var17 - var1;
+         }
+
+         for(int var20 = var19; var20 < var12; ++var20) {
+            int var21 = this.af[var20 + var15 * this.an];
+            if (var21 != 0) {
+               ad[var18++] = var21;
+            } else {
+               ++var18;
+            }
+         }
+
+         var13 += ae;
+      }
+
+   }
+
+   public void be(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int[] var9, int[] var10) {
+      try {
+         int var11 = -var3 / 2;
+         int var12 = -var4 / 2;
+         int var13 = (int)(Math.sin((double)var7 / 326.11) * 65536.0);
+         int var14 = (int)(Math.cos((double)var7 / 326.11) * 65536.0);
+         var13 = var13 * var8 >> 8;
+         var14 = var14 * var8 >> 8;
+         int var15 = (var5 << 16) + var12 * var13 + var11 * var14;
+         int var16 = (var6 << 16) + (var12 * var14 - var11 * var13);
+         int var17 = var1 + var2 * ae;
+
+         for(var2 = 0; var2 < var4; ++var2) {
+            int var18 = var9[var2];
+            int var19 = var17 + var18;
+            int var20 = var15 + var14 * var18;
+            int var21 = var16 - var13 * var18;
+
+            for(var1 = -var10[var2]; var1 < 0; ++var1) {
+               ad[var19++] = this.af[(var20 >> 16) + (var21 >> 16) * this.an];
+               var20 += var14;
+               var21 -= var13;
+            }
+
+            var15 += var13;
+            var16 += var14;
+            var17 += ae;
+         }
+      } catch (Exception var22) {
+      }
+
    }
 
    public void bk(int var1, int var2, int var3, int var4, int var5, int var6, double var7, int var9) {
@@ -762,30 +996,8 @@ public final class Rasterizer3D extends Rasterizer2D {
 
    }
 
-   static void ak_renamed(int[] var0, int[] var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10, int var11, int var12) {
-      int var13 = 256 - var12;
-      int var14 = var3;
-
-      for(int var15 = -var8; var15 < 0; ++var15) {
-         int var16 = (var4 >> 16) * var11;
-
-         for(int var17 = -var7; var17 < 0; ++var17) {
-            var2 = var1[(var3 >> 16) + var16];
-            if (var2 != 0) {
-               int var18 = var0[var5];
-               var0[var5++] = ((var2 & 16711935) * var12 + (var18 & 16711935) * var13 & -16711936) + ((var2 & '\uff00') * var12 + (var18 & '\uff00') * var13 & 16711680) >> 8;
-            } else {
-               ++var5;
-            }
-
-            var3 += var9;
-         }
-
-         var4 += var10;
-         var3 = var14;
-         var5 += var6;
-      }
-
+   public void bx(int var1, int var2, int var3, int var4) {
+      this.bo(this.ab << 3, this.aq << 3, var1 << 4, var2 << 4, var3, var4);
    }
 
    void bo(int var1, int var2, int var3, int var4, int var5, int var6) {
@@ -1375,217 +1587,5 @@ public final class Rasterizer3D extends Rasterizer2D {
       } else {
          throw new IllegalArgumentException();
       }
-   }
-
-   static void ao_renamed(int[] var0, int[] var1, int var2, int var3, int var4, int var5, int var6, int var7) {
-      for(int var8 = -var5; var8 < 0; ++var8) {
-         int var9;
-         for(var9 = var3 + var4 - 3; var3 < var9; var0[var3++] = var1[var2++]) {
-            var0[var3++] = var1[var2++];
-            var0[var3++] = var1[var2++];
-            var0[var3++] = var1[var2++];
-         }
-
-         for(var9 += 3; var3 < var9; var0[var3++] = var1[var2++]) {
-         }
-
-         var3 += var6;
-         var2 += var7;
-      }
-
-   }
-
-   public void aj(int var1, int var2, int var3, int var4, int var5) {
-      if (var3 > 0 && var4 > 0) {
-         int var6 = this.an;
-         int var7 = this.aw;
-         int var8 = 0;
-         int var9 = 0;
-         int var10 = this.ab;
-         int var11 = this.aq;
-         int var12 = (var10 << 16) / var3;
-         int var13 = (var11 << 16) / var4;
-         int var14;
-         if (this.ac > 0) {
-            var14 = ((this.ac << 16) + var12 - 1) / var12;
-            var1 += var14;
-            var8 += var14 * var12 - (this.ac << 16);
-         }
-
-         if (this.au > 0) {
-            var14 = ((this.au << 16) + var13 - 1) / var13;
-            var2 += var14;
-            var9 += var14 * var13 - (this.au << 16);
-         }
-
-         if (var6 < var10) {
-            var3 = ((var6 << 16) - var8 + var12 - 1) / var12;
-         }
-
-         if (var7 < var11) {
-            var4 = ((var7 << 16) - var9 + var13 - 1) / var13;
-         }
-
-         var14 = var1 + var2 * ae;
-         int var15 = ae - var3;
-         if (var2 + var4 > be) {
-            var4 -= var2 + var4 - be;
-         }
-
-         int var16;
-         if (var2 < bi) {
-            var16 = bi - var2;
-            var4 -= var16;
-            var14 += var16 * ae;
-            var9 += var13 * var16;
-         }
-
-         if (var1 + var3 > bx) {
-            var16 = var1 + var3 - bx;
-            var3 -= var16;
-            var15 += var16;
-         }
-
-         if (var1 < bk) {
-            var16 = bk - var1;
-            var3 -= var16;
-            var14 += var16;
-            var8 += var12 * var16;
-            var15 += var16;
-         }
-
-         ak_renamed(ad, this.af, 0, var8, var9, var14, var15, var3, var4, var12, var13, var6, var5);
-      }
-   }
-
-   static void bb_renamed(int var0, int var1, int var2, int var3, int[] var4, int[] var5, int var6, int var7, int var8, int var9, int var10, int var11, int var12, int var13, int var14, int var15, int var16) {
-      for(int var17 = var3; var8 < 0; ++var8) {
-         var7 = (var9 >> 16) * var15;
-
-         for(var6 = -var12; var6 < 0; ++var6) {
-            var0 = var4[(var3 >> 16) + var7];
-            if (var0 != 0) {
-               var1 = (var0 & 16711935) * var16;
-               var0 = (var1 & -16711936) + (var0 * var16 - var1 & 16711680) >>> 8;
-               var1 = var5[var10];
-               var2 = var0 + var1;
-               var0 = (var0 & 16711935) + (var1 & 16711935);
-               var1 = (var0 & 16777472) + (var2 - var0 & 65536);
-               var5[var10++] = var2 - var1 | var1 - (var1 >>> 8);
-            } else {
-               ++var10;
-            }
-
-            var3 += var13;
-         }
-
-         var9 += var14;
-         var3 = var17;
-         var10 += var11;
-      }
-
-   }
-
-   public void aq() {
-      int[] var1 = new int[this.an * this.aw];
-      int var2 = 0;
-
-      for(int var3 = 0; var3 < this.aw; ++var3) {
-         for(int var4 = this.an - 1; var4 >= 0; --var4) {
-            var1[var2++] = this.af[var4 + var3 * this.an];
-         }
-      }
-
-      this.af = var1;
-      this.ac = this.ab - this.an - this.ac;
-   }
-
-   public void aa(int var1) {
-      for(int var2 = this.aw - 1; var2 > 0; --var2) {
-         int var3 = var2 * this.an;
-
-         for(int var4 = this.an - 1; var4 > 0; --var4) {
-            if (this.af[var4 + var3] == 0 && this.af[var4 + var3 - 1 - this.an] != 0) {
-               this.af[var4 + var3] = var1;
-            }
-         }
-      }
-
-   }
-
-   static void as_renamed(int[] var0, int[] var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9) {
-      int var10 = 256 - var9;
-
-      for(int var11 = -var6; var11 < 0; ++var11) {
-         for(int var12 = -var5; var12 < 0; ++var12) {
-            var2 = var1[var3++];
-            if (var2 != 0) {
-               int var13 = var0[var4];
-               var0[var4++] = ((var2 & 16711935) * var9 + (var13 & 16711935) * var10 & -16711936) + ((var2 & '\uff00') * var9 + (var13 & '\uff00') * var10 & 16711680) >> 8;
-            } else {
-               ++var4;
-            }
-         }
-
-         var4 += var7;
-         var3 += var8;
-      }
-
-   }
-
-   public void az(int var1, int var2, int var3) {
-      var1 += this.ac;
-      var2 += this.au;
-      int var4 = var1 + var2 * ae;
-      int var5 = 0;
-      int var6 = this.aw;
-      int var7 = this.an;
-      int var8 = ae - var7;
-      int var9 = 0;
-      int var10;
-      if (var2 < bi) {
-         var10 = bi - var2;
-         var6 -= var10;
-         var2 = bi;
-         var5 += var10 * var7;
-         var4 += var10 * ae;
-      }
-
-      if (var2 + var6 > be) {
-         var6 -= var2 + var6 - be;
-      }
-
-      if (var1 < bk) {
-         var10 = bk - var1;
-         var7 -= var10;
-         var1 = bk;
-         var5 += var10;
-         var4 += var10;
-         var9 += var10;
-         var8 += var10;
-      }
-
-      if (var1 + var7 > bx) {
-         var10 = var1 + var7 - bx;
-         var7 -= var10;
-         var9 += var10;
-         var8 += var10;
-      }
-
-      if (var7 > 0 && var6 > 0) {
-         if (var3 == 256) {
-            ad_renamed(0, 0, 0, ad, this.af, var5, 0, var4, 0, var7, var6, var8, var9);
-         } else {
-            ae_renamed(0, 0, 0, ad, this.af, var5, 0, var4, 0, var7, var6, var8, var9, var3);
-         }
-
-      }
-   }
-
-   Rasterizer3D() {
-   }
-
-   public void bx(int var1, int var2, int var3, int var4) {
-      this.bo(this.ab << 3, this.aq << 3, var1 << 4, var2 << 4, var3, var4);
    }
 }

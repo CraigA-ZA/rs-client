@@ -1,61 +1,24 @@
 import java.util.ArrayList;
 
 public class oq {
-   int ad = 0;
-   AbstractFont ak;
    public static int aq;
-   int av = -1966324537;
-   int ar = 0;
-   int ah = 1729616775;
-   int as = 0;
    boolean aj = true;
-   ArrayList az = new ArrayList();
-   int am = 0;
+   int ad = 0;
    int ae = 0;
-
-   rg bn(int var1, int var2) {
-      int var4 = Math.min(var1, var2);
-      int var5 = Math.max(var1, var2);
-      int var6 = this.az.size();
-      if (0 == var4 && var5 == var6) {
-         return new rg(0, var6);
-      } else {
-         int var7 = this.bs(var4, false);
-         int var8 = this.br(var5, false);
-         int var9;
-         switch (this.am * 1114162931) {
-            case 0:
-               if (252193353 * this.ar == 0) {
-                  return new rg(var7, var6);
-               }
-
-               var9 = this.bs(var4, true);
-               return new rg(var9, var6);
-            case 1:
-               return new rg(0, var6);
-            case 2:
-               if (252193353 * this.ar == 2) {
-                  return new rg(0, var8);
-               }
-
-               var9 = this.br(var5, true);
-               return new rg(0, var9);
-            default:
-               return new rg(0, var6);
-         }
-      }
-   }
+   int ah = 1729616775;
+   int am = 0;
+   int ar = 0;
+   int as = 0;
+   int av = -1966324537;
+   ArrayList az = new ArrayList();
+   AbstractFont ak;
 
    public om af(int var1) {
       return (om)this.az.get(var1);
    }
 
-   public void al(int var1) {
-      if (var1 != this.av * -64830711) {
-         this.av = var1 * -181159111;
-         this.bm();
-      }
-
+   om an() {
+      return this.az.size() == 0 ? null : (om)this.az.get(this.az.size() - 1);
    }
 
    public boolean aw() {
@@ -85,8 +48,48 @@ public class oq {
       }
    }
 
-   void am() {
-      this.az.clear();
+   public void aq(int var1) {
+      if (null != this.ak && var1 < 2 * this.ak.al) {
+         var1 = Integer.MAX_VALUE;
+      }
+
+      if (233637321 * this.ah != var1) {
+         this.ah = 417866873 * var1;
+         this.bm();
+      }
+
+   }
+
+   public void al(int var1) {
+      if (var1 != this.av * -64830711) {
+         this.av = var1 * -181159111;
+         this.bm();
+      }
+
+   }
+
+   public void at(int var1) {
+      if (var1 != 874587033 * this.ae) {
+         this.ae = var1 * 1523286185;
+         this.bm();
+      }
+
+   }
+
+   public void aa(AbstractFont var1) {
+      if (var1 != this.ak) {
+         this.ak = var1;
+         if (null != this.ak) {
+            if (this.as * -1059679999 == 0) {
+               this.as = this.ak.al * 1279946497;
+            }
+
+            if (!this.aw()) {
+               this.bm();
+            }
+         }
+      }
+
    }
 
    public void ay(int var1) {
@@ -113,6 +116,20 @@ public class oq {
          this.bm();
       }
 
+   }
+
+   public oa ai(int var1, int var2) {
+      if (var1 == var2) {
+         return new oa(this, 0, 0);
+      } else if (var1 <= this.az.size() && var2 <= this.az.size()) {
+         return var2 < var1 ? new oa(this, var2, var1) : new oa(this, var1, var2);
+      } else {
+         return new oa(this, 0, 0);
+      }
+   }
+
+   public ow ag(char var1, int var2, int var3) {
+      return this.ah(Character.toString(var1), var2, var3);
    }
 
    public ow ah(String var1, int var2, int var3) {
@@ -158,6 +175,10 @@ public class oq {
    public ow ar(String var1) {
       this.am();
       return this.av(var1, 0);
+   }
+
+   void am() {
+      this.az.clear();
    }
 
    public int as(int var1) {
@@ -311,23 +332,61 @@ public class oq {
    }
 
    public int ae() {
-      return this.aw() ? 0 : this.ak.ascent + ((om)this.az.get(this.az.size() - 1)).aw * -727185157;
+      return this.aw() ? 0 : this.ak.al + ((om)this.az.get(this.az.size() - 1)).aw * -727185157;
+   }
+
+   public int ap() {
+      return this.as * -1059679999;
    }
 
    public int by() {
-      return this.ae() / this.ak.ascent;
+      return this.ae() / this.ak.al;
+   }
+
+   int bb() {
+      return this.aw() ? 0 : this.bj((om)this.az.get(this.az.size() - 1), false);
+   }
+
+   public int bi() {
+      return this.ah * 233637321;
    }
 
    public int be() {
       return this.av * -64830711;
    }
 
-   om an() {
-      return this.az.size() == 0 ? null : (om)this.az.get(this.az.size() - 1);
+   public int bk() {
+      return this.ad * -29893609;
    }
 
    public int bx() {
       return 874587033 * this.ae;
+   }
+
+   public int bo(int var1) {
+      switch (this.ar * 252193353) {
+         case 0:
+            return 0;
+         case 1:
+            return var1 / 2;
+         case 2:
+            return var1;
+         default:
+            return 0;
+      }
+   }
+
+   public int bz(int var1) {
+      switch (1114162931 * this.am) {
+         case 0:
+            return 0;
+         case 1:
+            return var1 / 2;
+         case 2:
+            return var1;
+         default:
+            return 0;
+      }
    }
 
    void bm() {
@@ -412,23 +471,48 @@ public class oq {
       if (var1.af == '\n') {
          return 0;
       } else if (!var2 && 0 != this.ae * 874587033) {
-         return this.ak.advances[42];
+         return this.ak.aw[42];
       } else {
-         int var4 = this.ak.advances[var1.af];
+         int var4 = this.ak.aw[var1.af];
          if (var4 == 0) {
-            return '\t' == var1.af ? this.ak.advances[32] * 3 : this.ak.advances[32];
+            return '\t' == var1.af ? this.ak.aw[32] * 3 : this.ak.aw[32];
          } else {
             return var4;
          }
       }
    }
 
-   public void at(int var1) {
-      if (var1 != 874587033 * this.ae) {
-         this.ae = var1 * 1523286185;
-         this.bm();
-      }
+   rg bn(int var1, int var2) {
+      int var4 = Math.min(var1, var2);
+      int var5 = Math.max(var1, var2);
+      int var6 = this.az.size();
+      if (0 == var4 && var5 == var6) {
+         return new rg(0, var6);
+      } else {
+         int var7 = this.bs(var4, false);
+         int var8 = this.br(var5, false);
+         int var9;
+         switch (this.am * 1114162931) {
+            case 0:
+               if (252193353 * this.ar == 0) {
+                  return new rg(var7, var6);
+               }
 
+               var9 = this.bs(var4, true);
+               return new rg(var9, var6);
+            case 1:
+               return new rg(0, var6);
+            case 2:
+               if (252193353 * this.ar == 2) {
+                  return new rg(0, var8);
+               }
+
+               var9 = this.br(var5, true);
+               return new rg(0, var9);
+            default:
+               return new rg(0, var6);
+         }
+      }
    }
 
    int bs(int var1, boolean var2) {
@@ -469,102 +553,18 @@ public class oq {
       return this.az.size();
    }
 
-   public ow ag(char var1, int var2, int var3) {
-      return this.ah(Character.toString(var1), var2, var3);
-   }
-
-   public void aq(int var1) {
-      if (null != this.ak && var1 < 2 * this.ak.ascent) {
-         var1 = Integer.MAX_VALUE;
-      }
-
-      if (233637321 * this.ah != var1) {
-         this.ah = 417866873 * var1;
-         this.bm();
-      }
-
-   }
-
-   public int bk() {
-      return this.ad * -29893609;
-   }
-
-   public oa ai(int var1, int var2) {
-      if (var1 == var2) {
-         return new oa(this, 0, 0);
-      } else if (var1 <= this.az.size() && var2 <= this.az.size()) {
-         return var2 < var1 ? new oa(this, var2, var1) : new oa(this, var1, var2);
-      } else {
-         return new oa(this, 0, 0);
-      }
-   }
-
-   int bb() {
-      return this.aw() ? 0 : this.bj((om)this.az.get(this.az.size() - 1), false);
-   }
-
-   public void aa(AbstractFont var1) {
-      if (var1 != this.ak) {
-         this.ak = var1;
-         if (null != this.ak) {
-            if (this.as * -1059679999 == 0) {
-               this.as = this.ak.ascent * 1279946497;
-            }
-
-            if (!this.aw()) {
-               this.bm();
-            }
-         }
-      }
-
-   }
-
-   public int bi() {
-      return this.ah * 233637321;
-   }
-
-   public int bo(int var1) {
-      switch (this.ar * 252193353) {
-         case 0:
-            return 0;
-         case 1:
-            return var1 / 2;
-         case 2:
-            return var1;
-         default:
-            return 0;
-      }
-   }
-
-   public int bz(int var1) {
-      switch (1114162931 * this.am) {
-         case 0:
-            return 0;
-         case 1:
-            return var1 / 2;
-         case 2:
-            return var1;
-         default:
-            return 0;
-      }
-   }
-
-   public int ap() {
-      return this.as * -1059679999;
-   }
-
    public static void as_renamed() {
-      ObjType.ObjType_cached.clear();
+      ObjType.aa.clear();
       ObjType.ay.clear();
       ObjType.ao.clear();
    }
 
    static final void nl_renamed(String var0) {
       if (!var0.equals("")) {
-         PacketBitNode var2 = mi.an_renamed(ClientProt.aa, Client.packetWriter.au);
-         var2.bit.bu(DynamicObject.bc_renamed(var0));
-         var2.bit.bh(var0);
-         Client.packetWriter.aw(var2);
+         PacketBitNode var2 = mi.an_renamed(ClientProt.aa, Client.in.au);
+         var2.aw.bu(DynamicObject.bc_renamed(var0));
+         var2.aw.bh(var0);
+         Client.in.aw(var2);
       }
    }
 }

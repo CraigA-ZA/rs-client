@@ -1,63 +1,63 @@
 public class WorldMapArchiveLoader {
-   String cacheName;
-   AbstractArchive archive;
-   int percentLoaded0 = 0;
-   boolean isLoaded0 = false;
+   boolean al = false;
+   int aq = 0;
+   String au;
+   AbstractArchive ab;
+
+   WorldMapArchiveLoader(AbstractArchive var1) {
+      this.ab = var1;
+   }
 
    void reset(String var1) {
       if (var1 != null && !var1.isEmpty()) {
-         if (this.cacheName != var1) {
-            this.cacheName = var1;
-            this.percentLoaded0 = 0;
-            this.isLoaded0 = false;
+         if (this.au != var1) {
+            this.au = var1;
+            this.aq = 0;
+            this.al = false;
             this.an();
          }
       }
    }
 
    int an() {
-      if (this.cacheName == null) {
-         this.percentLoaded0 = 840222292;
-         this.isLoaded0 = true;
+      if (this.au == null) {
+         this.aq = 840222292;
+         this.al = true;
       } else {
-         if (-349750411 * this.percentLoaded0 < 33) {
-            if (!this.archive.tryLoadFileByNames(WorldMapCacheName.WorldMapCacheName_compositeMap.name, this.cacheName)) {
-               return -349750411 * this.percentLoaded0;
+         if (-349750411 * this.aq < 33) {
+            if (!this.ab.tryLoadFileByNames(WorldMapCacheName.an.ab, this.au)) {
+               return -349750411 * this.aq;
             }
 
-            this.percentLoaded0 = 663820413;
+            this.aq = 663820413;
          }
 
-         if (this.percentLoaded0 * -349750411 == 33) {
-            if (this.archive.cv(WorldMapCacheName.WorldMapCacheName_compositeTexture.name, this.cacheName) && !this.archive.tryLoadFileByNames(WorldMapCacheName.WorldMapCacheName_compositeTexture.name, this.cacheName)) {
-               return this.percentLoaded0 * -349750411;
+         if (this.aq * -349750411 == 33) {
+            if (this.ab.cv(WorldMapCacheName.aw.ab, this.au) && !this.ab.tryLoadFileByNames(WorldMapCacheName.aw.ab, this.au)) {
+               return this.aq * -349750411;
             }
 
-            this.percentLoaded0 = 1327640826;
+            this.aq = 1327640826;
          }
 
-         if (this.percentLoaded0 * -349750411 == 66) {
-            if (!this.archive.tryLoadFileByNames(this.cacheName, WorldMapCacheName.WorldMapCacheName_labels.name)) {
-               return -349750411 * this.percentLoaded0;
+         if (this.aq * -349750411 == 66) {
+            if (!this.ab.tryLoadFileByNames(this.au, WorldMapCacheName.au.ab)) {
+               return -349750411 * this.aq;
             }
 
-            this.percentLoaded0 = 840222292;
-            this.isLoaded0 = true;
+            this.aq = 840222292;
+            this.al = true;
          }
       }
 
-      return -349750411 * this.percentLoaded0;
+      return -349750411 * this.aq;
    }
 
    boolean isLoaded() {
-      return this.isLoaded0;
+      return this.al;
    }
 
    int ac() {
-      return -349750411 * this.percentLoaded0;
-   }
-
-   WorldMapArchiveLoader(AbstractArchive var1) {
-      this.archive = var1;
+      return -349750411 * this.aq;
    }
 }

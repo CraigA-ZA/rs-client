@@ -9,28 +9,28 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.util.Pack;
 
 public class Poly1305 implements Mac {
-   int r1;
-   final BlockCipher cipher;
+   int currentBlockOffset = 0;
    int h0;
+   int h1;
+   int h2;
+   int h3;
+   int h4;
+   int k0;
+   int k1;
+   int k2;
+   int k3;
    int r0;
-   int s1;
+   int r1;
    int r2;
    int r3;
    int r4;
-   int h2;
-   int k3;
+   int s1;
+   int s2;
    int s3;
-   int h4;
-   final byte[] singleByte = new byte[1];
-   int k1;
-   int k2;
    int s4;
    final byte[] currentBlock = new byte[16];
-   int currentBlockOffset = 0;
-   int s2;
-   int h1;
-   int k0;
-   int h3;
+   final byte[] singleByte = new byte[1];
+   final BlockCipher cipher;
 
    static final long mul32x32_64(int var0, int var1) {
       return ((long)var0 & 4294967295L) * (long)var1;

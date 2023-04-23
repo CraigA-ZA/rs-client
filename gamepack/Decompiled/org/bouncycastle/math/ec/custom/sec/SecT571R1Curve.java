@@ -9,8 +9,8 @@ import org.bouncycastle.util.encoders.Hex;
 
 public class SecT571R1Curve extends ECCurve$AbstractF2m {
    static final SecT571FieldElement SecT571R1_B = new SecT571FieldElement(new BigInteger(1, Hex.decode("02F40E7E2221F295DE297117B7F3D62F5C6A97FFCB8CEFF1CD6BA8CE4A9A18AD84FFABBD8EFA59332BE7AD6756A66E294AFD185A78FF12AA520E4DE739BACA0C7FFEFF7F2955727A")));
-   public SecT571R1Point infinity = new SecT571R1Point(this, (ECFieldElement)null, (ECFieldElement)null);
    static final SecT571FieldElement SecT571R1_B_SQRT;
+   public SecT571R1Point infinity = new SecT571R1Point(this, (ECFieldElement)null, (ECFieldElement)null);
 
    public ECPoint getInfinity() {
       return this.infinity;

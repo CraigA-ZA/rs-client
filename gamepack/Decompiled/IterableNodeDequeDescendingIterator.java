@@ -1,17 +1,39 @@
 import java.util.Iterator;
 
 public class IterableNodeDequeDescendingIterator implements Iterator {
-   Node aw = null;
-   IterableNodeDeque deque;
+   IterableNodeDeque af;
    Node an;
+   Node aw = null;
+
+   IterableNodeDequeDescendingIterator(IterableNodeDeque var1) {
+      this.af(var1);
+   }
+
+   void af(IterableNodeDeque var1) {
+      this.af = var1;
+      this.an();
+   }
 
    void an() {
-      this.an = this.deque != null ? this.deque.sentinel.previous : null;
+      this.an = this.af != null ? this.af.af.hc : null;
       this.aw = null;
    }
 
+   public Object next() {
+      Node var1 = this.an;
+      if (var1 == this.af.af) {
+         var1 = null;
+         this.an = null;
+      } else {
+         this.an = var1.hc;
+      }
+
+      this.aw = var1;
+      return var1;
+   }
+
    public boolean hasNext() {
-      return this.an != this.deque.sentinel && this.an != null;
+      return this.an != this.af.af && this.an != null;
    }
 
    public void remove() {
@@ -21,27 +43,5 @@ public class IterableNodeDequeDescendingIterator implements Iterator {
          this.aw.remove();
          this.aw = null;
       }
-   }
-
-   void af(IterableNodeDeque var1) {
-      this.deque = var1;
-      this.an();
-   }
-
-   public Object next() {
-      Node var1 = this.an;
-      if (var1 == this.deque.sentinel) {
-         var1 = null;
-         this.an = null;
-      } else {
-         this.an = var1.previous;
-      }
-
-      this.aw = var1;
-      return var1;
-   }
-
-   IterableNodeDequeDescendingIterator(IterableNodeDeque var1) {
-      this.af(var1);
    }
 }

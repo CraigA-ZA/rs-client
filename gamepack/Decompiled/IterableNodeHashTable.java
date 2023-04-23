@@ -1,46 +1,58 @@
 import java.util.Iterator;
 
 public final class IterableNodeHashTable implements Iterable {
-   Node[] buckets;
-   int size;
-   Node currentGet;
-   Node current;
-   int index = 0;
+   int af;
+   int au = 0;
+   Node ac;
+   Node aw;
+   Node[] an;
+
+   public IterableNodeHashTable(int var1) {
+      this.af = var1;
+      this.an = new Node[var1];
+
+      for(int var2 = 0; var2 < var1; ++var2) {
+         Node var3 = this.an[var2] = new Node();
+         var3.hc = var3;
+         var3.hg = var3;
+      }
+
+   }
 
    public Node get(long var1) {
-      Node var3 = this.buckets[(int)(var1 & (long)(this.size - 1))];
+      Node var3 = this.an[(int)(var1 & (long)(this.af - 1))];
 
-      for(this.currentGet = var3.previous; this.currentGet != var3; this.currentGet = this.currentGet.previous) {
-         if (this.currentGet.key == var1) {
-            Node var4 = this.currentGet;
-            this.currentGet = this.currentGet.previous;
+      for(this.aw = var3.hc; this.aw != var3; this.aw = this.aw.hc) {
+         if (this.aw.hr == var1) {
+            Node var4 = this.aw;
+            this.aw = this.aw.hc;
             return var4;
          }
       }
 
-      this.currentGet = null;
+      this.aw = null;
       return null;
    }
 
    public void put(Node var1, long var2) {
-      if (var1.next != null) {
+      if (var1.hg != null) {
          var1.remove();
       }
 
-      Node var4 = this.buckets[(int)(var2 & (long)(this.size - 1))];
-      var1.next = var4.next;
-      var1.previous = var4;
-      var1.next.previous = var1;
-      var1.previous.next = var1;
-      var1.key = var2;
+      Node var4 = this.an[(int)(var2 & (long)(this.af - 1))];
+      var1.hg = var4.hg;
+      var1.hc = var4;
+      var1.hg.hc = var1;
+      var1.hc.hg = var1;
+      var1.hr = var2;
    }
 
    public void clear() {
-      for(int var1 = 0; var1 < this.size; ++var1) {
-         Node var2 = this.buckets[var1];
+      for(int var1 = 0; var1 < this.af; ++var1) {
+         Node var2 = this.an[var1];
 
          while(true) {
-            Node var3 = var2.previous;
+            Node var3 = var2.hc;
             if (var3 == var2) {
                break;
             }
@@ -49,48 +61,36 @@ public final class IterableNodeHashTable implements Iterable {
          }
       }
 
-      this.currentGet = null;
-      this.current = null;
+      this.aw = null;
+      this.ac = null;
    }
 
    public Node first() {
-      this.index = 0;
+      this.au = 0;
       return this.next();
-   }
-
-   public Iterator iterator() {
-      return new IterableNodeHashTableIterator(this);
    }
 
    public Node next() {
       Node var1;
-      if (this.index > 0 && this.current != this.buckets[this.index - 1]) {
-         var1 = this.current;
-         this.current = var1.previous;
+      if (this.au > 0 && this.ac != this.an[this.au - 1]) {
+         var1 = this.ac;
+         this.ac = var1.hc;
          return var1;
       } else {
          do {
-            if (this.index >= this.size) {
+            if (this.au >= this.af) {
                return null;
             }
 
-            var1 = this.buckets[this.index++].previous;
-         } while(var1 == this.buckets[this.index - 1]);
+            var1 = this.an[this.au++].hc;
+         } while(var1 == this.an[this.au - 1]);
 
-         this.current = var1.previous;
+         this.ac = var1.hc;
          return var1;
       }
    }
 
-   public IterableNodeHashTable(int var1) {
-      this.size = var1;
-      this.buckets = new Node[var1];
-
-      for(int var2 = 0; var2 < var1; ++var2) {
-         Node var3 = this.buckets[var2] = new Node();
-         var3.previous = var3;
-         var3.next = var3;
-      }
-
+   public Iterator iterator() {
+      return new IterableNodeHashTableIterator(this);
    }
 }

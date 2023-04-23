@@ -12,10 +12,10 @@ import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.x500.style.BCStyle;
 
 public class X500Name extends ASN1Object implements ASN1Choice {
-   boolean isHashCodeCalculated;
-   RDN[] rdns;
-   int hashCodeValue;
    static X500NameStyle defaultStyle;
+   boolean isHashCodeCalculated;
+   int hashCodeValue;
+   RDN[] rdns;
    X500NameStyle style;
 
    public RDN[] getRDNs(ASN1ObjectIdentifier var1) {

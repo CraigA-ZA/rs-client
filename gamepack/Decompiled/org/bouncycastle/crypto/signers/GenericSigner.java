@@ -11,9 +11,9 @@ import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.util.Arrays;
 
 public class GenericSigner implements Signer {
+   boolean forSigning;
    final AsymmetricBlockCipher engine;
    final Digest digest;
-   boolean forSigning;
 
    public void init(boolean var1, CipherParameters var2) {
       this.forSigning = var1;

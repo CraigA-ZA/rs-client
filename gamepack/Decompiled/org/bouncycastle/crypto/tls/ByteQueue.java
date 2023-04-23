@@ -1,9 +1,9 @@
 package org.bouncycastle.crypto.tls;
 
 public class ByteQueue {
-   int skipped;
    byte[] databuf;
    int available;
+   int skipped;
 
    public byte[] removeData(int var1, int var2) {
       byte[] var3 = new byte[var1];

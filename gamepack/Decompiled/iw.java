@@ -3,10 +3,14 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class iw {
+   static int[] al = new int[4096];
    static int[] at = new int[4096];
    static int[][] ac = new int[128][128];
-   static int[] al = new int[4096];
    static int[][] aw = new int[128][128];
+
+   iw() throws Throwable {
+      throw new Error();
+   }
 
    public static fh af_renamed(AbstractArchive var0, AbstractArchive var1, int var2, boolean var3) {
       boolean var5 = true;
@@ -42,9 +46,5 @@ public class iw {
             }
          }
       }
-   }
-
-   iw() throws Throwable {
-      throw new Error();
    }
 }

@@ -10,8 +10,8 @@ import org.bouncycastle.math.ec.ECCurve$Fp;
 
 public class ECGOST3410NamedCurves {
    static final Hashtable names = new Hashtable();
-   static final Hashtable params = new Hashtable();
    static final Hashtable objIds = new Hashtable();
+   static final Hashtable params = new Hashtable();
 
    static {
       BigInteger var0 = new BigInteger("115792089237316195423570985008687907853269984665640564039457584007913129639319");

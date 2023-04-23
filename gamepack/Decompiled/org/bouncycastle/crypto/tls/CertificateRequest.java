@@ -9,9 +9,9 @@ import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.x500.X500Name;
 
 public class CertificateRequest {
+   public Vector certificateAuthorities;
    public Vector supportedSignatureAlgorithms;
    public short[] certificateTypes;
-   public Vector certificateAuthorities;
 
    public Vector getCertificateAuthorities() {
       return this.certificateAuthorities;

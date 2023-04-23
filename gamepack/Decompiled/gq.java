@@ -1,19 +1,12 @@
 public class gq {
-   public int al;
-   public String ac;
-   public float[] au;
+   static Rasterizer3D[] kb;
    // $FF: synthetic field
    final gy this$0;
+   public float[] au;
    public int ab;
+   public int al;
    public int aq;
-   static Rasterizer3D[] kb;
-
-   static void nk_renamed() {
-      if (986256295 * Client.lv == 1) {
-         Client.ln = true;
-      }
-
-   }
+   public String ac;
 
    public static int af_renamed(CharSequence var0) {
       int var2 = var0.length();
@@ -54,5 +47,12 @@ public class gq {
       this.ab = -663309687;
       this.aq = 1437150123;
       this.al = 0;
+   }
+
+   static void nk_renamed() {
+      if (986256295 * Client.lv == 1) {
+         Client.ln = true;
+      }
+
    }
 }

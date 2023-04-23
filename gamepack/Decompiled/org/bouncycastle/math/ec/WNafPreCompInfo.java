@@ -1,9 +1,9 @@
 package org.bouncycastle.math.ec;
 
 public class WNafPreCompInfo implements PreCompInfo {
-   public ECPoint[] preCompNeg = null;
-   public ECPoint[] preComp = null;
    public ECPoint twice = null;
+   public ECPoint[] preComp = null;
+   public ECPoint[] preCompNeg = null;
 
    public ECPoint getTwice() {
       return this.twice;

@@ -1,4 +1,7 @@
 public class af implements ac {
+   af() {
+   }
+
    public Packet af(Packet var1) {
       Packet var2 = new Packet(100);
       this.an(var1, var2);
@@ -14,8 +17,5 @@ public class af implements ac {
       }
 
       var2.p8s(var5);
-   }
-
-   af() {
    }
 }

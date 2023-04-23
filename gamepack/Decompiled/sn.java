@@ -5,12 +5,12 @@ class sn implements Iterator {
    // $FF: synthetic field
    final su this$0;
 
-   public boolean hasNext() {
-      return this.af * 1308054609 < this.this$0.an();
+   sn(su var1) {
+      this.this$0 = var1;
    }
 
-   public void remove() {
-      throw new UnsupportedOperationException();
+   public boolean hasNext() {
+      return this.af * 1308054609 < this.this$0.an();
    }
 
    public Object next() {
@@ -19,7 +19,7 @@ class sn implements Iterator {
       return var2 != null ? var2 : this.this$0.ar(var1);
    }
 
-   sn(su var1) {
-      this.this$0 = var1;
+   public void remove() {
+      throw new UnsupportedOperationException();
    }
 }

@@ -10,8 +10,8 @@ import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.DERSequence;
 
 public class ResponseBytes extends ASN1Object {
-   ASN1OctetString response;
    ASN1ObjectIdentifier responseType;
+   ASN1OctetString response;
 
    /** @deprecated */
    public ResponseBytes(ASN1Sequence var1) {

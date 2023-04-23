@@ -1,22 +1,22 @@
 public final class Occluder {
-   int af;
-   int an;
-   int av;
-   int ac;
-   int aw;
-   int ah;
-   int aq;
-   int al;
-   int at;
    int aa;
-   int ay;
-   int ao;
-   int ax;
-   int ai;
    int ab;
+   int ac;
+   int af;
    int ag;
-   int au;
+   int ah;
+   int ai;
+   int al;
+   int an;
+   int ao;
+   int aq;
    int ar;
+   int at;
+   int au;
+   int av;
+   int aw;
+   int ax;
+   int ay;
 
    Occluder() {
    }

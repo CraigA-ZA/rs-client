@@ -1,10 +1,27 @@
 public final class Isaac {
-   int[] ab = new int[256];
    int ac;
-   int at;
-   int aq;
-   int[] au = new int[256];
    int al;
+   int aq;
+   int at;
+   int[] ab = new int[256];
+   int[] au = new int[256];
+
+   public Isaac(int[] var1) {
+      for(int var2 = 0; var2 < var1.length; ++var2) {
+         this.au[var2] = var1[var2];
+      }
+
+      this.ac();
+   }
+
+   public final int af() {
+      if (0 == 1946651903 * this.ac) {
+         this.aw();
+         this.ac = 1332936448;
+      }
+
+      return this.au[(this.ac -= 1934586623) * 1946651903];
+   }
 
    public final int an() {
       if (1946651903 * this.ac == 0) {
@@ -166,22 +183,5 @@ public final class Isaac {
 
       this.aw();
       this.ac = 1332936448;
-   }
-
-   public final int af() {
-      if (0 == 1946651903 * this.ac) {
-         this.aw();
-         this.ac = 1332936448;
-      }
-
-      return this.au[(this.ac -= 1934586623) * 1946651903];
-   }
-
-   public Isaac(int[] var1) {
-      for(int var2 = 0; var2 < var1.length; ++var2) {
-         this.au[var2] = var1[var2];
-      }
-
-      this.ac();
    }
 }

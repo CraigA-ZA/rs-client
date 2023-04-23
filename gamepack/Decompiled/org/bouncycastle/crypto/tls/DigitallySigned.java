@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class DigitallySigned {
-   public SignatureAndHashAlgorithm algorithm;
    public byte[] signature;
+   public SignatureAndHashAlgorithm algorithm;
 
    public byte[] getSignature() {
       return this.signature;

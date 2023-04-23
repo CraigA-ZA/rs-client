@@ -3,32 +3,313 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 public class fj {
-   public byte ao;
-   boolean aw;
-   public int ak;
-   int au = 0;
-   public String ab = null;
-   int aq = 0;
-   public boolean al;
-   long[] ai;
-   public byte aa;
-   public byte ay;
-   IterableNodeHashTable ap;
-   public int ax;
+   static Language ck;
    boolean an;
-   public byte[] ag;
+   boolean aw;
+   int aq = 0;
+   int au = 0;
    int[] ah;
-   public int[] ar;
    int[] av;
-   public int as = -1473982125;
-   public byte at;
    long ac;
+   long[] ai;
    long[] az;
+   IterableNodeHashTable ap;
+   public boolean al;
+   public boolean[] am;
+   public byte aa;
+   public byte ao;
+   public byte at;
+   public byte ay;
+   public byte[] ag;
+   public int aj = 671016659;
+   public int ak;
+   public int as = -1473982125;
+   public int ax;
+   public int[] ar;
+   public String ab = null;
    public String[] ad;
    public String[] ae;
-   public int aj = 671016659;
-   public boolean[] am;
-   static Language ck;
+
+   static boolean af_renamed(int var0, int var1) {
+      return var0 != 4 || var1 < 8;
+   }
+
+   public static File af_renamed(String var0, String var1, int var2) {
+      String var4 = var2 == 0 ? "" : "" + var2;
+      gc.ac = new File(hd.az, "jagex_cl_" + var0 + "_" + var1 + var4 + ".dat");
+      String var5 = null;
+      String var6 = null;
+      boolean var7 = false;
+      Packet var9;
+      int var12;
+      File var23;
+      if (gc.ac.exists()) {
+         try {
+            AccessFile var8 = new AccessFile(gc.ac, "rw", 10000L);
+
+            int var10;
+            for(var9 = new Packet((int)var8.length()); var9.at * -1633313603 < var9.al.length; var9.at += -1516355947 * var10) {
+               var10 = var8.read(var9.al, -1633313603 * var9.at, var9.al.length - var9.at * -1633313603);
+               if (-1 == var10) {
+                  throw new IOException();
+               }
+            }
+
+            var9.at = 0;
+            var10 = var9.g1();
+            if (var10 < 1 || var10 > 3) {
+               throw new IOException("" + var10);
+            }
+
+            int var11 = 0;
+            if (var10 > 1) {
+               var11 = var9.g1();
+            }
+
+            if (var10 <= 2) {
+               var5 = var9.gjstr();
+               if (var11 == 1) {
+                  var6 = var9.gjstr();
+               }
+            } else {
+               var5 = var9.ch();
+               if (1 == var11) {
+                  var6 = var9.ch();
+               }
+            }
+
+            var8.close();
+         } catch (IOException var20) {
+            var20.printStackTrace();
+         }
+
+         if (var5 != null) {
+            var23 = new File(var5);
+            if (!var23.exists()) {
+               var5 = null;
+            }
+         }
+
+         if (var5 != null) {
+            var23 = new File(var5, "test.dat");
+
+            boolean var25;
+            try {
+               RandomAccessFile var28 = new RandomAccessFile(var23, "rw");
+               var12 = var28.read();
+               var28.seek(0L);
+               var28.write(var12);
+               var28.seek(0L);
+               var28.close();
+               var23.delete();
+               var25 = true;
+            } catch (Exception var18) {
+               var25 = false;
+            }
+
+            if (!var25) {
+               var5 = null;
+            }
+         }
+      }
+
+      if (var5 == null && var2 == 0) {
+         label155:
+         for(int var21 = 0; var21 < Formatting.ar.length; ++var21) {
+            for(int var24 = 0; var24 < fe.av.length; ++var24) {
+               File var26 = new File(fe.av[var24] + Formatting.ar[var21] + File.separatorChar + var0 + File.separatorChar);
+               if (var26.exists()) {
+                  File var29 = new File(var26, "test.dat");
+
+                  boolean var31;
+                  try {
+                     RandomAccessFile var13 = new RandomAccessFile(var29, "rw");
+                     int var14 = var13.read();
+                     var13.seek(0L);
+                     var13.write(var14);
+                     var13.seek(0L);
+                     var13.close();
+                     var29.delete();
+                     var31 = true;
+                  } catch (Exception var17) {
+                     var31 = false;
+                  }
+
+                  if (var31) {
+                     var5 = var26.toString();
+                     var7 = true;
+                     break label155;
+                  }
+               }
+            }
+         }
+      }
+
+      if (var5 == null) {
+         var5 = hd.az + File.separatorChar + "jagexcache" + var4 + File.separatorChar + var0 + File.separatorChar + var1 + File.separatorChar;
+         var7 = true;
+      }
+
+      File var22;
+      if (var6 != null) {
+         var22 = new File(var6);
+         var23 = new File(var5);
+
+         try {
+            File[] var27 = var22.listFiles();
+            File[] var33 = var27;
+
+            for(var12 = 0; var12 < var33.length; ++var12) {
+               File var32 = var33[var12];
+               File var35 = new File(var23, var32.getName());
+               boolean var15 = var32.renameTo(var35);
+               if (!var15) {
+                  throw new IOException();
+               }
+            }
+         } catch (Exception var19) {
+            var19.printStackTrace();
+         }
+
+         var7 = true;
+      }
+
+      if (var7) {
+         var22 = new File(var5);
+         var9 = null;
+
+         try {
+            AccessFile var30 = new AccessFile(gc.ac, "rw", 10000L);
+            Packet var34 = new Packet(500);
+            var34.bu(3);
+            var34.bu(null != var9 ? 1 : 0);
+            var34.ci(var22.getPath());
+            if (var9 != null) {
+               var34.ci(var9.getPath());
+            }
+
+            var30.write(var34.al, 0, -1633313603 * var34.at);
+            var30.close();
+         } catch (IOException var16) {
+            var16.printStackTrace();
+         }
+      }
+
+      return new File(var5);
+   }
+
+   public fj(Packet var1) {
+      this.as(var1);
+   }
+
+   void af(int var1) {
+      if (this.an) {
+         if (null != this.ai) {
+            System.arraycopy(this.ai, 0, this.ai = new long[var1], 0, 1247430143 * this.ax);
+         } else {
+            this.ai = new long[var1];
+         }
+      }
+
+      if (this.aw) {
+         if (null != this.ad) {
+            System.arraycopy(this.ad, 0, this.ad = new String[var1], 0, 1247430143 * this.ax);
+         } else {
+            this.ad = new String[var1];
+         }
+      }
+
+      if (null != this.ag) {
+         System.arraycopy(this.ag, 0, this.ag = new byte[var1], 0, this.ax * 1247430143);
+      } else {
+         this.ag = new byte[var1];
+      }
+
+      if (null != this.av) {
+         System.arraycopy(this.av, 0, this.av = new int[var1], 0, 1247430143 * this.ax);
+      } else {
+         this.av = new int[var1];
+      }
+
+      if (this.ar != null) {
+         System.arraycopy(this.ar, 0, this.ar = new int[var1], 0, this.ax * 1247430143);
+      } else {
+         this.ar = new int[var1];
+      }
+
+      if (null != this.am) {
+         System.arraycopy(this.am, 0, this.am = new boolean[var1], 0, this.ax * 1247430143);
+      } else {
+         this.am = new boolean[var1];
+      }
+
+   }
+
+   void an(int var1) {
+      if (this.an) {
+         if (this.az != null) {
+            System.arraycopy(this.az, 0, this.az = new long[var1], 0, -325159675 * this.ak);
+         } else {
+            this.az = new long[var1];
+         }
+      }
+
+      if (this.aw) {
+         if (this.ae != null) {
+            System.arraycopy(this.ae, 0, this.ae = new String[var1], 0, -325159675 * this.ak);
+         } else {
+            this.ae = new String[var1];
+         }
+      }
+
+   }
+
+   public int aw(String var1) {
+      if (null != var1 && var1.length() != 0) {
+         for(int var3 = 0; var3 < 1247430143 * this.ax; ++var3) {
+            if (this.ad[var3].equals(var1)) {
+               return var3;
+            }
+         }
+
+         return -1;
+      } else {
+         return -1;
+      }
+   }
+
+   public int ac(int var1, int var2, int var3) {
+      int var5 = 31 == var3 ? -1 : (1 << var3 + 1) - 1;
+      return (this.av[var1] & var5) >>> var2;
+   }
+
+   public Integer au(int var1) {
+      if (null == this.ap) {
+         return null;
+      } else {
+         Node var3 = this.ap.get((long)var1);
+         return var3 != null && var3 instanceof IntegerNode ? new Integer(((IntegerNode)var3).af) : null;
+      }
+   }
+
+   public int[] ab() {
+      if (null == this.ah) {
+         String[] var2 = new String[1247430143 * this.ax];
+         this.ah = new int[this.ax * 1247430143];
+
+         for(int var3 = 0; var3 < 1247430143 * this.ax; this.ah[var3] = var3++) {
+            var2[var3] = this.ad[var3];
+            if (null != var2[var3]) {
+               var2[var3] = var2[var3].toLowerCase();
+            }
+         }
+
+         int[] var4 = this.ah;
+         fd.aw_renamed(var2, var4, 0, var2.length - 1);
+      }
+
+      return this.ah;
+   }
 
    void aq(long var1, String var3, int var4, int var5) {
       if (var3 != null) {
@@ -160,81 +441,6 @@ public class fj {
             this.ah = null;
          }
       }
-   }
-
-   boolean ax(int var1, byte var2) {
-      if (this.as * 680027429 != var1) {
-         if (var2 != -1) {
-            throw new IllegalStateException();
-         }
-
-         if (this.ag[var1] != 126) {
-            this.ag[680027429 * this.as] = 125;
-            this.aj = this.as * 251618433;
-            this.ag[var1] = 126;
-            this.as = 1473982125 * var1;
-            return true;
-         }
-      }
-
-      return false;
-   }
-
-   public int aw(String var1) {
-      if (null != var1 && var1.length() != 0) {
-         for(int var3 = 0; var3 < 1247430143 * this.ax; ++var3) {
-            if (this.ad[var3].equals(var1)) {
-               return var3;
-            }
-         }
-
-         return -1;
-      } else {
-         return -1;
-      }
-   }
-
-   public int ac(int var1, int var2, int var3) {
-      int var5 = 31 == var3 ? -1 : (1 << var3 + 1) - 1;
-      return (this.av[var1] & var5) >>> var2;
-   }
-
-   void an(int var1) {
-      if (this.an) {
-         if (this.az != null) {
-            System.arraycopy(this.az, 0, this.az = new long[var1], 0, -325159675 * this.ak);
-         } else {
-            this.az = new long[var1];
-         }
-      }
-
-      if (this.aw) {
-         if (this.ae != null) {
-            System.arraycopy(this.ae, 0, this.ae = new String[var1], 0, -325159675 * this.ak);
-         } else {
-            this.ae = new String[var1];
-         }
-      }
-
-   }
-
-   public int[] ab() {
-      if (null == this.ah) {
-         String[] var2 = new String[1247430143 * this.ax];
-         this.ah = new int[this.ax * 1247430143];
-
-         for(int var3 = 0; var3 < 1247430143 * this.ax; this.ah[var3] = var3++) {
-            var2[var3] = this.ad[var3];
-            if (null != var2[var3]) {
-               var2[var3] = var2[var3].toLowerCase();
-            }
-         }
-
-         int[] var4 = this.ah;
-         fd.aw_renamed(var2, var4, 0, var2.length - 1);
-      }
-
-      return this.ah;
    }
 
    void al(int var1) {
@@ -397,28 +603,38 @@ public class fj {
 
    }
 
-   boolean ar(int var1, long var2) {
-      if (null != this.ap) {
-         Node var4 = this.ap.get((long)var1);
-         if (null != var4) {
-            if (var4 instanceof rq) {
-               rq var5 = (rq)var4;
-               if (var2 == var5.af) {
-                  return false;
-               }
-
-               var5.af = var2;
-               return true;
-            }
-
-            var4.remove();
+   int ao(int var1, byte var2) {
+      if (126 != var2 && var2 != 127) {
+         if (680027429 * this.as == var1 && (this.aj * -1218077019 == -1 || this.ag[this.aj * -1218077019] < 125)) {
+            return -1;
+         } else if (this.ag[var1] == var2) {
+            return -1;
+         } else {
+            this.ag[var1] = var2;
+            this.at();
+            return var1;
          }
       } else {
-         this.ap = new IterableNodeHashTable(4);
+         return -1;
+      }
+   }
+
+   boolean ax(int var1, byte var2) {
+      if (this.as * 680027429 != var1) {
+         if (var2 != -1) {
+            throw new IllegalStateException();
+         }
+
+         if (this.ag[var1] != 126) {
+            this.ag[680027429 * this.as] = 125;
+            this.aj = this.as * 251618433;
+            this.ag[var1] = 126;
+            this.as = 1473982125 * var1;
+            return true;
+         }
       }
 
-      this.ap.put(new rq(var2), (long)var1);
-      return true;
+      return false;
    }
 
    int ai(int var1, boolean var2) {
@@ -430,17 +646,33 @@ public class fj {
       }
    }
 
+   int ag(int var1, int var2, int var3, int var4) {
+      int var6 = (1 << var3) - 1;
+      int var7 = var4 == 31 ? -1 : (1 << var4 + 1) - 1;
+      int var8 = var7 ^ var6;
+      var2 <<= var3;
+      var2 &= var8;
+      int var9 = this.av[var1];
+      if (var2 == (var9 & var8)) {
+         return -1;
+      } else {
+         var9 &= ~var8;
+         this.av[var1] = var9 | var2;
+         return var1;
+      }
+   }
+
    boolean ah(int var1, int var2) {
       if (this.ap != null) {
          Node var4 = this.ap.get((long)var1);
          if (var4 != null) {
             if (var4 instanceof IntegerNode) {
                IntegerNode var5 = (IntegerNode)var4;
-               if (var2 == var5.integer) {
+               if (var2 == var5.af) {
                   return false;
                }
 
-               var5.integer = var2;
+               var5.af = var2;
                return true;
             }
 
@@ -465,12 +697,12 @@ public class fj {
          if (var9 != null) {
             if (var9 instanceof IntegerNode) {
                IntegerNode var10 = (IntegerNode)var9;
-               if ((var10.integer & var8) == var2) {
+               if ((var10.af & var8) == var2) {
                   return false;
                }
 
-               var10.integer &= ~var8;
-               var10.integer |= var2;
+               var10.af &= ~var8;
+               var10.af |= var2;
                return true;
             }
 
@@ -481,6 +713,30 @@ public class fj {
       }
 
       this.ap.put(new IntegerNode(var2), (long)var1);
+      return true;
+   }
+
+   boolean ar(int var1, long var2) {
+      if (null != this.ap) {
+         Node var4 = this.ap.get((long)var1);
+         if (null != var4) {
+            if (var4 instanceof rq) {
+               rq var5 = (rq)var4;
+               if (var2 == var5.af) {
+                  return false;
+               }
+
+               var5.af = var2;
+               return true;
+            }
+
+            var4.remove();
+         }
+      } else {
+         this.ap = new IterableNodeHashTable(4);
+      }
+
+      this.ap.put(new rq(var2), (long)var1);
       return true;
    }
 
@@ -496,12 +752,12 @@ public class fj {
          if (null != var4) {
             if (var4 instanceof ObjectNode) {
                ObjectNode var5 = (ObjectNode)var4;
-               if (var5.obj instanceof String) {
-                  if (var2.equals(var5.obj)) {
+               if (var5.af instanceof String) {
+                  if (var2.equals(var5.af)) {
                      return false;
                   }
 
-                  var5.ga();
+                  var5.remove();
                   this.ap.put(new ObjectNode(var2), var5.hr);
                   return true;
                }
@@ -659,261 +915,5 @@ public class fj {
       } else {
          throw new RuntimeException("" + var3);
       }
-   }
-
-   int ag(int var1, int var2, int var3, int var4) {
-      int var6 = (1 << var3) - 1;
-      int var7 = var4 == 31 ? -1 : (1 << var4 + 1) - 1;
-      int var8 = var7 ^ var6;
-      var2 <<= var3;
-      var2 &= var8;
-      int var9 = this.av[var1];
-      if (var2 == (var9 & var8)) {
-         return -1;
-      } else {
-         var9 &= ~var8;
-         this.av[var1] = var9 | var2;
-         return var1;
-      }
-   }
-
-   int ao(int var1, byte var2) {
-      if (126 != var2 && var2 != 127) {
-         if (680027429 * this.as == var1 && (this.aj * -1218077019 == -1 || this.ag[this.aj * -1218077019] < 125)) {
-            return -1;
-         } else if (this.ag[var1] == var2) {
-            return -1;
-         } else {
-            this.ag[var1] = var2;
-            this.at();
-            return var1;
-         }
-      } else {
-         return -1;
-      }
-   }
-
-   void af(int var1) {
-      if (this.an) {
-         if (null != this.ai) {
-            System.arraycopy(this.ai, 0, this.ai = new long[var1], 0, 1247430143 * this.ax);
-         } else {
-            this.ai = new long[var1];
-         }
-      }
-
-      if (this.aw) {
-         if (null != this.ad) {
-            System.arraycopy(this.ad, 0, this.ad = new String[var1], 0, 1247430143 * this.ax);
-         } else {
-            this.ad = new String[var1];
-         }
-      }
-
-      if (null != this.ag) {
-         System.arraycopy(this.ag, 0, this.ag = new byte[var1], 0, this.ax * 1247430143);
-      } else {
-         this.ag = new byte[var1];
-      }
-
-      if (null != this.av) {
-         System.arraycopy(this.av, 0, this.av = new int[var1], 0, 1247430143 * this.ax);
-      } else {
-         this.av = new int[var1];
-      }
-
-      if (this.ar != null) {
-         System.arraycopy(this.ar, 0, this.ar = new int[var1], 0, this.ax * 1247430143);
-      } else {
-         this.ar = new int[var1];
-      }
-
-      if (null != this.am) {
-         System.arraycopy(this.am, 0, this.am = new boolean[var1], 0, this.ax * 1247430143);
-      } else {
-         this.am = new boolean[var1];
-      }
-
-   }
-
-   public fj(Packet var1) {
-      this.as(var1);
-   }
-
-   public Integer au(int var1) {
-      if (null == this.ap) {
-         return null;
-      } else {
-         Node var3 = this.ap.get((long)var1);
-         return var3 != null && var3 instanceof IntegerNode ? new Integer(((IntegerNode)var3).integer) : null;
-      }
-   }
-
-   static boolean af_renamed(int var0, int var1) {
-      return var0 != 4 || var1 < 8;
-   }
-
-   public static File af_renamed(String var0, String var1, int var2) {
-      String var4 = var2 == 0 ? "" : "" + var2;
-      gc.clDat = new File(hd.userHomeDirectory, "jagex_cl_" + var0 + "_" + var1 + var4 + ".dat");
-      String var5 = null;
-      String var6 = null;
-      boolean var7 = false;
-      Packet var9;
-      int var12;
-      File var23;
-      if (gc.clDat.exists()) {
-         try {
-            AccessFile var8 = new AccessFile(gc.clDat, "rw", 10000L);
-
-            int var10;
-            for(var9 = new Packet((int)var8.length()); var9.index * -1633313603 < var9.array.length; var9.index += -1516355947 * var10) {
-               var10 = var8.read(var9.array, -1633313603 * var9.index, var9.array.length - var9.index * -1633313603);
-               if (-1 == var10) {
-                  throw new IOException();
-               }
-            }
-
-            var9.index = 0;
-            var10 = var9.g1();
-            if (var10 < 1 || var10 > 3) {
-               throw new IOException("" + var10);
-            }
-
-            int var11 = 0;
-            if (var10 > 1) {
-               var11 = var9.g1();
-            }
-
-            if (var10 <= 2) {
-               var5 = var9.gjstr();
-               if (var11 == 1) {
-                  var6 = var9.gjstr();
-               }
-            } else {
-               var5 = var9.ch();
-               if (1 == var11) {
-                  var6 = var9.ch();
-               }
-            }
-
-            var8.close();
-         } catch (IOException var20) {
-            var20.printStackTrace();
-         }
-
-         if (var5 != null) {
-            var23 = new File(var5);
-            if (!var23.exists()) {
-               var5 = null;
-            }
-         }
-
-         if (var5 != null) {
-            var23 = new File(var5, "test.dat");
-
-            boolean var25;
-            try {
-               RandomAccessFile var28 = new RandomAccessFile(var23, "rw");
-               var12 = var28.read();
-               var28.seek(0L);
-               var28.write(var12);
-               var28.seek(0L);
-               var28.close();
-               var23.delete();
-               var25 = true;
-            } catch (Exception var18) {
-               var25 = false;
-            }
-
-            if (!var25) {
-               var5 = null;
-            }
-         }
-      }
-
-      if (var5 == null && var2 == 0) {
-         label155:
-         for(int var21 = 0; var21 < Formatting.ar.length; ++var21) {
-            for(int var24 = 0; var24 < fe.cacheDirectoryLocations.length; ++var24) {
-               File var26 = new File(fe.cacheDirectoryLocations[var24] + Formatting.ar[var21] + File.separatorChar + var0 + File.separatorChar);
-               if (var26.exists()) {
-                  File var29 = new File(var26, "test.dat");
-
-                  boolean var31;
-                  try {
-                     RandomAccessFile var13 = new RandomAccessFile(var29, "rw");
-                     int var14 = var13.read();
-                     var13.seek(0L);
-                     var13.write(var14);
-                     var13.seek(0L);
-                     var13.close();
-                     var29.delete();
-                     var31 = true;
-                  } catch (Exception var17) {
-                     var31 = false;
-                  }
-
-                  if (var31) {
-                     var5 = var26.toString();
-                     var7 = true;
-                     break label155;
-                  }
-               }
-            }
-         }
-      }
-
-      if (var5 == null) {
-         var5 = hd.userHomeDirectory + File.separatorChar + "jagexcache" + var4 + File.separatorChar + var0 + File.separatorChar + var1 + File.separatorChar;
-         var7 = true;
-      }
-
-      File var22;
-      if (var6 != null) {
-         var22 = new File(var6);
-         var23 = new File(var5);
-
-         try {
-            File[] var27 = var22.listFiles();
-            File[] var33 = var27;
-
-            for(var12 = 0; var12 < var33.length; ++var12) {
-               File var32 = var33[var12];
-               File var35 = new File(var23, var32.getName());
-               boolean var15 = var32.renameTo(var35);
-               if (!var15) {
-                  throw new IOException();
-               }
-            }
-         } catch (Exception var19) {
-            var19.printStackTrace();
-         }
-
-         var7 = true;
-      }
-
-      if (var7) {
-         var22 = new File(var5);
-         var9 = null;
-
-         try {
-            AccessFile var30 = new AccessFile(gc.clDat, "rw", 10000L);
-            Packet var34 = new Packet(500);
-            var34.bu(3);
-            var34.bu(null != var9 ? 1 : 0);
-            var34.ci(var22.getPath());
-            if (var9 != null) {
-               var34.ci(var9.getPath());
-            }
-
-            var30.write(var34.array, 0, -1633313603 * var34.index);
-            var30.close();
-         } catch (IOException var16) {
-            var16.printStackTrace();
-         }
-      }
-
-      return new File(var5);
    }
 }

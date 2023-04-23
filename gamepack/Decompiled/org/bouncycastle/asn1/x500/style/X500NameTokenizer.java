@@ -1,10 +1,10 @@
 package org.bouncycastle.asn1.x500.style;
 
 public class X500NameTokenizer {
-   StringBuffer buf;
-   int index;
    char separator;
+   int index;
    String value;
+   StringBuffer buf;
 
    public String nextToken() {
       if (this.index == this.value.length()) {
