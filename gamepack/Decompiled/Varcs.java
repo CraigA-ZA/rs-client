@@ -163,7 +163,7 @@ public class Varcs {
    void read() {
       AccessFile var2 = this.getPreferencesFile(false);
 
-      label244: {
+      label229: {
          try {
             byte[] var3 = new byte[(int)var2.length()];
 
@@ -176,62 +176,62 @@ public class Varcs {
             }
 
             Packet var25 = new Packet(var3);
-            if (var25.array.length - -1633313603 * var25.index >= 1) {
-               int var6 = var25.g1();
-               if (var6 >= 0 && var6 <= 2) {
-                  int var7;
-                  int var8;
-                  int var9;
-                  int var10;
-                  if (var6 >= 2) {
-                     var7 = var25.cl();
-                     var8 = 0;
-
-                     while(true) {
-                        if (var8 >= var7) {
-                           break label244;
-                        }
-
-                        var9 = var25.cl();
-                        var10 = var25.g1();
-                        sh var11 = (sh)StructType.findEnumerated(sh.au_renamed(), var10);
-                        Object var12 = var11.at(var25);
-                        if (var9 >= 0 && var9 < this.intsPersistence.length && this.intsPersistence[var9]) {
-                           this.map.put(var9, var12);
-                        }
-
-                        ++var8;
-                     }
-                  } else {
-                     var7 = var25.cl();
-
-                     for(var8 = 0; var8 < var7; ++var8) {
-                        var9 = var25.cl();
-                        var10 = var25.g4s();
-                        if (var9 >= 0 && var9 < this.intsPersistence.length && this.intsPersistence[var9]) {
-                           this.map.put(var9, var10);
-                        }
-                     }
-
-                     var8 = var25.cl();
-                     var9 = 0;
-
-                     while(true) {
-                        if (var9 >= var8) {
-                           break label244;
-                        }
-
-                        var25.cl();
-                        var25.cw();
-                        ++var9;
-                     }
-                  }
-               }
-
+            if (var25.array.length - -1633313603 * var25.index < 1) {
                return;
             }
+
+            int var6 = var25.g1();
+            if (var6 >= 0 && var6 <= 2) {
+               int var7;
+               int var8;
+               int var9;
+               int var10;
+               if (var6 >= 2) {
+                  var7 = var25.cl();
+                  var8 = 0;
+
+                  while(true) {
+                     if (var8 >= var7) {
+                        break label229;
+                     }
+
+                     var9 = var25.cl();
+                     var10 = var25.g1();
+                     sh var11 = (sh)StructType.findEnumerated(sh.au_renamed(), var10);
+                     Object var12 = var11.at(var25);
+                     if (var9 >= 0 && var9 < this.intsPersistence.length && this.intsPersistence[var9]) {
+                        this.map.put(var9, var12);
+                     }
+
+                     ++var8;
+                  }
+               } else {
+                  var7 = var25.cl();
+
+                  for(var8 = 0; var8 < var7; ++var8) {
+                     var9 = var25.cl();
+                     var10 = var25.g4s();
+                     if (var9 >= 0 && var9 < this.intsPersistence.length && this.intsPersistence[var9]) {
+                        this.map.put(var9, var10);
+                     }
+                  }
+
+                  var8 = var25.cl();
+                  var9 = 0;
+
+                  while(true) {
+                     if (var9 >= var8) {
+                        break label229;
+                     }
+
+                     var25.cl();
+                     var25.cw();
+                     ++var9;
+                  }
+               }
+            }
          } catch (Exception var23) {
-            break label244;
+            break label229;
          } finally {
             try {
                var2.close();

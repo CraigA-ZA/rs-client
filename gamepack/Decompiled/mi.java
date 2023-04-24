@@ -89,16 +89,18 @@ public class mi {
                ++var8;
             }
 
-            if (var1 == -549033243 * Client.localPlayerIndex && (1144428983 * var5.bx < 1536 || -411750205 * var5.bo < 1536 || var5.bx * 1144428983 >= 11776 || var5.bo * -411750205 >= 11776)) {
+            if (var1 != -549033243 * Client.localPlayerIndex || 1144428983 * var5.bx >= 1536 && -411750205 * var5.bo >= 1536 && var5.bx * 1144428983 < 11776 && var5.bo * -411750205 < 11776) {
+               if (var3) {
+                  var5.bi = true;
+                  var5.tileX = -700518347 * var7;
+                  var5.tileY = var8 * -1699085727;
+               } else {
+                  var5.bi = false;
+                  var5.av(var7, var8, ds.ac[var1]);
+               }
+            } else {
                var5.resetPath(var7, var8);
                var5.bi = false;
-            } else if (var3) {
-               var5.bi = true;
-               var5.tileX = -700518347 * var7;
-               var5.tileY = var8 * -1699085727;
-            } else {
-               var5.bi = false;
-               var5.av(var7, var8, ds.ac[var1]);
             }
 
          } else if (var4 == 2) {

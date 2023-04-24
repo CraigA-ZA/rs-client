@@ -3295,21 +3295,21 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                return true;
             }
 
-            Component var51;
+            Component var53;
             if (ServerProt.bc == var1.serverPacket0) {
                var23 = var4.et();
                var25 = var4.en();
                var7 = var4.eq();
-               var51 = gh.getInterfaceComponent(var25);
-               if (var23 != var51.rawX * -115015413 || var7 != 1651158159 * var51.rawY || 0 != -1596536121 * var51.xAlignment || 0 != 1484444061 * var51.yAlignment) {
-                  var51.rawX = var23 * 1806877347;
-                  var51.rawY = var7 * 1231090287;
-                  var51.xAlignment = 0;
-                  var51.yAlignment = 0;
-                  fw.ma_renamed(var51);
-                  this.alignComponent(var51);
-                  if (883712245 * var51.bg == 0) {
-                     WallDecoration.lz_renamed(hn.interfaceComponents[var25 >> 16], var51, false);
+               var53 = gh.getInterfaceComponent(var25);
+               if (var23 != var53.rawX * -115015413 || var7 != 1651158159 * var53.rawY || 0 != -1596536121 * var53.xAlignment || 0 != 1484444061 * var53.yAlignment) {
+                  var53.rawX = var23 * 1806877347;
+                  var53.rawY = var7 * 1231090287;
+                  var53.xAlignment = 0;
+                  var53.yAlignment = 0;
+                  fw.ma_renamed(var53);
+                  this.alignComponent(var53);
+                  if (883712245 * var53.bg == 0) {
+                     WallDecoration.lz_renamed(hn.interfaceComponents[var25 >> 16], var53, false);
                   }
                }
 
@@ -3321,9 +3321,9 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var23 = var4.db();
                var25 = var4.g1n();
                var7 = var4.g4s();
-               var51 = gh.getInterfaceComponent(var7);
-               ChatChannel.bq_renamed(var51, var23, var25);
-               fw.ma_renamed(var51);
+               var53 = gh.getInterfaceComponent(var7);
+               ChatChannel.bq_renamed(var53, var23, var25);
+               fw.ma_renamed(var53);
                var1.serverPacket0 = null;
                return true;
             }
@@ -3339,20 +3339,20 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var23 = var4.eo();
                var25 = var4.cl();
                var7 = var4.er();
-               var51 = gh.getInterfaceComponent(var7);
-               var51.dq = (var25 + (var23 << 16)) * -1510822541;
+               var53 = gh.getInterfaceComponent(var7);
+               var53.dq = (var25 + (var23 << 16)) * -1510822541;
                var1.serverPacket0 = null;
                return true;
             }
 
-            Npc var55;
+            Npc var56;
             if (ServerProt.dx == var1.serverPacket0) {
                var23 = var4.cl();
-               var55 = npcs[var23];
+               var56 = npcs[var23];
                var7 = var4.cl();
                var25 = var4.g4s();
-               if (null != var55) {
-                  var55.cj(0, var7, var25 >> 16, var25 & '\uffff');
+               if (null != var56) {
+                  var56.cj(0, var7, var25 >> 16, var25 & '\uffff');
                }
 
                var1.serverPacket0 = null;
@@ -3614,16 +3614,16 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             int var16;
             int var17;
             String var63;
-            Scenery var70;
+            Scenery var69;
             if (ServerProt.dn == var1.serverPacket0) {
                var27 = var4.g1s();
                var6 = var4.cw();
                long var83 = (long)var4.cl();
                long var65 = (long)var4.cr();
-               PlayerType var72 = (PlayerType)StructType.findEnumerated(StudioGame.au_renamed(), var4.g1());
+               PlayerType var71 = (PlayerType)StructType.findEnumerated(StudioGame.au_renamed(), var4.g1());
                long var58 = var65 + (var83 << 32);
                boolean var57 = false;
-               var70 = null;
+               var69 = null;
                gj var78 = var27 >= 0 ? so[var27] : MouseHandler.sx;
                if (var78 == null) {
                   var57 = true;
@@ -3632,7 +3632,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                   while(true) {
                      if (var16 >= 100) {
-                        if (var72.isUser && World.friendSystem.aq(new Username(var6, co.loginType))) {
+                        if (var71.isUser && World.friendSystem.aq(new Username(var6, co.loginType))) {
                            var57 = true;
                         }
                         break;
@@ -3652,8 +3652,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   sf = 1561052939 * ((sf * 1960529059 + 1) % 100);
                   var63 = AbstractFont.escapeBrackets(TilePaint.aw_renamed(var4));
                   var17 = var27 >= 0 ? 41 : 44;
-                  if (2138745227 * var72.modIcon != -1) {
-                     fo.addMessage(var17, ArchiveDiskActionHandler.af_renamed(var72.modIcon * 2138745227) + var6, var63, var78.ab);
+                  if (2138745227 * var71.modIcon != -1) {
+                     fo.addMessage(var17, ArchiveDiskActionHandler.af_renamed(var71.modIcon * 2138745227) + var6, var63, var78.ab);
                   } else {
                      fo.addMessage(var17, var6, var63, var78.ab);
                   }
@@ -3727,10 +3727,10 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var8 = var23 >> 5 & 31;
                var9 = var23 & 31;
                var10 = (var7 << 19) + (var8 << 11) + (var9 << 3);
-               Component var69 = gh.getInterfaceComponent(var25);
-               if (1409091639 * var69.color != var10) {
-                  var69.color = var10 * -1604768377;
-                  fw.ma_renamed(var69);
+               Component var70 = gh.getInterfaceComponent(var25);
+               if (1409091639 * var70.color != var10) {
+                  var70.color = var10 * -1604768377;
+                  fw.ma_renamed(var70);
                }
 
                var1.serverPacket0 = null;
@@ -3738,14 +3738,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
 
             int var12;
-            int var56;
+            int var54;
             if (var1.serverPacket0 == ServerProt.bk) {
                var16 = var4.cl();
                var61 = var4.g1n() * 4;
                int var19 = var4.dq();
-               byte var54 = var4.dx();
+               byte var55 = var4.dx();
                var14 = var4.dq() * 4;
-               var56 = var4.cl();
+               var54 = var4.cl();
                var17 = var4.eo();
                var12 = var4.eu();
                int var18 = var4.g1();
@@ -3755,14 +3755,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var8 = var23 + (var7 >> 4 & 7);
                var9 = var25 + (var7 & 7);
                byte var64 = var4.g1s();
-               var10 = var54 + var8;
+               var10 = var55 + var8;
                var11 = var64 + var9;
-               if (var8 >= 0 && var9 >= 0 && var8 < 104 && var9 < 104 && var10 >= 0 && var11 >= 0 && var10 < 104 && var11 < 104 && 65535 != var56) {
+               if (var8 >= 0 && var9 >= 0 && var8 < 104 && var9 < 104 && var10 >= 0 && var11 >= 0 && var10 < 104 && var11 < 104 && 65535 != var54) {
                   var8 = 128 * var8 + 64;
                   var9 = 128 * var9 + 64;
                   var10 = 128 * var10 + 64;
                   var11 = 128 * var11 + 64;
-                  Projectile var20 = new Projectile(var56, GameShell.plane * -1727408401, var8, var9, fq.getTileHeight(var8, var9, -1727408401 * GameShell.plane) - var14, var16 + ep * -1886224337, ep * -1886224337 + var17, var18, var19, var12, var61);
+                  Projectile var20 = new Projectile(var54, GameShell.plane * -1727408401, var8, var9, fq.getTileHeight(var8, var9, -1727408401 * GameShell.plane) - var14, var16 + ep * -1886224337, ep * -1886224337 + var17, var18, var19, var12, var61);
                   var20.setDestination(var10, var11, fq.getTileHeight(var10, var11, -1727408401 * GameShell.plane) - var61, var16 + -1886224337 * ep);
                   projectiles.addFirst(var20);
                }
@@ -3805,19 +3805,19 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
                }
 
-               InterfaceParent var50;
-               for(; var7-- > 0; var50.keep = true) {
+               InterfaceParent var52;
+               for(; var7-- > 0; var52.keep = true) {
                   var8 = var4.g4s();
                   var9 = var4.cl();
                   var10 = var4.g1();
-                  var50 = (InterfaceParent)interfaceParents.get((long)var8);
-                  if (var50 != null && var9 != 944864121 * var50.af) {
-                     nv.closeInterface(var50, true);
-                     var50 = null;
+                  var52 = (InterfaceParent)interfaceParents.get((long)var8);
+                  if (var52 != null && var9 != 944864121 * var52.af) {
+                     nv.closeInterface(var52, true);
+                     var52 = null;
                   }
 
-                  if (null == var50) {
-                     var50 = dj.openInterface(var8, var9, var10);
+                  if (null == var52) {
+                     var52 = dj.openInterface(var8, var9, var10);
                   }
                }
 
@@ -3869,25 +3869,25 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var25 = -1;
                }
 
-               var55 = npcs[var23];
-               if (null != var55) {
-                  if (var25 == var55.ct * -1372355773 && var25 != -1) {
+               var56 = npcs[var23];
+               if (null != var56) {
+                  if (var25 == var56.ct * -1372355773 && var25 != -1) {
                      var9 = Inventory.getSeqType(var25, (byte)28).be * 789159225;
                      if (1 == var9) {
-                        var55.cp = 0;
-                        var55.cd = 0;
-                        var55.dm = -401806131 * var7;
-                        var55.dw = 0;
+                        var56.cp = 0;
+                        var56.cd = 0;
+                        var56.dm = -401806131 * var7;
+                        var56.dw = 0;
                      } else if (var9 == 2) {
-                        var55.dw = 0;
+                        var56.dw = 0;
                      }
-                  } else if (var25 == -1 || -1 == -1372355773 * var55.ct || Inventory.getSeqType(var25, (byte)38).az * -1932560049 >= Inventory.getSeqType(var55.ct * -1372355773, (byte)25).az * -1932560049) {
-                     var55.ct = var25 * -1690721941;
-                     var55.cp = 0;
-                     var55.cd = 0;
-                     var55.dm = var7 * -401806131;
-                     var55.dw = 0;
-                     var55.eo = -1718989897 * var55.dn;
+                  } else if (var25 == -1 || -1 == -1372355773 * var56.ct || Inventory.getSeqType(var25, (byte)38).az * -1932560049 >= Inventory.getSeqType(var56.ct * -1372355773, (byte)25).az * -1932560049) {
+                     var56.ct = var25 * -1690721941;
+                     var56.cp = 0;
+                     var56.cd = 0;
+                     var56.dm = var7 * -401806131;
+                     var56.dw = 0;
+                     var56.eo = -1718989897 * var56.dn;
                   }
                }
 
@@ -4044,45 +4044,45 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var7 = -1;
                }
 
-               var51 = gh.getInterfaceComponent(var23);
+               var53 = gh.getInterfaceComponent(var23);
                ObjType var48;
-               if (!var51.isIf3) {
+               if (!var53.isIf3) {
                   if (-1 == var7) {
-                     var51.modelType = 0;
+                     var53.modelType = 0;
                      var1.serverPacket0 = null;
                      return true;
                   }
 
                   var48 = HeadbarUpdate.getObjType(var7);
-                  var51.modelType = 1732008820;
-                  var51.modelId = var7 * 509431749;
-                  var51.modelAngleX = 874786355 * var48.xan2d;
-                  var51.modelAngleY = var48.yan2d * -2065246853;
-                  var51.modelZoom = -1582059804 * var48.zoom2d / var25 * -467727501;
-                  fw.ma_renamed(var51);
+                  var53.modelType = 1732008820;
+                  var53.modelId = var7 * 509431749;
+                  var53.modelAngleX = 874786355 * var48.xan2d;
+                  var53.modelAngleY = var48.yan2d * -2065246853;
+                  var53.modelZoom = -1582059804 * var48.zoom2d / var25 * -467727501;
+                  fw.ma_renamed(var53);
                } else {
-                  var51.itemId = -1852876811 * var7;
-                  var51.itemQuantity = var25 * -568259577;
+                  var53.itemId = -1852876811 * var7;
+                  var53.itemQuantity = var25 * -568259577;
                   var48 = HeadbarUpdate.getObjType(var7);
-                  var51.modelAngleX = 874786355 * var48.xan2d;
-                  var51.modelAngleY = -2065246853 * var48.yan2d;
-                  var51.modelAngleZ = 745454881 * var48.zan2d;
-                  var51.modelOffsetX = -183088313 * var48.xof2d;
-                  var51.modelOffsetY = var48.yof2d * -347855449;
-                  var51.modelZoom = var48.zoom2d * 1614948179;
+                  var53.modelAngleX = 874786355 * var48.xan2d;
+                  var53.modelAngleY = -2065246853 * var48.yan2d;
+                  var53.modelAngleZ = 745454881 * var48.zan2d;
+                  var53.modelOffsetX = -183088313 * var48.xof2d;
+                  var53.modelOffsetY = var48.yof2d * -347855449;
+                  var53.modelZoom = var48.zoom2d * 1614948179;
                   if (var48.stackable * 1552863327 == 1) {
-                     var51.dn = -761533221;
+                     var53.dn = -761533221;
                   } else {
-                     var51.dn = -1523066442;
+                     var53.dn = -1523066442;
                   }
 
-                  if (-289037969 * var51.df > 0) {
-                     var51.modelZoom = -467727501 * (100808544 * var51.modelZoom / (-289037969 * var51.df));
-                  } else if (var51.rawWidth * -1960603747 > 0) {
-                     var51.modelZoom = 100808544 * var51.modelZoom / (-1960603747 * var51.rawWidth) * -467727501;
+                  if (-289037969 * var53.df > 0) {
+                     var53.modelZoom = -467727501 * (100808544 * var53.modelZoom / (-289037969 * var53.df));
+                  } else if (var53.rawWidth * -1960603747 > 0) {
+                     var53.modelZoom = 100808544 * var53.modelZoom / (-1960603747 * var53.rawWidth) * -467727501;
                   }
 
-                  fw.ma_renamed(var51);
+                  fw.ma_renamed(var53);
                }
 
                var1.serverPacket0 = null;
@@ -4108,13 +4108,13 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var46 = false;
                if (ud) {
                   var12 = gk.cameraY * 1772923873;
-                  var56 = fq.getTileHeight(var10, var11, -1727408401 * GameShell.plane) - var23;
+                  var54 = fq.getTileHeight(var10, var11, -1727408401 * GameShell.plane) - var23;
                } else {
                   var12 = fq.getTileHeight(-2100544359 * bt.cameraX, ly.cameraZ * -91399205, GameShell.plane * -1727408401) - 1772923873 * gk.cameraY;
-                  var56 = var23;
+                  var54 = var23;
                }
 
-               ui = new rr(bt.cameraX * -2100544359, ly.cameraZ * -91399205, var12, var10, var11, var56, var25, var7, var8, var9);
+               ui = new rr(bt.cameraX * -2100544359, ly.cameraZ * -91399205, var12, var10, var11, var54, var25, var7, var8, var9);
                var1.serverPacket0 = null;
                return true;
             }
@@ -4429,9 +4429,9 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
                }
 
-               for(dg var52 = (dg)nn.last(); null != var52; var52 = (dg)nn.previous()) {
-                  if (68300005 * var52.aw >= 1555915261 * aa.jp && var52.aw * 68300005 < 8 + 1555915261 * aa.jp && var52.ac * 800888185 >= -191732975 * FontName.jt && 800888185 * var52.ac < 8 + -191732975 * FontName.jt && var52.af * 593068225 == -1727408401 * GameShell.plane) {
-                     var52.ag = 0;
+               for(dg var50 = (dg)nn.last(); null != var50; var50 = (dg)nn.previous()) {
+                  if (68300005 * var50.aw >= 1555915261 * aa.jp && var50.aw * 68300005 < 8 + 1555915261 * aa.jp && var50.ac * 800888185 >= -191732975 * FontName.jt && 800888185 * var50.ac < 8 + -191732975 * FontName.jt && var50.af * 593068225 == -1727408401 * GameShell.plane) {
+                     var50.ag = 0;
                   }
                }
 
@@ -4624,7 +4624,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var10 = var4.g1();
                var11 = var10 >> 2;
                var12 = var10 & 3;
-               var56 = jy[var11];
+               var54 = jy[var11];
                var7 = var4.ej();
                var23 = var7 >> 16;
                var25 = var7 >> 8 & 255;
@@ -4632,7 +4632,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var9 = (var7 & 7) + var25;
                var14 = var4.da();
                if (var8 >= 0 && var9 >= 0 && var8 < 103 && var9 < 103) {
-                  if (var56 == 0) {
+                  if (var54 == 0) {
                      Wall var75 = bx.scene.az(GameShell.plane * -1727408401, var8, var9);
                      if (null != var75) {
                         var16 = InterfaceParent.at(var75.tag * -4009183385476919801L);
@@ -4643,7 +4643,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                            var75.entity1 = new DynamicObject(var16, var11, var12, -1727408401 * GameShell.plane, var8, var9, var14, false, var75.entity1);
                         }
                      }
-                  } else if (var56 == 1) {
+                  } else if (var54 == 1) {
                      WallDecoration var74 = bx.scene.ad(GameShell.plane * -1727408401, var8, var9);
                      if (var74 != null) {
                         var16 = InterfaceParent.at(var74.tag * -4691380879163567243L);
@@ -4660,19 +4660,19 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                            var74.entity1 = new DynamicObject(var16, 4, var12, GameShell.plane * -1727408401, var8, var9, var14, false, var74.entity1);
                         }
                      }
-                  } else if (var56 == 2) {
-                     var70 = bx.scene.ae(-1727408401 * GameShell.plane, var8, var9);
+                  } else if (var54 == 2) {
+                     var69 = bx.scene.ae(-1727408401 * GameShell.plane, var8, var9);
                      if (var11 == 11) {
                         var11 = 10;
                      }
 
-                     if (null != var70) {
-                        var70.entity = new DynamicObject(InterfaceParent.at(var70.ax * 5016412888503339625L), var11, var12, GameShell.plane * -1727408401, var8, var9, var14, false, var70.entity);
+                     if (null != var69) {
+                        var69.entity = new DynamicObject(InterfaceParent.at(var69.ax * 5016412888503339625L), var11, var12, GameShell.plane * -1727408401, var8, var9, var14, false, var69.entity);
                      }
-                  } else if (var56 == 3) {
-                     FloorDecoration var71 = bx.scene.ap(GameShell.plane * -1727408401, var8, var9);
-                     if (var71 != null) {
-                        var71.entity = new DynamicObject(InterfaceParent.at(var71.tag * 3423223696102332293L), 22, var12, GameShell.plane * -1727408401, var8, var9, var14, false, var71.entity);
+                  } else if (var54 == 3) {
+                     FloorDecoration var72 = bx.scene.ap(GameShell.plane * -1727408401, var8, var9);
+                     if (var72 != null) {
+                        var72.entity = new DynamicObject(InterfaceParent.at(var72.tag * 3423223696102332293L), 22, var12, GameShell.plane * -1727408401, var8, var9, var14, false, var72.entity);
                      }
                   }
                }
@@ -4723,8 +4723,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var10 = var7 - -2100544359 * bt.cameraX;
                var11 = var9 - gk.cameraY * 1772923873;
                var12 = var8 - ly.cameraZ * -91399205;
-               double var53 = Math.sqrt((double)(var12 * var12 + var10 * var10));
-               var61 = am.iz_renamed((int)(Math.atan2((double)var11, var53) * 325.9490051269531) & 2047);
+               double var51 = Math.sqrt((double)(var12 * var12 + var10 * var10));
+               var61 = am.iz_renamed((int)(Math.atan2((double)var11, var51) * 325.9490051269531) & 2047);
                var16 = qj.ig_renamed((int)(Math.atan2((double)var10, (double)var12) * -325.9490051269531) & 2047);
                uz = new rf(1897923909 * WorldMapSectionType.cameraPitch, var61, var23, var25);
                ua = new rf(-1010818347 * ek.cameraYaw, var16, var23, var25);
