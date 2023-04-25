@@ -6,10 +6,10 @@ import mapper.abstractclasses.UniqueMapper
 import mapper.annotations.DependsOn
 import mapper.annotations.MethodParameters
 import mapper.predicateutilities.*
-import mapper.wrappers.Class2
-import mapper.wrappers.Field2
-import mapper.wrappers.Instruction2
-import mapper.wrappers.Method2
+import mapper.wrappers.ClassWrapper
+import mapper.wrappers.FieldWrapper
+import mapper.wrappers.InstructionMapper
+import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
 import org.runestar.client.common.startsWith
@@ -20,7 +20,7 @@ import java.lang.reflect.Modifier
 
 @DependsOn(Client::class)
 class GameShell : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { klass<Client>().superType == it.type }
+    override val predicate = predicateOf<ClassWrapper> { klass<Client>().superType == it.type }
 
     //TODO
 //    class canvas : InstanceField() {
@@ -28,30 +28,30 @@ class GameShell : IdentityMapper.Class() {
 //    }
 
     class frame : InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == Frame::class.type }
+        override val predicate = predicateOf<FieldWrapper> { it.type == Frame::class.type }
     }
 
     class eventQueue : InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == EventQueue::class.type }
+        override val predicate = predicateOf<FieldWrapper> { it.type == EventQueue::class.type }
     }
 
     class clipboard : InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == Clipboard::class.type }
+        override val predicate = predicateOf<FieldWrapper> { it.type == Clipboard::class.type }
     }
 
     @DependsOn(MouseWheelHandler::class)
     class mouseWheelHandler : InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == type<MouseWheelHandler>() }
+        override val predicate = predicateOf<FieldWrapper> { it.type == type<MouseWheelHandler>() }
     }
 
     @MethodParameters("g")
     class paint : InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.mark == Applet::paint.mark }
+        override val predicate = predicateOf<MethodWrapper> { it.mark == Applet::paint.mark }
     }
 
     @MethodParameters("g")
     class update : InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.mark == Applet::update.mark }
+        override val predicate = predicateOf<MethodWrapper> { it.mark == Applet::update.mark }
     }
 
 //    @MethodParameters()
@@ -63,7 +63,7 @@ class GameShell : IdentityMapper.Class() {
 
     @MethodParameters("s")
     class clipboardSetString : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.startsWith(String::class.type) }
                 .and { it.instructions.any { it.isMethod && it.methodName == "setContents" } }
     }
@@ -71,23 +71,23 @@ class GameShell : IdentityMapper.Class() {
     @MethodParameters()
     @DependsOn(MouseWheel::class)
     class mouseWheel : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == type<MouseWheel>() }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == type<MouseWheel>() }
     }
 
     @MethodParameters()
     class checkHost : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == BOOLEAN_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == BOOLEAN_TYPE }
                 .and { it.instructions.any { it.opcode == LDC && it.ldcCst == "runescape.com" } }
     }
 
     @MethodParameters()
     class container : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == Container::class.type }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == Container::class.type }
     }
 
     @MethodParameters("type")
     class error : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.size in 1..2 }
                 .and { it.arguments.startsWith(String::class.type) }
                 .and { it.instructions.any { it.opcode == LDC && it.ldcCst == "error_game_" } }
@@ -95,12 +95,12 @@ class GameShell : IdentityMapper.Class() {
 
     @DependsOn(error::class)
     class hasErrored : UniqueMapper.InMethod.Field(error::class) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == GETFIELD && it.fieldType == BOOLEAN_TYPE }
     }
 
     @MethodParameters()
     class setUpClipboard : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.size in 0..1 }
                 .and { it.instructions.any { it.isMethod && it.methodId == Toolkit::getSystemClipboard.id } }
     }
@@ -132,17 +132,17 @@ class GameShell : IdentityMapper.Class() {
     @MethodParameters()
     @DependsOn(Bounds::class)
     class getFrameContentBounds : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == type<Bounds>() }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == type<Bounds>() }
     }
 
     class focusGained : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.name == "focusGained" }
+        override val predicate = predicateOf<MethodWrapper> { it.name == "focusGained" }
     }
 
     @MethodParameters()
     @DependsOn(frame::class)
     class hasFrame : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == BOOLEAN_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == BOOLEAN_TYPE }
                 .and { it.arguments.size in 0..1 }
                 .and { it.instructions.any { it.opcode == GETFIELD && it.fieldId == field<frame>().id } }
     }
@@ -183,72 +183,72 @@ class GameShell : IdentityMapper.Class() {
 
     @MethodParameters()
     class kill : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.arguments.isEmpty() }
+        override val predicate = predicateOf<MethodWrapper> { it.arguments.isEmpty() }
                 .and { it.instructions.any { it.opcode == INVOKESTATIC && it.methodName == "exit" } }
     }
 
     @MethodParameters()
     @DependsOn(kill::class)
     class kill0 : OrderMapper.InMethod.Method(kill::class, 0) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == INVOKEVIRTUAL && it.methodOwner == type<GameShell>() }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == INVOKEVIRTUAL && it.methodOwner == type<GameShell>() }
     }
 
     class run : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.name == "run" }
+        override val predicate = predicateOf<MethodWrapper> { it.name == "run" }
     }
 
     @DependsOn(run::class)
     class stopTimeMs : UniqueMapper.InMethod.Field(run::class) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == LONG_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == GETSTATIC && it.fieldType == LONG_TYPE }
     }
 
     @MethodParameters()
     class clearBackground : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.isEmpty() }
                 .and { it.instructions.any { it.isMethod && it.methodId == Graphics::fillRect.id } }
     }
 
     @DependsOn(clearBackground::class)
     class canvasX : OrderMapper.InMethod.Field(clearBackground::class, 0) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
     }
 
     @DependsOn(clearBackground::class)
     class canvasY : OrderMapper.InMethod.Field(clearBackground::class, 1) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
     }
 
     @DependsOn(clearBackground::class)
     class contentWidth : OrderMapper.InMethod.Field(clearBackground::class, 2) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
     }
 
     @DependsOn(clearBackground::class)
     class contentHeight : OrderMapper.InMethod.Field(clearBackground::class, 3) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
     }
 
     class drawInitial : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments == listOf(INT_TYPE, String::class.type, BOOLEAN_TYPE) }
     }
 
     @MethodParameters("width", "height")
     class setMaxCanvasSize : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { Modifier.isProtected(it.access) }
                 .and { it.arguments == listOf(INT_TYPE, INT_TYPE) }
     }
 
     @DependsOn(setMaxCanvasSize::class)
     class maxCanvasWidth : OrderMapper.InMethod.Field(setMaxCanvasSize::class, 0) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
     }
 
     @DependsOn(setMaxCanvasSize::class)
     class maxCanvasHeight : OrderMapper.InMethod.Field(setMaxCanvasSize::class, 1) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
     }
 
 //    @DependsOn(replaceCanvas::class)

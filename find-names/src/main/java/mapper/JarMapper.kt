@@ -3,28 +3,28 @@ package mapper
 import com.google.common.reflect.ClassPath
 import mapper.abstractclasses.Mapper
 import mapper.annotations.DependsOn
-import mapper.wrappers.Class2
+import mapper.wrappers.ClassWrapper
 import mapper.wrappers.ElementMatcher
-import mapper.wrappers.Jar2
+import mapper.wrappers.JarWrapper
 import java.nio.file.Path
 import java.util.*
 import kotlin.reflect.KClass
 import kotlin.reflect.full.createInstance
 import kotlin.reflect.full.isSubclassOf
 
-class JarMapper(vararg val classMappers: KClass<out Mapper<Class2>>) {
+class JarMapper(vararg val classMappers: KClass<out Mapper<ClassWrapper>>) {
     @Suppress("UNCHECKED_CAST")
     constructor(pkg: String, classLoader: ClassLoader) : this(
             *ClassPath.from(classLoader)
                     .getTopLevelClassesRecursive(pkg)
                     .mapNotNull { it.load().kotlin }
                     .filter { it.isSubclassOf(Mapper::class) && it.isSubclassOf(ElementMatcher.Class::class) }
-                    .map { it as KClass<out Mapper<Class2>> }
+                    .map { it as KClass<out Mapper<ClassWrapper>> }
                     .toTypedArray()
     )
 
     fun map(jar: Path, context: Mapper.Context) {
-        val jar2 = Jar2(jar)
+        val jarWrapper = JarWrapper(jar)
         var count = 0;
         @Suppress("UNCHECKED_CAST")
         val unordered = classMappers.asSequence()
@@ -34,7 +34,7 @@ class JarMapper(vararg val classMappers: KClass<out Mapper<Class2>>) {
         orderDependencies(unordered).map { it.createInstance() }.forEach {
             println(it.javaClass)
             it.context = context
-            it.map(jar2)
+            it.map(jarWrapper)
             count++;
         }
         println(count++)

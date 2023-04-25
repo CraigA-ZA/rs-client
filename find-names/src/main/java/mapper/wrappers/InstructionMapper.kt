@@ -3,7 +3,7 @@ package mapper.wrappers
 import org.objectweb.asm.Type
 import org.objectweb.asm.tree.*
 
-class Instruction2(val jar: Jar2, val klass: Class2, val method: Method2, node: AbstractInsnNode) {
+class InstructionMapper(val jar: JarWrapper, val klass: ClassWrapper, val method: MethodWrapper, node: AbstractInsnNode) {
 
     val opcode: Int get() {
         return node!!.opcode

@@ -3,13 +3,13 @@ package mapper.identifiers.classes
 import mapper.abstractclasses.IdentityMapper
 import mapper.annotations.DependsOn
 import mapper.predicateutilities.predicateOf
-import mapper.wrappers.Class2
+import mapper.wrappers.ClassWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
 
 @DependsOn(DevicePcmPlayer::class)
 class PcmPlayer : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { klass<DevicePcmPlayer>().superType == it.type }
+    override val predicate = predicateOf<ClassWrapper> { klass<DevicePcmPlayer>().superType == it.type }
 
     //TODO
 //    @MethodParameters()

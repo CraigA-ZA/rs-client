@@ -3,12 +3,12 @@ package mapper.identifiers.classes
 import mapper.abstractclasses.IdentityMapper
 import mapper.annotations.DependsOn
 import mapper.predicateutilities.predicateOf
-import mapper.wrappers.Class2
+import mapper.wrappers.ClassWrapper
 
 @DependsOn(BufferedNetSocket::class)
 class AbstractSocket : IdentityMapper.Class() {
 
-    override val predicate = predicateOf<Class2> { klass<BufferedNetSocket>().superType == it.type }
+    override val predicate = predicateOf<ClassWrapper> { klass<BufferedNetSocket>().superType == it.type }
 
     //TODO
 //    @MethodParameters()

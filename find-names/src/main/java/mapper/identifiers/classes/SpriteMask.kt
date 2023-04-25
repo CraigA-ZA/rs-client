@@ -7,15 +7,15 @@ import mapper.identifiers.SpriteMaskConstructorField
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
-import mapper.wrappers.Class2
-import mapper.wrappers.Method2
+import mapper.wrappers.ClassWrapper
+import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Type.BOOLEAN_TYPE
 import org.objectweb.asm.Type.INT_TYPE
 
 @DependsOn(DualNode::class)
 class SpriteMask : IdentityMapper.Class() {
 
-    override val predicate = predicateOf<Class2> { it.superType == type<DualNode>() }
+    override val predicate = predicateOf<ClassWrapper> { it.superType == type<DualNode>() }
             .and { it.instanceFields.count { it.type == IntArray::class.type } == 2 }
             .and { it.instanceFields.count { it.type == INT_TYPE } == 2 }
             .and { it.instanceMethods.size == 1 }
@@ -26,6 +26,6 @@ class SpriteMask : IdentityMapper.Class() {
 
     @MethodParameters("x", "y")
     class contains : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == BOOLEAN_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == BOOLEAN_TYPE }
     }
 }

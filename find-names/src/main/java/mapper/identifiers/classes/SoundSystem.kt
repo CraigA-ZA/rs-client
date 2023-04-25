@@ -6,15 +6,15 @@ import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.predicateutilities.withDimensions
-import mapper.wrappers.Class2
-import mapper.wrappers.Field2
+import mapper.wrappers.ClassWrapper
+import mapper.wrappers.FieldWrapper
 
 @DependsOn(PcmPlayer::class)
 class SoundSystem : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { it.interfaces.contains(Runnable::class.type) }
+    override val predicate = predicateOf<ClassWrapper> { it.interfaces.contains(Runnable::class.type) }
             .and { it.instanceFields.any { it.type == type<PcmPlayer>().withDimensions(1) } }
 
     class players : IdentityMapper.InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == type<PcmPlayer>().withDimensions(1) }
+        override val predicate = predicateOf<FieldWrapper> { it.type == type<PcmPlayer>().withDimensions(1) }
     }
 }

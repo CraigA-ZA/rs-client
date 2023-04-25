@@ -5,24 +5,24 @@ import mapper.abstractclasses.OrderMapper
 import mapper.annotations.DependsOn
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
-import mapper.wrappers.Class2
-import mapper.wrappers.Instruction2
-import mapper.wrappers.Method2
+import mapper.wrappers.ClassWrapper
+import mapper.wrappers.InstructionMapper
+import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
 
 @DependsOn(PcmStream::class)
 class RawPcmStream : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { it.superType == type<PcmStream>() }
+    override val predicate = predicateOf<ClassWrapper> { it.superType == type<PcmStream>() }
             .and { it.instanceFields.size == 15 }
 
     class start : OrderMapper.InConstructor.Field(RawPcmStream::class, 0) {
-        override val constructorPredicate = predicateOf<Method2> { it.arguments.size == 3 }
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size == 3 }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class end : OrderMapper.InConstructor.Field(RawPcmStream::class, 1) {
-        override val constructorPredicate = predicateOf<Method2> { it.arguments.size == 3 }
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size == 3 }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 }

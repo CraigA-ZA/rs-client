@@ -1,20 +1,5 @@
 package mapper.identifiers.classes
 
-import mapper.abstractclasses.AllUniqueMapper
-import mapper.abstractclasses.IdentityMapper
-import mapper.annotations.DependsOn
-import mapper.predicateutilities.and
-import mapper.predicateutilities.predicateOf
-import mapper.predicateutilities.prev
-import mapper.predicateutilities.prevWithin
-import mapper.wrappers.Class2
-import mapper.wrappers.Field2
-import mapper.wrappers.Instruction2
-import mapper.wrappers.Method2
-import org.objectweb.asm.Opcodes
-import org.objectweb.asm.Type
-import org.runestar.client.common.startsWith
-
 //@DependsOn(TextureProvider.setBrightness::class)
 //class VarType : AllUniqueMapper.Class() {
 //    override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodId == method<TextureProvider.setBrightness>().id }

@@ -3,7 +3,7 @@ package mapper.wrappers
 import org.objectweb.asm.Type
 import org.objectweb.asm.tree.FieldNode
 
-class Field2(val jar: Jar2, val klass: Class2, val node: FieldNode) {
+class FieldWrapper(val jar: JarWrapper, val klass: ClassWrapper, val node: FieldNode) {
 
     val name: String get() = node.name
 

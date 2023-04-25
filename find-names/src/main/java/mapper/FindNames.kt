@@ -20,10 +20,6 @@ fun main(args: Array<String>) {
     val ctx = Mapper.Context()
     val clientClass = Client::class.java
     JarMapper(clientClass.`package`.name, clientClass.classLoader).map(DEOB_OUTPUT_JAR_PATH, ctx)
-//        val idClasses = if (project.properties.getProperty("runestar.placeholderhooks") == "true") {
-//            ctx.buildIdHierarchyAll()
-//        } else {
     val idClasses = ctx.buildIdHierarchy()
-//        }
     jsonMapper.writeValue(namesJson.toFile(), idClasses)
 }

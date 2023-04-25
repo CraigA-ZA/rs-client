@@ -5,13 +5,13 @@ import mapper.annotations.MethodParameters
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
-import mapper.wrappers.Class2
-import mapper.wrappers.Method2
+import mapper.wrappers.ClassWrapper
+import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Type
 import java.lang.reflect.Modifier
 
 class AbstractByteArrayCopier : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { it.interfaces.isEmpty() }
+    override val predicate = predicateOf<ClassWrapper> { it.interfaces.isEmpty() }
             .and { Modifier.isAbstract(it.access) }
             .and { !Modifier.isInterface(it.access) }
             .and { it.instanceFields.isEmpty() }
@@ -19,11 +19,11 @@ class AbstractByteArrayCopier : IdentityMapper.Class() {
 
     @MethodParameters()
     class get : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == ByteArray::class.type }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == ByteArray::class.type }
     }
 
     @MethodParameters("array")
     class set : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == Type.VOID_TYPE }
     }
 }

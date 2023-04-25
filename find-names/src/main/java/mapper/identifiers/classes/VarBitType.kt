@@ -1,20 +1,15 @@
 package mapper.identifiers.classes
 
 import mapper.abstractclasses.IdentityMapper
-import mapper.abstractclasses.OrderMapper
 import mapper.annotations.DependsOn
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
-import mapper.wrappers.Class2
-import mapper.wrappers.Instruction2
-import mapper.wrappers.Method2
-import org.objectweb.asm.Opcodes
+import mapper.wrappers.ClassWrapper
 import org.objectweb.asm.Type.INT_TYPE
-import org.objectweb.asm.Type.VOID_TYPE
 
 @DependsOn(DualNode::class)
 class VarBitType : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { it.superType == type<DualNode>() }
+    override val predicate = predicateOf<ClassWrapper> { it.superType == type<DualNode>() }
             .and { it.interfaces.isEmpty() }
             .and { it.instanceFields.size == 3 }
             .and { it.instanceFields.all { it.type == INT_TYPE } }

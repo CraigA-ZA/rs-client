@@ -5,27 +5,27 @@ import mapper.annotations.DependsOn
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
-import mapper.wrappers.Class2
-import mapper.wrappers.Field2
+import mapper.wrappers.ClassWrapper
+import mapper.wrappers.FieldWrapper
 import java.net.Socket
 
 class BufferedNetSocket : IdentityMapper.Class() {
 
-    override val predicate = predicateOf<Class2> { it.interfaces.isEmpty() }
+    override val predicate = predicateOf<ClassWrapper> { it.interfaces.isEmpty() }
             .and { it.instanceFields.count{ it.type == Socket::class.type} >= 1 }
 
     class socket : IdentityMapper.InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == Socket::class.type }
+        override val predicate = predicateOf<FieldWrapper> { it.type == Socket::class.type }
     }
 
     @DependsOn(BufferedSink::class)
     class sink : IdentityMapper.InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == type<BufferedSink>() }
+        override val predicate = predicateOf<FieldWrapper> { it.type == type<BufferedSink>() }
     }
 
     @DependsOn(BufferedSource::class)
     class source : IdentityMapper.InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == type<BufferedSource>() }
+        override val predicate = predicateOf<FieldWrapper> { it.type == type<BufferedSource>() }
     }
 
     //TODO

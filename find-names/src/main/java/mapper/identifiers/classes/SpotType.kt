@@ -3,20 +3,19 @@ package mapper.identifiers.classes
 import mapper.*
 import mapper.abstractclasses.IdentityMapper
 import mapper.abstractclasses.OrderMapper
-import mapper.abstractclasses.UniqueMapper
 import mapper.annotations.DependsOn
 import mapper.annotations.MethodParameters
 import mapper.predicateutilities.*
-import mapper.wrappers.Class2
-import mapper.wrappers.Instruction2
-import mapper.wrappers.Method2
+import mapper.wrappers.ClassWrapper
+import mapper.wrappers.InstructionMapper
+import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.INT_TYPE
 import org.objectweb.asm.Type.VOID_TYPE
 
 @DependsOn(DualNode::class)
 class SpotType : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { it.superType == type<DualNode>() }
+    override val predicate = predicateOf<ClassWrapper> { it.superType == type<DualNode>() }
             .and { it.interfaces.isEmpty() }
             .and { it.instanceFields.count { it.type == ShortArray::class.type } == 4 }
             .and { it.instanceFields.count { it.type == INT_TYPE } >= 8 }
@@ -24,21 +23,21 @@ class SpotType : IdentityMapper.Class() {
 
     @MethodParameters("packet", "n")
     class decode0 : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.instructions.any { it.opcode == BIPUSH && it.intOperand == 40 } }
     }
 
     @MethodParameters("packet")
     @DependsOn(decode0::class)
     class decode : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it != method<decode0>() }
     }
 
 
     @DependsOn(Client.getSpotType::class)
     class id : OrderMapper.InMethod.Field(Client.getSpotType::class, 0) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<SpotType>() }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<SpotType>() }
     }
 
     //TODO
@@ -66,7 +65,7 @@ class SpotType : IdentityMapper.Class() {
 //    }
 
     class sequence : OrderMapper.InConstructor.Field(SpotType::class, 0) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
 //    @DependsOn(getModel::class)
@@ -95,14 +94,14 @@ class SpotType : IdentityMapper.Class() {
 
     @DependsOn(decode0::class)
     class model : OrderMapper.InMethod.Field(decode0::class, 0) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class ambient : OrderMapper.InConstructor.Field(SpotType::class, 4) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class contrast : OrderMapper.InConstructor.Field(SpotType::class, 5) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 }

@@ -1,19 +1,14 @@
 package mapper.identifiers.classes
 
 import mapper.abstractclasses.IdentityMapper
-import mapper.abstractclasses.StaticUniqueMapper
-import mapper.annotations.DependsOn
 import mapper.predicateutilities.and
-import mapper.predicateutilities.nextWithin
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
-import mapper.wrappers.Class2
-import mapper.wrappers.Instruction2
-import org.objectweb.asm.Opcodes
+import mapper.wrappers.ClassWrapper
 import org.objectweb.asm.Type.*
 
 class MiniMenuEntry : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { it.superType == Any::class.type }
+    override val predicate = predicateOf<ClassWrapper> { it.superType == Any::class.type }
             .and { it.interfaces.isEmpty() }
             .and { it.instanceMethods.isEmpty() }
             .and { it.instanceFields.count { it.type == String::class.type } == 2 }

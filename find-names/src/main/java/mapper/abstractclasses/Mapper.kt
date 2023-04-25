@@ -2,10 +2,10 @@ package mapper.abstractclasses
 
 import com.google.common.collect.BiMap
 import com.google.common.collect.HashBiMap
-import mapper.wrappers.Class2
+import mapper.wrappers.ClassWrapper
 import mapper.wrappers.ElementMatcher
-import mapper.wrappers.Jar2
-import mapper.wrappers.Method2
+import mapper.wrappers.JarWrapper
+import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Type
 import mapper.*
 import mapper.wrappers.*
@@ -15,42 +15,42 @@ abstract class Mapper<T> : ElementMatcher<T> {
 
     lateinit var context: Context
 
-    inline fun <reified T: Mapper<Class2>> klass(): Class2 {
+    inline fun <reified T: Mapper<ClassWrapper>> klass(): ClassWrapper {
         return context.classes.getValue(T::class)
     }
 
-    inline fun <reified T: Mapper<Class2>> type(): Type {
+    inline fun <reified T: Mapper<ClassWrapper>> type(): Type {
         return klass<T>().type
     }
 
-    inline fun <reified T: Mapper<Field2>> field(): Field2 {
+    inline fun <reified T: Mapper<FieldWrapper>> field(): FieldWrapper {
         return context.fields.getValue(T::class)
     }
 
-    inline fun <reified T: Mapper<Method2>> method(): Method2 {
+    inline fun <reified T: Mapper<MethodWrapper>> method(): MethodWrapper {
         return context.methods.getValue(T::class)
     }
 
-    fun map(jar: Jar2) {
+    fun map(jar: JarWrapper) {
         val t = match(jar)
         val klass = this::class
         @Suppress("UNCHECKED_CAST")
         when (this) {
             is ElementMatcher.Class -> {
-                klass as KClass<out Mapper<Class2>>
-                t as Class2
+                klass as KClass<out Mapper<ClassWrapper>>
+                t as ClassWrapper
                 check(!context.classes.inverse().containsKey(t))
                 context.classes[klass] = t
             }
             is ElementMatcher.Field -> {
-                klass as KClass<out Mapper<Field2>>
-                t as Field2
+                klass as KClass<out Mapper<FieldWrapper>>
+                t as FieldWrapper
                 check(!context.fields.inverse().containsKey(t))
                 context.fields[klass] = t
             }
             is ElementMatcher.Method -> {
-                klass as KClass<out Mapper<Method2>>
-                t as Method2
+                klass as KClass<out Mapper<MethodWrapper>>
+                t as MethodWrapper
                 check(!context.methods.inverse().containsKey(t))
                 context.methods[klass] = t
             }
@@ -60,11 +60,11 @@ abstract class Mapper<T> : ElementMatcher<T> {
 
     class Context {
 
-        val classes: BiMap<KClass<out Mapper<Class2>>, Class2> = HashBiMap.create()
+        val classes: BiMap<KClass<out Mapper<ClassWrapper>>, ClassWrapper> = HashBiMap.create()
 
-        val fields: BiMap<KClass<out Mapper<Field2>>, Field2> = HashBiMap.create()
+        val fields: BiMap<KClass<out Mapper<FieldWrapper>>, FieldWrapper> = HashBiMap.create()
 
-        val methods: BiMap<KClass<out Mapper<Method2>>, Method2> = HashBiMap.create()
+        val methods: BiMap<KClass<out Mapper<MethodWrapper>>, MethodWrapper> = HashBiMap.create()
     }
 }
 

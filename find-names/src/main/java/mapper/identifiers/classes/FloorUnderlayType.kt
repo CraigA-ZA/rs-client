@@ -6,35 +6,35 @@ import mapper.abstractclasses.UniqueMapper
 import mapper.annotations.DependsOn
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
-import mapper.wrappers.Class2
-import mapper.wrappers.Instruction2
-import mapper.wrappers.Method2
+import mapper.wrappers.ClassWrapper
+import mapper.wrappers.InstructionMapper
+import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
 import org.runestar.client.common.startsWith
 
 @DependsOn(DualNode::class)
 class FloorUnderlayType : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { it.superType == type<DualNode>() }
+    override val predicate = predicateOf<ClassWrapper> { it.superType == type<DualNode>() }
             .and { it.instanceFields.size == 5 }
             .and { it.instanceFields.all { it.type == INT_TYPE } }
 
     @DependsOn(Packet::class)
     class decode : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.startsWith(type<Packet>()) }
                 .and { it.instructions.none { it.opcode == PUTFIELD } }
     }
 
     @DependsOn(Packet::class)
     class decode0 : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.startsWith(type<Packet>()) }
                 .and { it.instructions.any { it.opcode == PUTFIELD } }
     }
 
     class rgb : UniqueMapper.InConstructor.Field(FloorUnderlayType::class) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD }
     }
 
     //TODO

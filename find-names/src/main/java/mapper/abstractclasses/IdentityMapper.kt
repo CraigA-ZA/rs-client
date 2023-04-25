@@ -1,9 +1,9 @@
 package mapper.abstractclasses
 
-import mapper.wrappers.Class2
+import mapper.wrappers.ClassWrapper
 import mapper.wrappers.ElementMatcher
-import mapper.wrappers.Jar2
-import mapper.wrappers.Method2
+import mapper.wrappers.JarWrapper
+import mapper.wrappers.MethodWrapper
 import mapper.*
 import mapper.predicateutilities.Predicate
 import mapper.wrappers.*
@@ -12,34 +12,34 @@ import kotlin.reflect.KClass
 
 abstract class IdentityMapper<T> : Mapper<T>() {
 
-    override fun match(jar: Jar2): T {
+    override fun match(jar: JarWrapper): T {
         return options(jar).filter { predicate(it) }.single()
     }
 
-    protected abstract fun options(jar: Jar2): Sequence<T>
+    protected abstract fun options(jar: JarWrapper): Sequence<T>
 
     protected abstract val predicate: Predicate<T>
 
-    abstract class Class : IdentityMapper<Class2>(), ElementMatcher.Class {
-        override fun options(jar: Jar2): Sequence<Class2> {
+    abstract class Class : IdentityMapper<ClassWrapper>(), ElementMatcher.Class {
+        override fun options(jar: JarWrapper): Sequence<ClassWrapper> {
             return jar.classes.filter { it.name.length <= 2 || it.name == "client" }.asSequence()
         }
     }
 
-    abstract class Field : IdentityMapper<Field2>(), ElementMatcher.Field {
-        override fun options(jar: Jar2): Sequence<Field2> {
+    abstract class Field : IdentityMapper<FieldWrapper>(), ElementMatcher.Field {
+        override fun options(jar: JarWrapper): Sequence<FieldWrapper> {
             return jar.classes.asSequence().flatMap { it.fields.asSequence() }
         }
     }
 
-    abstract class Method : IdentityMapper<Method2>(), ElementMatcher.Method {
-        override fun options(jar: Jar2): Sequence<Method2> {
+    abstract class Method : IdentityMapper<MethodWrapper>(), ElementMatcher.Method {
+        override fun options(jar: JarWrapper): Sequence<MethodWrapper> {
             return jar.classes.asSequence().flatMap { it.methods.asSequence() }
         }
     }
 
     abstract class StaticField : Field() {
-        override fun options(jar: Jar2): Sequence<Field2> {
+        override fun options(jar: JarWrapper): Sequence<FieldWrapper> {
             return super.options(jar).filter { Modifier.isStatic(it.access) }
         }
     }
@@ -47,15 +47,15 @@ abstract class IdentityMapper<T> : Mapper<T>() {
     abstract class InstanceField() : Field() {
 
         @Suppress("UNCHECKED_CAST")
-        private val enclosing = javaClass.enclosingClass.kotlin as KClass<out Mapper<Class2>>
+        private val enclosing = javaClass.enclosingClass.kotlin as KClass<out Mapper<ClassWrapper>>
 
-        override fun options(jar: Jar2): Sequence<Field2> {
+        override fun options(jar: JarWrapper): Sequence<FieldWrapper> {
             return super.options(jar).filter { context.classes[enclosing] == it.klass && !Modifier.isStatic(it.access)}
         }
     }
 
     abstract class StaticMethod() : Method() {
-        override fun options(jar: Jar2): Sequence<Method2> {
+        override fun options(jar: JarWrapper): Sequence<MethodWrapper> {
             return super.options(jar).filter { Modifier.isStatic(it.access) && !it.isClassInitializer }
         }
     }
@@ -63,9 +63,9 @@ abstract class IdentityMapper<T> : Mapper<T>() {
     abstract class InstanceMethod() : Method() {
 
         @Suppress("UNCHECKED_CAST")
-        private val enclosing = javaClass.enclosingClass.kotlin as KClass<out Mapper<Class2>>
+        private val enclosing = javaClass.enclosingClass.kotlin as KClass<out Mapper<ClassWrapper>>
 
-        override fun options(jar: Jar2): Sequence<Method2> {
+        override fun options(jar: JarWrapper): Sequence<MethodWrapper> {
             return super.options(jar).filter { context.classes[enclosing] == it.klass && !Modifier.isStatic(it.access) && !it.isConstructor }
         }
     }

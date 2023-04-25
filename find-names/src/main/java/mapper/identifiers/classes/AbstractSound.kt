@@ -4,14 +4,14 @@ import mapper.abstractclasses.IdentityMapper
 import mapper.annotations.DependsOn
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
-import mapper.wrappers.Class2
-import mapper.wrappers.Field2
+import mapper.wrappers.ClassWrapper
+import mapper.wrappers.FieldWrapper
 import org.objectweb.asm.Type
 import java.lang.reflect.Modifier
 
 @DependsOn(Node::class)
 class AbstractSound : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { it.superType == type<Node>() }
+    override val predicate = predicateOf<ClassWrapper> { it.superType == type<Node>() }
             .and { Modifier.isAbstract(it.access) }
             .and { it.interfaces.isEmpty() }
             .and { it.instanceFields.size == 1 }
@@ -19,6 +19,6 @@ class AbstractSound : IdentityMapper.Class() {
             .and { it.instanceMethods.isEmpty() }
 
     class position : IdentityMapper.InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == Type.INT_TYPE }
+        override val predicate = predicateOf<FieldWrapper> { it.type == Type.INT_TYPE }
     }
 }

@@ -6,7 +6,7 @@ import java.lang.reflect.Modifier
 
 abstract class StaticUniqueMapper<T>() : Mapper<T>(), InstructionResolver<T> {
 
-    override fun match(jar: Jar2): T {
+    override fun match(jar: JarWrapper): T {
         return jar.classes.asSequence()
                 .flatMap { it.methods.asSequence() }
                 .filter { Modifier.isStatic(it.access) }
@@ -16,11 +16,11 @@ abstract class StaticUniqueMapper<T>() : Mapper<T>(), InstructionResolver<T> {
                 .single()
     }
 
-    abstract val predicate: Predicate<Instruction2>
+    abstract val predicate: Predicate<InstructionMapper>
 
-    abstract class Class : StaticUniqueMapper<Class2>(), ElementMatcher.Class, InstructionResolver.Class
+    abstract class Class : StaticUniqueMapper<ClassWrapper>(), ElementMatcher.Class, InstructionResolver.Class
 
-    abstract class Field : StaticUniqueMapper<Field2>(), ElementMatcher.Field, InstructionResolver.Field
+    abstract class Field : StaticUniqueMapper<FieldWrapper>(), ElementMatcher.Field, InstructionResolver.Field
 
-    abstract class Method : StaticUniqueMapper<Method2>(), ElementMatcher.Method, InstructionResolver.Method
+    abstract class Method : StaticUniqueMapper<MethodWrapper>(), ElementMatcher.Method, InstructionResolver.Method
 }

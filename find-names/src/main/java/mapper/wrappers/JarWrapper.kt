@@ -6,9 +6,9 @@ import org.objectweb.asm.tree.ClassNode
 import java.nio.file.Path
 import java.util.jar.JarFile
 
-class Jar2(val path: Path) {
+class JarWrapper(val path: Path) {
 
-    val classes = readJar(path).map { Class2(this, it) }
+    val classes = readJar(path).map { ClassWrapper(this, it) }
 
     private val classResolver = classes.associate { it.id to it }
 
@@ -28,15 +28,15 @@ class Jar2(val path: Path) {
         return methodId in methodResolver
     }
 
-    operator fun get(classId: Type): Class2 {
+    operator fun get(classId: Type): ClassWrapper {
         return classResolver.getValue(classId)
     }
 
-    operator fun get(methodId: Triple<Type, String, Type>): Method2 {
+    operator fun get(methodId: Triple<Type, String, Type>): MethodWrapper {
         return methodResolver.getValue(methodId)
     }
 
-    operator fun get(fieldId: Pair<Type, String>): Field2 {
+    operator fun get(fieldId: Pair<Type, String>): FieldWrapper {
         return fieldResolver.getValue(fieldId)
     }
 

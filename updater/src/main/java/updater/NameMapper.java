@@ -36,9 +36,9 @@ public class NameMapper {
 
         classMap = classes.stream().collect(Collectors.toMap(IdClass::getName, IdClass::getClassName));
 
-        methodMap = classes.stream().flatMap(idClass -> idClass.methods.stream()).collect(Collectors.toList()).stream().collect(Collectors.toMap(idMethod -> new Pair(idMethod.owner, idMethod.name + idMethod.descriptor), idMethod -> idMethod.method));
+        methodMap = classes.stream().flatMap(idClass -> idClass.methods.stream()).toList().stream().collect(Collectors.toMap(idMethod -> new Pair(idMethod.owner, idMethod.name + idMethod.descriptor), idMethod -> idMethod.method));
 
-        fieldMap = classes.stream().flatMap(idClass -> idClass.fields.stream()).collect(Collectors.toList()).stream().collect(Collectors.toMap(idField -> new Pair(idField.owner, idField.name + idField.descriptor), idField -> idField.field));
+        fieldMap = classes.stream().flatMap(idClass -> idClass.fields.stream()).toList().stream().collect(Collectors.toMap(idField -> new Pair(idField.owner, idField.name + idField.descriptor), idField -> idField.field));
     }
 
     public ClassNode remap(ClassNode classToRename) {

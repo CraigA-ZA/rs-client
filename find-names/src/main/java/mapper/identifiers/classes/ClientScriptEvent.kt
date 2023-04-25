@@ -8,30 +8,30 @@ import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.predicateutilities.withDimensions
-import mapper.wrappers.Class2
-import mapper.wrappers.Field2
-import mapper.wrappers.Instruction2
-import mapper.wrappers.Method2
+import mapper.wrappers.ClassWrapper
+import mapper.wrappers.FieldWrapper
+import mapper.wrappers.InstructionMapper
+import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
 
 @DependsOn(Component::class, Node::class)
 class ClientScriptEvent : IdentityMapper.Class() {
 
-    override val predicate = predicateOf<Class2> { it.interfaces.isEmpty() }
+    override val predicate = predicateOf<ClassWrapper> { it.interfaces.isEmpty() }
             .and { it.superType == type<Node>() }
             .and { it.instanceFields.count { it.type == type<Component>() } == 2 }
 
     class opbase : IdentityMapper.InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == String::class.type }
+        override val predicate = predicateOf<FieldWrapper> { it.type == String::class.type }
     }
 
     class boolean1 : IdentityMapper.InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == Type.BOOLEAN_TYPE }
+        override val predicate = predicateOf<FieldWrapper> { it.type == Type.BOOLEAN_TYPE }
     }
 
     class args0 : IdentityMapper.InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == Any::class.type.withDimensions(1) }
+        override val predicate = predicateOf<FieldWrapper> { it.type == Any::class.type.withDimensions(1) }
     }
 
     //TODO
@@ -45,18 +45,18 @@ class ClientScriptEvent : IdentityMapper.Class() {
 
     @MethodParameters("type")
     class setType : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == Type.VOID_TYPE }
                 .and { it.arguments == listOf(Type.INT_TYPE) }
     }
 
     @DependsOn(setType::class)
     class type0 : UniqueMapper.InMethod.Field(setType::class) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD }
     }
 
     @MethodParameters("args")
     class setArgs : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == Type.VOID_TYPE }
                 .and { it.arguments == listOf(Any::class.type.withDimensions(1)) }
     }
 }

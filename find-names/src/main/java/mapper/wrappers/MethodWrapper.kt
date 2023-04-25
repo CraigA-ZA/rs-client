@@ -3,7 +3,7 @@ package mapper.wrappers
 import org.objectweb.asm.Type
 import org.objectweb.asm.tree.MethodNode
 
-class Method2(val jar: Jar2, val klass: Class2, val node: MethodNode) {
+class MethodWrapper(val jar: JarWrapper, val klass: ClassWrapper, val node: MethodNode) {
 
     companion object {
         const val CONSTRUCTOR_NAME = "<init>"
@@ -31,7 +31,7 @@ class Method2(val jar: Jar2, val klass: Class2, val node: MethodNode) {
     val exceptions = node.exceptions
 
     val instructions get() = node.instructions.iterator().asSequence()
-            .map { Instruction2(jar, klass, this, it) }
+            .map { InstructionMapper(jar, klass, this, it) }
 
     val isClassInitializer: Boolean get() {
         return name == CLASS_INITIALIZER_NAME

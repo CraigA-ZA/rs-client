@@ -1,9 +1,9 @@
 package mapper.wrappers
 
 interface ElementMatcher<out T> {
-    fun match(jar: Jar2): T
+    fun match(jar: JarWrapper): T
 
-    interface Class : ElementMatcher<Class2>
-    interface Field : ElementMatcher<Field2>
-    interface Method : ElementMatcher<Method2>
+    interface Class : ElementMatcher<ClassWrapper>
+    interface Field : ElementMatcher<FieldWrapper>
+    interface Method : ElementMatcher<MethodWrapper>
 }

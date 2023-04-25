@@ -8,10 +8,10 @@ import mapper.predicateutilities.and
 import mapper.predicateutilities.nextWithin
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
-import mapper.wrappers.Class2
-import mapper.wrappers.Field2
-import mapper.wrappers.Instruction2
-import mapper.wrappers.Method2
+import mapper.wrappers.ClassWrapper
+import mapper.wrappers.FieldWrapper
+import mapper.wrappers.InstructionMapper
+import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
 import org.runestar.client.common.startsWith
@@ -19,33 +19,33 @@ import java.math.BigInteger
 
 @DependsOn(Node::class)
 class Packet : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { it.instanceFields.size == 2 }
+    override val predicate = predicateOf<ClassWrapper> { it.instanceFields.size == 2 }
             .and { it.superType == type<Node>() }
             .and { it.instanceFields.count { it.type == INT_TYPE } == 1 }
             .and { it.instanceFields.count { it.type == ByteArray::class.type } == 1 }
 
     class index : InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == INT_TYPE }
+        override val predicate = predicateOf<FieldWrapper> { it.type == INT_TYPE }
     }
 
     class array : InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == ByteArray::class.type }
+        override val predicate = predicateOf<FieldWrapper> { it.type == ByteArray::class.type }
     }
 
     @MethodParameters()
     class g8s : InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == LONG_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == LONG_TYPE }
     }
 
     @MethodParameters()
     @DependsOn(g8s::class)
     class g4s : OrderMapper.InMethod.Method(g8s::class, 0) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == INVOKEVIRTUAL }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == INVOKEVIRTUAL }
     }
 
     @MethodParameters("value")
     class pSmart1or2 : InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.startsWith(INT_TYPE) }
                 .and { it.instructions.any { it.opcode == NEW && it.typeType == IllegalArgumentException::class.type } }
                 .and { it.instructions.any { it.opcode == LDC && it.ldcCst == 32768 } }
@@ -55,7 +55,7 @@ class Packet : IdentityMapper.Class() {
     @MethodParameters("value")
     @DependsOn(pSmart1or2::class)
     class p2 : OrderMapper.InMethod.Method(pSmart1or2::class, 0) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == LDC && it.ldcCst == 32_768 }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == LDC && it.ldcCst == 32_768 }
                 .nextWithin(10) { it.opcode == INVOKEVIRTUAL }
     }
 
@@ -63,7 +63,7 @@ class Packet : IdentityMapper.Class() {
     @MethodParameters("value")
     @DependsOn(index::class)
     class p4ME : InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.startsWith(INT_TYPE) }
                 .and { it.arguments.size in 1..2 }
                 .and { it.instructions.count { it.opcode == PUTFIELD && it.fieldId == field<index>().id } == 4 }
@@ -76,7 +76,7 @@ class Packet : IdentityMapper.Class() {
     @MethodParameters("value")
     @DependsOn(index::class)
     class p4LE16 : InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.startsWith(INT_TYPE) }
                 .and { it.arguments.size in 1..2 }
                 .and { it.instructions.count { it.opcode == PUTFIELD && it.fieldId == field<index>().id } == 4 }
@@ -89,7 +89,7 @@ class Packet : IdentityMapper.Class() {
     @MethodParameters("value")
     @DependsOn(p2::class, index::class)
     class p2LE : InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.startsWith(INT_TYPE) }
                 .and { it.arguments.size in 1..2 }
                 .and { it.instructions.count { it.opcode == PUTFIELD && it.fieldId == field<index>().id } == 2 }
@@ -99,14 +99,14 @@ class Packet : IdentityMapper.Class() {
 
     @MethodParameters()
     class g1s : InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == BYTE_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == BYTE_TYPE }
                 .and { it.instructions.none { it.opcode == ICONST_0 } }
                 .and { it.instructions.none { it.opcode == SIPUSH && it.intOperand == 128 } }
     }
 
     @MethodParameters()
     class g1 : InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == INT_TYPE }
                 .and { it.arguments.size in 0..1 }
                 .and { it.instructions.count { it.opcode == BALOAD } == 1 }
                 .and { it.instructions.count { it.opcode == PUTFIELD } == 1 }
@@ -116,7 +116,7 @@ class Packet : IdentityMapper.Class() {
 
     @MethodParameters()
     class g1n : InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == INT_TYPE }
                 .and { it.arguments.size in 0..1 }
                 .and { it.instructions.count { it.opcode == BALOAD } == 1 }
                 .and { it.instructions.count { it.opcode == PUTFIELD } == 1 }
@@ -126,21 +126,21 @@ class Packet : IdentityMapper.Class() {
 
     @MethodParameters("key", "start", "end")
     class tinyKeyDecrypt : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.startsWith(IntArray::class.type, INT_TYPE, INT_TYPE) }
                 .and { it.instructions.count { it.opcode == ISUB } > 2 }
     }
 
     @MethodParameters("key", "start", "end")
     class tinyKeyEncrypt : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.startsWith(IntArray::class.type, INT_TYPE, INT_TYPE) }
                 .and { it.instructions.count { it.opcode == ISUB } == 2 }
     }
 
     @MethodParameters("key")
     class tinyKeyEncryptAll : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.startsWith(IntArray::class.type) }
                 .and { it.arguments.size in 1..2 }
                 .and { it.instructions.count { it.opcode == ISUB } == 1 }
@@ -148,7 +148,7 @@ class Packet : IdentityMapper.Class() {
 
     @MethodParameters("key")
     class tinyKeyDecryptAll : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.startsWith(IntArray::class.type) }
                 .and { it.arguments.size in 1..2 }
                 .and { it.instructions.count { it.opcode == ISUB } > 1 }
@@ -156,7 +156,7 @@ class Packet : IdentityMapper.Class() {
 
     @MethodParameters("string")
     class pjstr : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.startsWith(String::class.type) }
                 .and { it.instructions.count { it.opcode == ICONST_1 } == 2 }
     }
@@ -164,14 +164,14 @@ class Packet : IdentityMapper.Class() {
 
     @MethodParameters("value")
     class pbool : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.size in 1..2 }
                 .and { it.arguments.startsWith(BOOLEAN_TYPE) }
     }
 
     @MethodParameters()
     class gjstr : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == String::class.type }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == String::class.type }
                 .and { it.arguments.isEmpty() }
                 .and { it.instructions.count { it.opcode == ICONST_1 } == 3 }
     }
@@ -253,39 +253,39 @@ class Packet : IdentityMapper.Class() {
 
     @MethodParameters("n")
     class p8s : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments == listOf(LONG_TYPE) }
                 .and { it.instructions.any { it.opcode == BIPUSH && it.intOperand == 56 } }
     }
 
     @MethodParameters("n")
     class p6 : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments == listOf(LONG_TYPE) }
                 .and { it.instructions.none { it.opcode == BIPUSH && it.intOperand == 56 } }
     }
 
     @MethodParameters()
     class gbool : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == BOOLEAN_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == BOOLEAN_TYPE }
                 .and { it.arguments.isEmpty() }
                 .and { it.instructions.none { it.opcode == ISUB } }
     }
 
     class rsaEncrypt : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.arguments.size == 2 }
+        override val predicate = predicateOf<MethodWrapper> { it.arguments.size == 2 }
                 .and { it.arguments.all { it == BigInteger::class.type } }
     }
 
 
     class gSmart2or4 : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.arguments.isEmpty() && it.returnType == INT_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.arguments.isEmpty() && it.returnType == INT_TYPE }
                 .and { it.instructions.any { it.opcode == LDC && it.ldcCst == Integer.MAX_VALUE } }
                 .and { it.instructions.any { it.opcode == ICONST_M1 } }
     }
 
     class gSmart1or2s : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.arguments.isEmpty() && it.returnType == INT_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.arguments.isEmpty() && it.returnType == INT_TYPE }
                 .and { it.instructions.any { it.opcode == LDC && it.ldcCst == 49152 } }
     }
 }

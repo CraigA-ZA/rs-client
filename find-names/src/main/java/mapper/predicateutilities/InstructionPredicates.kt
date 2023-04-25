@@ -1,8 +1,8 @@
 package mapper.predicateutilities
 
-import mapper.wrappers.Instruction2
+import mapper.wrappers.InstructionMapper
 
-fun Predicate<Instruction2>.skip(n: Int): Predicate<Instruction2> {
+fun Predicate<InstructionMapper>.skip(n: Int): Predicate<InstructionMapper> {
     return { insn ->
         if (this(insn)) {
             if (n > 0) {
@@ -17,26 +17,26 @@ fun Predicate<Instruction2>.skip(n: Int): Predicate<Instruction2> {
     }
 }
 
-inline fun Predicate<Instruction2>.nextIn(n: Int, crossinline other: Predicate<Instruction2>): Predicate<Instruction2> {
+inline fun Predicate<InstructionMapper>.nextIn(n: Int, crossinline other: Predicate<InstructionMapper>): Predicate<InstructionMapper> {
     return skip(n).and { it.exists }.and(other)
 }
 
-inline fun Predicate<Instruction2>.next(crossinline other: Predicate<Instruction2>): Predicate<Instruction2> {
+inline fun Predicate<InstructionMapper>.next(crossinline other: Predicate<InstructionMapper>): Predicate<InstructionMapper> {
     return nextIn(1, other)
 }
 
-inline fun Predicate<Instruction2>.prevIn(n: Int, crossinline other: Predicate<Instruction2>): Predicate<Instruction2> {
+inline fun Predicate<InstructionMapper>.prevIn(n: Int, crossinline other: Predicate<InstructionMapper>): Predicate<InstructionMapper> {
     return skip(-1 * n).and { it.exists }.and(other)
 }
 
-inline fun Predicate<Instruction2>.prev(crossinline other: Predicate<Instruction2>): Predicate<Instruction2> {
+inline fun Predicate<InstructionMapper>.prev(crossinline other: Predicate<InstructionMapper>): Predicate<InstructionMapper> {
     return prevIn(1, other)
 }
 
 // todo
-inline fun Predicate<Instruction2>.nextWithin(n: Int, crossinline other: Predicate<Instruction2>): Predicate<Instruction2> {
-    return object : Predicate<Instruction2> {
-        override fun invoke(insn: Instruction2): Boolean {
+inline fun Predicate<InstructionMapper>.nextWithin(n: Int, crossinline other: Predicate<InstructionMapper>): Predicate<InstructionMapper> {
+    return object : Predicate<InstructionMapper> {
+        override fun invoke(insn: InstructionMapper): Boolean {
             if (this@nextWithin(insn)) {
                 repeat(n) {
                     insn.next()
@@ -52,9 +52,9 @@ inline fun Predicate<Instruction2>.nextWithin(n: Int, crossinline other: Predica
     }
 }
 
-inline fun Predicate<Instruction2>.prevWithin(n: Int, crossinline other: Predicate<Instruction2>): Predicate<Instruction2> {
-    return object : Predicate<Instruction2> {
-        override fun invoke(insn: Instruction2): Boolean {
+inline fun Predicate<InstructionMapper>.prevWithin(n: Int, crossinline other: Predicate<InstructionMapper>): Predicate<InstructionMapper> {
+    return object : Predicate<InstructionMapper> {
+        override fun invoke(insn: InstructionMapper): Boolean {
             if (this@prevWithin(insn)) {
                 repeat(n) {
                     insn.prev()

@@ -5,12 +5,12 @@ import mapper.annotations.DependsOn
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
-import mapper.wrappers.Class2
+import mapper.wrappers.ClassWrapper
 import org.objectweb.asm.Type
 
 @DependsOn(DualNode::class)
 class Rasterizer2D : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { it.superType == type<DualNode>() }
+    override val predicate = predicateOf<ClassWrapper> { it.superType == type<DualNode>() }
             .and { it.interfaces.isEmpty() }
             .and { it.instanceFields.isEmpty() }
             .and { it.instanceMethods.isEmpty() }

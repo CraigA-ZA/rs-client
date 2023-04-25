@@ -7,84 +7,84 @@ import mapper.abstractclasses.OrderMapper
 import mapper.annotations.DependsOn
 import mapper.annotations.MethodParameters
 import mapper.predicateutilities.*
-import mapper.wrappers.Class2
-import mapper.wrappers.Field2
-import mapper.wrappers.Instruction2
-import mapper.wrappers.Method2
+import mapper.wrappers.ClassWrapper
+import mapper.wrappers.FieldWrapper
+import mapper.wrappers.InstructionMapper
+import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
 import org.runestar.client.common.startsWith
 
 @DependsOn(Actor::class)
 class Player : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { it.superType == type<Actor>() }
+    override val predicate = predicateOf<ClassWrapper> { it.superType == type<Actor>() }
             .and { it.instanceFields.size > 1 }
             .and { it.instanceFields.count { it.type == INT_TYPE} >= 17 }
 
     @DependsOn(Username::class)
     class username : InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == type<Username>() }
+        override val predicate = predicateOf<FieldWrapper> { it.type == type<Username>() }
     }
 
     class actions : InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == Array<String>::class.type }
+        override val predicate = predicateOf<FieldWrapper> { it.type == Array<String>::class.type }
     }
 
     @DependsOn(Model::class)
     class model0 : InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == type<Model>() }
+        override val predicate = predicateOf<FieldWrapper> { it.type == type<Model>() }
     }
 
     @DependsOn(PlayerAppearance::class)
     class appearance : InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == type<PlayerAppearance>() }
+        override val predicate = predicateOf<FieldWrapper> { it.type == type<PlayerAppearance>() }
     }
 
     @MethodParameters()
     @DependsOn(Actor.isVisible::class)
     class isVisible : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.mark == method<Actor.isVisible>().mark }
+        override val predicate = predicateOf<MethodWrapper> { it.mark == method<Actor.isVisible>().mark }
     }
 
     @MethodParameters()
     class transformedSize : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == INT_TYPE }
     }
 
     @MethodParameters
     @DependsOn(Entity.getModel::class)
     class getModel : InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.mark == method<Entity.getModel>().mark }
+        override val predicate = predicateOf<MethodWrapper> { it.mark == method<Entity.getModel>().mark }
     }
 
     class headIconPk : OrderMapper.InConstructor.Field(Player::class, 0) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class headIconPrayer : OrderMapper.InConstructor.Field(Player::class, 1) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class combatLevel : OrderMapper.InConstructor.Field(Player::class, 2) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class skillLevel : OrderMapper.InConstructor.Field(Player::class, 3) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     // todo
     class animationCycleStart : OrderMapper.InConstructor.Field(Player::class, 4) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     // todo
     class animationCycleEnd : OrderMapper.InConstructor.Field(Player::class, 5) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class isUnanimated : OrderMapper.InConstructor.Field(Player::class, 0) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == BOOLEAN_TYPE }
     }
 
 //    @DependsOn(Client.updatePlayer::class)
@@ -102,11 +102,11 @@ class Player : IdentityMapper.Class() {
 //    }
 
     class team : OrderMapper.InConstructor.Field(Player::class, 6) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class isHidden : OrderMapper.InConstructor.Field(Player::class, 1) {
-        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == BOOLEAN_TYPE }
     }
 
 //    @DependsOn(Client.plane::class, Client.updatePlayer::class)
@@ -126,20 +126,20 @@ class Player : IdentityMapper.Class() {
     @MethodParameters("x", "y")
     @DependsOn(transformedSize::class)
     class resetPath : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments == listOf(INT_TYPE, INT_TYPE) }
                 .and { it.instructions.any { it.isMethod && it.methodId == method<transformedSize>().id } }
     }
 
     @DependsOn(resetPath::class)
     class tileY : AllUniqueMapper.Field() {
-        override val predicate = predicateOf<Instruction2> { it.opcode == INVOKEVIRTUAL && it.methodId == method<resetPath>().id }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == INVOKEVIRTUAL && it.methodId == method<resetPath>().id }
                 .prevWithin(4) { it.opcode == GETFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<Player>() }
     }
 
     @DependsOn(resetPath::class)
     class tileX : AllUniqueMapper.Field() {
-        override val predicate = predicateOf<Instruction2> { it.opcode == INVOKEVIRTUAL && it.methodId == method<resetPath>().id }
+        override val predicate = predicateOf<InstructionMapper> { it.opcode == INVOKEVIRTUAL && it.methodId == method<resetPath>().id }
                 .prevWithin(4) { it.opcode == GETFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<Player>() }
                 .prevWithin(6) { it.opcode == GETFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<Player>() }
     }
@@ -158,7 +158,7 @@ class Player : IdentityMapper.Class() {
     @MethodParameters("packet")
     @DependsOn(Packet::class)
     class read : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments.startsWith(type<Packet>()) }
     }
 }

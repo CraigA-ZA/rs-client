@@ -4,17 +4,17 @@ import mapper.abstractclasses.IdentityMapper
 import mapper.annotations.DependsOn
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
-import mapper.wrappers.Class2
-import mapper.wrappers.Field2
+import mapper.wrappers.ClassWrapper
+import mapper.wrappers.FieldWrapper
 
 @DependsOn(AbstractWorldMapIcon::class)
 class WorldMapIcon2 : IdentityMapper.Class() {
 
-    override val predicate = predicateOf<Class2> { it.superType == type<AbstractWorldMapIcon>() }
+    override val predicate = predicateOf<ClassWrapper> { it.superType == type<AbstractWorldMapIcon>() }
             .and { it.instanceFields.size == 6 }
 
     @DependsOn(WorldMapLabel::class)
     class label0 : IdentityMapper.InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == type<WorldMapLabel>() }
+        override val predicate = predicateOf<FieldWrapper> { it.type == type<WorldMapLabel>() }
     }
 }

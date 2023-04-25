@@ -1,21 +1,13 @@
 package mapper.identifiers.classes
 
 import mapper.abstractclasses.IdentityMapper
-import mapper.abstractclasses.OrderMapper
 import mapper.annotations.DependsOn
-import mapper.annotations.MethodParameters
-import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
-import mapper.wrappers.Class2
-import mapper.wrappers.Instruction2
-import mapper.wrappers.Method2
-import org.objectweb.asm.Opcodes
-import org.objectweb.asm.Type
-import org.runestar.client.common.startsWith
+import mapper.wrappers.ClassWrapper
 
 @DependsOn(PlatformInfoProvider::class)
 class DesktopPlatformInfoProvider : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { it.interfaces.contains(type<PlatformInfoProvider>()) }
+    override val predicate = predicateOf<ClassWrapper> { it.interfaces.contains(type<PlatformInfoProvider>()) }
 
     // mac, windows, linux, other
 //    class osType : OrderMapper.InConstructor.Field(DesktopPlatformInfoProvider::class, 0) {

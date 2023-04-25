@@ -4,12 +4,12 @@ import mapper.abstractclasses.IdentityMapper
 import mapper.identifiers.OccluderField
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
-import mapper.wrappers.Class2
+import mapper.wrappers.ClassWrapper
 import org.objectweb.asm.Type
 
 class Occluder : IdentityMapper.Class() {
 
-    override val predicate = predicateOf<Class2> { it.instanceMethods.isEmpty() }
+    override val predicate = predicateOf<ClassWrapper> { it.instanceMethods.isEmpty() }
             .and { it.instanceFields.size == 18 }
             .and { it.instanceFields.all { it.type == Type.INT_TYPE } }
 

@@ -4,12 +4,12 @@ import mapper.abstractclasses.IdentityMapper
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
-import mapper.wrappers.Class2
+import mapper.wrappers.ClassWrapper
 import java.lang.reflect.Modifier
 
 class TriBool : IdentityMapper.Class() {
 
-    override val predicate = predicateOf<Class2> { it.instanceFields.isEmpty() }
+    override val predicate = predicateOf<ClassWrapper> { it.instanceFields.isEmpty() }
             .and { it.instanceMethods.isEmpty() }
             .and { it.superType == Any::class.type }
             .and { a -> a.staticFields.count { it.type == a.type } == 3 }

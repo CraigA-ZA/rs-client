@@ -6,13 +6,13 @@ import mapper.annotations.MethodParameters
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
-import mapper.wrappers.Class2
-import mapper.wrappers.Field2
-import mapper.wrappers.Method2
+import mapper.wrappers.ClassWrapper
+import mapper.wrappers.FieldWrapper
+import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Type.INT_TYPE
 
 class ClientPreferences : IdentityMapper.Class() {
-    override val predicate = predicateOf<Class2> { it.superType == Any::class.type }
+    override val predicate = predicateOf<ClassWrapper> { it.superType == Any::class.type }
             .and { it.name == "du" }
             .and { it.instanceFields.count { it.type == INT_TYPE } == 6 }
             .and { it.instanceFields.count { it.type == Map::class.type } == 1 }
@@ -30,7 +30,7 @@ class ClientPreferences : IdentityMapper.Class() {
     @MethodParameters()
     @DependsOn(Packet::class)
     class toBuffer : InstanceMethod() {
-        override val predicate = predicateOf<Method2> { it.returnType == type<Packet>() }
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == type<Packet>() }
     }
 
 //    @DependsOn(toBuffer::class)
@@ -49,6 +49,6 @@ class ClientPreferences : IdentityMapper.Class() {
 //    }
 
     class rememberedUsername : IdentityMapper.InstanceField() {
-        override val predicate = predicateOf<Field2> { it.type == String::class.type }
+        override val predicate = predicateOf<FieldWrapper> { it.type == String::class.type }
     }
 }

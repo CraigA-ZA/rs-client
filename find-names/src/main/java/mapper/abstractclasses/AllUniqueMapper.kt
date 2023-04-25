@@ -5,7 +5,7 @@ import mapper.wrappers.*
 
 abstract class AllUniqueMapper<T> : Mapper<T>(), InstructionResolver<T> {
 
-    override fun match(jar: Jar2): T {
+    override fun match(jar: JarWrapper): T {
         return jar.classes.asSequence()
                 .flatMap { it.methods.asSequence() }
                 .flatMap { it.instructions }
@@ -14,11 +14,11 @@ abstract class AllUniqueMapper<T> : Mapper<T>(), InstructionResolver<T> {
                 .single()
     }
 
-    abstract val predicate: Predicate<Instruction2>
+    abstract val predicate: Predicate<InstructionMapper>
 
-    abstract class Class : AllUniqueMapper<Class2>(), ElementMatcher.Class, InstructionResolver.Class
+    abstract class Class : AllUniqueMapper<ClassWrapper>(), ElementMatcher.Class, InstructionResolver.Class
 
-    abstract class Field : AllUniqueMapper<Field2>(), ElementMatcher.Field, InstructionResolver.Field
+    abstract class Field : AllUniqueMapper<FieldWrapper>(), ElementMatcher.Field, InstructionResolver.Field
 
-    abstract class Method : AllUniqueMapper<Method2>(), ElementMatcher.Method, InstructionResolver.Method
+    abstract class Method : AllUniqueMapper<MethodWrapper>(), ElementMatcher.Method, InstructionResolver.Method
 }

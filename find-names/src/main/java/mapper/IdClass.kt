@@ -2,8 +2,8 @@ package mapper
 
 import mapper.abstractclasses.Mapper
 import mapper.annotations.MethodParameters
-import mapper.wrappers.Field2
-import mapper.wrappers.Method2
+import mapper.wrappers.FieldWrapper
+import mapper.wrappers.MethodWrapper
 import kotlin.reflect.KClass
 import kotlin.reflect.full.findAnnotation
 
@@ -41,10 +41,10 @@ fun Mapper.Context.buildIdHierarchy(): List<IdClass> {
         val tmethods = ArrayList<IdMethod>()
         @Suppress("UNCHECKED_CAST")
         k.nestedClasses.forEach { n ->
-            fields[n as KClass<out Mapper<Field2>>]?.let { f ->
+            fields[n as KClass<out Mapper<FieldWrapper>>]?.let { f ->
                 tfields.add(IdField(n.simpleName!!, f.klass.name, f.name, f.access, f.desc))
             }
-            methods[n as KClass<out Mapper<Method2>>]?.let { m ->
+            methods[n as KClass<out Mapper<MethodWrapper>>]?.let { m ->
                 val ps = n.findAnnotation<MethodParameters>()?.names?.asList()
                 tmethods.add(IdMethod(n.simpleName!!, m.klass.name, m.name, m.access, ps, m.desc))
             }
