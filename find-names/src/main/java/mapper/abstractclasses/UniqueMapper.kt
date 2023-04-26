@@ -13,7 +13,7 @@ abstract class UniqueMapper<T> : Mapper<T>(), InstructionResolver<T> {
         return method.instructions.filter(predicate).mapTo(HashSet()) { resolve(it) }.single()
     }
 
-    abstract val predicate: Predicate<InstructionMapper>
+    abstract val predicate: Predicate<InstructionWrapper>
 
     abstract class InMethod<T>(val methodMapper: KClass<out Mapper<MethodWrapper>>) : UniqueMapper<T>() {
 

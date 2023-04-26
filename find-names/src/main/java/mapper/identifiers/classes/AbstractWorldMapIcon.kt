@@ -8,7 +8,7 @@ import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -24,12 +24,12 @@ class AbstractWorldMapIcon : IdentityMapper.Class() {
 
     @DependsOn(Coord::class)
     class coord1 : OrderMapper.InConstructor.Field(AbstractWorldMapIcon::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Coord>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Coord>() }
     }
 
     @DependsOn(Coord::class)
     class coord2 : OrderMapper.InConstructor.Field(AbstractWorldMapIcon::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Coord>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Coord>() }
     }
 
     @MethodParameters()

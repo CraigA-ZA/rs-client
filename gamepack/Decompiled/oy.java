@@ -18,13 +18,9 @@ public final class oy {
       return var0 >>> 12;
    }
 
-   static void itemContainerSetItem(int var0, int var1, int var2, int var3, byte var4) {
+   static void itemContainerSetItem(int var0, int var1, int var2, int var3) {
       Inventory var5 = (Inventory)Inventory.itemContainers.get((long)var0);
       if (var5 == null) {
-         if (var4 <= -1) {
-            throw new IllegalStateException();
-         }
-
          var5 = new Inventory();
          Inventory.itemContainers.put(var5, (long)var0);
       }
@@ -35,19 +31,11 @@ public final class oy {
 
          int var8;
          for(var8 = 0; var8 < var5.ids.length; ++var8) {
-            if (var4 <= -1) {
-               throw new IllegalStateException();
-            }
-
             var6[var8] = var5.ids[var8];
             var7[var8] = var5.quantities[var8];
          }
 
          for(var8 = var5.ids.length; var8 < var1; ++var8) {
-            if (var4 <= -1) {
-               throw new IllegalStateException();
-            }
-
             var6[var8] = -1;
             var7[var8] = 0;
          }

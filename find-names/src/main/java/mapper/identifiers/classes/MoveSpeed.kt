@@ -8,7 +8,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.*
 
@@ -27,21 +27,21 @@ class MoveSpeed : IdentityMapper.Class() {
 
     @DependsOn(MoveSpeed::class)
     class stationary : OrderMapper.InClassInitializer.Field(MoveSpeed::class, 0, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTSTATIC && it.fieldType == type<MoveSpeed>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTSTATIC && it.fieldType == type<MoveSpeed>() }
     }
 
     @DependsOn(MoveSpeed::class)
     class crawl : OrderMapper.InClassInitializer.Field(MoveSpeed::class, 1, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTSTATIC && it.fieldType == type<MoveSpeed>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTSTATIC && it.fieldType == type<MoveSpeed>() }
     }
 
     @DependsOn(MoveSpeed::class)
     class walk : OrderMapper.InClassInitializer.Field(MoveSpeed::class, 2, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTSTATIC && it.fieldType == type<MoveSpeed>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTSTATIC && it.fieldType == type<MoveSpeed>() }
     }
 
     @DependsOn(MoveSpeed::class)
     class run : OrderMapper.InClassInitializer.Field(MoveSpeed::class, 3, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTSTATIC && it.fieldType == type<MoveSpeed>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTSTATIC && it.fieldType == type<MoveSpeed>() }
     }
 }

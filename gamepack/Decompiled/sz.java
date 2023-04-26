@@ -43,7 +43,7 @@ public class sz extends DualNode {
             this.ac[var5] = var7;
          }
       } else if (4 == var2) {
-         this.au = var1.dr((byte)53) * -1229882107;
+         this.au = var1.dr() * -1229882107;
       }
 
    }

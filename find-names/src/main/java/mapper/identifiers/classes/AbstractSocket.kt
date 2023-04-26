@@ -10,8 +10,7 @@ class AbstractSocket : IdentityMapper.Class() {
 
     override val predicate = predicateOf<ClassWrapper> { klass<BufferedNetSocket>().superType == it.type }
 
-    //TODO
-//    @MethodParameters()
+    //    @MethodParameters()
 //    @DependsOn(NetSocket.close::class)
 //    class close : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.mark == method<NetSocket.close>().mark }

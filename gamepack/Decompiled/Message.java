@@ -214,11 +214,11 @@ public class Message extends DualNode {
       if (null != var6) {
          if (var6.onOp != null) {
             ClientScriptEvent var7 = new ClientScriptEvent();
-            var7.aw = var6;
-            var7.ab = var0 * -247460251;
+            var7.component = var6;
+            var7.opIndex = var0 * -247460251;
             var7.opbase = var4;
             var7.args0 = var6.onOp;
-            HeadbarUpdate.af_renamed(var7);
+            HeadbarUpdate.runClientScript(var7);
          }
 
          boolean var14 = true;

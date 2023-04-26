@@ -16,15 +16,11 @@ public class PlayerAppearance {
    public int ac = -1029929221;
    public int au = 0;
 
-   public static byte[] af_renamed(CharSequence var0, byte var1) {
+   public static byte[] af_renamed(CharSequence var0) {
       int var2 = var0.length();
       byte[] var3 = new byte[var2];
 
       for(int var4 = 0; var4 < var2; ++var4) {
-         if (var1 >= -1) {
-            throw new IllegalStateException();
-         }
-
          char var5 = var0.charAt(var4);
          if (var5 > 127) {
             var3[var4] = 63;
@@ -297,15 +293,15 @@ public class PlayerAppearance {
                            gx var17 = this.at[var13];
                            if (var17 != null) {
                               int var18;
-                              if (var17.aw != null && var25.av != null && var25.ar.length == var17.aw.length) {
-                                 for(var18 = 0; var18 < var25.av.length; ++var18) {
-                                    var16.recolor(var25.ar[var18], var17.aw[var18]);
+                              if (var17.aw != null && var25.recol_s != null && var25.recol_d.length == var17.aw.length) {
+                                 for(var18 = 0; var18 < var25.recol_s.length; ++var18) {
+                                    var16.recolor(var25.recol_d[var18], var17.aw[var18]);
                                  }
                               }
 
-                              if (null != var17.ac && var25.am != null && var17.ac.length == var25.as.length) {
-                                 for(var18 = 0; var18 < var25.am.length; ++var18) {
-                                    var16.retexture(var25.as[var18], var17.ac[var18]);
+                              if (null != var17.ac && var25.retex_s != null && var17.ac.length == var25.retex_d.length) {
+                                 for(var18 = 0; var18 < var25.retex_s.length; ++var18) {
+                                    var16.retexture(var25.retex_d[var18], var17.ac[var18]);
                                  }
                               }
                            }
@@ -340,9 +336,9 @@ public class PlayerAppearance {
          } else if (var1 != null && null != var3) {
             var22 = var1.at(var21, var2, var3, var4);
          } else if (null != var1) {
-            var22 = var1.ab(var21, var2);
+            var22 = var1.animateSequence(var21, var2);
          } else {
-            var22 = var3.ab(var21, var4);
+            var22 = var3.animateSequence(var21, var4);
          }
 
          return var22;

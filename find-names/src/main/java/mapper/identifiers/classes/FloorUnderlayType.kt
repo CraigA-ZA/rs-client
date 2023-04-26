@@ -4,10 +4,11 @@ import mapper.*
 import mapper.abstractclasses.IdentityMapper
 import mapper.abstractclasses.UniqueMapper
 import mapper.annotations.DependsOn
+import mapper.annotations.MethodParameters
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.wrappers.ClassWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
@@ -34,16 +35,15 @@ class FloorUnderlayType : IdentityMapper.Class() {
     }
 
     class rgb : UniqueMapper.InConstructor.Field(FloorUnderlayType::class) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD }
     }
 
-    //TODO
-//    @MethodParameters()
-//    class postDecode : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.size in 0..1 }
-//                .and { it.instructions.any { it.isMethod } }
-//    }
+    @MethodParameters()
+    class postDecode : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments.isEmpty() }
+                .and { it.instructions.any { it.isMethod } }
+    }
 
 //    @MethodParameters("rgb")
 //    @DependsOn(postDecode::class)

@@ -7,7 +7,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.BOOLEAN_TYPE
 import org.objectweb.asm.Type.INT_TYPE
@@ -21,27 +21,27 @@ class TilePaint : IdentityMapper.Class() {
             .and { it.instanceFields.size == 7 }
 
     class swColor : OrderMapper.InConstructor.Field(TilePaint::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class seColor : OrderMapper.InConstructor.Field(TilePaint::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class neColor : OrderMapper.InConstructor.Field(TilePaint::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class nwColor : OrderMapper.InConstructor.Field(TilePaint::class, 3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class texture : OrderMapper.InConstructor.Field(TilePaint::class, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class rgb : OrderMapper.InConstructor.Field(TilePaint::class, 5) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class isFlat : IdentityMapper.InstanceField() {

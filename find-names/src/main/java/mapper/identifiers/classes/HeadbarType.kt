@@ -7,7 +7,7 @@ import mapper.annotations.MethodParameters
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.wrappers.ClassWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
@@ -32,39 +32,39 @@ class HeadbarType : IdentityMapper.Class() {
     }
 
     class int1 : OrderMapper.InConstructor.Field(HeadbarType::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class int2 : OrderMapper.InConstructor.Field(HeadbarType::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class int3 : OrderMapper.InConstructor.Field(HeadbarType::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class int4 : OrderMapper.InConstructor.Field(HeadbarType::class, 3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class int5 : OrderMapper.InConstructor.Field(HeadbarType::class, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class spritefront : OrderMapper.InConstructor.Field(HeadbarType::class, 5) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class spriteback : OrderMapper.InConstructor.Field(HeadbarType::class, 6) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class width : OrderMapper.InConstructor.Field(HeadbarType::class, 7) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class widthPadding : OrderMapper.InConstructor.Field(HeadbarType::class, 8) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     @MethodParameters()

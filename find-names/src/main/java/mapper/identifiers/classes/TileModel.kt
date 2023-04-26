@@ -7,7 +7,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.BOOLEAN_TYPE
 import org.objectweb.asm.Type.INT_TYPE
@@ -25,18 +25,18 @@ class TileModel : IdentityMapper.Class() {
     }
 
     class shape : OrderMapper.InConstructor.Field(TileModel::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class rotation : OrderMapper.InConstructor.Field(TileModel::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class underlayRgb : OrderMapper.InConstructor.Field(TileModel::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class overlayRgb : OrderMapper.InConstructor.Field(TileModel::class, 3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 }

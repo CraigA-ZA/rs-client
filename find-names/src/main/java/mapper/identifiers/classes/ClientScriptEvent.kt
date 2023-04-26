@@ -4,13 +4,14 @@ import mapper.abstractclasses.IdentityMapper
 import mapper.abstractclasses.UniqueMapper
 import mapper.annotations.DependsOn
 import mapper.annotations.MethodParameters
+import mapper.identifiers.ScriptEventFieldConst
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.predicateutilities.withDimensions
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -34,14 +35,13 @@ class ClientScriptEvent : IdentityMapper.Class() {
         override val predicate = predicateOf<FieldWrapper> { it.type == Any::class.type.withDimensions(1) }
     }
 
-    //TODO
-//    class component : ScriptEventFieldConst(-2147483645)
-//    class dragTarget : ScriptEventFieldConst(-2147483642)
-//    class opIndex : ScriptEventFieldConst(-2147483644)
-//    class keyPressed : ScriptEventFieldConst(-2147483640)
-//    class keyTyped : ScriptEventFieldConst(-2147483639)
-//    class mouseX : ScriptEventFieldConst(-2147483647)
-//    class mouseY : ScriptEventFieldConst(-2147483646)
+    class component : ScriptEventFieldConst(-2147483645)
+    class dragTarget : ScriptEventFieldConst(-2147483642)
+    class opIndex : ScriptEventFieldConst(-2147483644)
+    class keyPressed : ScriptEventFieldConst(-2147483640)
+    class keyTyped : ScriptEventFieldConst(-2147483639)
+    class mouseX : ScriptEventFieldConst(-2147483647)
+    class mouseY : ScriptEventFieldConst(-2147483646)
 
     @MethodParameters("type")
     class setType : IdentityMapper.InstanceMethod() {
@@ -51,7 +51,7 @@ class ClientScriptEvent : IdentityMapper.Class() {
 
     @DependsOn(setType::class)
     class type0 : UniqueMapper.InMethod.Field(setType::class) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD }
     }
 
     @MethodParameters("args")

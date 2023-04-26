@@ -3,9 +3,9 @@ public class VarBitType extends DualNode {
    public static EvictingDualNodeHashTable VarBitType_cached = new EvictingDualNodeHashTable(64);
    static AbstractArchive VarBitType_archive;
    static final int[] ab = new int[32];
-   public int ac;
-   public int au;
-   public int aw;
+   public int startBit;
+   public int endBit;
+   public int baseVar;
 
    static {
       int var0 = 2;
@@ -20,22 +20,22 @@ public class VarBitType extends DualNode {
    VarBitType() {
    }
 
-   void aw(Packet var1) {
+   void decode(Packet var1) {
       while(true) {
          int var3 = var1.g1();
          if (var3 == 0) {
             return;
          }
 
-         this.ac(var1, var3);
+         this.decodeNext(var1, var3);
       }
    }
 
-   void ac(Packet var1, int var2) {
+   void decodeNext(Packet var1, int var2) {
       if (var2 == 1) {
-         this.aw = var1.cl() * -893309655;
-         this.ac = var1.g1() * -1466027509;
-         this.au = var1.g1() * 909304255;
+         this.baseVar = var1.cl() * -893309655;
+         this.startBit = var1.g1() * -1466027509;
+         this.endBit = var1.g1() * 909304255;
       }
 
    }

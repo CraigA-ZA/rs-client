@@ -1,4 +1,4 @@
-package za.org.secret;
+package shared.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

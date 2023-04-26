@@ -171,7 +171,7 @@ class ao implements TlsAuthentication {
                int var21;
                int var22;
                int var23;
-               if (9 == var11.bg * 883712245) {
+               if (9 == var11.type * 883712245) {
                   var20 = var13;
                   var21 = var14;
                   var22 = var13 + -794961409 * var11.width;
@@ -255,7 +255,7 @@ class ao implements TlsAuthentication {
                      }
                   }
 
-                  if (0 == 883712245 * var11.bg) {
+                  if (0 == 883712245 * var11.type) {
                      if (!var11.isIf3 && pm.isComponentHidden(var11) && MidiPcmStream.oh != var11) {
                         continue;
                      }
@@ -282,7 +282,7 @@ class ao implements TlsAuthentication {
 
                      Rasterizer2D.Rasterizer2D_setClip(var2, var3, var4, var5);
                      am.ao_renamed();
-                  } else if (11 == var11.bg * 883712245) {
+                  } else if (11 == var11.type * 883712245) {
                      if (pm.isComponentHidden(var11) && MidiPcmStream.oh != var11) {
                         continue;
                      }
@@ -296,12 +296,12 @@ class ao implements TlsAuthentication {
                   }
 
                   if (Client.ro || Client.rw[var12] || -1928160607 * Client.rg > 1) {
-                     if (0 == 883712245 * var11.bg && !var11.isIf3 && var11.scrollHeight * -1273374131 > var11.height * 1473950221) {
+                     if (0 == 883712245 * var11.type && !var11.isIf3 && var11.scrollHeight * -1273374131 > var11.height * 1473950221) {
                         da.le_renamed(var13 + var11.width * -794961409, var14, var11.scrollY * 1223232735, 1473950221 * var11.height, -1273374131 * var11.scrollHeight);
                      }
 
-                     if (1 != var11.bg * 883712245) {
-                        if (883712245 * var11.bg == 3) {
+                     if (1 != var11.type * 883712245) {
+                        if (883712245 * var11.type == 3) {
                            if (rr.runCs1(var11)) {
                               var20 = var11.color2 * 1449039161;
                               if (var11 == MidiPcmStream.oh && 1780253209 * var11.mouseOverColor2 != 0) {
@@ -334,7 +334,7 @@ class ao implements TlsAuthentication {
                            } else {
                               Rasterizer2D.Rasterizer2D_drawRectangleAlpha(var13, var14, var11.width * -794961409, 1473950221 * var11.height, var20, 256 - (var15 & 255));
                            }
-                        } else if (883712245 * var11.bg == 4) {
+                        } else if (883712245 * var11.type == 4) {
                            Font var37 = var11.getFont();
                            if (var37 == null) {
                               if (Component.bj) {
@@ -385,7 +385,7 @@ class ao implements TlsAuthentication {
                            int var25;
                            int var26;
                            int var41;
-                           if (5 == 883712245 * var11.bg) {
+                           if (5 == 883712245 * var11.type) {
                               Sprite var35;
                               if (!var11.isIf3) {
                                  var35 = var11.at(rr.runCs1(var11), ag.urlRequester);
@@ -442,7 +442,7 @@ class ao implements TlsAuthentication {
                               }
                            } else {
                               int var27;
-                              if (883712245 * var11.bg == 6) {
+                              if (883712245 * var11.type == 6) {
                                  boolean var33 = rr.runCs1(var11);
                                  if (var33) {
                                     var21 = var11.sequenceId2 * -717228843;
@@ -471,7 +471,7 @@ class ao implements TlsAuthentication {
                                        var36 = MusicPatchNode.localPlayer.getModel();
                                     }
                                  } else if (-123768459 * var11.modelType == 7) {
-                                    var36 = var11.dd.getModel((SeqType)null, -1, Inventory.getSeqType(MusicPatchNode.localPlayer.readySequence * 1590591885, (byte)121), 424813829 * MusicPatchNode.localPlayer.spotAnimationFrameCycle);
+                                    var36 = var11.dd.getModel((SeqType)null, -1, Inventory.getSeqType(MusicPatchNode.localPlayer.readySequence * 1590591885), 424813829 * MusicPatchNode.localPlayer.spotAnimationFrameCycle);
                                  } else {
                                     NPCType var39 = null;
                                     hv var40 = null;
@@ -489,7 +489,7 @@ class ao implements TlsAuthentication {
                                     SeqType var42 = null;
                                     var27 = -1;
                                     if (var21 != -1) {
-                                       var42 = Inventory.getSeqType(var21, (byte)25);
+                                       var42 = Inventory.getSeqType(var21);
                                        var27 = 1575517389 * var11.modelFrame;
                                     }
 
@@ -518,7 +518,7 @@ class ao implements TlsAuthentication {
                                  Tiles.ax_renamed();
                               } else {
                                  Font var31;
-                                 if (8 == var11.bg * 883712245 && fe.os == var11 && Client.on * 1239377975 == Client.oe * 215597333) {
+                                 if (8 == var11.type * 883712245 && fe.os == var11 && Client.on * 1239377975 == Client.oe * 215597333) {
                                     var20 = 0;
                                     var21 = 0;
                                     var31 = WallDecoration.fontPlain12;
@@ -576,7 +576,7 @@ class ao implements TlsAuthentication {
                                     }
                                  }
 
-                                 if (9 == var11.bg * 883712245) {
+                                 if (9 == var11.type * 883712245) {
                                     if (var11.cj) {
                                        var20 = var13;
                                        var21 = var14 + 1473950221 * var11.height;
@@ -594,9 +594,9 @@ class ao implements TlsAuthentication {
                                     } else {
                                        bt.la_renamed(var20, var21, var22, var23, var11.color * 1409091639, 1354778849 * var11.lineWid);
                                     }
-                                 } else if (var11.bg * 883712245 == 12) {
+                                 } else if (var11.type * 883712245 == 12) {
                                     mz var30 = var11.bj();
-                                    FaceNormal var32 = var11.bn();
+                                    lo var32 = var11.bn();
                                     if (var30 != null && var32 != null && var30.ca()) {
                                        var31 = var11.getFont();
                                        if (null != var31) {

@@ -153,7 +153,7 @@ public class WorldMapAreaData extends WorldMapArea {
             } else if (var0 == 3613) {
                var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                if (null != es.clanChat && var4 < es.clanChat.size()) {
-                  Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = es.clanChat.get(var4).username().af();
+                  Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = es.clanChat.get(var4).username().name();
                } else {
                   Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
                }

@@ -20,63 +20,13 @@ public class VarcInt extends DualNode {
 
    }
 
-   public static boolean ag_renamed(char var0, byte var1) {
-      if (var0 >= ' ') {
-         if (var1 <= -1) {
-            throw new IllegalStateException();
-         }
-
-         if (var0 <= '~') {
-            if (var1 <= -1) {
-               throw new IllegalStateException();
-            }
-
-            return true;
-         }
+   public static boolean ag_renamed(char var0) {
+      if (var0 >= ' ' && var0 <= '~') {
+         return true;
+      } else if (var0 >= 160 && var0 <= 255) {
+         return true;
+      } else {
+         return 8364 == var0 || var0 == 338 || var0 == 8212 || var0 == 339 || 376 == var0;
       }
-
-      if (var0 >= 160) {
-         if (var1 <= -1) {
-            throw new IllegalStateException();
-         }
-
-         if (var0 <= 255) {
-            if (var1 <= -1) {
-               throw new IllegalStateException();
-            }
-
-            return true;
-         }
-      }
-
-      if (8364 != var0) {
-         if (var1 <= -1) {
-            throw new IllegalStateException();
-         }
-
-         if (var0 != 338) {
-            if (var1 <= -1) {
-               throw new IllegalStateException();
-            }
-
-            if (var0 != 8212) {
-               if (var1 <= -1) {
-                  throw new IllegalStateException();
-               }
-
-               if (var0 != 339) {
-                  if (376 != var0) {
-                     return false;
-                  }
-
-                  if (var1 <= -1) {
-                     throw new IllegalStateException();
-                  }
-               }
-            }
-         }
-      }
-
-      return true;
    }
 }

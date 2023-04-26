@@ -9,7 +9,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.withDimensions
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.*
@@ -52,16 +52,15 @@ class TextureProvider : IdentityMapper.Class() {
     }
 
     class textureSize : OrderMapper.InConstructor.Field(TextureProvider::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class remaining : OrderMapper.InConstructor.Field(TextureProvider::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
-
-//    class capacity : OrderMapper.InConstructor.Field(TextureProvider::class, 2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
-//    }
+    class capacity : OrderMapper.InConstructor.Field(TextureProvider::class, 2) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+    }
 
     class isLowDetail : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<MethodWrapper> { it.returnType == BOOLEAN_TYPE }

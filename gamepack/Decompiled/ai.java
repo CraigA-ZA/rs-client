@@ -264,7 +264,7 @@ class ai extends DefaultTlsClient {
             return 0;
          } else {
             ClientScriptEvent var5 = new ClientScriptEvent();
-            var5.aw = var4;
+            var5.component = var4;
             var5.args0 = var4.gh;
             var5.ay = -1685365847 + Interpreter.ae * 815462605;
             Client.rq.addFirst(var5);

@@ -10,7 +10,7 @@ import mapper.predicateutilities.type
 import mapper.predicateutilities.withDimensions
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -25,11 +25,11 @@ class SoundEffect : IdentityMapper.Class() {
     }
 
     class start : OrderMapper.InConstructor.Field(SoundEffect::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class end : OrderMapper.InConstructor.Field(SoundEffect::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @MethodParameters()

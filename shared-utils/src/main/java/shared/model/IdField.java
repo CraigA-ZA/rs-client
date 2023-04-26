@@ -1,4 +1,4 @@
-package updater.model;
+package shared.model;
 
 import lombok.Getter;
 import lombok.Setter;

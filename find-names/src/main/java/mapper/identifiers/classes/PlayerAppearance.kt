@@ -9,7 +9,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.*
@@ -21,15 +21,12 @@ class PlayerAppearance : IdentityMapper.Class() {
             .and { it.instanceFields.count { it.type == LONG_TYPE } >= 2 }
             .and { it.instanceFields.count { it.type == IntArray::class.type } >= 2 }
 
-    //TODO
+
     @DependsOn(Model::class)
     class getModel : InstanceMethod() {
         override val predicate = predicateOf<MethodWrapper> { it.returnType == type<Model>() }
     }
 
-//    class npcTransformId : InstanceField() {
-//        override val predicate = predicateOf<Field2> { it.type == INT_TYPE }
-//    }
 
     class isFemale : InstanceField() {
         override val predicate = predicateOf<FieldWrapper> { it.type == BOOLEAN_TYPE }
@@ -37,13 +34,12 @@ class PlayerAppearance : IdentityMapper.Class() {
 
     @DependsOn(getModel::class)
     class equipment : OrderMapper.InMethod.Field(getModel::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
     }
 
-//    @DependsOn(equipment::class)
-//    class bodyColors : InstanceField() {
-//        override val predicate = predicateOf<Field2> { it.type == IntArray::class.type }
-//                .and { it != field<equipment>() }
+    //Not 100% how to fix this one, but its the only int thats not in the static initializer
+//    class npcTransformId : InstanceField() {
+//        override val predicate = predicateOf<FieldWrapper> { it.type == INT_TYPE }
 //    }
 
     @MethodParameters()

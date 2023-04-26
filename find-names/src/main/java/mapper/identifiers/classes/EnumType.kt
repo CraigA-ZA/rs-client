@@ -11,7 +11,7 @@ import mapper.predicateutilities.type
 import mapper.predicateutilities.withDimensions
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Opcodes.*
@@ -50,7 +50,7 @@ class EnumType : IdentityMapper.Class() {
     }
 
     class outputcount : UniqueMapper.InConstructor.Field(EnumType::class) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     @MethodParameters()
@@ -60,27 +60,21 @@ class EnumType : IdentityMapper.Class() {
 
     @DependsOn(decode0::class)
     class intvals : OrderMapper.InMethod.Field(decode0::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == GETFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETFIELD && it.fieldType == IntArray::class.type }
     }
 
     @DependsOn(decode0::class)
     class keys : OrderMapper.InMethod.Field(decode0::class, -2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == GETFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETFIELD && it.fieldType == IntArray::class.type }
     }
 
     @DependsOn(decode0::class)
     class inputtype : OrderMapper.InMethod.Field(decode0::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == CHAR_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == CHAR_TYPE }
     }
 
     @DependsOn(decode0::class)
     class outputtype : OrderMapper.InMethod.Field(decode0::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == CHAR_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == CHAR_TYPE }
     }
-
-//    @DependsOn(decode0::class)
-//    class defaultint : OrderMapper.InMethod.Field(decode0::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
-//    }
-    //TODO
 }

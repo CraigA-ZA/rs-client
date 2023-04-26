@@ -34,32 +34,20 @@ public class SoundCache {
       }
    }
 
-   RawSound an(int var1, int var2, int[] var3, byte var4) {
+   RawSound an(int var1, int var2, int[] var3) {
       int var5 = var2 ^ (var1 << 4 & '\uffff' | var1 >>> 12);
       var5 |= var1 << 16;
       long var6 = (long)var5 ^ 4294967296L;
       RawSound var8 = (RawSound)this.ac.get(var6);
       if (null != var8) {
-         if (var4 <= -1) {
-            throw new IllegalStateException();
-         } else {
-            return var8;
-         }
+         return var8;
       } else if (var3 != null && var3[0] <= 0) {
          return null;
       } else {
          VorbisSample var9 = (VorbisSample)this.aw.get(var6);
          if (null == var9) {
-            if (var4 <= -1) {
-               throw new IllegalStateException();
-            }
-
             var9 = VorbisSample.readVorbisSample(this.an, var1, var2);
             if (var9 == null) {
-               if (var4 <= -1) {
-                  throw new IllegalStateException();
-               }
-
                return null;
             }
 
@@ -68,11 +56,7 @@ public class SoundCache {
 
          var8 = var9.toRawSound(var3);
          if (var8 == null) {
-            if (var4 <= -1) {
-               throw new IllegalStateException();
-            } else {
-               return null;
-            }
+            return null;
          } else {
             var9.remove();
             this.ac.put(var8, var6);
@@ -93,9 +77,9 @@ public class SoundCache {
 
    public RawSound ac(int var1, int[] var2) {
       if (this.an.cm() == 1) {
-         return this.an(0, var1, var2, (byte)7);
+         return this.an(0, var1, var2);
       } else if (this.an.cq(var1) == 1) {
-         return this.an(var1, 0, var2, (byte)66);
+         return this.an(var1, 0, var2);
       } else {
          throw new RuntimeException();
       }

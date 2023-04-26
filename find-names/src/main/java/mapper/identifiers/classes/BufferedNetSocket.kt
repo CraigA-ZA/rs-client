@@ -28,8 +28,7 @@ class BufferedNetSocket : IdentityMapper.Class() {
         override val predicate = predicateOf<FieldWrapper> { it.type == type<BufferedSource>() }
     }
 
-    //TODO
-//    @MethodParameters()
+    //    @MethodParameters()
 //    @DependsOn(NetSocket.close::class)
 //    class close : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.mark == method<NetSocket.close>().mark }

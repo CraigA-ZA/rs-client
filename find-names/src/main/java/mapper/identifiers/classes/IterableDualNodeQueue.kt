@@ -2,11 +2,15 @@ package mapper.identifiers.classes
 
 import mapper.abstractclasses.IdentityMapper
 import mapper.annotations.DependsOn
+import mapper.annotations.MethodParameters
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
+import mapper.wrappers.MethodWrapper
+import org.objectweb.asm.Opcodes
+import org.objectweb.asm.Type
 import java.lang.reflect.Modifier
 
 @DependsOn(DualNode::class)
@@ -24,15 +28,14 @@ class IterableDualNodeQueue : IdentityMapper.Class() {
         override val predicate = predicateOf<FieldWrapper> { !Modifier.isPublic(it.access) }
     }
 
-//    @MethodParameters()
-//    class clear : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
-//                .and { it.instructions.any { it.opcode == Opcodes.GOTO } }
-//    }
+    @MethodParameters()
+    class clear : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == Type.VOID_TYPE }
+                .and { it.instructions.count() < 25 }
+    }
 
-//    class add : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
-//                .and { it.instructions.none { it.opcode == Opcodes.GOTO } }
-//    }
-    //TODO
+    class add : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == Type.VOID_TYPE }
+                .and { it.instructions.count() > 25 }
+    }
 }

@@ -6,23 +6,19 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.objectweb.asm.tree.ClassNode;
-import updater.model.ClassHierarchyBuilder;
-import updater.model.IdClass;
-import za.org.secret.Constants;
-import za.org.secret.UtilFunctions;
+import shared.ClassHierarchyBuilder;
+import shared.model.IdClass;
+import shared.Constants;
+import shared.UtilFunctions;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class Updater {
     private static Map<String, ClassNode> classNodeMap;
-
-    private static Path namesJson = Paths.get(System.getProperty("user.dir"), "gamepack", "names.json");
 
     private static ObjectMapper jsonMapper = new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL)
             .setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE)
@@ -45,7 +41,7 @@ public class Updater {
     }
 
     private static void renameClasses() throws IOException {
-        List<IdClass> classes = jsonMapper.readValue(namesJson.toFile(), new TypeReference<>(){});
+        List<IdClass> classes = jsonMapper.readValue(Constants.NAMES_JSON.toFile(), new TypeReference<>(){});
 
         NameMapper nameMapper = new NameMapper(classes, builder);
 

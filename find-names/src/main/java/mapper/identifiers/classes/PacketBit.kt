@@ -31,7 +31,6 @@ class PacketBit : IdentityMapper.Class() {
                 .and { it.arguments.startsWith(IntArray::class.type) }
     }
 
-    //TODO
 //    @MethodParameters("isaac")
 //    @DependsOn(Isaac::class)
 //    class setIsaac : IdentityMapper.InstanceMethod() {

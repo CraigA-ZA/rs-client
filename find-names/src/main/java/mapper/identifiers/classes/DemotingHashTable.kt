@@ -1,6 +1,7 @@
 package mapper.identifiers.classes
 
 import mapper.abstractclasses.IdentityMapper
+import mapper.abstractclasses.OrderMapper
 import mapper.annotations.DependsOn
 import mapper.annotations.MethodParameters
 import mapper.predicateutilities.and
@@ -8,6 +9,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -29,7 +31,6 @@ class DemotingHashTable : IdentityMapper.Class() {
         override val predicate = predicateOf<FieldWrapper> { it.type == type<IterableDualNodeQueue>() }
     }
 
-    //TODO
 //    @MethodParameters()
 //    @DependsOn(IterableDualNodeQueue.clear::class)
 //    class clear : IdentityMapper.InstanceMethod() {
@@ -37,13 +38,15 @@ class DemotingHashTable : IdentityMapper.Class() {
 //                .and { it.instructions.any { it.isMethod && it.methodId == method<IterableDualNodeQueue.clear>().id } }
 //    }
 
-//    class capacity : OrderMapper.InConstructor.Field(DemotingHashTable::class, 0, 2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
-//    }
+    class capacity : OrderMapper.InConstructor.Field(DemotingHashTable::class, 0, 2) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.count() > 1}
+    }
 
-//    class remaining : OrderMapper.InConstructor.Field(DemotingHashTable::class, 1, 2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
-//    }
+    class remaining : OrderMapper.InConstructor.Field(DemotingHashTable::class, 1, 2) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.count() > 1}
+    }
 
     @MethodParameters("key")
     class get : IdentityMapper.InstanceMethod() {

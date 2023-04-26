@@ -7,7 +7,7 @@ import mapper.annotations.MethodParameters
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.wrappers.ClassWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.INT_TYPE
@@ -26,11 +26,11 @@ class Obj : IdentityMapper.Class() {
 
     @DependsOn(getModel::class)
     class id : OrderMapper.InMethod.Field(getModel::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
     }
 
     @DependsOn(getModel::class)
     class quantity : OrderMapper.InMethod.Field(getModel::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
     }
 }

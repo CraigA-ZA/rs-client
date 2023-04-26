@@ -13,7 +13,11 @@ import kotlin.reflect.KClass
 abstract class IdentityMapper<T> : Mapper<T>() {
 
     override fun match(jar: JarWrapper): T {
-        return options(jar).filter { predicate(it) }.single()
+        val filteredOptions = options(jar).filter { predicate(it) }
+        if (filteredOptions.count() > 1) {
+            throw IllegalStateException("More than one match found" + filteredOptions.toList().toString())
+        }
+        return filteredOptions.single()
     }
 
     protected abstract fun options(jar: JarWrapper): Sequence<T>

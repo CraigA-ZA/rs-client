@@ -41,18 +41,18 @@ public class do {
          }
 
          if (3 == var1) {
-            var9 = bx.scene.be(var0, var2, var3);
+            var9 = bx.scene.getFloorDecorationTag(var0, var2, var3);
          }
 
          int var14;
          if (var9 != 0L) {
-            var14 = bx.scene.bk(var0, var2, var3, var9);
+            var14 = bx.scene.getObjectFlags(var0, var2, var3, var9);
             int var17 = InterfaceParent.at(var9);
             int var18 = var14 & 31;
             int var19 = var14 >> 6 & 3;
             LocType var15;
             if (0 == var1) {
-               bx.scene.ar(var0, var2, var3);
+               bx.scene.removeWall(var0, var2, var3);
                var15 = fw.getLocType(var17);
                if (0 != var15.interactType * -973955889) {
                   Client.collisionMaps[var0].aq(var2, var3, var18, var19, var15.boolean1);
@@ -60,7 +60,7 @@ public class do {
             }
 
             if (1 == var1) {
-               bx.scene.am(var0, var2, var3);
+               bx.scene.removeWallDecoration(var0, var2, var3);
             }
 
             if (var1 == 2) {
@@ -76,7 +76,7 @@ public class do {
             }
 
             if (3 == var1) {
-               bx.scene.aj(var0, var2, var3);
+               bx.scene.removeFloorDecoration(var0, var2, var3);
                var15 = fw.getLocType(var17);
                if (-973955889 * var15.interactType == 1) {
                   Client.collisionMaps[var0].aa(var2, var3);

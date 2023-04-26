@@ -9,7 +9,7 @@ import mapper.predicateutilities.type
 import mapper.predicateutilities.withDimensions
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.INT_TYPE
@@ -24,11 +24,11 @@ class Decimator : IdentityMapper.Class() {
     }
 
     class inputRate : OrderMapper.InConstructor.Field(Decimator::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class outputRate : OrderMapper.InConstructor.Field(Decimator::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class table : IdentityMapper.InstanceField() {

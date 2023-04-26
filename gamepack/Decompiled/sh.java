@@ -177,7 +177,7 @@ public class sh implements Enumerated {
                Interpreter.Interpreter_intStackSize -= 854271946;
                var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
                var9 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
-               kj.na_renamed(var9, var4, (byte)46);
+               kj.na_renamed(var9, var4);
                return 1;
             } else if (3820 == var0) {
                var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
@@ -210,7 +210,7 @@ public class sh implements Enumerated {
                   if (Client.so[var4] != null) {
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1;
                      fq.av = Client.so[var4];
-                     cz.ar = 1601506193 * var4;
+                     Login.ar = 1601506193 * var4;
                   } else {
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
                   }
@@ -230,7 +230,7 @@ public class sh implements Enumerated {
                   return 1;
                } else if (3856 == var0) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-                  Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = ((fz)fq.av.aw.get(var4)).aw.af();
+                  Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = ((fz)fq.av.aw.get(var4)).aw.name();
                   return 1;
                } else if (3857 == var0) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
@@ -242,7 +242,7 @@ public class sh implements Enumerated {
                   return 1;
                } else if (3859 == var0) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-                  fg.nn_renamed(cz.ar * -575466127, var4);
+                  fg.nn_renamed(Login.ar * -575466127, var4);
                   return 1;
                } else if (var0 == 3860) {
                   Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = fq.av.au(Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987]);

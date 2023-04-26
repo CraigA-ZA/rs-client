@@ -9,7 +9,7 @@ import mapper.predicateutilities.type
 import mapper.predicateutilities.withDimensions
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.INT_TYPE
@@ -27,21 +27,20 @@ class CollisionMap : IdentityMapper.Class() {
     }
 
     class xInset : OrderMapper.InConstructor.Field(CollisionMap::class, 0, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class yInset : OrderMapper.InConstructor.Field(CollisionMap::class, 1, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class xSize : OrderMapper.InConstructor.Field(CollisionMap::class, -2, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
     }
 
     class ySize : OrderMapper.InConstructor.Field(CollisionMap::class, -1, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
     }
-    //TODO
 
     @MethodParameters()
     class clear : IdentityMapper.InstanceMethod() {

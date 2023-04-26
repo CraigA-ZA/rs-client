@@ -3,14 +3,14 @@ public class TextureProvider implements TextureLoader {
    Texture[] textures;
    int textureSize = 910538112;
    int remaining = 0;
-   int aw;
+   int capacity;
    NodeDeque deque = new NodeDeque();
    AbstractArchive archive;
 
    public TextureProvider(AbstractArchive var1, AbstractArchive var2, int var3, double var4, int var6) {
       this.archive = var2;
-      this.aw = -909227037 * var3;
-      this.remaining = -668183133 * this.aw;
+      this.capacity = -909227037 * var3;
+      this.remaining = -668183133 * this.capacity;
       this.brightness0 = var4;
       this.textureSize = 1080855403 * var6;
       int[] var7 = var1.ck(0);
@@ -115,7 +115,7 @@ public class TextureProvider implements TextureLoader {
       }
 
       this.deque = new NodeDeque();
-      this.remaining = this.aw * -668183133;
+      this.remaining = this.capacity * -668183133;
    }
 
    public void animate(int var1) {

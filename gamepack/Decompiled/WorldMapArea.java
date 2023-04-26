@@ -217,7 +217,7 @@ public class WorldMapArea {
       } else {
          World var22;
          if (6501 == var0) {
-            var22 = ir.aq_renamed();
+            var22 = FaceNormal.aq_renamed();
             if (null != var22) {
                Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var22.id * -2091224171;
                Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1810954985 * var22.properties;

@@ -9,11 +9,13 @@ import mapper.predicateutilities.mark
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
 import org.objectweb.asm.Type.INT_TYPE
+import org.objectweb.asm.Type.VOID_TYPE
+import org.runestar.client.common.startsWith
 
 class Coord : IdentityMapper.Class() {
     override val predicate = predicateOf<ClassWrapper> { it.superType == Any::class.type }
@@ -21,31 +23,25 @@ class Coord : IdentityMapper.Class() {
             .and { it.instanceFields.all { it.type == INT_TYPE } }
             .and { it.instanceMethods.any { it.mark == Any::hashCode.mark } }
 
-//    class set : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE) }
-//                .and { it.arguments.size in 3..4 }
-//    }
-    //    @MethodParameters()
+//    @MethodParameters()
 //    class packed : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
+//        override val predicate = predicateOf<MethodWrapper> { it.returnType == INT_TYPE }
 //                .and { it.instructions.any { it.opcode == Opcodes.IOR } }
 //    }
-    //TODO
 
     @DependsOn(toString0::class)
     class y : OrderMapper.InMethod.Field(toString0::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
     }
 
     @DependsOn(toString0::class)
     class x : OrderMapper.InMethod.Field(toString0::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
     }
 
     @DependsOn(toString0::class)
     class z : OrderMapper.InMethod.Field(toString0::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
     }
 
     @MethodParameters("separator")

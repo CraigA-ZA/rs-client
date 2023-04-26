@@ -71,7 +71,7 @@ public class gh extends gn {
       int var20 = var19[var15][var17] + var19[var16][var17] + var19[var15][var18] + var19[var16][var18] >> 2;
       int var21 = (var2 << 7) + (var13 << 6);
       int var22 = (var14 << 6) + (var3 << 7);
-      long var23 = ir.aa_renamed(var2, var3, 2, 0 == 415653149 * var11.interactable, var4);
+      long var23 = FaceNormal.aa_renamed(var2, var3, 2, 0 == 415653149 * var11.interactable, var4);
       int var25 = (var5 << 6) + var6;
       if (1 == -1850643527 * var11.int3) {
          var25 += 256;

@@ -108,7 +108,7 @@ public class cm extends ia {
                      return 1;
                   } else if (var0 == 4113) {
                      var19 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = VarcInt.ag_renamed((char)var19, (byte)4) ? 1 : 0;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = VarcInt.ag_renamed((char)var19) ? 1 : 0;
                      return 1;
                   } else if (var0 == 4114) {
                      var19 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];

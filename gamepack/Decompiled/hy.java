@@ -163,7 +163,7 @@ public class hy implements be {
          int var17 = var16[var13][var15] + var16[var12][var15] + var16[var12][var14] + var16[var13][var14] >> 2;
          int var18 = (var10 << 6) + (var1 << 7);
          int var19 = (var2 << 7) + (var11 << 6);
-         long var20 = ir.aa_renamed(var1, var2, 2, 0 == 415653149 * var9.interactable, var3);
+         long var20 = FaceNormal.aa_renamed(var1, var2, 2, 0 == 415653149 * var9.interactable, var3);
          int var22 = var5 + (var4 << 6);
          if (-1850643527 * var9.int3 == 1) {
             var22 += 256;
@@ -177,7 +177,7 @@ public class hy implements be {
          if (22 == var5) {
             if (!Client.isLowDetail || 0 != var9.interactable * 415653149 || 1 == var9.interactType * -973955889 || var9.lowDetailVisible) {
                if (-1 == 1292954189 * var9.animationId && null == var9.multi) {
-                  var23 = var9.al(22, var4, var16, var18, var17, var19, (byte)-65);
+                  var23 = var9.al(22, var4, var16, var18, var17, var19);
                } else {
                   var23 = new DynamicObject(var3, 22, var4, var0, var1, var2, 1292954189 * var9.animationId, var9.bh, (Entity)null);
                }
@@ -194,7 +194,7 @@ public class hy implements be {
                int[] var10000;
                if (var5 >= 12) {
                   if (var9.animationId * 1292954189 == -1 && null == var9.multi) {
-                     var23 = var9.al(var5, var4, var16, var18, var17, var19, (byte)-110);
+                     var23 = var9.al(var5, var4, var16, var18, var17, var19);
                   } else {
                      var23 = new DynamicObject(var3, var5, var4, var0, var1, var2, var9.animationId * 1292954189, var9.bh, (Entity)null);
                   }
@@ -211,7 +211,7 @@ public class hy implements be {
 
                } else if (var5 == 0) {
                   if (-1 == var9.animationId * 1292954189 && var9.multi == null) {
-                     var23 = var9.al(0, var4, var16, var18, var17, var19, (byte)-17);
+                     var23 = var9.al(0, var4, var16, var18, var17, var19);
                   } else {
                      var23 = new DynamicObject(var3, 0, var4, var0, var1, var2, 1292954189 * var9.animationId, var9.bh, (Entity)null);
                   }
@@ -269,7 +269,7 @@ public class hy implements be {
 
                } else if (var5 == 1) {
                   if (1292954189 * var9.animationId == -1 && var9.multi == null) {
-                     var23 = var9.al(1, var4, var16, var18, var17, var19, (byte)-60);
+                     var23 = var9.al(1, var4, var16, var18, var17, var19);
                   } else {
                      var23 = new DynamicObject(var3, 1, var4, var0, var1, var2, 1292954189 * var9.animationId, var9.bh, (Entity)null);
                   }
@@ -298,8 +298,8 @@ public class hy implements be {
                      Object var32;
                      Object var33;
                      if (1292954189 * var9.animationId == -1 && null == var9.multi) {
-                        var33 = var9.al(2, var4 + 4, var16, var18, var17, var19, (byte)-33);
-                        var32 = var9.al(2, var30, var16, var18, var17, var19, (byte)-89);
+                        var33 = var9.al(2, var4 + 4, var16, var18, var17, var19);
+                        var32 = var9.al(2, var30, var16, var18, var17, var19);
                      } else {
                         var33 = new DynamicObject(var3, 2, 4 + var4, var0, var1, var2, var9.animationId * 1292954189, var9.bh, (Entity)null);
                         var32 = new DynamicObject(var3, 2, var30, var0, var1, var2, 1292954189 * var9.animationId, var9.bh, (Entity)null);
@@ -340,7 +340,7 @@ public class hy implements be {
 
                   } else if (var5 == 3) {
                      if (-1 == 1292954189 * var9.animationId && var9.multi == null) {
-                        var23 = var9.al(3, var4, var16, var18, var17, var19, (byte)-78);
+                        var23 = var9.al(3, var4, var16, var18, var17, var19);
                      } else {
                         var23 = new DynamicObject(var3, 3, var4, var0, var1, var2, var9.animationId * 1292954189, var9.bh, (Entity)null);
                      }
@@ -364,7 +364,7 @@ public class hy implements be {
 
                   } else if (9 == var5) {
                      if (-1 == var9.animationId * 1292954189 && var9.multi == null) {
-                        var23 = var9.al(var5, var4, var16, var18, var17, var19, (byte)-96);
+                        var23 = var9.al(var5, var4, var16, var18, var17, var19);
                      } else {
                         var23 = new DynamicObject(var3, var5, var4, var0, var1, var2, 1292954189 * var9.animationId, var9.bh, (Entity)null);
                      }
@@ -380,7 +380,7 @@ public class hy implements be {
 
                   } else if (var5 == 4) {
                      if (1292954189 * var9.animationId == -1 && null == var9.multi) {
-                        var23 = var9.al(4, var4, var16, var18, var17, var19, (byte)-85);
+                        var23 = var9.al(4, var4, var16, var18, var17, var19);
                      } else {
                         var23 = new DynamicObject(var3, 4, var4, var0, var1, var2, var9.animationId * 1292954189, var9.bh, (Entity)null);
                      }
@@ -397,7 +397,7 @@ public class hy implements be {
                         }
 
                         if (var9.animationId * 1292954189 == -1 && null == var9.multi) {
-                           var34 = var9.al(4, var4, var16, var18, var17, var19, (byte)-90);
+                           var34 = var9.al(4, var4, var16, var18, var17, var19);
                         } else {
                            var34 = new DynamicObject(var3, 4, var4, var0, var1, var2, var9.animationId * 1292954189, var9.bh, (Entity)null);
                         }
@@ -411,7 +411,7 @@ public class hy implements be {
                         }
 
                         if (-1 == 1292954189 * var9.animationId && null == var9.multi) {
-                           var34 = var9.al(4, 4 + var4, var16, var18, var17, var19, (byte)-95);
+                           var34 = var9.al(4, 4 + var4, var16, var18, var17, var19);
                         } else {
                            var34 = new DynamicObject(var3, 4, 4 + var4, var0, var1, var2, var9.animationId * 1292954189, var9.bh, (Entity)null);
                         }
@@ -420,7 +420,7 @@ public class hy implements be {
                      } else if (var5 == 7) {
                         var24 = 2 + var4 & 3;
                         if (var9.animationId * 1292954189 == -1 && var9.multi == null) {
-                           var23 = var9.al(4, 4 + var24, var16, var18, var17, var19, (byte)-87);
+                           var23 = var9.al(4, 4 + var24, var16, var18, var17, var19);
                         } else {
                            var23 = new DynamicObject(var3, 4, var24 + 4, var0, var1, var2, 1292954189 * var9.animationId, var9.bh, (Entity)null);
                         }
@@ -436,8 +436,8 @@ public class hy implements be {
                         int var28 = 2 + var4 & 3;
                         Object var27;
                         if (var9.animationId * 1292954189 == -1 && null == var9.multi) {
-                           var34 = var9.al(4, var4 + 4, var16, var18, var17, var19, (byte)-28);
-                           var27 = var9.al(4, 4 + var28, var16, var18, var17, var19, (byte)-104);
+                           var34 = var9.al(4, var4 + 4, var16, var18, var17, var19);
+                           var27 = var9.al(4, 4 + var28, var16, var18, var17, var19);
                         } else {
                            var34 = new DynamicObject(var3, 4, var4 + 4, var0, var1, var2, 1292954189 * var9.animationId, var9.bh, (Entity)null);
                            var27 = new DynamicObject(var3, 4, var28 + 4, var0, var1, var2, var9.animationId * 1292954189, var9.bh, (Entity)null);
@@ -449,7 +449,7 @@ public class hy implements be {
                }
             } else {
                if (-1 == var9.animationId * 1292954189 && var9.multi == null) {
-                  var23 = var9.al(10, var4, var16, var18, var17, var19, (byte)-73);
+                  var23 = var9.al(10, var4, var16, var18, var17, var19);
                } else {
                   var23 = new DynamicObject(var3, 10, var4, var0, var1, var2, var9.animationId * 1292954189, var9.bh, (Entity)null);
                }

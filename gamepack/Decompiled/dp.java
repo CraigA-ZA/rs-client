@@ -324,11 +324,11 @@ public class dp {
             var6 = 0;
          }
 
-         if (var6 + 128 >= ia.rasterProvider.ac * 1313069155) {
-            var8 = ia.rasterProvider.ac * 1313069155 - var6;
+         if (var6 + 128 >= ia.rasterProvider.width * 1313069155) {
+            var8 = ia.rasterProvider.width * 1313069155 - var6;
          }
 
-         int var9 = var6 + (var4 + 8) * ia.rasterProvider.ac * 1313069155;
+         int var9 = var6 + (var4 + 8) * ia.rasterProvider.width * 1313069155;
          var3 += var7;
 
          for(int var10 = var7; var10 < var8; ++var10) {
@@ -432,7 +432,7 @@ public class dp {
                throw new RuntimeException("" + (var12 - 1));
             } else {
                Component var13 = new Component();
-               var13.bg = var5 * -1183495331;
+               var13.type = var5 * -1183495331;
                var13.parentId = (var13.id = 1 * var7.id) * -1942978835;
                var13.childIndex = var12 * -1274125071;
                var13.isIf3 = true;

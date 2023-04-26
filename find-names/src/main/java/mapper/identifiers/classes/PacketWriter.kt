@@ -11,7 +11,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -41,16 +41,6 @@ class PacketWriter : IdentityMapper.Class() {
                 .and { it.arguments.startsWith(type<AbstractSocket>()) }
     }
 
-//    @DependsOn(socket0::class)
-//    @MethodParameters()
-//    class removeSocket : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
-//                .and { it.arguments.size in 0..1 }
-//                .and { it.instructions.any { it.opcode == Opcodes.PUTFIELD && it.fieldId == field<socket0>().id } }
-//                .and { it.instructions.any { it.opcode == Opcodes.ACONST_NULL } }
-//                .and { it.instructions.none { it.isMethod } }
-//    }
-    //TODO
 
     @DependsOn(Packet::class)
     class packet : IdentityMapper.InstanceField() {
@@ -67,6 +57,16 @@ class PacketWriter : IdentityMapper.Class() {
         override val predicate = predicateOf<FieldWrapper> { it.type == type<IterableNodeDeque>() }
     }
 
+
+//    @DependsOn(socket0::class)
+//    @MethodParameters()
+//    class removeSocket : IdentityMapper.InstanceMethod() {
+//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
+//                .and { it.arguments.size in 0..1 }
+//                .and { it.instructions.any { it.opcode == Opcodes.PUTFIELD && it.fieldId == field<socket0>().id } }
+//                .and { it.instructions.any { it.opcode == Opcodes.ACONST_NULL } }
+//                .and { it.instructions.none { it.isMethod } }
+//    }
 //    @DependsOn(Isaac::class)
 //    class isaac : IdentityMapper.InstanceField() {
 //        override val predicate = predicateOf<Field2> { it.type == type<Isaac>() }
@@ -81,10 +81,10 @@ class PacketWriter : IdentityMapper.Class() {
 
     @DependsOn(ServerProt::class)
     class serverPacket0 : UniqueMapper.InConstructor.Field(PacketWriter::class) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<ServerProt>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<ServerProt>() }
     }
 
     class serverPacket0Length : OrderMapper.InConstructor.Field(PacketWriter::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 }

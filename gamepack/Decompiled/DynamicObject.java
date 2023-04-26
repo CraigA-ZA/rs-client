@@ -1,13 +1,13 @@
 public class DynamicObject extends Entity {
    static AbstractArchive bi;
    SeqType seqType;
-   int ab;
+   int y;
    int plane;
    int id;
    int frame;
    int type;
    int cycleStart;
-   int au;
+   int x;
    int orientation;
 
    DynamicObject(int var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8, Entity var9) {
@@ -15,10 +15,10 @@ public class DynamicObject extends Entity {
       this.type = 918377177 * var2;
       this.orientation = 1745873217 * var3;
       this.plane = var4 * -1874330171;
-      this.au = -1211484067 * var5;
-      this.ab = -1840369975 * var6;
+      this.x = -1211484067 * var5;
+      this.y = -1840369975 * var6;
       if (-1 != var7) {
-         this.seqType = Inventory.getSeqType(var7, (byte)2);
+         this.seqType = Inventory.getSeqType(var7);
          this.frame = 0;
          this.cycleStart = -1495562491 * Client.ep - -1353577717;
          if (this.seqType.be * 789159225 == 0 && var9 != null && var9 instanceof DynamicObject) {
@@ -99,14 +99,14 @@ public class DynamicObject extends Entity {
             var4 = -1339930361 * var13.width;
          }
 
-         int var5 = 1815829493 * this.au + (var3 >> 1);
-         int var6 = this.au * 1815829493 + (var3 + 1 >> 1);
-         int var7 = (var4 >> 1) + this.ab * -1893774471;
-         int var8 = -1893774471 * this.ab + (var4 + 1 >> 1);
+         int var5 = 1815829493 * this.x + (var3 >> 1);
+         int var6 = this.x * 1815829493 + (var3 + 1 >> 1);
+         int var7 = (var4 >> 1) + this.y * -1893774471;
+         int var8 = -1893774471 * this.y + (var4 + 1 >> 1);
          int[][] var9 = Tiles.Tiles_heights[-1674675955 * this.plane];
          int var10 = var9[var5][var8] + var9[var5][var7] + var9[var6][var7] + var9[var6][var8] >> 2;
-         int var11 = (var3 << 6) + (this.au * 1815829493 << 7);
-         int var12 = (var4 << 6) + (this.ab * -1893774471 << 7);
+         int var11 = (var3 << 6) + (this.x * 1815829493 << 7);
+         int var12 = (var4 << 6) + (this.y * -1893774471 << 7);
          return var13.getModelDynamic(-373027479 * this.type, this.orientation * 1904322241, var9, var11, var10, var12, this.seqType, 1017637335 * this.frame);
       }
    }
@@ -253,7 +253,7 @@ public class DynamicObject extends Entity {
    }
 
    static final void nz_renamed(Component var0, int var1, int var2, int var3) {
-      SpriteMask var5 = var0.getSpriteMask(false, (byte)65);
+      SpriteMask var5 = var0.getSpriteMask(false);
       if (var5 != null) {
          if (Client.tp * 1383336963 < 3) {
             ChatChannel.jb.be(var1, var2, var5.width * 1484188043, 939947663 * var5.height, 25, 25, 704283033 * Client.kf, 256, var5.xStarts, var5.xWidths);

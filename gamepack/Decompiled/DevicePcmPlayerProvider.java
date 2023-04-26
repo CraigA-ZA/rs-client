@@ -24,12 +24,12 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
          }
 
          UrlRequester.sceneMinimapSprite = new Sprite(512, 512);
-         cz.Login_loadingText = Strings.Strings_startingGameEngine;
-         cz.ad = 1084032613;
+         Login.Login_loadingText = Strings.Strings_startingGameEngine;
+         Login.ad = 1084032613;
          Client.fi = 1602846572;
       } else if (20 == Client.fi * -627796577) {
-         cz.Login_loadingText = Strings.Strings_preparedVisibilityMap;
-         cz.ad = -2126902070;
+         Login.Login_loadingText = Strings.Strings_preparedVisibilityMap;
+         Login.ad = -2126902070;
          Client.fi = -1890697438;
       } else if (Client.fi * -627796577 == 30) {
          archive0 = WorldMapLabelSize.newArchive(0, false, true, true, false);
@@ -53,8 +53,8 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
          bi.ft = WorldMapLabelSize.newArchive(19, false, true, true, false);
          he.gr = WorldMapLabelSize.newArchive(20, false, true, true, false);
          PcmPlayer.gs = WorldMapLabelSize.newArchive(21, false, true, true, true);
-         cz.Login_loadingText = Strings.Strings_connectingToUpdateServer;
-         cz.ad = 41163156;
+         Login.Login_loadingText = Strings.Strings_connectingToUpdateServer;
+         Login.ad = 41163156;
          Client.fi = -1089274152;
       } else if (40 != -627796577 * Client.fi) {
          if (-627796577 * Client.fi == 45) {
@@ -71,23 +71,23 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
             fe.pcmStreamMixer = new PcmStreamMixer();
             hd.pcmPlayer1.aj(fe.pcmStreamMixer);
             WorldMapSectionType.decimator = new Decimator(22050, PcmPlayer.au * -1359271235);
-            cz.Login_loadingText = Strings.Strings_preparedSoundEngine;
-            cz.ad = -1001706301;
+            Login.Login_loadingText = Strings.Strings_preparedSoundEngine;
+            Login.ad = -1001706301;
             Client.fi = -287850866;
             nv.fonts = new Fonts(rr.archive8, ei.archive13);
          } else if (50 == -627796577 * Client.fi) {
             var1 = FontName.FontName_values().length;
             Client.im = nv.fonts.createMap(FontName.FontName_values());
             if (Client.im.size() < var1) {
-               cz.Login_loadingText = Strings.Strings_loadingFonts + Client.im.size() * 100 / var1 + "%";
-               cz.ad = 82326312;
+               Login.Login_loadingText = Strings.Strings_loadingFonts + Client.im.size() * 100 / var1 + "%";
+               Login.ad = 82326312;
             } else {
                Language.fontPlain11 = (Font)Client.im.get(FontName.FontName_plain11);
                WallDecoration.fontPlain12 = (Font)Client.im.get(FontName.FontName_plain12);
                fx.fontBold12 = (Font)Client.im.get(FontName.FontName_bold12);
                en.platformInfo = Client.platformInfoProvider.get();
-               cz.Login_loadingText = Strings.Strings_loadedFonts;
-               cz.ad = 82326312;
+               Login.Login_loadingText = Strings.Strings_loadedFonts;
+               Login.ad = 82326312;
                Client.fi = 513572420;
             }
          } else {
@@ -98,7 +98,7 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                var13 = NetFileRequest.archive10;
                Archive var16 = rr.archive8;
                var4 = 0;
-               String[] var19 = cz.dq;
+               String[] var19 = Login.dq;
 
                int var20;
                String var21;
@@ -109,7 +109,7 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   }
                }
 
-               var19 = cz.dd;
+               var19 = Login.dd;
 
                for(var20 = 0; var20 < var19.length; ++var20) {
                   var21 = var19[var20];
@@ -118,7 +118,7 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   }
                }
 
-               var19 = cz.dj;
+               var19 = Login.dj;
 
                for(var20 = 0; var20 < var19.length; ++var20) {
                   var21 = var19[var20];
@@ -129,21 +129,21 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
 
                var5 = cf.af_renamed(rr.archive8);
                if (var4 < var5) {
-                  cz.Login_loadingText = Strings.Strings_loadingTitleScreen + 100 * var4 / var5 + "%";
-                  cz.ad = -2044575758;
+                  Login.Login_loadingText = Strings.Strings_loadingTitleScreen + 100 * var4 / var5 + "%";
+                  Login.ad = -2044575758;
                } else {
-                  cz.Login_loadingText = Strings.Strings_loadedTitleScreen;
-                  cz.ad = -2044575758;
+                  Login.Login_loadingText = Strings.Strings_loadedTitleScreen;
+                  Login.ad = -2044575758;
                   fd.hi_renamed(5);
                   Client.fi = 1314995706;
                }
             } else if (70 == -627796577 * Client.fi) {
                if (!dk.archive2.cc()) {
-                  cz.Login_loadingText = Strings.Strings_loadingConfig + dk.archive2.loadPercent() + "%";
-                  cz.ad = 123489468;
+                  Login.Login_loadingText = Strings.Strings_loadingConfig + dk.archive2.loadPercent() + "%";
+                  Login.ad = 123489468;
                } else if (!PcmPlayer.gs.cc()) {
-                  cz.Login_loadingText = Strings.Strings_loadingConfig + (80 + ey.archive12.loadPercent() / 6) + "%";
-                  cz.ad = 123489468;
+                  Login.Login_loadingText = Strings.Strings_loadingConfig + (80 + ey.archive12.loadPercent() / 6) + "%";
+                  Login.ad = 123489468;
                } else {
                   EnumType.af_renamed(dk.archive2);
                   World.af_renamed(dk.archive2);
@@ -189,8 +189,8 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   HeadbarType.af = var11;
                   HeadbarType.an = var12;
                   bz.af_renamed(dk.archive2, rr.archive8);
-                  cz.Login_loadingText = Strings.Strings_loadedConfig;
-                  cz.ad = 123489468;
+                  Login.Login_loadingText = Strings.Strings_loadedConfig;
+                  Login.ad = 123489468;
                   Client.fi = 2116418992;
                }
             } else if (Client.fi * -627796577 == 80) {
@@ -262,8 +262,8 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                }
 
                if (var1 < 11) {
-                  cz.Login_loadingText = Strings.Strings_loadingSprites + var1 * 100 / 12 + "%";
-                  cz.ad = -2003412602;
+                  Login.Login_loadingText = Strings.Strings_loadingSprites + var1 * 100 / 12 + "%";
+                  Login.ad = -2003412602;
                } else {
                   AbstractFont.AbstractFont_modIconSprites = bx.modIconSprites;
                   dp.jz.normalize();
@@ -272,14 +272,14 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   var4 = (int)(Math.random() * 21.0) - 10;
                   var5 = (int)(Math.random() * 41.0) - 20;
                   ml.mapSceneSprites[0].shiftColors(var5 + var2, var5 + var3, var4 + var5);
-                  cz.Login_loadingText = Strings.Strings_loadedSprites;
-                  cz.ad = -2003412602;
+                  Login.Login_loadingText = Strings.Strings_loadedSprites;
+                  Login.ad = -2003412602;
                   Client.fi = -1377125018;
                }
             } else if (90 == Client.fi * -627796577) {
                if (!WorldMapLabelSize.archive9.cc()) {
-                  cz.Login_loadingText = Strings.Strings_loadingTextures + "0%";
-                  cz.ad = -1962249446;
+                  Login.Login_loadingText = Strings.Strings_loadingTextures + "0%";
+                  Login.ad = -1962249446;
                } else {
                   al.textureProvider = new TextureProvider(WorldMapLabelSize.archive9, rr.archive8, 20, aj.clientPreferences.av(), Client.isLowDetail ? 64 : 128);
                   TextureProvider var24 = al.textureProvider;
@@ -290,43 +290,43 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
             } else if (100 == -627796577 * Client.fi) {
                var1 = al.textureProvider.af();
                if (var1 < 100) {
-                  cz.Login_loadingText = Strings.Strings_loadingTextures + var1 + "%";
-                  cz.ad = -1962249446;
+                  Login.Login_loadingText = Strings.Strings_loadingTextures + var1 + "%";
+                  Login.ad = -1962249446;
                } else {
-                  cz.Login_loadingText = Strings.Strings_loadedTextures;
-                  cz.ad = -1962249446;
+                  Login.Login_loadingText = Strings.Strings_loadedTextures;
+                  Login.ad = -1962249446;
                   Client.fi = 225721554;
                }
             } else if (Client.fi * -627796577 == 110) {
                eg.mouseRecorder = new MouseRecorder();
                Client.taskHandler.newThreadTask(eg.mouseRecorder, 10);
-               cz.Login_loadingText = Strings.Strings_loadedInputHandler;
-               cz.ad = 1907337436;
+               Login.Login_loadingText = Strings.Strings_loadedInputHandler;
+               Login.ad = 1907337436;
                Client.fi = 1027144840;
             } else if (120 == -627796577 * Client.fi) {
                if (!NetFileRequest.archive10.tryLoadFileByNames("huffman", "")) {
-                  cz.Login_loadingText = Strings.Strings_loadingWordpack + 0 + "%";
-                  cz.ad = 1481957022;
+                  Login.Login_loadingText = Strings.Strings_loadingWordpack + 0 + "%";
+                  Login.ad = 1481957022;
                } else {
                   Huffman var23 = new Huffman(NetFileRequest.archive10.takeFileByNames("huffman", ""));
                   ft.af_renamed(var23);
-                  cz.Login_loadingText = Strings.Strings_loadedWordpack;
-                  cz.ad = 1481957022;
+                  Login.Login_loadingText = Strings.Strings_loadedWordpack;
+                  Login.ad = 1481957022;
                   Client.fi = 1828568126;
                }
             } else if (-627796577 * Client.fi == 130) {
                if (!dk.archive3.cc()) {
-                  cz.Login_loadingText = Strings.Strings_loadingInterfaces + dk.archive3.loadPercent() * 4 / 5 + "%";
-                  cz.ad = 1056576608;
+                  Login.Login_loadingText = Strings.Strings_loadingInterfaces + dk.archive3.loadPercent() * 4 / 5 + "%";
+                  Login.ad = 1056576608;
                } else if (!ey.archive12.cc()) {
-                  cz.Login_loadingText = Strings.Strings_loadingInterfaces + (80 + ey.archive12.loadPercent() / 6) + "%";
-                  cz.ad = 1056576608;
+                  Login.Login_loadingText = Strings.Strings_loadingInterfaces + (80 + ey.archive12.loadPercent() / 6) + "%";
+                  Login.ad = 1056576608;
                } else if (!ei.archive13.cc()) {
-                  cz.Login_loadingText = Strings.Strings_loadingInterfaces + (96 + ei.archive13.loadPercent() / 50) + "%";
-                  cz.ad = 1056576608;
+                  Login.Login_loadingText = Strings.Strings_loadingInterfaces + (96 + ei.archive13.loadPercent() / 50) + "%";
+                  Login.ad = 1056576608;
                } else {
-                  cz.Login_loadingText = Strings.Strings_loadedInterfaces;
-                  cz.ad = 631196194;
+                  Login.Login_loadingText = Strings.Strings_loadedInterfaces;
+                  Login.ad = 631196194;
                   if (ey.archive12.cv("version.dat", "")) {
                      Packet var22 = new Packet(ey.archive12.takeFileByNames("version.dat", ""));
                      var22.cl();
@@ -335,16 +335,16 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   Client.fi = -1664975884;
                }
             } else if (140 == -627796577 * Client.fi) {
-               cz.ad = 205815780;
+               Login.ad = 205815780;
                if (bi.ft.cm() > 0 && !bi.ft.tryLoadGroupByName(WorldMapCacheName.WorldMapCacheName_details.name)) {
-                  cz.Login_loadingText = Strings.Strings_loadingWorldMap + bi.ft.groupLoadPercentByName(WorldMapCacheName.WorldMapCacheName_details.name) / 10 + "%";
+                  Login.Login_loadingText = Strings.Strings_loadingWorldMap + bi.ft.groupLoadPercentByName(WorldMapCacheName.WorldMapCacheName_details.name) / 10 + "%";
                } else {
                   if (ey.worldMap0 == null) {
                      ey.worldMap0 = new WorldMap();
                      ey.worldMap0.init(bi.ft, UnitPriceComparator.fu, he.gr, fx.fontBold12, Client.im, ml.mapSceneSprites);
                   }
 
-                  cz.Login_loadingText = Strings.Strings_loadedWorldMap;
+                  Login.Login_loadingText = Strings.Strings_loadedWorldMap;
                   Client.fi = -863552598;
                }
             } else if (150 == Client.fi * -627796577) {
@@ -376,10 +376,10 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
          var1 += gw.archive16.af() && gw.archive16.cc() ? 1 : 0;
          if (100 != var1) {
             if (var1 != 0) {
-               cz.Login_loadingText = Strings.Strings_checkingForUpdates + var1 + "%";
+               Login.Login_loadingText = Strings.Strings_checkingForUpdates + var1 + "%";
             }
 
-            cz.ad = -2085738914;
+            Login.ad = -2085738914;
          } else {
             es.hx_renamed(archive0, "Animations");
             es.hx_renamed(ServerBuild.archive1, "Skeletons");
@@ -396,15 +396,15 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
             es.hx_renamed(he.gr, "World Map Ground");
             Varcs.spriteIds = new GraphicsDefaults();
             Varcs.spriteIds.decode(gw.archive16);
-            cz.Login_loadingText = Strings.Strings_loadedUpdateList;
-            cz.ad = -2085738914;
+            Login.Login_loadingText = Strings.Strings_loadedUpdateList;
+            Login.ad = -2085738914;
             Client.fi = 1458921139;
          }
       }
    }
 
    static void oz_renamed(int var0) {
-      SeqType var2 = Inventory.getSeqType(var0, (byte)13);
+      SeqType var2 = Inventory.getSeqType(var0);
       if (var2.ao()) {
          if (aj.ag_renamed(1238147375 * var2.frameCount) == 2) {
             Client.wz.add(1238147375 * var2.frameCount);

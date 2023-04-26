@@ -12,7 +12,7 @@ public class gs extends fb {
          byte[] var3 = VarBitType.VarBitType_archive.takeFile(14, var0);
          var2 = new VarBitType();
          if (var3 != null) {
-            var2.aw(new Packet(var3));
+            var2.decode(new Packet(var3));
          }
 
          VarBitType.VarBitType_cached.put(var2, (long)var0);
@@ -61,7 +61,7 @@ public class gs extends fb {
    }
 
    void an(fj var1) {
-      var1.ax(1899901343 * this.af, (byte)-1);
+      var1.ax(1899901343 * this.af);
    }
 
    static void alignComponentSize(Component var0, int var1, int var2, boolean var3) {
@@ -95,13 +95,13 @@ public class gs extends fb {
          Client.ps = var0;
       }
 
-      if (12 == var0.bg * 883712245) {
+      if (12 == var0.type * 883712245) {
          var0.bj().aq(var0.width * -794961409, 1473950221 * var0.height);
       }
 
       if (var3 && null != var0.gh && (var0.width * -794961409 != var5 || var0.height * 1473950221 != var6)) {
          ClientScriptEvent var7 = new ClientScriptEvent();
-         var7.aw = var0;
+         var7.component = var0;
          var7.args0 = var0.gh;
          Client.rq.addFirst(var7);
       }

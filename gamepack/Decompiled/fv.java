@@ -84,7 +84,7 @@ public class fv extends fb {
 
             var8 = var1.db();
             if (-1372355773 * var5.ct == var7 && -1 != var7) {
-               var9 = Inventory.getSeqType(var7, (byte)5).be * 789159225;
+               var9 = Inventory.getSeqType(var7).be * 789159225;
                if (var9 == 1) {
                   var5.cp = 0;
                   var5.cd = 0;
@@ -95,7 +95,7 @@ public class fv extends fb {
                if (2 == var9) {
                   var5.dw = 0;
                }
-            } else if (var7 == -1 || -1372355773 * var5.ct == -1 || Inventory.getSeqType(var7, (byte)116).az * -1932560049 >= Inventory.getSeqType(-1372355773 * var5.ct, (byte)2).az * -1932560049) {
+            } else if (var7 == -1 || -1372355773 * var5.ct == -1 || Inventory.getSeqType(var7).az * -1932560049 >= Inventory.getSeqType(-1372355773 * var5.ct).az * -1932560049) {
                var5.ct = -1690721941 * var7;
                var5.cp = 0;
                var5.cd = 0;

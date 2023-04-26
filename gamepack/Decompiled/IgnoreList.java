@@ -24,7 +24,7 @@ public class IgnoreList extends UserList {
             }
 
             boolean var11 = false;
-            World.friendSystem.removeIgnore(var10.af(), var11);
+            World.friendSystem.removeIgnore(var10.name(), var11);
          } else {
             boolean var5 = 0 != (var4 & 1);
             Username var6 = new Username(var1.cw(), this.loginType);

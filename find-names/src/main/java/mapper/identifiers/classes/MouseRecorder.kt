@@ -7,7 +7,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
 
@@ -34,10 +34,10 @@ class MouseRecorder : IdentityMapper.Class() {
     }
 
     class xs : OrderMapper.InConstructor.Field(MouseRecorder::class, 0, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     class ys : OrderMapper.InConstructor.Field(MouseRecorder::class, 1, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 }

@@ -9,7 +9,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -37,22 +37,22 @@ class MidiFileReader : IdentityMapper.Class() {
 
     @DependsOn(parse::class)
     class trackStarts : OrderMapper.InMethod.Field(parse::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     @DependsOn(parse::class)
     class trackLengths : OrderMapper.InMethod.Field(parse::class, -2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     @DependsOn(parse::class)
     class trackPositions : OrderMapper.InMethod.Field(parse::class, -3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     @DependsOn(parse::class)
     class division : OrderMapper.InMethod.Field(parse::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @MethodParameters()
@@ -98,7 +98,7 @@ class MidiFileReader : IdentityMapper.Class() {
                 .and { it.instructions.count() > 14 }
     }
 
-//    @MethodParameters() TODO
+//    @MethodParameters()
 //    class setTrackDone : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
 //                .and { it.arguments.isEmpty() }

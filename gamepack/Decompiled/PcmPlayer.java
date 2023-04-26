@@ -130,24 +130,12 @@ public class PcmPlayer {
 
    }
 
-   public final synchronized void ae(byte var1) {
+   public final synchronized void ae() {
       if (nf.soundSystem != null) {
-         if (var1 != -1) {
-            return;
-         }
-
          boolean var2 = true;
 
          for(int var3 = 0; var3 < 2; ++var3) {
-            if (var1 != -1) {
-               return;
-            }
-
             if (this == nf.soundSystem.players[var3]) {
-               if (var1 != -1) {
-                  throw new IllegalStateException();
-               }
-
                nf.soundSystem.players[var3] = null;
             }
 
@@ -157,10 +145,6 @@ public class PcmPlayer {
          }
 
          if (var2) {
-            if (var1 != -1) {
-               return;
-            }
-
             SoundSystem.soundSystemExecutor.shutdownNow();
             SoundSystem.soundSystemExecutor = null;
             nf.soundSystem = null;

@@ -117,7 +117,7 @@ public class FriendsList extends UserList {
             }
          }
 
-         if (var0.ab.bg * 883712245 == 11 && var0.au * -469277123 == 0) {
+         if (var0.ab.type * 883712245 == 11 && var0.au * -469277123 == 0) {
             if (var0.ab.ap(-1583959695 * var0.aw, var0.ac * -1480602069, 0, 0)) {
                switch (var0.ab.be()) {
                   case 0:
@@ -139,7 +139,7 @@ public class FriendsList extends UserList {
                      }
                }
             }
-         } else if (12 == var0.ab.bg * 883712245) {
+         } else if (12 == var0.ab.type * 883712245) {
             mz var6 = var0.ab.bj();
             if (var6 != null && var6.ci()) {
                switch (-469277123 * var0.au) {

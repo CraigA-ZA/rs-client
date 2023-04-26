@@ -183,7 +183,7 @@ public class BufferedSource implements Runnable {
    }
 
    static int ah_renamed(Component var0) {
-      if (883712245 * var0.bg != 11) {
+      if (883712245 * var0.type != 11) {
          SecureRandomCallable.Interpreter_stringStackSize -= -1086551379;
          Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -1;
          return 1;

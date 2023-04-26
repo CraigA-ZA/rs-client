@@ -275,9 +275,9 @@ public class bb {
             }
 
             if (Client.isLowDetail) {
-               bx.scene.an(1401144457 * Tiles.aw);
+               bx.scene.init(1401144457 * Tiles.aw);
             } else {
-               bx.scene.an(0);
+               bx.scene.init(0);
             }
 
             for(var4 = 0; var4 < 104; ++var4) {

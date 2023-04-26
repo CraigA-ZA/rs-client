@@ -9,7 +9,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
@@ -54,11 +54,11 @@ class TaskHandler : IdentityMapper.Class() {
 
     @DependsOn(Task::class)
     class current : OrderMapper.InConstructor.Field(TaskHandler::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == type<Task>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == type<Task>() }
     }
 
     @DependsOn(Task::class)
     class task0 : OrderMapper.InConstructor.Field(TaskHandler::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == type<Task>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == type<Task>() }
     }
 }

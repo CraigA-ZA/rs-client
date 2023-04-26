@@ -6,13 +6,13 @@ public class gx {
    gx(int var1) {
       ObjType var2 = HeadbarUpdate.getObjType(var1);
       if (var2.ak()) {
-         this.aw = new short[var2.ar.length];
-         System.arraycopy(var2.ar, 0, this.aw, 0, this.aw.length);
+         this.aw = new short[var2.recol_d.length];
+         System.arraycopy(var2.recol_d, 0, this.aw, 0, this.aw.length);
       }
 
       if (var2.az()) {
-         this.ac = new short[var2.as.length];
-         System.arraycopy(var2.as, 0, this.ac, 0, this.ac.length);
+         this.ac = new short[var2.retex_d.length];
+         System.arraycopy(var2.retex_d, 0, this.ac, 0, this.ac.length);
       }
 
    }

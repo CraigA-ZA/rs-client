@@ -7,7 +7,7 @@ public class qi {
       var0.importIndex();
       int var2 = Client.localPlayerIndex * -549033243;
       Player var3 = MusicPatchNode.localPlayer = Client.players[var2] = new Player();
-      var3.ae = var2 * -710946309;
+      var3.index = var2 * -710946309;
       int var4 = var0.gBit(30);
       byte var5 = (byte)(var4 >> 28);
       int var6 = var4 >> 14 & 16383;
@@ -16,7 +16,7 @@ public class qi {
       var3.bx = ((var3.pathX[0] << 7) + (var3.transformedSize() << 6)) * -881028089;
       var3.pathY[0] = var7 - 827352769 * Scenery.baseY;
       var3.bo = ((var3.pathY[0] << 7) + (var3.transformedSize() << 6)) * 1193213931;
-      GameShell.plane = (var3.ad = var5 * -1829675965) * 1128021573;
+      GameShell.plane = (var3.plane = var5 * -1829675965) * 1128021573;
       if (null != ds.au[var2]) {
          var3.read(ds.au[var2]);
       }

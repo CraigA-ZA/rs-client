@@ -167,7 +167,7 @@ public class FriendSystem {
                }
             }
 
-            cz.nd_renamed();
+            Login.nd_renamed();
          }
       }
    }

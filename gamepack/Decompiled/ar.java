@@ -617,11 +617,11 @@ class ar implements SSLSession {
             if (var21 != null) {
                if (null != var21.fk) {
                   ClientScriptEvent var24 = new ClientScriptEvent();
-                  var24.aw = var21;
-                  var24.ab = var3 * -247460251;
+                  var24.component = var21;
+                  var24.opIndex = var3 * -247460251;
                   var24.opbase = var6;
                   var24.args0 = var21.fk;
-                  HeadbarUpdate.af_renamed(var24);
+                  HeadbarUpdate.runClientScript(var24);
                }
 
                var11 = mi.an_renamed(ClientProt.ad, Client.packetWriter.au);

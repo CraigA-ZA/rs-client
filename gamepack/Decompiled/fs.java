@@ -33,7 +33,7 @@ public class fs {
          var5.yAlignment = Interpreter.Interpreter_intStack[3 + -964267539 * Interpreter.Interpreter_intStackSize] * -362988363;
          fw.ma_renamed(var5);
          ClientScriptFrame.client.alignComponent(var5);
-         if (var4 != -1 && 883712245 * var5.bg == 0) {
+         if (var4 != -1 && 883712245 * var5.type == 0) {
             WallDecoration.lz_renamed(hn.interfaceComponents[var4 >> 16], var5, false);
          }
 
@@ -46,7 +46,7 @@ public class fs {
          var5.heightAlignment = -480958745 * Interpreter.Interpreter_intStack[3 + -964267539 * Interpreter.Interpreter_intStackSize];
          fw.ma_renamed(var5);
          ClientScriptFrame.client.alignComponent(var5);
-         if (-1 != var4 && var5.bg * 883712245 == 0) {
+         if (-1 != var4 && var5.type * 883712245 == 0) {
             WallDecoration.lz_renamed(hn.interfaceComponents[var4 >> 16], var5, false);
          }
 

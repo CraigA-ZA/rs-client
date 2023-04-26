@@ -7,7 +7,7 @@ import mapper.annotations.MethodParameters
 import mapper.predicateutilities.*
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -23,11 +23,11 @@ class AccessFile : IdentityMapper.Class() {
     }
 
     class capacity : OrderMapper.InConstructor.Field(AccessFile::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.LONG_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.LONG_TYPE }
     }
 
     class index : OrderMapper.InConstructor.Field(AccessFile::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.LONG_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.LONG_TYPE }
     }
 
     @MethodParameters("sync")

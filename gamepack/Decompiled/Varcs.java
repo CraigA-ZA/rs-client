@@ -163,7 +163,7 @@ public class Varcs {
    void read() {
       AccessFile var2 = this.getPreferencesFile(false);
 
-      label229: {
+      label230: {
          try {
             byte[] var3 = new byte[(int)var2.length()];
 
@@ -176,12 +176,12 @@ public class Varcs {
             }
 
             Packet var25 = new Packet(var3);
-            if (var25.array.length - -1633313603 * var25.index < 1) {
-               return;
-            }
+            if (var25.array.length - -1633313603 * var25.index >= 1) {
+               int var6 = var25.g1();
+               if (var6 < 0 || var6 > 2) {
+                  return;
+               }
 
-            int var6 = var25.g1();
-            if (var6 >= 0 && var6 <= 2) {
                int var7;
                int var8;
                int var9;
@@ -192,7 +192,7 @@ public class Varcs {
 
                   while(true) {
                      if (var8 >= var7) {
-                        break label229;
+                        break label230;
                      }
 
                      var9 = var25.cl();
@@ -221,7 +221,7 @@ public class Varcs {
 
                   while(true) {
                      if (var9 >= var8) {
-                        break label229;
+                        break label230;
                      }
 
                      var25.cl();
@@ -231,7 +231,7 @@ public class Varcs {
                }
             }
          } catch (Exception var23) {
-            break label229;
+            break label230;
          } finally {
             try {
                var2.close();

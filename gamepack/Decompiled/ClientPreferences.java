@@ -3,19 +3,19 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ClientPreferences {
-   boolean ab = false;
+   boolean hideUsername = false;
    boolean al = false;
-   boolean aq;
-   boolean au;
+   boolean titleMusicDisabled;
+   boolean roofsHidden;
    double aa = 0.8;
-   int ah = 1056868117;
+   int windowMode = 1056868117;
    int ai = 1923156277;
    int ao = 590995555;
    int at;
    int ax = -1313786027;
    int ay = 1301921773;
    String rememberedUsername = null;
-   final Map av = new LinkedHashMap();
+   final Map parameters = new LinkedHashMap();
 
    ClientPreferences() {
       this.af(true);
@@ -26,15 +26,15 @@ public class ClientPreferences {
          int var2 = var1.g1();
          if (var2 >= 0 && var2 <= 10) {
             if (var1.g1() == 1) {
-               this.au = true;
+               this.roofsHidden = true;
             }
 
             if (var2 > 1) {
-               this.aq = var1.g1() == 1;
+               this.titleMusicDisabled = var1.g1() == 1;
             }
 
             if (var2 > 3) {
-               this.ah = var1.g1() * 1056868117;
+               this.windowMode = var1.g1() * 1056868117;
             }
 
             if (var2 > 2) {
@@ -43,7 +43,7 @@ public class ClientPreferences {
                for(int var4 = 0; var4 < var3; ++var4) {
                   int var5 = var1.g4s();
                   int var6 = var1.g4s();
-                  this.av.put(var5, var6);
+                  this.parameters.put(var5, var6);
                }
             }
 
@@ -52,7 +52,7 @@ public class ClientPreferences {
             }
 
             if (var2 > 5) {
-               this.ab = var1.gbool();
+               this.hideUsername = var1.gbool();
             }
 
             if (var2 > 6) {
@@ -88,11 +88,11 @@ public class ClientPreferences {
    Packet toBuffer() {
       Packet var2 = new Packet(417, true);
       var2.bu(10);
-      var2.bu(this.au ? 1 : 0);
-      var2.bu(this.aq ? 1 : 0);
-      var2.bu(this.ah * -1016688579);
-      var2.bu(this.av.size());
-      Iterator var3 = this.av.entrySet().iterator();
+      var2.bu(this.roofsHidden ? 1 : 0);
+      var2.bu(this.titleMusicDisabled ? 1 : 0);
+      var2.bu(this.windowMode * -1016688579);
+      var2.bu(this.parameters.size());
+      Iterator var3 = this.parameters.entrySet().iterator();
 
       while(var3.hasNext()) {
          Map.Entry var4 = (Map.Entry)var3.next();
@@ -101,7 +101,7 @@ public class ClientPreferences {
       }
 
       var2.bh(null != this.rememberedUsername ? this.rememberedUsername : "");
-      var2.pbool(this.ab);
+      var2.pbool(this.hideUsername);
       var2.bu((int)(this.aa * 100.0));
       var2.bu(-461734757 * this.ay);
       var2.bu(-1738472395 * this.ao);
@@ -113,30 +113,30 @@ public class ClientPreferences {
    }
 
    void au(boolean var1) {
-      this.au = var1;
+      this.roofsHidden = var1;
       dn.ac_renamed();
    }
 
    boolean ab() {
-      return this.au;
+      return this.roofsHidden;
    }
 
    void aq(boolean var1) {
-      this.ab = var1;
+      this.hideUsername = var1;
       dn.ac_renamed();
    }
 
    boolean al() {
-      return this.ab;
+      return this.hideUsername;
    }
 
    void at(boolean var1) {
-      this.aq = var1;
+      this.titleMusicDisabled = var1;
       dn.ac_renamed();
    }
 
    boolean aa() {
-      return this.aq;
+      return this.titleMusicDisabled;
    }
 
    void ay(boolean var1) {
@@ -216,34 +216,34 @@ public class ClientPreferences {
    }
 
    void bb(int var1) {
-      this.ah = var1 * 1056868117;
+      this.windowMode = var1 * 1056868117;
       dn.ac_renamed();
    }
 
    int bi() {
-      return -1016688579 * this.ah;
+      return -1016688579 * this.windowMode;
    }
 
    void be(String var1, int var2) {
       int var4 = this.bo(var1);
-      if (this.av.size() >= 10 && !this.av.containsKey(var4)) {
-         Iterator var5 = this.av.entrySet().iterator();
+      if (this.parameters.size() >= 10 && !this.parameters.containsKey(var4)) {
+         Iterator var5 = this.parameters.entrySet().iterator();
          var5.next();
          var5.remove();
       }
 
-      this.av.put(var4, var2);
+      this.parameters.put(var4, var2);
       dn.ac_renamed();
    }
 
    boolean bk(String var1) {
       int var3 = this.bo(var1);
-      return this.av.containsKey(var3);
+      return this.parameters.containsKey(var3);
    }
 
    int bx(String var1) {
       int var3 = this.bo(var1);
-      return !this.av.containsKey(var3) ? 0 : (Integer)this.av.get(var3);
+      return !this.parameters.containsKey(var3) ? 0 : (Integer)this.parameters.get(var3);
    }
 
    int bo(String var1) {
@@ -286,9 +286,9 @@ public class ClientPreferences {
          var2.overheadText = var0.cw();
          if (var2.overheadText.charAt(0) == '~') {
             var2.overheadText = var2.overheadText.substring(1);
-            es.an_renamed(2, var2.username.af(), var2.overheadText);
+            es.an_renamed(2, var2.username.name(), var2.overheadText);
          } else if (var2 == MusicPatchNode.localPlayer) {
-            es.an_renamed(2, var2.username.af(), var2.overheadText);
+            es.an_renamed(2, var2.username.name(), var2.overheadText);
          }
 
          var2.ce = false;
@@ -382,9 +382,9 @@ public class ClientPreferences {
                }
 
                if (-1 != var22.modIcon * 2138745227) {
-                  es.an_renamed(var13, ArchiveDiskActionHandler.af_renamed(2138745227 * var22.modIcon) + var2.username.af(), var29);
+                  es.an_renamed(var13, ArchiveDiskActionHandler.af_renamed(2138745227 * var22.modIcon) + var2.username.name(), var29);
                } else {
-                  es.an_renamed(var13, var2.username.af(), var29);
+                  es.an_renamed(var13, var2.username.name(), var29);
                }
             }
          }

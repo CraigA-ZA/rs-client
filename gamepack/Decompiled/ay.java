@@ -62,19 +62,11 @@ public class ay {
       }
    }
 
-   void aw(byte var1) throws ProtocolException {
-      if (this.au) {
-         if (var1 <= -1) {
-            throw new IllegalStateException();
-         }
-      } else {
+   void aw() throws ProtocolException {
+      if (!this.au) {
          this.af.setRequestMethod(this.aw.ab());
          this.an.af(this.af);
          if (this.aw.aq() && null != this.ac) {
-            if (var1 <= -1) {
-               throw new IllegalStateException();
-            }
-
             this.af.setDoOutput(true);
             ByteArrayOutputStream var2 = new ByteArrayOutputStream();
 
@@ -101,7 +93,7 @@ public class ay {
 
    boolean ac() throws IOException {
       if (!this.au) {
-         this.aw((byte)4);
+         this.aw();
       }
 
       this.af.connect();
@@ -236,7 +228,7 @@ public class ay {
                            var55.decode(new Packet(var56), var18);
                         }
 
-                        var55.an();
+                        var55.postDecode();
                         FloorUnderlayType.FloorUnderlayType_cached.put(var55, (long)var18);
                         var52 = var55;
                      }
@@ -270,7 +262,7 @@ public class ay {
                            var57.decode(new Packet(var58), var19);
                         }
 
-                        var57.an();
+                        var57.postDecode();
                         FloorUnderlayType.FloorUnderlayType_cached.put(var57, (long)var19);
                         var54 = var57;
                      }
@@ -372,7 +364,7 @@ public class ay {
                                     var37.decode(new Packet(var38), var36);
                                  }
 
-                                 var37.an();
+                                 var37.postDecode();
                                  FloorOverlayType.an.put(var37, (long)var36);
                                  var60 = var37;
                               }
@@ -409,7 +401,7 @@ public class ay {
                                  var39.decode(new Packet(var40), var62);
                               }
 
-                              var39.an();
+                              var39.postDecode();
                               FloorOverlayType.an.put(var39, (long)var62);
                               var37 = var39;
                            }
@@ -483,7 +475,7 @@ public class ay {
       for(var3 = 0; var3 < 104; ++var3) {
          for(var4 = 0; var4 < 104; ++var4) {
             if (2 == (Tiles.Tiles_renderFlags[1][var3][var4] & 2)) {
-               var0.aw(var3, var4);
+               var0.setLinkBelow(var3, var4);
             }
          }
       }

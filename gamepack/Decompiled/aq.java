@@ -18,19 +18,19 @@ public class aq implements Enumerated {
 
    static void aa_renamed(boolean var0) {
       if (!ClientScriptFrame.client.gn() && !ClientScriptFrame.client.gx() && !ClientScriptFrame.client.gv()) {
-         cz.Login_response1 = Strings.ir;
-         cz.Login_response2 = Strings.io;
-         cz.Login_response3 = Strings.ip;
+         Login.Login_response1 = Strings.ir;
+         Login.Login_response2 = Strings.io;
+         Login.Login_response3 = Strings.ip;
          ee.ak_renamed(2);
          if (var0) {
-            cz.cu = "";
+            Login.cu = "";
          }
 
          WallDecoration.ac_renamed();
-         if (Client.hb && cz.ca != null && cz.ca.length() > 0) {
-            cz.dm = 1153152795;
+         if (Client.hb && Login.ca != null && Login.ca.length() > 0) {
+            Login.dm = 1153152795;
          } else {
-            cz.dm = 0;
+            Login.dm = 0;
          }
 
       } else {
@@ -40,98 +40,98 @@ public class aq implements Enumerated {
 
    static void drawTitle(Font var0, Font var1, Font var2) {
       aw = (-1687260435 * GameShell.aj - 765) / 2 * 983792155;
-      cz.ak = 794898887 * cz.aw + 2036160930;
-      fy.az = -1036961612 + cz.ak * -949768875;
-      if (cz.di) {
+      Login.ak = 794898887 * Login.aw + 2036160930;
+      fy.az = -1036961612 + Login.ak * -949768875;
+      if (Login.di) {
          Decimator.ai_renamed(var0, var1);
       } else {
-         ex.at.ay(cz.aw * 578342931, 0);
-         ParamType.aa.ay(cz.aw * 578342931 + 382, 0);
-         Canvas.ay.aw(cz.aw * 578342931 + 382 - Canvas.ay.subWidth / 2, 18);
+         ex.at.ay(Login.aw * 578342931, 0);
+         ParamType.aa.ay(Login.aw * 578342931 + 382, 0);
+         Canvas.ay.aw(Login.aw * 578342931 + 382 - Canvas.ay.subWidth / 2, 18);
          int var4;
          int var5;
          if (Client.dw * -1275976559 == 0 || Client.dw * -1275976559 == 5) {
             var4 = 20;
-            var0.drawCentered(Strings.iv, 180 + 678588245 * cz.ak, 245 - var4, 16777215, -1);
+            var0.drawCentered(Strings.iv, 180 + 678588245 * Login.ak, 245 - var4, 16777215, -1);
             var5 = 253 - var4;
-            Rasterizer2D.Rasterizer2D_drawRectangle(cz.ak * 678588245 + 180 - 152, var5, 304, 34, 9179409);
-            Rasterizer2D.Rasterizer2D_drawRectangle(678588245 * cz.ak + 180 - 151, var5 + 1, 302, 32, 0);
-            Rasterizer2D.Rasterizer2D_fillRectangle(cz.ak * 678588245 + 180 - 150, 2 + var5, -819692701 * cz.ad, 30, 9179409);
-            Rasterizer2D.Rasterizer2D_fillRectangle(180 + 678588245 * cz.ak - 150 + -819692701 * cz.ad, 2 + var5, 300 - cz.ad * -819692701, 30, 0);
-            var0.drawCentered(cz.Login_loadingText, 180 + cz.ak * 678588245, 276 - var4, 16777215, -1);
+            Rasterizer2D.Rasterizer2D_drawRectangle(Login.ak * 678588245 + 180 - 152, var5, 304, 34, 9179409);
+            Rasterizer2D.Rasterizer2D_drawRectangle(678588245 * Login.ak + 180 - 151, var5 + 1, 302, 32, 0);
+            Rasterizer2D.Rasterizer2D_fillRectangle(Login.ak * 678588245 + 180 - 150, 2 + var5, -819692701 * Login.ad, 30, 9179409);
+            Rasterizer2D.Rasterizer2D_fillRectangle(180 + 678588245 * Login.ak - 150 + -819692701 * Login.ad, 2 + var5, 300 - Login.ad * -819692701, 30, 0);
+            var0.drawCentered(Login.Login_loadingText, 180 + Login.ak * 678588245, 276 - var4, 16777215, -1);
          }
 
          String var6;
          String var7;
          short var18;
          if (Client.dw * -1275976559 == 20) {
-            cz.au.aw(cz.ak * 678588245 + 180 - cz.au.subWidth / 2, 271 - cz.au.subHeight / 2);
+            Login.au.aw(Login.ak * 678588245 + 180 - Login.au.subWidth / 2, 271 - Login.au.subHeight / 2);
             var4 = 201;
-            var0.drawCentered(cz.Login_response1, 180 + 678588245 * cz.ak, var4, 16776960, 0);
+            var0.drawCentered(Login.Login_response1, 180 + 678588245 * Login.ak, var4, 16776960, 0);
             var4 += 15;
-            var0.drawCentered(cz.Login_response2, cz.ak * 678588245 + 180, var4, 16776960, 0);
+            var0.drawCentered(Login.Login_response2, Login.ak * 678588245 + 180, var4, 16776960, 0);
             var4 += 15;
-            var0.drawCentered(cz.Login_response3, cz.ak * 678588245 + 180, var4, 16776960, 0);
+            var0.drawCentered(Login.Login_response3, Login.ak * 678588245 + 180, var4, 16776960, 0);
             var4 += 15;
             var4 += 7;
-            if (4 != cz.ce * 1145608355 && 10 != 1145608355 * cz.ce) {
-               var0.draw(Strings.Strings_login, cz.ak * 678588245 + 180 - 110, var4, 16777215, 0);
+            if (4 != Login.ce * 1145608355 && 10 != 1145608355 * Login.ce) {
+               var0.draw(Strings.Strings_login, Login.ak * 678588245 + 180 - 110, var4, 16777215, 0);
                var18 = 200;
 
                for(var6 = am.aw_renamed(); var0.stringWidth(var6) > var18; var6 = var6.substring(0, var6.length() - 1)) {
                }
 
-               var0.draw(AbstractFont.escapeBrackets(var6), 180 + cz.ak * 678588245 - 70, var4, 16777215, 0);
+               var0.draw(AbstractFont.escapeBrackets(var6), 180 + Login.ak * 678588245 - 70, var4, 16777215, 0);
                var4 += 15;
 
-               for(var7 = mc.ai_renamed(cz.cu); var0.stringWidth(var7) > var18; var7 = var7.substring(1)) {
+               for(var7 = mc.ai_renamed(Login.cu); var0.stringWidth(var7) > var18; var7 = var7.substring(1)) {
                }
 
-               var0.draw(Strings.Strings_password + var7, 180 + cz.ak * 678588245 - 108, var4, 16777215, 0);
+               var0.draw(Strings.Strings_password + var7, 180 + Login.ak * 678588245 - 108, var4, 16777215, 0);
                var4 += 15;
             }
          }
 
          if (10 == Client.dw * -1275976559 || Client.dw * -1275976559 == 11 || Client.dw * -1275976559 == 50) {
-            cz.au.aw(cz.ak * 678588245, 171);
+            Login.au.aw(Login.ak * 678588245, 171);
             short var19;
             int var20;
-            if (0 == cz.ce * 1145608355) {
+            if (0 == Login.ce * 1145608355) {
                var19 = 251;
-               var0.drawCentered(Strings.Strings_welcomeToRuneScape, 678588245 * cz.ak + 180, var19, 16776960, 0);
+               var0.drawCentered(Strings.Strings_welcomeToRuneScape, 678588245 * Login.ak + 180, var19, 16776960, 0);
                var4 = var19 + 30;
-               var5 = 180 + 678588245 * cz.ak - 80;
+               var5 = 180 + 678588245 * Login.ak - 80;
                var20 = 291;
                lu.ab.aw(var5 - 73, var20 - 20);
                var0.drawLines(Strings.Strings_newUser, var5 - 73, var20 - 20, 144, 40, 16777215, 0, 1, 1, 0);
-               var5 = 180 + 678588245 * cz.ak + 80;
+               var5 = 180 + 678588245 * Login.ak + 80;
                lu.ab.aw(var5 - 73, var20 - 20);
                var0.drawLines(Strings.Strings_existingUser, var5 - 73, var20 - 20, 144, 40, 16777215, 0, 1, 1, 0);
-            } else if (1 == 1145608355 * cz.ce) {
-               var0.drawCentered(cz.Login_response0, 678588245 * cz.ak + 180, 201, 16776960, 0);
+            } else if (1 == 1145608355 * Login.ce) {
+               var0.drawCentered(Login.Login_response0, 678588245 * Login.ak + 180, 201, 16776960, 0);
                var19 = 236;
-               var0.drawCentered(cz.Login_response1, 678588245 * cz.ak + 180, var19, 16777215, 0);
+               var0.drawCentered(Login.Login_response1, 678588245 * Login.ak + 180, var19, 16777215, 0);
                var4 = var19 + 15;
-               var0.drawCentered(cz.Login_response2, cz.ak * 678588245 + 180, var4, 16777215, 0);
+               var0.drawCentered(Login.Login_response2, Login.ak * 678588245 + 180, var4, 16777215, 0);
                var4 += 15;
-               var0.drawCentered(cz.Login_response3, cz.ak * 678588245 + 180, var4, 16777215, 0);
+               var0.drawCentered(Login.Login_response3, Login.ak * 678588245 + 180, var4, 16777215, 0);
                var4 += 15;
-               var5 = 678588245 * cz.ak + 180 - 80;
+               var5 = 678588245 * Login.ak + 180 - 80;
                var20 = 321;
                lu.ab.aw(var5 - 73, var20 - 20);
                var0.drawCentered(Strings.Strings_continue, var5, var20 + 5, 16777215, 0);
-               var5 = cz.ak * 678588245 + 180 + 80;
+               var5 = Login.ak * 678588245 + 180 + 80;
                lu.ab.aw(var5 - 73, var20 - 20);
                var0.drawCentered(Strings.Strings_cancel, var5, 5 + var20, 16777215, 0);
             } else {
                int var8;
-               if (1145608355 * cz.ce == 2) {
+               if (1145608355 * Login.ce == 2) {
                   var19 = 201;
-                  var0.drawCentered(cz.Login_response1, fy.az * 950254081, var19, 16776960, 0);
+                  var0.drawCentered(Login.Login_response1, fy.az * 950254081, var19, 16776960, 0);
                   var4 = var19 + 15;
-                  var0.drawCentered(cz.Login_response2, 950254081 * fy.az, var4, 16776960, 0);
+                  var0.drawCentered(Login.Login_response2, 950254081 * fy.az, var4, 16776960, 0);
                   var4 += 15;
-                  var0.drawCentered(cz.Login_response3, fy.az * 950254081, var4, 16776960, 0);
+                  var0.drawCentered(Login.Login_response3, fy.az * 950254081, var4, 16776960, 0);
                   var4 += 15;
                   var4 += 7;
                   var0.draw(Strings.Strings_login, 950254081 * fy.az - 110, var4, 16777215, 0);
@@ -140,26 +140,26 @@ public class aq implements Enumerated {
                   for(var6 = am.aw_renamed(); var0.stringWidth(var6) > var18; var6 = var6.substring(1)) {
                   }
 
-                  var0.draw(AbstractFont.escapeBrackets(var6) + (0 == cz.dm * -1232221421 & Client.ep * -1886224337 % 40 < 20 ? oa.colorStartTag(16776960) + Formatting.Formatting_pipe : ""), 950254081 * fy.az - 70, var4, 16777215, 0);
+                  var0.draw(AbstractFont.escapeBrackets(var6) + (0 == Login.dm * -1232221421 & Client.ep * -1886224337 % 40 < 20 ? oa.colorStartTag(16776960) + Formatting.Formatting_pipe : ""), 950254081 * fy.az - 70, var4, 16777215, 0);
                   var4 += 15;
 
-                  for(var7 = mc.ai_renamed(cz.cu); var0.stringWidth(var7) > var18; var7 = var7.substring(1)) {
+                  for(var7 = mc.ai_renamed(Login.cu); var0.stringWidth(var7) > var18; var7 = var7.substring(1)) {
                   }
 
-                  var0.draw(Strings.Strings_password + var7 + (-1232221421 * cz.dm == 1 & Client.ep * -1886224337 % 40 < 20 ? oa.colorStartTag(16776960) + Formatting.Formatting_pipe : ""), 950254081 * fy.az - 108, var4, 16777215, 0);
+                  var0.draw(Strings.Strings_password + var7 + (-1232221421 * Login.dm == 1 & Client.ep * -1886224337 % 40 < 20 ? oa.colorStartTag(16776960) + Formatting.Formatting_pipe : ""), 950254081 * fy.az - 108, var4, 16777215, 0);
                   var4 += 15;
                   var19 = 277;
                   var8 = -117 + 950254081 * fy.az;
                   boolean var10 = Client.hb;
-                  boolean var11 = cz.cj;
-                  IndexedSprite var9 = var10 ? (var11 ? cz.ah : gs.ag) : (var11 ? cz.ai : cz.ax);
+                  boolean var11 = Login.cj;
+                  IndexedSprite var9 = var10 ? (var11 ? Login.ah : gs.ag) : (var11 ? Login.ai : Login.ax);
                   var9.aw(var8, var19);
                   var8 += 5 + var9.subWidth;
                   var1.draw(Strings.kc, var8, 13 + var19, 16776960, 0);
                   var8 = 950254081 * fy.az + 24;
                   boolean var14 = aj.clientPreferences.al();
-                  boolean var15 = cz.ch;
-                  IndexedSprite var13 = var14 ? (var15 ? cz.ah : gs.ag) : (var15 ? cz.ai : cz.ax);
+                  boolean var15 = Login.ch;
+                  IndexedSprite var13 = var14 ? (var15 ? Login.ah : gs.ag) : (var15 ? Login.ai : Login.ax);
                   var13.aw(var8, var19);
                   var8 += 5 + var13.subWidth;
                   var1.draw(Strings.ku, var8, var19 + 13, 16776960, 0);
@@ -172,7 +172,7 @@ public class aq implements Enumerated {
                   lu.ab.aw(var16 - 73, var17 - 20);
                   var0.drawCentered(Strings.Strings_cancel, var16, 5 + var17, 16777215, 0);
                   var19 = 357;
-                  switch (cz.bp * -1733444455) {
+                  switch (Login.bp * -1733444455) {
                      case 2:
                         am.bc = Strings.lg;
                         break;
@@ -183,113 +183,113 @@ public class aq implements Enumerated {
                   Formatting.bh = new Bounds(fy.az * 950254081, var19, var1.stringWidth(am.bc), 11);
                   as.bw = new Bounds(950254081 * fy.az, var19, var1.stringWidth(Strings.lm), 11);
                   var1.drawCentered(am.bc, 950254081 * fy.az, var19, 16777215, 0);
-               } else if (3 == cz.ce * 1145608355) {
+               } else if (3 == Login.ce * 1145608355) {
                   var19 = 201;
-                  var0.drawCentered(Strings.ke, 678588245 * cz.ak + 180, var19, 16776960, 0);
+                  var0.drawCentered(Strings.ke, 678588245 * Login.ak + 180, var19, 16776960, 0);
                   var4 = var19 + 20;
-                  var1.drawCentered(Strings.ky, cz.ak * 678588245 + 180, var4, 16776960, 0);
+                  var1.drawCentered(Strings.ky, Login.ak * 678588245 + 180, var4, 16776960, 0);
                   var4 += 20;
-                  var1.drawCentered(Strings.kh, 678588245 * cz.ak + 180, var4, 16776960, 0);
+                  var1.drawCentered(Strings.kh, 678588245 * Login.ak + 180, var4, 16776960, 0);
                   var4 += 15;
-                  var5 = 678588245 * cz.ak + 180;
+                  var5 = 678588245 * Login.ak + 180;
                   var20 = 276;
                   lu.ab.aw(var5 - 73, var20 - 20);
                   var2.drawCentered(Strings.kp, var5, var20 + 5, 16777215, 0);
-                  var5 = 180 + cz.ak * 678588245;
+                  var5 = 180 + Login.ak * 678588245;
                   var20 = 326;
                   lu.ab.aw(var5 - 73, var20 - 20);
                   var2.drawCentered(Strings.kf, var5, 5 + var20, 16777215, 0);
                } else {
                   short var22;
-                  if (cz.ce * 1145608355 == 4) {
-                     var0.drawCentered(Strings.je, 180 + 678588245 * cz.ak, 201, 16776960, 0);
+                  if (Login.ce * 1145608355 == 4) {
+                     var0.drawCentered(Strings.je, 180 + 678588245 * Login.ak, 201, 16776960, 0);
                      var19 = 236;
-                     var0.drawCentered(cz.Login_response1, 678588245 * cz.ak + 180, var19, 16777215, 0);
+                     var0.drawCentered(Login.Login_response1, 678588245 * Login.ak + 180, var19, 16777215, 0);
                      var4 = var19 + 15;
-                     var0.drawCentered(cz.Login_response2, 180 + cz.ak * 678588245, var4, 16777215, 0);
+                     var0.drawCentered(Login.Login_response2, 180 + Login.ak * 678588245, var4, 16777215, 0);
                      var4 += 15;
-                     var0.drawCentered(cz.Login_response3, 678588245 * cz.ak + 180, var4, 16777215, 0);
+                     var0.drawCentered(Login.Login_response3, 678588245 * Login.ak + 180, var4, 16777215, 0);
                      var4 += 15;
-                     var0.draw(Strings.Strings_pin + mc.ai_renamed(Messages.cp) + (-1886224337 * Client.ep % 40 < 20 ? oa.colorStartTag(16776960) + Formatting.Formatting_pipe : ""), cz.ak * 678588245 + 180 - 108, var4, 16777215, 0);
+                     var0.draw(Strings.Strings_pin + mc.ai_renamed(Messages.cp) + (-1886224337 * Client.ep % 40 < 20 ? oa.colorStartTag(16776960) + Formatting.Formatting_pipe : ""), Login.ak * 678588245 + 180 - 108, var4, 16777215, 0);
                      var4 -= 8;
-                     var0.draw(Strings.aa, 678588245 * cz.ak + 180 - 9, var4, 16776960, 0);
+                     var0.draw(Strings.aa, 678588245 * Login.ak + 180 - 9, var4, 16776960, 0);
                      var4 += 15;
-                     var0.draw(Strings.ay, 180 + cz.ak * 678588245 - 9, var4, 16776960, 0);
-                     var5 = cz.ak * 678588245 + 180 - 9 + var0.stringWidth(Strings.ay) + 15;
+                     var0.draw(Strings.ay, 180 + Login.ak * 678588245 - 9, var4, 16776960, 0);
+                     var5 = Login.ak * 678588245 + 180 - 9 + var0.stringWidth(Strings.ay) + 15;
                      var20 = var4 - var0.ascent;
                      IndexedSprite var21;
-                     if (cz.cd) {
+                     if (Login.cd) {
                         var21 = gs.ag;
                      } else {
-                        var21 = cz.ax;
+                        var21 = Login.ax;
                      }
 
                      var21.aw(var5, var20);
                      var4 += 15;
-                     var8 = 180 + 678588245 * cz.ak - 80;
+                     var8 = 180 + 678588245 * Login.ak - 80;
                      var22 = 321;
                      lu.ab.aw(var8 - 73, var22 - 20);
                      var0.drawCentered(Strings.Strings_continue, var8, var22 + 5, 16777215, 0);
-                     var8 = 80 + cz.ak * 678588245 + 180;
+                     var8 = 80 + Login.ak * 678588245 + 180;
                      lu.ab.aw(var8 - 73, var22 - 20);
                      var0.drawCentered(Strings.Strings_cancel, var8, 5 + var22, 16777215, 0);
-                     var1.drawCentered(Strings.jj, 180 + cz.ak * 678588245, var22 + 36, 255, 0);
-                  } else if (cz.ce * 1145608355 == 5) {
-                     var0.drawCentered(Strings.ks, cz.ak * 678588245 + 180, 201, 16776960, 0);
+                     var1.drawCentered(Strings.jj, 180 + Login.ak * 678588245, var22 + 36, 255, 0);
+                  } else if (Login.ce * 1145608355 == 5) {
+                     var0.drawCentered(Strings.ks, Login.ak * 678588245 + 180, 201, 16776960, 0);
                      var19 = 221;
-                     var2.drawCentered(cz.Login_response1, 678588245 * cz.ak + 180, var19, 16776960, 0);
+                     var2.drawCentered(Login.Login_response1, 678588245 * Login.ak + 180, var19, 16776960, 0);
                      var4 = var19 + 15;
-                     var2.drawCentered(cz.Login_response2, 180 + 678588245 * cz.ak, var4, 16776960, 0);
+                     var2.drawCentered(Login.Login_response2, 180 + 678588245 * Login.ak, var4, 16776960, 0);
                      var4 += 15;
-                     var2.drawCentered(cz.Login_response3, 180 + 678588245 * cz.ak, var4, 16776960, 0);
+                     var2.drawCentered(Login.Login_response3, 180 + 678588245 * Login.ak, var4, 16776960, 0);
                      var4 += 15;
                      var4 += 14;
-                     var0.draw(Strings.kn, 180 + 678588245 * cz.ak - 145, var4, 16777215, 0);
+                     var0.draw(Strings.kn, 180 + 678588245 * Login.ak - 145, var4, 16777215, 0);
                      var18 = 174;
 
                      for(var6 = am.aw_renamed(); var0.stringWidth(var6) > var18; var6 = var6.substring(1)) {
                      }
 
-                     var0.draw(AbstractFont.escapeBrackets(var6) + (-1886224337 * Client.ep % 40 < 20 ? oa.colorStartTag(16776960) + Formatting.Formatting_pipe : ""), cz.ak * 678588245 + 180 - 34, var4, 16777215, 0);
+                     var0.draw(AbstractFont.escapeBrackets(var6) + (-1886224337 * Client.ep % 40 < 20 ? oa.colorStartTag(16776960) + Formatting.Formatting_pipe : ""), Login.ak * 678588245 + 180 - 34, var4, 16777215, 0);
                      var4 += 15;
-                     int var23 = 180 + 678588245 * cz.ak - 80;
+                     int var23 = 180 + 678588245 * Login.ak - 80;
                      short var25 = 321;
                      lu.ab.aw(var23 - 73, var25 - 20);
                      var0.drawCentered(Strings.kz, var23, var25 + 5, 16777215, 0);
-                     var23 = 80 + 180 + cz.ak * 678588245;
+                     var23 = 80 + 180 + Login.ak * 678588245;
                      lu.ab.aw(var23 - 73, var25 - 20);
                      var0.drawCentered(Strings.km, var23, var25 + 5, 16777215, 0);
                      var25 = 356;
                      var1.drawCentered(Strings.lm, fy.az * 950254081, var25, 268435455, 0);
                   } else {
                      short var24;
-                     if (6 == cz.ce * 1145608355) {
+                     if (6 == Login.ce * 1145608355) {
                         var19 = 201;
-                        var0.drawCentered(cz.Login_response1, 180 + cz.ak * 678588245, var19, 16776960, 0);
+                        var0.drawCentered(Login.Login_response1, 180 + Login.ak * 678588245, var19, 16776960, 0);
                         var4 = var19 + 15;
-                        var0.drawCentered(cz.Login_response2, 180 + cz.ak * 678588245, var4, 16776960, 0);
+                        var0.drawCentered(Login.Login_response2, 180 + Login.ak * 678588245, var4, 16776960, 0);
                         var4 += 15;
-                        var0.drawCentered(cz.Login_response3, 678588245 * cz.ak + 180, var4, 16776960, 0);
+                        var0.drawCentered(Login.Login_response3, 678588245 * Login.ak + 180, var4, 16776960, 0);
                         var4 += 15;
-                        var5 = 180 + 678588245 * cz.ak;
+                        var5 = 180 + 678588245 * Login.ak;
                         var24 = 321;
                         lu.ab.aw(var5 - 73, var24 - 20);
                         var0.drawCentered(Strings.km, var5, var24 + 5, 16777215, 0);
-                     } else if (1145608355 * cz.ce == 7) {
+                     } else if (1145608355 * Login.ce == 7) {
                         if (WorldMapSectionType.ds && !Client.cy) {
                            var19 = 201;
-                           var0.drawCentered(cz.Login_response1, 950254081 * fy.az, var19, 16776960, 0);
+                           var0.drawCentered(Login.Login_response1, 950254081 * fy.az, var19, 16776960, 0);
                            var4 = var19 + 15;
-                           var0.drawCentered(cz.Login_response2, 950254081 * fy.az, var4, 16776960, 0);
+                           var0.drawCentered(Login.Login_response2, 950254081 * fy.az, var4, 16776960, 0);
                            var4 += 15;
-                           var0.drawCentered(cz.Login_response3, 950254081 * fy.az, var4, 16776960, 0);
+                           var0.drawCentered(Login.Login_response3, 950254081 * fy.az, var4, 16776960, 0);
                            var5 = fy.az * 950254081 - 150;
                            var4 += 10;
 
                            for(var20 = 0; var20 < 8; ++var20) {
                               lu.ab.au(var5, var4, 30, 40);
-                              boolean var26 = cz.cq * -1262226977 == var20 & -1886224337 * Client.ep % 40 < 20;
-                              var0.draw((cz.cm[var20] == null ? "" : cz.cm[var20]) + (var26 ? oa.colorStartTag(16776960) + Formatting.Formatting_pipe : ""), var5 + 10, 27 + var4, 16777215, 0);
+                              boolean var26 = Login.cq * -1262226977 == var20 & -1886224337 * Client.ep % 40 < 20;
+                              var0.draw((Login.cm[var20] == null ? "" : Login.cm[var20]) + (var26 ? oa.colorStartTag(16776960) + Formatting.Formatting_pipe : ""), var5 + 10, 27 + var4, 16777215, 0);
                               if (1 != var20 && 3 != var20) {
                                  var5 += 35;
                               } else {
@@ -307,59 +307,59 @@ public class aq implements Enumerated {
                            var0.drawCentered(Strings.Strings_cancel, var20, var27 + 5, 16777215, 0);
                         } else {
                            var19 = 216;
-                           var0.drawCentered(Strings.mw, cz.ak * 678588245 + 180, var19, 16776960, 0);
+                           var0.drawCentered(Strings.mw, Login.ak * 678588245 + 180, var19, 16776960, 0);
                            var4 = var19 + 15;
-                           var2.drawCentered(Strings.mz, 180 + cz.ak * 678588245, var4, 16776960, 0);
+                           var2.drawCentered(Strings.mz, 180 + Login.ak * 678588245, var4, 16776960, 0);
                            var4 += 15;
-                           var2.drawCentered(Strings.mu, 180 + 678588245 * cz.ak, var4, 16776960, 0);
+                           var2.drawCentered(Strings.mu, 180 + 678588245 * Login.ak, var4, 16776960, 0);
                            var4 += 15;
-                           var5 = cz.ak * 678588245 + 180 - 80;
+                           var5 = Login.ak * 678588245 + 180 - 80;
                            var24 = 321;
                            lu.ab.aw(var5 - 73, var24 - 20);
                            var0.drawCentered(Strings.mq, var5, 5 + var24, 16777215, 0);
-                           var5 = 180 + cz.ak * 678588245 + 80;
+                           var5 = 180 + Login.ak * 678588245 + 80;
                            lu.ab.aw(var5 - 73, var24 - 20);
                            var0.drawCentered(Strings.km, var5, var24 + 5, 16777215, 0);
                         }
-                     } else if (8 == 1145608355 * cz.ce) {
+                     } else if (8 == 1145608355 * Login.ce) {
                         var19 = 216;
-                        var0.drawCentered(Strings.fb, cz.ak * 678588245 + 180, var19, 16776960, 0);
+                        var0.drawCentered(Strings.fb, Login.ak * 678588245 + 180, var19, 16776960, 0);
                         var4 = var19 + 15;
-                        var2.drawCentered(Strings.fn, 180 + 678588245 * cz.ak, var4, 16776960, 0);
+                        var2.drawCentered(Strings.fn, 180 + 678588245 * Login.ak, var4, 16776960, 0);
                         var4 += 15;
-                        var2.drawCentered(Strings.fz, 678588245 * cz.ak + 180, var4, 16776960, 0);
+                        var2.drawCentered(Strings.fz, 678588245 * Login.ak + 180, var4, 16776960, 0);
                         var4 += 15;
-                        var5 = 678588245 * cz.ak + 180 - 80;
+                        var5 = 678588245 * Login.ak + 180 - 80;
                         var24 = 321;
                         lu.ab.aw(var5 - 73, var24 - 20);
                         var0.drawCentered(Strings.fa, var5, 5 + var24, 16777215, 0);
-                        var5 = 80 + cz.ak * 678588245 + 180;
+                        var5 = 80 + Login.ak * 678588245 + 180;
                         lu.ab.aw(var5 - 73, var24 - 20);
                         var0.drawCentered(Strings.km, var5, var24 + 5, 16777215, 0);
-                     } else if (9 == cz.ce * 1145608355) {
+                     } else if (9 == Login.ce * 1145608355) {
                         var19 = 221;
-                        var0.drawCentered(cz.Login_response1, 180 + 678588245 * cz.ak, var19, 16776960, 0);
+                        var0.drawCentered(Login.Login_response1, 180 + 678588245 * Login.ak, var19, 16776960, 0);
                         var4 = var19 + 25;
-                        var0.drawCentered(cz.Login_response2, 678588245 * cz.ak + 180, var4, 16776960, 0);
+                        var0.drawCentered(Login.Login_response2, 678588245 * Login.ak + 180, var4, 16776960, 0);
                         var4 += 25;
-                        var0.drawCentered(cz.Login_response3, 180 + cz.ak * 678588245, var4, 16776960, 0);
-                        var5 = 180 + cz.ak * 678588245;
+                        var0.drawCentered(Login.Login_response3, 180 + Login.ak * 678588245, var4, 16776960, 0);
+                        var5 = 180 + Login.ak * 678588245;
                         var24 = 311;
                         lu.ab.aw(var5 - 73, var24 - 20);
                         var0.drawCentered(Strings.kp, var5, var24 + 5, 16777215, 0);
-                     } else if (10 == 1145608355 * cz.ce) {
-                        var4 = 678588245 * cz.ak + 180;
+                     } else if (10 == 1145608355 * Login.ce) {
+                        var4 = 678588245 * Login.ak + 180;
                         var18 = 209;
-                        var0.drawCentered(Strings.Strings_welcomeToRuneScape, 180 + 678588245 * cz.ak, var18, 16776960, 0);
+                        var0.drawCentered(Strings.Strings_welcomeToRuneScape, 180 + 678588245 * Login.ak, var18, 16776960, 0);
                         var5 = var18 + 20;
                         qo.aq.aw(var4 - 109, var5);
-                        if (cz.cy.isEmpty()) {
+                        if (Login.cy.isEmpty()) {
                            os.al.aw(var4 - 48, 18 + var5);
                         } else {
                            os.al.aw(var4 - 48, 5 + var5);
-                           var0.drawCentered(cz.cy, var4, 68 + var5 - 15, 16776960, 0);
+                           var0.drawCentered(Login.cy, var4, 68 + var5 - 15, 16776960, 0);
                         }
-                     } else if (12 == 1145608355 * cz.ce) {
+                     } else if (12 == 1145608355 * Login.ce) {
                         var4 = fy.az * 950254081;
                         var18 = 216;
                         var2.drawCentered(Strings.mx, var4, var18, 16777215, 0);
@@ -376,21 +376,21 @@ public class aq implements Enumerated {
                         var4 = 80 + fy.az * 950254081;
                         lu.ab.aw(var4 - 73, var18 - 20);
                         var0.drawCentered(Strings.mg, var4, var18 + 5, 16777215, 0);
-                     } else if (13 == cz.ce * 1145608355) {
+                     } else if (13 == Login.ce * 1145608355) {
                         var19 = 231;
-                        var2.drawCentered(Strings.ms, 678588245 * cz.ak + 180, var19, 16777215, 0);
+                        var2.drawCentered(Strings.ms, 678588245 * Login.ak + 180, var19, 16777215, 0);
                         var4 = var19 + 20;
-                        var2.drawCentered(Strings.mc, 678588245 * cz.ak + 180, var4, 16777215, 0);
-                        var5 = 678588245 * cz.ak + 180;
+                        var2.drawCentered(Strings.mc, 678588245 * Login.ak + 180, var4, 16777215, 0);
+                        var5 = 678588245 * Login.ak + 180;
                         var19 = 311;
                         lu.ab.aw(var5 - 73, var19 - 20);
                         var0.drawCentered(Strings.km, var5, var19 + 5, 16777215, 0);
-                     } else if (1145608355 * cz.ce == 14) {
+                     } else if (1145608355 * Login.ce == 14) {
                         var19 = 201;
                         String var29 = "";
                         var6 = "";
                         var7 = "";
-                        switch (cz.ba * -1478945003) {
+                        switch (Login.ba * -1478945003) {
                            case 0:
                               var29 = Strings.cc;
                               var6 = Strings.cn;
@@ -410,64 +410,64 @@ public class aq implements Enumerated {
                               aa_renamed(false);
                         }
 
-                        var0.drawCentered(var29, cz.ak * 678588245 + 180, var19, 16776960, 0);
+                        var0.drawCentered(var29, Login.ak * 678588245 + 180, var19, 16776960, 0);
                         var4 = var19 + 20;
-                        var0.drawCentered(var6, 180 + 678588245 * cz.ak, var4, 16776960, 0);
+                        var0.drawCentered(var6, 180 + 678588245 * Login.ak, var4, 16776960, 0);
                         var4 += 20;
-                        var0.drawCentered(var7, 678588245 * cz.ak + 180, var4, 16776960, 0);
-                        var8 = 678588245 * cz.ak + 180;
+                        var0.drawCentered(var7, 678588245 * Login.ak + 180, var4, 16776960, 0);
+                        var8 = 678588245 * Login.ak + 180;
                         var22 = 276;
                         lu.ab.aw(var8 - 73, var22 - 20);
-                        if (1 == cz.ba * -1478945003) {
+                        if (1 == Login.ba * -1478945003) {
                            var0.drawCentered(Strings.bs, var8, 5 + var22, 16777215, 0);
                         } else {
                            var0.drawCentered(Strings.bn, var8, var22 + 5, 16777215, 0);
                         }
 
-                        var8 = 180 + 678588245 * cz.ak;
+                        var8 = 180 + 678588245 * Login.ak;
                         var22 = 326;
                         lu.ab.aw(var8 - 73, var22 - 20);
                         var0.drawCentered(Strings.km, var8, var22 + 5, 16777215, 0);
-                     } else if (24 == cz.ce * 1145608355) {
+                     } else if (24 == Login.ce * 1145608355) {
                         var19 = 221;
-                        var0.drawCentered(cz.Login_response1, 678588245 * cz.ak + 180, var19, 16777215, 0);
+                        var0.drawCentered(Login.Login_response1, 678588245 * Login.ak + 180, var19, 16777215, 0);
                         var4 = var19 + 15;
-                        var0.drawCentered(cz.Login_response2, 678588245 * cz.ak + 180, var4, 16777215, 0);
+                        var0.drawCentered(Login.Login_response2, 678588245 * Login.ak + 180, var4, 16777215, 0);
                         var4 += 15;
-                        var0.drawCentered(cz.Login_response3, 678588245 * cz.ak + 180, var4, 16777215, 0);
+                        var0.drawCentered(Login.Login_response3, 678588245 * Login.ak + 180, var4, 16777215, 0);
                         var4 += 15;
-                        var5 = cz.ak * 678588245 + 180;
+                        var5 = Login.ak * 678588245 + 180;
                         var24 = 301;
                         lu.ab.aw(var5 - 73, var24 - 20);
                         var0.drawCentered(Strings.Strings_ok, var5, var24 + 5, 16777215, 0);
-                     } else if (32 == cz.ce * 1145608355) {
+                     } else if (32 == Login.ce * 1145608355) {
                         var19 = 216;
-                        var0.drawCentered(Strings.mw, cz.ak * 678588245 + 180, var19, 16776960, 0);
+                        var0.drawCentered(Strings.mw, Login.ak * 678588245 + 180, var19, 16776960, 0);
                         var4 = var19 + 15;
-                        var2.drawCentered(Strings.mz, cz.ak * 678588245 + 180, var4, 16776960, 0);
+                        var2.drawCentered(Strings.mz, Login.ak * 678588245 + 180, var4, 16776960, 0);
                         var4 += 15;
-                        var2.drawCentered(Strings.mu, 678588245 * cz.ak + 180, var4, 16776960, 0);
+                        var2.drawCentered(Strings.mu, 678588245 * Login.ak + 180, var4, 16776960, 0);
                         var4 += 15;
-                        var5 = 180 + cz.ak * 678588245 - 80;
+                        var5 = 180 + Login.ak * 678588245 - 80;
                         var24 = 321;
                         lu.ab.aw(var5 - 73, var24 - 20);
                         var0.drawCentered(Strings.mq, var5, var24 + 5, 16777215, 0);
-                        var5 = 180 + cz.ak * 678588245 + 80;
+                        var5 = 180 + Login.ak * 678588245 + 80;
                         lu.ab.aw(var5 - 73, var24 - 20);
                         var0.drawCentered(Strings.km, var5, var24 + 5, 16777215, 0);
-                     } else if (33 == cz.ce * 1145608355) {
+                     } else if (33 == Login.ce * 1145608355) {
                         var19 = 201;
-                        var0.drawCentered(cz.Login_response1, 180 + cz.ak * 678588245, var19, 16776960, 0);
+                        var0.drawCentered(Login.Login_response1, 180 + Login.ak * 678588245, var19, 16776960, 0);
                         var4 = var19 + 20;
-                        var1.drawCentered(cz.Login_response2, 180 + cz.ak * 678588245, var4, 16776960, 0);
+                        var1.drawCentered(Login.Login_response2, 180 + Login.ak * 678588245, var4, 16776960, 0);
                         var4 += 20;
-                        var1.drawCentered(cz.Login_response3, 180 + cz.ak * 678588245, var4, 16776960, 0);
+                        var1.drawCentered(Login.Login_response3, 180 + Login.ak * 678588245, var4, 16776960, 0);
                         var4 += 15;
-                        var5 = 180 + 678588245 * cz.ak;
+                        var5 = 180 + 678588245 * Login.ak;
                         var24 = 276;
                         lu.ab.aw(var5 - 73, var24 - 20);
                         var2.drawCentered(Strings.nw, var5, var24 + 5, 16777215, 0);
-                        var5 = cz.ak * 678588245 + 180;
+                        var5 = Login.ak * 678588245 + 180;
                         var24 = 326;
                         lu.ab.aw(var5 - 73, var24 - 20);
                         var2.drawCentered(Strings.km, var5, 5 + var24, 16777215, 0);
@@ -480,16 +480,16 @@ public class aq implements Enumerated {
          if (Client.dw * -1275976559 >= 10) {
             int[] var31 = new int[4];
             Rasterizer2D.Rasterizer2D_getClipArray(var31);
-            Rasterizer2D.Rasterizer2D_setClip(cz.aw * 578342931, 0, 765 + 578342931 * cz.aw, 1658005443 * kd.ak);
-            em.av.aw(578342931 * cz.aw - 22, -1886224337 * Client.ep);
-            em.av.aw(578342931 * cz.aw + 765 + 22 - 128, -1886224337 * Client.ep);
+            Rasterizer2D.Rasterizer2D_setClip(Login.aw * 578342931, 0, 765 + 578342931 * Login.aw, 1658005443 * kd.ak);
+            em.av.aw(578342931 * Login.aw - 22, -1886224337 * Client.ep);
+            em.av.aw(578342931 * Login.aw + 765 + 22 - 128, -1886224337 * Client.ep);
             Rasterizer2D.Rasterizer2D_setClipArray(var31);
          }
 
-         fc.titleMuteSprites[aj.clientPreferences.aa() ? 1 : 0].aw(765 + cz.aw * 578342931 - 40, 463);
+         fc.titleMuteSprites[aj.clientPreferences.aa() ? 1 : 0].aw(765 + Login.aw * 578342931 - 40, 463);
          if (-1275976559 * Client.dw > 5 && Language.af == fj.ck) {
             if (mv.dv != null) {
-               var4 = cz.aw * 578342931 + 5;
+               var4 = Login.aw * 578342931 + 5;
                var18 = 463;
                byte var30 = 100;
                byte var28 = 35;

@@ -10,7 +10,7 @@ public class FloorUnderlayType extends DualNode {
    public int aq;
    public int au;
 
-   public void an() {
+   public void postDecode() {
       this.au(this.rgb * 86825461);
    }
 

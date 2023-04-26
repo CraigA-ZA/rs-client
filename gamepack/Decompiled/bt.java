@@ -10,7 +10,7 @@ public class bt {
    static void ie_renamed() {
       if (null != ey.worldMap0) {
          ey.worldMap0.ao(GameShell.plane * -1727408401, (1144428983 * MusicPatchNode.localPlayer.bx >> 7) + -1232093375 * jm.baseX, 827352769 * Scenery.baseY + (MusicPatchNode.localPlayer.bo * -411750205 >> 7), false);
-         ey.worldMap0.bb();
+         ey.worldMap0.loadCache();
       }
 
    }

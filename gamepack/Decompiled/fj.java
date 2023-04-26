@@ -619,22 +619,16 @@ public class fj {
       }
    }
 
-   boolean ax(int var1, byte var2) {
-      if (this.as * 680027429 != var1) {
-         if (var2 != -1) {
-            throw new IllegalStateException();
-         }
-
-         if (this.ag[var1] != 126) {
-            this.ag[680027429 * this.as] = 125;
-            this.aj = this.as * 251618433;
-            this.ag[var1] = 126;
-            this.as = 1473982125 * var1;
-            return true;
-         }
+   boolean ax(int var1) {
+      if (this.as * 680027429 != var1 && this.ag[var1] != 126) {
+         this.ag[680027429 * this.as] = 125;
+         this.aj = this.as * 251618433;
+         this.ag[var1] = 126;
+         this.as = 1473982125 * var1;
+         return true;
+      } else {
+         return false;
       }
-
-      return false;
    }
 
    int ai(int var1, boolean var2) {

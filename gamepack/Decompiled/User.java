@@ -10,11 +10,11 @@ public class User implements Comparable {
    }
 
    public String name() {
-      return null == this.username0 ? "" : this.username0.af();
+      return null == this.username0 ? "" : this.username0.name();
    }
 
    public String previousName() {
-      return null == this.previousUsername ? "" : this.previousUsername.af();
+      return null == this.previousUsername ? "" : this.previousUsername.name();
    }
 
    void set(Username var1, Username var2) {

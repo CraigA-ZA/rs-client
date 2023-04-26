@@ -14,12 +14,12 @@ public class WorldMapArchiveLoader {
             this.cacheName = var1;
             this.percentLoaded0 = 0;
             this.isLoaded0 = false;
-            this.an();
+            this.load();
          }
       }
    }
 
-   int an() {
+   int load() {
       if (this.cacheName == null) {
          this.percentLoaded0 = 840222292;
          this.isLoaded0 = true;
@@ -57,7 +57,7 @@ public class WorldMapArchiveLoader {
       return this.isLoaded0;
    }
 
-   int ac() {
+   int percentLoaded() {
       return -349750411 * this.percentLoaded0;
    }
 }

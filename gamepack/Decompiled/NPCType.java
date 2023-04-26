@@ -11,16 +11,16 @@ public class NPCType extends DualNode {
    int resizev;
    int[] aa;
    int[] models;
-   int[] bq;
+   int[] headIconPrayer;
    IterableNodeHashTable params;
    short[] ap;
    short[] ba;
    short[] bb;
    public boolean isFollower;
-   public boolean isInteractable;
-   public boolean bk;
-   public boolean bm;
-   public boolean bu;
+   public boolean interactable;
+   public boolean drawMapDot;
+   public boolean visible;
+   public boolean clickable;
    public int id;
    public int ad;
    public int ae;
@@ -39,7 +39,7 @@ public class NPCType extends DualNode {
    public int ay;
    public int az;
    public int bj;
-   public int bx;
+   public int combatLevel;
    public int[] transforms;
    public String name;
    public String[] op;
@@ -65,20 +65,20 @@ public class NPCType extends DualNode {
       this.ad = 2136803683;
       this.ae = -2044090389;
       this.op = new String[5];
-      this.bk = true;
-      this.bx = 959716425;
+      this.drawMapDot = true;
+      this.combatLevel = 959716425;
       this.resizeh = 1835076736;
       this.resizev = 2129768832;
-      this.bm = false;
+      this.visible = false;
       this.bd = 0;
       this.bt = 0;
       this.bj = -1472822432;
       this.transformVarbit = -1998015621;
       this.transformVarp = -17057377;
-      this.isInteractable = true;
-      this.bu = true;
+      this.interactable = true;
+      this.clickable = true;
       this.isFollower = false;
-      this.bq = null;
+      this.headIconPrayer = null;
       this.ba = null;
    }
 
@@ -160,15 +160,15 @@ public class NPCType extends DualNode {
             this.aa[var5] = var1.cl();
          }
       } else if (93 == var2) {
-         this.bk = false;
+         this.drawMapDot = false;
       } else if (95 == var2) {
-         this.bx = var1.cl() * -959716425;
+         this.combatLevel = var1.cl() * -959716425;
       } else if (97 == var2) {
          this.resizeh = var1.cl() * 1121632793;
       } else if (var2 == 98) {
          this.resizev = var1.cl() * 889054051;
       } else if (var2 == 99) {
-         this.bm = true;
+         this.visible = true;
       } else if (100 == var2) {
          this.bd = var1.g1s() * 1774081307;
       } else if (var2 == 101) {
@@ -183,15 +183,15 @@ public class NPCType extends DualNode {
                ++var5;
             }
 
-            this.bq = new int[var5];
+            this.headIconPrayer = new int[var5];
             this.ba = new short[var5];
 
             for(int var7 = 0; var7 < var5; ++var7) {
                if ((var4 & 1 << var7) == 0) {
-                  this.bq[var7] = -1;
+                  this.headIconPrayer[var7] = -1;
                   this.ba[var7] = -1;
                } else {
-                  this.bq[var7] = var1.gSmart2or4();
+                  this.headIconPrayer[var7] = var1.gSmart2or4();
                   this.ba[var7] = (short)var1.dm();
                }
             }
@@ -199,9 +199,9 @@ public class NPCType extends DualNode {
             this.bj = var1.cl() * 222409755;
          } else if (var2 != 106 && var2 != 118) {
             if (107 == var2) {
-               this.isInteractable = false;
+               this.interactable = false;
             } else if (109 == var2) {
-               this.bu = false;
+               this.clickable = false;
             } else if (var2 == 111) {
                this.isFollower = true;
             } else if (114 == var2) {
@@ -281,9 +281,9 @@ public class NPCType extends DualNode {
          if (null != var1 && var3 != null) {
             var14 = var1.at(var9, var2, var3, var4);
          } else if (var1 != null) {
-            var14 = var1.ab(var9, var2);
+            var14 = var1.animateSequence(var9, var2);
          } else if (var3 != null) {
-            var14 = var3.ab(var9, var4);
+            var14 = var3.animateSequence(var9, var4);
          } else {
             var14 = var9.toSharedSequenceModel(true);
          }
@@ -429,15 +429,15 @@ public class NPCType extends DualNode {
    }
 
    public boolean ai() {
-      return null != this.bq && this.ba != null;
+      return null != this.headIconPrayer && this.ba != null;
    }
 
    public int[] ag() {
-      return this.bq;
+      return this.headIconPrayer;
    }
 
    public int ah(int var1) {
-      return null != this.bq && var1 < this.bq.length ? this.bq[var1] : -1;
+      return null != this.headIconPrayer && var1 < this.headIconPrayer.length ? this.headIconPrayer[var1] : -1;
    }
 
    public short[] av() {

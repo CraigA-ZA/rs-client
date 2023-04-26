@@ -21,14 +21,9 @@ class DualNodeDeque : IdentityMapper.Class() {
         override val predicate = predicateOf<FieldWrapper> { true }
     }
 
-    //TODO
-//    class clear : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
-//                .and { it.instructions.any { it.opcode == Opcodes.GOTO } }
-//    }
 //    @DependsOn(DualNode::class, DualNode.previousDual::class)
 //    class removeLast : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<DualNode>() }
+//        override val predicate = predicateOf<MethodWrapper> { it.returnType == type<DualNode>() }
 //                .and { it.instructions.filter { it.isField && it.fieldId == field<DualNode.previousDual>().id }.count() == 1 }
 //                .and { it.instructions.any { it.isMethod } }
 //    }

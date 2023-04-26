@@ -8,7 +8,7 @@ import mapper.annotations.DependsOn
 import mapper.predicateutilities.*
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Opcodes.*
@@ -23,7 +23,7 @@ class IDKType : IdentityMapper.Class() {
             .and { it.instanceFields.count { it.type == BOOLEAN_TYPE } == 1 }
 
     class head : UniqueMapper.InConstructor.Field(IDKType::class) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     class decode0 : IdentityMapper.InstanceMethod() {
@@ -39,31 +39,31 @@ class IDKType : IdentityMapper.Class() {
 
     @DependsOn(decode0::class)
     class recol_s : OrderMapper.InMethod.Field(decode0::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == SASTORE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SASTORE }
                 .prevWithin(7) { it.opcode == GETFIELD && it.fieldType == ShortArray::class.type }
     }
 
     @DependsOn(decode0::class)
     class recol_d : OrderMapper.InMethod.Field(decode0::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == SASTORE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SASTORE }
                 .prevWithin(7) { it.opcode == GETFIELD && it.fieldType == ShortArray::class.type }
     }
 
     @DependsOn(decode0::class)
     class retex_s : OrderMapper.InMethod.Field(decode0::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == SASTORE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SASTORE }
                 .prevWithin(7) { it.opcode == GETFIELD && it.fieldType == ShortArray::class.type }
     }
 
     @DependsOn(decode0::class)
     class retex_d : OrderMapper.InMethod.Field(decode0::class, 3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == SASTORE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SASTORE }
                 .prevWithin(7) { it.opcode == GETFIELD && it.fieldType == ShortArray::class.type }
     }
 
     @DependsOn(decode0::class)
     class models : OrderMapper.InMethod.Field(decode0::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == ISTORE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == ISTORE }
                 .nextWithin(7) { it.opcode == PUTFIELD && it.fieldType == IntArray::class.type }
     }
 

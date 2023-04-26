@@ -34,11 +34,11 @@ public class Messages {
       }
 
       if (3 == var0.an * -1586499579) {
-         var2 = bx.scene.be(var0.af * 593068225, 68300005 * var0.aw, var0.ac * 800888185);
+         var2 = bx.scene.getFloorDecorationTag(var0.af * 593068225, 68300005 * var0.aw, var0.ac * 800888185);
       }
 
       if (var2 != 0L) {
-         int var7 = bx.scene.bk(var0.af * 593068225, var0.aw * 68300005, 800888185 * var0.ac, var2);
+         int var7 = bx.scene.getObjectFlags(var0.af * 593068225, var0.aw * 68300005, 800888185 * var0.ac, var2);
          var4 = InterfaceParent.at(var2);
          var5 = var7 & 31;
          var6 = var7 >> 6 & 3;

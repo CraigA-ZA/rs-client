@@ -10,7 +10,7 @@ import mapper.predicateutilities.type
 import mapper.predicateutilities.withDimensions
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -30,11 +30,11 @@ class IterableNodeHashTable : IdentityMapper.Class() {
     }
 
     class index : OrderMapper.InConstructor.Field(IterableNodeHashTable::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class size : OrderMapper.InConstructor.Field(IterableNodeHashTable::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @DependsOn(Node::class)
@@ -74,7 +74,7 @@ class IterableNodeHashTable : IdentityMapper.Class() {
 
     @DependsOn(Node::class, next::class)
     class current : OrderMapper.InMethod.Field(next::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.isField && it.fieldType == type<Node>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.isField && it.fieldType == type<Node>() }
     }
 
     @DependsOn(current::class, Node::class)

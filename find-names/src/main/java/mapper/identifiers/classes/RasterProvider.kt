@@ -9,7 +9,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Type
 import org.runestar.client.common.startsWith
@@ -45,13 +45,13 @@ class RasterProvider : IdentityMapper.Class() {
     @MethodParameters("graphics", "x", "y", "width", "height")
     @DependsOn(draw::class)
     class draw0 : OrderMapper.InMethod.Method(draw::class, 0, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.isMethod && it.methodOwner == type<RasterProvider>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.isMethod && it.methodOwner == type<RasterProvider>() }
     }
 
     @MethodParameters("graphics", "x", "y")
     @DependsOn(drawFull::class)
     class drawFull0 : OrderMapper.InMethod.Method(drawFull::class, 0, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.isMethod && it.methodOwner == type<RasterProvider>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.isMethod && it.methodOwner == type<RasterProvider>() }
     }
 
     @MethodParameters("c")

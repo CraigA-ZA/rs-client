@@ -69,11 +69,11 @@ public class ea extends AbstractUserComparator {
 
             for(var6 = 1; var6 < 103; ++var6) {
                if ((Tiles.Tiles_renderFlags[var1][var6][var4] & 24) == 0) {
-                  bx.scene.bm(var2, var5, 512, var1, var6, var4);
+                  bx.scene.drawTileMinimap(var2, var5, 512, var1, var6, var4);
                }
 
                if (var1 < 3 && (Tiles.Tiles_renderFlags[var1 + 1][var6][var4] & 8) != 0) {
-                  bx.scene.bm(var2, var5, 512, var1 + 1, var6, var4);
+                  bx.scene.drawTileMinimap(var2, var5, 512, var1 + 1, var6, var4);
                }
 
                var5 += 4;
@@ -101,7 +101,7 @@ public class ea extends AbstractUserComparator {
 
          for(var6 = 0; var6 < 104; ++var6) {
             for(var7 = 0; var7 < 104; ++var7) {
-               long var8 = bx.scene.be(GameShell.plane * -1727408401, var6, var7);
+               long var8 = bx.scene.getFloorDecorationTag(GameShell.plane * -1727408401, var6, var7);
                if (var8 != 0L) {
                   int var10 = InterfaceParent.at(var8);
                   int var11 = fw.getLocType(var10).mapIconId * 1270945427;
@@ -115,7 +115,7 @@ public class ea extends AbstractUserComparator {
             }
          }
 
-         ia.rasterProvider.ar();
+         ia.rasterProvider.apply();
       }
 
    }

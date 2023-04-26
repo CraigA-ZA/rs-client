@@ -9,7 +9,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -50,7 +50,7 @@ class WorldMapArea : IdentityMapper.Class() {
 
     @DependsOn(read::class)
     class archiveName0 : OrderMapper.InMethod.Field(read::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == String::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == String::class.type }
     }
 
     @MethodParameters()
@@ -62,7 +62,7 @@ class WorldMapArea : IdentityMapper.Class() {
 
     @DependsOn(read::class)
     class name0 : OrderMapper.InMethod.Field(read::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == String::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == String::class.type }
     }
 
     @MethodParameters()
@@ -85,7 +85,7 @@ class WorldMapArea : IdentityMapper.Class() {
 
     @DependsOn(read::class)
     class id0 : OrderMapper.InMethod.Field(read::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @MethodParameters()
@@ -96,7 +96,7 @@ class WorldMapArea : IdentityMapper.Class() {
     }
 
     class minX0 : OrderMapper.InConstructor.Field(WorldMapArea::class, 3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @MethodParameters()
@@ -107,7 +107,7 @@ class WorldMapArea : IdentityMapper.Class() {
     }
 
     class maxX0 : OrderMapper.InConstructor.Field(WorldMapArea::class, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @MethodParameters()
@@ -118,7 +118,7 @@ class WorldMapArea : IdentityMapper.Class() {
     }
 
     class minY0 : OrderMapper.InConstructor.Field(WorldMapArea::class, 5) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @MethodParameters()
@@ -129,7 +129,7 @@ class WorldMapArea : IdentityMapper.Class() {
     }
 
     class maxY0 : OrderMapper.InConstructor.Field(WorldMapArea::class, 6) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @MethodParameters()
@@ -140,7 +140,7 @@ class WorldMapArea : IdentityMapper.Class() {
     }
 
     class zoom0 : OrderMapper.InConstructor.Field(WorldMapArea::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @MethodParameters()

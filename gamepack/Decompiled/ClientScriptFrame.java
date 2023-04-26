@@ -26,14 +26,14 @@ public class ClientScriptFrame {
          long var10 = bk.ac_renamed(var9);
          if (var7 != var10) {
             var7 = var10;
-            int var12 = ir.au_renamed(var9);
+            int var12 = FaceNormal.au_renamed(var9);
             int var13 = ab_renamed(var9);
             int var14 = TextureProvider.al(ix.ag[var9]);
             int var16 = InterfaceParent.at(ix.ag[var9]);
             int var17 = var16;
             int var21;
             int var22;
-            if (2 == var14 && bx.scene.bk(GameShell.plane * -1727408401, var12, var13, var10) >= 0) {
+            if (2 == var14 && bx.scene.getObjectFlags(GameShell.plane * -1727408401, var12, var13, var10) >= 0) {
                LocType var18 = fw.getLocType(var16);
                if (null != var18.multi) {
                   var18 = var18.multiLoc();
@@ -89,7 +89,7 @@ public class ClientScriptFrame {
                      }
                   }
 
-                  MiniMenuEntry.kz_renamed(Strings.Strings_examine, oa.colorStartTag(65535) + var18.name, 1002, -1529817365 * var18.at, var12, var13);
+                  MiniMenuEntry.kz_renamed(Strings.Strings_examine, oa.colorStartTag(65535) + var18.name, 1002, -1529817365 * var18.id, var12, var13);
                }
             }
 

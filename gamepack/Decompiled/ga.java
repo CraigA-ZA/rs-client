@@ -9,7 +9,7 @@ public class ga extends fu {
    static void aq_renamed() {
       Messages.Messages_channels.clear();
       Messages.Messages_hashTable.clear();
-      Messages.Messages_queue.af();
+      Messages.Messages_queue.clear();
       Messages.Messages_count = 0;
    }
 

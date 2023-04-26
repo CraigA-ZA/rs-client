@@ -1,7 +1,9 @@
 package za.org.secret;
 
+import shared.Constants;
+import shared.UtilFunctions;
+
 import java.io.*;
-import java.nio.file.Paths;
 import java.util.Map;
 
 public class Downloader {

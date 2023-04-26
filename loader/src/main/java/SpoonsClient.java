@@ -1,7 +1,7 @@
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import za.org.secret.Constants;
-import za.org.secret.UtilFunctions;
+import shared.Constants;
+import shared.UtilFunctions;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -9,7 +9,6 @@ import java.applet.Applet;
 import java.io.*;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;

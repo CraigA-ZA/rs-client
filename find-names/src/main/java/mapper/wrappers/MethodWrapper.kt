@@ -31,7 +31,7 @@ class MethodWrapper(val jar: JarWrapper, val klass: ClassWrapper, val node: Meth
     val exceptions = node.exceptions
 
     val instructions get() = node.instructions.iterator().asSequence()
-            .map { InstructionMapper(jar, klass, this, it) }
+            .map { InstructionWrapper(jar, klass, this, it) }
 
     val isClassInitializer: Boolean get() {
         return name == CLASS_INITIALIZER_NAME

@@ -6,7 +6,7 @@ import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.INT_TYPE
 
@@ -19,10 +19,10 @@ class ClientProt : IdentityMapper.Class() {
             .and { it.staticFields.size >= 20 }
 
     class id : OrderMapper.InConstructor.Field(ClientProt::class, 0, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD }
     }
 
     class length : OrderMapper.InConstructor.Field(ClientProt::class, 1, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD }
     }
 }

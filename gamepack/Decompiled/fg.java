@@ -86,7 +86,7 @@ public class fg extends fu {
       if (var3 != null && var1 >= 0 && var1 < var3.ac()) {
          fz var4 = (fz)var3.aw.get(var1);
          if (var4.af == -1) {
-            String var5 = var4.aw.af();
+            String var5 = var4.aw.name();
             PacketBitNode var6 = mi.an_renamed(ClientProt.dv, Client.packetWriter.au);
             var6.bit.bu(3 + DynamicObject.bc_renamed(var5));
             var6.bit.bu(var0);

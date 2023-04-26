@@ -9,7 +9,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -33,15 +33,15 @@ class BufferedFile : IdentityMapper.Class() {
     }
 
     class capacity : OrderMapper.InConstructor.Field(BufferedFile::class, 3, 5) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.LONG_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.LONG_TYPE }
     }
 
     class readBuffer : OrderMapper.InConstructor.Field(BufferedFile::class, 0, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == ByteArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == ByteArray::class.type }
     }
 
     class writeBuffer : OrderMapper.InConstructor.Field(BufferedFile::class, 1, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == ByteArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == ByteArray::class.type }
     }
 
     @MethodParameters()

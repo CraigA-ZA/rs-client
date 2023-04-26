@@ -2,13 +2,13 @@ package deobfuscator.deobs.impl.ASM;
 
 import deobfuscator.Deobfuscator;
 import deobfuscator.deobs.AbstractDeob;
-import za.org.secret.FoundMethod;
+import shared.model.FoundMethod;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
-import za.org.secret.UtilFunctions;
+import shared.UtilFunctions;
 
 import java.util.*;
 

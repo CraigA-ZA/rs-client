@@ -317,7 +317,7 @@ public abstract class Actor extends Entity {
 
          for(tt var8 = (tt)var3.an(); var8 != null; var8 = (tt)var3.next()) {
             if (var8.an * 971664459 != -1) {
-               Model var9 = Inventory.getSpotType(-1171575623 * var8.af).ab();
+               Model var9 = Inventory.getSpotType(-1171575623 * var8.af).getSharedModel();
                if (null != var9) {
                   var4 += var9.verticesCount;
                   var5 += var9.indicesCount;
@@ -331,9 +331,9 @@ public abstract class Actor extends Entity {
 
          for(tt var14 = (tt)var3.an(); null != var14; var14 = (tt)var3.next()) {
             if (-1 != var14.an * 971664459) {
-               Model var10 = Inventory.getSpotType(var14.af * -1171575623).au(971664459 * var14.an);
+               Model var10 = Inventory.getSpotType(var14.af * -1171575623).getModel(971664459 * var14.an);
                if (null != var10) {
-                  var10.be(0, -(-790772793 * var14.au), 0);
+                  var10.offset(0, -(-790772793 * var14.au), 0);
                   var13.ac(var10);
                }
             }

@@ -1,5 +1,5 @@
 import lombok.RequiredArgsConstructor;
-import za.org.secret.Constants;
+import shared.Constants;
 
 import java.applet.Applet;
 import java.applet.AppletContext;

@@ -30,10 +30,11 @@ public abstract class AbstractWorldMapIcon {
          int var6 = this.au();
          switch (var4.aj.ac * 1932346871) {
             case 0:
-               if (var1 <= -216598991 * this.at - var5 || var1 > -216598991 * this.at) {
-                  return false;
+               if (var1 > -216598991 * this.at - var5 && var1 <= -216598991 * this.at) {
+                  break;
                }
-               break;
+
+               return false;
             case 1:
                if (var1 < this.at * -216598991 || var1 >= -216598991 * this.at + var5) {
                   return false;

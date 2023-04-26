@@ -72,8 +72,8 @@ public class my {
                String var10;
                if (!var11 && null == var0.onOp) {
                   var10 = null;
-               } else if (null != var0.ops && var0.ops.length > var9 && null != var0.ops[var9] && var0.ops[var9].trim().length() != 0) {
-                  var10 = var0.ops[var9];
+               } else if (null != var0.actions && var0.actions.length > var9 && null != var0.actions[var9] && var0.actions[var9].trim().length() != 0) {
+                  var10 = var0.actions[var9];
                } else {
                   var10 = null;
                }
@@ -94,8 +94,8 @@ public class my {
                String var12;
                if (!var14 && null == var0.onOp) {
                   var12 = null;
-               } else if (var0.ops != null && var0.ops.length > var3 && var0.ops[var3] != null && var0.ops[var3].trim().length() != 0) {
-                  var12 = var0.ops[var3];
+               } else if (var0.actions != null && var0.actions.length > var3 && var0.actions[var3] != null && var0.actions[var3].trim().length() != 0) {
+                  var12 = var0.actions[var3];
                } else {
                   var12 = null;
                }

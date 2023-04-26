@@ -25,22 +25,22 @@ public class HeadbarUpdate extends Node {
       } else {
          byte[] var3 = nc.ObjType_archive.takeFile(10, var0);
          var2 = new ObjType();
-         var2.ai = var0 * 526060183;
+         var2.id = var0 * 526060183;
          if (null != var3) {
             var2.decode(new Packet(var3));
          }
 
          var2.an();
          if (-1 != -1375068187 * var2.resizez) {
-            var2.au(getObjType(var2.resizez * -1375068187), getObjType(1399852547 * var2.resizey));
+            var2.genCert(getObjType(var2.resizez * -1375068187), getObjType(1399852547 * var2.resizey));
          }
 
          if (var2.cg * -1276549997 != -1) {
-            var2.ab(getObjType(var2.cg * -1276549997), getObjType(-1273418661 * var2.cl));
+            var2.genBought(getObjType(var2.cg * -1276549997), getObjType(-1273418661 * var2.cl));
          }
 
          if (var2.cy * 119859889 != -1) {
-            var2.aq(getObjType(var2.cy * 119859889), getObjType(-172219939 * var2.cr));
+            var2.genPlaceholder(getObjType(var2.cy * 119859889), getObjType(-172219939 * var2.cr));
          }
 
          if (!gm.al && var2.members) {
@@ -83,7 +83,7 @@ public class HeadbarUpdate extends Node {
       }
    }
 
-   public static void af_renamed(ClientScriptEvent var0) {
-      PlayerType.an_renamed(var0, 500000, 475000);
+   public static void runClientScript(ClientScriptEvent var0) {
+      PlayerType.runScript(var0, 500000, 475000);
    }
 }

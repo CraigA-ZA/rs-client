@@ -2,12 +2,12 @@ public final class Player extends Actor {
    boolean isUnanimated;
    boolean isHidden;
    boolean bi;
-   int aa;
+   int tileHeight;
    int headIconPk = -1162421511;
-   int ad;
-   int ae;
+   int plane;
+   int index;
    int ag;
-   int ai;
+   int tileHeight2;
    int team;
    int combatLevel;
    int am;
@@ -157,7 +157,7 @@ public final class Player extends Actor {
       this.ay();
       this.ai();
       if (MusicPatchNode.localPlayer == this) {
-         ClientError.localPlayerName = this.username.af();
+         ClientError.localPlayerName = this.username.name();
       }
 
       this.combatLevel = var1.g1() * 225691243;
@@ -229,7 +229,7 @@ public final class Player extends Actor {
 
    void ax() {
       for(int var2 = 0; var2 < 4; ++var2) {
-         if (Client.sg[var2] != null && Client.sg[var2].aw(this.username.af()) != -1 && 2 != var2) {
+         if (Client.sg[var2] != null && Client.sg[var2].aw(this.username.name()) != -1 && 2 != var2) {
             this.bb = TriBool.TriBool_true;
             return;
          }
@@ -258,8 +258,8 @@ public final class Player extends Actor {
       if (this.appearance == null) {
          return null;
       } else {
-         SeqType var2 = this.ct * -1372355773 != -1 && 0 == this.dm * 1253892101 ? Inventory.getSeqType(this.ct * -1372355773, (byte)73) : null;
-         SeqType var3 = -1 == this.spotAnimationFrame * -1302441815 || this.isUnanimated || this.spotAnimationFrame * -1302441815 == this.readySequence * 1590591885 && var2 != null ? null : Inventory.getSeqType(this.spotAnimationFrame * -1302441815, (byte)57);
+         SeqType var2 = this.ct * -1372355773 != -1 && 0 == this.dm * 1253892101 ? Inventory.getSeqType(this.ct * -1372355773) : null;
+         SeqType var3 = -1 == this.spotAnimationFrame * -1302441815 || this.isUnanimated || this.spotAnimationFrame * -1302441815 == this.readySequence * 1590591885 && var2 != null ? null : Inventory.getSeqType(this.spotAnimationFrame * -1302441815);
          Model var4 = this.appearance.getModel(var2, -41215169 * this.cp, var3, 424813829 * this.spotAnimationFrameCycle);
          if (var4 == null) {
             return null;
@@ -278,7 +278,7 @@ public final class Player extends Actor {
 
                if (-1886224337 * Client.ep >= -1402262375 * this.animationCycleStart && -1886224337 * Client.ep < -935505685 * this.animationCycleEnd) {
                   Model var6 = this.model0;
-                  var6.be(this.ax * 1793688517 - 1144428983 * this.bx, this.ai * 1238902143 - 561204023 * this.aa, 240546619 * this.ag - -411750205 * this.bo);
+                  var6.offset(this.ax * 1793688517 - 1144428983 * this.bx, this.tileHeight2 * 1238902143 - 561204023 * this.tileHeight, 240546619 * this.ag - -411750205 * this.bo);
                   if (this.dd * -1751341433 == 512) {
                      var6.rotateY90Ccw();
                      var6.rotateY90Ccw();
@@ -303,7 +303,7 @@ public final class Player extends Actor {
                      var6.rotateY90Ccw();
                   }
 
-                  var6.be(this.bx * 1144428983 - 1793688517 * this.ax, 561204023 * this.aa - this.ai * 1238902143, -411750205 * this.bo - this.ag * 240546619);
+                  var6.offset(this.bx * 1144428983 - 1793688517 * this.ax, 561204023 * this.tileHeight - this.tileHeight2 * 1238902143, -411750205 * this.bo - this.ag * 240546619);
                }
             }
 
@@ -324,7 +324,7 @@ public final class Player extends Actor {
    }
 
    final void av(int var1, int var2, MoveSpeed var3) {
-      if (this.ct * -1372355773 != -1 && Inventory.getSeqType(-1372355773 * this.ct, (byte)61).bi * 1957040329 == 1) {
+      if (this.ct * -1372355773 != -1 && Inventory.getSeqType(-1372355773 * this.ct).bi * 1957040329 == 1) {
          this.ct = 1690721941;
       }
 
@@ -358,14 +358,14 @@ public final class Player extends Actor {
 
    static void au_renamed() {
       if (ax.an) {
-         cz.au = null;
+         Login.au = null;
          lu.ab = null;
          py.runeSprites = null;
          ex.at = null;
          ParamType.aa = null;
          Canvas.ay = null;
          fc.titleMuteSprites = null;
-         cz.ax = null;
+         Login.ax = null;
          gs.ag = null;
          st.dr = null;
          av.slFlagSprites = null;

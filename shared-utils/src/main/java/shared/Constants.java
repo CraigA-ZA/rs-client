@@ -1,4 +1,4 @@
-package za.org.secret;
+package shared;
 
 import java.awt.*;
 import java.io.File;
@@ -30,5 +30,8 @@ public class Constants {
     public static final String DEOB_OUTPUT_JAR_PATH = Paths.get(System.getProperty("user.dir"), "gamepack") + File.separator+ "deob_gamepack.jar";
 
     public static final String DEOB_IN_PROGRESS_PATH = Paths.get(System.getProperty("user.dir"), "gamepack") + File.separator + "deob_gamepack.jar.part";
-    public static final String MAPPED_OUTPUT_JAR_PATH = Paths.get(System.getProperty("user.dir"), "gamepack") + File.separator+ "updated_gamepack.jar";;
+    public static final String MAPPED_OUTPUT_JAR_PATH = Paths.get(System.getProperty("user.dir"), "gamepack") + File.separator+ "updated_gamepack.jar";
+
+    public static final Path NAMES_JSON = Paths.get(System.getProperty("user.dir"), "gamepack", "names.json");
+    public static final String INJECTED_JAR_PATH = Paths.get(System.getProperty("user.dir"), "gamepack") + File.separator+ "injected_gamepack.jar";
 }

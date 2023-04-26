@@ -47,7 +47,7 @@ public class ks {
             return 1;
          } else if (var0 == 6765) {
             var4 = AbstractArchive.getNPCType(Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4 != null ? 2062903815 * var4.bx : 0;
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4 != null ? 2062903815 * var4.combatLevel : 0;
             return 1;
          } else {
             return 2;

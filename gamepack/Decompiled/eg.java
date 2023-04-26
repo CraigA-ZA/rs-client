@@ -151,7 +151,7 @@ public class eg extends AbstractUserComparator {
                         return 1;
                      } else if (var0 == 5018) {
                         var11 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = ir.ay_renamed(var11);
+                        Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = FaceNormal.ay_renamed(var11);
                         return 1;
                      } else if (5019 == var0) {
                         var11 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
@@ -226,7 +226,7 @@ public class eg extends AbstractUserComparator {
                      }
                   } else {
                      if (MusicPatchNode.localPlayer != null && null != MusicPatchNode.localPlayer.username) {
-                        var4 = MusicPatchNode.localPlayer.username.af();
+                        var4 = MusicPatchNode.localPlayer.username.name();
                      } else {
                         var4 = "";
                      }

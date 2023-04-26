@@ -7,11 +7,11 @@ public abstract class Clock {
          if (var1 >= 0 && var1 < Client.so[var0].ac()) {
             fz var4 = (fz)Client.so[var0].aw.get(var1);
             PacketBitNode var5 = mi.an_renamed(ClientProt.dg, Client.packetWriter.au);
-            var5.bit.bu(4 + DynamicObject.bc_renamed(var4.aw.af()));
+            var5.bit.bu(4 + DynamicObject.bc_renamed(var4.aw.name()));
             var5.bit.bu(var0);
             var5.bit.p2(var1);
             var5.bit.pbool(var2);
-            var5.bit.bh(var4.aw.af());
+            var5.bit.bh(var4.aw.name());
             Client.packetWriter.aw(var5);
          }
       }

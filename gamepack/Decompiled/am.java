@@ -100,7 +100,7 @@ public class am {
    }
 
    static String aw_renamed() {
-      return aj.clientPreferences.al() ? mc.ai_renamed(cz.ca) : cz.ca;
+      return aj.clientPreferences.al() ? mc.ai_renamed(Login.ca) : Login.ca;
    }
 
    public static void av_renamed() {
@@ -350,7 +350,7 @@ public class am {
       }
 
       if (1 == 986256295 * Client.lv && Client.pu * 324465533 >= 2 && 0 == Client.ep * -1886224337 % 50 && (1144428983 * MusicPatchNode.localPlayer.bx >> 7 != -1958669353 * bz.lg >> 7 || -365969735 * fw.lf >> 7 != -411750205 * MusicPatchNode.localPlayer.bo >> 7)) {
-         var17 = MusicPatchNode.localPlayer.ad * -1900490645;
+         var17 = MusicPatchNode.localPlayer.plane * -1900490645;
          var18 = -1232093375 * jm.baseX + (bz.lg * -1958669353 >> 7);
          var19 = 827352769 * Scenery.baseY + (fw.lf * -365969735 >> 7);
          PacketBitNode var20 = mi.an_renamed(ClientProt.cq, Client.packetWriter.au);
@@ -449,7 +449,7 @@ public class am {
 
       Rasterizer3D.ab.ab = var19 * 1001249361;
       mj.hz_renamed();
-      bx.scene.ag();
+      bx.scene.clearTempScenery();
       Client.overheadTextCount = 0;
       boolean var37 = false;
       int var21 = -1;
@@ -624,9 +624,9 @@ public class am {
       Component var5 = SoundSystem.getComponentChild(var0, var1);
       if (var5 != null && var5.onTargetEnter != null) {
          ClientScriptEvent var6 = new ClientScriptEvent();
-         var6.aw = var5;
+         var6.component = var5;
          var6.args0 = var5.onTargetEnter;
-         HeadbarUpdate.af_renamed(var6);
+         HeadbarUpdate.runClientScript(var6);
       }
 
       Client.op = var3 * 35668549;

@@ -193,7 +193,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
          Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4.modelTransparency ? 1 : 0;
          return 1;
       } else {
-         FaceNormal var5;
+         lo var5;
          if (var0 == 2617) {
             var5 = var4.bn();
             Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = null != var5 ? var5.af * -90398499 : 0;
@@ -294,12 +294,12 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
          int var3 = 1144428983 * var0.bx >> 7;
          int var4 = -411750205 * var0.bo >> 7;
          if (var3 >= 0 && var3 < 104 && var4 >= 0 && var4 < 104) {
-            long var5 = ir.aa_renamed(0, 0, 0, false, var0.ae * -1232170701);
+            long var5 = FaceNormal.aa_renamed(0, 0, 0, false, var0.index * -1232170701);
             if (var0.model0 != null && -1886224337 * Client.ep >= var0.animationCycleStart * -1402262375 && -1886224337 * Client.ep < var0.animationCycleEnd * -935505685) {
                var0.isUnanimated = false;
-               var0.aa = fq.getTileHeight(1144428983 * var0.bx, -411750205 * var0.bo, GameShell.plane * -1727408401) * -548513145;
+               var0.tileHeight = fq.getTileHeight(1144428983 * var0.bx, -411750205 * var0.bo, GameShell.plane * -1727408401) * -548513145;
                var0.bd = -14183397 * Client.ep;
-               bx.scene.ax(-1727408401 * GameShell.plane, var0.bx * 1144428983, var0.bo * -411750205, 561204023 * var0.aa, 60, var0, var0.bz * -1703696531, var5, -1793206457 * var0.av, -1107395863 * var0.ar, 54499173 * var0.am, var0.as * 806621699);
+               bx.scene.ax(-1727408401 * GameShell.plane, var0.bx * 1144428983, var0.bo * -411750205, 561204023 * var0.tileHeight, 60, var0, var0.bz * -1703696531, var5, -1793206457 * var0.av, -1107395863 * var0.ar, 54499173 * var0.am, var0.as * 806621699);
             } else {
                if (64 == (1144428983 * var0.bx & 127) && 64 == (var0.bo * -411750205 & 127)) {
                   if (Client.mt[var3][var4] == Client.mw * 2041464667) {
@@ -309,9 +309,9 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
                   Client.mt[var3][var4] = 2041464667 * Client.mw;
                }
 
-               var0.aa = fq.getTileHeight(1144428983 * var0.bx, var0.bo * -411750205, -1727408401 * GameShell.plane) * -548513145;
+               var0.tileHeight = fq.getTileHeight(1144428983 * var0.bx, var0.bo * -411750205, -1727408401 * GameShell.plane) * -548513145;
                var0.bd = Client.ep * -14183397;
-               bx.scene.ao(GameShell.plane * -1727408401, var0.bx * 1144428983, var0.bo * -411750205, 561204023 * var0.aa, 60, var0, -1703696531 * var0.bz, var5, var0.an);
+               bx.scene.ao(GameShell.plane * -1727408401, var0.bx * 1144428983, var0.bo * -411750205, 561204023 * var0.tileHeight, 60, var0, -1703696531 * var0.bz, var5, var0.an);
             }
          }
       }

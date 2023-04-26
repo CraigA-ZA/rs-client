@@ -33,7 +33,7 @@ public class UnlitModel extends Entity {
    int[][] vertexLabels;
    int[][] faceLabelsAlpha;
    int[][] by;
-   ir[] be;
+   FaceNormal[] faceNormals;
    short[] faceColors;
    short[] aj;
    short[] ak;
@@ -1525,7 +1525,7 @@ public class UnlitModel extends Entity {
       this.ap = var1.ap;
       this.by = var1.by;
       this.bk = var1.bk;
-      this.be = var1.be;
+      this.faceNormals = var1.faceNormals;
       this.bx = var1.bx;
       this.vertexLabels = var1.vertexLabels;
       this.faceLabelsAlpha = var1.faceLabelsAlpha;
@@ -1567,7 +1567,7 @@ public class UnlitModel extends Entity {
       var1.ap = this.ap;
       var1.by = this.by;
       var1.bk = this.bk;
-      var1.be = this.be;
+      var1.faceNormals = this.faceNormals;
       var1.bo = this.bo;
       var1.bz = this.bz;
       return var1;
@@ -1889,11 +1889,11 @@ public class UnlitModel extends Entity {
                var16.aw += var13 * 1279987923;
                var16.ac += -1992029881;
             } else if (var15 == 1) {
-               if (this.be == null) {
-                  this.be = new ir[this.faceCount];
+               if (this.faceNormals == null) {
+                  this.faceNormals = new FaceNormal[this.faceCount];
                }
 
-               ir var23 = this.be[var1] = new ir();
+               FaceNormal var23 = this.faceNormals[var1] = new FaceNormal();
                var23.af = var11 * 769404891;
                var23.an = var12 * -1145821753;
                var23.aw = var13 * -2013236337;
@@ -1906,7 +1906,7 @@ public class UnlitModel extends Entity {
    void invalidate() {
       this.bk = null;
       this.bx = null;
-      this.be = null;
+      this.faceNormals = null;
       this.isBoundsCalculated = false;
    }
 
@@ -2122,11 +2122,11 @@ public class UnlitModel extends Entity {
 
          VertexNormal var13;
          int var14;
-         ir var25;
+         FaceNormal var25;
          if (var12 == -1) {
             if (var23 != 0) {
                if (var23 == 1) {
-                  var25 = this.be[var22];
+                  var25 = this.faceNormals[var22];
                   var14 = var1 + (var3 * var25.af * -18074541 + var4 * var25.an * 1542458359 + var5 * var25.aw * -446870673) / (var7 + var7 / 2);
                   var8.faceColors1[var22] = bi_renamed(this.faceColors[var22] & '\uffff', var14);
                   var8.faceColors3[var22] = -1;
@@ -2165,7 +2165,7 @@ public class UnlitModel extends Entity {
             }
          } else if (var23 != 0) {
             if (var23 == 1) {
-               var25 = this.be[var22];
+               var25 = this.faceNormals[var22];
                var14 = var1 + (var3 * var25.af * -18074541 + var4 * var25.an * 1542458359 + var5 * var25.aw * -446870673) / (var7 + var7 / 2);
                var8.faceColors1[var22] = be_renamed(var14);
                var8.faceColors3[var22] = -1;
@@ -2202,13 +2202,13 @@ public class UnlitModel extends Entity {
 
       this.ai();
       var8.verticesCount = this.verticesCount;
-      var8.at = this.verticesX;
-      var8.aa = this.verticesY;
-      var8.ay = this.verticesZ;
+      var8.verticesX = this.verticesX;
+      var8.verticesY = this.verticesY;
+      var8.verticesZ = this.verticesZ;
       var8.indicesCount = this.faceCount;
-      var8.ax = this.indices1;
-      var8.ai = this.indices2;
-      var8.ag = this.indices3;
+      var8.indices1 = this.indices1;
+      var8.indices2 = this.indices2;
+      var8.indices3 = this.indices3;
       var8.am = this.ax;
       var8.faceAlphas = this.faceAlphas;
       var8.az = this.ar;

@@ -5,9 +5,9 @@ import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.commons.ClassRemapper;
 import org.objectweb.asm.commons.Remapper;
 import org.objectweb.asm.tree.ClassNode;
-import updater.model.ClassHierarchyBuilder;
-import updater.model.IdClass;
-import za.org.secret.UtilFunctions;
+import shared.ClassHierarchyBuilder;
+import shared.model.IdClass;
+import shared.UtilFunctions;
 
 import java.util.HashSet;
 import java.util.List;
@@ -69,6 +69,10 @@ public class NameMapper {
             if (!UtilFunctions.isObfuscated(owner)) {
                 return null;
             }
+            if (!visitedNodes.contains(owner)) {
+                visitedNodes.add(owner);
+            }
+
 
             // Check if this class has a mapping in the file
             if (hasNewFieldName(owner, name, descriptor)) {
@@ -136,6 +140,10 @@ public class NameMapper {
         private String getNewMethodNameFromHierarchy(String owner, String name, String descriptor, Set<String> visitedNodes) {
             if (!UtilFunctions.isObfuscated(owner)) {
                 return null;
+            }
+
+            if (!visitedNodes.contains(owner)) {
+                visitedNodes.add(owner);
             }
 
             // Check if this class has a mapping in the file

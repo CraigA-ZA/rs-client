@@ -6,7 +6,7 @@ import mapper.annotations.DependsOn
 import mapper.predicateutilities.*
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
 
@@ -29,25 +29,25 @@ class ReflectionCheck : IdentityMapper.Class() {
     }
 
     class size : AllUniqueMapper.Field() {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.NEW && it.typeType == type<ReflectionCheck>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.NEW && it.typeType == type<ReflectionCheck>() }
                 .nextWithin(15) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class id : AllUniqueMapper.Field() {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.NEW && it.typeType == type<ReflectionCheck>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.NEW && it.typeType == type<ReflectionCheck>() }
                 .nextWithin(15) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
                 .nextWithin(10) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class operations : AllUniqueMapper.Field() {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.NEW && it.typeType == type<ReflectionCheck>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.NEW && it.typeType == type<ReflectionCheck>() }
                 .nextWithin(15) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
                 .nextWithin(10) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
                 .nextWithin(10) { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     class creationErrors : AllUniqueMapper.Field() {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.NEW && it.typeType == type<ReflectionCheck>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.NEW && it.typeType == type<ReflectionCheck>() }
                 .nextWithin(15) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
                 .nextWithin(10) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
                 .nextWithin(10) { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
@@ -55,7 +55,7 @@ class ReflectionCheck : IdentityMapper.Class() {
     }
 
     class intReplaceValues : AllUniqueMapper.Field() {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.NEW && it.typeType == type<ReflectionCheck>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.NEW && it.typeType == type<ReflectionCheck>() }
                 .nextWithin(15) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
                 .nextWithin(10) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
                 .nextWithin(10) { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }

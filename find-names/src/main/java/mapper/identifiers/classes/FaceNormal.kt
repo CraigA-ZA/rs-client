@@ -16,5 +16,5 @@ class FaceNormal : IdentityMapper.Class() {
             .and { it.instanceMethods.isEmpty() }
             .and { it.constructors.size == 1 }
             .and { it.constructors.first().instructions.none { it.isField } }
-            .and { it.staticMethods.size == 1}
+            .and { it.staticMethods.size > 1}
 }

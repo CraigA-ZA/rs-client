@@ -93,8 +93,8 @@ public class Rasterizer3D {
       } else {
          int var5 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
          --var5;
-         if (null != var4.ops && var5 < var4.ops.length && var4.ops[var5] != null) {
-            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var4.ops[var5];
+         if (null != var4.actions && var5 < var4.actions.length && var4.actions[var5] != null) {
+            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var4.actions[var5];
          } else {
             Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
          }

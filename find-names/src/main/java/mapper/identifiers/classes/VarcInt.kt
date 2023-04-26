@@ -6,16 +6,16 @@ import mapper.annotations.DependsOn
 import mapper.predicateutilities.predicateOf
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.*
 
 @DependsOn(Varcs::class)
 class VarcInt : OrderMapper.InConstructor.Class(Varcs::class, 0, 2) {
 
-    override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == BOOLEAN_TYPE }
+    override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == BOOLEAN_TYPE }
 
-    override fun resolve(instruction: InstructionMapper): ClassWrapper {
+    override fun resolve(instruction: InstructionWrapper): ClassWrapper {
         return instruction.jar[instruction.fieldOwner]
     }
 

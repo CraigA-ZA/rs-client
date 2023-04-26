@@ -2,12 +2,12 @@ package deobfuscator.deobs.impl.javassist;
 
 import deobfuscator.Deobfuscator;
 import deobfuscator.deobs.AbstractDeob;
-import za.org.secret.FoundMethod;
+import shared.model.FoundMethod;
 import javassist.*;
 import javassist.bytecode.MethodInfo;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
-import za.org.secret.UtilFunctions;
+import shared.UtilFunctions;
 
 import java.util.ArrayList;
 import java.util.List;

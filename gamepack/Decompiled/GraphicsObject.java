@@ -21,7 +21,7 @@ public final class GraphicsObject extends Entity {
       int var8 = Inventory.getSpotType(-1107802607 * this.id).sequence * 374130911;
       if (var8 != -1) {
          this.isFinished = false;
-         this.seqType = Inventory.getSeqType(var8, (byte)52);
+         this.seqType = Inventory.getSeqType(var8);
       } else {
          this.isFinished = true;
       }
@@ -63,9 +63,9 @@ public final class GraphicsObject extends Entity {
       SpotType var2 = Inventory.getSpotType(-1107802607 * this.id);
       Model var3;
       if (!this.isFinished) {
-         var3 = var2.au(158616165 * this.frame);
+         var3 = var2.getModel(158616165 * this.frame);
       } else {
-         var3 = var2.au(-1);
+         var3 = var2.getModel(-1);
       }
 
       return var3 == null ? null : var3;

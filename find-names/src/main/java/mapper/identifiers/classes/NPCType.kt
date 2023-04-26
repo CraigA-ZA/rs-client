@@ -11,10 +11,11 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
+import org.objectweb.asm.tree.JumpInsnNode
 import org.runestar.client.common.startsWith
 
 @DependsOn(Npc.type::class)
@@ -45,7 +46,7 @@ class NPCType : IdentityMapper.Class() {
 
     @DependsOn(Client.getNPCType::class)
     class id : OrderMapper.InMethod.Field(Client.getNPCType::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE && it.fieldOwner == type<NPCType>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE && it.fieldOwner == type<NPCType>() }
     }
 
     @MethodParameters("s1", "n1", "s2", "n2")
@@ -56,12 +57,12 @@ class NPCType : IdentityMapper.Class() {
 
     @DependsOn(getModel::class)
     class resizeh : OrderMapper.InMethod.Field(getModel::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @DependsOn(getModel::class)
     class resizev : OrderMapper.InMethod.Field(getModel::class, -2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @MethodParameters()
@@ -71,49 +72,103 @@ class NPCType : IdentityMapper.Class() {
 
     @DependsOn(transform::class)
     class transforms : UniqueMapper.InMethod.Field(transform::class) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
     }
 
     @DependsOn(transform::class)
     class transformVarbit : OrderMapper.InMethod.Field(transform::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @DependsOn(transform::class)
     class transformVarp : OrderMapper.InMethod.Field(transform::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
     }
 
-//    @DependsOn(decode0::class)
-//    class combatLevel : UniqueMapper.InMethod.Field(decode0::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.BIPUSH && it.intOperand == 95 }
-//                .nextWithin(10) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
-//    }
 
-    //TODO
-//    @DependsOn(decode0::class)
-//    class drawMapDot : UniqueMapper.InMethod.Field(decode0::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.BIPUSH && it.intOperand == 93 }
-//                .nextWithin(10) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
-//    }
+    class size : OrderMapper.InConstructor.Field(NPCType::class, 0) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+    }
+
+
 
     @DependsOn(decode0::class)
-    class isInteractable : UniqueMapper.InMethod.Field(decode0::class) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.BIPUSH && it.intOperand == 107 }
+    class models : OrderMapper.InMethod.Field(decode0::class, 0) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+    }
+
+
+
+    @MethodParameters()
+    class postDecode : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == Type.VOID_TYPE }
+                .and { it.arguments.isEmpty() }
+    }
+
+    @DependsOn(IterableNodeHashTable::class)
+    class params : IdentityMapper.InstanceField() {
+        override val predicate = predicateOf<FieldWrapper> { it.type == type<IterableNodeHashTable>() }
+    }
+
+    class getIntParam : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == Type.INT_TYPE }
+                .and { it.arguments == listOf(Type.INT_TYPE, Type.INT_TYPE) }
+    }
+
+    class getStringParam : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == String::class.type }
+                .and { it.arguments == listOf(Type.INT_TYPE, String::class.type) }
+    }
+
+
+    class isFollower : OrderMapper.InConstructor.Field(NPCType::class, -1) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
+    }
+
+    class ambient : OrderMapper.InConstructor.Field(NPCType::class, 11) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+    }
+
+    class contrast : OrderMapper.InConstructor.Field(NPCType::class, 12) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+    }
+
+
+    @DependsOn(decode0::class)
+    class headIconPrayer : UniqueMapper.InMethod.Field(decode0::class) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.BIPUSH && it.intOperand == 102 }
+                .nextWithin(50) { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+    }
+
+    @DependsOn(decode0::class)
+    class combatLevel : UniqueMapper.InMethod.Field(decode0::class) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.BIPUSH && it.intOperand == 95 }
+                .nextWithin(15) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+    }
+
+    @DependsOn(decode0::class)
+    class drawMapDot : UniqueMapper.InMethod.Field(decode0::class) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.BIPUSH && it.intOperand == 93 }
                 .nextWithin(10) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
     }
 
-//    @DependsOn(decode0::class)
-//    class headIconPrayer : UniqueMapper.InMethod.Field(decode0::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.BIPUSH && it.intOperand == 102 }
-//                .nextWithin(2) { it.node is JumpInsnNode }
-//                .nextWithin(12) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
-//    }
-
-    class size : OrderMapper.InConstructor.Field(NPCType::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+    @DependsOn(decode0::class)
+    class visible : UniqueMapper.InMethod.Field(decode0::class) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.BIPUSH && it.intOperand == 99 }
+                .nextWithin(10) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
     }
 
+    @DependsOn(decode0::class)
+    class clickable : UniqueMapper.InMethod.Field(decode0::class) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.BIPUSH && it.intOperand == 109 }
+                .nextWithin(10) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
+    }
+
+    @DependsOn(decode0::class)
+    class interactable : UniqueMapper.InMethod.Field(decode0::class) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.BIPUSH && it.intOperand == 107 }
+                .nextWithin(10) { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
+    }
 //    @DependsOn(getModel::class)
 //    class recol_s : OrderMapper.InMethod.Field(getModel::class, 0) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == SALOAD }
@@ -137,11 +192,6 @@ class NPCType : IdentityMapper.Class() {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == SALOAD }
 //                .prevIn(2) { it.opcode == GETFIELD && it.fieldType == ShortArray::class.type }
 //    }
-
-    @DependsOn(decode0::class)
-    class models : OrderMapper.InMethod.Field(decode0::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
-    }
 
 //    @DependsOn(getChatHeadModel::class)
 //    class head : OrderMapper.InMethod.Field(getChatHeadModel::class, 1) {
@@ -175,43 +225,9 @@ class NPCType : IdentityMapper.Class() {
 //    class walkrightanim : OrderMapper.InConstructor.Field(NPCType::class, 7) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
 //    }
-
-    @MethodParameters()
-    class postDecode : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<MethodWrapper> { it.returnType == Type.VOID_TYPE }
-                .and { it.arguments.isEmpty() }
-    }
-
-    @DependsOn(IterableNodeHashTable::class)
-    class params : IdentityMapper.InstanceField() {
-        override val predicate = predicateOf<FieldWrapper> { it.type == type<IterableNodeHashTable>() }
-    }
-
-    class getIntParam : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<MethodWrapper> { it.returnType == Type.INT_TYPE }
-                .and { it.arguments == listOf(Type.INT_TYPE, Type.INT_TYPE) }
-    }
-
-    class getStringParam : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<MethodWrapper> { it.returnType == String::class.type }
-                .and { it.arguments == listOf(Type.INT_TYPE, String::class.type) }
-    }
-
 //    @MethodParameters()
 //    @DependsOn(UnlitModel::class)
 //    class getChatHeadModel : InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == type<UnlitModel>() }
 //    }
-
-    class isFollower : OrderMapper.InConstructor.Field(NPCType::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
-    }
-
-    class ambient : OrderMapper.InConstructor.Field(NPCType::class, 11) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
-    }
-
-    class contrast : OrderMapper.InConstructor.Field(NPCType::class, 12) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
-    }
 }

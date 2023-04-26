@@ -19,7 +19,7 @@ public final class EvictingDualNodeHashTable {
    public DualNode get(long var1) {
       DualNode var3 = (DualNode)this.hashTable.get(var1);
       if (var3 != null) {
-         this.deque.an(var3);
+         this.deque.add(var3);
       }
 
       return var3;
@@ -50,11 +50,11 @@ public final class EvictingDualNodeHashTable {
       }
 
       this.hashTable.put(var1, var2);
-      this.deque.an(var1);
+      this.deque.add(var1);
    }
 
    public void clear() {
-      this.deque.af();
+      this.deque.clear();
       this.hashTable.clear();
       this.af = new DualNode();
       this.remainingCapacity = this.capacity;

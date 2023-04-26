@@ -1,13 +1,17 @@
 package mapper.identifiers.classes
 
 import mapper.abstractclasses.IdentityMapper
+import mapper.abstractclasses.OrderMapper
+import mapper.annotations.DependsOn
 import mapper.annotations.MethodParameters
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
+import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
 import org.runestar.client.common.startsWith
 import java.lang.reflect.Modifier
@@ -35,20 +39,19 @@ class AbstractRasterProvider : IdentityMapper.Class() {
         override val predicate = predicateOf<FieldWrapper> { it.type == IntArray::class.type }
     }
 
-    //TODO
-//    @MethodParameters()
-//    class apply : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
-//                .and { it.arguments.size in 0..1 }
-//    }
+    @MethodParameters()
+    class apply : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == Type.VOID_TYPE }
+                .and { it.arguments.isEmpty() }
+    }
 
-//    @DependsOn(apply::class)
-//    class width : OrderMapper.InMethod.Field(apply::class, 0, 2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
-//    }
+    @DependsOn(apply::class)
+    class width : OrderMapper.InMethod.Field(apply::class, 0, 2) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
+    }
 
-//    @DependsOn(apply::class)
-//    class height : OrderMapper.InMethod.Field(apply::class, 1, 2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
-//    }
+    @DependsOn(apply::class)
+    class height : OrderMapper.InMethod.Field(apply::class, 1, 2) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
+    }
 }

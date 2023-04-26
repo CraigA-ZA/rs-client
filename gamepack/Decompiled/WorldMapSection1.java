@@ -34,9 +34,9 @@ public class WorldMapSection1 implements WorldMapSection {
 
    public static int getVarbit(int var0) {
       VarBitType var2 = gs.an_renamed(var0);
-      int var3 = var2.aw * 470400793;
-      int var4 = 1050888611 * var2.ac;
-      int var5 = var2.au * 1130237503;
+      int var3 = var2.baseVar * 470400793;
+      int var4 = 1050888611 * var2.startBit;
+      int var5 = var2.endBit * 1130237503;
       int var6 = Varps.Varps_masks[var5 - var4];
       return Varps.Varps_main[var3] >> var4 & var6;
    }
@@ -106,12 +106,12 @@ public class WorldMapSection1 implements WorldMapSection {
       }
 
       ObjType var10 = HeadbarUpdate.getObjType(var0);
-      if (var1 > 1 && null != var10.bh) {
+      if (var1 > 1 && null != var10.countobj) {
          int var11 = -1;
 
          for(int var12 = 0; var12 < 10; ++var12) {
-            if (var1 >= var10.bw[var12] && 0 != var10.bw[var12]) {
-               var11 = var10.bh[var12];
+            if (var1 >= var10.countco[var12] && 0 != var10.countco[var12]) {
+               var11 = var10.countobj[var12];
             }
          }
 

@@ -46,17 +46,17 @@ public class Model extends Entity {
    int boundsType;
    int radius;
    int bottomY;
-   int[] aa;
+   int[] verticesY;
    int[] ae;
-   int[] ag;
+   int[] indices3;
    int[] faceColors1;
-   int[] ai;
+   int[] indices2;
    int[] ap;
    int[] faceColors3;
-   int[] at;
+   int[] verticesX;
    int[] faceColors2;
-   int[] ax;
-   int[] ay;
+   int[] indices1;
+   int[] verticesZ;
    int[] by;
    int[][] vertexLabels;
    int[][] be;
@@ -105,7 +105,7 @@ public class Model extends Entity {
          }
       }
 
-      this.af(this.verticesCount, this.indicesCount, this.ad);
+      this.doNotUse(this.verticesCount, this.indicesCount, this.ad);
       this.verticesCount = 0;
       this.indicesCount = 0;
       this.ad = 0;
@@ -117,20 +117,20 @@ public class Model extends Entity {
    }
 
    public Model(int var1, int var2, int var3, byte var4) {
-      this.af(var1, var2, var3);
+      this.doNotUse(var1, var2, var3);
       this.az = var4;
       this.verticesCount = 0;
       this.indicesCount = 0;
       this.ad = 0;
    }
 
-   void af(int var1, int var2, int var3) {
-      this.at = new int[var1];
-      this.aa = new int[var1];
-      this.ay = new int[var1];
-      this.ax = new int[var2];
-      this.ai = new int[var2];
-      this.ag = new int[var2];
+   void doNotUse(int var1, int var2, int var3) {
+      this.verticesX = new int[var1];
+      this.verticesY = new int[var1];
+      this.verticesZ = new int[var1];
+      this.indices1 = new int[var2];
+      this.indices2 = new int[var2];
+      this.indices3 = new int[var2];
       this.faceColors1 = new int[var2];
       this.faceColors2 = new int[var2];
       this.faceColors3 = new int[var2];
@@ -143,7 +143,7 @@ public class Model extends Entity {
    }
 
    void aw(Model var1) {
-      int var2 = this.ax.length;
+      int var2 = this.indices1.length;
       if (this.am == null && (var1.am != null || this.az != var1.az)) {
          this.am = new byte[var2];
          Arrays.fill(this.am, this.az);
@@ -172,9 +172,9 @@ public class Model extends Entity {
 
          int var2;
          for(var2 = 0; var2 < var1.indicesCount; ++var2) {
-            this.ax[this.indicesCount] = var1.ax[var2] + this.verticesCount;
-            this.ai[this.indicesCount] = var1.ai[var2] + this.verticesCount;
-            this.ag[this.indicesCount] = var1.ag[var2] + this.verticesCount;
+            this.indices1[this.indicesCount] = var1.indices1[var2] + this.verticesCount;
+            this.indices2[this.indicesCount] = var1.indices2[var2] + this.verticesCount;
+            this.indices3[this.indicesCount] = var1.indices3[var2] + this.verticesCount;
             this.faceColors1[this.indicesCount] = var1.faceColors1[var2];
             this.faceColors2[this.indicesCount] = var1.faceColors2[var2];
             this.faceColors3[this.indicesCount] = var1.faceColors3[var2];
@@ -209,9 +209,9 @@ public class Model extends Entity {
          }
 
          for(var2 = 0; var2 < var1.verticesCount; ++var2) {
-            this.at[this.verticesCount] = var1.at[var2];
-            this.aa[this.verticesCount] = var1.aa[var2];
-            this.ay[this.verticesCount] = var1.ay[var2];
+            this.verticesX[this.verticesCount] = var1.verticesX[var2];
+            this.verticesY[this.verticesCount] = var1.verticesY[var2];
+            this.verticesZ[this.verticesCount] = var1.verticesZ[var2];
             ++this.verticesCount;
          }
 
@@ -238,11 +238,11 @@ public class Model extends Entity {
                var11.verticesCount = this.verticesCount;
                var11.indicesCount = this.indicesCount;
                var11.ad = this.ad;
-               var11.at = this.at;
-               var11.ay = this.ay;
-               var11.ax = this.ax;
-               var11.ai = this.ai;
-               var11.ag = this.ag;
+               var11.verticesX = this.verticesX;
+               var11.verticesZ = this.verticesZ;
+               var11.indices1 = this.indices1;
+               var11.indices2 = this.indices2;
+               var11.indices3 = this.indices3;
                var11.faceColors1 = this.faceColors1;
                var11.faceColors2 = this.faceColors2;
                var11.faceColors3 = this.faceColors3;
@@ -257,7 +257,7 @@ public class Model extends Entity {
                var11.vertexLabels = this.vertexLabels;
                var11.faceLabelsAlpha = this.faceLabelsAlpha;
                var11.isSingleTile = this.isSingleTile;
-               var11.aa = new int[var11.verticesCount];
+               var11.verticesY = new int[var11.verticesCount];
             } else {
                var11 = this;
             }
@@ -274,8 +274,8 @@ public class Model extends Entity {
             int var21;
             if (var6 == 0) {
                for(var12 = 0; var12 < var11.verticesCount; ++var12) {
-                  var13 = this.at[var12] + var2;
-                  var14 = this.ay[var12] + var4;
+                  var13 = this.verticesX[var12] + var2;
+                  var14 = this.verticesZ[var12] + var4;
                   var15 = var13 & 127;
                   var16 = var14 & 127;
                   var17 = var13 >> 7;
@@ -283,14 +283,14 @@ public class Model extends Entity {
                   var19 = var1[var17][var18] * (128 - var15) + var1[var17 + 1][var18] * var15 >> 7;
                   var20 = var1[var17][var18 + 1] * (128 - var15) + var1[var17 + 1][var18 + 1] * var15 >> 7;
                   var21 = var19 * (128 - var16) + var20 * var16 >> 7;
-                  var11.aa[var12] = this.aa[var12] + var21 - var3;
+                  var11.verticesY[var12] = this.verticesY[var12] + var21 - var3;
                }
             } else {
                for(var12 = 0; var12 < var11.verticesCount; ++var12) {
-                  var13 = (-this.aa[var12] << 16) / (this.height * 1550732737);
+                  var13 = (-this.verticesY[var12] << 16) / (this.height * 1550732737);
                   if (var13 < var6) {
-                     var14 = this.at[var12] + var2;
-                     var15 = this.ay[var12] + var4;
+                     var14 = this.verticesX[var12] + var2;
+                     var15 = this.verticesZ[var12] + var4;
                      var16 = var14 & 127;
                      var17 = var15 & 127;
                      var18 = var14 >> 7;
@@ -298,7 +298,7 @@ public class Model extends Entity {
                      var20 = var1[var18][var19] * (128 - var16) + var1[var18 + 1][var19] * var16 >> 7;
                      var21 = var1[var18][var19 + 1] * (128 - var16) + var1[var18 + 1][var19 + 1] * var16 >> 7;
                      int var22 = var20 * (128 - var17) + var21 * var17 >> 7;
-                     var11.aa[var12] = this.aa[var12] + (var22 - var3) * (var6 - var13) / var6;
+                     var11.verticesY[var12] = this.verticesY[var12] + (var22 - var3) * (var6 - var13) / var6;
                   }
                }
             }
@@ -319,7 +319,7 @@ public class Model extends Entity {
       return this.copy0(var1, af, an);
    }
 
-   public Model ay(boolean var1) {
+   public Model toSharedSpotAnimationModel(boolean var1) {
       if (!var1 && ac.length < this.indicesCount) {
          ac = new byte[this.indicesCount + 100];
       }
@@ -331,17 +331,17 @@ public class Model extends Entity {
       var2.verticesCount = this.verticesCount;
       var2.indicesCount = this.indicesCount;
       var2.ad = this.ad;
-      if (var2.at == null || var2.at.length < this.verticesCount) {
-         var2.at = new int[this.verticesCount + 100];
-         var2.aa = new int[this.verticesCount + 100];
-         var2.ay = new int[this.verticesCount + 100];
+      if (var2.verticesX == null || var2.verticesX.length < this.verticesCount) {
+         var2.verticesX = new int[this.verticesCount + 100];
+         var2.verticesY = new int[this.verticesCount + 100];
+         var2.verticesZ = new int[this.verticesCount + 100];
       }
 
       int var4;
       for(var4 = 0; var4 < this.verticesCount; ++var4) {
-         var2.at[var4] = this.at[var4];
-         var2.aa[var4] = this.aa[var4];
-         var2.ay[var4] = this.ay[var4];
+         var2.verticesX[var4] = this.verticesX[var4];
+         var2.verticesY[var4] = this.verticesY[var4];
+         var2.verticesZ[var4] = this.verticesZ[var4];
       }
 
       if (var1) {
@@ -359,9 +359,9 @@ public class Model extends Entity {
          }
       }
 
-      var2.ax = this.ax;
-      var2.ai = this.ai;
-      var2.ag = this.ag;
+      var2.indices1 = this.indices1;
+      var2.indices2 = this.indices2;
+      var2.indices3 = this.indices3;
       var2.faceColors1 = this.faceColors1;
       var2.faceColors2 = this.faceColors2;
       var2.faceColors3 = this.faceColors3;
@@ -394,9 +394,9 @@ public class Model extends Entity {
          int var9 = Model_sine[var1];
 
          for(int var10 = 0; var10 < this.verticesCount; ++var10) {
-            int var11 = fy.af_renamed(this.at[var10], this.ay[var10], var8, var9);
-            int var12 = this.aa[var10];
-            int var13 = gj.an_renamed(this.at[var10], this.ay[var10], var8, var9);
+            int var11 = fy.af_renamed(this.verticesX[var10], this.verticesZ[var10], var8, var9);
+            int var12 = this.verticesY[var10];
+            int var13 = gj.an_renamed(this.verticesX[var10], this.verticesZ[var10], var8, var9);
             if (var11 < var2) {
                var2 = var11;
             }
@@ -422,20 +422,20 @@ public class Model extends Entity {
             }
          }
 
-         iq var17 = new iq((var5 + var2) / 2, (var6 + var3) / 2, (var7 + var4) / 2, (var5 - var2 + 1) / 2, (var6 - var3 + 1) / 2, (var7 - var4 + 1) / 2);
+         AABB var17 = new AABB((var5 + var2) / 2, (var6 + var3) / 2, (var7 + var4) / 2, (var5 - var2 + 1) / 2, (var6 - var3 + 1) / 2, (var7 - var4 + 1) / 2);
          boolean var18 = true;
-         if (var17.ac * -1923653815 < 32) {
-            var17.ac = -889692384;
+         if (var17.xMidOffset * -1923653815 < 32) {
+            var17.xMidOffset = -889692384;
          }
 
-         if (var17.ab * -452185969 < 32) {
-            var17.ab = 702402016;
+         if (var17.zMidOffset * -452185969 < 32) {
+            var17.zMidOffset = 702402016;
          }
 
          if (this.isSingleTile) {
             boolean var19 = true;
-            var17.ac += -222423096;
-            var17.ab += 175600504;
+            var17.xMidOffset += -222423096;
+            var17.zMidOffset += 175600504;
          }
 
          this.bj.put(var1, var17);
@@ -450,9 +450,9 @@ public class Model extends Entity {
          this.xzRadius = 0;
 
          for(int var1 = 0; var1 < this.verticesCount; ++var1) {
-            int var2 = this.at[var1];
-            int var3 = this.aa[var1];
-            int var4 = this.ay[var1];
+            int var2 = this.verticesX[var1];
+            int var3 = this.verticesY[var1];
+            int var4 = this.verticesZ[var1];
             if (-var3 > this.height * 1550732737) {
                this.height = -var3 * -644693439;
             }
@@ -479,9 +479,9 @@ public class Model extends Entity {
          this.xzRadius = 0;
 
          for(int var1 = 0; var1 < this.verticesCount; ++var1) {
-            int var2 = this.at[var1];
-            int var3 = this.aa[var1];
-            int var4 = this.ay[var1];
+            int var2 = this.verticesX[var1];
+            int var3 = this.verticesY[var1];
+            int var4 = this.verticesZ[var1];
             int var5 = var2 * var2 + var4 * var4 + var3 * var3;
             if (var5 > this.xzRadius) {
                this.xzRadius = var5;
@@ -684,9 +684,9 @@ public class Model extends Entity {
 
                for(var11 = 0; var11 < var25.length; ++var11) {
                   var12 = var25[var11];
-                  cq += this.at[var12];
-                  cm += this.aa[var12];
-                  cf += this.ay[var12];
+                  cq += this.verticesX[var12];
+                  cm += this.verticesY[var12];
+                  cf += this.verticesZ[var12];
                   ++var7;
                }
             }
@@ -714,11 +714,11 @@ public class Model extends Entity {
 
                   for(var10 = 0; var10 < var9.length; ++var10) {
                      var11 = var9[var10];
-                     var10000 = this.at;
+                     var10000 = this.verticesX;
                      var10000[var11] += var3;
-                     var10000 = this.aa;
+                     var10000 = this.verticesY;
                      var10000[var11] += var4;
-                     var10000 = this.ay;
+                     var10000 = this.verticesZ;
                      var10000[var11] += var5;
                   }
                }
@@ -732,11 +732,11 @@ public class Model extends Entity {
 
                   for(var10 = 0; var10 < var9.length; ++var10) {
                      var11 = var9[var10];
-                     var10000 = this.at;
+                     var10000 = this.verticesX;
                      var10000[var11] -= cq;
-                     var10000 = this.aa;
+                     var10000 = this.verticesY;
                      var10000[var11] -= cm;
-                     var10000 = this.ay;
+                     var10000 = this.verticesZ;
                      var10000[var11] -= cf;
                      var12 = (var3 & 255) * 8;
                      int var13 = (var4 & 255) * 8;
@@ -747,32 +747,32 @@ public class Model extends Entity {
                      if (var14 != 0) {
                         var15 = Model_sine[var14];
                         var16 = Model_cosine[var14];
-                        var17 = this.aa[var11] * var15 + this.at[var11] * var16 >> 16;
-                        this.aa[var11] = this.aa[var11] * var16 - this.at[var11] * var15 >> 16;
-                        this.at[var11] = var17;
+                        var17 = this.verticesY[var11] * var15 + this.verticesX[var11] * var16 >> 16;
+                        this.verticesY[var11] = this.verticesY[var11] * var16 - this.verticesX[var11] * var15 >> 16;
+                        this.verticesX[var11] = var17;
                      }
 
                      if (var12 != 0) {
                         var15 = Model_sine[var12];
                         var16 = Model_cosine[var12];
-                        var17 = this.aa[var11] * var16 - this.ay[var11] * var15 >> 16;
-                        this.ay[var11] = this.aa[var11] * var15 + this.ay[var11] * var16 >> 16;
-                        this.aa[var11] = var17;
+                        var17 = this.verticesY[var11] * var16 - this.verticesZ[var11] * var15 >> 16;
+                        this.verticesZ[var11] = this.verticesY[var11] * var15 + this.verticesZ[var11] * var16 >> 16;
+                        this.verticesY[var11] = var17;
                      }
 
                      if (var13 != 0) {
                         var15 = Model_sine[var13];
                         var16 = Model_cosine[var13];
-                        var17 = this.ay[var11] * var15 + this.at[var11] * var16 >> 16;
-                        this.ay[var11] = this.ay[var11] * var16 - this.at[var11] * var15 >> 16;
-                        this.at[var11] = var17;
+                        var17 = this.verticesZ[var11] * var15 + this.verticesX[var11] * var16 >> 16;
+                        this.verticesZ[var11] = this.verticesZ[var11] * var16 - this.verticesX[var11] * var15 >> 16;
+                        this.verticesX[var11] = var17;
                      }
 
-                     var10000 = this.at;
+                     var10000 = this.verticesX;
                      var10000[var11] += cq;
-                     var10000 = this.aa;
+                     var10000 = this.verticesY;
                      var10000[var11] += cm;
-                     var10000 = this.ay;
+                     var10000 = this.verticesZ;
                      var10000[var11] += cf;
                   }
                }
@@ -786,20 +786,20 @@ public class Model extends Entity {
 
                   for(var10 = 0; var10 < var9.length; ++var10) {
                      var11 = var9[var10];
-                     var10000 = this.at;
+                     var10000 = this.verticesX;
                      var10000[var11] -= cq;
-                     var10000 = this.aa;
+                     var10000 = this.verticesY;
                      var10000[var11] -= cm;
-                     var10000 = this.ay;
+                     var10000 = this.verticesZ;
                      var10000[var11] -= cf;
-                     this.at[var11] = this.at[var11] * var3 / 128;
-                     this.aa[var11] = this.aa[var11] * var4 / 128;
-                     this.ay[var11] = this.ay[var11] * var5 / 128;
-                     var10000 = this.at;
+                     this.verticesX[var11] = this.verticesX[var11] * var3 / 128;
+                     this.verticesY[var11] = this.verticesY[var11] * var4 / 128;
+                     this.verticesZ[var11] = this.verticesZ[var11] * var5 / 128;
+                     var10000 = this.verticesX;
                      var10000[var11] += cq;
-                     var10000 = this.aa;
+                     var10000 = this.verticesY;
                      var10000[var11] += cm;
-                     var10000 = this.ay;
+                     var10000 = this.verticesZ;
                      var10000[var11] += cf;
                   }
                }
@@ -833,9 +833,9 @@ public class Model extends Entity {
 
    public void rotateY90Ccw() {
       for(int var1 = 0; var1 < this.verticesCount; ++var1) {
-         int var2 = this.at[var1];
-         this.at[var1] = this.ay[var1];
-         this.ay[var1] = -var2;
+         int var2 = this.verticesX[var1];
+         this.verticesX[var1] = this.verticesZ[var1];
+         this.verticesZ[var1] = -var2;
       }
 
       this.resetBounds();
@@ -843,8 +843,8 @@ public class Model extends Entity {
 
    public void rotateY180() {
       for(int var1 = 0; var1 < this.verticesCount; ++var1) {
-         this.at[var1] = -this.at[var1];
-         this.ay[var1] = -this.ay[var1];
+         this.verticesX[var1] = -this.verticesX[var1];
+         this.verticesZ[var1] = -this.verticesZ[var1];
       }
 
       this.resetBounds();
@@ -852,9 +852,9 @@ public class Model extends Entity {
 
    public void rotateY270Ccw() {
       for(int var1 = 0; var1 < this.verticesCount; ++var1) {
-         int var2 = this.ay[var1];
-         this.ay[var1] = this.at[var1];
-         this.at[var1] = -var2;
+         int var2 = this.verticesZ[var1];
+         this.verticesZ[var1] = this.verticesX[var1];
+         this.verticesX[var1] = -var2;
       }
 
       this.resetBounds();
@@ -865,21 +865,21 @@ public class Model extends Entity {
       int var3 = Model_cosine[var1];
 
       for(int var4 = 0; var4 < this.verticesCount; ++var4) {
-         int var5 = this.aa[var4] * var3 - this.ay[var4] * var2 >> 16;
-         this.ay[var4] = this.aa[var4] * var2 + this.ay[var4] * var3 >> 16;
-         this.aa[var4] = var5;
+         int var5 = this.verticesY[var4] * var3 - this.verticesZ[var4] * var2 >> 16;
+         this.verticesZ[var4] = this.verticesY[var4] * var2 + this.verticesZ[var4] * var3 >> 16;
+         this.verticesY[var4] = var5;
       }
 
       this.resetBounds();
    }
 
-   public void be(int var1, int var2, int var3) {
+   public void offset(int var1, int var2, int var3) {
       for(int var4 = 0; var4 < this.verticesCount; ++var4) {
-         int[] var10000 = this.at;
+         int[] var10000 = this.verticesX;
          var10000[var4] += var1;
-         var10000 = this.aa;
+         var10000 = this.verticesY;
          var10000[var4] += var2;
-         var10000 = this.ay;
+         var10000 = this.verticesZ;
          var10000[var4] += var3;
       }
 
@@ -888,9 +888,9 @@ public class Model extends Entity {
 
    public void resize(int var1, int var2, int var3) {
       for(int var4 = 0; var4 < this.verticesCount; ++var4) {
-         this.at[var4] = this.at[var4] * var1 / 128;
-         this.aa[var4] = this.aa[var4] * var2 / 128;
-         this.ay[var4] = this.ay[var4] * var3 / 128;
+         this.verticesX[var4] = this.verticesX[var4] * var1 / 128;
+         this.verticesY[var4] = this.verticesY[var4] * var2 / 128;
+         this.verticesZ[var4] = this.verticesZ[var4] * var3 / 128;
       }
 
       this.resetBounds();
@@ -914,9 +914,9 @@ public class Model extends Entity {
       int var18 = var6 * var16 + var7 * var17 >> 16;
 
       for(int var19 = 0; var19 < this.verticesCount; ++var19) {
-         int var20 = this.at[var19];
-         int var21 = this.aa[var19];
-         int var22 = this.ay[var19];
+         int var20 = this.verticesX[var19];
+         int var21 = this.verticesY[var19];
+         int var22 = this.verticesZ[var19];
          int var23;
          if (var3 != 0) {
             var23 = var21 * var14 + var20 * var15 >> 16;
@@ -977,9 +977,9 @@ public class Model extends Entity {
       int var19 = var6 * var17 + var7 * var18 >> 16;
 
       for(int var20 = 0; var20 < this.verticesCount; ++var20) {
-         int var21 = this.at[var20];
-         int var22 = this.aa[var20];
-         int var23 = this.ay[var20];
+         int var21 = this.verticesX[var20];
+         int var22 = this.verticesY[var20];
+         int var23 = this.verticesZ[var20];
          int var24;
          if (var3 != 0) {
             var24 = var22 * var15 + var21 * var16 >> 16;
@@ -1118,9 +1118,9 @@ public class Model extends Entity {
                      }
 
                      for(int var43 = 0; var43 < this.verticesCount; ++var43) {
-                        int var44 = this.at[var43];
-                        int var45 = this.aa[var43];
-                        int var46 = this.ay[var43];
+                        int var44 = this.verticesX[var43];
+                        int var45 = this.verticesY[var43];
+                        int var46 = this.verticesZ[var43];
                         int var47;
                         if (var1 != 0) {
                            var47 = var46 * var41 + var44 * var42 >> 16;
@@ -1186,9 +1186,9 @@ public class Model extends Entity {
          int var18;
          for(var7 = 0; var7 < this.indicesCount; var7 = (char)(var7 + 1)) {
             if (this.faceColors3[var7] != -2) {
-               var8 = this.ax[var7];
-               var9 = this.ai[var7];
-               var10 = this.ag[var7];
+               var8 = this.indices1[var7];
+               var9 = this.indices2[var7];
+               var10 = this.indices3[var7];
                var11 = modelViewportXs[var8];
                var12 = modelViewportXs[var9];
                var13 = modelViewportXs[var10];
@@ -1423,9 +1423,9 @@ public class Model extends Entity {
       if (br[var1]) {
          this.bj(var1);
       } else {
-         int var2 = this.ax[var1];
-         int var3 = this.ai[var1];
-         int var4 = this.ag[var1];
+         int var2 = this.indices1[var1];
+         int var3 = this.indices2[var1];
+         int var4 = this.indices3[var1];
          Rasterizer3D.ab.af = bs[var1];
          if (this.faceAlphas == null) {
             Rasterizer3D.ab.aw = 0;
@@ -1453,9 +1453,9 @@ public class Model extends Entity {
             var15 = this.ap[var17];
             var16 = this.by[var17];
          } else {
-            var26 = this.ax[var1];
-            var15 = this.ai[var1];
-            var16 = this.ag[var1];
+            var26 = this.indices1[var1];
+            var15 = this.indices2[var1];
+            var16 = this.indices3[var1];
          }
 
          if (this.faceColors3[var1] == -1) {
@@ -1492,9 +1492,9 @@ public class Model extends Entity {
       int var2 = TaskHandler.au_renamed();
       int var3 = ax.ab_renamed();
       int var4 = 0;
-      int var5 = this.ax[var1];
-      int var6 = this.ai[var1];
-      int var7 = this.ag[var1];
+      int var5 = this.indices1[var1];
+      int var6 = this.indices2[var1];
+      int var7 = this.indices3[var1];
       int var8 = bl[var5];
       int var9 = bl[var6];
       int var10 = bl[var7];
@@ -1688,13 +1688,13 @@ public class Model extends Entity {
    }
 
    void bn(int var1, qj var2) {
-      float var3 = (float)this.at[var1];
-      float var4 = (float)(-this.aa[var1]);
-      float var5 = (float)(-this.ay[var1]);
+      float var3 = (float)this.verticesX[var1];
+      float var4 = (float)(-this.verticesY[var1]);
+      float var5 = (float)(-this.verticesZ[var1]);
       float var6 = 1.0F;
-      this.at[var1] = (int)(var2.au[0] * var3 + var2.au[4] * var4 + var2.au[8] * var5 + var2.au[12] * var6);
-      this.aa[var1] = -((int)(var2.au[1] * var3 + var2.au[5] * var4 + var2.au[9] * var5 + var2.au[13] * var6));
-      this.ay[var1] = -((int)(var2.au[2] * var3 + var2.au[6] * var4 + var2.au[10] * var5 + var2.au[14] * var6));
+      this.verticesX[var1] = (int)(var2.au[0] * var3 + var2.au[4] * var4 + var2.au[8] * var5 + var2.au[12] * var6);
+      this.verticesY[var1] = -((int)(var2.au[1] * var3 + var2.au[5] * var4 + var2.au[9] * var5 + var2.au[13] * var6));
+      this.verticesZ[var1] = -((int)(var2.au[2] * var3 + var2.au[6] * var4 + var2.au[10] * var5 + var2.au[14] * var6));
    }
 
    void bs(ic var1, int var2) {

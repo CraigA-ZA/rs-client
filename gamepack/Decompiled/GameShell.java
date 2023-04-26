@@ -41,22 +41,22 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    MouseWheelHandler mouseWheelHandler;
    boolean hasErrored = false;
    boolean bm = false;
-   int ad;
+   int contentHeight0;
    int maxCanvasWidth;
    int canvasX = 0;
    int maxCanvasHeight;
    int canvasY = 0;
-   int az;
-   java.awt.Canvas bk;
+   int contentWidth0;
+   java.awt.Canvas canvas;
    Frame frame;
    Clipboard clipboard;
    final EventQueue eventQueue;
    protected boolean by = false;
    protected int contentHeight;
    protected int contentWidth;
-   volatile boolean bd = false;
+   volatile boolean isCanvasInvalid = false;
    volatile boolean bx = true;
-   volatile long bt = 0L;
+   volatile long canvasSetTimeMs = 0L;
 
    static void al_renamed() {
       Iterator var1 = Messages.Messages_hashTable.iterator();
@@ -137,7 +137,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    protected MouseWheel mouseWheel() {
       if (this.mouseWheelHandler == null) {
          this.mouseWheelHandler = new MouseWheelHandler();
-         this.mouseWheelHandler.addTo(this.bk);
+         this.mouseWheelHandler.addTo(this.canvas);
       }
 
       return this.mouseWheelHandler;
@@ -155,9 +155,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       return this.clipboard;
    }
 
-   protected final void ai() {
+   protected final void setUpKeyboard() {
       gs.af_renamed();
-      KeyHandler_instance.aw(this.bk);
+      KeyHandler_instance.aw(this.canvas);
    }
 
    protected final void ag() {
@@ -168,16 +168,16 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       KeyHandler_instance.af(var1, var2);
    }
 
-   protected final void av() {
-      pc.af_renamed(this.bk);
+   protected final void setUpMouse() {
+      pc.af_renamed(this.canvas);
    }
 
-   final void ar() {
+   final void onResize() {
       Container var2 = this.container();
       if (null != var2) {
          Bounds var3 = this.getFrameContentBounds();
-         this.contentWidth = Math.max(944313703 * var3.width, 69014751 * this.az) * -2050638615;
-         this.contentHeight = Math.max(var3.height * -1376251093, 1673949127 * this.ad) * -1550051949;
+         this.contentWidth = Math.max(944313703 * var3.width, 69014751 * this.contentWidth0) * -2050638615;
+         this.contentHeight = Math.max(var3.height * -1376251093, 1673949127 * this.contentHeight0) * -1550051949;
          if (-927540391 * this.contentWidth <= 0) {
             this.contentWidth = -2050638615;
          }
@@ -190,13 +190,13 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          kd.ak = Math.min(-1747234661 * this.contentHeight, 83534669 * this.maxCanvasHeight) * -16547605;
          this.canvasX = (this.contentWidth * -927540391 - -1687260435 * aj) / 2 * 1463717787;
          this.canvasY = 0;
-         this.bk.setSize(aj * -1687260435, kd.ak * 1658005443);
-         ia.rasterProvider = new RasterProvider(-1687260435 * aj, 1658005443 * kd.ak, this.bk, this.by);
+         this.canvas.setSize(aj * -1687260435, kd.ak * 1658005443);
+         ia.rasterProvider = new RasterProvider(-1687260435 * aj, 1658005443 * kd.ak, this.canvas, this.by);
          if (var2 == this.frame) {
             Insets var4 = this.frame.getInsets();
-            this.bk.setLocation(var4.left + -744210797 * this.canvasX, this.canvasY * 895830209 + var4.top);
+            this.canvas.setLocation(var4.left + -744210797 * this.canvasX, this.canvasY * 895830209 + var4.top);
          } else {
-            this.bk.setLocation(this.canvasX * -744210797, 895830209 * this.canvasY);
+            this.canvas.setLocation(this.canvasX * -744210797, 895830209 * this.canvasY);
          }
 
          this.bx = true;
@@ -243,28 +243,28 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
    }
 
-   final void aj() {
-      KeyHandler_instance.ac(this.bk);
-      java.awt.Canvas var2 = this.bk;
+   final void replaceCanvas() {
+      KeyHandler_instance.ac(this.canvas);
+      java.awt.Canvas var2 = this.canvas;
       var2.removeMouseListener(MouseHandler.MouseHandler_instance);
       var2.removeMouseMotionListener(MouseHandler.MouseHandler_instance);
       var2.removeFocusListener(MouseHandler.MouseHandler_instance);
       MouseHandler.MouseHandler_currentButton0 = 0;
       if (this.mouseWheelHandler != null) {
-         this.mouseWheelHandler.removeFrom(this.bk);
+         this.mouseWheelHandler.removeFrom(this.canvas);
       }
 
-      this.az();
-      KeyHandler_instance.aw(this.bk);
-      pc.af_renamed(this.bk);
+      this.addCanvas();
+      KeyHandler_instance.aw(this.canvas);
+      pc.af_renamed(this.canvas);
       if (this.mouseWheelHandler != null) {
-         this.mouseWheelHandler.addTo(this.bk);
+         this.mouseWheelHandler.addTo(this.canvas);
       }
 
       this.bi();
    }
 
-   protected final void ak(int var1, int var2, int var3, int var4) {
+   protected final void startThread(int var1, int var2, int var3, int var4) {
       try {
          if (null != gameShell) {
             aw += -914573903;
@@ -295,15 +295,15 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
    }
 
-   final synchronized void az() {
+   final synchronized void addCanvas() {
       Container var2 = this.container();
-      if (null != this.bk) {
-         this.bk.removeFocusListener(this);
-         var2.remove(this.bk);
+      if (null != this.canvas) {
+         this.canvas.removeFocusListener(this);
+         var2.remove(this.canvas);
       }
 
-      aj = Math.max(var2.getWidth(), this.az * 69014751) * 2082454245;
-      kd.ak = Math.max(var2.getHeight(), this.ad * 1673949127) * -16547605;
+      aj = Math.max(var2.getWidth(), this.contentWidth0 * 69014751) * 2082454245;
+      kd.ak = Math.max(var2.getHeight(), this.contentHeight0 * 1673949127) * -16547605;
       Insets var3;
       if (null != this.frame) {
          var3 = this.frame.getInsets();
@@ -311,39 +311,39 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          kd.ak -= (var3.bottom + var3.top) * -16547605;
       }
 
-      this.bk = new Canvas(this);
+      this.canvas = new Canvas(this);
       var2.setBackground(Color.BLACK);
       var2.setLayout((LayoutManager)null);
-      var2.add(this.bk);
-      this.bk.setSize(-1687260435 * aj, 1658005443 * kd.ak);
-      this.bk.setVisible(true);
-      this.bk.setBackground(Color.BLACK);
+      var2.add(this.canvas);
+      this.canvas.setSize(-1687260435 * aj, 1658005443 * kd.ak);
+      this.canvas.setVisible(true);
+      this.canvas.setBackground(Color.BLACK);
       if (this.frame == var2) {
          var3 = this.frame.getInsets();
-         this.bk.setLocation(var3.left + -744210797 * this.canvasX, var3.top + 895830209 * this.canvasY);
+         this.canvas.setLocation(var3.left + -744210797 * this.canvasX, var3.top + 895830209 * this.canvasY);
       } else {
-         this.bk.setLocation(this.canvasX * -744210797, this.canvasY * 895830209);
+         this.canvas.setLocation(this.canvasX * -744210797, this.canvasY * 895830209);
       }
 
-      this.bk.addFocusListener(this);
-      this.bk.requestFocus();
+      this.canvas.addFocusListener(this);
+      this.canvas.requestFocus();
       this.bx = true;
-      if (null != ia.rasterProvider && 1313069155 * ia.rasterProvider.ac == aj * -1687260435 && 1658005443 * kd.ak == 1695726685 * ia.rasterProvider.au) {
-         ((RasterProvider)ia.rasterProvider).setComponent(this.bk);
+      if (null != ia.rasterProvider && 1313069155 * ia.rasterProvider.width == aj * -1687260435 && 1658005443 * kd.ak == 1695726685 * ia.rasterProvider.height) {
+         ((RasterProvider)ia.rasterProvider).setComponent(this.canvas);
          ia.rasterProvider.drawFull(0, 0);
       } else {
-         ia.rasterProvider = new RasterProvider(-1687260435 * aj, kd.ak * 1658005443, this.bk, this.by);
+         ia.rasterProvider = new RasterProvider(-1687260435 * aj, kd.ak * 1658005443, this.canvas, this.by);
       }
 
-      this.bd = false;
-      this.bt = Formatting.af_renamed() * -515103886995160589L;
+      this.isCanvasInvalid = false;
+      this.canvasSetTimeMs = Formatting.af_renamed() * -515103886995160589L;
    }
 
    protected void ad(boolean var1) {
       if (var1 != this.by) {
          this.by = var1;
          ia.rasterProvider.am(var1);
-         ia.rasterProvider.ar();
+         ia.rasterProvider.apply();
       }
 
    }
@@ -402,8 +402,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          }
 
          this.setFocusCycleRoot(true);
-         this.az();
-         this.bm();
+         this.addCanvas();
+         this.setUp();
          pj.clock = fc.al_renamed();
 
          while(951500247553634275L * stopTimeMs == 0L || Formatting.af_renamed() < 951500247553634275L * stopTimeMs) {
@@ -413,8 +413,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
                this.ap();
             }
 
-            this.by();
-            this.at(this.bk);
+            this.render();
+            this.at(this.canvas);
          }
       } catch (Exception var5) {
          ob.af_renamed((String)null, var5);
@@ -439,7 +439,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       this.bd();
    }
 
-   void by() {
+   void render() {
       Container var2 = this.container();
       long var3 = Formatting.af_renamed();
       long var5 = ax[Rasterizer3D.ai * -689745739];
@@ -453,21 +453,21 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       if ((bz += 769754581) * 148605821 - 1 > 50) {
          bz -= -166976614;
          this.bx = true;
-         this.bk.setSize(aj * -1687260435, 1658005443 * kd.ak);
-         this.bk.setVisible(true);
+         this.canvas.setSize(aj * -1687260435, 1658005443 * kd.ak);
+         this.canvas.setVisible(true);
          if (var2 == this.frame) {
             Insets var8 = this.frame.getInsets();
-            this.bk.setLocation(-744210797 * this.canvasX + var8.left, var8.top + 895830209 * this.canvasY);
+            this.canvas.setLocation(-744210797 * this.canvasX + var8.left, var8.top + 895830209 * this.canvasY);
          } else {
-            this.bk.setLocation(this.canvasX * -744210797, 895830209 * this.canvasY);
+            this.canvas.setLocation(this.canvasX * -744210797, 895830209 * this.canvasY);
          }
       }
 
-      if (this.bd) {
-         this.aj();
+      if (this.isCanvasInvalid) {
+         this.replaceCanvas();
       }
 
-      this.bb();
+      this.checkResize();
       this.draw(this.bx);
       if (this.bx) {
          this.clearBackground();
@@ -476,10 +476,10 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       this.bx = false;
    }
 
-   final void bb() {
+   final void checkResize() {
       Bounds var2 = this.getFrameContentBounds();
       if (var2.width * 944313703 != -927540391 * this.contentWidth || -1747234661 * this.contentHeight != var2.height * -1376251093 || this.bm) {
-         this.ar();
+         this.onResize();
          this.bm = false;
       }
 
@@ -494,7 +494,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          isKilled = true;
 
          try {
-            this.bk.removeFocusListener(this);
+            this.canvas.removeFocusListener(this);
          } catch (Exception var6) {
          }
 
@@ -548,10 +548,10 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    public final synchronized void paint(Graphics var1) {
       if (gameShell == this && !isKilled) {
          this.bx = true;
-         if (Formatting.af_renamed() - -6171487387477770437L * this.bt > 1000L) {
+         if (Formatting.af_renamed() - -6171487387477770437L * this.canvasSetTimeMs > 1000L) {
             Rectangle var2 = var1.getClipBounds();
             if (var2 == null || var2.width >= aj * -1687260435 && var2.height >= 1658005443 * kd.ak) {
-               this.bd = true;
+               this.isCanvasInvalid = true;
             }
          }
 
@@ -591,10 +591,10 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
    protected final void drawInitial(int var1, String var2, boolean var3) {
       try {
-         Graphics var5 = this.bk.getGraphics();
+         Graphics var5 = this.canvas.getGraphics();
          if (null == jn.bb) {
             jn.bb = new java.awt.Font("Helvetica", 1, 13);
-            bb.pauseFontMetrics = this.bk.getFontMetrics(jn.bb);
+            bb.pauseFontMetrics = this.canvas.getFontMetrics(jn.bb);
          }
 
          if (var3) {
@@ -606,7 +606,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
          try {
             if (PacketWriter.pauseImage == null) {
-               PacketWriter.pauseImage = this.bk.createImage(304, 34);
+               PacketWriter.pauseImage = this.canvas.createImage(304, 34);
             }
 
             Graphics var7 = PacketWriter.pauseImage.getGraphics();
@@ -634,7 +634,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             var5.drawString(var2, var8 + (304 - bb.pauseFontMetrics.stringWidth(var2)) / 2, 22 + var9);
          }
       } catch (Exception var11) {
-         this.bk.repaint();
+         this.canvas.repaint();
       }
 
    }
@@ -664,8 +664,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
    Bounds getFrameContentBounds() {
       Container var2 = this.container();
-      int var3 = Math.max(var2.getWidth(), this.az * 69014751);
-      int var4 = Math.max(var2.getHeight(), 1673949127 * this.ad);
+      int var3 = Math.max(var2.getWidth(), this.contentWidth0 * 69014751);
+      int var4 = Math.max(var2.getHeight(), 1673949127 * this.contentHeight0);
       if (null != this.frame) {
          Insets var5 = this.frame.getInsets();
          var3 -= var5.right + var5.left;
@@ -689,7 +689,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
    protected abstract void draw(boolean var1);
 
-   protected abstract void bm();
+   protected abstract void setUp();
 
    protected abstract void ba();
 }

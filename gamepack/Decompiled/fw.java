@@ -269,7 +269,7 @@ public class fw extends fb {
       } else {
          byte[] var3 = LocType.LocType_archive.takeFile(6, var0);
          var2 = new LocType();
-         var2.at = var0 * -1113054781;
+         var2.id = var0 * -1113054781;
          if (var3 != null) {
             var2.decode(new Packet(var3));
          }

@@ -69,18 +69,8 @@ public class Language implements Enumerated {
       return -1624506429 * this.aa;
    }
 
-   public static Language aq_renamed(int var0, byte var1) {
-      if (var0 >= 0) {
-         if (var0 < ay.length) {
-            return ay[var0];
-         }
-
-         if (var1 != -1) {
-            throw new IllegalStateException();
-         }
-      }
-
-      return null;
+   public static Language aq_renamed(int var0) {
+      return var0 >= 0 && var0 < ay.length ? ay[var0] : null;
    }
 
    public String toString() {

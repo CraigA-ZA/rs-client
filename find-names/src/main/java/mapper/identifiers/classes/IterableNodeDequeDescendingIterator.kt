@@ -20,8 +20,4 @@ class IterableNodeDequeDescendingIterator : IdentityMapper.Class() {
     class deque : IdentityMapper.InstanceField() {
         override val predicate = predicateOf<FieldWrapper> { it.type == type<IterableNodeDeque>() }
     }
-
-    // current
-
-    // last
 }

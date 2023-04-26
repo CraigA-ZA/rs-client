@@ -25,22 +25,14 @@ public class Inventory extends Node {
       }
    }
 
-   public static SeqType getSeqType(int var0, byte var1) {
+   public static SeqType getSeqType(int var0) {
       SeqType var2 = (SeqType)SeqType.SeqType_cached.get((long)var0);
       if (null != var2) {
-         if (var1 <= -1) {
-            throw new IllegalStateException();
-         } else {
-            return var2;
-         }
+         return var2;
       } else {
          byte[] var3 = SeqType.SeqType_archive.takeFile(12, var0);
          var2 = new SeqType();
          if (var3 != null) {
-            if (var1 <= -1) {
-               throw new IllegalStateException();
-            }
-
             var2.decode(new Packet(var3));
          }
 

@@ -117,7 +117,7 @@ public class WorldMap {
             AbstractWorldMapIcon var14;
             ClientScriptEvent var15;
             WorldMapEvent var16;
-            for(var13 = var11.iterator(); var13.hasNext(); HeadbarUpdate.af_renamed(var15)) {
+            for(var13 = var11.iterator(); var13.hasNext(); HeadbarUpdate.runClientScript(var15)) {
                var14 = (AbstractWorldMapIcon)var13.next();
                var12.add(var14);
                var15 = new ClientScriptEvent();
@@ -139,7 +139,7 @@ public class WorldMap {
                   var16 = new WorldMapEvent(var14.element(), var14.coord1, var14.coord2);
                   var15.setArgs(new Object[]{var16, var1, var2});
                   var15.setType(16);
-                  HeadbarUpdate.af_renamed(var15);
+                  HeadbarUpdate.runClientScript(var15);
                }
             }
 
@@ -373,7 +373,7 @@ public class WorldMap {
          this.zoomTarget = this.zoom;
          this.cc = null;
          this.iconIterator = null;
-         this.worldMapManager.an();
+         this.worldMapManager.clearIcons();
       }
    }
 
@@ -382,7 +382,7 @@ public class WorldMap {
       Rasterizer2D.Rasterizer2D_getClipArray(var7);
       Rasterizer2D.Rasterizer2D_setClip(var1, var2, var1 + var3, var2 + var4);
       Rasterizer2D.Rasterizer2D_fillRectangle(var1, var2, var3, var4, -16777216);
-      int var8 = this.cacheLoader.ac();
+      int var8 = this.cacheLoader.percentLoaded();
       if (var8 < 100) {
          this.drawLoading(var1, var2, var3, var4, var8);
       } else {
@@ -544,8 +544,8 @@ public class WorldMap {
       }
    }
 
-   public void bb() {
-      this.cacheLoader.an();
+   public void loadCache() {
+      this.cacheLoader.load();
    }
 
    public boolean isCacheLoaded() {
@@ -817,7 +817,7 @@ public class WorldMap {
             var6.setType(14);
       }
 
-      HeadbarUpdate.af_renamed(var6);
+      HeadbarUpdate.runClientScript(var6);
    }
 
    public AbstractWorldMapIcon iconStart() {

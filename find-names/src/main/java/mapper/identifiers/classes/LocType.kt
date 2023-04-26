@@ -8,7 +8,7 @@ import mapper.annotations.MethodParameters
 import mapper.predicateutilities.*
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -46,10 +46,6 @@ class LocType : IdentityMapper.Class() {
                 .and { it.instructions.any { it.opcode == Opcodes.BIPUSH && it.intOperand == 23 } }
     }
 
-//    @DependsOn(Client.getLocType::class)
-//    class id : OrderMapper.InMethod.Field(Client.getLocType::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE && it.fieldOwner == type<LocType>() }
-//    }
 
     @MethodParameters()
     class multiLoc : IdentityMapper.InstanceMethod() {
@@ -58,140 +54,129 @@ class LocType : IdentityMapper.Class() {
 
     @DependsOn(multiLoc::class)
     class multi : UniqueMapper.InMethod.Field(multiLoc::class) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
     }
 
-//    @DependsOn(multiLoc::class)
-//    class multiVarbit : OrderMapper.InMethod.Field(multiLoc::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
-//    }
-
-    //TODO
-//    @DependsOn(multiLoc::class)
-//    class multiVar : OrderMapper.InMethod.Field(multiLoc::class, 2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
-//    }
-
     class width : OrderMapper.InConstructor.Field(LocType::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class length : OrderMapper.InConstructor.Field(LocType::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class interactType : OrderMapper.InConstructor.Field(LocType::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class boolean1 : OrderMapper.InConstructor.Field(LocType::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
     }
 
     class interactable : OrderMapper.InConstructor.Field(LocType::class, 3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class hillChange : OrderMapper.InConstructor.Field(LocType::class, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class sharelight : OrderMapper.InConstructor.Field(LocType::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
     }
 
     class occlude : OrderMapper.InConstructor.Field(LocType::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
     }
 
     class animationId : OrderMapper.InConstructor.Field(LocType::class, 5) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class int2 : OrderMapper.InConstructor.Field(LocType::class, 6) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class ambient : OrderMapper.InConstructor.Field(LocType::class, 7) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class contrast : OrderMapper.InConstructor.Field(LocType::class, 8) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class mapIconId : OrderMapper.InConstructor.Field(LocType::class, 9) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class mapSceneId : OrderMapper.InConstructor.Field(LocType::class, 10) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class isRotated : OrderMapper.InConstructor.Field(LocType::class, 3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
     }
 
     class clipped : OrderMapper.InConstructor.Field(LocType::class, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
     }
 
     class resizeX : OrderMapper.InConstructor.Field(LocType::class, 11) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class resizeY : OrderMapper.InConstructor.Field(LocType::class, 12) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class resizeZ : OrderMapper.InConstructor.Field(LocType::class, 13) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class offsetX : OrderMapper.InConstructor.Field(LocType::class, 14) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class offsetY : OrderMapper.InConstructor.Field(LocType::class, 15) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class offsetZ : OrderMapper.InConstructor.Field(LocType::class, 16) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class lowDetailVisible : OrderMapper.InConstructor.Field(LocType::class, 5) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
     }
 
     class isSolid : OrderMapper.InConstructor.Field(LocType::class, 6) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
     }
 
     class int3 : OrderMapper.InConstructor.Field(LocType::class, 17) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class ambientSoundId : OrderMapper.InConstructor.Field(LocType::class, 20) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class int4 : OrderMapper.InConstructor.Field(LocType::class, 21) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class int5 : OrderMapper.InConstructor.Field(LocType::class, 22) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class int6 : OrderMapper.InConstructor.Field(LocType::class, 23) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @MethodParameters()
     @DependsOn(Client.getLocType::class)
     class postDecode : OrderMapper.InMethod.Method(Client.getLocType::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.isMethod && it.methodOwner == type<LocType>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.isMethod && it.methodOwner == type<LocType>() }
     }
 
     @DependsOn(Model::class)
@@ -214,25 +199,25 @@ class LocType : IdentityMapper.Class() {
 
     @DependsOn(getUnlitModel::class)
     class recol_s : OrderMapper.InMethod.Field(getUnlitModel::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.SALOAD }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.SALOAD }
                 .prevIn(2) { it.opcode == Opcodes.GETFIELD && it.fieldType == ShortArray::class.type }
     }
 
     @DependsOn(getUnlitModel::class)
     class recol_d : OrderMapper.InMethod.Field(getUnlitModel::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.SALOAD }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.SALOAD }
                 .prevIn(2) { it.opcode == Opcodes.GETFIELD && it.fieldType == ShortArray::class.type }
     }
 
     @DependsOn(getUnlitModel::class)
     class retex_s : OrderMapper.InMethod.Field(getUnlitModel::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.SALOAD }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.SALOAD }
                 .prevIn(2) { it.opcode == Opcodes.GETFIELD && it.fieldType == ShortArray::class.type }
     }
 
     @DependsOn(getUnlitModel::class)
     class retex_d : OrderMapper.InMethod.Field(getUnlitModel::class, 3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.SALOAD }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.SALOAD }
                 .prevIn(2) { it.opcode == Opcodes.GETFIELD && it.fieldType == ShortArray::class.type }
     }
 
@@ -251,15 +236,30 @@ class LocType : IdentityMapper.Class() {
                 .and { it.arguments == listOf(Type.INT_TYPE, String::class.type) }
     }
 
-//    @DependsOn(postDecode::class)
-//    class models : OrderMapper.InMethod.Field(postDecode::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
-//    }
-//
-//    @DependsOn(postDecode::class)
-//    class modelTypes : OrderMapper.InMethod.Field(postDecode::class, 1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
-//    }
+    @DependsOn(postDecode::class)
+    class models : OrderMapper.InMethod.Field(postDecode::class, 0) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
+    }
+
+    @DependsOn(postDecode::class)
+    class modelTypes : OrderMapper.InMethod.Field(postDecode::class, 1) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
+    }
+
+    @DependsOn(multiLoc::class)
+    class multiVarbit : OrderMapper.InMethod.Field(multiLoc::class, 0) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
+    }
+
+    @DependsOn(Client.getLocType::class)
+    class id : OrderMapper.InMethod.Field(Client.getLocType::class, 0) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE && it.fieldOwner == type<LocType>() }
+    }
+
+    @DependsOn(multiLoc::class)
+    class multiVar : OrderMapper.InMethod.Field(multiLoc::class, 2) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
+    }
 
     class loadModels : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<MethodWrapper> { it.returnType == Type.BOOLEAN_TYPE && it.arguments.isEmpty() && Modifier.isFinal(it.access) }

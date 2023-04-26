@@ -23,17 +23,9 @@ public class PacketBit extends Packet {
       return this.array[(this.index += -1516355947) * -1633313603 - 1] - this.isaac0.af() & 255;
    }
 
-   public boolean au(byte var1) {
+   public boolean au() {
       int var2 = this.array[-1633313603 * this.index] - this.isaac0.an() & 255;
-      if (var2 < 128) {
-         if (var1 == -1) {
-            throw new IllegalStateException();
-         } else {
-            return false;
-         }
-      } else {
-         return true;
-      }
+      return var2 >= 128;
    }
 
    public int gIsaacSmart1or2() {

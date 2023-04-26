@@ -97,7 +97,7 @@ public class fa {
                }
 
                var1.advance(-1795081153 * Client.ja);
-               bx.scene.ao(-1727408401 * GameShell.plane, (int)var1.ax, (int)var1.ai, (int)var1.ag, 60, var1, 650783873 * var1.yaw, -1L, false);
+               bx.scene.ao(-1727408401 * GameShell.plane, (int)var1.x, (int)var1.y, (int)var1.z, 60, var1, 650783873 * var1.yaw, -1L, false);
             }
          } else {
             var1.remove();

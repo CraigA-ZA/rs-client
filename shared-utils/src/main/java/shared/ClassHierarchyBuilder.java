@@ -1,4 +1,4 @@
-package updater.model;
+package shared;
 
 import org.objectweb.asm.tree.ClassNode;
 

@@ -14,8 +14,8 @@ public final class RasterProvider extends AbstractRasterProvider {
    Image image;
 
    RasterProvider(int var1, int var2, java.awt.Component var3, boolean var4) {
-      this.ac = var1 * 1020619083;
-      this.au = 1097136117 * var2;
+      this.width = var1 * 1020619083;
+      this.height = 1097136117 * var2;
       this.pixels = new int[1 + var1 * var2];
       if (var4) {
          this.ab = new float[var2 * var1 + 1];
@@ -23,10 +23,10 @@ public final class RasterProvider extends AbstractRasterProvider {
 
       DataBufferInt var5 = new DataBufferInt(this.pixels, this.pixels.length);
       DirectColorModel var6 = new DirectColorModel(32, 16711680, 65280, 255);
-      WritableRaster var7 = Raster.createWritableRaster(var6.createCompatibleSampleModel(1313069155 * this.ac, this.au * 1695726685), var5, (Point)null);
+      WritableRaster var7 = Raster.createWritableRaster(var6.createCompatibleSampleModel(1313069155 * this.width, this.height * 1695726685), var5, (Point)null);
       this.image = new BufferedImage(var6, var7, false, new Hashtable());
       this.setComponent(var3);
-      this.ar();
+      this.apply();
    }
 
    final void setComponent(java.awt.Component var1) {

@@ -8,8 +8,8 @@ public class cf implements Comparator {
    }
 
    static int af_renamed(AbstractArchive var0) {
-      int var2 = cz.dd.length + cz.dq.length;
-      String[] var3 = cz.dj;
+      int var2 = Login.dd.length + Login.dq.length;
+      String[] var3 = Login.dj;
 
       for(int var4 = 0; var4 < var3.length; ++var4) {
          String var5 = var3[var4];

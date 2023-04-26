@@ -36,7 +36,7 @@ public class fy extends fb {
       for(int var3 = 0; var3 < var0.length; ++var3) {
          Component var4 = var0[var3];
          if (null != var4) {
-            if (0 == 883712245 * var4.bg) {
+            if (0 == 883712245 * var4.type) {
                if (var4.children != null) {
                   mq_renamed(var4.children, var1);
                }
@@ -48,14 +48,14 @@ public class fy extends fb {
             }
 
             ClientScriptEvent var12;
-            if (var1 == 0 && null != var4.gt) {
+            if (var1 == 0 && null != var4.onMiscTransmit) {
                var12 = new ClientScriptEvent();
-               var12.aw = var4;
-               var12.args0 = var4.gt;
-               HeadbarUpdate.af_renamed(var12);
+               var12.component = var4;
+               var12.args0 = var4.onMiscTransmit;
+               HeadbarUpdate.runClientScript(var12);
             }
 
-            if (1 == var1 && var4.gu != null) {
+            if (1 == var1 && var4.onDialogAbort != null) {
                if (var4.childIndex * 55577617 >= 0) {
                   Component var13 = gh.getInterfaceComponent(var4.id * 1713081171);
                   if (var13 == null || var13.children == null || var4.childIndex * 55577617 >= var13.children.length || var13.children[55577617 * var4.childIndex] != var4) {
@@ -64,9 +64,9 @@ public class fy extends fb {
                }
 
                var12 = new ClientScriptEvent();
-               var12.aw = var4;
-               var12.args0 = var4.gu;
-               HeadbarUpdate.af_renamed(var12);
+               var12.component = var4;
+               var12.args0 = var4.onDialogAbort;
+               HeadbarUpdate.runClientScript(var12);
             }
          }
       }

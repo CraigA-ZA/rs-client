@@ -34,7 +34,7 @@ public abstract class AbstractUserComparator implements Comparator {
       } else {
          mz var14;
          if (1602 == var0) {
-            if (12 == var4.bg * 883712245) {
+            if (12 == var4.type * 883712245) {
                var14 = var4.bj();
                if (null != var14) {
                   Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var14.bc().ab();
@@ -81,7 +81,7 @@ public abstract class AbstractUserComparator implements Comparator {
             Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4.modelTransparency ? 1 : 0;
             return 1;
          } else {
-            FaceNormal var5;
+            lo var5;
             if (1617 == var0) {
                var5 = var4.bn();
                Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = null != var5 ? -90398499 * var5.af : 0;

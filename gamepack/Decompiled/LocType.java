@@ -12,16 +12,16 @@ public class LocType extends DualNode {
    int hillChange;
    int contrast;
    int resizeZ;
-   int bf;
+   int multiVarbit;
    int offsetY;
    int resizeY;
    int offsetZ;
-   int bq;
+   int multiVar;
    int offsetX;
    int ambient;
    int resizeX;
-   int[] aa;
-   int[] ay;
+   int[] models;
+   int[] modelTypes;
    IterableNodeHashTable params;
    short[] retex_s;
    short[] retex_d;
@@ -37,7 +37,7 @@ public class LocType extends DualNode {
    public int interactType;
    public int int2;
    public int length;
-   public int at;
+   public int id;
    public int width;
    public int ambientSoundId;
    public int mapIconId;
@@ -83,8 +83,8 @@ public class LocType extends DualNode {
       this.lowDetailVisible = false;
       this.isSolid = false;
       this.int3 = -1776888457;
-      this.bf = -1157714067;
-      this.bq = 1863808827;
+      this.multiVarbit = -1157714067;
+      this.multiVar = 1863808827;
       this.ambientSoundId = 38705135;
       this.int4 = 0;
       this.int5 = 0;
@@ -123,7 +123,7 @@ public class LocType extends DualNode {
    void postDecode() {
       if (this.interactable * 415653149 == -1) {
          this.interactable = 0;
-         if (null != this.aa && (null == this.ay || this.ay[0] == 10)) {
+         if (null != this.models && (null == this.modelTypes || this.modelTypes[0] == 10)) {
             this.interactable = 1041321269;
          }
 
@@ -147,397 +147,200 @@ public class LocType extends DualNode {
             return;
          }
 
-         this.decode0(var1, var3, (byte)16);
+         this.decode0(var1, var3);
       }
    }
 
-   void decode0(Packet var1, int var2, byte var3) {
+   void decode0(Packet var1, int var2) {
       int var4;
       int var5;
       if (var2 == 1) {
-         if (var3 == -1) {
-            throw new IllegalStateException();
-         }
-
          var4 = var1.g1();
          if (var4 > 0) {
-            if (var3 == -1) {
-               return;
-            }
+            if (this.models != null && !LocType_isLowDetail) {
+               var1.index += -254100545 * var4;
+            } else {
+               this.modelTypes = new int[var4];
+               this.models = new int[var4];
 
-            if (this.aa != null) {
-               if (var3 == -1) {
-                  throw new IllegalStateException();
+               for(var5 = 0; var5 < var4; ++var5) {
+                  this.models[var5] = var1.cl();
+                  this.modelTypes[var5] = var1.g1();
                }
-
-               if (!LocType_isLowDetail) {
-                  var1.index += -254100545 * var4;
-                  return;
-               }
-
-               if (var3 == -1) {
-                  return;
-               }
-            }
-
-            this.ay = new int[var4];
-            this.aa = new int[var4];
-
-            for(var5 = 0; var5 < var4; ++var5) {
-               if (var3 == -1) {
-                  throw new IllegalStateException();
-               }
-
-               this.aa[var5] = var1.cl();
-               this.ay[var5] = var1.g1();
             }
          }
       } else if (var2 == 2) {
          this.name = var1.cw();
       } else if (var2 == 5) {
-         if (var3 == -1) {
-            throw new IllegalStateException();
-         }
-
          var4 = var1.g1();
          if (var4 > 0) {
-            if (this.aa != null && !LocType_isLowDetail) {
+            if (this.models != null && !LocType_isLowDetail) {
                var1.index += var4 * 1262255402;
             } else {
-               this.ay = null;
-               this.aa = new int[var4];
+               this.modelTypes = null;
+               this.models = new int[var4];
 
                for(var5 = 0; var5 < var4; ++var5) {
-                  if (var3 == -1) {
-                     throw new IllegalStateException();
-                  }
-
-                  this.aa[var5] = var1.cl();
+                  this.models[var5] = var1.cl();
                }
             }
          }
       } else if (var2 == 14) {
-         if (var3 == -1) {
-            return;
-         }
-
          this.width = var1.g1() * 1205654711;
       } else if (15 == var2) {
-         if (var3 == -1) {
-            throw new IllegalStateException();
-         }
-
          this.length = var1.g1() * 1159818229;
       } else if (var2 == 17) {
-         if (var3 == -1) {
-            throw new IllegalStateException();
-         }
-
          this.interactType = 0;
          this.boolean1 = false;
       } else if (var2 == 18) {
          this.boolean1 = false;
       } else if (var2 == 19) {
-         if (var3 == -1) {
-            throw new IllegalStateException();
-         }
-
          this.interactable = var1.g1() * 1041321269;
       } else if (var2 == 21) {
-         if (var3 == -1) {
-            throw new IllegalStateException();
-         }
-
          this.hillChange = 0;
       } else if (var2 == 22) {
-         if (var3 == -1) {
-            throw new IllegalStateException();
-         }
-
          this.sharelight = true;
       } else if (23 == var2) {
          this.occlude = true;
       } else if (var2 == 24) {
          this.animationId = var1.cl() * -1142530427;
          if (65535 == 1292954189 * this.animationId) {
-            if (var3 == -1) {
-               throw new IllegalStateException();
-            }
-
             this.animationId = 1142530427;
          }
       } else if (27 == var2) {
-         if (var3 == -1) {
-            throw new IllegalStateException();
-         }
-
          this.interactType = 1356917295;
       } else if (var2 == 28) {
-         if (var3 == -1) {
-            throw new IllegalStateException();
-         }
-
          this.int2 = var1.g1() * -1893671375;
       } else if (var2 == 29) {
-         if (var3 == -1) {
-            throw new IllegalStateException();
-         }
-
          this.ambient = var1.g1s() * 524532799;
       } else if (39 == var2) {
          this.contrast = var1.g1s() * -1238182971;
+      } else if (var2 >= 30 && var2 < 35) {
+         this.op[var2 - 30] = var1.cw();
+         if (this.op[var2 - 30].equalsIgnoreCase(Strings.Strings_hidden)) {
+            this.op[var2 - 30] = null;
+         }
+      } else if (var2 == 40) {
+         var4 = var1.g1();
+         this.recol_s = new short[var4];
+         this.recol_d = new short[var4];
+
+         for(var5 = 0; var5 < var4; ++var5) {
+            this.recol_s[var5] = (short)var1.cl();
+            this.recol_d[var5] = (short)var1.cl();
+         }
+      } else if (var2 == 41) {
+         var4 = var1.g1();
+         this.retex_s = new short[var4];
+         this.retex_d = new short[var4];
+
+         for(var5 = 0; var5 < var4; ++var5) {
+            this.retex_s[var5] = (short)var1.cl();
+            this.retex_d[var5] = (short)var1.cl();
+         }
+      } else if (61 == var2) {
+         var1.cl();
+      } else if (62 == var2) {
+         this.isRotated = true;
+      } else if (64 == var2) {
+         this.clipped = false;
+      } else if (65 == var2) {
+         this.resizeX = var1.cl() * 1039146105;
+      } else if (var2 == 66) {
+         this.resizeY = var1.cl() * -677695703;
+      } else if (var2 == 67) {
+         this.resizeZ = var1.cl() * 1862946657;
+      } else if (var2 == 68) {
+         this.mapSceneId = var1.cl() * -476568133;
+      } else if (69 == var2) {
+         var1.g1();
+      } else if (var2 == 70) {
+         this.offsetX = var1.cg() * -327422321;
+      } else if (71 == var2) {
+         this.offsetY = var1.cg() * 956024773;
+      } else if (72 == var2) {
+         this.offsetZ = var1.cg() * -127229215;
+      } else if (73 == var2) {
+         this.lowDetailVisible = true;
+      } else if (74 == var2) {
+         this.isSolid = true;
+      } else if (var2 == 75) {
+         this.int3 = var1.g1() * 1776888457;
+      } else if (var2 != 77 && var2 != 92) {
+         if (78 == var2) {
+            this.ambientSoundId = var1.cl() * -38705135;
+            this.int4 = var1.g1() * 1190823625;
+         } else if (var2 == 79) {
+            this.int5 = var1.cl() * 1257958995;
+            this.int6 = var1.cl() * 230715233;
+            this.int4 = var1.g1() * 1190823625;
+            var4 = var1.g1();
+            this.bc = new int[var4];
+
+            for(var5 = 0; var5 < var4; ++var5) {
+               this.bc[var5] = var1.cl();
+            }
+         } else if (81 == var2) {
+            this.hillChange = var1.g1() * 708044032;
+         } else if (var2 == 82) {
+            this.mapIconId = var1.cl() * -1683785829;
+         } else if (89 == var2) {
+            this.bh = false;
+         } else if (var2 == 249) {
+            this.params = ChatChannel.readStringIntParameters(var1, this.params);
+         }
       } else {
-         if (var2 >= 30) {
-            if (var3 == -1) {
-               throw new IllegalStateException();
-            }
+         this.multiVarbit = var1.cl() * 1157714067;
+         if (1411927451 * this.multiVarbit == 65535) {
+            this.multiVarbit = -1157714067;
+         }
 
-            if (var2 < 35) {
-               this.op[var2 - 30] = var1.cw();
-               if (this.op[var2 - 30].equalsIgnoreCase(Strings.Strings_hidden)) {
-                  if (var3 == -1) {
-                     throw new IllegalStateException();
-                  }
+         this.multiVar = var1.cl() * -1863808827;
+         if (1685173773 * this.multiVar == 65535) {
+            this.multiVar = 1863808827;
+         }
 
-                  this.op[var2 - 30] = null;
-               }
-
-               return;
+         var4 = -1;
+         if (var2 == 92) {
+            var4 = var1.cl();
+            if (65535 == var4) {
+               var4 = -1;
             }
          }
 
-         if (var2 == 40) {
-            if (var3 == -1) {
-               throw new IllegalStateException();
+         var5 = var1.g1();
+         this.multi = new int[var5 + 2];
+
+         for(int var6 = 0; var6 <= var5; ++var6) {
+            this.multi[var6] = var1.cl();
+            if (this.multi[var6] == 65535) {
+               this.multi[var6] = -1;
             }
-
-            var4 = var1.g1();
-            this.recol_s = new short[var4];
-            this.recol_d = new short[var4];
-
-            for(var5 = 0; var5 < var4; ++var5) {
-               this.recol_s[var5] = (short)var1.cl();
-               this.recol_d[var5] = (short)var1.cl();
-            }
-         } else if (var2 == 41) {
-            if (var3 == -1) {
-               return;
-            }
-
-            var4 = var1.g1();
-            this.retex_s = new short[var4];
-            this.retex_d = new short[var4];
-
-            for(var5 = 0; var5 < var4; ++var5) {
-               if (var3 == -1) {
-                  throw new IllegalStateException();
-               }
-
-               this.retex_s[var5] = (short)var1.cl();
-               this.retex_d[var5] = (short)var1.cl();
-            }
-         } else if (61 == var2) {
-            var1.cl();
-         } else if (62 == var2) {
-            if (var3 == -1) {
-               throw new IllegalStateException();
-            }
-
-            this.isRotated = true;
-         } else if (64 == var2) {
-            if (var3 == -1) {
-               throw new IllegalStateException();
-            }
-
-            this.clipped = false;
-         } else if (65 == var2) {
-            if (var3 == -1) {
-               throw new IllegalStateException();
-            }
-
-            this.resizeX = var1.cl() * 1039146105;
-         } else if (var2 == 66) {
-            if (var3 == -1) {
-               throw new IllegalStateException();
-            }
-
-            this.resizeY = var1.cl() * -677695703;
-         } else if (var2 == 67) {
-            if (var3 == -1) {
-               return;
-            }
-
-            this.resizeZ = var1.cl() * 1862946657;
-         } else if (var2 == 68) {
-            this.mapSceneId = var1.cl() * -476568133;
-         } else if (69 == var2) {
-            if (var3 == -1) {
-               throw new IllegalStateException();
-            }
-
-            var1.g1();
-         } else if (var2 == 70) {
-            if (var3 == -1) {
-               throw new IllegalStateException();
-            }
-
-            this.offsetX = var1.cg() * -327422321;
-         } else if (71 == var2) {
-            if (var3 == -1) {
-               throw new IllegalStateException();
-            }
-
-            this.offsetY = var1.cg() * 956024773;
-         } else if (72 == var2) {
-            if (var3 == -1) {
-               return;
-            }
-
-            this.offsetZ = var1.cg() * -127229215;
-         } else if (73 == var2) {
-            if (var3 == -1) {
-               return;
-            }
-
-            this.lowDetailVisible = true;
-         } else if (74 == var2) {
-            if (var3 == -1) {
-               throw new IllegalStateException();
-            }
-
-            this.isSolid = true;
-         } else if (var2 == 75) {
-            if (var3 == -1) {
-               return;
-            }
-
-            this.int3 = var1.g1() * 1776888457;
-         } else {
-            if (var2 != 77) {
-               if (var2 != 92) {
-                  if (78 == var2) {
-                     if (var3 == -1) {
-                        throw new IllegalStateException();
-                     }
-
-                     this.ambientSoundId = var1.cl() * -38705135;
-                     this.int4 = var1.g1() * 1190823625;
-                     return;
-                  } else if (var2 == 79) {
-                     if (var3 == -1) {
-                        throw new IllegalStateException();
-                     }
-
-                     this.int5 = var1.cl() * 1257958995;
-                     this.int6 = var1.cl() * 230715233;
-                     this.int4 = var1.g1() * 1190823625;
-                     var4 = var1.g1();
-                     this.bc = new int[var4];
-
-                     for(var5 = 0; var5 < var4; ++var5) {
-                        this.bc[var5] = var1.cl();
-                     }
-
-                     return;
-                  } else if (81 == var2) {
-                     this.hillChange = var1.g1() * 708044032;
-                     return;
-                  } else if (var2 == 82) {
-                     if (var3 == -1) {
-                        return;
-                     }
-
-                     this.mapIconId = var1.cl() * -1683785829;
-                     return;
-                  } else {
-                     if (89 == var2) {
-                        if (var3 == -1) {
-                           throw new IllegalStateException();
-                        }
-
-                        this.bh = false;
-                     } else if (var2 == 249) {
-                        this.params = ChatChannel.readStringIntParameters(var1, this.params);
-                        return;
-                     }
-
-                     return;
-                  }
-               }
-
-               if (var3 == -1) {
-                  throw new IllegalStateException();
-               }
-            }
-
-            this.bf = var1.cl() * 1157714067;
-            if (1411927451 * this.bf == 65535) {
-               if (var3 == -1) {
-                  return;
-               }
-
-               this.bf = -1157714067;
-            }
-
-            this.bq = var1.cl() * -1863808827;
-            if (1685173773 * this.bq == 65535) {
-               this.bq = 1863808827;
-            }
-
-            var4 = -1;
-            if (var2 == 92) {
-               if (var3 == -1) {
-                  throw new IllegalStateException();
-               }
-
-               var4 = var1.cl();
-               if (65535 == var4) {
-                  if (var3 == -1) {
-                     return;
-                  }
-
-                  var4 = -1;
-               }
-            }
-
-            var5 = var1.g1();
-            this.multi = new int[var5 + 2];
-
-            for(int var6 = 0; var6 <= var5; ++var6) {
-               this.multi[var6] = var1.cl();
-               if (this.multi[var6] == 65535) {
-                  if (var3 == -1) {
-                     throw new IllegalStateException();
-                  }
-
-                  this.multi[var6] = -1;
-               }
-            }
-
-            this.multi[1 + var5] = var4;
          }
+
+         this.multi[1 + var5] = var4;
       }
 
    }
 
    public final boolean loadModelType(int var1) {
-      if (this.ay != null) {
-         for(int var5 = 0; var5 < this.ay.length; ++var5) {
-            if (this.ay[var5] == var1) {
-               return go.LocType_modelArchive.tryLoadFile(this.aa[var5] & '\uffff', 0);
+      if (this.modelTypes != null) {
+         for(int var5 = 0; var5 < this.modelTypes.length; ++var5) {
+            if (this.modelTypes[var5] == var1) {
+               return go.LocType_modelArchive.tryLoadFile(this.models[var5] & '\uffff', 0);
             }
          }
 
          return true;
-      } else if (null == this.aa) {
+      } else if (null == this.models) {
          return true;
       } else if (var1 != 10) {
          return true;
       } else {
          boolean var3 = true;
 
-         for(int var4 = 0; var4 < this.aa.length; ++var4) {
-            var3 &= go.LocType_modelArchive.tryLoadFile(this.aa[var4] & '\uffff', 0);
+         for(int var4 = 0; var4 < this.models.length; ++var4) {
+            var3 &= go.LocType_modelArchive.tryLoadFile(this.models[var4] & '\uffff', 0);
          }
 
          return var3;
@@ -545,51 +348,35 @@ public class LocType extends DualNode {
    }
 
    public final boolean loadModels() {
-      if (this.aa == null) {
+      if (this.models == null) {
          return true;
       } else {
          boolean var2 = true;
 
-         for(int var3 = 0; var3 < this.aa.length; ++var3) {
-            var2 &= go.LocType_modelArchive.tryLoadFile(this.aa[var3] & '\uffff', 0);
+         for(int var3 = 0; var3 < this.models.length; ++var3) {
+            var2 &= go.LocType_modelArchive.tryLoadFile(this.models[var3] & '\uffff', 0);
          }
 
          return var2;
       }
    }
 
-   public final Entity al(int var1, int var2, int[][] var3, int var4, int var5, int var6, byte var7) {
+   public final Entity al(int var1, int var2, int[][] var3, int var4, int var5, int var6) {
       long var8;
-      if (this.ay == null) {
-         if (var7 >= -1) {
-            throw new IllegalStateException();
-         }
-
-         var8 = (long)((this.at * -1529817365 << 10) + var2);
+      if (this.modelTypes == null) {
+         var8 = (long)((this.id * -1529817365 << 10) + var2);
       } else {
-         var8 = (long)(var2 + (-1529817365 * this.at << 10) + (var1 << 3));
+         var8 = (long)(var2 + (-1529817365 * this.id << 10) + (var1 << 3));
       }
 
       Object var10 = (Entity)ab.get(var8);
       if (null == var10) {
-         if (var7 >= -1) {
-            throw new IllegalStateException();
-         }
-
          UnlitModel var11 = this.getUnlitModel(var1, var2);
          if (var11 == null) {
-            if (var7 >= -1) {
-               throw new IllegalStateException();
-            }
-
             return null;
          }
 
          if (!this.sharelight) {
-            if (var7 >= -1) {
-               throw new IllegalStateException();
-            }
-
             var10 = var11.light(64 + this.ambient * 1284125631, 768 + -18088891 * this.contrast, -50, -10, -50);
          } else {
             var11.bo = (short)(1284125631 * this.ambient + 64);
@@ -602,25 +389,13 @@ public class LocType extends DualNode {
       }
 
       if (this.sharelight) {
-         if (var7 >= -1) {
-            throw new IllegalStateException();
-         }
-
          var10 = ((UnlitModel)var10).ao();
       }
 
       if (-1437543955 * this.hillChange >= 0) {
-         if (var7 >= -1) {
-            throw new IllegalStateException();
-         }
-
          if (var10 instanceof Model) {
             var10 = ((Model)var10).at(var3, var4, var5, var6, true, this.hillChange * -1437543955);
          } else if (var10 instanceof UnlitModel) {
-            if (var7 >= -1) {
-               throw new IllegalStateException();
-            }
-
             var10 = ((UnlitModel)var10).ax(var3, var4, var5, var6, true, -1437543955 * this.hillChange);
          }
       }
@@ -630,10 +405,10 @@ public class LocType extends DualNode {
 
    public final Model getModel(int var1, int var2, int[][] var3, int var4, int var5, int var6) {
       long var8;
-      if (null == this.ay) {
-         var8 = (long)((-1529817365 * this.at << 10) + var2);
+      if (null == this.modelTypes) {
+         var8 = (long)((-1529817365 * this.id << 10) + var2);
       } else {
-         var8 = (long)((this.at * -1529817365 << 10) + (var1 << 3) + var2);
+         var8 = (long)((this.id * -1529817365 << 10) + (var1 << 3) + var2);
       }
 
       Model var10 = (Model)aq.get(var8);
@@ -656,10 +431,10 @@ public class LocType extends DualNode {
 
    public final Model getModelDynamic(int var1, int var2, int[][] var3, int var4, int var5, int var6, SeqType var7, int var8) {
       long var10;
-      if (null == this.ay) {
-         var10 = (long)(var2 + (this.at * -1529817365 << 10));
+      if (null == this.modelTypes) {
+         var10 = (long)(var2 + (this.id * -1529817365 << 10));
       } else {
-         var10 = (long)(var2 + (this.at * -1529817365 << 10) + (var1 << 3));
+         var10 = (long)(var2 + (this.id * -1529817365 << 10) + (var1 << 3));
       }
 
       Model var12 = (Model)aq.get(var10);
@@ -695,12 +470,12 @@ public class LocType extends DualNode {
       boolean var5;
       int var6;
       int var8;
-      if (this.ay == null) {
+      if (this.modelTypes == null) {
          if (var1 != 10) {
             return null;
          }
 
-         if (null == this.aa) {
+         if (null == this.models) {
             return null;
          }
 
@@ -709,10 +484,10 @@ public class LocType extends DualNode {
             var5 = !var5;
          }
 
-         var6 = this.aa.length;
+         var6 = this.models.length;
 
          for(int var7 = 0; var7 < var6; ++var7) {
-            var8 = this.aa[var7];
+            var8 = this.models[var7];
             if (var5) {
                var8 += 65536;
             }
@@ -742,8 +517,8 @@ public class LocType extends DualNode {
       } else {
          int var10 = -1;
 
-         for(var6 = 0; var6 < this.ay.length; ++var6) {
-            if (this.ay[var6] == var1) {
+         for(var6 = 0; var6 < this.modelTypes.length; ++var6) {
+            if (this.modelTypes[var6] == var1) {
                var10 = var6;
                break;
             }
@@ -753,7 +528,7 @@ public class LocType extends DualNode {
             return null;
          }
 
-         var6 = this.aa[var10];
+         var6 = this.models[var10];
          boolean var11 = this.isRotated ^ var2 > 3;
          if (var11) {
             var6 += 65536;
@@ -827,10 +602,10 @@ public class LocType extends DualNode {
 
    public final LocType multiLoc() {
       int var2 = -1;
-      if (-1 != 1411927451 * this.bf) {
-         var2 = WorldMapSection1.getVarbit(1411927451 * this.bf);
-      } else if (1685173773 * this.bq != -1) {
-         var2 = Varps.Varps_main[this.bq * 1685173773];
+      if (-1 != 1411927451 * this.multiVarbit) {
+         var2 = WorldMapSection1.getVarbit(1411927451 * this.multiVarbit);
+      } else if (1685173773 * this.multiVar != -1) {
+         var2 = Varps.Varps_main[this.multiVar * 1685173773];
       }
 
       int var3;

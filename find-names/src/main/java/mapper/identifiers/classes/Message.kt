@@ -9,7 +9,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
@@ -24,42 +24,42 @@ class Message : IdentityMapper.Class() {
 
     @DependsOn(set::class)
     class sender : OrderMapper.InMethod.Field(set::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
     }
 
     @DependsOn(set::class)
     class prefix : OrderMapper.InMethod.Field(set::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
     }
 
     @DependsOn(set::class)
     class text : OrderMapper.InMethod.Field(set::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
     }
 
     @DependsOn(set::class)
     class type : OrderMapper.InMethod.Field(set::class, 2, 3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     @DependsOn(set::class)
     class cycle : OrderMapper.InMethod.Field(set::class, 1, 3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     @DependsOn(set::class)
     class count : OrderMapper.InMethod.Field(set::class, 0, 3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     @DependsOn(TriBool::class)
     class isFromFriend0 : OrderMapper.InConstructor.Field(Message::class, 0, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == type<TriBool>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == type<TriBool>() }
     }
 
     @DependsOn(TriBool::class)
     class isFromIgnored0 : OrderMapper.InConstructor.Field(Message::class, 1, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == type<TriBool>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == type<TriBool>() }
     }
 
     @MethodParameters("type", "sender", "prefix", "text")
@@ -105,10 +105,6 @@ class Message : IdentityMapper.Class() {
 //    class fillIsFromIgnored : UniqueMapper.InMethod.Method(isFromIgnored::class) {
 //        override val predicate = predicateOf<Instruction2> { it.isMethod }
 //    }
-    //TODO
-
-
-
 //    @MethodParameters()
 //    @DependsOn(isFromFriend0::class, Client.TriBool_unknown::class)
 //    class clearIsFromFriend : IdentityMapper.InstanceMethod() {

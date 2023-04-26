@@ -17,7 +17,7 @@ abstract class OrderMapper<T>(val position: Int, val maxMatches: Int = Int.MAX_V
         return resolve(matches[n])
     }
 
-    abstract val predicate: Predicate<InstructionMapper>
+    abstract val predicate: Predicate<InstructionWrapper>
 
     abstract class InMethod<T>(val methodMapper: KClass<out Mapper<MethodWrapper>>, position: Int, maxMatches: Int = Int.MAX_VALUE) : OrderMapper<T>(position, maxMatches) {
 

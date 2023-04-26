@@ -284,8 +284,8 @@ public class he implements be {
    }
 
    static void ax_renamed(String var0, String var1, String var2) {
-      cz.Login_response1 = var0;
-      cz.Login_response2 = var1;
-      cz.Login_response3 = var2;
+      Login.Login_response1 = var0;
+      Login.Login_response2 = var1;
+      Login.Login_response3 = var2;
    }
 }

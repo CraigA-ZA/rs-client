@@ -8,7 +8,7 @@ import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -20,20 +20,20 @@ class ArchiveDisk : IdentityMapper.Class() {
 
     @DependsOn(BufferedFile::class)
     class datFile : OrderMapper.InConstructor.Field(ArchiveDisk::class, -2, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<BufferedFile>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<BufferedFile>() }
     }
 
     @DependsOn(BufferedFile::class)
     class idxFile : OrderMapper.InConstructor.Field(ArchiveDisk::class, -1, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<BufferedFile>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<BufferedFile>() }
     }
 
     class archive : OrderMapper.InConstructor.Field(ArchiveDisk::class, -2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class maxEntrySize : OrderMapper.InConstructor.Field(ArchiveDisk::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @MethodParameters("entry")

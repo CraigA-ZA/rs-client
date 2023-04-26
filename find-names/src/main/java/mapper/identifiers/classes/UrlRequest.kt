@@ -32,7 +32,6 @@ class UrlRequest : IdentityMapper.Class() {
 //    class isDone0 : IdentityMapper.InstanceField() {
 //        override val predicate = predicateOf<Field2> { it.type == Type.BOOLEAN_TYPE }
 //    }
-    //TODO fix
 
     @MethodParameters()
     class isDone : IdentityMapper.InstanceMethod() {

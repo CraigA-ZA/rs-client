@@ -2,17 +2,17 @@ public class ClientScriptEvent extends Node {
    static int uw;
    static AbstractArchive be;
    boolean boolean1;
-   int ab;
-   int ac;
-   int al;
+   int opIndex;
+   int mouseX;
+   int keyPressed;
    int type0 = -1484849228;
-   int at;
-   int au;
+   int keyTyped;
+   int mouseY;
    int ay;
    Object[] args0;
    String opbase;
-   Component aq;
-   Component aw;
+   Component dragTarget;
+   Component component;
 
    public static boolean ac_renamed(int var0) {
       return 0 != (var0 >> 21 & 1);
@@ -27,7 +27,7 @@ public class ClientScriptEvent extends Node {
    }
 
    public void aw(Component var1) {
-      this.aw = var1;
+      this.component = var1;
    }
 
    static Object cn_renamed(int var0) {

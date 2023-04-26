@@ -1,13 +1,13 @@
 public final class Projectile extends Entity {
    boolean isMoving = false;
-   double ag;
+   double z;
    double speedX;
-   double ai;
+   double y;
    double speedZ;
    double speed;
    double accelerationZ;
    double speedY;
-   double ax;
+   double x;
    SeqType seqType;
    int int4;
    int int5;
@@ -83,7 +83,7 @@ public final class Projectile extends Entity {
       this.isMoving = false;
       int var12 = Inventory.getSpotType(this.id * 19084173).sequence * 374130911;
       if (-1 != var12) {
-         this.seqType = Inventory.getSeqType(var12, (byte)109);
+         this.seqType = Inventory.getSeqType(var12);
       } else {
          this.seqType = null;
       }
@@ -96,27 +96,27 @@ public final class Projectile extends Entity {
          var6 = (double)(var1 - -1024822263 * this.sourceX);
          double var8 = (double)(var2 - this.sourceY * -650340219);
          double var10 = Math.sqrt(var8 * var8 + var6 * var6);
-         this.ax = (double)(-1024822263 * this.sourceX) + (double)(this.int4 * 1485806481) * var6 / var10;
-         this.ai = (double)(1485806481 * this.int4) * var8 / var10 + (double)(-650340219 * this.sourceY);
-         this.ag = (double)(1797140989 * this.sourceZ);
+         this.x = (double)(-1024822263 * this.sourceX) + (double)(this.int4 * 1485806481) * var6 / var10;
+         this.y = (double)(1485806481 * this.int4) * var8 / var10 + (double)(-650340219 * this.sourceY);
+         this.z = (double)(1797140989 * this.sourceZ);
       }
 
       var6 = (double)(1 + -1203783373 * this.cycleEnd - var4);
-      this.speedX = ((double)var1 - this.ax) / var6;
-      this.speedY = ((double)var2 - this.ai) / var6;
+      this.speedX = ((double)var1 - this.x) / var6;
+      this.speedY = ((double)var2 - this.y) / var6;
       this.speed = Math.sqrt(this.speedY * this.speedY + this.speedX * this.speedX);
       if (!this.isMoving) {
          this.speedZ = -this.speed * Math.tan(0.02454369 * (double)(this.int3 * 1173139343));
       }
 
-      this.accelerationZ = 2.0 * ((double)var3 - this.ag - this.speedZ * var6) / (var6 * var6);
+      this.accelerationZ = 2.0 * ((double)var3 - this.z - this.speedZ * var6) / (var6 * var6);
    }
 
    final void advance(int var1) {
       this.isMoving = true;
-      this.ax += this.speedX * (double)var1;
-      this.ai += this.speedY * (double)var1;
-      this.ag += this.speedZ * (double)var1 + (double)var1 * 0.5 * this.accelerationZ * (double)var1;
+      this.x += this.speedX * (double)var1;
+      this.y += this.speedY * (double)var1;
+      this.z += this.speedZ * (double)var1 + (double)var1 * 0.5 * this.accelerationZ * (double)var1;
       this.speedZ += this.accelerationZ * (double)var1;
       this.yaw = ((int)(Math.atan2(this.speedX, this.speedY) * 325.949) + 1024 & 2047) * 1909592961;
       this.pitch = ((int)(Math.atan2(this.speedZ, this.speed) * 325.949) & 2047) * -361004777;
@@ -153,7 +153,7 @@ public final class Projectile extends Entity {
 
    protected final Model getModel() {
       SpotType var2 = Inventory.getSpotType(19084173 * this.id);
-      Model var3 = var2.au(-693399445 * this.frame);
+      Model var3 = var2.getModel(-693399445 * this.frame);
       if (var3 == null) {
          return null;
       } else {

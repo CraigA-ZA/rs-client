@@ -34,10 +34,4 @@ class UrlRequester : IdentityMapper.Class() {
     class request : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<MethodWrapper> { it.arguments.startsWith(URL::class.type) }
     }
-
-//    @MethodParameters()
-//    class close : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
-//                .and { it.name != Runnable::run.name }
-//    }
 }

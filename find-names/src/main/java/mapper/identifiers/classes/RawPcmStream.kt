@@ -6,7 +6,7 @@ import mapper.annotations.DependsOn
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.wrappers.ClassWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
@@ -18,11 +18,11 @@ class RawPcmStream : IdentityMapper.Class() {
 
     class start : OrderMapper.InConstructor.Field(RawPcmStream::class, 0) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size == 3 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class end : OrderMapper.InConstructor.Field(RawPcmStream::class, 1) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size == 3 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 }

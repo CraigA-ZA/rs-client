@@ -44,7 +44,7 @@ public class MusicPatchNode extends Node {
    static final void iw_renamed(Component var0, int var1, int var2) {
       if (Client.tp * 1383336963 == 0 || 1383336963 * Client.tp == 3) {
          if (!Client.isMiniMenuOpen && (MouseHandler.MouseHandler_lastButton * -1222491879 == 1 || !su.ev && MouseHandler.MouseHandler_lastButton * -1222491879 == 4)) {
-            SpriteMask var4 = var0.getSpriteMask(true, (byte)29);
+            SpriteMask var4 = var0.getSpriteMask(true);
             if (null == var4) {
                return;
             }

@@ -4,11 +4,11 @@ public final class Tile extends Node {
    boolean drawPrimary;
    boolean drawScenery;
    boolean drawSecondary;
-   FloorDecoration at;
-   TileModel ab;
+   FloorDecoration floorDecoration;
+   TileModel model;
    int originalPlane;
    int plane;
-   int ag;
+   int minPlane;
    int ai = 0;
    int aj;
    int ak;
@@ -16,14 +16,14 @@ public final class Tile extends Node {
    int x;
    int as;
    int y;
-   int ay;
+   int sceneryCount;
    int[] sceneryEdgeMasks = new int[5];
-   Tile az;
-   ObjStack aa;
-   TilePaint au;
-   WallDecoration al;
+   Tile linkedBelowTile;
+   ObjStack objStack;
+   TilePaint paint;
+   WallDecoration wallDecoration;
    Scenery[] scenery = new Scenery[5];
-   Wall aq;
+   Wall wall;
 
    Tile(int var1, int var2, int var3) {
       this.originalPlane = (this.plane = -1846949283 * var1) * 1251513827;
@@ -178,21 +178,21 @@ public final class Tile extends Node {
                      NetCache.av += -74762381 * var8;
                      if (var7 == NetCache.ah.index * -1633313603) {
                         if (ClientScript.NetCache_currentResponse.key == 16711935L) {
-                           cz.NetCache_reference = NetCache.ah;
+                           Login.NetCache_reference = NetCache.ah;
 
                            for(var9 = 0; var9 < 256; ++var9) {
                               Archive var21 = NetCache.NetCache_archives[var9];
                               if (var21 != null) {
-                                 cz.NetCache_reference.index = var9 * 754054312 + 1008154857;
-                                 if (-1633313603 * cz.NetCache_reference.index >= cz.NetCache_reference.array.length) {
+                                 Login.NetCache_reference.index = var9 * 754054312 + 1008154857;
+                                 if (-1633313603 * Login.NetCache_reference.index >= Login.NetCache_reference.array.length) {
                                     if (!var21.ah) {
                                        throw new RuntimeException("");
                                     }
 
                                     var21.au();
                                  } else {
-                                    var11 = cz.NetCache_reference.g4s();
-                                    int var22 = cz.NetCache_reference.g4s();
+                                    var11 = Login.NetCache_reference.g4s();
+                                    int var22 = Login.NetCache_reference.g4s();
                                     var21.loadIndex(var11, var22);
                                  }
                               }

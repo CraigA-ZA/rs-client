@@ -30,7 +30,7 @@ public class ff extends fb {
       int var13;
       int var14;
       if (var6 != 0L) {
-         var8 = bx.scene.bk(var0, var1, var2, var6);
+         var8 = bx.scene.getObjectFlags(var0, var1, var2, var6);
          var9 = var8 >> 6 & 3;
          var10 = var8 & 31;
          var11 = var3;
@@ -114,7 +114,7 @@ public class ff extends fb {
 
       var6 = bx.scene.bi(var0, var1, var2);
       if (var6 != 0L) {
-         var8 = bx.scene.bk(var0, var1, var2, var6);
+         var8 = bx.scene.getObjectFlags(var0, var1, var2, var6);
          var9 = var8 >> 6 & 3;
          var10 = var8 & 31;
          var11 = InterfaceParent.at(var6);
@@ -149,7 +149,7 @@ public class ff extends fb {
          }
       }
 
-      var6 = bx.scene.be(var0, var1, var2);
+      var6 = bx.scene.getFloorDecorationTag(var0, var1, var2);
       if (0L != var6) {
          var8 = InterfaceParent.at(var6);
          LocType var19 = fw.getLocType(var8);

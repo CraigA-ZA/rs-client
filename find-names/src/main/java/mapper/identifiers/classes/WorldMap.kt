@@ -11,7 +11,7 @@ import mapper.predicateutilities.type
 import mapper.predicateutilities.withDimensions
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
@@ -28,11 +28,6 @@ class WorldMap : IdentityMapper.Class() {
         override val predicate = predicateOf<FieldWrapper> { it.type == type<WorldMapManager>() }
     }
 
-    //TODO fix file
-//    @DependsOn(AbstractIndexCache::class)
-//    class indexCache : IdentityMapper.InstanceField() {
-//        override val predicate = predicateOf<Field2> { it.type == type<AbstractIndexCache>() }
-//    }
 
     @DependsOn(Font::class)
     class font : IdentityMapper.InstanceField() {
@@ -54,7 +49,7 @@ class WorldMap : IdentityMapper.Class() {
 
     @DependsOn(initializeWorldMapManager::class, WorldMapArea::class)
     class currentMapArea0 : UniqueMapper.InMethod.Field(initializeWorldMapManager::class) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == type<WorldMapArea>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == type<WorldMapArea>() }
     }
 
     @MethodParameters()
@@ -67,7 +62,7 @@ class WorldMap : IdentityMapper.Class() {
     @MethodParameters("mapArea")
     @DependsOn(init::class)
     class setCurrentMapArea : OrderMapper.InMethod.Method(init::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.isMethod }
+        override val predicate = predicateOf<InstructionWrapper> { it.isMethod }
     }
 
     @DependsOn(Sprite::class)
@@ -82,7 +77,7 @@ class WorldMap : IdentityMapper.Class() {
 
     @DependsOn(init::class)
     class fonts : OrderMapper.InMethod.Field(init::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == HashMap::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == HashMap::class.type }
     }
 
     @DependsOn(Client.Strings_loading::class)
@@ -98,25 +93,13 @@ class WorldMap : IdentityMapper.Class() {
                 .and { it.instructions.any { it.opcode == LDC && it.ldcCst == "Coord: " } }
     }
 
-//    @MethodParameters("x", "y", "width", "height")
-//    @DependsOn(Client.isMembersWorld::class)
-//    class drawOverview : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments == listOf(INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE) }
-//                .and { it.instructions.any { it.opcode == GETSTATIC && it.fieldId == field<Client.isMembersWorld>().id } }
-//    }
+
 
     @DependsOn(WorldMapArchiveLoader::class)
     class cacheLoader : IdentityMapper.InstanceField() {
         override val predicate = predicateOf<FieldWrapper> { it.type == type<WorldMapArchiveLoader>() }
     }
 
-//    @MethodParameters()
-//    @DependsOn(WorldMapArchiveLoader.load::class)
-//    class loadCache : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.instructions.any { it.isMethod && it.methodId == method<WorldMapArchiveLoader.load>().id } }
-//    }
 
     @MethodParameters()
     @DependsOn(WorldMapArchiveLoader.isLoaded::class)
@@ -140,12 +123,12 @@ class WorldMap : IdentityMapper.Class() {
 
     @DependsOn(init::class)
     class mapAreas : OrderMapper.InMethod.Field(init::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == HashMap::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == HashMap::class.type }
     }
 
     @DependsOn(init::class, WorldMapArea::class)
     class mainMapArea : OrderMapper.InMethod.Field(init::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == GETFIELD && it.fieldType == type<WorldMapArea>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETFIELD && it.fieldType == type<WorldMapArea>() }
     }
 
     @MethodParameters()
@@ -170,23 +153,23 @@ class WorldMap : IdentityMapper.Class() {
     @MethodParameters("plane", "x", "y")
     @DependsOn(setCurrentMapArea::class)
     class jump : OrderMapper.InMethod.Method(setCurrentMapArea::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.isMethod }
+        override val predicate = predicateOf<InstructionWrapper> { it.isMethod }
     }
 
     @DependsOn(jump::class)
     class zoom : OrderMapper.InMethod.Field(jump::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == FLOAT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == FLOAT_TYPE }
     }
 
     @DependsOn(jump::class)
     class zoomTarget : OrderMapper.InMethod.Field(jump::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == FLOAT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == FLOAT_TYPE }
     }
 
     @MethodParameters()
     @DependsOn(onCycle::class)
     class smoothZoom : OrderMapper.InMethod.Method(onCycle::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.isMethod }
+        override val predicate = predicateOf<InstructionWrapper> { it.isMethod }
     }
 
     @MethodParameters("id")
@@ -220,11 +203,11 @@ class WorldMap : IdentityMapper.Class() {
     }
 
     class perpetualFlash0 : OrderMapper.InConstructor.Field(WorldMap::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == BOOLEAN_TYPE }
     }
 
     class elementsDisabled : OrderMapper.InConstructor.Field(WorldMap::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == BOOLEAN_TYPE }
     }
 
     @DependsOn(perpetualFlash0::class)
@@ -235,15 +218,15 @@ class WorldMap : IdentityMapper.Class() {
     }
 
     class flashingElements : OrderMapper.InConstructor.Field(WorldMap::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == HashSet::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == HashSet::class.type }
     }
 
     class enabledElements : OrderMapper.InConstructor.Field(WorldMap::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == HashSet::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == HashSet::class.type }
     }
 
     class enabledCategories : OrderMapper.InConstructor.Field(WorldMap::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == HashSet::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == HashSet::class.type }
     }
 
     @DependsOn(flashingElements::class)
@@ -328,5 +311,19 @@ class WorldMap : IdentityMapper.Class() {
         override val predicate = predicateOf<MethodWrapper> { it.returnType == type<AbstractWorldMapIcon>() }
                 .and { it.arguments.isEmpty() }
                 .and { it.instructions.none { it.opcode == PUTFIELD && it.fieldId == field<iconIterator>().id } }
+    }
+
+//    @MethodParameters("x", "y", "width", "height")
+//    @DependsOn(Client.isMembersWorld::class)
+//    class drawOverview : IdentityMapper.InstanceMethod() {
+//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
+//                .and { it.arguments == listOf(INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE) }
+//                .and { it.instructions.any { it.opcode == GETSTATIC && it.fieldId == field<Client.isMembersWorld>().id } }
+//    }
+    @MethodParameters()
+    @DependsOn(WorldMapArchiveLoader.load::class)
+    class loadCache : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.instructions.any { it.isMethod && it.methodId == method<WorldMapArchiveLoader.load>().id } }
     }
 }

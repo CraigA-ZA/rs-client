@@ -1,4 +1,4 @@
-package za.org.secret;
+package shared;
 
 import javassist.CannotCompileException;
 import javassist.ClassPool;

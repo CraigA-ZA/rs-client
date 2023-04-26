@@ -41,17 +41,17 @@ public class Archive extends AbstractArchive {
          }
       }
 
-      if (null != cz.NetCache_reference) {
-         cz.NetCache_reference.index = 754054312 * var9 + 1008154857;
-         if (-1633313603 * cz.NetCache_reference.index >= cz.NetCache_reference.array.length) {
+      if (null != Login.NetCache_reference) {
+         Login.NetCache_reference.index = 754054312 * var9 + 1008154857;
+         if (-1633313603 * Login.NetCache_reference.index >= Login.NetCache_reference.array.length) {
             if (!this.ah) {
                throw new RuntimeException("");
             }
 
             this.au();
          } else {
-            int var10 = cz.NetCache_reference.g4s();
-            int var11 = cz.NetCache_reference.g4s();
+            int var10 = Login.NetCache_reference.g4s();
+            int var11 = Login.NetCache_reference.g4s();
             this.loadIndex(var10, var11);
          }
       } else {

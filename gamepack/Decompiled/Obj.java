@@ -56,7 +56,7 @@ public final class Obj extends Entity {
          Component var4 = var0[var3];
          if (null != var4 && var1 == var4.parentId * 913615679 && (!var4.isIf3 || !pm.isComponentHidden(var4))) {
             int var6;
-            if (0 == 883712245 * var4.bg) {
+            if (0 == 883712245 * var4.type) {
                if (!var4.isIf3 && pm.isComponentHidden(var4) && var4 != MidiPcmStream.oh) {
                   continue;
                }
@@ -75,7 +75,7 @@ public final class Obj extends Entity {
                }
             }
 
-            if (6 == var4.bg * 883712245) {
+            if (6 == var4.type * 883712245) {
                if (-1 != var4.sequenceId * -1526544909 || var4.sequenceId2 * -717228843 != -1) {
                   boolean var16 = rr.runCs1(var4);
                   if (var16) {
@@ -85,7 +85,7 @@ public final class Obj extends Entity {
                   }
 
                   if (var6 != -1) {
-                     SeqType var7 = Inventory.getSeqType(var6, (byte)104);
+                     SeqType var7 = Inventory.getSeqType(var6);
                      if (!var7.ao()) {
                         for(var4.modelFrameCycle += Client.ja * 1742890489; 1438245367 * var4.modelFrameCycle > var7.frameLengths[var4.modelFrame * 1575517389]; fw.ma_renamed(var4)) {
                            var4.modelFrameCycle -= var7.frameLengths[var4.modelFrame * 1575517389] * -1830604857;

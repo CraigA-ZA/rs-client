@@ -48,13 +48,6 @@ class NodeDeque : IdentityMapper.Class() {
                 .and { it.instructions.filter { it.isField && it.fieldId == field<Node.next>().id }.count() == 4 }
     }
 
-//    @MethodParameters
-//    class clear : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.arguments.size in 0..1 }
-//                .and { it.returnType == Type.VOID_TYPE }
-//                .and { it.instructions.any { it.opcode == Opcodes.GOTO } }
-//    }
-
     @MethodParameters
     @DependsOn(Node::class, Node.remove::class, Node.next::class)
     class next : IdentityMapper.InstanceMethod() {
@@ -108,4 +101,11 @@ class NodeDeque : IdentityMapper.Class() {
                 .and { it.instructions.any { it.isMethod && it.methodId == method<Node.remove>().id } }
                 .and { it.instructions.count { it.isField && it.fieldId == field<Node.previous>().id } == 1 }
     }
+
+    //    @MethodParameters
+//    class clear : IdentityMapper.InstanceMethod() {
+//        override val predicate = predicateOf<Method2> { it.arguments.size in 0..1 }
+//                .and { it.returnType == Type.VOID_TYPE }
+//                .and { it.instructions.any { it.opcode == Opcodes.GOTO } }
+//    }
 }

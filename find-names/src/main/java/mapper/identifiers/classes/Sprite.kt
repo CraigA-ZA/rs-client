@@ -9,7 +9,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -25,42 +25,40 @@ class Sprite : IdentityMapper.Class() {
 
     class width : OrderMapper.InConstructor.Field(Sprite::class, 0, 6) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size >= 3 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class subWidth : OrderMapper.InConstructor.Field(Sprite::class, 1, 6) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size >= 3 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class height : OrderMapper.InConstructor.Field(Sprite::class, 2, 6) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size >= 3 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class subHeight : OrderMapper.InConstructor.Field(Sprite::class, 3, 6) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size >= 3 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class xOffset : OrderMapper.InConstructor.Field(Sprite::class, 4, 6) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size >= 3 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class yOffset : OrderMapper.InConstructor.Field(Sprite::class, 5, 6) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size >= 3 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
-    // todo
 //    @MethodParameters()
 //    class copy : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }
 //                .and { it.instructions.any { it.opcode == Opcodes.ISUB } }
 //    }
 //
-//    // todo
 //    @MethodParameters()
 //    class copyNormalized : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.returnType == type<Sprite>() }

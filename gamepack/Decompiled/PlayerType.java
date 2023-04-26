@@ -33,7 +33,7 @@ public class PlayerType implements Enumerated {
       return this.id * -897643501;
    }
 
-   static void an_renamed(ClientScriptEvent var0, int var1, int var2) {
+   static void runScript(ClientScriptEvent var0, int var1, int var2) {
       Object[] var4 = var0.args0;
       ClientScript var5;
       int var26;
@@ -59,8 +59,8 @@ public class PlayerType implements Enumerated {
          int var11 = 0;
          boolean var23 = false;
 
-         label953: {
-            label954: {
+         label951: {
+            label952: {
                try {
                   int var14;
                   try {
@@ -76,39 +76,39 @@ public class PlayerType implements Enumerated {
                         if (var4[var14] instanceof Integer) {
                            var15 = (Integer)var4[var14];
                            if (-2147483647 == var15) {
-                              var15 = -1266615561 * var0.ac;
+                              var15 = -1266615561 * var0.mouseX;
                            }
 
                            if (-2147483646 == var15) {
-                              var15 = var0.au * 650213389;
+                              var15 = var0.mouseY * 650213389;
                            }
 
                            if (-2147483645 == var15) {
-                              var15 = var0.aw != null ? 1713081171 * var0.aw.id : -1;
+                              var15 = var0.component != null ? 1713081171 * var0.component.id : -1;
                            }
 
                            if (-2147483644 == var15) {
-                              var15 = 684782445 * var0.ab;
+                              var15 = 684782445 * var0.opIndex;
                            }
 
                            if (var15 == -2147483643) {
-                              var15 = null != var0.aw ? 55577617 * var0.aw.childIndex : -1;
+                              var15 = null != var0.component ? 55577617 * var0.component.childIndex : -1;
                            }
 
                            if (var15 == -2147483642) {
-                              var15 = var0.aq != null ? var0.aq.id * 1713081171 : -1;
+                              var15 = var0.dragTarget != null ? var0.dragTarget.id * 1713081171 : -1;
                            }
 
                            if (var15 == -2147483641) {
-                              var15 = null != var0.aq ? 55577617 * var0.aq.childIndex : -1;
+                              var15 = null != var0.dragTarget ? 55577617 * var0.dragTarget.childIndex : -1;
                            }
 
                            if (-2147483640 == var15) {
-                              var15 = -2125751633 * var0.al;
+                              var15 = -2125751633 * var0.keyPressed;
                            }
 
                            if (-2147483639 == var15) {
-                              var15 = var0.at * -19398649;
+                              var15 = var0.keyTyped * -19398649;
                            }
 
                            Interpreter.Interpreter_intLocals[var12++] = var15;
@@ -124,7 +124,6 @@ public class PlayerType implements Enumerated {
 
                      Interpreter.ae = -1037192187 * var0.ay;
 
-                     label937:
                      while(true) {
                         ++var11;
                         if (var11 > var1) {
@@ -145,7 +144,7 @@ public class PlayerType implements Enumerated {
                            switch (var15) {
                               case 0:
                                  var23 = false;
-                                 break label937;
+                                 break label951;
                               case 1:
                               default:
                                  break;
@@ -188,7 +187,7 @@ public class PlayerType implements Enumerated {
                         } else if (var9 == 21) {
                            if (-1968816839 * Interpreter.Interpreter_frameDepth == 0) {
                               var23 = false;
-                              break label954;
+                              break;
                            }
 
                            ClientScriptFrame var36 = Interpreter.Interpreter_frames[(Interpreter.Interpreter_frameDepth -= 937402633) * -1968816839];
@@ -360,7 +359,7 @@ public class PlayerType implements Enumerated {
                      var13.append("").append(var9);
                      ob.af_renamed(var13.toString(), var24);
                      var23 = false;
-                     break label953;
+                     break label952;
                   }
                } finally {
                   if (var23) {
@@ -382,8 +381,8 @@ public class PlayerType implements Enumerated {
                }
 
                while(Interpreter.ad.size() > 0) {
-                  dd var31 = (dd)Interpreter.ad.remove(0);
-                  Message.ks_renamed(var31.af(), var31.an(), var31.aw(), var31.ac(), "");
+                  dd var39 = (dd)Interpreter.ad.remove(0);
+                  Message.ks_renamed(var39.af(), var39.an(), var39.aw(), var39.ac(), "");
                }
 
                if (Interpreter.ak) {
@@ -399,8 +398,8 @@ public class PlayerType implements Enumerated {
             }
 
             while(Interpreter.ad.size() > 0) {
-               dd var39 = (dd)Interpreter.ad.remove(0);
-               Message.ks_renamed(var39.af(), var39.an(), var39.aw(), var39.ac(), "");
+               dd var27 = (dd)Interpreter.ad.remove(0);
+               Message.ks_renamed(var27.af(), var27.an(), var27.aw(), var27.ac(), "");
             }
 
             if (Interpreter.ak) {
@@ -416,8 +415,8 @@ public class PlayerType implements Enumerated {
          }
 
          while(Interpreter.ad.size() > 0) {
-            dd var27 = (dd)Interpreter.ad.remove(0);
-            Message.ks_renamed(var27.af(), var27.an(), var27.aw(), var27.ac(), "");
+            dd var31 = (dd)Interpreter.ad.remove(0);
+            Message.ks_renamed(var31.af(), var31.an(), var31.aw(), var31.ac(), "");
          }
 
          if (Interpreter.ak) {

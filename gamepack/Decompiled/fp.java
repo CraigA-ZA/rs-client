@@ -38,7 +38,7 @@ public class fp implements Enumerated {
                var7.scrollY = 0;
             }
 
-            if (0 == 883712245 * var7.bg) {
+            if (0 == 883712245 * var7.type) {
                WallDecoration.lz_renamed(var0, var7, var4);
             }
          }

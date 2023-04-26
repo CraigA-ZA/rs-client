@@ -5,7 +5,7 @@ import deobfuscator.deobs.AbstractDeob;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
 import org.objectweb.asm.util.Printer;
-import za.org.secret.UtilFunctions;
+import shared.UtilFunctions;
 
 public class RemoveUnneccessaryGotos extends AbstractDeob {
     @Override

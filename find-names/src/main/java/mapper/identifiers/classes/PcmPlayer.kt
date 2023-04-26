@@ -11,7 +11,6 @@ import org.objectweb.asm.Type.*
 class PcmPlayer : IdentityMapper.Class() {
     override val predicate = predicateOf<ClassWrapper> { klass<DevicePcmPlayer>().superType == it.type }
 
-    //TODO
 //    @MethodParameters()
 //    @DependsOn(DevicePcmPlayer.discard::class)
 //    class discard : IdentityMapper.InstanceMethod() {

@@ -7,7 +7,7 @@ import mapper.annotations.MethodParameters
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.wrappers.ClassWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.*
@@ -34,16 +34,9 @@ class FloorOverlayType : IdentityMapper.Class() {
                 .and { it.instructions.any { it.opcode == Opcodes.BIPUSH && it.intOperand == 8 } }
     }
 
-    //TODO
-//    @MethodParameters
-//    class postDecode : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.size in 0..1 }
-//                .and { it.instructions.count { it.isMethod } == 2 }
-//    }
 
     class texture : OrderMapper.InConstructor.Field(FloorOverlayType::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     @MethodParameters("rgb")
@@ -54,27 +47,33 @@ class FloorOverlayType : IdentityMapper.Class() {
 
     @DependsOn(setHsl::class)
     class hue : OrderMapper.InMethod.Field(setHsl::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD }
     }
 
     @DependsOn(setHsl::class)
     class saturation : OrderMapper.InMethod.Field(setHsl::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD }
     }
 
     @DependsOn(setHsl::class)
     class lightness : OrderMapper.InMethod.Field(setHsl::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD }
     }
 
     class rgb : OrderMapper.InConstructor.Field(FloorOverlayType::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD }
     }
 
     class rgb2 : OrderMapper.InConstructor.Field(FloorOverlayType::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD }
     }
 
+    @MethodParameters
+    class postDecode : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments.isEmpty() }
+                .and { it.instructions.count { it.isMethod } == 2 }
+    }
 //    @DependsOn(postDecode::class)
 //    class hue2 : OrderMapper.InMethod.Field(postDecode::class, 0) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == Opcodes.PUTFIELD }

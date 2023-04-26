@@ -8,7 +8,7 @@ import mapper.annotations.MethodParameters
 import mapper.predicateutilities.*
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -27,32 +27,32 @@ class AbstractArchive : IdentityMapper.Class() {
 
     @DependsOn(AbstractArchive::class)
     class releaseGroups : OrderMapper.InConstructor.Field(AbstractArchive::class, 0, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
     }
 
     @DependsOn(AbstractArchive::class)
     class shallowFiles : OrderMapper.InConstructor.Field(AbstractArchive::class, 1, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
     }
 
     @DependsOn(decodeIndex::class)
     class groupCrcs : OrderMapper.InMethod.Field(decodeIndex::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     @DependsOn(decodeIndex::class)
     class groupVersions : OrderMapper.InMethod.Field(decodeIndex::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     @DependsOn(decodeIndex::class)
     class fileCounts : OrderMapper.InMethod.Field(decodeIndex::class, 3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     @DependsOn(decodeIndex::class)
     class groupNameHashes : OrderMapper.InMethod.Field(decodeIndex::class, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     class groups : IdentityMapper.InstanceField() {
@@ -75,7 +75,7 @@ class AbstractArchive : IdentityMapper.Class() {
 
     @DependsOn(decodeIndex::class)
     class fileNameHashes : OrderMapper.InMethod.Field(decodeIndex::class, -1, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE.withDimensions(2) }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE.withDimensions(2) }
     }
 
     @MethodParameters("group", "xteaKey")
@@ -206,26 +206,26 @@ class AbstractArchive : IdentityMapper.Class() {
 
     @DependsOn(tryLoadGroup::class)
     class loadGroup : UniqueMapper.InMethod.Method(tryLoadGroup::class) {
-        override val predicate = predicateOf<InstructionMapper> { it.isMethod }
+        override val predicate = predicateOf<InstructionWrapper> { it.isMethod }
     }
 
     @DependsOn(decodeIndex::class)
     class hash : OrderMapper.InMethod.Field(decodeIndex::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @DependsOn(decodeIndex::class)
     class groupCount : OrderMapper.InMethod.Field(decodeIndex::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     @DependsOn(decodeIndex::class)
     class groupIds : OrderMapper.InMethod.Field(decodeIndex::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     @DependsOn(decodeIndex::class)
     class fileIds : OrderMapper.InMethod.Field(decodeIndex::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Array<IntArray>::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Array<IntArray>::class.type }
     }
 }

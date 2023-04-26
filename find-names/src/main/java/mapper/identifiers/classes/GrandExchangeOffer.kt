@@ -8,7 +8,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.BYTE_TYPE
@@ -25,27 +25,27 @@ class GrandExchangeOffer : IdentityMapper.Class() {
 
     class id : OrderMapper.InConstructor.Field(GrandExchangeOffer::class, 0) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.isNotEmpty() }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class unitPrice : OrderMapper.InConstructor.Field(GrandExchangeOffer::class, 1) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.isNotEmpty() }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class totalQuantity : OrderMapper.InConstructor.Field(GrandExchangeOffer::class, 2) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.isNotEmpty() }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class currentQuantity : OrderMapper.InConstructor.Field(GrandExchangeOffer::class, 3) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.isNotEmpty() }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class currentPrice : OrderMapper.InConstructor.Field(GrandExchangeOffer::class, 4) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.isNotEmpty() }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     @MethodParameters()

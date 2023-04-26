@@ -32,12 +32,12 @@ public class InvType extends DualNode {
          }
 
          if (null != var5) {
-            if (var5.isInteractable) {
+            if (var5.interactable) {
                if (!var5.isFollower || var1 == Client.pt * 2050107857) {
                   String var6 = var0.at();
                   int var7;
-                  if (0 != 2062903815 * var5.bx && var0.eq * 674049519 != 0) {
-                     var7 = 674049519 * var0.eq != -1 ? 674049519 * var0.eq : 2062903815 * var5.bx;
+                  if (0 != 2062903815 * var5.combatLevel && var0.eq * 674049519 != 0) {
+                     var7 = 674049519 * var0.eq != -1 ? 674049519 * var0.eq : 2062903815 * var5.combatLevel;
                      var6 = var6 + Inventory.lu_renamed(var7, MusicPatchNode.localPlayer.combatLevel * 1302967875) + " " + Formatting.Formatting_spaceLeftParenthesis + Strings.Strings_level + var7 + Formatting.Formatting_rightParenthesis;
                   }
 
@@ -90,7 +90,7 @@ public class InvType extends DualNode {
                            if (var0.ac(var9) && var8[var9] != null && var8[var9].equalsIgnoreCase(Strings.Strings_attack)) {
                               short var18 = 0;
                               if (dj.ac != Client.ew) {
-                                 if (dj.an == Client.ew || Client.ew == dj.af && var5.bx * 2062903815 > MusicPatchNode.localPlayer.combatLevel * 1302967875) {
+                                 if (dj.an == Client.ew || Client.ew == dj.af && var5.combatLevel * 2062903815 > MusicPatchNode.localPlayer.combatLevel * 1302967875) {
                                     var18 = 2000;
                                  }
 

@@ -1,6 +1,6 @@
 public final class DemotingHashTable {
-   int af;
-   int an;
+   int capacity;
+   int remaining;
    kv au;
    IterableDualNodeQueue queue;
    IterableNodeHashTable hashTable;
@@ -11,8 +11,8 @@ public final class DemotingHashTable {
 
    public DemotingHashTable(int var1, int var2) {
       this.queue = new IterableDualNodeQueue();
-      this.af = var1;
-      this.an = var1;
+      this.capacity = var1;
+      this.remaining = var1;
 
       int var3;
       for(var3 = 1; var3 + var3 < var1 && var3 < var2; var3 += var3) {
@@ -30,18 +30,18 @@ public final class DemotingHashTable {
          if (var4 == null) {
             var3.remove();
             var3.removeDual();
-            this.an += var3.size;
+            this.remaining += var3.size;
             return null;
          } else {
             if (var3.isSoft()) {
                DirectWrapper var5 = new DirectWrapper(var4, var3.size);
                this.hashTable.put(var5, var3.key);
-               this.queue.an(var5);
+               this.queue.add(var5);
                var5.keyDual = 0L;
                var3.remove();
                var3.removeDual();
             } else {
-               this.queue.an(var3);
+               this.queue.add(var3);
                var3.keyDual = 0L;
             }
 
@@ -59,7 +59,7 @@ public final class DemotingHashTable {
       if (var1 != null) {
          var1.remove();
          var1.removeDual();
-         this.an += var1.size;
+         this.remaining += var1.size;
       }
 
    }
@@ -69,13 +69,13 @@ public final class DemotingHashTable {
    }
 
    public void put(Object var1, long var2, int var4) {
-      if (var4 > this.af) {
+      if (var4 > this.capacity) {
          throw new IllegalStateException();
       } else {
          this.remove(var2);
-         this.an -= var4;
+         this.remaining -= var4;
 
-         while(this.an < 0) {
+         while(this.remaining < 0) {
             Wrapper var5 = (Wrapper)this.queue.ac();
             if (var5 == null) {
                throw new RuntimeException("");
@@ -92,7 +92,7 @@ public final class DemotingHashTable {
 
          DirectWrapper var6 = new DirectWrapper(var1, var4);
          this.hashTable.put(var6, var2);
-         this.queue.an(var6);
+         this.queue.add(var6);
          var6.keyDual = 0L;
       }
    }
@@ -103,7 +103,7 @@ public final class DemotingHashTable {
             if (var2.get() == null) {
                var2.remove();
                var2.removeDual();
-               this.an += var2.size;
+               this.remaining += var2.size;
             }
          } else if (++var2.keyDual > (long)var1) {
             SoftWrapper var3 = new SoftWrapper(var2.get(), var2.size);
@@ -117,8 +117,8 @@ public final class DemotingHashTable {
    }
 
    public void aq() {
-      this.queue.af();
+      this.queue.clear();
       this.hashTable.clear();
-      this.an = this.af;
+      this.remaining = this.capacity;
    }
 }

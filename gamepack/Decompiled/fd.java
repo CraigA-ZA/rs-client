@@ -153,15 +153,15 @@ public class fd extends fb {
    }
 
    static void am_renamed() {
-      cz.di = false;
-      ex.at.ay(cz.aw * 578342931, 0);
-      ParamType.aa.ay(578342931 * cz.aw + 382, 0);
-      Canvas.ay.aw(cz.aw * 578342931 + 382 - Canvas.ay.subWidth / 2, 18);
+      Login.di = false;
+      ex.at.ay(Login.aw * 578342931, 0);
+      ParamType.aa.ay(578342931 * Login.aw + 382, 0);
+      Canvas.ay.aw(Login.aw * 578342931 + 382 - Canvas.ay.subWidth / 2, 18);
    }
 
    static final void kv_renamed(MiniMenuEntry var0, int var1, int var2) {
       if (var0 != null) {
-         ar.ke_renamed(68640743 * var0.af, var0.an * 1427372077, 532700261 * var0.aw, 1480765569 * var0.ac, 680599237 * var0.au, var0.ab, var0.aq, var1, var2);
+         ar.ke_renamed(68640743 * var0.argument1, var0.argument2 * 1427372077, 532700261 * var0.opcode, 1480765569 * var0.argument0, 680599237 * var0.au, var0.action, var0.aq, var1, var2);
       }
 
    }

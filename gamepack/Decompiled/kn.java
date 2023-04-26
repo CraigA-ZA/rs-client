@@ -20,9 +20,9 @@ public class kn {
 
    public static void an_renamed(int var0, int var1) {
       VarBitType var3 = gs.an_renamed(var0);
-      int var4 = 470400793 * var3.aw;
-      int var5 = var3.ac * 1050888611;
-      int var6 = var3.au * 1130237503;
+      int var4 = 470400793 * var3.baseVar;
+      int var5 = var3.startBit * 1050888611;
+      int var6 = var3.endBit * 1130237503;
       int var7 = Varps.Varps_masks[var6 - var5];
       if (var1 < 0 || var1 > var7) {
          var1 = 0;

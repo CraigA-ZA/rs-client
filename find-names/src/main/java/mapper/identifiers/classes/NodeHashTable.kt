@@ -10,7 +10,7 @@ import mapper.predicateutilities.type
 import mapper.predicateutilities.withDimensions
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
@@ -30,11 +30,11 @@ class NodeHashTable : IdentityMapper.Class() {
     }
 
     class index : OrderMapper.InConstructor.Field(NodeHashTable::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class size : OrderMapper.InConstructor.Field(NodeHashTable::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     @MethodParameters("key")
@@ -70,15 +70,9 @@ class NodeHashTable : IdentityMapper.Class() {
                 .and { it != method<get>() }
     }
 
-//    @MethodParameters()
-//    class clear : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.size in 0..1 }
-//    }
-
     @DependsOn(Node::class, next::class)
     class current : OrderMapper.InMethod.Field(next::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.isField && it.fieldType == type<Node>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.isField && it.fieldType == type<Node>() }
     }
 
     @DependsOn(current::class, Node::class)

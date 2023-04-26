@@ -9,7 +9,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.*
@@ -32,7 +32,7 @@ class Node : IdentityMapper.Class() {
 
     @DependsOn(hasNext::class)
     class next : UniqueMapper.InMethod.Field(hasNext::class) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD }
     }
 
     @MethodParameters()

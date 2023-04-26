@@ -550,41 +550,19 @@ public class kj {
       this.an[7][3] = var2;
    }
 
-   static final void na_renamed(int var0, int var1, byte var2) {
-      if (Client.so[var0] == null) {
-         if (var2 <= -1) {
-            throw new IllegalStateException();
-         }
-      } else {
-         if (var1 >= 0) {
-            if (var2 <= -1) {
-               throw new IllegalStateException();
-            }
-
-            if (var1 < Client.so[var0].ac()) {
-               fz var3 = (fz)Client.so[var0].aw.get(var1);
-               if (-1 != var3.af) {
-                  if (var2 <= -1) {
-                     throw new IllegalStateException();
-                  }
-
-                  return;
-               }
-
+   static final void na_renamed(int var0, int var1) {
+      if (Client.so[var0] != null) {
+         if (var1 >= 0 && var1 < Client.so[var0].ac()) {
+            fz var3 = (fz)Client.so[var0].aw.get(var1);
+            if (-1 == var3.af) {
                PacketBitNode var4 = mi.an_renamed(ClientProt.bh, Client.packetWriter.au);
-               var4.bit.bu(3 + DynamicObject.bc_renamed(var3.aw.af()));
+               var4.bit.bu(3 + DynamicObject.bc_renamed(var3.aw.name()));
                var4.bit.bu(var0);
                var4.bit.p2(var1);
-               var4.bit.bh(var3.aw.af());
+               var4.bit.bh(var3.aw.name());
                Client.packetWriter.aw(var4);
-               return;
-            }
-
-            if (var2 <= -1) {
-               throw new IllegalStateException();
             }
          }
-
       }
    }
 }

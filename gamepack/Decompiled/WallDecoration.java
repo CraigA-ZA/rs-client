@@ -44,9 +44,9 @@ public final class WallDecoration {
    }
 
    static void ac_renamed() {
-      if (null == cz.ca || cz.ca.length() <= 0) {
+      if (null == Login.ca || Login.ca.length() <= 0) {
          if (aj.clientPreferences.ae() != null) {
-            cz.ca = aj.clientPreferences.ae();
+            Login.ca = aj.clientPreferences.ae();
             Client.hb = true;
          } else {
             Client.hb = false;

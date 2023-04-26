@@ -32,7 +32,7 @@ public class bx {
          Interpreter.Interpreter_intStackSize -= 854271946;
          var28 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
          int var25 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
-         if (var4.bg * 883712245 == 12) {
+         if (var4.type * 883712245 == 12) {
             mz var8 = var4.bj();
             if (var8 != null && var8.ay(var28, var25)) {
                fw.ma_renamed(var4);
@@ -129,7 +129,7 @@ public class bx {
          mz var23;
          if (1113 == var0) {
             var4.textLineHeight = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] * 1858899927;
-            if (883712245 * var4.bg == 12) {
+            if (883712245 * var4.type == 12) {
                var23 = var4.bj();
                if (var23 != null) {
                   var23.ar();
@@ -140,7 +140,7 @@ public class bx {
             return 1;
          } else if (var0 == 1114) {
             Interpreter.Interpreter_intStackSize -= 1281407919;
-            if (12 == var4.bg * 883712245) {
+            if (12 == var4.type * 883712245) {
                var23 = var4.bj();
                if (var23 != null) {
                   var23.ao(Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize], Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1]);
@@ -179,7 +179,7 @@ public class bx {
             var4.scrollWidth = -1469650905 * Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
             var4.scrollHeight = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1] * -1357451643;
             fw.ma_renamed(var4);
-            if (var5 != -1 && 0 == var4.bg * 883712245) {
+            if (var5 != -1 && 0 == var4.type * 883712245) {
                WallDecoration.lz_renamed(hn.interfaceComponents[var5 >> 16], var4, false);
             }
 
@@ -235,7 +235,7 @@ public class bx {
                var4.ae(Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987], Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539]);
                return 1;
             } else {
-               FaceNormal var27;
+               lo var27;
                if (var0 == 1133) {
                   Interpreter.Interpreter_intStackSize -= 427135973;
                   var27 = var4.bn();

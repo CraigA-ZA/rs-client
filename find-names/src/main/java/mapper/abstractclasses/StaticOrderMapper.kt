@@ -22,7 +22,7 @@ abstract class StaticOrderMapper<T>(val position: Int) : Mapper<T>(), Instructio
         return resolve(instructionMatches[n])
     }
 
-    abstract val predicate: Predicate<InstructionMapper>
+    abstract val predicate: Predicate<InstructionWrapper>
 
     abstract class Class(position: Int) : StaticOrderMapper<ClassWrapper>(position), ElementMatcher.Class, InstructionResolver.Class
 

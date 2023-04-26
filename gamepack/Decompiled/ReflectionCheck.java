@@ -41,7 +41,7 @@ public class ReflectionCheck extends Node {
          if (var0.dv * -1274841313 >= -1886224337 * Client.ep) {
             boolean var15 = -1274841313 * var0.dv == -1886224337 * Client.ep || -1 == -1372355773 * var0.ct || 1253892101 * var0.dm != 0;
             if (!var15) {
-               SeqType var16 = Inventory.getSeqType(var0.ct * -1372355773, (byte)113);
+               SeqType var16 = Inventory.getSeqType(var0.ct * -1372355773);
                if (null != var16 && !var16.ao()) {
                   var15 = 1 + 1356757385 * var0.cd > var16.frameLengths[var0.cp * -41215169];
                } else {
@@ -70,7 +70,7 @@ public class ReflectionCheck extends Node {
             } else {
                label559: {
                   if (-1372355773 * var0.ct != -1 && var0.dm * 1253892101 == 0) {
-                     var17 = Inventory.getSeqType(-1372355773 * var0.ct, (byte)73);
+                     var17 = Inventory.getSeqType(-1372355773 * var0.ct);
                      if (var0.eo * -1181739279 > 0 && var17.bb * 1069382699 == 0) {
                         var0.pathLength += -1610286357;
                         break label559;
@@ -132,7 +132,7 @@ public class ReflectionCheck extends Node {
                      int var10 = 4;
                      boolean var11 = true;
                      if (var0 instanceof Npc) {
-                        var11 = ((Npc)var0).type.bu;
+                        var11 = ((Npc)var0).type.clickable;
                      }
 
                      if (var11) {

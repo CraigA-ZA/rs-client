@@ -254,7 +254,7 @@ public class NetFileRequest extends DualNode {
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
                      return 1;
                   } else if (var0 == 3153) {
-                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1158424865 * cz.ad;
+                     Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 1158424865 * Login.ad;
                      return 1;
                   } else if (var0 == 3154) {
                      Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = MouseHandler.hd_renamed();
@@ -371,7 +371,7 @@ public class NetFileRequest extends DualNode {
    static final void ik_renamed(Actor var0) {
       var0.an = false;
       if (-1 != var0.spotAnimationFrame * -1302441815) {
-         SeqType var2 = Inventory.getSeqType(-1302441815 * var0.spotAnimationFrame, (byte)49);
+         SeqType var2 = Inventory.getSeqType(-1302441815 * var0.spotAnimationFrame);
          if (var2 != null) {
             if (!var2.ao() && null != var2.frameIds) {
                var0.npcCycle += -105665867;
@@ -443,7 +443,7 @@ public class NetFileRequest extends DualNode {
                var0.do -= -1822461181;
             } else {
                var9.an = Math.max(971664459 * var9.an, 0) * -793313949;
-               SeqType var5 = Inventory.getSeqType(var4, (byte)3);
+               SeqType var5 = Inventory.getSeqType(var4);
                if (null != var5.frameIds && !var5.ao()) {
                   var9.aw += 1417617079;
                   if (971664459 * var9.an < var5.frameIds.length && var9.aw * 77733639 > var5.frameLengths[var9.an * 971664459]) {
@@ -475,7 +475,7 @@ public class NetFileRequest extends DualNode {
 
       SeqType var10;
       if (var0.ct * -1372355773 != -1 && 1253892101 * var0.dm <= 1) {
-         var10 = Inventory.getSeqType(var0.ct * -1372355773, (byte)124);
+         var10 = Inventory.getSeqType(var0.ct * -1372355773);
          if (var10.bb * 1069382699 == 1 && -1181739279 * var0.eo > 0 && -435598119 * var0.dt <= Client.ep * -1886224337 && -1274841313 * var0.dv < Client.ep * -1886224337) {
             var0.dm = -401806131;
             return;
@@ -483,7 +483,7 @@ public class NetFileRequest extends DualNode {
       }
 
       if (-1372355773 * var0.ct != -1 && 1253892101 * var0.dm == 0) {
-         var10 = Inventory.getSeqType(-1372355773 * var0.ct, (byte)41);
+         var10 = Inventory.getSeqType(-1372355773 * var0.ct);
          if (null != var10) {
             if (!var10.ao() && var10.frameIds != null) {
                var0.cd += 672779449;

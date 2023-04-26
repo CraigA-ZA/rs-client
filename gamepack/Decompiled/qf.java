@@ -21,13 +21,13 @@ public class qf implements Enumerated {
          return false;
       } else {
          ew.ai_renamed();
-         iq var7 = (iq)var0.bj.get(var1);
-         int var8 = 108689513 * var7.af + var2;
-         int var9 = var3 + 849275953 * var7.an;
-         int var10 = -1615192333 * var7.aw + var4;
-         int var11 = -1923653815 * var7.ac;
-         int var12 = -975840301 * var7.au;
-         int var13 = var7.ab * -452185969;
+         AABB var7 = (AABB)var0.bj.get(var1);
+         int var8 = 108689513 * var7.xMid + var2;
+         int var9 = var3 + 849275953 * var7.yMid;
+         int var10 = -1615192333 * var7.zMid + var4;
+         int var11 = -1923653815 * var7.xMidOffset;
+         int var12 = -975840301 * var7.yMidOffset;
+         int var13 = var7.zMidOffset * -452185969;
          int var14 = -1874962943 * ix.au - var8;
          int var15 = lh.ab * 554168439 - var9;
          int var16 = -1672023491 * ix.aq - var10;

@@ -7,7 +7,7 @@ import mapper.annotations.MethodParameters
 import mapper.predicateutilities.*
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
@@ -46,11 +46,11 @@ class UserList : IdentityMapper.Class() {
     }
 
     class size0 : OrderMapper.InConstructor.Field(UserList::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class capacity : OrderMapper.InConstructor.Field(UserList::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     @MethodParameters("index")
@@ -65,11 +65,11 @@ class UserList : IdentityMapper.Class() {
     }
 
     class usernamesMap : OrderMapper.InConstructor.Field(UserList::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == HashMap::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == HashMap::class.type }
     }
 
     class previousUsernamesMap : OrderMapper.InConstructor.Field(UserList::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == HashMap::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == HashMap::class.type }
     }
 
     @MethodParameters("user")

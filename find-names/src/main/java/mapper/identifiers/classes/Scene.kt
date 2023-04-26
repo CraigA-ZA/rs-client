@@ -2,12 +2,13 @@ package mapper.identifiers.classes
 
 import mapper.abstractclasses.IdentityMapper
 import mapper.abstractclasses.OrderMapper
+import mapper.abstractclasses.UniqueMapper
 import mapper.annotations.DependsOn
 import mapper.annotations.MethodParameters
 import mapper.predicateutilities.*
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
@@ -26,7 +27,7 @@ class Scene : IdentityMapper.Class() {
 
     @DependsOn(clear::class)
     class tempSceneryCount : OrderMapper.InMethod.Field(clear::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class tiles : IdentityMapper.InstanceField() {
@@ -77,60 +78,6 @@ class Scene : IdentityMapper.Class() {
                 .and { it.arguments.size in 8..9 }
     }
 
-    //TODO
-//    @MethodParameters("plane", "x", "y")
-//    @DependsOn(Tile.objStack::class)
-//    class removeObjStack : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE) }
-//                .and { it.arguments.size in 3..4 }
-//                .and { it.instructions.any { it.opcode == PUTFIELD && it.fieldId == field<Tile.objStack>().id } }
-//    }
-//
-//    @MethodParameters("plane", "x", "y")
-//    @DependsOn(Tile.floorDecoration::class)
-//    class removeFloorDecoration : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE) }
-//                .and { it.arguments.size in 3..4 }
-//                .and { it.instructions.any { it.opcode == PUTFIELD && it.fieldId == field<Tile.floorDecoration>().id } }
-//    }
-//
-//    @MethodParameters("plane", "x", "y")
-//    @DependsOn(Tile.wallDecoration::class)
-//    class removeWallDecoration : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE) }
-//                .and { it.arguments.size in 3..4 }
-//                .and { it.instructions.any { it.opcode == PUTFIELD && it.fieldId == field<Tile.wallDecoration>().id } }
-//    }
-//
-//    @MethodParameters("plane", "x", "y")
-//    @DependsOn(Tile.wall::class)
-//    class removeWall : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE) }
-//                .and { it.arguments.size in 3..4 }
-//                .and { it.instructions.any { it.opcode == PUTFIELD && it.fieldId == field<Tile.wall>().id } }
-//    }
-//
-//    @MethodParameters("plane", "x", "y")
-//    @DependsOn(Wall::class)
-//    class getWall : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Wall>() }
-//    }
-//
-//    @MethodParameters("plane", "x", "y")
-//    @DependsOn(WallDecoration::class)
-//    class getWallDecoration : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<WallDecoration>() }
-//    }
-//
-//    @MethodParameters("plane", "x", "y")
-//    @DependsOn(FloorDecoration::class)
-//    class getFloorDecoration : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<FloorDecoration>() }
-//    }
     @MethodParameters("plane", "x", "y", "tileHeight", "entity1", "entity2", "orientationA", "orientationB", "tag", "flags")
     @DependsOn(Entity::class)
     class newWall : IdentityMapper.InstanceMethod() {
@@ -143,19 +90,19 @@ class Scene : IdentityMapper.Class() {
     }
 
     class planes : OrderMapper.InConstructor.Field(Scene::class, -3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class xSize : OrderMapper.InConstructor.Field(Scene::class, -2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class ySize : OrderMapper.InConstructor.Field(Scene::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class tileHeights : OrderMapper.InConstructor.Field(Scene::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE.withDimensions(3) }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE.withDimensions(3) }
     }
 
     @MethodParameters("x", "y", "z", "pitch", "yaw", "plane")
@@ -165,73 +112,11 @@ class Scene : IdentityMapper.Class() {
                 .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE) }
     }
 
-    //
-//    @MethodParameters("plane", "x", "y", "id")
-//    class getObjectFlags : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
-//                .and { it.arguments.size == 4 }
-//                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE, LONG_TYPE) }
-//    }
-//
-//    @MethodParameters("scenery")
-//    @DependsOn(Scenery::class)
-//    class removeScenery : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.startsWith(type<Scenery>()) }
-//    }
-//
+
     @MethodParameters()
     class clear : OrderMapper.InConstructor.Method(Scene::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.isMethod }
+        override val predicate = predicateOf<InstructionWrapper> { it.isMethod }
     }
-//
-//    @MethodParameters("minPlane")
-//    @DependsOn(Tile::class)
-//    class init : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.size == 1 }
-//                .and { it.arguments.startsWith(INT_TYPE) }
-//                .and { it.instructions.count { it.opcode == NEW && it.typeType == type<Tile>() } == 1 }
-//                .and { it.instructions.none { it.opcode == LAND } }
-//    }
-//
-//    @DependsOn(init::class)
-//    class minPlane : UniqueMapper.InMethod.Field(init::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
-//    }
-//
-//    @MethodParameters()
-//    @DependsOn(tempScenery::class)
-//    class clearTempScenery : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.size in 0..1 }
-//                .and { it.instructions.count { it.opcode == GETFIELD && it.fieldId == field<tempScenery>().id } == 2 }
-//    }
-//
-//    @MethodParameters("pixels", "index", "width", "plane", "x", "y")
-//    class drawTileMinimap : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.startsWith(IntArray::class.type, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE) }
-//    }
-//
-//    @MethodParameters("plane", "x", "y")
-//    @DependsOn(FloorDecoration.tag::class)
-//    class getFloorDecorationTag : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == LONG_TYPE }
-//                .and { it.arguments.size in 3..4 }
-//                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE) }
-//                .and { it.instructions.any { it.opcode == GETFIELD && it.fieldId == field<FloorDecoration.tag>().id } }
-//                .and { it.instructions.none { it.opcode == LAND } }
-//    }
-//
-//    @MethodParameters("x", "y")
-//    @DependsOn(Tile.linkedBelowTile::class)
-//    class setLinkBelow : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.size in 2..3 }
-//                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE) }
-//                .and { it.instructions.any { it.opcode == PUTFIELD && it.fieldId == field<Tile.linkedBelowTile>().id } }
-//    }
 
     class addTile : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
@@ -253,18 +138,138 @@ class Scene : IdentityMapper.Class() {
                 .and { it.instructions.any { it.opcode == PUTFIELD && it.fieldOwner == type<Tile>() && it.fieldType == INT_TYPE } }
     }
 
-    //
-////    @MethodParameters()
-////    @DependsOn(Client.Scene_currentOccludersCount::class)
-////    class occlude : IdentityMapper.InstanceMethod() {
-////        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-////                .and { it.arguments.isEmpty() }
-////                .and { it.instructions.any { it.opcode == PUTSTATIC && it.fieldId == field<Client.Scene_currentOccludersCount>().id } }
-////    }
-//
+
     @MethodParameters("plane", "screenX", "screenY", "b")
     class menuOpen : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
                 .and { it.arguments == listOf(INT_TYPE, INT_TYPE, INT_TYPE, BOOLEAN_TYPE) }
     }
+
+    ///////////////
+    
+    @MethodParameters("plane", "x", "y")
+    @DependsOn(Tile.objStack::class)
+    class removeObjStack : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE) }
+                .and { it.arguments.size in 3..4 }
+                .and { it.instructions.any { it.opcode == PUTFIELD && it.fieldId == field<Tile.objStack>().id } }
+    }
+
+    @MethodParameters("plane", "x", "y")
+    @DependsOn(Tile.floorDecoration::class)
+    class removeFloorDecoration : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE) }
+                .and { it.arguments.size in 3..4 }
+                .and { it.instructions.any { it.opcode == PUTFIELD && it.fieldId == field<Tile.floorDecoration>().id } }
+    }
+
+    @MethodParameters("plane", "x", "y")
+    @DependsOn(Tile.wallDecoration::class)
+    class removeWallDecoration : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE) }
+                .and { it.arguments.size in 3..4 }
+                .and { it.instructions.any { it.opcode == PUTFIELD && it.fieldId == field<Tile.wallDecoration>().id } }
+    }
+
+    @MethodParameters("plane", "x", "y")
+    @DependsOn(Tile.wall::class)
+    class removeWall : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE) }
+                .and { it.arguments.size in 3..4 }
+                .and { it.instructions.any { it.opcode == PUTFIELD && it.fieldId == field<Tile.wall>().id } }
+    }
+
+    @MethodParameters("plane", "x", "y")
+    @DependsOn(Wall::class)
+    class getWall : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == type<Wall>() }
+    }
+
+    @MethodParameters("plane", "x", "y")
+    @DependsOn(WallDecoration::class)
+    class getWallDecoration : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == type<WallDecoration>() }
+    }
+
+    @MethodParameters("plane", "x", "y")
+    @DependsOn(FloorDecoration::class)
+    class getFloorDecoration : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == type<FloorDecoration>() }
+    }
+
+    @MethodParameters("plane", "x", "y", "id")
+    class getObjectFlags : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == INT_TYPE }
+                .and { it.arguments.size == 4 }
+                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE, LONG_TYPE) }
+    }
+
+    @MethodParameters("scenery")
+    @DependsOn(Scenery::class)
+    class removeScenery : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments.startsWith(type<Scenery>()) }
+    }
+
+
+    @MethodParameters("minPlane")
+    @DependsOn(Tile::class)
+    class init : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments.size == 1 }
+                .and { it.arguments.startsWith(INT_TYPE) }
+                .and { it.instructions.count { it.opcode == NEW && it.typeType == type<Tile>() } == 1 }
+                .and { it.instructions.none { it.opcode == LAND } }
+    }
+
+    @DependsOn(init::class)
+    class minPlane : UniqueMapper.InMethod.Field(init::class) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+    }
+
+    @MethodParameters()
+    @DependsOn(tempScenery::class)
+    class clearTempScenery : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments.size in 0..1 }
+                .and { it.instructions.count { it.opcode == GETFIELD && it.fieldId == field<tempScenery>().id } == 2 }
+    }
+
+    @MethodParameters("pixels", "index", "width", "plane", "x", "y")
+    class drawTileMinimap : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments.startsWith(IntArray::class.type, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE, INT_TYPE) }
+    }
+
+    @MethodParameters("plane", "x", "y")
+    @DependsOn(FloorDecoration.tag::class)
+    class getFloorDecorationTag : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == LONG_TYPE }
+                .and { it.arguments.size in 3..4 }
+                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE, INT_TYPE) }
+                .and { it.instructions.any { it.opcode == GETFIELD && it.fieldId == field<FloorDecoration.tag>().id } }
+                .and { it.instructions.none { it.opcode == LAND } }
+    }
+
+    @MethodParameters("x", "y")
+    @DependsOn(Tile.linkedBelowTile::class)
+    class setLinkBelow : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments.size in 2..3 }
+                .and { it.arguments.startsWith(INT_TYPE, INT_TYPE) }
+                .and { it.instructions.any { it.opcode == PUTFIELD && it.fieldId == field<Tile.linkedBelowTile>().id } }
+    }
+
+//    @MethodParameters()
+//    @DependsOn(Client.Scene_currentOccludersCount::class)
+//    class occlude : IdentityMapper.InstanceMethod() {
+//        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+//                .and { it.arguments.isEmpty() }
+//                .and { it.instructions.any { it.opcode == PUTSTATIC && it.fieldId == field<Client.Scene_currentOccludersCount>().id } }
+//    }
+
 }

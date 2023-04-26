@@ -31,7 +31,7 @@ public class gj extends Node {
          this.ac = new int[this.aw.size()];
 
          for(int var3 = 0; var3 < this.aw.size(); this.ac[var3] = var3++) {
-            var2[var3] = ((fz)this.aw.get(var3)).aw.an();
+            var2[var3] = ((fz)this.aw.get(var3)).aw.cleanName();
          }
 
          int[] var4 = this.ac;
@@ -60,7 +60,7 @@ public class gj extends Node {
          throw new RuntimeException("Displaynames not available");
       } else {
          for(int var3 = 0; var3 < this.aw.size(); ++var3) {
-            if (((fz)this.aw.get(var3)).aw.af().equalsIgnoreCase(var1)) {
+            if (((fz)this.aw.get(var3)).aw.name().equalsIgnoreCase(var1)) {
                return var3;
             }
          }

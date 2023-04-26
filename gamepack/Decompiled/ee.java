@@ -4,8 +4,8 @@ public class ee implements ed {
    }
 
    static void ak_renamed(int var0) {
-      if (1145608355 * cz.ce != var0) {
-         cz.ce = 1331354379 * var0;
+      if (1145608355 * Login.ce != var0) {
+         Login.ce = 1331354379 * var0;
       }
    }
 }

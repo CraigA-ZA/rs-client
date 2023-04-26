@@ -4,8 +4,8 @@ public class ObjType extends DualNode {
    static EvictingDualNodeHashTable ObjType_cached = new EvictingDualNodeHashTable(64);
    static EvictingDualNodeHashTable Sprite_cached = new EvictingDualNodeHashTable(200);
    static EvictingDualNodeHashTable ay = new EvictingDualNodeHashTable(50);
-   int ag;
-   int ai;
+   int model;
+   int id;
    int womanhead;
    int resizex;
    int manhead;
@@ -24,8 +24,8 @@ public class ObjType extends DualNode {
    int cl;
    int team;
    int ambient;
-   int[] bh;
-   int[] bw;
+   int[] countobj;
+   int[] countco;
    IterableNodeHashTable params;
    public boolean members;
    public boolean stockmarket;
@@ -51,10 +51,10 @@ public class ObjType extends DualNode {
    public String name;
    public String[] iop;
    public String[] op;
-   public short[] am;
-   public short[] ar;
-   public short[] as;
-   public short[] av;
+   public short[] retex_s;
+   public short[] recol_d;
+   public short[] retex_d;
+   public short[] recol_s;
 
    ObjType() {
       this.name = Strings.Strings_null;
@@ -121,7 +121,7 @@ public class ObjType extends DualNode {
 
    void decode0(Packet var1, int var2) {
       if (var2 == 1) {
-         this.ag = var1.cl() * 19259063;
+         this.model = var1.cl() * 19259063;
       } else if (2 == var2) {
          this.name = var1.cw();
       } else if (4 == var2) {
@@ -176,21 +176,21 @@ public class ObjType extends DualNode {
          int var5;
          if (var2 == 40) {
             var4 = var1.g1();
-            this.av = new short[var4];
-            this.ar = new short[var4];
+            this.recol_s = new short[var4];
+            this.recol_d = new short[var4];
 
             for(var5 = 0; var5 < var4; ++var5) {
-               this.av[var5] = (short)var1.cl();
-               this.ar[var5] = (short)var1.cl();
+               this.recol_s[var5] = (short)var1.cl();
+               this.recol_d[var5] = (short)var1.cl();
             }
          } else if (41 == var2) {
             var4 = var1.g1();
-            this.am = new short[var4];
-            this.as = new short[var4];
+            this.retex_s = new short[var4];
+            this.retex_d = new short[var4];
 
             for(var5 = 0; var5 < var4; ++var5) {
-               this.am[var5] = (short)var1.cl();
-               this.as[var5] = (short)var1.cl();
+               this.retex_s[var5] = (short)var1.cl();
+               this.retex_d[var5] = (short)var1.cl();
             }
          } else if (42 == var2) {
             this.manwearyoff = var1.g1s() * -645393821;
@@ -219,13 +219,13 @@ public class ObjType extends DualNode {
          } else if (var2 == 98) {
             this.resizez = var1.cl() * 468518381;
          } else if (var2 >= 100 && var2 < 110) {
-            if (this.bh == null) {
-               this.bh = new int[10];
-               this.bw = new int[10];
+            if (this.countobj == null) {
+               this.countobj = new int[10];
+               this.countco = new int[10];
             }
 
-            this.bh[var2 - 100] = var1.cl();
-            this.bw[var2 - 100] = var1.cl();
+            this.countobj[var2 - 100] = var1.cl();
+            this.countco[var2 - 100] = var1.cl();
          } else if (110 == var2) {
             this.ambient = var1.cl() * -662446763;
          } else if (var2 == 111) {
@@ -253,36 +253,36 @@ public class ObjType extends DualNode {
 
    }
 
-   void au(ObjType var1, ObjType var2) {
-      this.ag = var1.ag * 1;
+   void genCert(ObjType var1, ObjType var2) {
+      this.model = var1.model * 1;
       this.zoom2d = var1.zoom2d * 1;
       this.xan2d = 1 * var1.xan2d;
       this.yan2d = 1 * var1.yan2d;
       this.zan2d = 1 * var1.zan2d;
       this.xof2d = 1 * var1.xof2d;
       this.yof2d = var1.yof2d * 1;
-      this.av = var1.av;
-      this.ar = var1.ar;
-      this.am = var1.am;
-      this.as = var1.as;
+      this.recol_s = var1.recol_s;
+      this.recol_d = var1.recol_d;
+      this.retex_s = var1.retex_s;
+      this.retex_d = var1.retex_d;
       this.name = var2.name;
       this.members = var2.members;
       this.cost = var2.cost * 1;
       this.stackable = 1685556127;
    }
 
-   void ab(ObjType var1, ObjType var2) {
-      this.ag = 1 * var1.ag;
+   void genBought(ObjType var1, ObjType var2) {
+      this.model = 1 * var1.model;
       this.zoom2d = 1 * var1.zoom2d;
       this.xan2d = 1 * var1.xan2d;
       this.yan2d = 1 * var1.yan2d;
       this.zan2d = 1 * var1.zan2d;
       this.xof2d = 1 * var1.xof2d;
       this.yof2d = 1 * var1.yof2d;
-      this.av = var2.av;
-      this.ar = var2.ar;
-      this.am = var2.am;
-      this.as = var2.as;
+      this.recol_s = var2.recol_s;
+      this.recol_d = var2.recol_d;
+      this.retex_s = var2.retex_s;
+      this.retex_d = var2.retex_d;
       this.name = var2.name;
       this.members = var2.members;
       this.stackable = var2.stackable * 1;
@@ -313,18 +313,18 @@ public class ObjType extends DualNode {
       this.cost = 0;
    }
 
-   void aq(ObjType var1, ObjType var2) {
-      this.ag = var1.ag * 1;
+   void genPlaceholder(ObjType var1, ObjType var2) {
+      this.model = var1.model * 1;
       this.zoom2d = 1 * var1.zoom2d;
       this.xan2d = var1.xan2d * 1;
       this.yan2d = var1.yan2d * 1;
       this.zan2d = var1.zan2d * 1;
       this.xof2d = var1.xof2d * 1;
       this.yof2d = var1.yof2d * 1;
-      this.av = var1.av;
-      this.ar = var1.ar;
-      this.am = var1.am;
-      this.as = var1.as;
+      this.recol_s = var1.recol_s;
+      this.recol_d = var1.recol_d;
+      this.retex_s = var1.retex_s;
+      this.retex_d = var1.retex_d;
       this.stackable = var1.stackable * 1;
       this.name = var2.name;
       this.cost = 0;
@@ -334,12 +334,12 @@ public class ObjType extends DualNode {
 
    public final UnlitModel al(int var1) {
       int var4;
-      if (null != this.bh && var1 > 1) {
+      if (null != this.countobj && var1 > 1) {
          int var3 = -1;
 
          for(var4 = 0; var4 < 10; ++var4) {
-            if (var1 >= this.bw[var4] && this.bw[var4] != 0) {
-               var3 = this.bh[var4];
+            if (var1 >= this.countco[var4] && this.countco[var4] != 0) {
+               var3 = this.countobj[var4];
             }
          }
 
@@ -348,7 +348,7 @@ public class ObjType extends DualNode {
          }
       }
 
-      UnlitModel var8 = UnlitModel.af_renamed(aq, 2000117511 * this.ag, 0);
+      UnlitModel var8 = UnlitModel.af_renamed(aq, 2000117511 * this.model, 0);
       if (var8 == null) {
          return null;
       } else {
@@ -356,15 +356,15 @@ public class ObjType extends DualNode {
             var8.resize(this.ambient * 614283261, this.contrast * 1552043943, -302979231 * this.team);
          }
 
-         if (this.av != null) {
-            for(var4 = 0; var4 < this.av.length; ++var4) {
-               var8.recolor(this.av[var4], this.ar[var4]);
+         if (this.recol_s != null) {
+            for(var4 = 0; var4 < this.recol_s.length; ++var4) {
+               var8.recolor(this.recol_s[var4], this.recol_d[var4]);
             }
          }
 
-         if (null != this.am) {
-            for(var4 = 0; var4 < this.am.length; ++var4) {
-               var8.retexture(this.am[var4], this.as[var4]);
+         if (null != this.retex_s) {
+            for(var4 = 0; var4 < this.retex_s.length; ++var4) {
+               var8.retexture(this.retex_s[var4], this.retex_d[var4]);
             }
          }
 
@@ -373,12 +373,12 @@ public class ObjType extends DualNode {
    }
 
    public final Model getModel(int var1) {
-      if (null != this.bh && var1 > 1) {
+      if (null != this.countobj && var1 > 1) {
          int var3 = -1;
 
          for(int var4 = 0; var4 < 10; ++var4) {
-            if (var1 >= this.bw[var4] && 0 != this.bw[var4]) {
-               var3 = this.bh[var4];
+            if (var1 >= this.countco[var4] && 0 != this.countco[var4]) {
+               var3 = this.countobj[var4];
             }
          }
 
@@ -387,11 +387,11 @@ public class ObjType extends DualNode {
          }
       }
 
-      Model var12 = (Model)ay.get((long)(-264956633 * this.ai));
+      Model var12 = (Model)ay.get((long)(-264956633 * this.id));
       if (null != var12) {
          return var12;
       } else {
-         UnlitModel var13 = UnlitModel.af_renamed(aq, 2000117511 * this.ag, 0);
+         UnlitModel var13 = UnlitModel.af_renamed(aq, 2000117511 * this.model, 0);
          if (null == var13) {
             return null;
          } else {
@@ -400,33 +400,33 @@ public class ObjType extends DualNode {
             }
 
             int var5;
-            if (this.av != null) {
-               for(var5 = 0; var5 < this.av.length; ++var5) {
-                  var13.recolor(this.av[var5], this.ar[var5]);
+            if (this.recol_s != null) {
+               for(var5 = 0; var5 < this.recol_s.length; ++var5) {
+                  var13.recolor(this.recol_s[var5], this.recol_d[var5]);
                }
             }
 
-            if (null != this.am) {
-               for(var5 = 0; var5 < this.am.length; ++var5) {
-                  var13.retexture(this.am[var5], this.as[var5]);
+            if (null != this.retex_s) {
+               for(var5 = 0; var5 < this.retex_s.length; ++var5) {
+                  var13.retexture(this.retex_s[var5], this.retex_d[var5]);
                }
             }
 
             var12 = var13.light(64 + 2093614773 * this.boughtlink, 1794294545 * this.boughttemplate + 768, -50, -10, -50);
             var12.isSingleTile = true;
-            ay.put(var12, (long)(this.ai * -264956633));
+            ay.put(var12, (long)(this.id * -264956633));
             return var12;
          }
       }
    }
 
    public ObjType getCountObj(int var1) {
-      if (this.bh != null && var1 > 1) {
+      if (this.countobj != null && var1 > 1) {
          int var3 = -1;
 
          for(int var4 = 0; var4 < 10; ++var4) {
-            if (var1 >= this.bw[var4] && 0 != this.bw[var4]) {
-               var3 = this.bh[var4];
+            if (var1 >= this.countco[var4] && 0 != this.countco[var4]) {
+               var3 = this.countobj[var4];
             }
          }
 
@@ -503,15 +503,15 @@ public class ObjType extends DualNode {
          }
 
          int var14;
-         if (this.av != null) {
-            for(var14 = 0; var14 < this.av.length; ++var14) {
-               var6.recolor(this.av[var14], this.ar[var14]);
+         if (this.recol_s != null) {
+            for(var14 = 0; var14 < this.recol_s.length; ++var14) {
+               var6.recolor(this.recol_s[var14], this.recol_d[var14]);
             }
          }
 
-         if (this.am != null) {
-            for(var14 = 0; var14 < this.am.length; ++var14) {
-               var6.retexture(this.am[var14], this.as[var14]);
+         if (this.retex_s != null) {
+            for(var14 = 0; var14 < this.retex_s.length; ++var14) {
+               var6.retexture(this.retex_s[var14], this.retex_d[var14]);
             }
          }
 
@@ -562,15 +562,15 @@ public class ObjType extends DualNode {
          }
 
          int var11;
-         if (null != this.av) {
-            for(var11 = 0; var11 < this.av.length; ++var11) {
-               var5.recolor(this.av[var11], this.ar[var11]);
+         if (null != this.recol_s) {
+            for(var11 = 0; var11 < this.recol_s.length; ++var11) {
+               var5.recolor(this.recol_s[var11], this.recol_d[var11]);
             }
          }
 
-         if (null != this.am) {
-            for(var11 = 0; var11 < this.am.length; ++var11) {
-               var5.retexture(this.am[var11], this.as[var11]);
+         if (null != this.retex_s) {
+            for(var11 = 0; var11 < this.retex_s.length; ++var11) {
+               var5.retexture(this.retex_s[var11], this.retex_d[var11]);
             }
          }
 
@@ -612,10 +612,10 @@ public class ObjType extends DualNode {
    }
 
    boolean ak() {
-      return null != this.ar;
+      return null != this.recol_d;
    }
 
    boolean az() {
-      return this.as != null;
+      return this.retex_d != null;
    }
 }

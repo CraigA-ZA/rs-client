@@ -16,7 +16,7 @@ abstract class StaticUniqueMapper<T>() : Mapper<T>(), InstructionResolver<T> {
                 .single()
     }
 
-    abstract val predicate: Predicate<InstructionMapper>
+    abstract val predicate: Predicate<InstructionWrapper>
 
     abstract class Class : StaticUniqueMapper<ClassWrapper>(), ElementMatcher.Class, InstructionResolver.Class
 

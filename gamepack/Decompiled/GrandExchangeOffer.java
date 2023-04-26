@@ -8,7 +8,7 @@ public class GrandExchangeOffer {
    public int unitPrice;
 
    public static void af_renamed(String[] var0, short[] var1) {
-      FaceNormal.an_renamed(var0, var1, 0, var0.length - 1);
+      lo.an_renamed(var0, var1, 0, var0.length - 1);
    }
 
    public GrandExchangeOffer() {

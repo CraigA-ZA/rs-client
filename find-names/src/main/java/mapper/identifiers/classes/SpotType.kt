@@ -7,7 +7,7 @@ import mapper.annotations.DependsOn
 import mapper.annotations.MethodParameters
 import mapper.predicateutilities.*
 import mapper.wrappers.ClassWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.INT_TYPE
@@ -37,20 +37,30 @@ class SpotType : IdentityMapper.Class() {
 
     @DependsOn(Client.getSpotType::class)
     class id : OrderMapper.InMethod.Field(Client.getSpotType::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<SpotType>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<SpotType>() }
     }
 
-    //TODO
-//    @DependsOn(Model::class)
-//    class getModel : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == type<Model>() }
-//    }
+    class sequence : OrderMapper.InConstructor.Field(SpotType::class, 0) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+    }
+
+    @DependsOn(Model::class)
+    class getModel : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == type<Model>() }
+                .and { it.arguments.count() == 1}
+    }
+
+    @DependsOn(Model::class)
+    class getSharedModel : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == type<Model>() }
+                .and { it.arguments.count() == 0}
+    }
 
 //     in degrees, 0, 180, 270
-//    @DependsOn(getModel::class)
-//    class orientation : OrderMapper.InMethod.Field(getModel::class, -1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
-//    }
+    @DependsOn(getModel::class)
+    class orientation : OrderMapper.InMethod.Field(getModel::class, -1) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
+    }
 
 //    @DependsOn(decode0::class)
 //    class resizeh : UniqueMapper.InMethod.Field(decode0::class) {
@@ -63,11 +73,6 @@ class SpotType : IdentityMapper.Class() {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == ICONST_5 }
 //                .nextWithin(10) { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
 //    }
-
-    class sequence : OrderMapper.InConstructor.Field(SpotType::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
-    }
-
 //    @DependsOn(getModel::class)
 //    class recol_s : OrderMapper.InMethod.Field(getModel::class, 0) {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == SALOAD }
@@ -94,14 +99,14 @@ class SpotType : IdentityMapper.Class() {
 
     @DependsOn(decode0::class)
     class model : OrderMapper.InMethod.Field(decode0::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class ambient : OrderMapper.InConstructor.Field(SpotType::class, 4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     class contrast : OrderMapper.InConstructor.Field(SpotType::class, 5) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 }

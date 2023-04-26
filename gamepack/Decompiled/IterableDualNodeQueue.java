@@ -9,14 +9,14 @@ public class IterableDualNodeQueue implements Iterable {
       this.sentinel.nextDual = this.sentinel;
    }
 
-   public void af() {
+   public void clear() {
       while(this.sentinel.previousDual != this.sentinel) {
          this.sentinel.previousDual.removeDual();
       }
 
    }
 
-   public void an(DualNode var1) {
+   public void add(DualNode var1) {
       if (var1.nextDual != null) {
          var1.removeDual();
       }

@@ -137,7 +137,7 @@ public abstract class ia {
    static final void jc_renamed(boolean var0) {
       for(int var2 = 0; var2 < 265474485 * Client.iw; ++var2) {
          Npc var3 = Client.npcs[Client.iy[var2]];
-         if (var3 != null && var3.isVisible() && var0 == var3.type.bm && var3.type.aa()) {
+         if (var3 != null && var3.isVisible() && var0 == var3.type.visible && var3.type.aa()) {
             int var4 = var3.bx * 1144428983 >> 7;
             int var5 = var3.bo * -411750205 >> 7;
             if (var4 >= 0 && var4 < 104 && var5 >= 0 && var5 < 104) {
@@ -149,7 +149,7 @@ public abstract class ia {
                   Client.mt[var4][var5] = 2041464667 * Client.mw;
                }
 
-               long var6 = ir.aa_renamed(0, 0, 1, !var3.type.isInteractable, Client.iy[var2]);
+               long var6 = FaceNormal.aa_renamed(0, 0, 1, !var3.type.interactable, Client.iy[var2]);
                var3.bd = -14183397 * Client.ep;
                bx.scene.ao(GameShell.plane * -1727408401, 1144428983 * var3.bx, -411750205 * var3.bo, fq.getTileHeight(1119756096 * var3.size - 64 + 1144428983 * var3.bx, 1119756096 * var3.size - 64 + var3.bo * -411750205, -1727408401 * GameShell.plane), 60 + (1119756096 * var3.size - 64), var3, var3.bz * -1703696531, var6, var3.an);
             }

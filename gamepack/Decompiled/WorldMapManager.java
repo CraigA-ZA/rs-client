@@ -96,7 +96,7 @@ public final class WorldMapManager {
       }
    }
 
-   public final void an() {
+   public final void clearIcons() {
       this.icons = null;
    }
 
@@ -176,7 +176,7 @@ public final class WorldMapManager {
          this.overviewSprite.ag(var1, var2, var3, var4);
          if (var6 > 0 && var6 % var7 < var7 / 2) {
             if (this.icons == null) {
-               this.aa();
+               this.buildIcons0();
             }
 
             Iterator var9 = var5.iterator();
@@ -271,11 +271,11 @@ public final class WorldMapManager {
    }
 
    public HashMap buildIcons() {
-      this.aa();
+      this.buildIcons0();
       return this.icons;
    }
 
-   void aa() {
+   void buildIcons0() {
       if (this.icons == null) {
          this.icons = new HashMap();
       }

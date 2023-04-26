@@ -1,6 +1,6 @@
 import java.text.DecimalFormat;
 
-public class cz {
+public class Login {
    static boolean cd;
    static boolean ch;
    static boolean cj;
@@ -74,7 +74,7 @@ public class cz {
       dj = new String[]{"logo_speedrunning"};
    }
 
-   cz() throws Throwable {
+   Login() throws Throwable {
       throw new Error();
    }
 

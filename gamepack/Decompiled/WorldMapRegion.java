@@ -129,7 +129,7 @@ public class WorldMapRegion {
       MapElementType var10;
       Object var14;
       if (var1.multi != null) {
-         var14 = new WorldMapIcon2(var8, var7, -1529817365 * var1.at, this);
+         var14 = new WorldMapIcon2(var8, var7, -1529817365 * var1.id, this);
       } else {
          var10 = nf.getMapElementType(1270945427 * var1.mapIconId);
          var14 = new WorldMapIcon1(var8, var7, var10.au * 219774827, this.bz(var10));
@@ -357,7 +357,7 @@ public class WorldMapRegion {
                var13.decode(new Packet(var14), var8);
             }
 
-            var13.an();
+            var13.postDecode();
             FloorOverlayType.an.put(var13, (long)var8);
             var12 = var13;
          }
@@ -455,7 +455,7 @@ public class WorldMapRegion {
                   var11.decode(new Packet(var12), var7);
                }
 
-               var11.an();
+               var11.postDecode();
                FloorOverlayType.an.put(var11, (long)var7);
                var10 = var11;
             }

@@ -21,7 +21,6 @@ class TextureLoader : IdentityMapper.Class() {
         override val predicate = predicateOf<MethodWrapper> { it.returnType == IntArray::class.type }
     }
 
-    //TODO
 //    @DependsOn(TextureProvider.isLowDetail::class)
 //    class isLowDetail : IdentityMapper.InstanceMethod() {
 //        override val predicate = predicateOf<Method2> { it.mark == method<TextureProvider.isLowDetail>().mark }

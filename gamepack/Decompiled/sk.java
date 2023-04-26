@@ -18,22 +18,22 @@ public class sk extends DualNode {
    }
 
    void af(Packet var1) {
-      int var3 = var1.dr((byte)-7);
+      int var3 = var1.dr();
       this.ac = new sh[var3];
       this.au = new ArrayList(var3);
 
       for(int var4 = 0; var4 < var3; ++var4) {
          this.ac[var4] = (sh)StructType.findEnumerated(sh.au_renamed(), var1.g1());
-         int var5 = var1.dr((byte)51);
+         int var5 = var1.dr();
          HashMap var6 = new HashMap(var5);
 
          while(var5-- > 0) {
             Object var7 = this.ac[var4].at(var1);
-            int var8 = var1.dr((byte)52);
+            int var8 = var1.dr();
             ArrayList var9 = new ArrayList();
 
             while(var8-- > 0) {
-               int var10 = var1.dr((byte)-89);
+               int var10 = var1.dr();
                var9.add(var10);
             }
 

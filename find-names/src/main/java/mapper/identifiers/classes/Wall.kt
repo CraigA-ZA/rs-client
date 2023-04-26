@@ -8,7 +8,7 @@ import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.INT_TYPE
 import org.objectweb.asm.Type.LONG_TYPE
@@ -39,12 +39,12 @@ class Wall : IdentityMapper.Class() {
 
     @DependsOn(Scene.newWall::class, Entity::class)
     class entity1 : OrderMapper.InMethod.Field(Scene.newWall::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Entity>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Entity>() }
     }
 
     @DependsOn(Scene.newWall::class, Entity::class)
     class entity2 : OrderMapper.InMethod.Field(Scene.newWall::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Entity>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Entity>() }
     }
 
     @DependsOn(Scene.newWall::class)

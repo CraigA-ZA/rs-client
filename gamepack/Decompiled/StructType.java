@@ -126,7 +126,7 @@ public class StructType extends DualNode {
             var5.targetVerb = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
             return 1;
          } else if (1307 == var0) {
-            var5.ops = null;
+            var5.actions = null;
             return 1;
          } else if (var0 == 1308) {
             var5.hh = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;

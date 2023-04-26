@@ -11,7 +11,7 @@ import mapper.predicateutilities.type
 import mapper.predicateutilities.withDimensions
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -35,7 +35,7 @@ class WorldMapManager : IdentityMapper.Class() {
     }
 
     class fonts : OrderMapper.InConstructor.Field(WorldMapManager::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == HashMap::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == HashMap::class.type }
     }
 
     @MethodParameters()
@@ -45,7 +45,7 @@ class WorldMapManager : IdentityMapper.Class() {
 
     @DependsOn(buildIcons::class)
     class icons : UniqueMapper.InMethod.Field(buildIcons::class) {
-        override val predicate = predicateOf<InstructionMapper> { it.isField }
+        override val predicate = predicateOf<InstructionWrapper> { it.isField }
     }
 
     class drawOverview : IdentityMapper.InstanceMethod() {
@@ -60,28 +60,22 @@ class WorldMapManager : IdentityMapper.Class() {
                 .and { it.arguments.startsWith(type<AbstractArchive>()) }
     }
 
-    //TODO
-    //    @MethodParameters("x", "y", "dst")
-//    @DependsOn(WorldMapRegion::class)
-//    class getNeighboringRegions : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE }
-//                .and { it.arguments == listOf(Type.INT_TYPE, Type.INT_TYPE, type<WorldMapRegion>().withDimensions(1)) }
-//    }
-//    @MethodParameters()
-//    class clearIcons : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE && it.arguments.isEmpty() }
-//                .and { it.instructions.none { it.isLabel } }
-//    }
+    @MethodParameters()
+    class clearIcons : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == Type.VOID_TYPE && it.arguments.isEmpty() }
+                .and { it.instructions.count() < 10 }
+    }
 
+    @MethodParameters()
+    @DependsOn(buildIcons::class)
+    class buildIcons0 : UniqueMapper.InMethod.Method(buildIcons::class) {
+        override val predicate = predicateOf<InstructionWrapper> { it.isMethod }
+    }
     @DependsOn(Sprite::class)
     class overviewSprite : IdentityMapper.InstanceField() {
         override val predicate = predicateOf<FieldWrapper> { it.type == type<Sprite>() }
     }
-    //    @MethodParameters()
-//    @DependsOn(buildIcons::class)
-//    class buildIcons0 : UniqueMapper.InMethod.Method(buildIcons::class) {
-//        override val predicate = predicateOf<Instruction2> { it.isMethod }
-//    }
+
 
     @DependsOn(WorldMapAreaData::class)
     class mapAreaData : IdentityMapper.InstanceField() {
@@ -89,7 +83,7 @@ class WorldMapManager : IdentityMapper.Class() {
     }
 
     class isLoaded0 : OrderMapper.InConstructor.Field(WorldMapManager::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
     }
 
     @MethodParameters()
@@ -98,6 +92,6 @@ class WorldMapManager : IdentityMapper.Class() {
     }
 
     class loadStarted : OrderMapper.InConstructor.Field(WorldMapManager::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.BOOLEAN_TYPE }
     }
 }

@@ -7,7 +7,7 @@ import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
 
@@ -18,41 +18,41 @@ class ObjStack : IdentityMapper.Class() {
 
     @DependsOn(Scene.newObjStack::class, Entity::class)
     class first : OrderMapper.InMethod.Field(Scene.newObjStack::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Entity>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Entity>() }
     }
 
     @DependsOn(Scene.newObjStack::class, Entity::class)
     class second : OrderMapper.InMethod.Field(Scene.newObjStack::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Entity>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Entity>() }
     }
 
     @DependsOn(Scene.newObjStack::class, Entity::class)
     class third : OrderMapper.InMethod.Field(Scene.newObjStack::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Entity>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == type<Entity>() }
     }
 
     @DependsOn(Scene.newObjStack::class)
     class x : OrderMapper.InMethod.Field(Scene.newObjStack::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE && it.fieldOwner == type<ObjStack>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE && it.fieldOwner == type<ObjStack>() }
     }
 
     @DependsOn(Scene.newObjStack::class)
     class y : OrderMapper.InMethod.Field(Scene.newObjStack::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE && it.fieldOwner == type<ObjStack>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE && it.fieldOwner == type<ObjStack>() }
     }
 
     @DependsOn(Scene.newObjStack::class)
     class tileHeight : OrderMapper.InMethod.Field(Scene.newObjStack::class, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE && it.fieldOwner == type<ObjStack>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE && it.fieldOwner == type<ObjStack>() }
     }
 
     @DependsOn(Scene.newObjStack::class)
     class tag : OrderMapper.InMethod.Field(Scene.newObjStack::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.LONG_TYPE && it.fieldOwner == type<ObjStack>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.LONG_TYPE && it.fieldOwner == type<ObjStack>() }
     }
 
     @DependsOn(Scene.newObjStack::class)
     class height : OrderMapper.InMethod.Field(Scene.newObjStack::class, 3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE && it.fieldOwner == type<ObjStack>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == Type.INT_TYPE && it.fieldOwner == type<ObjStack>() }
     }
 }

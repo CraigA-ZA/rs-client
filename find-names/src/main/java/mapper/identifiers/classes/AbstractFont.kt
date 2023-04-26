@@ -7,7 +7,7 @@ import mapper.annotations.MethodParameters
 import mapper.predicateutilities.*
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.*
@@ -83,48 +83,48 @@ class AbstractFont : IdentityMapper.Class() {
 
     @DependsOn(stringWidth::class)
     class advances : OrderMapper.InMethod.Field(stringWidth::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == IntArray::class.type }
     }
 
     class widths : OrderMapper.InConstructor.Field(AbstractFont::class, 2) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size > 2 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     class heights : OrderMapper.InConstructor.Field(AbstractFont::class, 3) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size > 2 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     class leftBearings : OrderMapper.InConstructor.Field(AbstractFont::class, 0) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size > 2 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     class topBearings : OrderMapper.InConstructor.Field(AbstractFont::class, 1) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size > 2 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
     // p11: this = 10, max descent = 3, height = 12, max ascent = 9, main ascent = 8
     // p12: this = 12, max descent = 4, height = 16, max ascent = 12, main ascent = 11
     class ascent : OrderMapper.InConstructor.Field(AbstractFont::class, 0) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size > 2 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     // p11: 10
     // p12: 12
     class maxAscent : OrderMapper.InConstructor.Field(AbstractFont::class, -2) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size > 2 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     // p11: 2
     // p12: 4
     class maxDescent : OrderMapper.InConstructor.Field(AbstractFont::class, -1) {
         override val constructorPredicate = predicateOf<MethodWrapper> { it.arguments.size > 2 }
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     @MethodParameters("pixels", "x", "y", "width", "height", "color")

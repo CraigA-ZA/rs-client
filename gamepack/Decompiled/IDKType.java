@@ -25,79 +25,45 @@ public class IDKType extends DualNode {
             return;
          }
 
-         this.decode0(var1, var3, (byte)33);
+         this.decode0(var1, var3);
       }
    }
 
-   void decode0(Packet var1, int var2, byte var3) {
+   void decode0(Packet var1, int var2) {
       if (var2 == 1) {
-         if (var3 <= -1) {
-            throw new IllegalStateException();
-         }
-
          this.bodyPart = var1.g1() * 1699952575;
       } else {
          int var4;
          int var5;
          if (var2 == 2) {
-            if (var3 <= -1) {
-               return;
-            }
-
             var4 = var1.g1();
             this.models = new int[var4];
 
             for(var5 = 0; var5 < var4; ++var5) {
-               if (var3 <= -1) {
-                  throw new IllegalStateException();
-               }
-
                this.models[var5] = var1.cl();
             }
          } else if (var2 == 3) {
             this.ao = true;
          } else if (var2 == 40) {
-            if (var3 <= -1) {
-               throw new IllegalStateException();
-            }
-
             var4 = var1.g1();
             this.recol_s = new short[var4];
             this.recol_d = new short[var4];
 
             for(var5 = 0; var5 < var4; ++var5) {
-               if (var3 <= -1) {
-                  throw new IllegalStateException();
-               }
-
                this.recol_s[var5] = (short)var1.cl();
                this.recol_d[var5] = (short)var1.cl();
             }
          } else if (var2 == 41) {
-            if (var3 <= -1) {
-               return;
-            }
-
             var4 = var1.g1();
             this.retex_s = new short[var4];
             this.retex_d = new short[var4];
 
             for(var5 = 0; var5 < var4; ++var5) {
-               if (var3 <= -1) {
-                  throw new IllegalStateException();
-               }
-
                this.retex_s[var5] = (short)var1.cl();
                this.retex_d[var5] = (short)var1.cl();
             }
-         } else if (var2 >= 60) {
-            if (var3 <= -1) {
-               return;
-            }
-
-            if (var2 < 70) {
-               this.head[var2 - 60] = var1.cl();
-            }
+         } else if (var2 >= 60 && var2 < 70) {
+            this.head[var2 - 60] = var1.cl();
          }
       }
 

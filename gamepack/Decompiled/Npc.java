@@ -91,7 +91,7 @@ public final class Npc extends Actor {
          --var5;
       }
 
-      if (-1372355773 * this.ct != -1 && Inventory.getSeqType(-1372355773 * this.ct, (byte)121).bi * 1957040329 == 1) {
+      if (-1372355773 * this.ct != -1 && Inventory.getSeqType(-1372355773 * this.ct).bi * 1957040329 == 1) {
          this.ct = 1690721941;
       }
 
@@ -111,7 +111,7 @@ public final class Npc extends Actor {
    }
 
    final void ay(int var1, int var2, boolean var3) {
-      if (-1 != this.ct * -1372355773 && Inventory.getSeqType(this.ct * -1372355773, (byte)0).bi * 1957040329 == 1) {
+      if (-1 != this.ct * -1372355773 && Inventory.getSeqType(this.ct * -1372355773).bi * 1957040329 == 1) {
          this.ct = 1690721941;
       }
 
@@ -149,8 +149,8 @@ public final class Npc extends Actor {
       if (this.type == null) {
          return null;
       } else {
-         SeqType var2 = -1 != -1372355773 * this.ct && 1253892101 * this.dm == 0 ? Inventory.getSeqType(-1372355773 * this.ct, (byte)94) : null;
-         SeqType var3 = -1 != -1302441815 * this.spotAnimationFrame && (this.spotAnimationFrame * -1302441815 != this.readySequence * 1590591885 || var2 == null) ? Inventory.getSeqType(-1302441815 * this.spotAnimationFrame, (byte)39) : null;
+         SeqType var2 = -1 != -1372355773 * this.ct && 1253892101 * this.dm == 0 ? Inventory.getSeqType(-1372355773 * this.ct) : null;
+         SeqType var3 = -1 != -1302441815 * this.spotAnimationFrame && (this.spotAnimationFrame * -1302441815 != this.readySequence * 1590591885 || var2 == null) ? Inventory.getSeqType(-1302441815 * this.spotAnimationFrame) : null;
          Model var4 = null;
          if (this.aq != null && this.aq.au) {
             var4 = MusicPatchNode.localPlayer.appearance.getModel(var2, -41215169 * this.cp, var3, this.spotAnimationFrameCycle * 424813829);

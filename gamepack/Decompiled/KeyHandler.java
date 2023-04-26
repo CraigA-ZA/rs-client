@@ -174,7 +174,7 @@ public class KeyHandler implements KeyListener, FocusListener {
 
       } else {
          if (0 == var3) {
-            cz.ay_renamed(var2);
+            Login.ay_renamed(var2);
          } else {
             ee.ak_renamed(var3);
          }
@@ -194,31 +194,31 @@ public class KeyHandler implements KeyListener, FocusListener {
             Canvas.ay = MusicPatchNode2.au_renamed(var1, "logo", "");
          }
 
-         cz.au = MusicPatchNode2.au_renamed(var1, "titlebox", "");
+         Login.au = MusicPatchNode2.au_renamed(var1, "titlebox", "");
          lu.ab = MusicPatchNode2.au_renamed(var1, "titlebutton", "");
          qo.aq = MusicPatchNode2.au_renamed(var1, "titlebutton_large", "");
          os.al = MusicPatchNode2.au_renamed(var1, "play_now_text", "");
          MusicPatchNode2.au_renamed(var1, "titlebutton_wide42,1", "");
          py.runeSprites = mz.ac_renamed(var1, "runes", "");
          fc.titleMuteSprites = mz.ac_renamed(var1, "title_mute", "");
-         cz.ax = MusicPatchNode2.au_renamed(var1, "options_radio_buttons,0", "");
-         cz.ai = MusicPatchNode2.au_renamed(var1, "options_radio_buttons,4", "");
+         Login.ax = MusicPatchNode2.au_renamed(var1, "options_radio_buttons,0", "");
+         Login.ai = MusicPatchNode2.au_renamed(var1, "options_radio_buttons,4", "");
          gs.ag = MusicPatchNode2.au_renamed(var1, "options_radio_buttons,2", "");
-         cz.ah = MusicPatchNode2.au_renamed(var1, "options_radio_buttons,6", "");
-         ChatChannel.cz = 1622050401 * cz.ax.subWidth;
-         FloorUnderlayType.cw = cz.ax.subHeight * 905476585;
+         Login.ah = MusicPatchNode2.au_renamed(var1, "options_radio_buttons,6", "");
+         ChatChannel.cz = 1622050401 * Login.ax.subWidth;
+         FloorUnderlayType.cw = Login.ax.subHeight * 905476585;
          em.av = new dp(py.runeSprites);
          if (var2) {
-            cz.ca = "";
-            cz.cu = "";
-            cz.cm = new String[8];
-            cz.cq = 0;
+            Login.ca = "";
+            Login.cu = "";
+            Login.cm = new String[8];
+            Login.cq = 0;
          }
 
          hp.ct = 0;
          Messages.cp = "";
-         cz.cd = true;
-         cz.di = false;
+         Login.cd = true;
+         Login.di = false;
          if (!aj.clientPreferences.aa()) {
             ks.ab_renamed(2, pj.archive6, "scape main", "", 255, false);
          } else {
@@ -233,12 +233,12 @@ public class KeyHandler implements KeyListener, FocusListener {
 
          gn.an_renamed(false);
          ax.an = true;
-         cz.aw = 983792155 * ((GameShell.aj * -1687260435 - 765) / 2);
-         cz.ak = 794898887 * cz.aw + 2036160930;
-         fy.az = -1036961612 + cz.ak * -949768875;
-         ex.at.ay(578342931 * cz.aw, 0);
-         ParamType.aa.ay(382 + cz.aw * 578342931, 0);
-         Canvas.ay.aw(382 + cz.aw * 578342931 - Canvas.ay.subWidth / 2, 18);
+         Login.aw = 983792155 * ((GameShell.aj * -1687260435 - 765) / 2);
+         Login.ak = 794898887 * Login.aw + 2036160930;
+         fy.az = -1036961612 + Login.ak * -949768875;
+         ex.at.ay(578342931 * Login.aw, 0);
+         ParamType.aa.ay(382 + Login.aw * 578342931, 0);
+         Canvas.ay.aw(382 + Login.aw * 578342931 - Canvas.ay.subWidth / 2, 18);
       }
    }
 

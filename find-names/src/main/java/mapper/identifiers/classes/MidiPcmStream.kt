@@ -9,7 +9,7 @@ import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
@@ -63,22 +63,13 @@ class MidiPcmStream : IdentityMapper.Class() {
 
     @DependsOn(setMusicTrack::class)
     class track : OrderMapper.InMethod.Field(setMusicTrack::class, -2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
     @DependsOn(setMusicTrack::class)
     class trackLength : OrderMapper.InMethod.Field(setMusicTrack::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
-
-//    @MethodParameters()
-//    @DependsOn(MidiFileReader.clear::class)
-//    class clear : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.arguments.isEmpty() && it.returnType == VOID_TYPE }
-//                .and { it.instructions.count() < 15 }
-//                .and { it.instructions.any { it.isMethod && it.methodId == method<MidiFileReader.clear>().id } }
-//    }
-    //TODO
 
     @MethodParameters()
     class isReady : IdentityMapper.InstanceMethod() {

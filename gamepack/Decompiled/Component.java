@@ -40,7 +40,7 @@ public class Component extends Node {
    public int yAlignment = 0;
    public int rawY = 0;
    public int clientCode = 0;
-   public int bg;
+   public int type;
    public int rawWidth = 0;
    public int heightAlignment = 0;
    public int rawX = 0;
@@ -130,25 +130,25 @@ public class Component extends Node {
    public Object[] onHold;
    public Object[] onRelease;
    public Object[] ft;
-   public Object[] fu;
+   public Object[] onChatTransmit;
    public Object[] onInvTransmit;
    public Object[] onVarTransmit;
    public Object[] onMouseOver;
    public Object[] onTargetLeave;
    public Object[] onDragComplete;
-   public Object[] ga;
-   public Object[] gd;
+   public Object[] onClanTransmit;
+   public Object[] onStockTransmit;
    public Object[] ge;
    public Object[] gg;
    public Object[] gh;
-   public Object[] gj;
+   public Object[] onFriendTransmit;
    public Object[] go;
    public Object[] gr;
-   public Object[] gs;
-   public Object[] gt;
-   public Object[] gu;
+   public Object[] onKey;
+   public Object[] onMiscTransmit;
+   public Object[] onDialogAbort;
    public Object[] gw;
-   public Object[] gy;
+   public Object[] onSubChange;
    public String cp;
    public String text2;
    public String text;
@@ -156,7 +156,7 @@ public class Component extends Node {
    public String targetVerb;
    public String buttonText;
    public String spellName;
-   public String[] ops;
+   public String[] actions;
    public Component parent;
    public Component[] children;
    public PlayerAppearance dd;
@@ -236,7 +236,7 @@ public class Component extends Node {
 
    void decodeLegacy(Packet var1) {
       this.isIf3 = false;
-      this.bg = var1.g1() * -1183495331;
+      this.type = var1.g1() * -1183495331;
       this.buttonType = var1.g1() * -1494876793;
       this.clientCode = var1.cl() * 577746185;
       this.rawX = var1.cg() * 1806877347;
@@ -286,21 +286,21 @@ public class Component extends Node {
          }
       }
 
-      if (0 == 883712245 * this.bg) {
+      if (0 == 883712245 * this.type) {
          this.scrollHeight = var1.cl() * -1357451643;
          this.isHidden = var1.g1() == 1;
       }
 
-      if (this.bg * 883712245 == 1) {
+      if (this.type * 883712245 == 1) {
          var1.cl();
          var1.g1();
       }
 
-      if (3 == this.bg * 883712245) {
+      if (3 == this.type * 883712245) {
          this.fill = var1.g1() == 1;
       }
 
-      if (4 == this.bg * 883712245 || 883712245 * this.bg == 1) {
+      if (4 == this.type * 883712245 || 883712245 * this.type == 1) {
          this.textYAlignment = var1.g1() * 1612549297;
          this.paddingX = var1.g1() * -522107433;
          this.textXAlignment = var1.g1() * 2116078665;
@@ -312,27 +312,27 @@ public class Component extends Node {
          this.textShadowed = var1.g1() == 1;
       }
 
-      if (883712245 * this.bg == 4) {
+      if (883712245 * this.type == 4) {
          this.text = var1.cw();
          this.text2 = var1.cw();
       }
 
-      if (883712245 * this.bg == 1 || 3 == this.bg * 883712245 || this.bg * 883712245 == 4) {
+      if (883712245 * this.type == 1 || 3 == this.type * 883712245 || this.type * 883712245 == 4) {
          this.color = var1.g4s() * -1604768377;
       }
 
-      if (3 == 883712245 * this.bg || 4 == 883712245 * this.bg) {
+      if (3 == 883712245 * this.type || 4 == 883712245 * this.type) {
          this.color2 = var1.g4s() * 714852617;
          this.mouseOverColor = var1.g4s() * -1045335587;
          this.mouseOverColor2 = var1.g4s() * 1230092841;
       }
 
-      if (883712245 * this.bg == 5) {
+      if (883712245 * this.type == 5) {
          this.spriteId2 = var1.g4s() * -504605111;
          this.spriteId = var1.g4s() * 1679014525;
       }
 
-      if (this.bg * 883712245 == 6) {
+      if (this.type * 883712245 == 6) {
          this.modelType = -1714481443;
          this.modelId = var1.cl() * 509431749;
          if (65535 == this.modelId * -168077555) {
@@ -360,7 +360,7 @@ public class Component extends Node {
          this.modelAngleY = var1.cl() * -230241203;
       }
 
-      if (8 == this.bg * 883712245) {
+      if (8 == this.type * 883712245) {
          this.text = var1.cw();
       }
 
@@ -405,12 +405,12 @@ public class Component extends Node {
    void decode(Packet var1) {
       var1.g1();
       this.isIf3 = true;
-      this.bg = var1.g1() * -1183495331;
+      this.type = var1.g1() * -1183495331;
       this.clientCode = var1.cl() * 577746185;
       this.rawX = var1.cg() * 1806877347;
       this.rawY = var1.cg() * 1231090287;
       this.rawWidth = var1.cl() * -1495372107;
-      if (9 == this.bg * 883712245) {
+      if (9 == this.type * 883712245) {
          this.rawHeight = var1.cg() * 1193771871;
       } else {
          this.rawHeight = var1.cl() * 1193771871;
@@ -428,13 +428,13 @@ public class Component extends Node {
       }
 
       this.isHidden = var1.g1() == 1;
-      if (this.bg * 883712245 == 0) {
+      if (this.type * 883712245 == 0) {
          this.scrollWidth = var1.cl() * -1469650905;
          this.scrollHeight = var1.cl() * -1357451643;
          this.noClickThrough = var1.g1() == 1;
       }
 
-      if (this.bg * 883712245 == 5) {
+      if (this.type * 883712245 == 5) {
          this.spriteId2 = var1.g4s() * -504605111;
          this.spriteAngle = var1.cl() * 877496813;
          this.spriteTiling = var1.g1() == 1;
@@ -445,7 +445,7 @@ public class Component extends Node {
          this.di = var1.g1() == 1;
       }
 
-      if (this.bg * 883712245 == 6) {
+      if (this.type * 883712245 == 6) {
          this.modelType = -1714481443;
          this.modelId = var1.cl() * 509431749;
          if (this.modelId * -168077555 == 65535) {
@@ -474,7 +474,7 @@ public class Component extends Node {
          }
       }
 
-      if (4 == 883712245 * this.bg) {
+      if (4 == 883712245 * this.type) {
          this.textLineHeight = var1.cl() * 1858899927;
          if (this.textLineHeight * -1065036825 == 65535) {
             this.textLineHeight = -1858899927;
@@ -488,13 +488,13 @@ public class Component extends Node {
          this.color = var1.g4s() * -1604768377;
       }
 
-      if (3 == 883712245 * this.bg) {
+      if (3 == 883712245 * this.type) {
          this.color = var1.g4s() * -1604768377;
          this.fill = var1.g1() == 1;
          this.transparency = var1.g1() * 1833148663;
       }
 
-      if (883712245 * this.bg == 9) {
+      if (883712245 * this.type == 9) {
          this.lineWid = var1.g1() * 1040382753;
          this.color = var1.g4s() * -1604768377;
          this.cj = var1.g1() == 1;
@@ -504,10 +504,10 @@ public class Component extends Node {
       this.opbase = var1.cw();
       int var3 = var1.g1();
       if (var3 > 0) {
-         this.ops = new String[var3];
+         this.actions = new String[var3];
 
          for(int var4 = 0; var4 < var3; ++var4) {
-            this.ops[var4] = var1.cw();
+            this.actions[var4] = var1.cw();
          }
       }
 
@@ -802,108 +802,42 @@ public class Component extends Node {
       }
    }
 
-   public SpriteMask getSpriteMask(boolean var1, byte var2) {
+   public SpriteMask getSpriteMask(boolean var1) {
       if (-1352724779 * this.spriteId == -1) {
-         if (var2 == -1) {
-            throw new IllegalStateException();
-         }
-
          var1 = false;
       }
 
-      int var10000;
-      if (var1) {
-         if (var2 == -1) {
-            throw new IllegalStateException();
-         }
-
-         var10000 = -1352724779 * this.spriteId;
-      } else {
-         var10000 = -363627527 * this.spriteId2;
-      }
-
-      int var3 = var10000;
+      int var3 = var1 ? -1352724779 * this.spriteId : -363627527 * this.spriteId2;
       if (-1 == var3) {
-         if (var2 == -1) {
-            throw new IllegalStateException();
-         } else {
-            return null;
-         }
+         return null;
       } else {
-         long var17;
-         if (this.di) {
-            if (var2 == -1) {
-               throw new IllegalStateException();
-            }
-
-            var17 = 1L;
-         } else {
-            var17 = 0L;
-         }
-
-         var17 <<= 39;
-         long var10001;
-         if (this.do) {
-            if (var2 == -1) {
-               throw new IllegalStateException();
-            }
-
-            var10001 = 1L;
-         } else {
-            var10001 = 0L;
-         }
-
-         long var4 = var17 + (var10001 << 38) + ((long)(1638912775 * this.outline) << 36) + (long)var3 + ((long)(this.spriteShadow * -353676735) << 40);
+         long var4 = ((this.di ? 1L : 0L) << 39) + ((this.do ? 1L : 0L) << 38) + ((long)(1638912775 * this.outline) << 36) + (long)var3 + ((long)(this.spriteShadow * -353676735) << 40);
          SpriteMask var6 = (SpriteMask)bm.get(var4);
          if (null != var6) {
             return var6;
          } else {
             Sprite var7 = this.at(var1, (UrlRequester)null);
             if (var7 == null) {
-               if (var2 == -1) {
-                  throw new IllegalStateException();
-               } else {
-                  return null;
-               }
+               return null;
             } else {
                Sprite var8 = var7.aw();
                int[] var9 = new int[var8.subHeight];
                int[] var10 = new int[var8.subHeight];
 
                for(int var11 = 0; var11 < var8.subHeight; ++var11) {
-                  if (var2 == -1) {
-                     throw new IllegalStateException();
-                  }
-
                   int var12 = 0;
                   int var13 = var8.subWidth;
 
                   int var14;
                   for(var14 = 0; var14 < var8.subWidth; ++var14) {
-                     if (var2 == -1) {
-                        throw new IllegalStateException();
-                     }
-
                      if (var8.pixels[var14 + var11 * var8.subWidth] == 0) {
-                        if (var2 == -1) {
-                           throw new IllegalStateException();
-                        }
-
                         var12 = var14;
                         break;
                      }
                   }
 
                   for(var14 = var8.subWidth - 1; var14 >= var12; --var14) {
-                     if (var2 == -1) {
-                        throw new IllegalStateException();
-                     }
-
                      if (0 == var8.pixels[var11 * var8.subWidth + var14]) {
-                        if (var2 == -1) {
-                           throw new IllegalStateException();
-                        }
-
                         var13 = var14 + 1;
                         break;
                      }
@@ -922,30 +856,30 @@ public class Component extends Node {
    }
 
    public void setAction(int var1, String var2) {
-      if (null == this.ops || this.ops.length <= var1) {
+      if (null == this.actions || this.actions.length <= var1) {
          String[] var4 = new String[var1 + 1];
-         if (this.ops != null) {
-            for(int var5 = 0; var5 < this.ops.length; ++var5) {
-               var4[var5] = this.ops[var5];
+         if (this.actions != null) {
+            for(int var5 = 0; var5 < this.actions.length; ++var5) {
+               var4[var5] = this.actions[var5];
             }
          }
 
-         this.ops = var4;
+         this.actions = var4;
       }
 
-      this.ops[var1] = var2;
+      this.actions[var1] = var2;
    }
 
    public boolean am() {
-      return !this.isIf3 || 883712245 * this.bg == 0 || this.bg * 883712245 == 11 || this.hasListener || 1338 == this.clientCode * 1021339961 || 12 == 883712245 * this.bg;
+      return !this.isIf3 || 883712245 * this.type == 0 || this.type * 883712245 == 11 || this.hasListener || 1338 == this.clientCode * 1021339961 || 12 == 883712245 * this.type;
    }
 
    public boolean as() {
-      return 11 == 883712245 * this.bg || 12 == this.bg * 883712245;
+      return 11 == 883712245 * this.type || 12 == this.type * 883712245;
    }
 
    public void aj(String var1, UrlRequester var2, long var3) {
-      if (11 == 883712245 * this.bg && -1L != var3) {
+      if (11 == 883712245 * this.type && -1L != var3) {
          var1 = var1.replaceAll("%userid%", Long.toString(var3));
          this.ef = new gy();
          if (!this.ef.af(var1, var2)) {
@@ -960,7 +894,7 @@ public class Component extends Node {
    }
 
    public void ak(String var1, UrlRequester var2) {
-      if (883712245 * this.bg == 11 && null != var1) {
+      if (883712245 * this.type == 11 && null != var1) {
          this.ef = new gy();
          this.ef.am(var1, var2);
       }
@@ -972,7 +906,7 @@ public class Component extends Node {
    }
 
    public void swapItems(int var1, int var2) {
-      if (11 == 883712245 * this.bg) {
+      if (11 == 883712245 * this.type) {
          if (null == this.ej) {
             this.az();
          }
@@ -982,7 +916,7 @@ public class Component extends Node {
    }
 
    public void ae(String var1, int var2) {
-      if (11 == 883712245 * this.bg) {
+      if (11 == 883712245 * this.type) {
          if (null == this.ea) {
             this.az();
          }
@@ -992,7 +926,7 @@ public class Component extends Node {
    }
 
    public boolean ap(int var1, int var2, int var3, int var4) {
-      if (883712245 * this.bg == 11 && null != this.ef && this.by()) {
+      if (883712245 * this.type == 11 && null != this.ef && this.by()) {
          var1 -= var3;
          var2 -= var4;
          int var6 = (int)(this.ef.at()[0] * (float)(this.width * -794961409));
@@ -1010,11 +944,11 @@ public class Component extends Node {
    }
 
    public int bb(String var1) {
-      return 11 == this.bg * 883712245 && null != this.ef && this.by() ? this.ef.ac(var1) : -1;
+      return 11 == this.type * 883712245 && null != this.ef && this.by() ? this.ef.ac(var1) : -1;
    }
 
    public String bi(String var1) {
-      return 11 == this.bg * 883712245 && null != this.ef && this.by() ? this.ef.au(var1) : null;
+      return 11 == this.type * 883712245 && null != this.ef && this.by() ? this.ef.au(var1) : null;
    }
 
    public int be() {
@@ -1022,7 +956,7 @@ public class Component extends Node {
    }
 
    public int bk() {
-      if (this.bg * 883712245 == 11 && null != this.ef && this.ea != null && !this.ea.isEmpty()) {
+      if (this.type * 883712245 == 11 && null != this.ef && this.ea != null && !this.ea.isEmpty()) {
          String var2 = this.ef.al();
          return var2 != null && this.ea.containsKey(this.ef.al()) ? (Integer)this.ea.get(var2) : -1;
       } else {
@@ -1031,7 +965,7 @@ public class Component extends Node {
    }
 
    public String bx() {
-      if (11 == 883712245 * this.bg && null != this.ef) {
+      if (11 == 883712245 * this.type && null != this.ef) {
          String var2 = this.ef.al();
          Iterator var3 = this.ef.aa().iterator();
 
@@ -1052,7 +986,7 @@ public class Component extends Node {
    }
 
    public int[] bo() {
-      if (11 == 883712245 * this.bg && this.ef != null) {
+      if (11 == 883712245 * this.type && this.ef != null) {
          int[] var2 = new int[3];
          int var3 = 0;
          Iterator var4 = this.ef.aa().iterator();
@@ -1078,7 +1012,7 @@ public class Component extends Node {
    }
 
    public boolean bz(UrlRequester var1) {
-      if (this.bg * 883712245 == 11 && this.ef != null) {
+      if (this.type * 883712245 == 11 && this.ef != null) {
          this.ef.an(var1);
          if (this.ef.aw() != this.paddingY * 1888225603) {
             this.paddingY = this.ef.aw() * 996199275;
@@ -1148,7 +1082,7 @@ public class Component extends Node {
       return null != this.es ? this.es.af : null;
    }
 
-   public FaceNormal bn() {
+   public lo bn() {
       return this.es != null ? this.es.an : null;
    }
 
@@ -1160,7 +1094,7 @@ public class Component extends Node {
       return this.es;
    }
 
-   boolean bg(mz var1, byte var2) {
+   boolean bg(mz var1) {
       boolean var3 = false;
       String var6;
       String var7;
@@ -1177,48 +1111,26 @@ public class Component extends Node {
          var10 = -1;
 
          for(var11 = 0; var11 < var7.length(); ++var11) {
-            if (var2 == -1) {
-               throw new IllegalStateException();
-            }
-
             var12 = var7.charAt(var11);
             if (var12 == '<') {
                var8.append(var7.substring(var9, var11));
                var10 = var11;
-            } else if (var12 == '>') {
-               if (var2 == -1) {
-                  throw new IllegalStateException();
+            } else if (var12 == '>' && -1 != var10) {
+               var13 = var7.substring(var10 + 1, var11);
+               var10 = -1;
+               if (var13.equals("lt")) {
+                  var8.append("<");
+               } else if (var13.equals("gt")) {
+                  var8.append(">");
+               } else if (var13.equals("br")) {
+                  var8.append("\n");
                }
 
-               if (-1 != var10) {
-                  if (var2 == -1) {
-                     throw new IllegalStateException();
-                  }
-
-                  var13 = var7.substring(var10 + 1, var11);
-                  var10 = -1;
-                  if (var13.equals("lt")) {
-                     var8.append("<");
-                  } else if (var13.equals("gt")) {
-                     if (var2 == -1) {
-                        throw new IllegalStateException();
-                     }
-
-                     var8.append(">");
-                  } else if (var13.equals("br")) {
-                     var8.append("\n");
-                  }
-
-                  var9 = 1 + var11;
-               }
+               var9 = 1 + var11;
             }
          }
 
          if (var9 < var7.length()) {
-            if (var2 == -1) {
-               throw new IllegalStateException();
-            }
-
             var8.append(var7.substring(var9, var7.length()));
          }
 
@@ -1227,83 +1139,39 @@ public class Component extends Node {
          this.text = "";
       }
 
-      if (null != this.text2) {
-         if (var2 == -1) {
-            throw new IllegalStateException();
+      if (null != this.text2 && !this.text2.isEmpty()) {
+         var7 = this.text2;
+         var8 = new StringBuilder(var7.length());
+         var9 = 0;
+         var10 = -1;
+
+         for(var11 = 0; var11 < var7.length(); ++var11) {
+            var12 = var7.charAt(var11);
+            if ('<' == var12) {
+               var8.append(var7.substring(var9, var11));
+               var10 = var11;
+            } else if ('>' == var12 && -1 != var10) {
+               var13 = var7.substring(1 + var10, var11);
+               var10 = -1;
+               if (var13.equals("lt")) {
+                  var8.append("<");
+               } else if (var13.equals("gt")) {
+                  var8.append(">");
+               } else if (var13.equals("br")) {
+                  var8.append("\n");
+               }
+
+               var9 = 1 + var11;
+            }
          }
 
-         if (!this.text2.isEmpty()) {
-            if (var2 == -1) {
-               throw new IllegalStateException();
-            }
-
-            var7 = this.text2;
-            var8 = new StringBuilder(var7.length());
-            var9 = 0;
-            var10 = -1;
-
-            for(var11 = 0; var11 < var7.length(); ++var11) {
-               if (var2 == -1) {
-                  throw new IllegalStateException();
-               }
-
-               var12 = var7.charAt(var11);
-               if ('<' == var12) {
-                  if (var2 == -1) {
-                     throw new IllegalStateException();
-                  }
-
-                  var8.append(var7.substring(var9, var11));
-                  var10 = var11;
-               } else if ('>' == var12) {
-                  if (var2 == -1) {
-                     throw new IllegalStateException();
-                  }
-
-                  if (-1 != var10) {
-                     if (var2 == -1) {
-                        throw new IllegalStateException();
-                     }
-
-                     var13 = var7.substring(1 + var10, var11);
-                     var10 = -1;
-                     if (var13.equals("lt")) {
-                        if (var2 == -1) {
-                           throw new IllegalStateException();
-                        }
-
-                        var8.append("<");
-                     } else if (var13.equals("gt")) {
-                        if (var2 == -1) {
-                           throw new IllegalStateException();
-                        }
-
-                        var8.append(">");
-                     } else if (var13.equals("br")) {
-                        if (var2 == -1) {
-                           throw new IllegalStateException();
-                        }
-
-                        var8.append("\n");
-                     }
-
-                     var9 = 1 + var11;
-                  }
-               }
-            }
-
-            if (var9 < var7.length()) {
-               if (var2 == -1) {
-                  throw new IllegalStateException();
-               }
-
-               var8.append(var7.substring(var9, var7.length()));
-            }
-
-            var6 = var8.toString();
-            var3 |= var1.au(var6);
-            this.text2 = "";
+         if (var9 < var7.length()) {
+            var8.append(var7.substring(var9, var7.length()));
          }
+
+         var6 = var8.toString();
+         var3 |= var1.au(var6);
+         this.text2 = "";
       }
 
       return var3;
@@ -1323,12 +1191,12 @@ public class Component extends Node {
             Font var8 = this.getFont();
             if (null != var8) {
                var3 |= var2.ab(var8);
-               var3 |= this.bg(var2, (byte)-12);
+               var3 |= this.bg(var2);
                var3 |= var2.ay(var4, var5);
                var3 |= var2.ap(var6, var7);
             }
          } else if (var2.ca()) {
-            var3 |= this.bg(var2, (byte)86);
+            var3 |= this.bg(var2);
          }
 
          var2.af();

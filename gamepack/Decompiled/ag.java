@@ -68,14 +68,14 @@ public class ag {
 
    static void av_renamed(int var0) {
       ee.ak_renamed(14);
-      cz.ba = var0 * -1919975363;
+      Login.ba = var0 * -1919975363;
    }
 
    static final void hb_renamed(boolean var0) {
       if (var0) {
-         Client.gh = cz.cd ? fp.an : fp.ac;
+         Client.gh = Login.cd ? fp.an : fp.ac;
       } else {
-         Client.gh = aj.clientPreferences.bk(cz.ca) ? fp.af : fp.aw;
+         Client.gh = aj.clientPreferences.bk(Login.ca) ? fp.af : fp.aw;
       }
 
    }

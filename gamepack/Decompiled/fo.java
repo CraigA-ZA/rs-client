@@ -18,7 +18,7 @@ public class fo extends fb {
 
       Message var6 = var5.addMessage(var0, var1, var2, var3);
       Messages.Messages_hashTable.put(var6, (long)(var6.count * -1117255211));
-      Messages.Messages_queue.an(var6);
+      Messages.Messages_queue.add(var6);
       Client.qb = Client.qu * -2073795047;
    }
 

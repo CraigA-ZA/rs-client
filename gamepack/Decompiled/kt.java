@@ -11,7 +11,7 @@ public class kt {
       throw new Error();
    }
 
-   static long af_renamed(byte var0) {
+   static long af_renamed() {
       try {
          URL var1 = new URL(InvType.nb_renamed("services", false) + "m=accountappeal/login.ws");
          URLConnection var2 = var1.openConnection();
@@ -28,23 +28,15 @@ public class kt {
          do {
             int var6 = var4.read(var5.array, -1633313603 * var5.index, 1000 - -1633313603 * var5.index);
             if (-1 == var6) {
-               if (var0 >= -1) {
-                  throw new IllegalStateException();
-               } else {
-                  var5.index = 0;
-                  long var9 = var5.g8s();
-                  return var9;
-               }
+               var5.index = 0;
+               long var9 = var5.g8s();
+               return var9;
             }
 
             var5.index += -1516355947 * var6;
          } while(-1633313603 * var5.index < 1000);
 
-         if (var0 >= -1) {
-            throw new IllegalStateException();
-         } else {
-            return 0L;
-         }
+         return 0L;
       } catch (Exception var8) {
          return 0L;
       }

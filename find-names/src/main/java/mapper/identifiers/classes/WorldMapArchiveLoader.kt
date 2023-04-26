@@ -35,18 +35,17 @@ class WorldMapArchiveLoader : IdentityMapper.Class() {
         override val predicate = predicateOf<FieldWrapper> { it.type == type<AbstractArchive>() }
     }
 
-    //TODO
-//    @MethodParameters()
-//    class load : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
-//                .and { it.instructions.count() > 10 }
-//    }
+    @MethodParameters()
+    class load : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == INT_TYPE }
+                .and { it.instructions.count() > 10 }
+    }
 
-//    @MethodParameters()
-//    class percentLoaded : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == INT_TYPE }
-//                .and { it.instructions.count() < 10 }
-//    }
+    @MethodParameters()
+    class percentLoaded : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == INT_TYPE }
+                .and { it.instructions.count() < 10 }
+    }
 
     @MethodParameters()
     class isLoaded : IdentityMapper.InstanceMethod() {

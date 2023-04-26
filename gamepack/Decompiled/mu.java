@@ -18,11 +18,11 @@ public class mu {
          he.ax_renamed(Strings.ce, Strings.ci, Strings.cs);
       } else if (var0 == 3) {
          ee.ak_renamed(3);
-         cz.bp = -1552230487;
+         Login.bp = -1552230487;
       } else if (4 == var0) {
          ag.av_renamed(0);
       } else if (5 == var0) {
-         cz.bp = 1190506322;
+         Login.bp = 1190506322;
          he.ax_renamed(Strings.cu, Strings.ck, Strings.cq);
       } else if (var0 != 68 && (Client.cy || 6 != var0)) {
          if (7 == var0) {

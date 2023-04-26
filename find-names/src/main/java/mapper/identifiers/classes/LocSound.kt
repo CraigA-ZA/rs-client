@@ -10,7 +10,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -33,7 +33,7 @@ class LocSound : IdentityMapper.Class() {
 
     @DependsOn(set::class)
     class soundEffectId : OrderMapper.InMethod.Field(set::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == Type.INT_TYPE }
     }
 
     class soundEffectIds : IdentityMapper.InstanceField() {
@@ -42,7 +42,7 @@ class LocSound : IdentityMapper.Class() {
 
     @DependsOn(set::class, RawPcmStream::class)
     class stream1 : UniqueMapper.InMethod.Field(set::class) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == type<RawPcmStream>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == type<RawPcmStream>() }
     }
 
     @DependsOn(stream1::class, RawPcmStream::class)

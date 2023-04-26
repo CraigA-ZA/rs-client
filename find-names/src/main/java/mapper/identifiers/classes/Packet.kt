@@ -10,7 +10,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
@@ -40,7 +40,7 @@ class Packet : IdentityMapper.Class() {
     @MethodParameters()
     @DependsOn(g8s::class)
     class g4s : OrderMapper.InMethod.Method(g8s::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == INVOKEVIRTUAL }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == INVOKEVIRTUAL }
     }
 
     @MethodParameters("value")
@@ -55,7 +55,7 @@ class Packet : IdentityMapper.Class() {
     @MethodParameters("value")
     @DependsOn(pSmart1or2::class)
     class p2 : OrderMapper.InMethod.Method(pSmart1or2::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == LDC && it.ldcCst == 32_768 }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == LDC && it.ldcCst == 32_768 }
                 .nextWithin(10) { it.opcode == INVOKEVIRTUAL }
     }
 
@@ -209,7 +209,6 @@ class Packet : IdentityMapper.Class() {
 //                .and { it.arguments.startsWith(String::class.type) }
 //                .and { it.instructions.count { it.opcode == ICONST_1 } == 4 }
 //    }
-    //TODO
 //    @MethodParameters("value")
 //    @DependsOn(pSmart1or2::class)
 //    class p1 : OrderMapper.InMethod.Method(pSmart1or2::class, 0) {

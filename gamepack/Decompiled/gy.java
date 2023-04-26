@@ -319,9 +319,9 @@ public class gy {
          Component var1 = SoundSystem.getComponentChild(96656415 * jg.ou, 145251849 * Client.oa);
          if (var1 != null && null != var1.onTargetLeave) {
             ClientScriptEvent var2 = new ClientScriptEvent();
-            var2.aw = var1;
+            var2.component = var1;
             var2.args0 = var1.onTargetLeave;
-            HeadbarUpdate.af_renamed(var2);
+            HeadbarUpdate.runClientScript(var2);
          }
 
          Client.op = -35668549;

@@ -26,7 +26,7 @@ public final class FloorDecoration {
 
    static void iq_renamed(Player var0, int var1, int var2) {
       if (-1372355773 * var0.ct == var1 && var1 != -1) {
-         int var4 = Inventory.getSeqType(var1, (byte)124).be * 789159225;
+         int var4 = Inventory.getSeqType(var1).be * 789159225;
          if (1 == var4) {
             var0.cp = 0;
             var0.cd = 0;
@@ -37,7 +37,7 @@ public final class FloorDecoration {
          if (2 == var4) {
             var0.dw = 0;
          }
-      } else if (-1 == var1 || var0.ct * -1372355773 == -1 || Inventory.getSeqType(var1, (byte)20).az * -1932560049 >= Inventory.getSeqType(-1372355773 * var0.ct, (byte)54).az * -1932560049) {
+      } else if (-1 == var1 || var0.ct * -1372355773 == -1 || Inventory.getSeqType(var1).az * -1932560049 >= Inventory.getSeqType(-1372355773 * var0.ct).az * -1932560049) {
          var0.ct = var1 * -1690721941;
          var0.cp = 0;
          var0.cd = 0;

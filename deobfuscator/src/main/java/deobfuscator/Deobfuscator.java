@@ -5,13 +5,13 @@ import deobfuscator.deobs.impl.ASM.*;
 import deobfuscator.deobs.impl.javassist.UnusedFields;
 import deobfuscator.deobs.impl.javassist.UnusedMethod;
 import javassist.*;
-import za.org.secret.Constants;
+import shared.Constants;
 
 import java.io.*;
 import java.util.*;
 
 import org.objectweb.asm.tree.ClassNode;
-import za.org.secret.UtilFunctions;
+import shared.UtilFunctions;
 
 public final class Deobfuscator {
     public static Map<String, CtClass> classMap;

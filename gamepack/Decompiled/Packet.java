@@ -444,7 +444,7 @@ public class Packet extends Node {
       return var3 | var2;
    }
 
-   public int dr(byte var1) {
+   public int dr() {
       int var3 = 0;
       int var4 = 0;
 
@@ -455,11 +455,7 @@ public class Packet extends Node {
          var4 += 7;
       } while(var2 > 127);
 
-      if (var1 == -1) {
-         throw new IllegalStateException();
-      } else {
-         return var3;
-      }
+      return var3;
    }
 
    public void tinyKeyEncryptAll(int[] var1) {

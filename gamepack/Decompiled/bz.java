@@ -158,7 +158,7 @@ public class bz {
       } else if (var0 < 1400) {
          return StructType.al_renamed(var0, var1, var2);
       } else if (var0 < 1500) {
-         return em.ao_renamed(var0, var1, var2, (byte)-1);
+         return em.ao_renamed(var0, var1, var2);
       } else if (var0 < 1600) {
          return jn.ax_renamed(var0, var1, var2);
       } else if (var0 < 1700) {
@@ -178,7 +178,7 @@ public class bz {
       } else if (var0 < 2400) {
          return StructType.al_renamed(var0, var1, var2);
       } else if (var0 < 2500) {
-         return em.ao_renamed(var0, var1, var2, (byte)-1);
+         return em.ao_renamed(var0, var1, var2);
       } else if (var0 < 2600) {
          return bx.as_renamed(var0, var1, var2);
       } else if (var0 < 2700) {
@@ -268,8 +268,8 @@ public class bz {
       } else {
          int var5 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
          --var5;
-         if (var4.ops != null && var5 < var4.ops.length && null != var4.ops[var5]) {
-            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var4.ops[var5];
+         if (var4.actions != null && var5 < var4.actions.length && null != var4.actions[var5]) {
+            Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = var4.actions[var5];
          } else {
             Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize += -1086551379) * -2017760987 - 1] = "";
          }
@@ -289,16 +289,16 @@ public class bz {
          }
 
          if (var3.ai * 546317845 == 96) {
-            if (1246310743 * cz.dh > 0 && null != PlayerType.dz) {
-               cz.dh -= -1379513753;
+            if (1246310743 * Login.dh > 0 && null != PlayerType.dz) {
+               Login.dh -= -1379513753;
             }
-         } else if (97 == 546317845 * var3.ai && cz.dh * 1246310743 < 1959698517 * cz.dp && null != ai.dg) {
-            cz.dh += -1379513753;
+         } else if (97 == 546317845 * var3.ai && Login.dh * 1246310743 < 1959698517 * Login.dp && null != ai.dg) {
+            Login.dh += -1379513753;
          }
       }
 
       if (1 == -1222491879 * MouseHandler.MouseHandler_lastButton || !su.ev && -1222491879 * MouseHandler.MouseHandler_lastButton == 4) {
-         int var4 = cz.aw * 578342931 + 280;
+         int var4 = Login.aw * 578342931 + 280;
          if (MouseHandler.MouseHandler_lastPressedX * 2020601481 >= var4 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= var4 + 14 && 1163896205 * MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedY * 1163896205 <= 18) {
             ta.an_renamed(0, 0);
             return;
@@ -309,7 +309,7 @@ public class bz {
             return;
          }
 
-         int var5 = 390 + 578342931 * cz.aw;
+         int var5 = 390 + 578342931 * Login.aw;
          if (MouseHandler.MouseHandler_lastPressedX * 2020601481 >= var5 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= var5 + 14 && 1163896205 * MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedY * 1163896205 <= 18) {
             ta.an_renamed(1, 0);
             return;
@@ -320,7 +320,7 @@ public class bz {
             return;
          }
 
-         int var6 = 500 + cz.aw * 578342931;
+         int var6 = 500 + Login.aw * 578342931;
          if (MouseHandler.MouseHandler_lastPressedX * 2020601481 >= var6 && 2020601481 * MouseHandler.MouseHandler_lastPressedX <= var6 + 14 && 1163896205 * MouseHandler.MouseHandler_lastPressedY >= 4 && 1163896205 * MouseHandler.MouseHandler_lastPressedY <= 18) {
             ta.an_renamed(2, 0);
             return;
@@ -331,7 +331,7 @@ public class bz {
             return;
          }
 
-         int var7 = cz.aw * 578342931 + 610;
+         int var7 = Login.aw * 578342931 + 610;
          if (MouseHandler.MouseHandler_lastPressedX * 2020601481 >= var7 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= var7 + 14 && 1163896205 * MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedY * 1163896205 <= 18) {
             ta.an_renamed(3, 0);
             return;
@@ -342,24 +342,24 @@ public class bz {
             return;
          }
 
-         if (2020601481 * MouseHandler.MouseHandler_lastPressedX >= 708 + cz.aw * 578342931 && MouseHandler.MouseHandler_lastPressedY * 1163896205 >= 4 && 2020601481 * MouseHandler.MouseHandler_lastPressedX <= 708 + cz.aw * 578342931 + 50 && 1163896205 * MouseHandler.MouseHandler_lastPressedY <= 20) {
+         if (2020601481 * MouseHandler.MouseHandler_lastPressedX >= 708 + Login.aw * 578342931 && MouseHandler.MouseHandler_lastPressedY * 1163896205 >= 4 && 2020601481 * MouseHandler.MouseHandler_lastPressedX <= 708 + Login.aw * 578342931 + 50 && 1163896205 * MouseHandler.MouseHandler_lastPressedY <= 20) {
             fd.am_renamed();
             return;
          }
 
-         if (cz.de * 248569915 != -1) {
-            World var8 = bx.worlds[248569915 * cz.de];
+         if (Login.de * 248569915 != -1) {
+            World var8 = bx.worlds[248569915 * Login.de];
             FloorOverlayType.ah_renamed(var8);
             fd.am_renamed();
             return;
          }
 
-         if (cz.dh * 1246310743 > 0 && null != PlayerType.dz && 2020601481 * MouseHandler.MouseHandler_lastPressedX >= 0 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= PlayerType.dz.subWidth && 1163896205 * MouseHandler.MouseHandler_lastPressedY >= 1658005443 * kd.ak / 2 - 50 && 1163896205 * MouseHandler.MouseHandler_lastPressedY <= 1658005443 * kd.ak / 2 + 50) {
-            cz.dh -= -1379513753;
+         if (Login.dh * 1246310743 > 0 && null != PlayerType.dz && 2020601481 * MouseHandler.MouseHandler_lastPressedX >= 0 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= PlayerType.dz.subWidth && 1163896205 * MouseHandler.MouseHandler_lastPressedY >= 1658005443 * kd.ak / 2 - 50 && 1163896205 * MouseHandler.MouseHandler_lastPressedY <= 1658005443 * kd.ak / 2 + 50) {
+            Login.dh -= -1379513753;
          }
 
-         if (1246310743 * cz.dh < cz.dp * 1959698517 && null != ai.dg && MouseHandler.MouseHandler_lastPressedX * 2020601481 >= GameShell.aj * -1687260435 - ai.dg.subWidth - 5 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= GameShell.aj * -1687260435 && MouseHandler.MouseHandler_lastPressedY * 1163896205 >= kd.ak * 1658005443 / 2 - 50 && MouseHandler.MouseHandler_lastPressedY * 1163896205 <= kd.ak * 1658005443 / 2 + 50) {
-            cz.dh += -1379513753;
+         if (1246310743 * Login.dh < Login.dp * 1959698517 && null != ai.dg && MouseHandler.MouseHandler_lastPressedX * 2020601481 >= GameShell.aj * -1687260435 - ai.dg.subWidth - 5 && MouseHandler.MouseHandler_lastPressedX * 2020601481 <= GameShell.aj * -1687260435 && MouseHandler.MouseHandler_lastPressedY * 1163896205 >= kd.ak * 1658005443 / 2 - 50 && MouseHandler.MouseHandler_lastPressedY * 1163896205 <= kd.ak * 1658005443 / 2 + 50) {
+            Login.dh += -1379513753;
          }
       }
 
@@ -501,7 +501,7 @@ public class bz {
                ot.worldToScreen(1144428983 * var0.bx, -411750205 * var0.bo, var79);
                AbstractFont var81 = (AbstractFont)Client.im.get(FontName.FontName_plain12);
                var10 += 4;
-               var81.drawCentered(var78.username.af(), Client.mz * -1848743379 + var2, Client.mu * 318977283 + var3 - var10, 16777215, 0);
+               var81.drawCentered(var78.username.name(), Client.mz * -1848743379 + var2, Client.mu * 318977283 + var3 - var10, 16777215, 0);
                var10 += 18;
             }
          }

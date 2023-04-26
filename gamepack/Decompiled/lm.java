@@ -24,12 +24,12 @@ public class lm {
 
    static void mv_renamed(int var0) {
       Language.tempMenuAction = new MiniMenuEntry();
-      Language.tempMenuAction.af = 116605911 * Client.menuArguments1[var0];
-      Language.tempMenuAction.an = Client.menuArguments2[var0] * 1112086437;
-      Language.tempMenuAction.aw = Client.menuOpcodes[var0] * -1623394963;
-      Language.tempMenuAction.ac = Client.menuArguments0[var0] * -1353871487;
+      Language.tempMenuAction.argument1 = 116605911 * Client.menuArguments1[var0];
+      Language.tempMenuAction.argument2 = Client.menuArguments2[var0] * 1112086437;
+      Language.tempMenuAction.opcode = Client.menuOpcodes[var0] * -1623394963;
+      Language.tempMenuAction.argument0 = Client.menuArguments0[var0] * -1353871487;
       Language.tempMenuAction.au = 355643405 * Client.oi[var0];
-      Language.tempMenuAction.ab = Client.menuActions[var0];
+      Language.tempMenuAction.action = Client.menuActions[var0];
       Language.tempMenuAction.aq = Client.menuTargetNames[var0];
    }
 

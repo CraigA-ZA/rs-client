@@ -46,7 +46,7 @@ public class kb {
             throw new RuntimeException();
          } else {
             Player var15 = Client.players[var1] = new Player();
-            var15.ae = var1 * -710946309;
+            var15.index = var1 * -710946309;
             if (ds.au[var1] != null) {
                var15.read(ds.au[var1]);
             }
@@ -58,7 +58,7 @@ public class kb {
             var10 = var8 >> 14 & 255;
             var11 = var8 & 255;
             var15.pathTraversed[0] = ds.ac[var1];
-            var15.ad = -1829675965 * (byte)var9;
+            var15.plane = -1829675965 * (byte)var9;
             var15.resetPath(var4 + (var10 << 13) - jm.baseX * -1232093375, var5 + (var11 << 13) - 827352769 * Scenery.baseY);
             var15.bi = false;
             return true;

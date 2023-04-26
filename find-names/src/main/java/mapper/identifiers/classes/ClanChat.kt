@@ -9,7 +9,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type
@@ -42,11 +42,11 @@ class ClanChat : IdentityMapper.Class() {
     }
 
     class name : OrderMapper.InConstructor.Field(ClanChat::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
     }
 
     class owner : OrderMapper.InConstructor.Field(ClanChat::class, 1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
     }
 
     @MethodParameters("packet")
@@ -64,19 +64,4 @@ class ClanChat : IdentityMapper.Class() {
     class rank : IdentityMapper.InstanceField() {
         override val predicate = predicateOf<FieldWrapper> { it.type == Type.INT_TYPE && Modifier.isPublic(it.access) }
     }
-
-//    @MethodParameters()
-//    @DependsOn(ClanMate.clearIsFriend::class)
-//    class clearFriends : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == Type.VOID_TYPE && it.arguments.isEmpty() }
-//                .and { it.instructions.any { it.isMethod && it.methodId == method<ClanMate.clearIsFriend>().id } }
-//    }
-//
-//    @MethodParameters()
-//    @DependsOn(ClanMate.clearIsIgnored::class)
-//    class clearIgnoreds : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE && it.arguments.isEmpty() }
-//                .and { it.instructions.any { it.isMethod && it.methodId == method<ClanMate.clearIsIgnored>().id } }
-//    }
-//    TODO
 }

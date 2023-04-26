@@ -8,7 +8,7 @@ import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type.*
@@ -37,7 +37,7 @@ class PcmStreamMixer : IdentityMapper.Class() {
 
     @DependsOn(firstSubStream::class, NodeDeque::class)
     class subStreams : UniqueMapper.InMethod.Field(firstSubStream::class) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == type<NodeDeque>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldType == type<NodeDeque>() }
     }
 
     @MethodParameters("subStream")

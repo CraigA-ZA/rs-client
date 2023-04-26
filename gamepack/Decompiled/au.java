@@ -33,7 +33,7 @@ public final class au {
    }
 
    static int av_renamed(Component var0) {
-      if (var0.bg * 883712245 != 11) {
+      if (var0.type * 883712245 != 11) {
          Interpreter.Interpreter_stringStack[-2017760987 * SecureRandomCallable.Interpreter_stringStackSize - 1] = "";
          return 1;
       } else {

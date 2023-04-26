@@ -4,7 +4,7 @@ public abstract class fu extends Node {
 
    static final void mb_renamed(Component var0, int var1, int var2, int var3) {
       mj.hz_renamed();
-      SpriteMask var5 = var0.getSpriteMask(false, (byte)-106);
+      SpriteMask var5 = var0.getSpriteMask(false);
       if (null != var5) {
          Rasterizer2D.Rasterizer2D_setClip(var1, var2, 1484188043 * var5.width + var1, var5.height * 939947663 + var2);
          if (2 != 1383336963 * Client.tp && Client.tp * 1383336963 != 5) {
@@ -43,7 +43,7 @@ public abstract class fu extends Node {
                      var22 = var22.transform();
                   }
 
-                  if (var22 != null && var22.bk && var22.isInteractable) {
+                  if (var22 != null && var22.drawMapDot && var22.interactable) {
                      var12 = var19.bx * 1144428983 / 32 - MusicPatchNode.localPlayer.bx * 1144428983 / 32;
                      var13 = var19.bo * -411750205 / 32 - MusicPatchNode.localPlayer.bo * -411750205 / 32;
                      qc.ns_renamed(var1, var2, var12, var13, sf.mapDotSprites[1], var5);

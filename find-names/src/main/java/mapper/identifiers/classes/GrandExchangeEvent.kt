@@ -8,7 +8,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
 
@@ -28,10 +28,10 @@ class GrandExchangeEvent : IdentityMapper.Class() {
     }
 
     class string1 : OrderMapper.InConstructor.Field(GrandExchangeEvent::class, 0, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
     }
 
     class string2 : OrderMapper.InConstructor.Field(GrandExchangeEvent::class, 1, 2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == String::class.type }
     }
 }

@@ -7,7 +7,7 @@ import mapper.annotations.MethodParameters
 import mapper.predicateutilities.and
 import mapper.predicateutilities.predicateOf
 import mapper.wrappers.ClassWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -23,10 +23,9 @@ class Npc : IdentityMapper.Class() {
         override val predicate = predicateOf<MethodWrapper> { it.mark == method<Actor.isVisible>().mark }
     }
 
-    //TODO
     @DependsOn(Npc.isVisible::class)
     class type : OrderMapper.InMethod.Field(Npc.isVisible::class, 0) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD}
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD}
     }
 
     @MethodParameters

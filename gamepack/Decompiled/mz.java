@@ -445,36 +445,36 @@ public class mz {
 
    public void by(boolean var1) {
       rg var3 = this.cw(this.by * 1350344153);
-      this.ch((Integer)var3.af, var1, (byte)41);
+      this.ch((Integer)var3.af, var1);
    }
 
    public void bb(boolean var1) {
       rg var3 = this.cw(1350344153 * this.by);
-      this.ch((Integer)var3.an, var1, (byte)31);
+      this.ch((Integer)var3.an, var1);
    }
 
    public void bi(boolean var1) {
-      this.ch(0, var1, (byte)6);
+      this.ch(0, var1);
    }
 
    public void be(boolean var1) {
-      this.ch(this.ar.au(), var1, (byte)85);
+      this.ch(this.ar.au(), var1);
    }
 
    public void bk(boolean var1) {
       if (this.cv() && !var1) {
-         this.ch(Math.min(542296527 * this.bb, 1350344153 * this.by), var1, (byte)35);
+         this.ch(Math.min(542296527 * this.bb, 1350344153 * this.by), var1);
       } else if (this.by * 1350344153 > 0) {
-         this.ch(this.by * 1350344153 - 1, var1, (byte)107);
+         this.ch(this.by * 1350344153 - 1, var1);
       }
 
    }
 
    public void bx(boolean var1) {
       if (this.cv() && !var1) {
-         this.ch(Math.max(542296527 * this.bb, this.by * 1350344153), var1, (byte)121);
+         this.ch(Math.max(542296527 * this.bb, this.by * 1350344153), var1);
       } else if (this.by * 1350344153 < this.ar.au()) {
-         this.ch(1 + 1350344153 * this.by, var1, (byte)8);
+         this.ch(1 + 1350344153 * this.by, var1);
       }
 
    }
@@ -482,7 +482,7 @@ public class mz {
    public void bo(boolean var1) {
       if (1350344153 * this.by > 0) {
          rg var3 = this.cz(1350344153 * this.by - 1);
-         this.ch((Integer)var3.af, var1, (byte)53);
+         this.ch((Integer)var3.af, var1);
       }
 
    }
@@ -490,21 +490,21 @@ public class mz {
    public void bz(boolean var1) {
       if (this.by * 1350344153 < this.ar.au()) {
          rg var3 = this.cz(1 + this.by * 1350344153);
-         this.ch((Integer)var3.an, var1, (byte)119);
+         this.ch((Integer)var3.an, var1);
       }
 
    }
 
    public void bm(boolean var1) {
       if (this.by * 1350344153 > 0) {
-         this.ch(this.ar.az(1350344153 * this.by, -1), var1, (byte)12);
+         this.ch(this.ar.az(1350344153 * this.by, -1), var1);
       }
 
    }
 
    public void bd(boolean var1) {
       if (this.by * 1350344153 < this.ar.au()) {
-         this.ch(this.ar.az(this.by * 1350344153, 1), var1, (byte)12);
+         this.ch(this.ar.az(this.by * 1350344153, 1), var1);
       }
 
    }
@@ -512,7 +512,7 @@ public class mz {
    public void bt(boolean var1) {
       if (this.by * 1350344153 > 0) {
          int var3 = this.ct();
-         this.ch(this.ar.az(1350344153 * this.by, -var3), var1, (byte)70);
+         this.ch(this.ar.az(1350344153 * this.by, -var3), var1);
       }
 
    }
@@ -520,7 +520,7 @@ public class mz {
    public void bj(boolean var1) {
       if (1350344153 * this.by < this.ar.au()) {
          int var3 = this.ct();
-         this.ch(this.ar.az(1350344153 * this.by, var3), var1, (byte)102);
+         this.ch(this.ar.az(1350344153 * this.by, var3), var1);
       }
 
    }
@@ -528,13 +528,13 @@ public class mz {
    public void bn(boolean var1) {
       oa var3 = this.ar.ai(0, this.by * 1350344153);
       rg var4 = var3.aq();
-      this.ch(this.ar.ak((Integer)var4.af, 607166941 * this.bd), var1, (byte)12);
+      this.ch(this.ar.ak((Integer)var4.af, 607166941 * this.bd), var1);
    }
 
    public void bs(boolean var1) {
       oa var3 = this.ar.ai(0, 1350344153 * this.by);
       rg var4 = var3.aq();
-      this.ch(this.ar.ak((Integer)var4.af, 1953737631 * this.bz + 607166941 * this.bd), var1, (byte)118);
+      this.ch(this.ar.ak((Integer)var4.af, 1953737631 * this.bz + 607166941 * this.bd), var1);
    }
 
    public void br(int var1, int var2, boolean var3, boolean var4) {
@@ -847,12 +847,8 @@ public class mz {
       }
    }
 
-   void ch(int var1, boolean var2, byte var3) {
+   void ch(int var1, boolean var2) {
       if (var2) {
-         if (var3 <= -1) {
-            return;
-         }
-
          this.ap(this.bb * 542296527, var1);
       } else {
          this.ap(var1, var1);
@@ -936,7 +932,7 @@ public class mz {
 
    static Component bm_renamed(int var0, Component var1, int var2, int var3, int var4, int var5, int var6, float[] var7) {
       Component var9 = new Component();
-      var9.bg = -1183495331 * var0;
+      var9.type = -1183495331 * var0;
       var9.parentId = -1942978835 * var1.id;
       var9.childIndex = -1274125071 * var2;
       var9.isIf3 = true;

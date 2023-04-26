@@ -9,7 +9,7 @@ import mapper.predicateutilities.predicateOf
 import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
-import mapper.wrappers.InstructionMapper
+import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -38,32 +38,32 @@ class IndexedSprite : IdentityMapper.Class() {
 
     @DependsOn(normalize::class)
     class width : OrderMapper.InMethod.Field(normalize::class, -2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldOwner == type<IndexedSprite>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldOwner == type<IndexedSprite>() }
     }
 
     @DependsOn(normalize::class)
     class height : OrderMapper.InMethod.Field(normalize::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.GETFIELD && it.fieldOwner == type<IndexedSprite>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.GETFIELD && it.fieldOwner == type<IndexedSprite>() }
     }
 
     @DependsOn(normalize::class)
     class xOffset : OrderMapper.InMethod.Field(normalize::class, -2) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldOwner == type<IndexedSprite>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldOwner == type<IndexedSprite>() }
     }
 
     @DependsOn(normalize::class)
     class yOffset : OrderMapper.InMethod.Field(normalize::class, -1) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldOwner == type<IndexedSprite>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldOwner == type<IndexedSprite>() }
     }
 
     @DependsOn(normalize::class)
     class subWidth : OrderMapper.InMethod.Field(normalize::class, -4) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldOwner == type<IndexedSprite>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldOwner == type<IndexedSprite>() }
     }
 
     @DependsOn(normalize::class)
     class subHeight : OrderMapper.InMethod.Field(normalize::class, -3) {
-        override val predicate = predicateOf<InstructionMapper> { it.opcode == Opcodes.PUTFIELD && it.fieldOwner == type<IndexedSprite>() }
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.PUTFIELD && it.fieldOwner == type<IndexedSprite>() }
     }
 
     @MethodParameters("r", "g", "b")

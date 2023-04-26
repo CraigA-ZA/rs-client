@@ -6,7 +6,7 @@ public class SpotType extends DualNode {
    int model;
    int ambient = 0;
    int contrast = 0;
-   int ai = 0;
+   int orientation = 0;
    int ao = 122094464;
    int id;
    int ax = -370064768;
@@ -44,7 +44,7 @@ public class SpotType extends DualNode {
       } else if (5 == var2) {
          this.ax = var1.cl() * -1110187387;
       } else if (var2 == 6) {
-         this.ai = var1.cl() * -1376904751;
+         this.orientation = var1.cl() * -1376904751;
       } else if (7 == var2) {
          this.ambient = var1.g1() * 399649223;
       } else if (var2 == 8) {
@@ -75,30 +75,30 @@ public class SpotType extends DualNode {
 
    }
 
-   public final Model au(int var1) {
-      Model var3 = this.ab();
+   public final Model getModel(int var1) {
+      Model var3 = this.getSharedModel();
       Model var4;
       if (this.sequence * 374130911 != -1 && var1 != -1) {
-         var4 = Inventory.getSeqType(this.sequence * 374130911, (byte)74).al(var3, var1);
+         var4 = Inventory.getSeqType(this.sequence * 374130911).animateSpotAnimation(var3, var1);
       } else {
-         var4 = var3.ay(true);
+         var4 = var3.toSharedSpotAnimationModel(true);
       }
 
       if (128 != -1761247305 * this.ao || 128 != this.ax * -1083521459) {
          var4.resize(-1761247305 * this.ao, this.ax * -1083521459, this.ao * -1761247305);
       }
 
-      if (-906961103 * this.ai != 0) {
-         if (this.ai * -906961103 == 90) {
+      if (-906961103 * this.orientation != 0) {
+         if (this.orientation * -906961103 == 90) {
             var4.rotateY90Ccw();
          }
 
-         if (this.ai * -906961103 == 180) {
+         if (this.orientation * -906961103 == 180) {
             var4.rotateY90Ccw();
             var4.rotateY90Ccw();
          }
 
-         if (this.ai * -906961103 == 270) {
+         if (this.orientation * -906961103 == 270) {
             var4.rotateY90Ccw();
             var4.rotateY90Ccw();
             var4.rotateY90Ccw();
@@ -108,7 +108,7 @@ public class SpotType extends DualNode {
       return var4;
    }
 
-   public final Model ab() {
+   public final Model getSharedModel() {
       Model var2 = (Model)ac.get((long)(this.id * -190570391));
       if (var2 == null) {
          UnlitModel var3 = UnlitModel.af_renamed(an, this.model * -170244579, 0);

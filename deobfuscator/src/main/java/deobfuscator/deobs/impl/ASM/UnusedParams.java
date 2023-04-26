@@ -2,11 +2,11 @@ package deobfuscator.deobs.impl.ASM;
 
 import deobfuscator.Deobfuscator;
 import deobfuscator.deobs.AbstractDeob;
-import za.org.secret.FoundMethod;
+import shared.model.FoundMethod;
 import org.jetbrains.annotations.NotNull;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.*;
-import za.org.secret.UtilFunctions;
+import shared.UtilFunctions;
 
 import java.util.*;
 
