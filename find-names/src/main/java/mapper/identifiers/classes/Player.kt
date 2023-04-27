@@ -94,7 +94,11 @@ class Player : IdentityMapper.Class() {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == BOOLEAN_TYPE }
     }
 
-
+    //I think this might belong in Actor now
+//    @DependsOn(Client.addPlayerToScene::class)
+//    class playerCycle : OrderMapper.InMethod.Field(Client.addPlayerToScene::class, -1) {
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldOwner == type<Player>() && it.fieldType == INT_TYPE }
+//    }
 
     @MethodParameters("x", "y")
     @DependsOn(transformedSize::class)

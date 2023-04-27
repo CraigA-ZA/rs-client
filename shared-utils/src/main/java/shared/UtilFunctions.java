@@ -75,6 +75,7 @@ public class UtilFunctions {
                     nodes.put(node.name, node);
                 }
             }
+            jarFile.close();
         } catch (final IOException e) {
             e.printStackTrace();
         }

@@ -1,7 +1,5 @@
 package mapper.identifiers.classes
 
-//import mapper.identifiers.classes.VarType
-//import mapper.identifiers.disabled.ViewportMouse
 import mapper.*
 import mapper.abstractclasses.*
 import mapper.annotations.DependsOn
@@ -90,7 +88,6 @@ class Client : IdentityMapper.Class() {
     class getLocType : StaticMethod() {
         override val predicate = predicateOf<MethodWrapper> { it.returnType == type<LocType>() }
     }
-
 
 
     @MethodParameters("targetVerb", "opbase", "opcode", "arg0", "arg1", "arg2", "b")
@@ -539,7 +536,6 @@ class Client : IdentityMapper.Class() {
     class draw : IdentityMapper.InstanceMethod() {
         override val predicate = predicateOf<MethodWrapper> { it.instructions.any { it.isMethod && it.methodId == method<AbstractRasterProvider.draw>().id } }
     }
-
 
 
     @MethodParameters("values", "ordinal")
@@ -1075,7 +1071,6 @@ class Client : IdentityMapper.Class() {
     }
 
 
-
     @DependsOn(Archive::class)
     class newArchive : IdentityMapper.StaticMethod() {
         override val predicate = predicateOf<MethodWrapper> { it.returnType == type<Archive>() }
@@ -1186,7 +1181,6 @@ class Client : IdentityMapper.Class() {
     }
 
 
-
     @DependsOn(Archive::class)
     class NetCache_archives : IdentityMapper.StaticField() {
         override val predicate = predicateOf<FieldWrapper> { it.type == type<Archive>().withDimensions(1) }
@@ -1225,7 +1219,6 @@ class Client : IdentityMapper.Class() {
     class NetCache_currentResponse : IdentityMapper.StaticField() {
         override val predicate = predicateOf<FieldWrapper> { it.type == type<NetFileRequest>() }
     }
-
 
 
     @DependsOn(Bzip2State::class)
@@ -1275,7 +1268,6 @@ class Client : IdentityMapper.Class() {
     }
 
 
-
     @DependsOn(ServerBuild::class)
     class serverBuild : IdentityMapper.StaticField() {
         override val predicate = predicateOf<FieldWrapper> { it.type == type<ServerBuild>() && it.klass != klass<ServerBuild>() }
@@ -1294,7 +1286,6 @@ class Client : IdentityMapper.Class() {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETFIELD && it.fieldId == field<Component.spellName>().id }
                 .nextWithin(10) { it.opcode == PUTSTATIC && it.fieldType == String::class.type }
     }
-
 
 
     @MethodParameters("descriptor")
@@ -1820,6 +1811,7 @@ class Client : IdentityMapper.Class() {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<Strings_connectingToUpdateServer>().id }
                 .next { it.opcode == PUTSTATIC && it.fieldType == String::class.type }
     }
+
     @DependsOn(Player::class, PacketBit::class)
     class updatePlayer : IdentityMapper.StaticMethod() {
         override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
@@ -1853,7 +1845,6 @@ class Client : IdentityMapper.Class() {
     class packetWriter : IdentityMapper.StaticField() {
         override val predicate = predicateOf<FieldWrapper> { it.type == type<PacketWriter>() }
     }
-
 
 
     @DependsOn(MouseHandler::class)
@@ -2296,7 +2287,6 @@ class Client : IdentityMapper.Class() {
     }
 
 
-
     @MethodParameters()
     @DependsOn(GameShell.kill0::class)
     class kill0 : IdentityMapper.InstanceMethod() {
@@ -2462,6 +2452,14 @@ class Client : IdentityMapper.Class() {
                 .and { it.instructions.any { it.opcode == LDC && it.ldcCst == "js5crc" } }
     }
 
+    @MethodParameters()
+    @DependsOn(doCycleJs5Connect::class)
+    class doCycleJs5 : InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE}
+                .and {it.arguments.isEmpty()}
+                .and {it.instructions.any { it.isMethod && it.methodId == method<doCycleJs5Connect>().id}}
+    }
+
 
     @DependsOn(doCycleJs5Connect::class, TaskHandler.newSocketTask::class)
     class js5SocketTask : UniqueMapper.InMethod.Field(doCycleJs5Connect::class) {
@@ -2505,7 +2503,6 @@ class Client : IdentityMapper.Class() {
     }
 
 
-
     @DependsOn(VorbisSample::class)
     class readVorbisSample : IdentityMapper.StaticMethod() {
         override val predicate = predicateOf<MethodWrapper> { it.returnType == type<VorbisSample>() }
@@ -2516,7 +2513,6 @@ class Client : IdentityMapper.Class() {
     class readTrack : IdentityMapper.StaticMethod() {
         override val predicate = predicateOf<MethodWrapper> { it.returnType == type<MusicTrack>() }
     }
-
 
 
     @DependsOn(Decimator::class)
@@ -2569,7 +2565,6 @@ class Client : IdentityMapper.Class() {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<musicTrack>().id }
                 .next { it.opcode == GETSTATIC && it.fieldType == BOOLEAN_TYPE }
     }
-
 
 
     @DependsOn(Scene.menuOpen::class)
@@ -2706,64 +2701,128 @@ class Client : IdentityMapper.Class() {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == type<EvictingDualNodeHashTable>() }
     }
 
+    @MethodParameters()
+    @DependsOn(friendSystem::class)
+    class setUp : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.instructions.any { it.opcode == PUTSTATIC && it.fieldId == field<friendSystem>().id } }
+    }
+
+    @MethodParameters("scriptEvent", "n")
+    @DependsOn(ClientScriptEvent::class)
+    class runScript : IdentityMapper.StaticMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments == listOf(type<ClientScriptEvent>(), INT_TYPE, INT_TYPE) }
+    }
+
+    @MethodParameters("scriptEvent")
+    @DependsOn(ClientScriptEvent::class)
+    class runClientScript : IdentityMapper.StaticMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments == listOf(type<ClientScriptEvent>()) }
+    }
+
+    @DependsOn(Npc::class)
+    class npcIndices : AllUniqueMapper.Field() {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == INVOKESPECIAL && it.methodOwner == type<Npc>() }
+                .nextWithin(25) { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
+    }
+
+    @DependsOn(Npc::class)
+    class npcCount : AllUniqueMapper.Field() {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == INVOKESPECIAL && it.methodOwner == type<Npc>() }
+                .nextWithin(25) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
+    }
+    @MethodParameters()
+    @DependsOn(doCycleJs5::class)
+    class doCycle : InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments.size == 0 }
+                .and { it.instructions.any { it.isMethod && it.methodId == method<doCycleJs5>().id} }
+    }
+
+
+    @MethodParameters("b", "packetBit")
+    @DependsOn(PacketBit::class, npcIndices::class)
+    class updateNpcs : IdentityMapper.StaticMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and { it.arguments == listOf(BOOLEAN_TYPE, type<PacketBit>()) }
+                .and { it.instructions.first().opcode == ICONST_0 }
+    }
+
+    //meteor doesnt have this one identifid, so I think its probbaly not that important
+//    @DependsOn(GameShell.render::class)
+//    class renderCount : OrderMapper.InMethod.Field(GameShell.render::class, 0) {
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == BIPUSH && it.intOperand == 50 }
+//                .prev { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
+//    }
+
+
+
+//    @DependsOn(Players::class)
+//    class Players_indices : OrderMapper.InClassInitializer.Field(Players::class, 0, 6) {
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 2048 }
+//                .nextIn(10) { it.opcode == PUTSTATIC && it.fieldType == IntArray::class.type }
+//    }
 //
+//    @DependsOn(Players::class)
+//    class Players_count : OrderMapper.InClassInitializer.Field(Players::class, 0, 3) {
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == ICONST_0 }
+//                .next { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
+//    }
+
+//    @DependsOn(Actor::class, Actor.targetIndex::class, Actor.orientation::class)
+//    class Players_targetIndices : StaticUniqueMapper.Field() {
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldName == field<Actor.targetIndex>().name && it.fieldOwner == type<Actor>() }
+//                .prevWithin(8) { it.opcode == PUTFIELD && it.fieldName == field<Actor.orientation>().name && it.fieldOwner == type<Actor>() }
+//                .nextWithin(3) { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
+//    }
+
+    //TODO nb
+//    class cycle : StaticUniqueMapper.Field() {
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3300 }
+//                .nextWithin(25) { it.isLabel }
+//                .prevWithin(15) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
+//    }
+
+
+
 //    @DependsOn(drawInterface::class, isItemSelected::class)
 //    class dragItemSlotSource : UniqueMapper.InMethod.Field(drawInterface::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldId == field<isItemSelected>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<isItemSelected>().id }
 //                .prevWithin(5) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(doCycleLoggedIn::class, dragItemSlotSource::class)
 //    class dragItemSlotDestination : UniqueMapper.InMethod.Field(doCycleLoggedIn::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldId == field<dragItemSlotSource>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<dragItemSlotSource>().id }
 //                .prev { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(doCycleLoggedIn::class, dragItemSlotDestination::class, Component::class)
 //    class dragInventoryComponent : UniqueMapper.InMethod.Field(doCycleLoggedIn::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldId == field<dragItemSlotDestination>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<dragItemSlotDestination>().id }
 //                .nextWithin(3) { it.opcode == GETSTATIC && it.fieldType == type<Component>() }
 //    }
-//
 
-//
+
 //    class camFollowHeight : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 5531 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 5531 }
 //                .nextWithin(50) { it.isLabel }
 //                .prevWithin(15) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
-//
-//    @MethodParameters("b", "packetBit")
-//    @DependsOn(PacketBit::class, npcIndices::class)
-//    class updateNpcs : IdentityMapper.StaticMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments == listOf(BOOLEAN_TYPE, type<PacketBit>()) }
-//                .and { it.instructions.first().opcode == ICONST_0 }
-//    }
-//
-//    @DependsOn(GameShell.render::class)
-//    class renderCount : OrderMapper.InMethod.Field(GameShell.render::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == BIPUSH && it.intOperand == 50 }
-//                .prev { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
-//    }
-//
 //
 //    no 0, yes 1
 //    TODO
 //    @DependsOn(Client.doAction::class)
 //    class isItemSelected : UniqueMapper.InMethod.Field(Client.doAction::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == BIPUSH && it.intOperand == 38 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == BIPUSH && it.intOperand == 38 }
 //                .nextWithin(2) { it.node is JumpInsnNode }
 //                .nextWithin(10) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //
 //
-//    class cycle : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3300 }
-//                .nextWithin(16) { it.isLabel }
-//                .prevWithin(6) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
-//    }
 //
 //    @DependsOn(OverlayDefinition::class, EvictingDualNodeHashTable::class)
 //    class OverlayDefinition_cached : CachedDefinitionMapper(OverlayDefinition::class)
@@ -2771,7 +2830,7 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(Component.x::class)
 //    class rootComponentCount : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldId == field<Component.x>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETFIELD && it.fieldId == field<Component.x>().id }
 //                .prevWithin(5) { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
 //                .nextWithin(1) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
@@ -2807,13 +2866,13 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(doAction::class)
 //    class mouseCrossX : UniqueMapper.InMethod.Field(doAction::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 1004 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 1004 }
 //                .nextWithin(7) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(doAction::class)
 //    class mouseCrossY : UniqueMapper.InMethod.Field(doAction::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 1004 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 1004 }
 //                .nextWithin(7) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //                .nextWithin(7) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
@@ -2821,7 +2880,7 @@ class Client : IdentityMapper.Class() {
 //    0 none, 1 yellow, 2 red
 //    @DependsOn(doAction::class)
 //    class mouseCrossColor : UniqueMapper.InMethod.Field(doAction::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 1004 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 1004 }
 //                .nextWithin(20) { it.opcode == ICONST_0 }
 //                .prev { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
@@ -2829,51 +2888,51 @@ class Client : IdentityMapper.Class() {
 //    // 0 - 400
 //    @DependsOn(doAction::class)
 //    class mouseCrossState : UniqueMapper.InMethod.Field(doAction::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 1004 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 1004 }
 //                .nextWithin(20) { it.opcode == ICONST_0 }
 //                .next { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(MouseHandler_currentButton0::class)
 //    class MouseHandler_x : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldId == field<MouseHandler_currentButton0>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<MouseHandler_currentButton0>().id }
 //                .nextIn(3) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(MouseHandler_currentButton0::class)
 //    class MouseHandler_y : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldId == field<MouseHandler_currentButton0>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<MouseHandler_currentButton0>().id }
 //                .nextIn(5) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(MouseHandler_currentButton0::class)
 //    class MouseHandler_millis : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldId == field<MouseHandler_currentButton0>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<MouseHandler_currentButton0>().id }
 //                .nextWithin(7) { it.opcode == PUTSTATIC && it.fieldType == LONG_TYPE }
 //    }
 //
 //    @DependsOn(MouseHandler_currentButton0::class)
 //    class MouseHandler_millis0 : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldId == field<MouseHandler_currentButton0>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<MouseHandler_currentButton0>().id }
 //                .nextWithin(7) { it.opcode == GETSTATIC && it.fieldType == LONG_TYPE }
 //    }
 //
 //    @DependsOn(worldToScreen::class)
 //    class viewportTempX : OrderMapper.InMethod.Field(worldToScreen::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == ICONST_M1 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == ICONST_M1 }
 //                .next { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(worldToScreen::class)
 //    class viewportTempY : OrderMapper.InMethod.Field(worldToScreen::class, 1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == ICONST_M1 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == ICONST_M1 }
 //                .next { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //
 //    @DependsOn(viewportHeight::class, viewportWidth::class)
 //    class viewportOffsetY : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == RETURN }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == RETURN }
 //                .prev { it.opcode == PUTSTATIC && it.fieldId == field<viewportHeight>().id }
 //                .prevWithin(5) { it.opcode == PUTSTATIC && it.fieldId == field<viewportWidth>().id }
 //                .prevWithin(5) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
@@ -2881,7 +2940,7 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(viewportHeight::class, viewportWidth::class, viewportOffsetY::class)
 //    class viewportOffsetX : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == RETURN }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == RETURN }
 //                .prev { it.opcode == PUTSTATIC && it.fieldId == field<viewportHeight>().id }
 //                .prevWithin(5) { it.opcode == PUTSTATIC && it.fieldId == field<viewportWidth>().id }
 //                .prevWithin(5) { it.opcode == PUTSTATIC && it.fieldId == field<viewportOffsetY>().id }
@@ -2889,68 +2948,68 @@ class Client : IdentityMapper.Class() {
 //    }
 //
 //    class camAngleX : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 5505 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 5505 }
 //                .nextWithin(50) { it.isLabel }
 //                .prevWithin(15) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //
 //    class camAngleY : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 5506 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 5506 }
 //                .nextWithin(50) { it.isLabel }
 //                .prevWithin(15) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    class currentLevels : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3305 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3305 }
 //                .nextWithin(50) { it.isLabel }
 //                .prevWithin(15) { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
 //    }
 //
 //    class levels : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3306 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3306 }
 //                .nextWithin(50) { it.isLabel }
 //                .prevWithin(15) { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
 //    }
 //
 //    class experience : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3307 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3307 }
 //                .nextWithin(50) { it.isLabel }
 //                .prevWithin(15) { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
 //    }
 //
 //    class isMembersWorld : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3312 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3312 }
 //                .nextWithin(50) { it.isLabel }
 //                .prevWithin(15) { it.opcode == GETSTATIC && it.fieldType == BOOLEAN_TYPE }
 //    }
 //
 //    class staffModLevel : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3316 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3316 }
 //                .nextWithin(50) { it.isLabel }
 //                .prevWithin(15) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    class weight : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3322 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3322 }
 //                .nextWithin(50) { it.isLabel }
 //                .prevWithin(15) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    class runEnergy : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3321 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3321 }
 //                .nextWithin(50) { it.isLabel }
 //                .prevWithin(15) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    class worldId : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3318 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3318 }
 //                .nextWithin(50) { it.isLabel }
 //                .prevWithin(15) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    class worldProperties : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3324 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3324 }
 //                .nextWithin(50) { it.isLabel }
 //                .prevWithin(15) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
@@ -2968,17 +3027,17 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(updateGameState::class)
 //    class gameState : OrderMapper.InMethod.Field(updateGameState::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(draw::class, gameState::class)
 //    class gameDrawingMode : UniqueMapper.InMethod.Field(draw::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == BIPUSH && it.intOperand == 30 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == BIPUSH && it.intOperand == 30 }
 //                .nextWithin(10) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE && it.fieldId != field<gameState>().id }
 //    }
 //
 //    class Login_username : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == String::class.type }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == String::class.type }
 //                .next { it.isMethod && it.methodName == "trim" }
 //                .next { it.opcode == PUTSTATIC && it.fieldType == String::class.type }
 //                .next { it.opcode == GETSTATIC && it.fieldType == String::class.type }
@@ -2986,7 +3045,7 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(Login_username::class)
 //    class Login_password : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == LDC && it.ldcCst == "" }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == LDC && it.ldcCst == "" }
 //                .next { it.opcode == PUTSTATIC && it.fieldId == field<Login_username>().id }
 //                .next { it.opcode == LDC && it.ldcCst == "" }
 //                .next { it.opcode == PUTSTATIC && it.fieldType == String::class.type }
@@ -3002,25 +3061,21 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(currentTimeMs::class)
 //    class currentTimeMsLast : OrderMapper.InMethod.Field(currentTimeMs::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC }
 //    }
 //
 //    @DependsOn(currentTimeMs::class)
 //    class currentTimeMsOffset : OrderMapper.InMethod.Field(currentTimeMs::class, 1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC }
 //    }
 //
 //
-    @MethodParameters()
-    @DependsOn(friendSystem::class)
-    class setUp : IdentityMapper.InstanceMethod() {
-        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
-                .and { it.instructions.any { it.opcode == PUTSTATIC && it.fieldId == field<friendSystem>().id } }
-    }
-//
+
+
+    //
 //
 //    class ViewportMouse_x : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == BIPUSH && it.intOperand == 50 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == BIPUSH && it.intOperand == 50 }
 //                .nextIn(2) { it.opcode == SIPUSH && it.intOperand == 3500 }
 //                .nextWithin(5) { it.opcode == ISTORE }
 //                .nextWithin(5) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
@@ -3028,7 +3083,7 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(ViewportMouse_x::class)
 //    class ViewportMouse_y : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == BIPUSH && it.intOperand == 50 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == BIPUSH && it.intOperand == 50 }
 //                .nextIn(2) { it.opcode == SIPUSH && it.intOperand == 3500 }
 //                .nextWithin(20) { it.opcode == GETSTATIC && it.fieldId == field<ViewportMouse_x>().id }
 //                .nextWithin(10) { it.opcode == ISTORE }
@@ -3037,14 +3092,14 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(ViewportMouse_y::class)
 //    class ViewportMouse_isInViewport : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTSTATIC && it.fieldId == field<ViewportMouse_y>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTSTATIC && it.fieldId == field<ViewportMouse_y>().id }
 //                .next { it.opcode == ICONST_1 }
 //                .next { it.opcode == PUTSTATIC && it.fieldType == BOOLEAN_TYPE }
 //    }
 //
 //    @DependsOn(ViewportMouse_y::class)
 //    class ViewportMouse_entityCount : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTSTATIC && it.fieldId == field<ViewportMouse_y>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTSTATIC && it.fieldId == field<ViewportMouse_y>().id }
 //                .next { it.opcode == ICONST_1 }
 //                .next { it.opcode == PUTSTATIC && it.fieldType == BOOLEAN_TYPE }
 //                .next { it.opcode == ICONST_0 }
@@ -3053,7 +3108,7 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(ViewportMouse_y::class)
 //    class ViewportMouse_false0 : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTSTATIC && it.fieldId == field<ViewportMouse_y>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTSTATIC && it.fieldId == field<ViewportMouse_y>().id }
 //                .nextWithin(5) { it.opcode == ICONST_0 }
 //                .nextWithin(5) { it.opcode == PUTSTATIC && it.fieldType == BOOLEAN_TYPE }
 //    }
@@ -3062,39 +3117,39 @@ class Client : IdentityMapper.Class() {
 //    Cast"
 //    @DependsOn(doAction::class, Component.opbase::class)
 //    class selectedSpellActionName : UniqueMapper.InMethod.Field(doAction::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldId == field<Component.opbase>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETFIELD && it.fieldId == field<Component.opbase>().id }
 //                .prevWithin(15) { it.opcode == PUTSTATIC && it.fieldType == String::class.type }
 //    }
 //
 //
 //    @DependsOn(AttackOption::class, AttackOption_dependsOnCombatLevels::class)
 //    class playerAttackOption : StaticOrderMapper.Field(0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldId == field<AttackOption_dependsOnCombatLevels>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<AttackOption_dependsOnCombatLevels>().id }
 //                .next { it.opcode == PUTSTATIC && it.fieldType == type<AttackOption>() }
 //    }
 //
 //    @DependsOn(AttackOption::class, AttackOption_dependsOnCombatLevels::class)
 //    class npcAttackOption : StaticOrderMapper.Field(1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldId == field<AttackOption_dependsOnCombatLevels>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<AttackOption_dependsOnCombatLevels>().id }
 //                .next { it.opcode == PUTSTATIC && it.fieldType == type<AttackOption>() }
 //    }
 //
 //
 //    @DependsOn(Login_username::class)
 //    class Login_isUsernameRemembered : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTSTATIC && it.fieldId == field<Login_username>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTSTATIC && it.fieldId == field<Login_username>().id }
 //                .next { it.opcode == ICONST_1 }
 //                .next { it.opcode == PUTSTATIC && it.fieldType == BOOLEAN_TYPE }
 //    }
 //
 //    @DependsOn(EvictingDualNodeHashTable::class, NPCType.getModel::class)
 //    class NPCType_cachedModels : UniqueMapper.InMethod.Field(NPCType.getModel::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == type<EvictingDualNodeHashTable>() }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == type<EvictingDualNodeHashTable>() }
 //    }
 //
 //    @DependsOn(AbstractArchive::class, NPCType.getModel::class)
 //    class NPCType_modelArchive : UniqueMapper.InMethod.Field(NPCType.getModel::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == type<AbstractArchive>() }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == type<AbstractArchive>() }
 //    }
 //
 //    @MethodParameters("strings")
@@ -3106,59 +3161,46 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(prependIndices::class)
 //    class numberMenuOptions : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == INVOKESTATIC && it.methodId == method<prependIndices>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == INVOKESTATIC && it.methodId == method<prependIndices>().id }
 //                .prevWithin(5) { it.opcode == GETSTATIC && it.fieldType == BOOLEAN_TYPE }
 //    }
 //
 //    @DependsOn(ObjType.getModel::class, EvictingDualNodeHashTable::class)
 //    class ObjType_cachedModels : OrderMapper.InMethod.Field(ObjType.getModel::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == type<EvictingDualNodeHashTable>() }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == type<EvictingDualNodeHashTable>() }
 //    }
 //
 //    @DependsOn(AbstractArchive::class, ObjType.getModel::class)
 //    class ObjType_modelArchive : UniqueMapper.InMethod.Field(ObjType.getModel::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == type<AbstractArchive>() }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == type<AbstractArchive>() }
 //    }
 //
 //    @DependsOn(EvictingDualNodeHashTable::class, SpotType.getModel::class)
 //    class SpotType_cachedModels : UniqueMapper.InMethod.Field(SpotType.getModel::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == type<EvictingDualNodeHashTable>() }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == type<EvictingDualNodeHashTable>() }
 //    }
 //
 //    @DependsOn(AbstractArchive::class, SpotType.getModel::class)
 //    class SpotType_modelArchive : UniqueMapper.InMethod.Field(SpotType.getModel::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == type<AbstractArchive>() }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == type<AbstractArchive>() }
 //    }
 //
-    @MethodParameters("scriptEvent", "n")
-    @DependsOn(ClientScriptEvent::class)
-    class runScript : IdentityMapper.StaticMethod() {
-        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
-                .and { it.arguments == listOf(type<ClientScriptEvent>(), INT_TYPE, INT_TYPE) }
-    }
-
-    @MethodParameters("scriptEvent")
-    @DependsOn(ClientScriptEvent::class)
-    class runClientScript : IdentityMapper.StaticMethod() {
-        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
-                .and { it.arguments == listOf(type<ClientScriptEvent>()) }
-    }
 //
 //
 //    @DependsOn(alignComponentSize::class, NodeDeque::class)
 //    class clientScriptEvents : UniqueMapper.InMethod.Field(alignComponentSize::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == type<NodeDeque>() }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == type<NodeDeque>() }
 //    }
 //
 //
 //    @DependsOn(PlayerAppearance.getModel::class, EvictingDualNodeHashTable::class)
 //    class PlayerAppearance_cachedModels : UniqueMapper.InMethod.Field(PlayerAppearance.getModel::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == type<EvictingDualNodeHashTable>() }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == type<EvictingDualNodeHashTable>() }
 //    }
 //
 //    @DependsOn(LocType.getModel::class, EvictingDualNodeHashTable::class)
 //    class LocType_cachedModels : UniqueMapper.InMethod.Field(LocType.getModel::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == type<EvictingDualNodeHashTable>() }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == type<EvictingDualNodeHashTable>() }
 //    }
 //
 //
@@ -3166,61 +3208,61 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(drawInterface::class, Component.color2::class, Component::class)
 //    class mousedOverComponentIf1 : UniqueMapper.InMethod.Field(drawInterface::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETFIELD && it.fieldId == field<Component.color2>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETFIELD && it.fieldId == field<Component.color2>().id }
 //                .nextWithin(3) { it.opcode == GETSTATIC && it.fieldType == type<Component>() }
 //    }
 //
 //
 //    @DependsOn(doCycleLoggedIn::class)
 //    class rebootTimer : OrderMapper.InMethod.Field(doCycleLoggedIn::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    class shiftClickDrop : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3117 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3117 }
 //                .nextWithin(18) { it.opcode == PUTSTATIC && it.fieldType == BOOLEAN_TYPE }
 //    }
 //
 //    @DependsOn(KeyHandler_pressedKeys::class)
 //    class tapToDrop : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == BIPUSH && it.intOperand == 81 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == BIPUSH && it.intOperand == 81 }
 //                .prev { it.opcode == GETSTATIC && it.fieldId == field<KeyHandler_pressedKeys>().id }
 //                .prevIn(2) { it.opcode == GETSTATIC && it.fieldType == BOOLEAN_TYPE }
 //    }
 //
 //    class showMouseCross : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3125 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3125 }
 //                .nextWithin(18) { it.opcode == PUTSTATIC && it.fieldType == BOOLEAN_TYPE }
 //    }
 //
 //
 //    class isCameraLocked : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 5504 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 5504 }
 //                .nextWithin(18) { it.opcode == GETSTATIC && it.fieldType == BOOLEAN_TYPE }
 //    }
 //
 //    @DependsOn(AbstractFont.drawCenteredWave::class)
 //    class viewportDrawCount : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == INVOKEVIRTUAL && it.methodMark == method<AbstractFont.drawCenteredWave>().mark }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == INVOKEVIRTUAL && it.methodMark == method<AbstractFont.drawCenteredWave>().mark }
 //                .prev { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(viewportDrawCount::class)
 //    class tileLastDrawnActor : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldId == field<viewportDrawCount>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<viewportDrawCount>().id }
 //                .nextWithin(4) { it.opcode == GETSTATIC && it.fieldType == Array<IntArray>::class.type }
 //    }
 //
 //    @DependsOn(getUnderlayDefinition::class)
 //    class underlays : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == INVOKESTATIC && it.methodId == method<getUnderlayDefinition>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == INVOKESTATIC && it.methodId == method<getUnderlayDefinition>().id }
 //                .prevWithin(20) { it.opcode == GETSTATIC && it.fieldType == BYTE_TYPE.withDimensions(3) }
 //    }
 //
 //
 //    @DependsOn(getUnderlayDefinition::class)
 //    class underlayCounts : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == INVOKESTATIC && it.methodId == method<getUnderlayDefinition>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == INVOKESTATIC && it.methodId == method<getUnderlayDefinition>().id }
 //                .nextWithin(5) { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
 //                .nextWithin(12) { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
 //                .nextWithin(12) { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
@@ -3237,26 +3279,26 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(addPlayerToMenu::class, players::class)
 //    class combatTargetPlayerIndex : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodId == method<addPlayerToMenu>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.isMethod && it.methodId == method<addPlayerToMenu>().id }
 //                .prevWithin(15) { it.opcode == GETSTATIC && it.fieldId == field<players>().id }
 //                .nextWithin(5) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(addNpcToMenu::class, selectedSpellActionName::class)
 //    class isSpellSelected : UniqueMapper.InMethod.Field(addNpcToMenu::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldId == field<selectedSpellActionName>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<selectedSpellActionName>().id }
 //                .prevWithin(10) { it.opcode == GETSTATIC && it.fieldType == BOOLEAN_TYPE }
 //    }
 //
 //    @DependsOn(addNpcToMenu::class, selectedSpellActionName::class)
 //    class selectedSpellFlags : UniqueMapper.InMethod.Field(addNpcToMenu::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldId == field<selectedSpellActionName>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<selectedSpellActionName>().id }
 //                .prevWithin(6) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(GameShell.startThread::class)
 //    class applet : UniqueMapper.InMethod.Field(GameShell.startThread::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTSTATIC && it.fieldType == Applet::class.type }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTSTATIC && it.fieldType == Applet::class.type }
 //    }
 //
 //    @MethodParameters()
@@ -3269,7 +3311,7 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(Component::class, clickedComponent::class, clickedComponentParent::class, dragComponent::class)
 //    class componentDragTarget : UniqueMapper.InMethod.Field(dragComponent::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == type<Component>() }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == type<Component>() }
 //                .and { it.fieldId != field<clickedComponent>().id && it.fieldId != field<clickedComponentParent>().id }
 //    }
 //
@@ -3277,20 +3319,20 @@ class Client : IdentityMapper.Class() {
 //    0 - 27
 //    @DependsOn(Component.swapItems::class)
 //    class inventorySlotHovered : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodId == method<Component.swapItems>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.isMethod && it.methodId == method<Component.swapItems>().id }
 //                .prevWithin(4) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(Component.swapItems::class)
 //    class inventorySlotPressed : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodId == method<Component.swapItems>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.isMethod && it.methodId == method<Component.swapItems>().id }
 //                .prevWithin(4) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //                .prevWithin(4) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(Rasterizer2D_setClip::class)
 //    class minimapState : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodId == method<Rasterizer2D_setClip>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.isMethod && it.methodId == method<Rasterizer2D_setClip>().id }
 //                .nextWithin(5) { it.opcode == ICONST_2 }
 //                .nextWithin(10) { it.opcode == ICONST_5 }
 //                .prevWithin(5) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
@@ -3298,23 +3340,23 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(alignComponent::class)
 //    class canvasWidth : OrderMapper.InMethod.Field(alignComponent::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(alignComponent::class)
 //    class canvasHeight : OrderMapper.InMethod.Field(alignComponent::class, 1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(Component::class)
 //    class viewportComponent : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 6203 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 6203 }
 //                .nextWithin(4) { it.opcode == GETSTATIC && it.fieldType == type<Component>() }
 //    }
 //
 //    @DependsOn(doAction::class)
 //    class destinationX : UniqueMapper.InMethod.Field(doAction::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 1001 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 1001 }
 //                .nextWithin(15) { it.opcode == ICONST_0 }
 //                .nextWithin(3) { it.opcode == ILOAD && it.varVar == 0 }
 //                .nextWithin(5) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
@@ -3322,7 +3364,7 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(doAction::class)
 //    class destinationY : UniqueMapper.InMethod.Field(doAction::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 1001 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 1001 }
 //                .nextWithin(15) { it.opcode == ICONST_0 }
 //                .nextWithin(10) { it.opcode == ILOAD && it.varVar == 1 }
 //                .nextWithin(5) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
@@ -3330,17 +3372,17 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(Scene.init::class)
 //    class Tiles_minPlane : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodId == method<Scene.init>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.isMethod && it.methodId == method<Scene.init>().id }
 //                .prevWithin(3) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    class renderSelf : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == LDC && it.ldcCst == "renderself" }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == LDC && it.ldcCst == "renderself" }
 //                .nextWithin(5) { it.opcode == GETSTATIC && it.fieldType == BOOLEAN_TYPE }
 //    }
 //
 //    class showMouseOverText : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == LDC && it.ldcCst == "mouseovertext" }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == LDC && it.ldcCst == "mouseovertext" }
 //                .nextWithin(5) { it.opcode == GETSTATIC && it.fieldType == BOOLEAN_TYPE }
 //    }
 //
@@ -3355,14 +3397,14 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(KeyHandler::class)
 //    class KeyHandler_pressedKeys : UniqueMapper.InClassInitializer.Field(KeyHandler::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == BIPUSH && it.intOperand == 112 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == BIPUSH && it.intOperand == 112 }
 //                .next { it.opcode == NEWARRAY }
 //                .next { it.opcode == PUTSTATIC && it.fieldType == BooleanArray::class.type }
 //    }
 //
 //    @DependsOn(doAction::class)
 //    class selectedItemSlot : UniqueMapper.InMethod.Field(doAction::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == BIPUSH && it.intOperand == 38 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == BIPUSH && it.intOperand == 38 }
 //                .nextWithin(2) { it.node is JumpInsnNode }
 //                .nextWithin(15) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //                .nextWithin(6) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
@@ -3370,7 +3412,7 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(doAction::class)
 //    class selectedItemComponent : UniqueMapper.InMethod.Field(doAction::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == BIPUSH && it.intOperand == 38 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == BIPUSH && it.intOperand == 38 }
 //                .nextWithin(2) { it.node is JumpInsnNode }
 //                .nextWithin(15) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //                .nextWithin(6) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
@@ -3379,7 +3421,7 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(doAction::class)
 //    class selectedItemId : UniqueMapper.InMethod.Field(doAction::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == BIPUSH && it.intOperand == 38 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == BIPUSH && it.intOperand == 38 }
 //                .nextWithin(2) { it.node is JumpInsnNode }
 //                .nextWithin(15) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //                .nextWithin(6) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
@@ -3389,7 +3431,7 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(MouseHandler_currentButton::class)
 //    class itemDragDuration : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldId == field<MouseHandler_currentButton>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<MouseHandler_currentButton>().id }
 //                .prevWithin(4) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //                .prev { it.opcode == IADD }
 //                .prevWithin(2) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
@@ -3397,22 +3439,22 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(clickComponent::class)
 //    class componentClickX : OrderMapper.InMethod.Field(clickComponent::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(clickComponent::class)
 //    class componentClickY : OrderMapper.InMethod.Field(clickComponent::class, 1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(clickComponent::class)
 //    class componentDragDuration : OrderMapper.InMethod.Field(clickComponent::class, 2) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(clickComponent::class)
 //    class isDraggingComponent : OrderMapper.InMethod.Field(clickComponent::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTSTATIC && it.fieldType == BOOLEAN_TYPE }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTSTATIC && it.fieldType == BOOLEAN_TYPE }
 //    }
 //
 //    @DependsOn(drawInterface::class)
@@ -3434,18 +3476,18 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(clickComponent::class, Component::class)
 //    class clickedComponent : OrderMapper.InMethod.Field(clickComponent::class, 0) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTSTATIC && it.fieldType == type<Component>() }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTSTATIC && it.fieldType == type<Component>() }
 //    }
 //
 //    @DependsOn(clickComponent::class, Component::class)
 //    class clickedComponentParent : OrderMapper.InMethod.Field(clickComponent::class, 1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTSTATIC && it.fieldType == type<Component>() }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTSTATIC && it.fieldType == type<Component>() }
 //    }
 //
 //    @MethodParameters()
 //    @DependsOn(doCycle::class)
 //    class doCycleLoggedIn : UniqueMapper.InMethod.Method(doCycle::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == BIPUSH && it.intOperand == 30 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == BIPUSH && it.intOperand == 30 }
 //                .nextWithin(10) { it.opcode == INVOKEVIRTUAL && it.methodOwner == type<Client>() }
 //    }
 //
@@ -3459,33 +3501,10 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(ViewportMouse::class)
 //    class ViewportMouse_entityTags : UniqueMapper.InClassInitializer.Field(ViewportMouse::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 1000 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 1000 }
 //                .nextIn(2) { it.opcode == PUTSTATIC && it.fieldType == LONG_TYPE.withDimensions(1) }
 //    }
 //
-//    @DependsOn(Npc::class)
-//    class npcIndices : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == INVOKESPECIAL && it.methodOwner == type<Npc>() }
-//                .nextWithin(15) { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
-//    }
-//
-//    @DependsOn(Npc::class)
-//    class npcCount : AllUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == INVOKESPECIAL && it.methodOwner == type<Npc>() }
-//                .nextWithin(18) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
-//    }
-//
-//    @DependsOn(Players::class)
-//    class Players_indices : OrderMapper.InClassInitializer.Field(Players::class, 0, 6) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 2048 }
-//                .nextIn(2) { it.opcode == PUTSTATIC && it.fieldType == IntArray::class.type }
-//    }
-//
-//    @DependsOn(Players::class)
-//    class Players_count : OrderMapper.InClassInitializer.Field(Players::class, 0, 3) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == ICONST_0 }
-//                .next { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
-//    }
 //
 //    @DependsOn(IndexedSprite::class, AbstractIndexCache::class)
 //    class getIndexedSprites : IdentityMapper.StaticMethod() {
@@ -3494,7 +3513,7 @@ class Client : IdentityMapper.Class() {
 //    }
 //
 //    class rootInterface : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 2706 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 2706 }
 //                .nextWithin(25) { it.isLabel }
 //                .prevWithin(10) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
 //    }
@@ -3502,14 +3521,14 @@ class Client : IdentityMapper.Class() {
 //
 //    @DependsOn(Skills_enabled::class)
 //    class Skills_experienceTable : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTSTATIC && it.fieldId == field<Skills_enabled>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTSTATIC && it.fieldId == field<Skills_enabled>().id }
 //                .nextIn(3) { it.opcode == PUTSTATIC && it.fieldType == IntArray::class.type }
 //    }
 //
 //
 //    @DependsOn(Strings_connectingToUpdateServer::class)
 //    class titleLoadingStage : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == GETSTATIC && it.fieldId == field<Strings_connectingToUpdateServer>().id }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == GETSTATIC && it.fieldId == field<Strings_connectingToUpdateServer>().id }
 //                .nextWithin(3) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //                .nextWithin(3) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
@@ -3529,16 +3548,9 @@ class Client : IdentityMapper.Class() {
 //    }
 
 //
-//    @MethodParameters()
-//    @DependsOn(cycle::class)
-//    class doCycle : IdentityMapper.InstanceMethod() {
-//        override val predicate = predicateOf<Method2> { it.returnType == VOID_TYPE }
-//                .and { it.arguments.size in 0..1 }
-//                .and { it.instructions.any { it.opcode == PUTSTATIC && it.fieldId == field<cycle>().id } }
-//    }
 //
 //    @DependsOn(KeyHandler::class)
 //    class KeyHandler_idleCycles : OrderMapper.InClassInitializer.Field(KeyHandler::class, -1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
 //    }
 }

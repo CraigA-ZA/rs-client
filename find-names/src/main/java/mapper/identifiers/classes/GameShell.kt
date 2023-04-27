@@ -262,6 +262,19 @@ class GameShell : IdentityMapper.Class() {
         override val predicate = predicateOf<MethodWrapper> { it.mark == method<Client.draw>().mark }
     }
 
+    @DependsOn(doCycle::class)
+    class clientTick : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.returnType == VOID_TYPE }
+                .and {it.arguments.isEmpty()}
+                .and {it.instructions.any { it.isMethod && it.methodId == method<doCycle>().id}}
+    }
+
+    @DependsOn(Client.doCycle::class)
+    class doCycle: InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> {Modifier.isAbstract(it.access)}
+                .and {it.desc == method<Client.doCycle>().desc && it.name == method<Client.doCycle>().name}
+    }
+
     @MethodParameters()
     @DependsOn(render::class)
     class checkResize : OrderMapper.InMethod.Method(render::class, -2) {

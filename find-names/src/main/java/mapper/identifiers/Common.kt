@@ -153,7 +153,7 @@ abstract class WidgetListener(index: Int) : OrderMapper.InMethod.Field(Component
 @DependsOn(Component.decode::class)
 abstract class WidgetListener2(index: Int) : StaticOrderMapper.Field(index) {
     override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand in 1400..1430 }
-            .nextWithin(10) { it.opcode == ALOAD }
+            .nextWithin(15) { it.opcode == ALOAD }
             .next { it.opcode == ALOAD }
             .next { it.opcode == PUTFIELD && it.fieldType == Array<Any>::class.type && it.fieldOwner == type<Component>() }
 }

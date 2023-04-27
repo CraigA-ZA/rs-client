@@ -21,8 +21,8 @@ public final class Deobfuscator {
 
     public static void main(String[] args) throws IOException {
         //Load JAR using Javassist
-        classMap = UtilFunctions.loadJar(Constants.GAMEPACK_OUTPUT_DIR + File.separator + Constants.OUTPUT_FILE_NAME);
-        classMapASM = UtilFunctions.loadJarASM(Constants.GAMEPACK_OUTPUT_DIR + File.separator + Constants.OUTPUT_FILE_NAME);
+        classMap = UtilFunctions.loadJar(Constants.VANILLA_GAMEPACK_DIR);
+        classMapASM = UtilFunctions.loadJarASM(Constants.VANILLA_GAMEPACK_DIR);
 
         //Run all javassist based Deobs
         for (AbstractDeob deob : javassistDeobs) {
@@ -38,10 +38,16 @@ public final class Deobfuscator {
 
         //Load the deobbed jar
         classMapASM = UtilFunctions.loadJarASM(Constants.DEOB_IN_PROGRESS_PATH);
+        deletePartJar();
         for (AbstractDeob deob : ASMDeobs) {
             deob.run();
         }
 
         UtilFunctions.writeJarToDiskASM(classMapASM, Constants.DEOB_OUTPUT_JAR_PATH);
+    }
+
+    private static void deletePartJar() {
+        File file = new File(Constants.DEOB_IN_PROGRESS_PATH);
+        file.delete();
     }
 }

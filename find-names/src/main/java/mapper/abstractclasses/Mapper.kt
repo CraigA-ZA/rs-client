@@ -49,7 +49,6 @@ abstract class Mapper<T> : ElementMatcher<T> {
                 klass as KClass<out Mapper<FieldWrapper>>
                 t as FieldWrapper
                 if(context.fields.inverse().containsKey(t)) {
-                    println("Fuck")
                     println(context.fields.inverse().filter { entry -> entry.key == t})
                 }
                 check(!context.fields.inverse().containsKey(t))

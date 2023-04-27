@@ -192,26 +192,23 @@ class Actor : IdentityMapper.Class() {
 //        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<Actor>() }
 //    }
 //
-//    @DependsOn(Client.addPlayerToScene::class)
-//    class playerCycle : OrderMapper.InMethod.Field(Client.addPlayerToScene::class, -1) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldOwner == type<Actor>() && it.fieldType == INT_TYPE }
-//    }
-//
+
 //    class x : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3308 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3308 }
 //                .nextWithin(15) { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
 //    }
 //
 //    @DependsOn(x::class)
 //    class y : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == SIPUSH && it.intOperand == 3308 }
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3308 }
 //                .nextWithin(25) { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE && it.fieldName != field<x>().name }
 //    }
-//
-//    @DependsOn(Player.getModel::class, Model.offset::class)
-//    class orientation : UniqueMapper.InMethod.Field(Player.getModel::class) {
-//        override val predicate = predicateOf<Instruction2> { it.isMethod && it.methodId == method<Model.offset>().id }
-//                .nextWithin(5) { it.opcode == GETFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<Actor>() }
-//    }
+    //TODO
 
+    //This one is fucked up because orientation is a field in actor, but its only ever assigned from Player.getModel. Im not sure how to tie it back to the Actor class though. The identifier wants to map it to Player because thats the class its called on
+//    @DependsOn(Player.getModel::class, Model.offset::class, Player::class)
+//    class orientation : UniqueMapper.InMethod.Field(Player.getModel::class) {
+//        override val predicate = predicateOf<InstructionWrapper> { it.isMethod && it.methodId == method<Model.offset>().id }
+//                .nextWithin(25) { it.opcode == GETFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<Player>() }
+//    }
 }

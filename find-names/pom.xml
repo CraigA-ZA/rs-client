@@ -55,6 +55,11 @@
             <artifactId>jackson-databind</artifactId>
             <version>${version.jackson}</version>
         </dependency>
+        <dependency>
+            <groupId>za.org.secret</groupId>
+            <artifactId>shared-utils</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
