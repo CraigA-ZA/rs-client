@@ -286,9 +286,9 @@ public class ClientPreferences {
          var2.overheadText = var0.cw();
          if (var2.overheadText.charAt(0) == '~') {
             var2.overheadText = var2.overheadText.substring(1);
-            es.an_renamed(2, var2.username.name(), var2.overheadText);
+            UserComparator5.an_renamed(2, var2.username.name(), var2.overheadText);
          } else if (var2 == MusicPatchNode.localPlayer) {
-            es.an_renamed(2, var2.username.name(), var2.overheadText);
+            UserComparator5.an_renamed(2, var2.username.name(), var2.overheadText);
          }
 
          var2.ce = false;
@@ -382,9 +382,9 @@ public class ClientPreferences {
                }
 
                if (-1 != var22.modIcon * 2138745227) {
-                  es.an_renamed(var13, ArchiveDiskActionHandler.af_renamed(2138745227 * var22.modIcon) + var2.username.name(), var29);
+                  UserComparator5.an_renamed(var13, ArchiveDiskActionHandler.af_renamed(2138745227 * var22.modIcon) + var2.username.name(), var29);
                } else {
-                  es.an_renamed(var13, var2.username.name(), var29);
+                  UserComparator5.an_renamed(var13, var2.username.name(), var29);
                }
             }
          }

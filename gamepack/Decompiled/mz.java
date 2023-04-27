@@ -61,9 +61,9 @@ public class mz {
       } else if (var7.startsWith(Strings.hf)) {
          var8 = 8;
          var1 = var1.substring(Strings.hf.length());
-      } else if (var7.startsWith(Strings.if)) {
+      } else if (var7.startsWith(Strings.if_renamed)) {
          var8 = 9;
-         var1 = var1.substring(Strings.if.length());
+         var1 = var1.substring(Strings.if_renamed.length());
       } else if (var7.startsWith(Strings.iu)) {
          var8 = 10;
          var1 = var1.substring(Strings.iu.length());

@@ -16,7 +16,7 @@ public class nv {
       int var4 = (int)var0.key;
       var0.remove();
       if (var1 && -1 != var3 && kt.loadedInterfaces[var3]) {
-         eb.Component_archive.cl(var3);
+         UserComparator3.Component_archive.cl(var3);
          if (hn.interfaceComponents[var3] != null) {
             for(int var5 = 0; var5 < hn.interfaceComponents[var3].length; ++var5) {
                if (hn.interfaceComponents[var3][var5] != null) {

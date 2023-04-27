@@ -130,16 +130,16 @@ public class TaskHandler implements Runnable {
          var4 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize];
          int var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1];
          if (!Client.uj) {
-            Client.kp = -637026513 * var4;
-            Client.kf = var5 * 642728617;
+            Client.camAngleX = -637026513 * var4;
+            Client.camAngleY = var5 * 642728617;
          }
 
          return 1;
       } else if (var0 == 5505) {
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.kp * -954734641;
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.camAngleX * -954734641;
          return 1;
       } else if (var0 == 5506) {
-         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.kf * 704283033;
+         Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.camAngleY * 704283033;
          return 1;
       } else if (5530 == var0) {
          var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];

@@ -204,7 +204,7 @@ public class ay {
             gm.aa[var12] = 0;
             Tiles.ay[var12] = 0;
             kn.ao[var12] = 0;
-            ej.ax[var12] = 0;
+            UserComparator4.ax[var12] = 0;
             bx.ai[var12] = 0;
          }
 
@@ -239,7 +239,7 @@ public class ay {
                      var10000[var13] += 1058265139 * var52.au;
                      var10000 = kn.ao;
                      var10000[var13] += -1527986335 * var52.ab;
-                     var10000 = ej.ax;
+                     var10000 = UserComparator4.ax;
                      var10000[var13] += var52.aq * -2012234183;
                      var10002 = bx.ai[var13]++;
                   }
@@ -273,7 +273,7 @@ public class ay {
                      var10000[var13] -= var54.au * 1058265139;
                      var10000 = kn.ao;
                      var10000[var13] -= -1527986335 * var54.ab;
-                     var10000 = ej.ax;
+                     var10000 = UserComparator4.ax;
                      var10000[var13] -= -2012234183 * var54.aq;
                      var10002 = bx.ai[var13]--;
                   }
@@ -293,7 +293,7 @@ public class ay {
                      var13 += gm.aa[var19];
                      var14 += Tiles.ay[var19];
                      var15 += kn.ao[var19];
-                     var16 += ej.ax[var19];
+                     var16 += UserComparator4.ax[var19];
                      var17 += bx.ai[var19];
                   }
 
@@ -302,13 +302,13 @@ public class ay {
                      var13 -= gm.aa[var20];
                      var14 -= Tiles.ay[var20];
                      var15 -= kn.ao[var20];
-                     var16 -= ej.ax[var20];
+                     var16 -= UserComparator4.ax[var20];
                      var17 -= bx.ai[var20];
                   }
 
                   if (var18 >= 1 && var18 < 103 && (!Client.isLowDetail || (Tiles.Tiles_renderFlags[0][var12][var18] & 2) != 0 || 0 == (Tiles.Tiles_renderFlags[var3][var12][var18] & 16))) {
-                     if (var3 < Tiles.aw * 1401144457) {
-                        Tiles.aw = var3 * -1087180359;
+                     if (var3 < Tiles.Tiles_minPlane * 1401144457) {
+                        Tiles.Tiles_minPlane = var3 * -1087180359;
                      }
 
                      var21 = (int)DynamicObject.al_renamed(15);

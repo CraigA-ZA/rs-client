@@ -18,11 +18,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public final class Client extends GameShell implements Usernamed, OAuthApi {
-   public static boolean ca = false;
+   public static boolean isMembersWorld = false;
    public static hy sh;
-   public static int bw = -1381008117;
+   public static int worldId = -1381008117;
    public static int ly;
-   public static int pu;
+   public static int staffModLevel;
    public static int wn;
    public static final PacketWriter packetWriter;
    static boolean bh = true;
@@ -37,7 +37,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static boolean ki;
    static boolean ln;
    static boolean lz;
-   static boolean md;
+   static boolean renderSelf;
    static boolean mj;
    static boolean mx;
    static boolean nb;
@@ -45,8 +45,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static boolean ol;
    static boolean om;
    static boolean ov;
-   static boolean oz;
-   static boolean pn;
+   static boolean showMouseOverText;
+   static boolean isDraggingComponent;
    static boolean po;
    static boolean pq;
    static boolean px;
@@ -65,7 +65,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static boolean[] ue;
    static SoundEffect[] soundEffects;
    static byte[] hf;
-   static cf wg;
+   static OwnWorldComparator wg;
    static SecureRandomFuture secureRandomFuture;
    static Npc[] npcs;
    static dj em;
@@ -76,14 +76,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static gj[] so;
    static he si;
    static CollisionMap[] collisionMaps;
-   static int ce = 0;
+   static int worldProperties = 0;
    static int cg = 240023661;
    static int cl = 1581503853;
    static int cr = -2133726699;
    static int cs = 0;
    static int cx = 322247329;
-   static int dw = 0;
-   static int ea = 0;
+   static int gameState = 0;
+   static int rebootTimer = 0;
    static int eb = 0;
    static int ed = 0;
    static int ef = -824333519;
@@ -95,7 +95,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int es = 0;
    static int et = 791348693;
    static int eu = 0;
-   static int fi;
+   static int titleLoadingStage;
    static int fo;
    static int fp;
    static int ga;
@@ -105,20 +105,20 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int gu;
    static int ig;
    static int ii;
-   static int iw;
+   static int npcCount;
    static int ja;
    static int je;
    static int jk;
    static int jo;
    static int jq;
    static int jx;
-   static int kf;
+   static int camAngleY;
    static int kj;
    static int kk;
    static int km;
    static int kn;
    static int ko;
-   static int kp;
+   static int camAngleX;
    static int kq;
    static int ks;
    static int kw;
@@ -136,16 +136,16 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int lv;
    static int ma;
    static int mb;
-   static int me;
+   static int mouseCrossState;
    static int localPlayerIndex;
    static int mk;
-   static int mm;
+   static int mouseCrossY;
    static int mo;
-   static int mq;
-   static int mu;
+   static int mouseCrossX;
+   static int viewportTempX;
    static int mv;
    static int mw;
-   static int mz;
+   static int viewportTempY;
    static int menuOptionsCount;
    static int nl;
    static int oa;
@@ -153,20 +153,20 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int of;
    static int on;
    static int op;
-   static int oq;
+   static int isItemSelected;
    static int or;
    static int oy;
    static int pb;
    static int pc;
-   static int pd;
+   static int componentClickX;
    static int ph;
    static int pi;
-   static int pj;
-   static int pk;
+   static int weight;
+   static int runEnergy;
    static int pp;
    static int pt;
    static int pv;
-   static int pw;
+   static int componentClickY;
    static int py;
    static int qa;
    static int qb;
@@ -182,7 +182,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int qy;
    static int qz;
    static int mouseWheelRotation;
-   static int rg;
+   static int gameDrawingMode;
    static int rr;
    static int rs;
    static int sf;
@@ -191,10 +191,10 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int sp;
    static int sr;
    static int su;
-   static int te;
-   static int th;
+   static int destinationX;
+   static int destinationY;
    static int soundEffectCount;
-   static int tp;
+   static int minimapState;
    static int tz;
    static int vd;
    static int viewportZoom;
@@ -207,7 +207,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int ws;
    static int wy;
    static int[] ih;
-   static int[] iy;
+   static int[] npcIndices;
    static int[] overheadTextXOffsets;
    static int[] le;
    static int[] lj;
@@ -215,14 +215,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int[] lo;
    static int[] lw;
    static int[] lx;
-   static int[] ng;
+   static int[] currentLevels;
    static int[] menuOpcodes;
    static int[] menuArguments2;
    static int[] menuArguments1;
    static int[] nm;
    static int[] menuArguments0;
-   static int[] nu;
-   static int[] ny;
+   static int[] experience;
+   static int[] levels;
    static int[] nz;
    static int[] oi;
    static int[] qj;
@@ -252,7 +252,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static int[][][] instanceChunkTemplates;
    static String selectedItemName;
    static String selectedSpellName;
-   static String oj;
+   static String selectedSpellActionName;
    static String ss;
    static String[] lr;
    static String[] playerMenuActions;
@@ -269,11 +269,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static long rj;
    static long sc;
    static long[] st;
-   static Component pf;
+   static Component clickedComponentParent;
    static Component pg;
-   static Component pr;
-   static Component ps;
-   static Component pz;
+   static Component clickedComponent;
+   static Component viewportComponent;
+   static Component componentDragTarget;
    static StudioGame studioGame;
    static PlayerAppearance vh;
    static GrandExchangeOffer[] grandExchangeOffers;
@@ -282,7 +282,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    static NodeDeque graphicsObjects;
    static NodeDeque re;
    static NodeDeque rp;
-   static NodeDeque rq;
+   static NodeDeque clientScriptEvents;
    static NodeDeque rt;
    static NodeDeque[][][] objStacks;
    static Timer timer;
@@ -331,7 +331,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       em = dj.ac;
       ew = dj.ac;
       ex = false;
-      fi = 0;
+      titleLoadingStage = 0;
       fp = 0;
       fo = 0;
       js5Errors = 0;
@@ -346,8 +346,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       secureRandomFuture = new SecureRandomFuture();
       hf = null;
       npcs = new Npc[65536];
-      iw = 0;
-      iy = new int[65536];
+      npcCount = 0;
+      npcIndices = new int[65536];
       ig = 0;
       ih = new int[250];
       packetWriter = new PacketWriter();
@@ -371,8 +371,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       kj = -2102998740;
       ki = false;
       ko = 0;
-      kp = 64984960;
-      kf = 0;
+      camAngleX = 64984960;
+      camAngleY = 0;
       ks = 0;
       kn = 0;
       kz = 0;
@@ -401,11 +401,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       lr = new String[lq * 1025553311];
       mt = new int[104][104];
       mw = 0;
-      mz = 846498395;
-      mu = 1610031701;
-      mq = 0;
-      mm = 0;
-      me = 0;
+      viewportTempY = 846498395;
+      viewportTempX = 1610031701;
+      mouseCrossX = 0;
+      mouseCrossY = 0;
+      mouseCrossState = 0;
       mv = 0;
       mx = true;
       ma = 0;
@@ -414,7 +414,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       localPlayerIndex = -255869677;
       mo = 0;
       mn = -1369385558963036297L;
-      md = true;
+      renderSelf = true;
       mk = 0;
       mb = 0;
       nz = new int[1000];
@@ -427,9 +427,9 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       nn = new NodeDeque();
       projectiles = new NodeDeque();
       graphicsObjects = new NodeDeque();
-      ng = new int[25];
-      ny = new int[25];
-      nu = new int[25];
+      currentLevels = new int[25];
+      levels = new int[25];
+      experience = new int[25];
       nb = false;
       isMiniMenuOpen = false;
       menuOptionsCount = 0;
@@ -443,17 +443,17 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       menuShiftClick = new boolean[500];
       ov = false;
       ol = false;
-      oz = true;
+      showMouseOverText = true;
       of = -563689483;
       oy = -2111961447;
       oe = 0;
       on = -315612066;
-      oq = 0;
+      isItemSelected = 0;
       selectedItemName = null;
       om = false;
       oa = 1204907975;
       op = -35668549;
-      oj = null;
+      selectedSpellActionName = null;
       selectedSpellName = null;
       or = 32945189;
       interfaceParents = new NodeHashTable(8);
@@ -461,24 +461,24 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       pp = 757532791;
       py = 0;
       pg = null;
-      pk = 0;
-      pj = 0;
-      pu = 0;
+      runEnergy = 0;
+      weight = 0;
+      staffModLevel = 0;
       pt = 1296642255;
       po = false;
-      ps = null;
-      pr = null;
-      pf = null;
-      pd = 0;
-      pw = 0;
-      pz = null;
+      viewportComponent = null;
+      clickedComponent = null;
+      clickedComponentParent = null;
+      componentClickX = 0;
+      componentClickY = 0;
+      componentDragTarget = null;
       pq = false;
       pi = 1150287901;
       pb = -68006725;
       px = false;
       ph = -463567197;
       pv = -551918419;
-      pn = false;
+      isDraggingComponent = false;
       qu = -1340429835;
       qr = new int[32];
       qx = 0;
@@ -498,7 +498,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       qa = 0;
       mouseWheelRotation = 0;
       rl = new tz();
-      rq = new NodeDeque();
+      clientScriptEvents = new NodeDeque();
       rt = new NodeDeque();
       rp = new NodeDeque();
       re = new NodeDeque();
@@ -512,7 +512,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       rootComponentYs = new int[100];
       rootComponentWidths = new int[100];
       rootComponentHeights = new int[100];
-      rg = 0;
+      gameDrawingMode = 0;
       rj = 0L;
       ro = true;
       sy = new int[]{16776960, 16711680, 65280, 65535, 16711935, 16777215};
@@ -534,9 +534,9 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       tw = new int[1000];
       ty = new int[1000];
       mapIcons = new Sprite[1000];
-      te = 0;
-      th = 0;
-      tp = 0;
+      destinationX = 0;
+      destinationY = 0;
+      minimapState = 0;
       tz = -1225072817;
       tf = false;
       soundEffectCount = 0;
@@ -576,7 +576,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       vu = 929779017;
       platformInfoProvider = new DesktopPlatformInfoProvider();
       grandExchangeOffers = new GrandExchangeOffer[8];
-      wg = new cf();
+      wg = new OwnWorldComparator();
       wx = new pk(8, py.af);
       wq = new EvictingDualNodeHashTable(64);
       ww = new EvictingDualNodeHashTable(64);
@@ -603,9 +603,9 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                switch (var1) {
                   case 3:
                      if (var2.equalsIgnoreCase(Formatting.Formatting_true)) {
-                        ca = true;
+                        isMembersWorld = true;
                      } else {
-                        ca = false;
+                        isMembersWorld = false;
                      }
                      break;
                   case 4:
@@ -614,7 +614,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                      }
                      break;
                   case 5:
-                     ce = Integer.parseInt(var2) * 1294598713;
+                     worldProperties = Integer.parseInt(var2) * 1294598713;
                      break;
                   case 6:
                      fj.ck = Language.aq_renamed(Integer.parseInt(var2));
@@ -638,10 +638,10 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                      }
                      break;
                   case 11:
-                     ix.hv = var2;
+                     ViewportMouse.hv = var2;
                      break;
                   case 12:
-                     bw = Integer.parseInt(var2) * -1381008117;
+                     worldId = Integer.parseInt(var2) * -1381008117;
                   case 13:
                   case 16:
                   case 18:
@@ -678,7 +678,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
          Scene.Scene_isLowDetail = false;
          isLowDetail = false;
-         ea.worldHost = this.getCodeBase().getHost();
+         UserComparator8.worldHost = this.getCodeBase().getHost();
          String var16 = AABB.serverBuild.name;
          byte var17 = 0;
 
@@ -850,15 +850,15 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    }
 
    public boolean isOnLoginScreen() {
-      return dw * -1275976559 == 10;
+      return gameState * -1275976559 == 10;
    }
 
    public boolean oa() {
-      return dw * -1275976559 == 10;
+      return gameState * -1275976559 == 10;
    }
 
    public boolean ou() {
-      return dw * 162401290 == 10;
+      return gameState * 162401290 == 10;
    }
 
    public long getAccountHash() {
@@ -894,10 +894,10 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       var3.put("grant_type", "refresh_token");
       var3.put("scope", "gamesso.token.create");
       var3.put("refresh_token", var1);
-      URL var4 = new URL(ix.hv + "shield/oauth/token" + (new qa(var3)).au());
+      URL var4 = new URL(ViewportMouse.hv + "shield/oauth/token" + (new qa(var3)).au());
       pc var5 = new pc();
       var5.ab(hd);
-      var5.aw("Host", (new URL(ix.hv)).getHost());
+      var5.aw("Host", (new URL(ViewportMouse.hv)).getHost());
       var5.aa(qz.af);
       aa var6 = aa.af;
       RefreshAccessTokenRequester var7 = this.hu;
@@ -910,7 +910,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    }
 
    void gz(String var1) throws IOException {
-      URL var3 = new URL(ix.hv + "public/v1/games/YCfdbvr2pM1zUYMxJRexZY/play");
+      URL var3 = new URL(ViewportMouse.hv + "public/v1/games/YCfdbvr2pM1zUYMxJRexZY/play");
       pc var4 = new pc();
       var4.aq(var1);
       aa var5 = aa.an;
@@ -924,7 +924,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    }
 
    void hw(String var1, String var2) throws IOException, JSONException {
-      URL var4 = new URL(ix.hv + "/game-session/v1/tokens");
+      URL var4 = new URL(ViewportMouse.hv + "/game-session/v1/tokens");
       ay var5 = new ay(var4, aa.af, this.hj);
       var5.af().aq(var1);
       var5.af().aa(qz.af);
@@ -936,8 +936,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
    protected final void setUp() {
       fl.af_renamed(new int[]{20, 260, 10000}, new int[]{1000, 100, 500});
-      ClanChat.gw = (0 == -1274626977 * cs ? 'ꩊ' : '鱀' + -453810525 * bw) * -1326916691;
-      ec.gc = -1927102761 * (0 == cs * -1274626977 ? 443 : '썐' + -453810525 * bw);
+      ClanChat.gw = (0 == -1274626977 * cs ? 'ꩊ' : '鱀' + -453810525 * worldId) * -1326916691;
+      ec.gc = -1927102761 * (0 == cs * -1274626977 ? 443 : '썐' + -453810525 * worldId);
       Inventory.gf = 518729065 * ClanChat.gw;
       PlayerAppearance.ay = mu.af;
       PlayerAppearance.ao = mu.an;
@@ -963,9 +963,9 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       this.gl = new ag("tokenRequest", 1, 1);
    }
 
-   protected final void bd() {
+   protected final void doCycle() {
       ep += -310720817;
-      this.hj();
+      this.doCycleJs5();
 
       while(true) {
          ArchiveDiskAction var2;
@@ -1012,9 +1012,9 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             this.ag();
             synchronized(MouseHandler.MouseHandler_instance) {
                MouseHandler.MouseHandler_currentButton = MouseHandler.MouseHandler_currentButton0 * 908499211;
-               MouseHandler.ay = 1068258211 * MouseHandler.MouseHandler_x0;
-               MouseHandler.ao = -1918688485 * MouseHandler.MouseHandler_y0;
-               MouseHandler.ax = MouseHandler.at * -4029881570118555541L;
+               MouseHandler.MouseHandler_x = 1068258211 * MouseHandler.MouseHandler_x0;
+               MouseHandler.MouseHandler_y = -1918688485 * MouseHandler.MouseHandler_y0;
+               MouseHandler.MouseHandler_millis = MouseHandler.at * -4029881570118555541L;
                MouseHandler.MouseHandler_lastButton = MouseHandler.MouseHandler_lastButton0 * 199219569;
                MouseHandler.MouseHandler_lastPressedX = MouseHandler.MouseHandler_lastPressedX0 * -1850432819;
                MouseHandler.MouseHandler_lastPressedY = MouseHandler.MouseHandler_lastPressedY0 * -1699120075;
@@ -1027,30 +1027,30 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                mouseWheelRotation = var9 * 1644925127;
             }
 
-            if (dw * -1275976559 == 0) {
+            if (gameState * -1275976559 == 0) {
                DevicePcmPlayerProvider.hs_renamed();
                Npc.bz_renamed();
-            } else if (dw * -1275976559 == 5) {
+            } else if (gameState * -1275976559 == 5) {
                EnumType.ab_renamed(this, Language.fontPlain11, WallDecoration.fontPlain12);
                DevicePcmPlayerProvider.hs_renamed();
                Npc.bz_renamed();
-            } else if (10 != -1275976559 * dw && 11 != -1275976559 * dw) {
-               if (-1275976559 * dw == 20) {
+            } else if (10 != -1275976559 * gameState && 11 != -1275976559 * gameState) {
+               if (-1275976559 * gameState == 20) {
                   EnumType.ab_renamed(this, Language.fontPlain11, WallDecoration.fontPlain12);
                   this.doCycleLoggedOut();
-               } else if (dw * -1275976559 == 50) {
+               } else if (gameState * -1275976559 == 50) {
                   EnumType.ab_renamed(this, Language.fontPlain11, WallDecoration.fontPlain12);
                   this.doCycleLoggedOut();
-               } else if (dw * -1275976559 == 25) {
+               } else if (gameState * -1275976559 == 25) {
                   bb.jh_renamed();
                }
             } else {
                EnumType.ab_renamed(this, Language.fontPlain11, WallDecoration.fontPlain12);
             }
 
-            if (-1275976559 * dw == 30) {
-               this.hq();
-            } else if (40 == dw * -1275976559 || -1275976559 * dw == 45) {
+            if (-1275976559 * gameState == 30) {
+               this.doCycleLoggedIn();
+            } else if (40 == gameState * -1275976559 || -1275976559 * gameState == 45) {
                this.doCycleLoggedOut();
             }
 
@@ -1106,7 +1106,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          bi.pcmPlayer0.ad();
       }
 
-      if ((-1275976559 * dw == 10 || -1275976559 * dw == 20 || 30 == dw * -1275976559) && -3223439394100928671L * rj != 0L && Formatting.af_renamed() > -3223439394100928671L * rj) {
+      if ((-1275976559 * gameState == 10 || -1275976559 * gameState == 20 || 30 == gameState * -1275976559) && -3223439394100928671L * rj != 0L && Formatting.currentTimeMs() > -3223439394100928671L * rj) {
          Decimator.ir_renamed(na.iv_renamed());
       }
 
@@ -1117,16 +1117,16 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          }
       }
 
-      if (-1275976559 * dw == 0) {
+      if (-1275976559 * gameState == 0) {
          this.drawInitial(1158424865 * Login.ad, Login.Login_loadingText, var1);
-      } else if (5 == dw * -1275976559) {
+      } else if (5 == gameState * -1275976559) {
          aq.drawTitle(fx.fontBold12, Language.fontPlain11, WallDecoration.fontPlain12);
-      } else if (dw * -1275976559 != 10 && -1275976559 * dw != 11) {
-         if (-1275976559 * dw == 20) {
+      } else if (gameState * -1275976559 != 10 && -1275976559 * gameState != 11) {
+         if (-1275976559 * gameState == 20) {
             aq.drawTitle(fx.fontBold12, Language.fontPlain11, WallDecoration.fontPlain12);
-         } else if (dw * -1275976559 == 50) {
+         } else if (gameState * -1275976559 == 50) {
             aq.drawTitle(fx.fontBold12, Language.fontPlain11, WallDecoration.fontPlain12);
-         } else if (25 == dw * -1275976559) {
+         } else if (25 == gameState * -1275976559) {
             if (1 == je * -2139010133) {
                if (jx * -215929647 > jo * 817023789) {
                   jo = jx * 1957781173;
@@ -1144,25 +1144,25 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             } else {
                jl.ij_renamed(Strings.Strings_loadingPleaseWait, false);
             }
-         } else if (dw * -1275976559 == 30) {
+         } else if (gameState * -1275976559 == 30) {
             this.drawLoggedIn();
-         } else if (40 == dw * -1275976559) {
+         } else if (40 == gameState * -1275976559) {
             jl.ij_renamed(Strings.Strings_connectionLost + Formatting.Formatting_lineBreakTag + Strings.Strings_pleaseWaitAttemptingToReestablish, false);
-         } else if (45 == dw * -1275976559) {
+         } else if (45 == gameState * -1275976559) {
             jl.ij_renamed(Strings.Strings_pleaseWait, false);
          }
       } else {
          aq.drawTitle(fx.fontBold12, Language.fontPlain11, WallDecoration.fontPlain12);
       }
 
-      if (-1275976559 * dw == 30 && 0 == rg * -1928160607 && !var1 && !ro) {
+      if (-1275976559 * gameState == 30 && 0 == gameDrawingMode * -1928160607 && !var1 && !ro) {
          for(var5 = 0; var5 < -356793645 * rr; ++var5) {
             if (rm[var5]) {
                ia.rasterProvider.draw(rootComponentXs[var5], rootComponentYs[var5], rootComponentWidths[var5], rootComponentHeights[var5]);
                rm[var5] = false;
             }
          }
-      } else if (dw * -1275976559 > 0) {
+      } else if (gameState * -1275976559 > 0) {
          ia.rasterProvider.drawFull(0, 0);
 
          for(var5 = 0; var5 < rr * -356793645; ++var5) {
@@ -1177,11 +1177,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          oy.varcs.write();
       }
 
-      if (null != eg.mouseRecorder) {
-         eg.mouseRecorder.isRunning = false;
+      if (null != UserComparator6.mouseRecorder) {
+         UserComparator6.mouseRecorder.isRunning = false;
       }
 
-      eg.mouseRecorder = null;
+      UserComparator6.mouseRecorder = null;
       packetWriter.au();
       GraphicsObject.an_renamed();
       ex.mouseWheel = null;
@@ -1215,8 +1215,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       this.gl.aw();
    }
 
-   void hj() {
-      if (1000 != -1275976559 * dw) {
+   void doCycleJs5() {
+      if (1000 != -1275976559 * gameState) {
          boolean var2 = Tile.af_renamed();
          if (!var2) {
             this.doCycleJs5Connect();
@@ -1228,12 +1228,12 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    void doCycleJs5Connect() {
       if (1551453085 * NetCache.NetCache_crcMismatches >= 4) {
          this.error("js5crc");
-         fd.hi_renamed(1000);
+         fd.updateGameState(1000);
       } else {
          if (-1386597723 * NetCache.NetCache_ioExceptions >= 4) {
-            if (dw * -1275976559 <= 5) {
+            if (gameState * -1275976559 <= 5) {
                this.error("js5io");
-               fd.hi_renamed(1000);
+               fd.updateGameState(1000);
                return;
             }
 
@@ -1244,7 +1244,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          if ((fo -= -185484651) * -95141699 + 1 <= 0) {
             try {
                if (fp * -1348062367 == 0) {
-                  WorldMapSection0.js5SocketTask = taskHandler.newSocketTask(ea.worldHost, Inventory.gf * -1275160227);
+                  WorldMapSection0.js5SocketTask = taskHandler.newSocketTask(UserComparator8.worldHost, Inventory.gf * -1275160227);
                   fp += 1300738209;
                }
 
@@ -1266,7 +1266,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var2.ba(213);
                   IDKType.js5Socket.ab(var2.array, 0, 5);
                   fp += 1300738209;
-                  fi.fx = Formatting.af_renamed() * -51531514477814883L;
+                  fi.fx = Formatting.currentTimeMs() * -51531514477814883L;
                }
 
                if (fp * -1348062367 == 3) {
@@ -1278,7 +1278,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                      }
 
                      fp += 1300738209;
-                  } else if (Formatting.af_renamed() - fi.fx * 4041510135797154485L > 30000L) {
+                  } else if (Formatting.currentTimeMs() - fi.fx * 4041510135797154485L > 30000L) {
                      this.js5Error(-2);
                      return;
                   }
@@ -1286,7 +1286,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                if (-1348062367 * fp == 4) {
                   AbstractSocket var11 = IDKType.js5Socket;
-                  boolean var3 = dw * -1275976559 > 20;
+                  boolean var3 = gameState * -1275976559 > 20;
                   if (NetCache.af != null) {
                      try {
                         NetCache.af.aq();
@@ -1328,7 +1328,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                               }
 
                               NetCache.an = 0;
-                              NetCache.aw = Formatting.af_renamed() * -6047020038529116697L;
+                              NetCache.aw = Formatting.currentTimeMs() * -6047020038529116697L;
                               WorldMapSection0.js5SocketTask = null;
                               IDKType.js5Socket = null;
                               fp = 0;
@@ -1370,18 +1370,18 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       if (-1027638623 * js5Errors < 2 || 7 != var1 && var1 != 9) {
          if (js5Errors * -1027638623 >= 2 && 6 == var1) {
             this.error("js5connect_outofdate");
-            fd.hi_renamed(1000);
+            fd.updateGameState(1000);
          } else if (-1027638623 * js5Errors >= 4) {
-            if (dw * -1275976559 <= 5) {
+            if (gameState * -1275976559 <= 5) {
                this.error("js5connect");
-               fd.hi_renamed(1000);
+               fd.updateGameState(1000);
             } else {
                fo = 1891795480;
             }
          }
-      } else if (-1275976559 * dw <= 5) {
+      } else if (-1275976559 * gameState <= 5) {
          this.error("js5connect_full");
-         fd.hi_renamed(1000);
+         fd.updateGameState(1000);
       } else {
          fo = 1891795480;
       }
@@ -1589,7 +1589,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
          if (572310033 * loginState == 1) {
             if (null == an.is) {
-               an.is = taskHandler.newSocketTask(ea.worldHost, Inventory.gf * -1275160227);
+               an.is = taskHandler.newSocketTask(UserComparator8.worldHost, Inventory.gf * -1275160227);
             }
 
             if (an.is.status == 2) {
@@ -1678,13 +1678,13 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             var33.ba(var26[2]);
             var33.ba(var26[3]);
             var33.p8s(7290179413469624005L * GrandExchangeEvent.il);
-            if (dw * -1275976559 == 40) {
+            if (gameState * -1275976559 == 40) {
                var33.ba(Huffman.hk[0]);
                var33.ba(Huffman.hk[1]);
                var33.ba(Huffman.hk[2]);
                var33.ba(Huffman.hk[3]);
             } else {
-               if (50 == dw * -1275976559) {
+               if (50 == gameState * -1275976559) {
                   var33.bu(fp.au.ordinal());
                   var33.ba(ByteArrayPool.ck * -431815809);
                } else {
@@ -1699,7 +1699,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                         var33.index += -1516355947;
                         break;
                      case 2:
-                        var33.ba(aj.clientPreferences.bx(Login.ca));
+                        var33.ba(aj.clientPreferences.bx(Login.Login_username));
                   }
                }
 
@@ -1708,7 +1708,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var33.bh(this.gx);
                } else {
                   var33.bu(sr.af.ordinal());
-                  var33.bh(Login.cu);
+                  var33.bh(Login.Login_password);
                }
             }
 
@@ -1716,7 +1716,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             Huffman.hk = var26;
             PacketBitNode var29 = sh.aw_renamed();
             var29.bit.index = 0;
-            if (40 == dw * -1275976559) {
+            if (40 == gameState * -1275976559) {
                var29.bit.bu(537668749 * LoginProt.ac.id);
             } else {
                var29.bit.bu(537668749 * LoginProt.aw.id);
@@ -1732,15 +1732,15 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             var29.bit.bu(var8);
             var29.bit.cs(var33.array, 0, var33.index * -1633313603);
             int var9 = var29.bit.index * -1633313603;
-            var29.bit.bh(Login.ca);
+            var29.bit.bh(Login.Login_username);
             var29.bit.bu((ro ? 1 : 0) << 1 | (isLowDetail ? 1 : 0));
             var29.bit.p2(aj * -1687260435);
             var29.bit.p2(1658005443 * kd.ak);
             oa.nj_renamed(var29.bit);
             var29.bit.bh(ef.cm);
             var29.bit.ba(1640118701 * TriBool.cf);
-            Packet var10 = new Packet(en.platformInfo.size());
-            en.platformInfo.write(var10);
+            Packet var10 = new Packet(UserComparator10.platformInfo.size());
+            UserComparator10.platformInfo.write(var10);
             var29.bit.cs(var10.array, 0, var10.array.length);
             var29.bit.bu(cg * -749752677);
             var29.bit.ba(0);
@@ -1789,11 +1789,11 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                kz.og_renamed(5);
             }
 
-            if (var27 == 21 && 20 == -1275976559 * dw) {
+            if (var27 == 21 && 20 == -1275976559 * gameState) {
                kz.og_renamed(12);
             } else if (var27 == 2) {
                kz.og_renamed(14);
-            } else if (15 == var27 && dw * -1275976559 == 40) {
+            } else if (15 == var27 && gameState * -1275976559 == 40) {
                packetWriter.serverPacket0Length = -1873812295;
                kz.og_renamed(19);
             } else if (64 == var27) {
@@ -1827,7 +1827,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             aq var30 = var36[var3.g1()];
 
             try {
-               ac var31 = ej.af_renamed(var30);
+               ac var31 = UserComparator4.af_renamed(var30);
                this.hp = new al(var3, var31);
                kz.og_renamed(9);
             } catch (Exception var14) {
@@ -1895,17 +1895,17 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var28 |= var3.gIsaac1() << 16;
                   var28 |= var3.gIsaac1() << 8;
                   var28 |= var3.gIsaac1();
-                  aj.clientPreferences.be(Login.ca, var28);
+                  aj.clientPreferences.be(Login.Login_username, var28);
                }
 
                if (hb) {
-                  aj.clientPreferences.ad(Login.ca);
+                  aj.clientPreferences.ad(Login.Login_username);
                } else {
                   aj.clientPreferences.ad((String)null);
                }
 
                dn.ac_renamed();
-               pu = var2.ac() * -345023019;
+               staffModLevel = var2.ac() * -345023019;
                po = var2.ac() == 1;
                localPlayerIndex = var2.ac() * 255869677;
                localPlayerIndex = 255869677 * (localPlayerIndex * -549033243 << 8);
@@ -1959,7 +1959,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   String var40 = var3.cw();
                   String var37 = var3.cw();
                   he.ax_renamed(var42, var40, var37);
-                  fd.hi_renamed(10);
+                  fd.updateGameState(10);
                   if (gy.au()) {
                      ee.ak_renamed(9);
                   }
@@ -2010,7 +2010,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var2.au(var3.array, 0, 889658999 * packetWriter.serverPacket0Length);
                   timer.ac();
                   mouseLastLastPressedTimeMillis = 3648848592458615261L;
-                  eg.mouseRecorder.index = 0;
+                  UserComparator6.mouseRecorder.index = 0;
                   AbstractByteArrayCopier.bf = true;
                   ej = true;
                   sc = -4061967902176514943L;
@@ -2023,26 +2023,26 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   packetWriter.ai = null;
                   packetWriter.serverPacket0Length = 0;
                   packetWriter.aa = 0;
-                  ea = 0;
+                  rebootTimer = 0;
                   ii = 0;
                   eu = 0;
                   menuOptionsCount = 0;
                   isMiniMenuOpen = false;
                   MouseHandler.MouseHandler_idleCycles = 0;
                   ga.aq_renamed();
-                  oq = 0;
+                  isItemSelected = 0;
                   om = false;
                   soundEffectCount = 0;
-                  kf = 0;
+                  camAngleY = 0;
                   lv = 0;
                   fi.wc = null;
-                  tp = 0;
+                  minimapState = 0;
                   sp = 1715437485;
-                  te = 0;
-                  th = 0;
+                  destinationX = 0;
+                  destinationY = 0;
                   em = dj.ac;
                   ew = dj.ac;
-                  iw = 0;
+                  npcCount = 0;
                   ds.ab = 0;
 
                   for(var27 = 0; var27 < 2048; ++var27) {
@@ -2086,7 +2086,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   if (or * -896157613 != -1) {
                      var27 = or * -896157613;
                      if (var27 != -1 && kt.loadedInterfaces[var27]) {
-                        eb.Component_archive.cl(var27);
+                        UserComparator3.Component_archive.cl(var27);
                         if (hn.interfaceComponents[var27] != null) {
                            for(var28 = 0; var28 < hn.interfaceComponents[var27].length; ++var28) {
                               if (hn.interfaceComponents[var27][var28] != null) {
@@ -2124,7 +2124,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
 
                   an.io_renamed();
-                  es.clanChat = null;
+                  UserComparator5.clanChat = null;
                   ObjType.sq = null;
                   Arrays.fill(sg, (Object)null);
                   MouseHandler.sx = null;
@@ -2159,9 +2159,9 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       }
    }
 
-   final void hq() {
-      if (ea * -1496573241 > 1) {
-         ea -= 1317177079;
+   final void doCycleLoggedIn() {
+      if (rebootTimer * -1496573241 > 1) {
+         rebootTimer -= 1317177079;
       }
 
       if (ii * 1705142349 > 0) {
@@ -2180,7 +2180,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          for(var2 = 0; var2 < 100 && this.ja(packetWriter); ++var2) {
          }
 
-         if (30 == -1275976559 * dw) {
+         if (30 == -1275976559 * gameState) {
             while(true) {
                ReflectionCheck var3 = (ReflectionCheck)bt.reflectionChecks.last();
                boolean var17;
@@ -2214,26 +2214,26 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   int var11;
                   int var12;
                   int var13;
-                  synchronized(eg.mouseRecorder.lock) {
+                  synchronized(UserComparator6.mouseRecorder.lock) {
                      if (!bh) {
-                        eg.mouseRecorder.index = 0;
-                     } else if (0 != -1222491879 * MouseHandler.MouseHandler_lastButton || 535437747 * eg.mouseRecorder.index >= 40) {
+                        UserComparator6.mouseRecorder.index = 0;
+                     } else if (0 != -1222491879 * MouseHandler.MouseHandler_lastButton || 535437747 * UserComparator6.mouseRecorder.index >= 40) {
                         var18 = null;
                         var4 = 0;
                         var5 = 0;
                         var6 = 0;
                         var7 = 0;
 
-                        for(var8 = 0; var8 < 535437747 * eg.mouseRecorder.index && (var18 == null || -1633313603 * var18.bit.index - var4 < 246); ++var8) {
+                        for(var8 = 0; var8 < 535437747 * UserComparator6.mouseRecorder.index && (var18 == null || -1633313603 * var18.bit.index - var4 < 246); ++var8) {
                            var5 = var8;
-                           var9 = eg.mouseRecorder.ys[var8];
+                           var9 = UserComparator6.mouseRecorder.ys[var8];
                            if (var9 < -1) {
                               var9 = -1;
                            } else if (var9 > 65534) {
                               var9 = 65534;
                            }
 
-                           var10 = eg.mouseRecorder.xs[var8];
+                           var10 = UserComparator6.mouseRecorder.xs[var8];
                            if (var10 < -1) {
                               var10 = -1;
                            } else if (var10 > 65534) {
@@ -2254,8 +2254,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                               if (-1L != ez * 8511124946921102523L) {
                                  var11 = var10 - -751176573 * et;
                                  var12 = var9 - -2076298705 * ef;
-                                 var13 = (int)((eg.mouseRecorder.millis[var8] - ez * 8511124946921102523L) / 20L);
-                                 var6 = (int)((long)var6 + (eg.mouseRecorder.millis[var8] - ez * 8511124946921102523L) % 20L);
+                                 var13 = (int)((UserComparator6.mouseRecorder.millis[var8] - ez * 8511124946921102523L) / 20L);
+                                 var6 = (int)((long)var6 + (UserComparator6.mouseRecorder.millis[var8] - ez * 8511124946921102523L) % 20L);
                               } else {
                                  var11 = var10;
                                  var12 = var9;
@@ -2290,7 +2290,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                               }
 
                               ++var7;
-                              ez = 2560228884295272563L * eg.mouseRecorder.millis[var8];
+                              ez = 2560228884295272563L * UserComparator6.mouseRecorder.millis[var8];
                            }
                         }
 
@@ -2304,14 +2304,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                            packetWriter.aw(var18);
                         }
 
-                        if (var5 >= eg.mouseRecorder.index * 535437747) {
-                           eg.mouseRecorder.index = 0;
+                        if (var5 >= UserComparator6.mouseRecorder.index * 535437747) {
+                           UserComparator6.mouseRecorder.index = 0;
                         } else {
-                           MouseRecorder var46 = eg.mouseRecorder;
+                           MouseRecorder var46 = UserComparator6.mouseRecorder;
                            var46.index -= -1762036357 * var5;
-                           System.arraycopy(eg.mouseRecorder.xs, var5, eg.mouseRecorder.xs, 0, eg.mouseRecorder.index * 535437747);
-                           System.arraycopy(eg.mouseRecorder.ys, var5, eg.mouseRecorder.ys, 0, 535437747 * eg.mouseRecorder.index);
-                           System.arraycopy(eg.mouseRecorder.millis, var5, eg.mouseRecorder.millis, 0, eg.mouseRecorder.index * 535437747);
+                           System.arraycopy(UserComparator6.mouseRecorder.xs, var5, UserComparator6.mouseRecorder.xs, 0, UserComparator6.mouseRecorder.index * 535437747);
+                           System.arraycopy(UserComparator6.mouseRecorder.ys, var5, UserComparator6.mouseRecorder.ys, 0, 535437747 * UserComparator6.mouseRecorder.index);
+                           System.arraycopy(UserComparator6.mouseRecorder.millis, var5, UserComparator6.mouseRecorder.millis, 0, UserComparator6.mouseRecorder.index * 535437747);
                         }
                      }
                   }
@@ -2350,7 +2350,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                      var19 = mi.an_renamed(ClientProt.ab, packetWriter.au);
                      var19.bit.p2(0);
                      var20 = -1633313603 * var19.bit.index;
-                     long var22 = Formatting.af_renamed();
+                     long var22 = Formatting.currentTimeMs();
 
                      for(var6 = 0; var6 < 1888573011 * sh.ac; ++var6) {
                         long var32 = var22 - 8736327498043665535L * sc;
@@ -2379,8 +2379,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                      lt = -523126268;
                      lz = false;
                      var19 = mi.an_renamed(ClientProt.cd, packetWriter.au);
-                     var19.bit.p2(kf * 704283033);
-                     var19.bit.p2(-954734641 * kp);
+                     var19.bit.p2(camAngleY * 704283033);
+                     var19.bit.p2(-954734641 * camAngleX);
                      packetWriter.aw(var19);
                   }
 
@@ -2404,8 +2404,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                   Coord.if_renamed();
                   MapElementType.ia_renamed();
-                  ea.iu_renamed();
-                  if (30 != dw * -1275976559) {
+                  UserComparator8.iu_renamed();
+                  if (30 != gameState * -1275976559) {
                      return;
                   }
 
@@ -2416,7 +2416,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                      if (0 == var23.ag * 1457211081) {
                         if (var23.au * 637177597 < 0 || hc.aj_renamed(637177597 * var23.au, var23.aq * 1599541283)) {
-                           do.ku_renamed(var23.af * 593068225, -1586499579 * var23.an, 68300005 * var23.aw, 800888185 * var23.ac, var23.au * 637177597, -1665966001 * var23.ab, var23.aq * 1599541283, var23.ay * 1699404385);
+                           do_renamed.ku_renamed(var23.af * 593068225, -1586499579 * var23.an, 68300005 * var23.aw, 800888185 * var23.ac, var23.au * 637177597, -1665966001 * var23.ab, var23.aq * 1599541283, var23.ay * 1699404385);
                            var23.remove();
                         }
                      } else {
@@ -2425,7 +2425,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                         }
 
                         if (-536117851 * var23.ai == 0 && 68300005 * var23.aw >= 1 && 800888185 * var23.ac >= 1 && var23.aw * 68300005 <= 102 && 800888185 * var23.ac <= 102 && (var23.al * 552715177 < 0 || hc.aj_renamed(var23.al * 552715177, var23.aa * -1966402261))) {
-                           do.ku_renamed(var23.af * 593068225, -1586499579 * var23.an, var23.aw * 68300005, var23.ac * 800888185, 552715177 * var23.al, 120493739 * var23.at, var23.aa * -1966402261, 1699404385 * var23.ay);
+                           do_renamed.ku_renamed(var23.af * 593068225, -1586499579 * var23.an, var23.aw * 68300005, var23.ac * 800888185, 552715177 * var23.al, 120493739 * var23.at, var23.aa * -1966402261, 1699404385 * var23.ay);
                            var23.ai = -237969965;
                            if (var23.au * 637177597 == 552715177 * var23.al && -1 == var23.au * 637177597) {
                               var23.remove();
@@ -2536,8 +2536,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                      }
                   }
 
-                  for(var20 = 0; var20 < 265474485 * iw; ++var20) {
-                     var4 = iy[var20];
+                  for(var20 = 0; var20 < 265474485 * npcCount; ++var20) {
+                     var4 = npcIndices[var20];
                      Npc var27 = npcs[var4];
                      if (var27 != null && -536830723 * var27.movementFrameCycle > 0) {
                         var27.movementFrameCycle -= 1655791701;
@@ -2549,8 +2549,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                   ja += -603147329;
                   if (-1306273505 * mv != 0) {
-                     me += 2130385748;
-                     if (me * 1513573489 >= 400) {
+                     mouseCrossState += 2130385748;
+                     if (mouseCrossState * 1513573489 >= 400) {
                         mv = 0;
                      }
                   }
@@ -2559,13 +2559,13 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   Component var37 = fe.os;
                   MidiPcmStream.oh = null;
                   fe.os = null;
-                  pz = null;
+                  componentDragTarget = null;
                   px = false;
                   pq = false;
                   sm = 0;
 
                   while(sh.ag() && sm * -1685179677 < 128) {
-                     if (324465533 * pu >= 2 && sh.av(82) && 66 == 546317845 * sh.ai) {
+                     if (324465533 * staffModLevel >= 2 && sh.av(82) && 66 == 546317845 * sh.ai) {
                         StringBuilder var28 = new StringBuilder();
 
                         Message var41;
@@ -2585,7 +2585,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                      }
                   }
 
-                  boolean var35 = pu * 324465533 >= 2;
+                  boolean var35 = staffModLevel * 324465533 >= 2;
                   PacketBitNode var38;
                   if (var35 && sh.av(82) && sh.av(81) && -121753353 * mouseWheelRotation != 0) {
                      var5 = -1900490645 * MusicPatchNode.localPlayer.plane - mouseWheelRotation * -121753353;
@@ -2632,15 +2632,15 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                  if (var39 == null) {
                                     while(true) {
                                        do {
-                                          var39 = (ClientScriptEvent)rq.removeLast();
+                                          var39 = (ClientScriptEvent)clientScriptEvents.removeLast();
                                           if (null == var39) {
                                              while(true) {
                                                 hf var42 = (hf)re.removeLast();
                                                 if (var42 == null) {
                                                    this.ko();
                                                    bt.ie_renamed();
-                                                   if (pr != null) {
-                                                      this.me();
+                                                   if (clickedComponent != null) {
+                                                      this.dragComponent();
                                                    }
 
                                                    if (Scene.bs()) {
@@ -2653,12 +2653,12 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                                       var29.bit.du(sh.av(82) ? (sh.av(81) ? 2 : 1) : 0);
                                                       packetWriter.aw(var29);
                                                       Scene.br();
-                                                      mq = MouseHandler.MouseHandler_lastPressedX * -1884483333;
-                                                      mm = 2130738719 * MouseHandler.MouseHandler_lastPressedY;
+                                                      mouseCrossX = MouseHandler.MouseHandler_lastPressedX * -1884483333;
+                                                      mouseCrossY = 2130738719 * MouseHandler.MouseHandler_lastPressedY;
                                                       mv = -1453825313;
-                                                      me = 0;
-                                                      te = -1970850269 * var5;
-                                                      th = 875414437 * var6;
+                                                      mouseCrossState = 0;
+                                                      destinationX = -1970850269 * var5;
+                                                      destinationY = 875414437 * var6;
                                                    }
 
                                                    if (var34 != MidiPcmStream.oh) {
@@ -2822,12 +2822,12 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                                    }
 
                                                    if (MouseHandler.MouseHandler_currentButton * 114417019 == 4 && su.ev) {
-                                                      var5 = MouseHandler.ao * -1224153235 - 332197605 * km;
+                                                      var5 = MouseHandler.MouseHandler_y * -1224153235 - 332197605 * km;
                                                       kn = 1932462086 * var5;
-                                                      km = (var5 != -1 && var5 != 1 ? (332197605 * km + -1224153235 * MouseHandler.ao) / 2 : MouseHandler.ao * -1224153235) * 1302863597;
-                                                      var6 = kz * -1491948821 - -2063363905 * MouseHandler.ay;
+                                                      km = (var5 != -1 && var5 != 1 ? (332197605 * km + -1224153235 * MouseHandler.MouseHandler_y) / 2 : MouseHandler.MouseHandler_y * -1224153235) * 1302863597;
+                                                      var6 = kz * -1491948821 - -2063363905 * MouseHandler.MouseHandler_x;
                                                       ks = var6 * -503524914;
-                                                      kz = (-1 != var6 && var6 != 1 ? (-1491948821 * kz + MouseHandler.ay * -2063363905) / 2 : MouseHandler.ay * -2063363905) * -837440061;
+                                                      kz = (-1 != var6 && var6 != 1 ? (-1491948821 * kz + MouseHandler.MouseHandler_x * -2063363905) / 2 : MouseHandler.MouseHandler_x * -2063363905) * -837440061;
                                                    } else {
                                                       if (sh.av(96)) {
                                                          ks += 1895721191 * ((-24 - 1977625303 * ks) / 2);
@@ -2845,18 +2845,18 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                                                          kn = 1441154731 * kn / 2 * -1181252605;
                                                       }
 
-                                                      km = MouseHandler.ao * 652543465;
-                                                      kz = 1278432381 * MouseHandler.ay;
+                                                      km = MouseHandler.MouseHandler_y * 652543465;
+                                                      kz = 1278432381 * MouseHandler.MouseHandler_x;
                                                    }
 
-                                                   kf = 642728617 * (ks * 1977625303 / 2 + 704283033 * kf & 2047);
-                                                   kp += -637026513 * (kn * 1441154731 / 2);
-                                                   if (kp * -954734641 < 128) {
-                                                      kp = 64984960;
+                                                   camAngleY = 642728617 * (ks * 1977625303 / 2 + 704283033 * camAngleY & 2047);
+                                                   camAngleX += -637026513 * (kn * 1441154731 / 2);
+                                                   if (camAngleX * -954734641 < 128) {
+                                                      camAngleX = 64984960;
                                                    }
 
-                                                   if (kp * -954734641 > 383) {
-                                                      kp = 831981393;
+                                                   if (camAngleX * -954734641 > 383) {
+                                                      camAngleX = 831981393;
                                                    }
 
                                                    if (uk) {
@@ -2995,7 +2995,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    }
 
    protected final void am() {
-      rj = (Formatting.af_renamed() + 500L) * -1343645632282639199L;
+      rj = (Formatting.currentTimeMs() + 500L) * -1343645632282639199L;
       this.ip();
       if (-1 != or * -896157613) {
          this.ln(true);
@@ -3046,17 +3046,17 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       oy = -2111961447;
       if (-1 != or * -896157613) {
          rr = 0;
-         ai.lk_renamed(or * -896157613, 0, 0, aj * -1687260435, kd.ak * 1658005443, 0, 0, -1);
+         ai.drawInterface0(or * -896157613, 0, 0, aj * -1687260435, kd.ak * 1658005443, 0, 0, -1);
       }
 
       Rasterizer2D.Rasterizer2D_resetClip();
       if (mx) {
          if (-1306273505 * mv == 1) {
-            gq.crossSprites[1513573489 * me / 100].ax(-902574261 * mq - 8, 682495699 * mm - 8);
+            gq.crossSprites[1513573489 * mouseCrossState / 100].ax(-902574261 * mouseCrossX - 8, 682495699 * mouseCrossY - 8);
          }
 
          if (-1306273505 * mv == 2) {
-            gq.crossSprites[4 + 1513573489 * me / 100].ax(-902574261 * mq - 8, 682495699 * mm - 8);
+            gq.crossSprites[4 + 1513573489 * mouseCrossState / 100].ax(-902574261 * mouseCrossX - 8, 682495699 * mouseCrossY - 8);
          }
       }
 
@@ -3074,8 +3074,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          Rasterizer2D.Rasterizer2D_fillRectangle(1 + var2, 1 + var3, var4 - 2, 16, 0);
          Rasterizer2D.Rasterizer2D_drawRectangle(1 + var2, var3 + 18, var4 - 2, var5 - 19, 0);
          fx.fontBold12.draw(Strings.Strings_chooseOption, 3 + var2, 14 + var3, var6, -1);
-         int var7 = -2063363905 * MouseHandler.ay;
-         int var8 = MouseHandler.ao * -1224153235;
+         int var7 = -2063363905 * MouseHandler.MouseHandler_x;
+         int var8 = MouseHandler.MouseHandler_y * -1224153235;
 
          for(int var9 = 0; var9 < 730065501 * menuOptionsCount; ++var9) {
             int var10 = var3 + 31 + 15 * (menuOptionsCount * 730065501 - 1 - var9);
@@ -3090,7 +3090,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          ClanChat.ki_renamed(-1141903185 * hl.menuX, -115281635 * ArchiveLoader.menuY, -960964385 * DesktopPlatformInfoProvider.menuWidth, fq.menuHeight * 245252327);
       }
 
-      if (3 == -1928160607 * rg) {
+      if (3 == -1928160607 * gameDrawingMode) {
          for(var2 = 0; var2 < rr * -356793645; ++var2) {
             if (rw[var2]) {
                Rasterizer2D.ev_renamed(rootComponentXs[var2], rootComponentYs[var2], rootComponentWidths[var2], rootComponentHeights[var2], 16711935, 128);
@@ -3115,13 +3115,13 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
    boolean jp(PacketWriter var1, int var2) {
       if (0 == var1.serverPacket0Length * 889658999) {
-         es.clanChat = null;
+         UserComparator5.clanChat = null;
       } else {
-         if (null == es.clanChat) {
-            es.clanChat = new ClanChat(co.loginType, ClientScriptFrame.client);
+         if (null == UserComparator5.clanChat) {
+            UserComparator5.clanChat = new ClanChat(co.loginType, ClientScriptFrame.client);
          }
 
-         es.clanChat.readUpdate(var1.bit, var2);
+         UserComparator5.clanChat.readUpdate(var1.bit, var2);
       }
 
       qd = qu * 235003969;
@@ -3131,8 +3131,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
    }
 
    boolean jt(PacketWriter var1) {
-      if (es.clanChat != null) {
-         es.clanChat.ax(var1.bit);
+      if (UserComparator5.clanChat != null) {
+         UserComparator5.clanChat.ax(var1.bit);
       }
 
       qd = qu * 235003969;
@@ -3295,21 +3295,21 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                return true;
             }
 
-            Component var50;
+            Component var52;
             if (ServerProt.bc == var1.serverPacket0) {
                var23 = var4.et();
                var25 = var4.en();
                var7 = var4.eq();
-               var50 = gh.getInterfaceComponent(var25);
-               if (var23 != var50.rawX * -115015413 || var7 != 1651158159 * var50.rawY || 0 != -1596536121 * var50.xAlignment || 0 != 1484444061 * var50.yAlignment) {
-                  var50.rawX = var23 * 1806877347;
-                  var50.rawY = var7 * 1231090287;
-                  var50.xAlignment = 0;
-                  var50.yAlignment = 0;
-                  fw.ma_renamed(var50);
-                  this.alignComponent(var50);
-                  if (883712245 * var50.type == 0) {
-                     WallDecoration.lz_renamed(hn.interfaceComponents[var25 >> 16], var50, false);
+               var52 = gh.getInterfaceComponent(var25);
+               if (var23 != var52.rawX * -115015413 || var7 != 1651158159 * var52.rawY || 0 != -1596536121 * var52.xAlignment || 0 != 1484444061 * var52.yAlignment) {
+                  var52.rawX = var23 * 1806877347;
+                  var52.rawY = var7 * 1231090287;
+                  var52.xAlignment = 0;
+                  var52.yAlignment = 0;
+                  fw.ma_renamed(var52);
+                  this.alignComponent(var52);
+                  if (883712245 * var52.type == 0) {
+                     WallDecoration.lz_renamed(hn.interfaceComponents[var25 >> 16], var52, false);
                   }
                }
 
@@ -3321,9 +3321,9 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var23 = var4.db();
                var25 = var4.g1n();
                var7 = var4.g4s();
-               var50 = gh.getInterfaceComponent(var7);
-               ChatChannel.bq_renamed(var50, var23, var25);
-               fw.ma_renamed(var50);
+               var52 = gh.getInterfaceComponent(var7);
+               ChatChannel.bq_renamed(var52, var23, var25);
+               fw.ma_renamed(var52);
                var1.serverPacket0 = null;
                return true;
             }
@@ -3339,20 +3339,20 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var23 = var4.eo();
                var25 = var4.cl();
                var7 = var4.er();
-               var50 = gh.getInterfaceComponent(var7);
-               var50.dq = (var25 + (var23 << 16)) * -1510822541;
+               var52 = gh.getInterfaceComponent(var7);
+               var52.dq = (var25 + (var23 << 16)) * -1510822541;
                var1.serverPacket0 = null;
                return true;
             }
 
-            Npc var56;
+            Npc var55;
             if (ServerProt.dx == var1.serverPacket0) {
                var23 = var4.cl();
-               var56 = npcs[var23];
+               var55 = npcs[var23];
                var7 = var4.cl();
                var25 = var4.g4s();
-               if (null != var56) {
-                  var56.cj(0, var7, var25 >> 16, var25 & '\uffff');
+               if (null != var55) {
+                  var55.cj(0, var7, var25 >> 16, var25 & '\uffff');
                }
 
                var1.serverPacket0 = null;
@@ -3418,9 +3418,9 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
                }
 
-               String var69 = var4.cw();
+               String var68 = var4.cw();
                if (!var76) {
-                  es.an_renamed(var23, var66, var69);
+                  UserComparator5.an_renamed(var23, var66, var68);
                }
 
                var1.serverPacket0 = null;
@@ -3560,7 +3560,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
 
             if (var1.serverPacket0 == ServerProt.bl) {
-               tp = var4.g1() * -690225493;
+               minimapState = var4.g1() * -690225493;
                var1.serverPacket0 = null;
                return true;
             }
@@ -3620,7 +3620,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var6 = var4.cw();
                long var83 = (long)var4.cl();
                long var65 = (long)var4.cr();
-               PlayerType var71 = (PlayerType)StructType.findEnumerated(StudioGame.au_renamed(), var4.g1());
+               PlayerType var72 = (PlayerType)StructType.findEnumerated(StudioGame.au_renamed(), var4.g1());
                long var57 = var65 + (var83 << 32);
                boolean var58 = false;
                var70 = null;
@@ -3632,7 +3632,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                   while(true) {
                      if (var16 >= 100) {
-                        if (var71.isUser && World.friendSystem.aq(new Username(var6, co.loginType))) {
+                        if (var72.isUser && World.friendSystem.aq(new Username(var6, co.loginType))) {
                            var58 = true;
                         }
                         break;
@@ -3652,8 +3652,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   sf = 1561052939 * ((sf * 1960529059 + 1) % 100);
                   var63 = AbstractFont.escapeBrackets(TilePaint.aw_renamed(var4));
                   var17 = var27 >= 0 ? 41 : 44;
-                  if (2138745227 * var71.modIcon != -1) {
-                     fo.addMessage(var17, ArchiveDiskActionHandler.af_renamed(var71.modIcon * 2138745227) + var6, var63, var78.ab);
+                  if (2138745227 * var72.modIcon != -1) {
+                     fo.addMessage(var17, ArchiveDiskActionHandler.af_renamed(var72.modIcon * 2138745227) + var6, var63, var78.ab);
                   } else {
                      fo.addMessage(var17, var6, var63, var78.ab);
                   }
@@ -3666,7 +3666,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             if (var1.serverPacket0 == ServerProt.ax) {
                var4.index += 491706444;
                if (var4.de()) {
-                  ej.nc_renamed(var4, -1633313603 * var4.index - 28);
+                  UserComparator4.nc_renamed(var4, -1633313603 * var4.index - 28);
                }
 
                var1.serverPacket0 = null;
@@ -3727,10 +3727,10 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var8 = var23 >> 5 & 31;
                var9 = var23 & 31;
                var10 = (var7 << 19) + (var8 << 11) + (var9 << 3);
-               Component var68 = gh.getInterfaceComponent(var25);
-               if (1409091639 * var68.color != var10) {
-                  var68.color = var10 * -1604768377;
-                  fw.ma_renamed(var68);
+               Component var69 = gh.getInterfaceComponent(var25);
+               if (1409091639 * var69.color != var10) {
+                  var69.color = var10 * -1604768377;
+                  fw.ma_renamed(var69);
                }
 
                var1.serverPacket0 = null;
@@ -3738,14 +3738,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
 
             int var12;
-            int var54;
+            int var56;
             if (var1.serverPacket0 == ServerProt.bk) {
                var16 = var4.cl();
                var61 = var4.g1n() * 4;
                int var19 = var4.dq();
-               byte var55 = var4.dx();
+               byte var54 = var4.dx();
                var14 = var4.dq() * 4;
-               var54 = var4.cl();
+               var56 = var4.cl();
                var17 = var4.eo();
                var12 = var4.eu();
                int var18 = var4.g1();
@@ -3755,14 +3755,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var8 = var23 + (var7 >> 4 & 7);
                var9 = var25 + (var7 & 7);
                byte var64 = var4.g1s();
-               var10 = var55 + var8;
+               var10 = var54 + var8;
                var11 = var64 + var9;
-               if (var8 >= 0 && var9 >= 0 && var8 < 104 && var9 < 104 && var10 >= 0 && var11 >= 0 && var10 < 104 && var11 < 104 && 65535 != var54) {
+               if (var8 >= 0 && var9 >= 0 && var8 < 104 && var9 < 104 && var10 >= 0 && var11 >= 0 && var10 < 104 && var11 < 104 && 65535 != var56) {
                   var8 = 128 * var8 + 64;
                   var9 = 128 * var9 + 64;
                   var10 = 128 * var10 + 64;
                   var11 = 128 * var11 + 64;
-                  Projectile var20 = new Projectile(var54, GameShell.plane * -1727408401, var8, var9, fq.getTileHeight(var8, var9, -1727408401 * GameShell.plane) - var14, var16 + ep * -1886224337, ep * -1886224337 + var17, var18, var19, var12, var61);
+                  Projectile var20 = new Projectile(var56, GameShell.plane * -1727408401, var8, var9, fq.getTileHeight(var8, var9, -1727408401 * GameShell.plane) - var14, var16 + ep * -1886224337, ep * -1886224337 + var17, var18, var19, var12, var61);
                   var20.setDestination(var10, var11, fq.getTileHeight(var10, var11, -1727408401 * GameShell.plane) - var61, var16 + -1886224337 * ep);
                   projectiles.addFirst(var20);
                }
@@ -3869,25 +3869,25 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var25 = -1;
                }
 
-               var56 = npcs[var23];
-               if (null != var56) {
-                  if (var25 == var56.ct * -1372355773 && var25 != -1) {
+               var55 = npcs[var23];
+               if (null != var55) {
+                  if (var25 == var55.ct * -1372355773 && var25 != -1) {
                      var9 = Inventory.getSeqType(var25).be * 789159225;
                      if (1 == var9) {
-                        var56.cp = 0;
-                        var56.cd = 0;
-                        var56.dm = -401806131 * var7;
-                        var56.dw = 0;
+                        var55.cp = 0;
+                        var55.cd = 0;
+                        var55.dm = -401806131 * var7;
+                        var55.dw = 0;
                      } else if (var9 == 2) {
-                        var56.dw = 0;
+                        var55.dw = 0;
                      }
-                  } else if (var25 == -1 || -1 == -1372355773 * var56.ct || Inventory.getSeqType(var25).az * -1932560049 >= Inventory.getSeqType(var56.ct * -1372355773).az * -1932560049) {
-                     var56.ct = var25 * -1690721941;
-                     var56.cp = 0;
-                     var56.cd = 0;
-                     var56.dm = var7 * -401806131;
-                     var56.dw = 0;
-                     var56.eo = -1718989897 * var56.dn;
+                  } else if (var25 == -1 || -1 == -1372355773 * var55.ct || Inventory.getSeqType(var25).az * -1932560049 >= Inventory.getSeqType(var55.ct * -1372355773).az * -1932560049) {
+                     var55.ct = var25 * -1690721941;
+                     var55.cp = 0;
+                     var55.cd = 0;
+                     var55.dm = var7 * -401806131;
+                     var55.dw = 0;
+                     var55.eo = -1718989897 * var55.dn;
                   }
                }
 
@@ -3896,7 +3896,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
 
             if (ServerProt.cj == var1.serverPacket0) {
-               eb.an_renamed(var4, 889658999 * var1.serverPacket0Length);
+               UserComparator3.an_renamed(var4, 889658999 * var1.serverPacket0Length);
                var1.serverPacket0 = null;
                return true;
             }
@@ -4044,45 +4044,45 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var7 = -1;
                }
 
-               var50 = gh.getInterfaceComponent(var23);
+               var52 = gh.getInterfaceComponent(var23);
                ObjType var48;
-               if (!var50.isIf3) {
+               if (!var52.isIf3) {
                   if (-1 == var7) {
-                     var50.modelType = 0;
+                     var52.modelType = 0;
                      var1.serverPacket0 = null;
                      return true;
                   }
 
                   var48 = HeadbarUpdate.getObjType(var7);
-                  var50.modelType = 1732008820;
-                  var50.modelId = var7 * 509431749;
-                  var50.modelAngleX = 874786355 * var48.xan2d;
-                  var50.modelAngleY = var48.yan2d * -2065246853;
-                  var50.modelZoom = -1582059804 * var48.zoom2d / var25 * -467727501;
-                  fw.ma_renamed(var50);
+                  var52.modelType = 1732008820;
+                  var52.modelId = var7 * 509431749;
+                  var52.modelAngleX = 874786355 * var48.xan2d;
+                  var52.modelAngleY = var48.yan2d * -2065246853;
+                  var52.modelZoom = -1582059804 * var48.zoom2d / var25 * -467727501;
+                  fw.ma_renamed(var52);
                } else {
-                  var50.itemId = -1852876811 * var7;
-                  var50.itemQuantity = var25 * -568259577;
+                  var52.itemId = -1852876811 * var7;
+                  var52.itemQuantity = var25 * -568259577;
                   var48 = HeadbarUpdate.getObjType(var7);
-                  var50.modelAngleX = 874786355 * var48.xan2d;
-                  var50.modelAngleY = -2065246853 * var48.yan2d;
-                  var50.modelAngleZ = 745454881 * var48.zan2d;
-                  var50.modelOffsetX = -183088313 * var48.xof2d;
-                  var50.modelOffsetY = var48.yof2d * -347855449;
-                  var50.modelZoom = var48.zoom2d * 1614948179;
+                  var52.modelAngleX = 874786355 * var48.xan2d;
+                  var52.modelAngleY = -2065246853 * var48.yan2d;
+                  var52.modelAngleZ = 745454881 * var48.zan2d;
+                  var52.modelOffsetX = -183088313 * var48.xof2d;
+                  var52.modelOffsetY = var48.yof2d * -347855449;
+                  var52.modelZoom = var48.zoom2d * 1614948179;
                   if (var48.stackable * 1552863327 == 1) {
-                     var50.dn = -761533221;
+                     var52.dn = -761533221;
                   } else {
-                     var50.dn = -1523066442;
+                     var52.dn = -1523066442;
                   }
 
-                  if (-289037969 * var50.df > 0) {
-                     var50.modelZoom = -467727501 * (100808544 * var50.modelZoom / (-289037969 * var50.df));
-                  } else if (var50.rawWidth * -1960603747 > 0) {
-                     var50.modelZoom = 100808544 * var50.modelZoom / (-1960603747 * var50.rawWidth) * -467727501;
+                  if (-289037969 * var52.df > 0) {
+                     var52.modelZoom = -467727501 * (100808544 * var52.modelZoom / (-289037969 * var52.df));
+                  } else if (var52.rawWidth * -1960603747 > 0) {
+                     var52.modelZoom = 100808544 * var52.modelZoom / (-1960603747 * var52.rawWidth) * -467727501;
                   }
 
-                  fw.ma_renamed(var50);
+                  fw.ma_renamed(var52);
                }
 
                var1.serverPacket0 = null;
@@ -4108,13 +4108,13 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var46 = false;
                if (ud) {
                   var12 = gk.cameraY * 1772923873;
-                  var54 = fq.getTileHeight(var10, var11, -1727408401 * GameShell.plane) - var23;
+                  var56 = fq.getTileHeight(var10, var11, -1727408401 * GameShell.plane) - var23;
                } else {
                   var12 = fq.getTileHeight(-2100544359 * bt.cameraX, ly.cameraZ * -91399205, GameShell.plane * -1727408401) - 1772923873 * gk.cameraY;
-                  var54 = var23;
+                  var56 = var23;
                }
 
-               ui = new rr(bt.cameraX * -2100544359, ly.cameraZ * -91399205, var12, var10, var11, var54, var25, var7, var8, var9);
+               ui = new rr(bt.cameraX * -2100544359, ly.cameraZ * -91399205, var12, var10, var11, var56, var25, var7, var8, var9);
                var1.serverPacket0 = null;
                return true;
             }
@@ -4142,14 +4142,14 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
 
             if (var1.serverPacket0 == ServerProt.ap) {
-               te = var4.g1() * -1970850269;
-               if (1494100363 * te == 255) {
-                  te = 0;
+               destinationX = var4.g1() * -1970850269;
+               if (1494100363 * destinationX == 255) {
+                  destinationX = 0;
                }
 
-               th = var4.g1() * 875414437;
-               if (255 == th * -1748014035) {
-                  th = 0;
+               destinationY = var4.g1() * 875414437;
+               if (255 == destinationY * -1748014035) {
+                  destinationY = 0;
                }
 
                var1.serverPacket0 = null;
@@ -4245,7 +4245,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
             if (var1.serverPacket0 == ServerProt.cn) {
                ClientProt.mp_renamed();
-               pk = var4.cl() * 440508051;
+               runEnergy = var4.cl() * 440508051;
                qa = -235455367 * qu;
                var1.serverPacket0 = null;
                return true;
@@ -4404,7 +4404,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
             if (ServerProt.di == var1.serverPacket0) {
                ClientProt.mp_renamed();
-               pj = var4.cg() * 717110291;
+               weight = var4.cg() * 717110291;
                qa = qu * -235455367;
                var1.serverPacket0 = null;
                return true;
@@ -4429,9 +4429,9 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
                }
 
-               for(dg var52 = (dg)nn.last(); null != var52; var52 = (dg)nn.previous()) {
-                  if (68300005 * var52.aw >= 1555915261 * aa.jp && var52.aw * 68300005 < 8 + 1555915261 * aa.jp && var52.ac * 800888185 >= -191732975 * FontName.jt && 800888185 * var52.ac < 8 + -191732975 * FontName.jt && var52.af * 593068225 == -1727408401 * GameShell.plane) {
-                     var52.ag = 0;
+               for(dg var50 = (dg)nn.last(); null != var50; var50 = (dg)nn.previous()) {
+                  if (68300005 * var50.aw >= 1555915261 * aa.jp && var50.aw * 68300005 < 8 + 1555915261 * aa.jp && var50.ac * 800888185 >= -191732975 * FontName.jt && 800888185 * var50.ac < 8 + -191732975 * FontName.jt && var50.af * 593068225 == -1727408401 * GameShell.plane) {
+                     var50.ag = 0;
                   }
                }
 
@@ -4479,7 +4479,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var45.id = var4.cl() * -2098511939;
                var25 = var4.g4s();
                var45.properties = var25 * 1038974297;
-               fd.hi_renamed(45);
+               fd.updateGameState(45);
                var3.aq();
                var3 = null;
                FloorOverlayType.ah_renamed(var45);
@@ -4488,7 +4488,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
 
             if (ServerProt.cm == var1.serverPacket0) {
-               fv.kb_renamed(true, var4);
+               fv.updateNpcs(true, var4);
                var1.serverPacket0 = null;
                return true;
             }
@@ -4499,7 +4499,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                return true;
             }
 
-            if (var1.serverPacket0 == ServerProt.do) {
+            if (var1.serverPacket0 == ServerProt.do_renamed) {
                var23 = var4.g4s();
                var47 = gh.getInterfaceComponent(var23);
 
@@ -4582,13 +4582,13 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var23 = var4.dq();
                var25 = var4.dq();
                var7 = var4.en();
-               nu[var23] = var7;
-               ng[var23] = var25;
-               ny[var23] = 1;
+               experience[var23] = var7;
+               currentLevels[var23] = var25;
+               levels[var23] = 1;
 
                for(var8 = 0; var8 < 98; ++var8) {
-                  if (var7 >= Skills.aw[var8]) {
-                     ny[var23] = 2 + var8;
+                  if (var7 >= Skills.Skills_experienceTable[var8]) {
+                     levels[var23] = 2 + var8;
                   }
                }
 
@@ -4624,7 +4624,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var10 = var4.g1();
                var11 = var10 >> 2;
                var12 = var10 & 3;
-               var54 = jy[var11];
+               var56 = jy[var11];
                var7 = var4.ej();
                var23 = var7 >> 16;
                var25 = var7 >> 8 & 255;
@@ -4632,7 +4632,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var9 = (var7 & 7) + var25;
                var14 = var4.da();
                if (var8 >= 0 && var9 >= 0 && var8 < 103 && var9 < 103) {
-                  if (var54 == 0) {
+                  if (var56 == 0) {
                      Wall var75 = bx.scene.getWall(GameShell.plane * -1727408401, var8, var9);
                      if (null != var75) {
                         var16 = InterfaceParent.at(var75.tag * -4009183385476919801L);
@@ -4643,7 +4643,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                            var75.entity1 = new DynamicObject(var16, var11, var12, -1727408401 * GameShell.plane, var8, var9, var14, false, var75.entity1);
                         }
                      }
-                  } else if (var54 == 1) {
+                  } else if (var56 == 1) {
                      WallDecoration var74 = bx.scene.getWallDecoration(GameShell.plane * -1727408401, var8, var9);
                      if (var74 != null) {
                         var16 = InterfaceParent.at(var74.tag * -4691380879163567243L);
@@ -4660,7 +4660,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                            var74.entity1 = new DynamicObject(var16, 4, var12, GameShell.plane * -1727408401, var8, var9, var14, false, var74.entity1);
                         }
                      }
-                  } else if (var54 == 2) {
+                  } else if (var56 == 2) {
                      var70 = bx.scene.ae(-1727408401 * GameShell.plane, var8, var9);
                      if (var11 == 11) {
                         var11 = 10;
@@ -4669,10 +4669,10 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                      if (null != var70) {
                         var70.entity = new DynamicObject(InterfaceParent.at(var70.ax * 5016412888503339625L), var11, var12, GameShell.plane * -1727408401, var8, var9, var14, false, var70.entity);
                      }
-                  } else if (var54 == 3) {
-                     FloorDecoration var72 = bx.scene.getFloorDecoration(GameShell.plane * -1727408401, var8, var9);
-                     if (var72 != null) {
-                        var72.entity = new DynamicObject(InterfaceParent.at(var72.tag * 3423223696102332293L), 22, var12, GameShell.plane * -1727408401, var8, var9, var14, false, var72.entity);
+                  } else if (var56 == 3) {
+                     FloorDecoration var71 = bx.scene.getFloorDecoration(GameShell.plane * -1727408401, var8, var9);
+                     if (var71 != null) {
+                        var71.entity = new DynamicObject(InterfaceParent.at(var71.tag * 3423223696102332293L), 22, var12, GameShell.plane * -1727408401, var8, var9, var14, false, var71.entity);
                      }
                   }
                }
@@ -4697,7 +4697,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             if (ServerProt.ck == var1.serverPacket0) {
                var36 = var4.g1() == 1;
                if (var36) {
-                  mj.wd = (Formatting.af_renamed() - var4.g8s()) * 9023382677616235961L;
+                  mj.wd = (Formatting.currentTimeMs() - var4.g8s()) * 9023382677616235961L;
                   oh.grandExchangeEvents = new GrandExchangeEvents(var4, true);
                } else {
                   oh.grandExchangeEvents = null;
@@ -4747,7 +4747,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
 
             if (var1.serverPacket0 == ServerProt.bj) {
-               fv.kb_renamed(false, var4);
+               fv.updateNpcs(false, var4);
                var1.serverPacket0 = null;
                return true;
             }
@@ -4830,9 +4830,9 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   }
 
                   if (2138745227 * var37.modIcon != -1) {
-                     es.an_renamed(var61, ArchiveDiskActionHandler.af_renamed(var37.modIcon * 2138745227) + var24, var49);
+                     UserComparator5.an_renamed(var61, ArchiveDiskActionHandler.af_renamed(var37.modIcon * 2138745227) + var24, var49);
                   } else {
-                     es.an_renamed(var61, var24, var49);
+                     UserComparator5.an_renamed(var61, var24, var49);
                   }
                }
 
@@ -4929,7 +4929,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             if (var1.serverPacket0 == ServerProt.dr) {
                var24 = var4.cw();
                var6 = AbstractFont.escapeBrackets(er.ao_renamed(TilePaint.aw_renamed(var4)));
-               es.an_renamed(6, var24, var6);
+               UserComparator5.an_renamed(6, var24, var6);
                var1.serverPacket0 = null;
                return true;
             }
@@ -4997,7 +4997,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
             }
 
             if (ServerProt.cw == var1.serverPacket0) {
-               ea = var4.da() * 860606706;
+               rebootTimer = var4.da() * 860606706;
                qa = -235455367 * qu;
                var1.serverPacket0 = null;
                return true;
@@ -5138,7 +5138,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
    final void ko() {
       qj.kn_renamed();
-      if (pr == null) {
+      if (clickedComponent == null) {
          int var2 = -1222491879 * MouseHandler.MouseHandler_lastButton;
          int var3;
          int var4;
@@ -5149,8 +5149,8 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
          if (isMiniMenuOpen) {
             int var9;
             if (var2 != 1 && (su.ev || 4 != var2)) {
-               var3 = MouseHandler.ay * -2063363905;
-               var4 = MouseHandler.ao * -1224153235;
+               var3 = MouseHandler.MouseHandler_x * -2063363905;
+               var4 = MouseHandler.MouseHandler_y * -1224153235;
                if (var3 < -1141903185 * hl.menuX - 10 || var3 > -960964385 * DesktopPlatformInfoProvider.menuWidth + -1141903185 * hl.menuX + 10 || var4 < ArchiveLoader.menuY * -115281635 - 10 || var4 > ArchiveLoader.menuY * -115281635 + fq.menuHeight * 245252327 + 10) {
                   isMiniMenuOpen = false;
                   var5 = hl.menuX * -1141903185;
@@ -5193,7 +5193,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                   var13 = oi[var8];
                   String var14 = menuActions[var8];
                   String var15 = menuTargetNames[var8];
-                  ar.ke_renamed(var9, var10, var11, var12, var13, var14, var15, 2020601481 * MouseHandler.MouseHandler_lastPressedX, MouseHandler.MouseHandler_lastPressedY * 1163896205);
+                  ar.doAction(var9, var10, var11, var12, var13, var14, var15, 2020601481 * MouseHandler.MouseHandler_lastPressedX, MouseHandler.MouseHandler_lastPressedY * 1163896205);
                }
 
                isMiniMenuOpen = false;
@@ -5222,7 +5222,7 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
                var8 = oi[var3];
                String var16 = menuActions[var3];
                String var17 = menuTargetNames[var3];
-               ar.ke_renamed(var4, var5, var6, var7, var8, var16, var17, 2020601481 * MouseHandler.MouseHandler_lastPressedX, MouseHandler.MouseHandler_lastPressedY * 1163896205);
+               ar.doAction(var4, var5, var6, var7, var8, var16, var17, 2020601481 * MouseHandler.MouseHandler_lastPressedX, MouseHandler.MouseHandler_lastPressedY * 1163896205);
             }
 
             if (2 == var2 && menuOptionsCount * 730065501 > 0) {
@@ -5287,63 +5287,63 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
       hl.alignComponentPosition(var1, var4, var5);
    }
 
-   final void me() {
-      fw.ma_renamed(pr);
-      Formatting.qe += 873371827;
+   final void dragComponent() {
+      fw.ma_renamed(clickedComponent);
+      Formatting.componentDragDuration += 873371827;
       if (px && pq) {
-         int var2 = -2063363905 * MouseHandler.ay;
-         int var3 = MouseHandler.ao * -1224153235;
-         var2 -= -1789924433 * pd;
-         var3 -= pw * 1902621241;
+         int var2 = -2063363905 * MouseHandler.MouseHandler_x;
+         int var3 = MouseHandler.MouseHandler_y * -1224153235;
+         var2 -= -1789924433 * componentClickX;
+         var3 -= componentClickY * 1902621241;
          if (var2 < pi * 1084046795) {
             var2 = 1084046795 * pi;
          }
 
-         if (var2 + pr.width * -794961409 > -794961409 * pf.width + 1084046795 * pi) {
-            var2 = 1084046795 * pi + pf.width * -794961409 - -794961409 * pr.width;
+         if (var2 + clickedComponent.width * -794961409 > -794961409 * clickedComponentParent.width + 1084046795 * pi) {
+            var2 = 1084046795 * pi + clickedComponentParent.width * -794961409 - -794961409 * clickedComponent.width;
          }
 
          if (var3 < pb * -746723443) {
             var3 = pb * -746723443;
          }
 
-         if (var3 + 1473950221 * pr.height > pb * -746723443 + pf.height * 1473950221) {
-            var3 = -746723443 * pb + pf.height * 1473950221 - pr.height * 1473950221;
+         if (var3 + 1473950221 * clickedComponent.height > pb * -746723443 + clickedComponentParent.height * 1473950221) {
+            var3 = -746723443 * pb + clickedComponentParent.height * 1473950221 - clickedComponent.height * 1473950221;
          }
 
          int var4 = var2 - 565355253 * ph;
          int var5 = var3 - pv * 1136091355;
-         int var6 = pr.dragDeadZone * 154898553;
-         if (1993201275 * Formatting.qe > pr.dragDeadTime * -1849043027 && (var4 > var6 || var4 < -var6 || var5 > var6 || var5 < -var6)) {
-            pn = true;
+         int var6 = clickedComponent.dragDeadZone * 154898553;
+         if (1993201275 * Formatting.componentDragDuration > clickedComponent.dragDeadTime * -1849043027 && (var4 > var6 || var4 < -var6 || var5 > var6 || var5 < -var6)) {
+            isDraggingComponent = true;
          }
 
-         int var7 = var2 - pi * 1084046795 + pf.scrollX * -1469632775;
-         int var8 = pf.scrollY * 1223232735 + (var3 - -746723443 * pb);
+         int var7 = var2 - pi * 1084046795 + clickedComponentParent.scrollX * -1469632775;
+         int var8 = clickedComponentParent.scrollY * 1223232735 + (var3 - -746723443 * pb);
          ClientScriptEvent var9;
-         if (null != pr.onDrag && pn) {
+         if (null != clickedComponent.onDrag && isDraggingComponent) {
             var9 = new ClientScriptEvent();
-            var9.component = pr;
+            var9.component = clickedComponent;
             var9.mouseX = var7 * -2011830585;
             var9.mouseY = 1126405829 * var8;
-            var9.args0 = pr.onDrag;
+            var9.args0 = clickedComponent.onDrag;
             HeadbarUpdate.runClientScript(var9);
          }
 
          if (0 == 114417019 * MouseHandler.MouseHandler_currentButton) {
-            if (pn) {
-               if (null != pr.onDragComplete) {
+            if (isDraggingComponent) {
+               if (null != clickedComponent.onDragComplete) {
                   var9 = new ClientScriptEvent();
-                  var9.component = pr;
+                  var9.component = clickedComponent;
                   var9.mouseX = -2011830585 * var7;
                   var9.mouseY = 1126405829 * var8;
-                  var9.dragTarget = pz;
-                  var9.args0 = pr.onDragComplete;
+                  var9.dragTarget = componentDragTarget;
+                  var9.args0 = clickedComponent.onDragComplete;
                   HeadbarUpdate.runClientScript(var9);
                }
 
-               if (null != pz) {
-                  Component var10 = pr;
+               if (null != componentDragTarget) {
+                  Component var10 = clickedComponent;
                   int var11 = StructType.an_renamed(KeyHandler.getComponentClickMask(var10));
                   Component var17;
                   if (0 == var11) {
@@ -5369,31 +5369,31 @@ public final class Client extends GameShell implements Usernamed, OAuthApi {
 
                   if (null != var17) {
                      PacketBitNode var18 = mi.an_renamed(ClientProt.bw, packetWriter.au);
-                     var18.bit.dy(-2006098851 * pz.itemId);
-                     var18.bit.es(pz.id * 1713081171);
-                     var18.bit.dy(55577617 * pz.childIndex);
-                     var18.bit.dy(pr.childIndex * 55577617);
-                     var18.bit.p4LE16(1713081171 * pr.id);
-                     var18.bit.p2(pr.itemId * -2006098851);
+                     var18.bit.dy(-2006098851 * componentDragTarget.itemId);
+                     var18.bit.es(componentDragTarget.id * 1713081171);
+                     var18.bit.dy(55577617 * componentDragTarget.childIndex);
+                     var18.bit.dy(clickedComponent.childIndex * 55577617);
+                     var18.bit.p4LE16(1713081171 * clickedComponent.id);
+                     var18.bit.p2(clickedComponent.itemId * -2006098851);
                      packetWriter.aw(var18);
                   }
                }
             } else if (this.kr()) {
-               this.openMiniMenu(ph * 565355253 + -1789924433 * pd, pw * 1902621241 + pv * 1136091355);
+               this.openMiniMenu(ph * 565355253 + -1789924433 * componentClickX, componentClickY * 1902621241 + pv * 1136091355);
             } else if (menuOptionsCount * 730065501 > 0) {
-               hp.mx_renamed(565355253 * ph + pd * -1789924433, 1136091355 * pv + pw * 1902621241);
+               hp.mx_renamed(565355253 * ph + componentClickX * -1789924433, 1136091355 * pv + componentClickY * 1902621241);
             }
 
-            pr = null;
+            clickedComponent = null;
          }
 
       } else {
-         if (1993201275 * Formatting.qe > 1) {
-            if (!pn && menuOptionsCount * 730065501 > 0) {
-               hp.mx_renamed(ph * 565355253 + pd * -1789924433, pv * 1136091355 + pw * 1902621241);
+         if (1993201275 * Formatting.componentDragDuration > 1) {
+            if (!isDraggingComponent && menuOptionsCount * 730065501 > 0) {
+               hp.mx_renamed(ph * 565355253 + componentClickX * -1789924433, pv * 1136091355 + componentClickY * 1902621241);
             }
 
-            pr = null;
+            clickedComponent = null;
          }
 
       }

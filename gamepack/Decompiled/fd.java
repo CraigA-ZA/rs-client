@@ -97,13 +97,13 @@ public class fd extends fb {
       var1.al(this.af * -469795657);
    }
 
-   static void hi_renamed(int var0) {
-      if (Client.dw * -1275976559 != var0) {
-         if (-1275976559 * Client.dw == 30) {
+   static void updateGameState(int var0) {
+      if (Client.gameState * -1275976559 != var0) {
+         if (-1275976559 * Client.gameState == 30) {
             Client.si.ag();
          }
 
-         if (0 == -1275976559 * Client.dw) {
+         if (0 == -1275976559 * Client.gameState) {
             ClientScriptFrame.client.bs();
          }
 
@@ -122,7 +122,7 @@ public class fd extends fb {
             ml.ic = null;
          }
 
-         if (Client.dw * -1275976559 == 25) {
+         if (Client.gameState * -1275976559 == 25) {
             Client.je = 0;
             Client.jx = 0;
             Client.jo = -1903772507;
@@ -133,7 +133,7 @@ public class fd extends fb {
          int var2;
          if (var0 != 5 && 10 != var0) {
             if (20 == var0) {
-               var2 = 11 == -1275976559 * Client.dw ? 4 : 0;
+               var2 = 11 == -1275976559 * Client.gameState ? 4 : 0;
                KeyHandler.an_renamed(NetFileRequest.archive10, rr.archive8, false, var2);
             } else if (11 == var0) {
                KeyHandler.an_renamed(NetFileRequest.archive10, rr.archive8, false, 4);
@@ -148,7 +148,7 @@ public class fd extends fb {
             KeyHandler.an_renamed(NetFileRequest.archive10, rr.archive8, true, var2);
          }
 
-         Client.dw = 188619889 * var0;
+         Client.gameState = 188619889 * var0;
       }
    }
 
@@ -161,7 +161,7 @@ public class fd extends fb {
 
    static final void kv_renamed(MiniMenuEntry var0, int var1, int var2) {
       if (var0 != null) {
-         ar.ke_renamed(68640743 * var0.argument1, var0.argument2 * 1427372077, 532700261 * var0.opcode, 1480765569 * var0.argument0, 680599237 * var0.au, var0.action, var0.aq, var1, var2);
+         ar.doAction(68640743 * var0.argument1, var0.argument2 * 1427372077, 532700261 * var0.opcode, 1480765569 * var0.argument0, 680599237 * var0.au, var0.action, var0.aq, var1, var2);
       }
 
    }

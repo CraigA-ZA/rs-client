@@ -24,7 +24,7 @@ public class InvType extends DualNode {
 
    }
 
-   static final void lf_renamed(Npc var0, int var1, int var2, int var3) {
+   static final void addNpcToMenu(Npc var0, int var1, int var2, int var3) {
       NPCType var5 = var0.type;
       if (730065501 * Client.menuOptionsCount < 400) {
          if (var5.transforms != null) {
@@ -45,11 +45,11 @@ public class InvType extends DualNode {
                      MiniMenuEntry.kz_renamed(Strings.Strings_examine, oa.colorStartTag(16776960) + var6, 1003, var1, var2, var3);
                   }
 
-                  if (1 == -303899309 * Client.oq) {
+                  if (1 == -303899309 * Client.isItemSelected) {
                      MiniMenuEntry.kz_renamed(Strings.Strings_use, Client.selectedItemName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(16776960) + var6, 7, var1, var2, var3);
                   } else if (Client.om) {
                      if (2 == (1457791911 * SecureRandomFuture.oo & 2)) {
-                        MiniMenuEntry.kz_renamed(Client.oj, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(16776960) + var6, 8, var1, var2, var3);
+                        MiniMenuEntry.kz_renamed(Client.selectedSpellActionName, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(16776960) + var6, 8, var1, var2, var3);
                      }
                   } else {
                      var7 = var5.isFollower && Client.ov ? 2000 : 0;
@@ -156,6 +156,6 @@ public class InvType extends DualNode {
    }
 
    public static boolean ok_renamed() {
-      return Client.pr != null;
+      return Client.clickedComponent != null;
    }
 }

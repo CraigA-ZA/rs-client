@@ -2,7 +2,7 @@ import java.applet.Applet;
 
 final class dn implements lx {
    public static int at;
-   public static Applet af;
+   public static Applet applet;
    // $FF: synthetic field
    final Component val$cc;
 

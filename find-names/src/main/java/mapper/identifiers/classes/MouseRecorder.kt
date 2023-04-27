@@ -8,6 +8,7 @@ import mapper.predicateutilities.type
 import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
 import mapper.wrappers.InstructionWrapper
+import mapper.wrappers.MethodWrapper
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
 
@@ -31,6 +32,10 @@ class MouseRecorder : IdentityMapper.Class() {
 
     class millis : IdentityMapper.InstanceField() {
         override val predicate = predicateOf<FieldWrapper> { it.type == LongArray::class.type }
+    }
+
+    class run : IdentityMapper.InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.name == "run"}
     }
 
     class xs : OrderMapper.InConstructor.Field(MouseRecorder::class, 0, 2) {

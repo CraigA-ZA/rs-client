@@ -27,8 +27,8 @@ public class fv extends fb {
    }
 
    public static final void ay_renamed() {
-      ix.af = false;
-      ix.ai = 0;
+      ViewportMouse.ViewportMouse_isInViewport = false;
+      ViewportMouse.ViewportMouse_entityCount = 0;
    }
 
    fv(fa var1) {
@@ -51,7 +51,7 @@ public class fv extends fb {
       var1.ao = this.au;
    }
 
-   static final void kb_renamed(boolean var0, PacketBit var1) {
+   static final void updateNpcs(boolean var0, PacketBit var1) {
       Client.mb = 0;
       Client.ig = 0;
       bk.kt_renamed(var1);
@@ -405,9 +405,9 @@ public class fv extends fb {
       if (-1633313603 * var1.index != Client.packetWriter.serverPacket0Length * 889658999) {
          throw new RuntimeException(var1.index * -1633313603 + Formatting.Formatting_comma + 889658999 * Client.packetWriter.serverPacket0Length);
       } else {
-         for(var3 = 0; var3 < 265474485 * Client.iw; ++var3) {
-            if (Client.npcs[Client.iy[var3]] == null) {
-               throw new RuntimeException(var3 + Formatting.Formatting_comma + Client.iw * 265474485);
+         for(var3 = 0; var3 < 265474485 * Client.npcCount; ++var3) {
+            if (Client.npcs[Client.npcIndices[var3]] == null) {
+               throw new RuntimeException(var3 + Formatting.Formatting_comma + Client.npcCount * 265474485);
             }
          }
 

@@ -28,7 +28,7 @@ public abstract class Entity extends DualNode {
       gm.aa = null;
       Tiles.ay = null;
       kn.ao = null;
-      ej.ax = null;
+      UserComparator4.ax = null;
       bx.ai = null;
    }
 }

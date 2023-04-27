@@ -29,7 +29,7 @@ public final class ObjStack {
                }
 
                Npc var7 = Client.npcs[var5];
-               Client.iy[(Client.iw += 1796101277) * 265474485 - 1] = var5;
+               Client.npcIndices[(Client.npcCount += 1796101277) * 265474485 - 1] = var5;
                var7.dg = Client.ep * -1014023335;
                int var10;
                if (var0) {

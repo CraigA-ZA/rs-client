@@ -1,8 +1,8 @@
-public class eg extends AbstractUserComparator {
+public class UserComparator6 extends AbstractUserComparator {
    static MouseRecorder mouseRecorder;
    final boolean af;
 
-   public eg(boolean var1) {
+   public UserComparator6(boolean var1) {
       this.af = var1;
    }
 

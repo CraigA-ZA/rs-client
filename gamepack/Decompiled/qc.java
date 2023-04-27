@@ -99,7 +99,7 @@ public class qc {
 
    static final void ns_renamed(int var0, int var1, int var2, int var3, Sprite var4, SpriteMask var5) {
       if (var4 != null) {
-         int var7 = Client.kf * 704283033 & 2047;
+         int var7 = Client.camAngleY * 704283033 & 2047;
          int var8 = var3 * var3 + var2 * var2;
          if (var8 <= 6400) {
             int var9 = Rasterizer3D.Rasterizer3D_sine[var7];

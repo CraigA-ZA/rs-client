@@ -157,13 +157,13 @@ public class Varcs {
       }
 
       this.unwrittenChanges = false;
-      this.lastWriteTimeMs = Formatting.af_renamed() * 2378911120439077589L;
+      this.lastWriteTimeMs = Formatting.currentTimeMs() * 2378911120439077589L;
    }
 
    void read() {
       AccessFile var2 = this.getPreferencesFile(false);
 
-      label230: {
+      label229: {
          try {
             byte[] var3 = new byte[(int)var2.length()];
 
@@ -176,12 +176,12 @@ public class Varcs {
             }
 
             Packet var25 = new Packet(var3);
-            if (var25.array.length - -1633313603 * var25.index >= 1) {
-               int var6 = var25.g1();
-               if (var6 < 0 || var6 > 2) {
-                  return;
-               }
+            if (var25.array.length - -1633313603 * var25.index < 1) {
+               return;
+            }
 
+            int var6 = var25.g1();
+            if (var6 >= 0 && var6 <= 2) {
                int var7;
                int var8;
                int var9;
@@ -192,7 +192,7 @@ public class Varcs {
 
                   while(true) {
                      if (var8 >= var7) {
-                        break label230;
+                        break label229;
                      }
 
                      var9 = var25.cl();
@@ -221,7 +221,7 @@ public class Varcs {
 
                   while(true) {
                      if (var9 >= var8) {
-                        break label230;
+                        break label229;
                      }
 
                      var25.cl();
@@ -231,7 +231,7 @@ public class Varcs {
                }
             }
          } catch (Exception var23) {
-            break label230;
+            break label229;
          } finally {
             try {
                var2.close();
@@ -247,7 +247,7 @@ public class Varcs {
    }
 
    void tryWrite() {
-      if (this.unwrittenChanges && -7171747788514623875L * this.lastWriteTimeMs < Formatting.af_renamed() - 60000L) {
+      if (this.unwrittenChanges && -7171747788514623875L * this.lastWriteTimeMs < Formatting.currentTimeMs() - 60000L) {
          this.write();
       }
 

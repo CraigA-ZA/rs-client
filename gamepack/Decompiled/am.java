@@ -100,7 +100,7 @@ public class am {
    }
 
    static String aw_renamed() {
-      return aj.clientPreferences.al() ? mc.ai_renamed(Login.ca) : Login.ca;
+      return aj.clientPreferences.al() ? mc.ai_renamed(Login.Login_username) : Login.Login_username;
    }
 
    public static void av_renamed() {
@@ -221,7 +221,7 @@ public class am {
                } else if (var0 == 3923) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                   var5 = (GrandExchangeEvent)oh.grandExchangeEvents.events.get(var4);
-                  long var6 = Formatting.af_renamed() - mj.wd * -8156142729726467959L - -2107275097961185091L * var5.an;
+                  long var6 = Formatting.currentTimeMs() - mj.wd * -8156142729726467959L - -2107275097961185091L * var5.an;
                   int var8 = (int)(var6 / 3600000L);
                   int var9 = (int)((var6 - (long)(var8 * 3600000)) / 60000L);
                   int var10 = (int)((var6 - (long)(var8 * 3600000) - (long)('\uea60' * var9)) / 1000L);
@@ -257,8 +257,8 @@ public class am {
 
    static final void drawActors2d(int var0, int var1, int var2, int var3) {
       Client.mw += 1160286419;
-      if (MusicPatchNode.localPlayer.bx * 1144428983 >> 7 == 1494100363 * Client.te && Client.th * -1748014035 == MusicPatchNode.localPlayer.bo * -411750205 >> 7) {
-         Client.te = 0;
+      if (MusicPatchNode.localPlayer.bx * 1144428983 >> 7 == 1494100363 * Client.destinationX && Client.destinationY * -1748014035 == MusicPatchNode.localPlayer.bo * -411750205 >> 7) {
+         Client.destinationX = 0;
       }
 
       Obj.ix_renamed();
@@ -288,7 +288,7 @@ public class am {
       Rasterizer2D.Rasterizer2D_setClip(var0, var1, var2 + var0, var1 + var3);
       ao_renamed();
       Rasterizer2D.fd();
-      var5 = -954734641 * Client.kp;
+      var5 = -954734641 * Client.camAngleX;
       if (205350563 * Client.lc / 256 > var5) {
          var5 = Client.lc * 205350563 / 256;
       }
@@ -297,7 +297,7 @@ public class am {
          var5 = Client.vw[4] + 128;
       }
 
-      int var35 = 704283033 * Client.kf & 2047;
+      int var35 = 704283033 * Client.camAngleY & 2047;
       var7 = bz.lg * -1958669353;
       int var8 = Formatting.ls * 470489225;
       int var9 = fw.lf * -365969735;
@@ -349,7 +349,7 @@ public class am {
          ek.cameraYaw = var35 * -1545206147;
       }
 
-      if (1 == 986256295 * Client.lv && Client.pu * 324465533 >= 2 && 0 == Client.ep * -1886224337 % 50 && (1144428983 * MusicPatchNode.localPlayer.bx >> 7 != -1958669353 * bz.lg >> 7 || -365969735 * fw.lf >> 7 != -411750205 * MusicPatchNode.localPlayer.bo >> 7)) {
+      if (1 == 986256295 * Client.lv && Client.staffModLevel * 324465533 >= 2 && 0 == Client.ep * -1886224337 % 50 && (1144428983 * MusicPatchNode.localPlayer.bx >> 7 != -1958669353 * bz.lg >> 7 || -365969735 * fw.lf >> 7 != -411750205 * MusicPatchNode.localPlayer.bo >> 7)) {
          var17 = MusicPatchNode.localPlayer.plane * -1900490645;
          var18 = -1232093375 * jm.baseX + (bz.lg * -1958669353 >> 7);
          var19 = 827352769 * Scenery.baseY + (fw.lf * -365969735 >> 7);
@@ -362,7 +362,7 @@ public class am {
       }
 
       if (!Client.uj) {
-         var11 = eb.jx_renamed();
+         var11 = UserComparator3.jx_renamed();
       } else {
          if (aj.clientPreferences.ab()) {
             var12 = -1727408401 * GameShell.plane;
@@ -416,8 +416,8 @@ public class am {
          }
       }
 
-      var17 = -2063363905 * MouseHandler.ay;
-      var18 = -1224153235 * MouseHandler.ao;
+      var17 = -2063363905 * MouseHandler.MouseHandler_x;
+      var18 = -1224153235 * MouseHandler.MouseHandler_y;
       if (0 != MouseHandler.MouseHandler_lastButton * -1222491879) {
          var17 = 2020601481 * MouseHandler.MouseHandler_lastPressedX;
          var18 = 1163896205 * MouseHandler.MouseHandler_lastPressedY;
@@ -426,11 +426,11 @@ public class am {
       if (var17 >= var0 && var17 < var0 + var2 && var18 >= var1 && var18 < var1 + var3) {
          var19 = var17 - var0;
          int var36 = var18 - var1;
-         ix.an = -580855267 * var19;
-         ix.aw = var36 * 1124836073;
-         ix.af = true;
-         ix.ai = 0;
-         ix.ac = false;
+         ViewportMouse.ViewportMouse_x = -580855267 * var19;
+         ViewportMouse.ViewportMouse_y = var36 * 1124836073;
+         ViewportMouse.ViewportMouse_isInViewport = true;
+         ViewportMouse.ViewportMouse_entityCount = 0;
+         ViewportMouse.ViewportMouse_false0 = false;
       } else {
          fv.ay_renamed();
       }
@@ -438,7 +438,7 @@ public class am {
       mj.hz_renamed();
       Rasterizer2D.Rasterizer2D_fillRectangle(var0, var1, var2, var3, 0);
       mj.hz_renamed();
-      var19 = eu.at_renamed();
+      var19 = UserComparator7.at_renamed();
       mz.af_renamed(ClientScriptFrame.client.by);
       Rasterizer3D.ab.ab = Client.viewportZoom * 1241253503;
       bx.scene.draw(-2100544359 * bt.cameraX, 1772923873 * gk.cameraY, -91399205 * ly.cameraZ, 1897923909 * WorldMapSectionType.cameraPitch, ek.cameraYaw * -1010818347, var11);
@@ -458,7 +458,7 @@ public class am {
       int[] var24 = ds.aq;
 
       int var25;
-      for(var25 = 0; var25 < 265474485 * Client.iw + var23; ++var25) {
+      for(var25 = 0; var25 < 265474485 * Client.npcCount + var23; ++var25) {
          Object var26;
          if (var25 < var23) {
             var26 = Client.players[var24[var25]];
@@ -473,13 +473,13 @@ public class am {
                continue;
             }
          } else {
-            var26 = Client.npcs[Client.iy[var25 - var23]];
+            var26 = Client.npcs[Client.npcIndices[var25 - var23]];
          }
 
          bz.drawActor2d((Actor)var26, var25, var0, var1, var2, var3);
       }
 
-      if (Client.md && -1 != var22) {
+      if (Client.renderSelf && -1 != var22) {
          bz.drawActor2d(MusicPatchNode.localPlayer, var22, var0, var1, var2, var3);
       }
 
@@ -505,8 +505,8 @@ public class am {
             }
          }
 
-         Client.mz = -846498395 * Client.lj[var25];
-         Client.mu = (Client.ll[var25] = var27) * -1610031701;
+         Client.viewportTempY = -846498395 * Client.lj[var25];
+         Client.viewportTempX = (Client.ll[var25] = var27) * -1610031701;
          String var39 = Client.lr[var25];
          if (0 == Client.py * 395188193) {
             int var32 = 16776960;
@@ -561,25 +561,25 @@ public class am {
             }
 
             if (0 == Client.lo[var25]) {
-               fx.fontBold12.drawCentered(var39, var0 + Client.mz * -1848743379, var1 + 318977283 * Client.mu, var32, 0);
+               fx.fontBold12.drawCentered(var39, var0 + Client.viewportTempY * -1848743379, var1 + 318977283 * Client.viewportTempX, var32, 0);
             }
 
             if (Client.lo[var25] == 1) {
-               fx.fontBold12.drawCenteredWave(var39, -1848743379 * Client.mz + var0, Client.mu * 318977283 + var1, var32, 0, Client.mw * 2041464667);
+               fx.fontBold12.drawCenteredWave(var39, -1848743379 * Client.viewportTempY + var0, Client.viewportTempX * 318977283 + var1, var32, 0, Client.mw * 2041464667);
             }
 
             if (Client.lo[var25] == 2) {
-               fx.fontBold12.drawCenteredWave2(var39, -1848743379 * Client.mz + var0, var1 + 318977283 * Client.mu, var32, 0, Client.mw * 2041464667);
+               fx.fontBold12.drawCenteredWave2(var39, -1848743379 * Client.viewportTempY + var0, var1 + 318977283 * Client.viewportTempX, var32, 0, Client.mw * 2041464667);
             }
 
             if (Client.lo[var25] == 3) {
-               fx.fontBold12.drawCenteredShake(var39, var0 + Client.mz * -1848743379, var1 + 318977283 * Client.mu, var32, 0, 2041464667 * Client.mw, 150 - Client.lw[var25]);
+               fx.fontBold12.drawCenteredShake(var39, var0 + Client.viewportTempY * -1848743379, var1 + 318977283 * Client.viewportTempX, var32, 0, 2041464667 * Client.mw, 150 - Client.lw[var25]);
             }
 
             if (4 == Client.lo[var25]) {
                var33 = (150 - Client.lw[var25]) * (fx.fontBold12.stringWidth(var39) + 100) / 150;
-               Rasterizer2D.Rasterizer2D_expandClip(-1848743379 * Client.mz + var0 - 50, var1, var0 + Client.mz * -1848743379 + 50, var3 + var1);
-               fx.fontBold12.draw(var39, 50 + var0 + -1848743379 * Client.mz - var33, var1 + Client.mu * 318977283, var32, 0);
+               Rasterizer2D.Rasterizer2D_expandClip(-1848743379 * Client.viewportTempY + var0 - 50, var1, var0 + Client.viewportTempY * -1848743379 + 50, var3 + var1);
+               fx.fontBold12.draw(var39, 50 + var0 + -1848743379 * Client.viewportTempY - var33, var1 + Client.viewportTempX * 318977283, var32, 0);
                Rasterizer2D.Rasterizer2D_setClip(var0, var1, var0 + var2, var1 + var3);
             }
 
@@ -592,12 +592,12 @@ public class am {
                   var34 = var33 - 125;
                }
 
-               Rasterizer2D.Rasterizer2D_expandClip(var0, var1 + 318977283 * Client.mu - fx.fontBold12.ascent - 1, var2 + var0, 5 + 318977283 * Client.mu + var1);
-               fx.fontBold12.drawCentered(var39, var0 + Client.mz * -1848743379, var1 + 318977283 * Client.mu + var34, var32, 0);
+               Rasterizer2D.Rasterizer2D_expandClip(var0, var1 + 318977283 * Client.viewportTempX - fx.fontBold12.ascent - 1, var2 + var0, 5 + 318977283 * Client.viewportTempX + var1);
+               fx.fontBold12.drawCentered(var39, var0 + Client.viewportTempY * -1848743379, var1 + 318977283 * Client.viewportTempX + var34, var32, 0);
                Rasterizer2D.Rasterizer2D_setClip(var0, var1, var2 + var0, var3 + var1);
             }
          } else {
-            fx.fontBold12.drawCentered(var39, Client.mz * -1848743379 + var0, var1 + 318977283 * Client.mu, 16776960, 0);
+            fx.fontBold12.drawCentered(var39, Client.viewportTempY * -1848743379 + var0, var1 + 318977283 * Client.viewportTempX, 16776960, 0);
          }
       }
 

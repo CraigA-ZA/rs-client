@@ -163,7 +163,7 @@ public final class Player extends Actor {
       this.combatLevel = var1.g1() * 225691243;
       this.skillLevel = var1.cl() * 1353643761;
       this.isHidden = var1.g1() == 1;
-      if (Client.cs * -1274626977 == 0 && Client.pu * 324465533 >= 2) {
+      if (Client.cs * -1274626977 == 0 && Client.staffModLevel * 324465533 >= 2) {
          this.isHidden = false;
       }
 
@@ -224,7 +224,7 @@ public final class Player extends Actor {
    }
 
    void ao() {
-      this.by = es.clanChat != null && es.clanChat.contains(this.username) ? TriBool.TriBool_true : TriBool.TriBool_false;
+      this.by = UserComparator5.clanChat != null && UserComparator5.clanChat.contains(this.username) ? TriBool.TriBool_true : TriBool.TriBool_false;
    }
 
    void ax() {

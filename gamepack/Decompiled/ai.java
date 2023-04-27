@@ -267,7 +267,7 @@ class ai extends DefaultTlsClient {
             var5.component = var4;
             var5.args0 = var4.gh;
             var5.ay = -1685365847 + Interpreter.ae * 815462605;
-            Client.rq.addFirst(var5);
+            Client.clientScriptEvents.addFirst(var5);
             return 1;
          }
       }
@@ -301,7 +301,7 @@ class ai extends DefaultTlsClient {
       }
    }
 
-   static final void lk_renamed(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+   static final void drawInterface0(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       if (SoundSystem.loadInterface(var0)) {
          WorldMapSection3.qk = null;
          ao.drawInterface(hn.interfaceComponents[var0], -1, var1, var2, var3, var4, var5, var6, var7);

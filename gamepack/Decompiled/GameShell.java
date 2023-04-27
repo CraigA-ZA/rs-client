@@ -282,7 +282,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          kd.ak = -16547605 * var2;
          ClientError.aw = var3 * -136548689;
          qh.ac = 767373001 * var4;
-         dn.af = this;
+         dn.applet = this;
          if (null == taskHandler) {
             taskHandler = new TaskHandler();
          }
@@ -336,7 +336,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       }
 
       this.isCanvasInvalid = false;
-      this.canvasSetTimeMs = Formatting.af_renamed() * -515103886995160589L;
+      this.canvasSetTimeMs = Formatting.currentTimeMs() * -515103886995160589L;
    }
 
    protected void ad(boolean var1) {
@@ -406,11 +406,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          this.setUp();
          pj.clock = fc.al_renamed();
 
-         while(951500247553634275L * stopTimeMs == 0L || Formatting.af_renamed() < 951500247553634275L * stopTimeMs) {
+         while(951500247553634275L * stopTimeMs == 0L || Formatting.currentTimeMs() < 951500247553634275L * stopTimeMs) {
             DirectByteArrayCopier.aq = pj.clock.wait(al * 2118369515, -1500331287 * at) * 89306205;
 
             for(int var6 = 0; var6 < DirectByteArrayCopier.aq * -873938955; ++var6) {
-               this.ap();
+               this.clientTick();
             }
 
             this.render();
@@ -424,8 +424,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       this.kill();
    }
 
-   void ap() {
-      long var2 = Formatting.af_renamed();
+   void clientTick() {
+      long var2 = Formatting.currentTimeMs();
       long var4 = ag[702273735 * my.ah];
       ag[702273735 * my.ah] = var2;
       my.ah = 94857463 * (my.ah * 702273735 + 1 & 31);
@@ -436,12 +436,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
          AbstractByteArrayCopier.bf = hasFocus;
       }
 
-      this.bd();
+      this.doCycle();
    }
 
    void render() {
       Container var2 = this.container();
-      long var3 = Formatting.af_renamed();
+      long var3 = Formatting.currentTimeMs();
       long var5 = ax[Rasterizer3D.ai * -689745739];
       ax[-689745739 * Rasterizer3D.ai] = var3;
       Rasterizer3D.ai = -1417208419 * (1 + -689745739 * Rasterizer3D.ai & 31);
@@ -529,13 +529,13 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
    public final void stop() {
       if (gameShell == this && !isKilled) {
-         stopTimeMs = (Formatting.af_renamed() + 4000L) * -2406892942717923893L;
+         stopTimeMs = (Formatting.currentTimeMs() + 4000L) * -2406892942717923893L;
       }
    }
 
    public final void destroy() {
       if (this == gameShell && !isKilled) {
-         stopTimeMs = Formatting.af_renamed() * -2406892942717923893L;
+         stopTimeMs = Formatting.currentTimeMs() * -2406892942717923893L;
          PlayerAppearance.af(5000L);
          this.kill();
       }
@@ -548,7 +548,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
    public final synchronized void paint(Graphics var1) {
       if (gameShell == this && !isKilled) {
          this.bx = true;
-         if (Formatting.af_renamed() - -6171487387477770437L * this.canvasSetTimeMs > 1000L) {
+         if (Formatting.currentTimeMs() - -6171487387477770437L * this.canvasSetTimeMs > 1000L) {
             Rectangle var2 = var1.getClipBounds();
             if (var2 == null || var2.width >= aj * -1687260435 && var2.height >= 1658005443 * kd.ak) {
                this.isCanvasInvalid = true;
@@ -681,7 +681,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
    protected abstract void am();
 
-   protected abstract void bd();
+   protected abstract void doCycle();
 
    protected abstract void kill0();
 

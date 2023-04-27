@@ -63,7 +63,7 @@ public class my {
       if (var0.isIf3) {
          if (Client.om) {
             if (ClientScriptEvent.ac_renamed(KeyHandler.getComponentClickMask(var0)) && (1457791911 * SecureRandomFuture.oo & 32) == 32) {
-               fd.km_renamed(Client.oj, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + var0.opbase, 58, 0, 55577617 * var0.childIndex, var0.id * 1713081171, -2006098851 * var0.itemId);
+               fd.km_renamed(Client.selectedSpellActionName, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + var0.opbase, 58, 0, 55577617 * var0.childIndex, var0.id * 1713081171, -2006098851 * var0.itemId);
             }
          } else {
             for(int var9 = 9; var9 >= 5; --var9) {

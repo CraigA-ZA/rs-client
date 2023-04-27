@@ -1,8 +1,8 @@
-public class es extends AbstractUserComparator {
+public class UserComparator5 extends AbstractUserComparator {
    static ClanChat clanChat;
    final boolean af;
 
-   public es(boolean var1) {
+   public UserComparator5(boolean var1) {
       this.af = var1;
    }
 

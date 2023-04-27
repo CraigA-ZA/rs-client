@@ -21,11 +21,11 @@ public final class au {
    public static void af_renamed(AbstractArchive var0, AbstractArchive var1, AbstractArchive var2, AbstractArchive var3) {
       int var5 = 0;
       if (null != var0) {
-         eb.Component_archive = var0;
+         UserComparator3.Component_archive = var0;
          DynamicObject.bi = var1;
          ClientScriptEvent.be = var2;
          fv.bk = var3;
-         var5 = eb.Component_archive.cm();
+         var5 = UserComparator3.Component_archive.cm();
       }
 
       hn.interfaceComponents = new Component[var5][];

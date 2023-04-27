@@ -297,7 +297,7 @@ public class al {
          }
 
          if (var2 == 18) {
-            Client.em = (dj)StructType.findEnumerated(ej.au_renamed(), var3);
+            Client.em = (dj)StructType.findEnumerated(UserComparator4.au_renamed(), var3);
             if (Client.em == null) {
                Client.em = dj.af;
             }
@@ -312,7 +312,7 @@ public class al {
          }
 
          if (var2 == 22) {
-            Client.ew = (dj)StructType.findEnumerated(ej.au_renamed(), var3);
+            Client.ew = (dj)StructType.findEnumerated(UserComparator4.au_renamed(), var3);
             if (null == Client.ew) {
                Client.ew = dj.af;
             }

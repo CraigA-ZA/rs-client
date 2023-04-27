@@ -24,7 +24,7 @@ public class Component extends Node {
    public boolean di;
    public boolean modelOrthog;
    public boolean spriteTiling;
-   public boolean do;
+   public boolean do_renamed;
    public boolean modelTransparency;
    public boolean isDraggable;
    public boolean el;
@@ -129,26 +129,26 @@ public class Component extends Node {
    public Object[] onDrag;
    public Object[] onHold;
    public Object[] onRelease;
-   public Object[] ft;
    public Object[] onChatTransmit;
+   public Object[] onKey;
    public Object[] onInvTransmit;
    public Object[] onVarTransmit;
    public Object[] onMouseOver;
    public Object[] onTargetLeave;
    public Object[] onDragComplete;
-   public Object[] onClanTransmit;
-   public Object[] onStockTransmit;
+   public Object[] onMiscTransmit;
+   public Object[] gd;
    public Object[] ge;
    public Object[] gg;
    public Object[] gh;
-   public Object[] onFriendTransmit;
+   public Object[] onClanTransmit;
    public Object[] go;
    public Object[] gr;
-   public Object[] onKey;
-   public Object[] onMiscTransmit;
+   public Object[] onFriendTransmit;
    public Object[] onDialogAbort;
-   public Object[] gw;
    public Object[] onSubChange;
+   public Object[] gw;
+   public Object[] onStockTransmit;
    public String cp;
    public String text2;
    public String text;
@@ -441,7 +441,7 @@ public class Component extends Node {
          this.transparency = var1.g1() * 1833148663;
          this.outline = var1.g1() * 646392503;
          this.spriteShadow = var1.g4s() * -140657215;
-         this.do = var1.g1() == 1;
+         this.do_renamed = var1.g1() == 1;
          this.di = var1.g1() == 1;
       }
 
@@ -593,7 +593,7 @@ public class Component extends Node {
       if (var18 == -1) {
          return null;
       } else {
-         long var5 = ((long)(this.spriteShadow * -353676735) << 40) + ((this.do ? 1L : 0L) << 38) + ((long)(this.outline * 1638912775) << 36) + (long)var18 + ((this.di ? 1L : 0L) << 39);
+         long var5 = ((long)(this.spriteShadow * -353676735) << 40) + ((this.do_renamed ? 1L : 0L) << 38) + ((long)(this.outline * 1638912775) << 36) + (long)var18 + ((this.di ? 1L : 0L) << 39);
          Sprite var7 = (Sprite)bx.get(var5);
          if (null != var7) {
             return var7;
@@ -615,7 +615,7 @@ public class Component extends Node {
       if (!this.ao()) {
          return this.ay(var1);
       } else {
-         String var3 = this.cp + (this.do ? 1 : 0) + (this.di ? 1 : 0) + this.outline * 1638912775 + -353676735 * this.spriteShadow;
+         String var3 = this.cp + (this.do_renamed ? 1 : 0) + (this.di ? 1 : 0) + this.outline * 1638912775 + -353676735 * this.spriteShadow;
          Sprite var4 = (Sprite)bt.an(var3);
          if (null == var4) {
             Sprite var5 = this.ay(var1);
@@ -645,11 +645,11 @@ public class Component extends Node {
    }
 
    boolean ao() {
-      return this.do || this.di || 0 != 1638912775 * this.outline || 0 != this.spriteShadow * -353676735;
+      return this.do_renamed || this.di || 0 != 1638912775 * this.outline || 0 != this.spriteShadow * -353676735;
    }
 
    void ax(Sprite var1) {
-      if (this.do) {
+      if (this.do_renamed) {
          var1.al();
       }
 
@@ -811,7 +811,7 @@ public class Component extends Node {
       if (-1 == var3) {
          return null;
       } else {
-         long var4 = ((this.di ? 1L : 0L) << 39) + ((this.do ? 1L : 0L) << 38) + ((long)(1638912775 * this.outline) << 36) + (long)var3 + ((long)(this.spriteShadow * -353676735) << 40);
+         long var4 = ((this.di ? 1L : 0L) << 39) + ((this.do_renamed ? 1L : 0L) << 38) + ((long)(1638912775 * this.outline) << 36) + (long)var3 + ((long)(this.spriteShadow * -353676735) << 40);
          SpriteMask var6 = (SpriteMask)bm.get(var4);
          if (null != var6) {
             return var6;

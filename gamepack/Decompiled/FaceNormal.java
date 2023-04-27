@@ -7,7 +7,7 @@ public class FaceNormal {
    }
 
    public static int au_renamed(int var0) {
-      long var3 = ix.ag[var0];
+      long var3 = ViewportMouse.ag[var0];
       int var2 = (int)(var3 >>> 0 & 127L);
       return var2;
    }

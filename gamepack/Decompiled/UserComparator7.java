@@ -1,7 +1,7 @@
-public class eu extends AbstractUserComparator {
+public class UserComparator7 extends AbstractUserComparator {
    final boolean af;
 
-   public eu(boolean var1) {
+   public UserComparator7(boolean var1) {
       this.af = var1;
    }
 
@@ -124,7 +124,7 @@ public class eu extends AbstractUserComparator {
       }
 
       if (!var5) {
-         es.an_renamed(4, "", Strings.Strings_unableToFind + var1);
+         UserComparator5.an_renamed(4, "", Strings.Strings_unableToFind + var1);
       }
 
    }

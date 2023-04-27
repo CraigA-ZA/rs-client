@@ -16,7 +16,7 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
 
    static void hs_renamed() {
       int var1;
-      if (-627796577 * Client.fi == 0) {
+      if (-627796577 * Client.titleLoadingStage == 0) {
          bx.scene = new Scene(4, 104, 104, Tiles.Tiles_heights);
 
          for(var1 = 0; var1 < 4; ++var1) {
@@ -26,12 +26,12 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
          UrlRequester.sceneMinimapSprite = new Sprite(512, 512);
          Login.Login_loadingText = Strings.Strings_startingGameEngine;
          Login.ad = 1084032613;
-         Client.fi = 1602846572;
-      } else if (20 == Client.fi * -627796577) {
+         Client.titleLoadingStage = 1602846572;
+      } else if (20 == Client.titleLoadingStage * -627796577) {
          Login.Login_loadingText = Strings.Strings_preparedVisibilityMap;
          Login.ad = -2126902070;
-         Client.fi = -1890697438;
-      } else if (Client.fi * -627796577 == 30) {
+         Client.titleLoadingStage = -1890697438;
+      } else if (Client.titleLoadingStage * -627796577 == 30) {
          archive0 = WorldMapLabelSize.newArchive(0, false, true, true, false);
          ServerBuild.archive1 = WorldMapLabelSize.newArchive(1, false, true, true, false);
          dk.archive2 = WorldMapLabelSize.newArchive(2, true, false, true, false);
@@ -55,9 +55,9 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
          PcmPlayer.gs = WorldMapLabelSize.newArchive(21, false, true, true, true);
          Login.Login_loadingText = Strings.Strings_connectingToUpdateServer;
          Login.ad = 41163156;
-         Client.fi = -1089274152;
-      } else if (40 != -627796577 * Client.fi) {
-         if (-627796577 * Client.fi == 45) {
+         Client.titleLoadingStage = -1089274152;
+      } else if (40 != -627796577 * Client.titleLoadingStage) {
+         if (-627796577 * Client.titleLoadingStage == 45) {
             boolean var26 = !Client.isLowDetail;
             PcmPlayer.au = -1500814902;
             PcmPlayer.ab = var26;
@@ -73,9 +73,9 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
             WorldMapSectionType.decimator = new Decimator(22050, PcmPlayer.au * -1359271235);
             Login.Login_loadingText = Strings.Strings_preparedSoundEngine;
             Login.ad = -1001706301;
-            Client.fi = -287850866;
+            Client.titleLoadingStage = -287850866;
             nv.fonts = new Fonts(rr.archive8, ei.archive13);
-         } else if (50 == -627796577 * Client.fi) {
+         } else if (50 == -627796577 * Client.titleLoadingStage) {
             var1 = FontName.FontName_values().length;
             Client.im = nv.fonts.createMap(FontName.FontName_values());
             if (Client.im.size() < var1) {
@@ -85,16 +85,16 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                Language.fontPlain11 = (Font)Client.im.get(FontName.FontName_plain11);
                WallDecoration.fontPlain12 = (Font)Client.im.get(FontName.FontName_plain12);
                fx.fontBold12 = (Font)Client.im.get(FontName.FontName_bold12);
-               en.platformInfo = Client.platformInfoProvider.get();
+               UserComparator10.platformInfo = Client.platformInfoProvider.get();
                Login.Login_loadingText = Strings.Strings_loadedFonts;
                Login.ad = 82326312;
-               Client.fi = 513572420;
+               Client.titleLoadingStage = 513572420;
             }
          } else {
             int var4;
             int var5;
             Archive var13;
-            if (60 == -627796577 * Client.fi) {
+            if (60 == -627796577 * Client.titleLoadingStage) {
                var13 = NetFileRequest.archive10;
                Archive var16 = rr.archive8;
                var4 = 0;
@@ -127,17 +127,17 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   }
                }
 
-               var5 = cf.af_renamed(rr.archive8);
+               var5 = OwnWorldComparator.af_renamed(rr.archive8);
                if (var4 < var5) {
                   Login.Login_loadingText = Strings.Strings_loadingTitleScreen + 100 * var4 / var5 + "%";
                   Login.ad = -2044575758;
                } else {
                   Login.Login_loadingText = Strings.Strings_loadedTitleScreen;
                   Login.ad = -2044575758;
-                  fd.hi_renamed(5);
-                  Client.fi = 1314995706;
+                  fd.updateGameState(5);
+                  Client.titleLoadingStage = 1314995706;
                }
-            } else if (70 == -627796577 * Client.fi) {
+            } else if (70 == -627796577 * Client.titleLoadingStage) {
                if (!dk.archive2.cc()) {
                   Login.Login_loadingText = Strings.Strings_loadingConfig + dk.archive2.loadPercent() + "%";
                   Login.ad = 123489468;
@@ -153,7 +153,7 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   dk.af_renamed(dk.archive2);
                   Archive var25 = dk.archive2;
                   var13 = FloorUnderlayType.archive7;
-                  boolean var15 = Client.ca;
+                  boolean var15 = Client.isMembersWorld;
                   Font var17 = Language.fontPlain11;
                   nc.ObjType_archive = var25;
                   ObjType.aq = var13;
@@ -191,9 +191,9 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   bz.af_renamed(dk.archive2, rr.archive8);
                   Login.Login_loadingText = Strings.Strings_loadedConfig;
                   Login.ad = 123489468;
-                  Client.fi = 2116418992;
+                  Client.titleLoadingStage = 2116418992;
                }
-            } else if (Client.fi * -627796577 == 80) {
+            } else if (Client.titleLoadingStage * -627796577 == 80) {
                var1 = 0;
                if (ChatChannel.jb == null) {
                   ChatChannel.jb = sc.readSprite(rr.archive8, Varcs.spriteIds.compass * -25531251, 0);
@@ -214,37 +214,37 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                }
 
                if (bt.headIconPkSprites == null) {
-                  bt.headIconPkSprites = eb.an_renamed(rr.archive8, Varcs.spriteIds.headiconspk * 84664645, 0);
+                  bt.headIconPkSprites = UserComparator3.an_renamed(rr.archive8, Varcs.spriteIds.headiconspk * 84664645, 0);
                } else {
                   ++var1;
                }
 
                if (null == qj.headIconPrayerSprites) {
-                  qj.headIconPrayerSprites = eb.an_renamed(rr.archive8, Varcs.spriteIds.headiconsprayer * 842447949, 0);
+                  qj.headIconPrayerSprites = UserComparator3.an_renamed(rr.archive8, Varcs.spriteIds.headiconsprayer * 842447949, 0);
                } else {
                   ++var1;
                }
 
                if (IDKType.headIconHintSprites == null) {
-                  IDKType.headIconHintSprites = eb.an_renamed(rr.archive8, Varcs.spriteIds.headiconshint * -1721152621, 0);
+                  IDKType.headIconHintSprites = UserComparator3.an_renamed(rr.archive8, Varcs.spriteIds.headiconshint * -1721152621, 0);
                } else {
                   ++var1;
                }
 
                if (null == ds.mapMarkerSprites) {
-                  ds.mapMarkerSprites = eb.an_renamed(rr.archive8, -1343036557 * Varcs.spriteIds.mapmarker, 0);
+                  ds.mapMarkerSprites = UserComparator3.an_renamed(rr.archive8, -1343036557 * Varcs.spriteIds.mapmarker, 0);
                } else {
                   ++var1;
                }
 
                if (gq.crossSprites == null) {
-                  gq.crossSprites = eb.an_renamed(rr.archive8, Varcs.spriteIds.cross * 1146186045, 0);
+                  gq.crossSprites = UserComparator3.an_renamed(rr.archive8, Varcs.spriteIds.cross * 1146186045, 0);
                } else {
                   ++var1;
                }
 
                if (sf.mapDotSprites == null) {
-                  sf.mapDotSprites = eb.an_renamed(rr.archive8, Varcs.spriteIds.mapdots * 130583873, 0);
+                  sf.mapDotSprites = UserComparator3.an_renamed(rr.archive8, Varcs.spriteIds.mapdots * 130583873, 0);
                } else {
                   ++var1;
                }
@@ -274,9 +274,9 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   ml.mapSceneSprites[0].shiftColors(var5 + var2, var5 + var3, var4 + var5);
                   Login.Login_loadingText = Strings.Strings_loadedSprites;
                   Login.ad = -2003412602;
-                  Client.fi = -1377125018;
+                  Client.titleLoadingStage = -1377125018;
                }
-            } else if (90 == Client.fi * -627796577) {
+            } else if (90 == Client.titleLoadingStage * -627796577) {
                if (!WorldMapLabelSize.archive9.cc()) {
                   Login.Login_loadingText = Strings.Strings_loadingTextures + "0%";
                   Login.ad = -1962249446;
@@ -285,9 +285,9 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   TextureProvider var24 = al.textureProvider;
                   Rasterizer3D.ab.aq = var24;
                   am.an(aj.clientPreferences.av());
-                  Client.fi = -575701732;
+                  Client.titleLoadingStage = -575701732;
                }
-            } else if (100 == -627796577 * Client.fi) {
+            } else if (100 == -627796577 * Client.titleLoadingStage) {
                var1 = al.textureProvider.af();
                if (var1 < 100) {
                   Login.Login_loadingText = Strings.Strings_loadingTextures + var1 + "%";
@@ -295,15 +295,15 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                } else {
                   Login.Login_loadingText = Strings.Strings_loadedTextures;
                   Login.ad = -1962249446;
-                  Client.fi = 225721554;
+                  Client.titleLoadingStage = 225721554;
                }
-            } else if (Client.fi * -627796577 == 110) {
-               eg.mouseRecorder = new MouseRecorder();
-               Client.taskHandler.newThreadTask(eg.mouseRecorder, 10);
+            } else if (Client.titleLoadingStage * -627796577 == 110) {
+               UserComparator6.mouseRecorder = new MouseRecorder();
+               Client.taskHandler.newThreadTask(UserComparator6.mouseRecorder, 10);
                Login.Login_loadingText = Strings.Strings_loadedInputHandler;
                Login.ad = 1907337436;
-               Client.fi = 1027144840;
-            } else if (120 == -627796577 * Client.fi) {
+               Client.titleLoadingStage = 1027144840;
+            } else if (120 == -627796577 * Client.titleLoadingStage) {
                if (!NetFileRequest.archive10.tryLoadFileByNames("huffman", "")) {
                   Login.Login_loadingText = Strings.Strings_loadingWordpack + 0 + "%";
                   Login.ad = 1481957022;
@@ -312,9 +312,9 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   ft.af_renamed(var23);
                   Login.Login_loadingText = Strings.Strings_loadedWordpack;
                   Login.ad = 1481957022;
-                  Client.fi = 1828568126;
+                  Client.titleLoadingStage = 1828568126;
                }
-            } else if (-627796577 * Client.fi == 130) {
+            } else if (-627796577 * Client.titleLoadingStage == 130) {
                if (!dk.archive3.cc()) {
                   Login.Login_loadingText = Strings.Strings_loadingInterfaces + dk.archive3.loadPercent() * 4 / 5 + "%";
                   Login.ad = 1056576608;
@@ -332,9 +332,9 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                      var22.cl();
                   }
 
-                  Client.fi = -1664975884;
+                  Client.titleLoadingStage = -1664975884;
                }
-            } else if (140 == -627796577 * Client.fi) {
+            } else if (140 == -627796577 * Client.titleLoadingStage) {
                Login.ad = 205815780;
                if (bi.ft.cm() > 0 && !bi.ft.tryLoadGroupByName(WorldMapCacheName.WorldMapCacheName_details.name)) {
                   Login.Login_loadingText = Strings.Strings_loadingWorldMap + bi.ft.groupLoadPercentByName(WorldMapCacheName.WorldMapCacheName_details.name) / 10 + "%";
@@ -345,10 +345,10 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
                   }
 
                   Login.Login_loadingText = Strings.Strings_loadedWorldMap;
-                  Client.fi = -863552598;
+                  Client.titleLoadingStage = -863552598;
                }
-            } else if (150 == Client.fi * -627796577) {
-               fd.hi_renamed(10);
+            } else if (150 == Client.titleLoadingStage * -627796577) {
+               fd.updateGameState(10);
             }
          }
       } else {
@@ -381,24 +381,24 @@ public class DevicePcmPlayerProvider implements PcmPlayerProvider {
 
             Login.ad = -2085738914;
          } else {
-            es.hx_renamed(archive0, "Animations");
-            es.hx_renamed(ServerBuild.archive1, "Skeletons");
-            es.hx_renamed(qc.archive4, "Sound FX");
-            es.hx_renamed(TotalQuantityComparator.archive5, "Maps");
-            es.hx_renamed(pj.archive6, "Music Tracks");
-            es.hx_renamed(FloorUnderlayType.archive7, "Models");
-            es.hx_renamed(rr.archive8, "Sprites");
-            es.hx_renamed(hc.archive11, "Music Jingles");
-            es.hx_renamed(id.archive14, "Music Samples");
-            es.hx_renamed(ey.archive15, "Music Patches");
-            es.hx_renamed(bi.ft, "World Map");
-            es.hx_renamed(UnitPriceComparator.fu, "World Map Geography");
-            es.hx_renamed(he.gr, "World Map Ground");
+            UserComparator5.hx_renamed(archive0, "Animations");
+            UserComparator5.hx_renamed(ServerBuild.archive1, "Skeletons");
+            UserComparator5.hx_renamed(qc.archive4, "Sound FX");
+            UserComparator5.hx_renamed(TotalQuantityComparator.archive5, "Maps");
+            UserComparator5.hx_renamed(pj.archive6, "Music Tracks");
+            UserComparator5.hx_renamed(FloorUnderlayType.archive7, "Models");
+            UserComparator5.hx_renamed(rr.archive8, "Sprites");
+            UserComparator5.hx_renamed(hc.archive11, "Music Jingles");
+            UserComparator5.hx_renamed(id.archive14, "Music Samples");
+            UserComparator5.hx_renamed(ey.archive15, "Music Patches");
+            UserComparator5.hx_renamed(bi.ft, "World Map");
+            UserComparator5.hx_renamed(UnitPriceComparator.fu, "World Map Geography");
+            UserComparator5.hx_renamed(he.gr, "World Map Ground");
             Varcs.spriteIds = new GraphicsDefaults();
             Varcs.spriteIds.decode(gw.archive16);
             Login.Login_loadingText = Strings.Strings_loadedUpdateList;
             Login.ad = -2085738914;
-            Client.fi = 1458921139;
+            Client.titleLoadingStage = 1458921139;
          }
       }
    }

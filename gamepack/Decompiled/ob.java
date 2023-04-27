@@ -30,11 +30,11 @@ public class ob {
          var3 = var3.replace('@', '_');
          var3 = var3.replace('&', '_');
          var3 = var3.replace('#', '_');
-         if (dn.af == null) {
+         if (dn.applet == null) {
             return;
          }
 
-         URL var4 = new URL(dn.af.getCodeBase(), "clienterror.ws?cv=" + 2027530319 * ClientError.aw + "&cs=" + qh.ac * 1574980473 + "&u=" + ClientError.localPlayerName + "&v1=" + TaskHandler.javaVendor + "&v2=" + TaskHandler.javaVersion + "&ct=" + ClientError.au * -891448341 + "&e=" + var3);
+         URL var4 = new URL(dn.applet.getCodeBase(), "clienterror.ws?cv=" + 2027530319 * ClientError.aw + "&cs=" + qh.ac * 1574980473 + "&u=" + ClientError.localPlayerName + "&v1=" + TaskHandler.javaVendor + "&v2=" + TaskHandler.javaVersion + "&ct=" + ClientError.au * -891448341 + "&e=" + var3);
          DataInputStream var5 = new DataInputStream(var4.openStream());
          var5.read();
          var5.close();

@@ -16,7 +16,7 @@ public class nf {
       int var3;
       int var4;
       for(var3 = 12; var1 < 16; var2 -= var3) {
-         var4 = eu.af((double)((float)var2 / 360.0F), 0.9998999834060669, (double)((float)var1 * 0.425F / 16.0F + 0.075F));
+         var4 = UserComparator7.af((double)((float)var2 / 360.0F), 0.9998999834060669, (double)((float)var1 * 0.425F / 16.0F + 0.075F));
          dt.at[var1] = var4;
          ++var1;
       }
@@ -26,7 +26,7 @@ public class nf {
       for(var3 = var2 / 6; var1 < dt.at.length; var2 -= var3) {
          var4 = var1 * 2;
 
-         for(int var5 = eu.af((double)((float)var2 / 360.0F), 0.9998999834060669, 0.5); var1 < var4 && var1 < dt.at.length; ++var1) {
+         for(int var5 = UserComparator7.af((double)((float)var2 / 360.0F), 0.9998999834060669, 0.5); var1 < var4 && var1 < dt.at.length; ++var1) {
             dt.at[var1] = var5;
          }
       }

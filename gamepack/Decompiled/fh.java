@@ -52,7 +52,7 @@ public class fh extends DualNode {
          }
 
          var10 = var1.gSmart1or2s();
-         ec var11 = el.aq_renamed(var1.g1());
+         ec var11 = UserComparator9.aq_renamed(var1.g1());
          ek var12 = new ek();
          var12.af(var1, var2);
          var5[var6] = new eh(this, var12, var9, var11, var10);

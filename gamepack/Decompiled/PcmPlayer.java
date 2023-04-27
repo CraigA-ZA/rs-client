@@ -17,7 +17,7 @@ public class PcmPlayer {
    int bx = 0;
    long ae = 0L;
    long aj = 0L;
-   long av = Formatting.af_renamed() * 9158675434300782157L;
+   long av = Formatting.currentTimeMs() * 9158675434300782157L;
    protected int[] ai;
 
    protected PcmPlayer() {
@@ -29,7 +29,7 @@ public class PcmPlayer {
 
    public final synchronized void ak() {
       if (this.ai != null) {
-         long var2 = Formatting.af_renamed();
+         long var2 = Formatting.currentTimeMs();
 
          try {
             if (0L != -269385131777873879L * this.aj) {
@@ -125,7 +125,7 @@ public class PcmPlayer {
          this.discard();
       } catch (Exception var3) {
          this.close();
-         this.aj = (Formatting.af_renamed() + 2000L) * -8158358322466360295L;
+         this.aj = (Formatting.currentTimeMs() + 2000L) * -8158358322466360295L;
       }
 
    }
@@ -276,7 +276,7 @@ public class PcmPlayer {
          this.ag.fill(var1, 0, var2);
       }
 
-      this.av = Formatting.af_renamed() * 9158675434300782157L;
+      this.av = Formatting.currentTimeMs() * 9158675434300782157L;
    }
 
    final void bi(PcmStream var1, int var2) {

@@ -38,15 +38,15 @@ public class ArchiveLoader {
                }
 
                if (1 == var7) {
-                  var8 = Client.ng[var3[var5++]];
+                  var8 = Client.currentLevels[var3[var5++]];
                }
 
                if (2 == var7) {
-                  var8 = Client.ny[var3[var5++]];
+                  var8 = Client.levels[var3[var5++]];
                }
 
                if (3 == var7) {
-                  var8 = Client.nu[var3[var5++]];
+                  var8 = Client.experience[var3[var5++]];
                }
 
                int var10;
@@ -58,7 +58,7 @@ public class ArchiveLoader {
                   var10 += var3[var5++];
                   var11 = gh.getInterfaceComponent(var10);
                   var12 = var3[var5++];
-                  if (var12 != -1 && (!HeadbarUpdate.getObjType(var12).members || Client.ca)) {
+                  if (var12 != -1 && (!HeadbarUpdate.getObjType(var12).members || Client.isMembersWorld)) {
                      for(var13 = 0; var13 < var11.gb.length; ++var13) {
                         if (var11.gb[var13] == var12 + 1) {
                            var8 += var11.gp[var13];
@@ -72,7 +72,7 @@ public class ArchiveLoader {
                }
 
                if (6 == var7) {
-                  var8 = Skills.aw[Client.ny[var3[var5++]] - 1];
+                  var8 = Skills.Skills_experienceTable[Client.levels[var3[var5++]] - 1];
                }
 
                if (var7 == 7) {
@@ -86,7 +86,7 @@ public class ArchiveLoader {
                if (9 == var7) {
                   for(var10 = 0; var10 < 25; ++var10) {
                      if (Skills.Skills_enabled[var10]) {
-                        var8 += Client.ny[var10];
+                        var8 += Client.levels[var10];
                      }
                   }
                }
@@ -96,7 +96,7 @@ public class ArchiveLoader {
                   var10 += var3[var5++];
                   var11 = gh.getInterfaceComponent(var10);
                   var12 = var3[var5++];
-                  if (-1 != var12 && (!HeadbarUpdate.getObjType(var12).members || Client.ca)) {
+                  if (-1 != var12 && (!HeadbarUpdate.getObjType(var12).members || Client.isMembersWorld)) {
                      for(var13 = 0; var13 < var11.gb.length; ++var13) {
                         if (var11.gb[var13] == var12 + 1) {
                            var8 = 999999999;
@@ -107,11 +107,11 @@ public class ArchiveLoader {
                }
 
                if (var7 == 11) {
-                  var8 = -365416549 * Client.pk;
+                  var8 = -365416549 * Client.runEnergy;
                }
 
                if (12 == var7) {
-                  var8 = Client.pj * -1940722149;
+                  var8 = Client.weight * -1940722149;
                }
 
                if (13 == var7) {

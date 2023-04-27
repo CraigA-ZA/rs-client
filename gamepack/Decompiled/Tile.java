@@ -32,7 +32,7 @@ public final class Tile extends Node {
    }
 
    public static boolean af_renamed() {
-      long var1 = Formatting.af_renamed();
+      long var1 = Formatting.currentTimeMs();
       int var3 = (int)(var1 - -2114584129517998633L * NetCache.aw);
       NetCache.aw = -6047020038529116697L * var1;
       if (var3 > 200) {

@@ -24,10 +24,10 @@ public class InterfaceParent extends Node {
       } else if (30000 == var0.length && ByteArrayPool.al * 767381159 < -1866109675 * ByteArrayPool.ao) {
          ByteArrayPool.ah[(ByteArrayPool.al += 1254586647) * 767381159 - 1] = var0;
       } else {
-         if (null != eb.am) {
+         if (null != UserComparator3.am) {
             for(int var2 = 0; var2 < gj.av.length; ++var2) {
-               if (gj.av[var2] == var0.length && fo.ar[var2] < eb.am[var2].length) {
-                  eb.am[var2][fo.ar[var2]++] = var0;
+               if (gj.av[var2] == var0.length && fo.ar[var2] < UserComparator3.am[var2].length) {
+                  UserComparator3.am[var2][fo.ar[var2]++] = var0;
                   return;
                }
             }

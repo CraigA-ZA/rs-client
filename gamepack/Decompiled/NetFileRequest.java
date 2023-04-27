@@ -11,7 +11,7 @@ public class NetFileRequest extends DualNode {
       String var22;
       if (3100 == var0) {
          var22 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
-         es.an_renamed(0, "", var22);
+         UserComparator5.an_renamed(0, "", var22);
          return 1;
       } else if (var0 == 3101) {
          Interpreter.Interpreter_intStackSize -= 854271946;
@@ -58,7 +58,7 @@ public class NetFileRequest extends DualNode {
                if (3107 == var0) {
                   var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
                   var5 = Interpreter.Interpreter_stringStack[(SecureRandomCallable.Interpreter_stringStackSize -= -1086551379) * -2017760987];
-                  eu.ky_renamed(var4, var5);
+                  UserComparator7.ky_renamed(var4, var5);
                   return 1;
                } else if (var0 == 3108) {
                   Interpreter.Interpreter_intStackSize -= 1281407919;
@@ -66,14 +66,14 @@ public class NetFileRequest extends DualNode {
                   var21 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
                   int var24 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 2];
                   Component var26 = gh.getInterfaceComponent(var24);
-                  ol.mm_renamed(var26, var4, var21);
+                  ol.clickComponent(var26, var4, var21);
                   return 1;
                } else if (var0 == 3109) {
                   Interpreter.Interpreter_intStackSize -= 854271946;
                   var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
                   var21 = Interpreter.Interpreter_intStack[-964267539 * Interpreter.Interpreter_intStackSize + 1];
                   Component var23 = var2 ? SoundSystem.ag : an.ai;
-                  ol.mm_renamed(var23, var4, var21);
+                  ol.clickComponent(var23, var4, var21);
                   return 1;
                } else if (var0 == 3110) {
                   su.ev = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
@@ -117,10 +117,10 @@ public class NetFileRequest extends DualNode {
                   Interpreter.Interpreter_intStackSize -= 427135973;
                   return 1;
                } else if (var0 == 3118) {
-                  Client.oz = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+                  Client.showMouseOverText = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
                   return 1;
                } else if (var0 == 3119) {
-                  Client.md = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+                  Client.renderSelf = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
                   return 1;
                } else if (3120 == var0) {
                   if (Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1) {
@@ -440,7 +440,7 @@ public class NetFileRequest extends DualNode {
             var4 = Inventory.getSpotType(var9.af * -1171575623).sequence * 374130911;
             if (var4 == -1) {
                var9.remove();
-               var0.do -= -1822461181;
+               var0.do_renamed -= -1822461181;
             } else {
                var9.an = Math.max(971664459 * var9.an, 0) * -793313949;
                SeqType var5 = Inventory.getSeqType(var4);
@@ -454,7 +454,7 @@ public class NetFileRequest extends DualNode {
 
                   if (971664459 * var9.an >= var5.frameIds.length) {
                      var9.remove();
-                     var0.do -= -1822461181;
+                     var0.do_renamed -= -1822461181;
                   }
                } else if (var5.ao()) {
                   var9.an += -793313949;
@@ -463,11 +463,11 @@ public class NetFileRequest extends DualNode {
                      KeyHandler.ha_renamed(var5, var9.an * 971664459, var0.bx * 1144428983, var0.bo * -411750205);
                   } else {
                      var9.remove();
-                     var0.do -= -1822461181;
+                     var0.do_renamed -= -1822461181;
                   }
                } else {
                   var9.remove();
-                  var0.do -= -1822461181;
+                  var0.do_renamed -= -1822461181;
                }
             }
          }

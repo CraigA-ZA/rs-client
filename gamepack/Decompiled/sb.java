@@ -72,7 +72,7 @@ public class sb {
    static final void worldToMinimap(int var0, int var1, int var2, int var3, Sprite var4, SpriteMask var5) {
       int var7 = var3 * var3 + var2 * var2;
       if (var7 > 4225 && var7 < 90000) {
-         int var8 = Client.kf * 704283033 & 2047;
+         int var8 = Client.camAngleY * 704283033 & 2047;
          int var9 = Rasterizer3D.Rasterizer3D_sine[var8];
          int var10 = Rasterizer3D.Rasterizer3D_cosine[var8];
          int var11 = var2 * var10 + var9 * var3 >> 16;

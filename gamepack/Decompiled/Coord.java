@@ -62,8 +62,8 @@ public class Coord {
 
    static final void if_renamed() {
       if (GraphicsObject.sl) {
-         if (es.clanChat != null) {
-            es.clanChat.sort();
+         if (UserComparator5.clanChat != null) {
+            UserComparator5.clanChat.sort();
          }
 
          for(int var1 = 0; var1 < -2010934433 * ds.ab; ++var1) {

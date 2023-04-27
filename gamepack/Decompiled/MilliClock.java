@@ -4,7 +4,7 @@ public class MilliClock extends Clock {
    int an = 1682640640;
    int au = 0;
    int aw = 889500577;
-   long ac = Formatting.af_renamed() * 3111052400392486887L;
+   long ac = Formatting.currentTimeMs() * 3111052400392486887L;
    long[] af = new long[10];
 
    MilliClock() {
@@ -26,7 +26,7 @@ public class MilliClock extends Clock {
       int var5 = -1087246239 * this.aw;
       this.an = -779618924;
       this.aw = 889500577;
-      this.ac = Formatting.af_renamed() * 3111052400392486887L;
+      this.ac = Formatting.currentTimeMs() * 3111052400392486887L;
       if (0L == this.af[this.ab * 1512168621]) {
          this.an = -1520153841 * var4;
          this.aw = var5 * 889500577;

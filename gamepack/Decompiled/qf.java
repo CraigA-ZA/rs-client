@@ -16,7 +16,7 @@ public class qf implements Enumerated {
    }
 
    static final boolean ag_renamed(Model var0, int var1, int var2, int var3, int var4) {
-      boolean var6 = ix.af;
+      boolean var6 = ViewportMouse.ViewportMouse_isInViewport;
       if (!var6) {
          return false;
       } else {
@@ -28,21 +28,21 @@ public class qf implements Enumerated {
          int var11 = -1923653815 * var7.xMidOffset;
          int var12 = -975840301 * var7.yMidOffset;
          int var13 = var7.zMidOffset * -452185969;
-         int var14 = -1874962943 * ix.au - var8;
+         int var14 = -1874962943 * ViewportMouse.au - var8;
          int var15 = lh.ab * 554168439 - var9;
-         int var16 = -1672023491 * ix.aq - var10;
+         int var16 = -1672023491 * ViewportMouse.aq - var10;
          if (Math.abs(var14) > -391109139 * EnumType.ay + var11) {
             return false;
-         } else if (Math.abs(var15) > var12 + ix.ao * 1926934503) {
+         } else if (Math.abs(var15) > var12 + ViewportMouse.ao * 1926934503) {
             return false;
          } else if (Math.abs(var16) > aa.ax * -2043788763 + var13) {
             return false;
-         } else if (Math.abs(var16 * -864785215 * ea.at - var15 * -2085912871 * ReflectionCheck.aa) > var12 * -2043788763 * aa.ax + var13 * ix.ao * 1926934503) {
+         } else if (Math.abs(var16 * -864785215 * UserComparator8.at - var15 * -2085912871 * ReflectionCheck.aa) > var12 * -2043788763 * aa.ax + var13 * ViewportMouse.ao * 1926934503) {
             return false;
-         } else if (Math.abs(-2085912871 * ReflectionCheck.aa * var14 - var16 * 1677061457 * ix.al) > EnumType.ay * -391109139 * var13 + var11 * -2043788763 * aa.ax) {
+         } else if (Math.abs(-2085912871 * ReflectionCheck.aa * var14 - var16 * 1677061457 * ViewportMouse.al) > EnumType.ay * -391109139 * var13 + var11 * -2043788763 * aa.ax) {
             return false;
          } else {
-            return Math.abs(var15 * ix.al * 1677061457 - -864785215 * ea.at * var14) <= -391109139 * EnumType.ay * var12 + 1926934503 * ix.ao * var11;
+            return Math.abs(var15 * ViewportMouse.al * 1677061457 - -864785215 * UserComparator8.at * var14) <= -391109139 * EnumType.ay * var12 + 1926934503 * ViewportMouse.ao * var11;
          }
       }
    }

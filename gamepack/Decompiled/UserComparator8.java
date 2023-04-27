@@ -2,21 +2,21 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ea extends AbstractUserComparator {
+public class UserComparator8 extends AbstractUserComparator {
    static int at;
    static String worldHost;
    final boolean af;
 
-   public ea(boolean var1) {
+   public UserComparator8(boolean var1) {
       this.af = var1;
    }
 
    int af(Buddy var1, Buddy var2) {
-      if (-453810525 * Client.bw == 177258591 * var1.world0) {
-         if (Client.bw * -453810525 != var2.world0 * 177258591) {
+      if (-453810525 * Client.worldId == 177258591 * var1.world0) {
+         if (Client.worldId * -453810525 != var2.world0 * 177258591) {
             return this.af ? -1 : 1;
          }
-      } else if (177258591 * var2.world0 == Client.bw * -453810525) {
+      } else if (177258591 * var2.world0 == Client.worldId * -453810525) {
          return this.af ? 1 : -1;
       }
 

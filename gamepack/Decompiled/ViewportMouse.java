@@ -1,9 +1,9 @@
-public class ix {
-   public static boolean ac = false;
-   public static boolean af = false;
-   public static int ai = 0;
-   public static int an = 0;
-   public static int aw = 0;
+public class ViewportMouse {
+   public static boolean ViewportMouse_false0 = false;
+   public static boolean ViewportMouse_isInViewport = false;
+   public static int ViewportMouse_entityCount = 0;
+   public static int ViewportMouse_x = 0;
+   public static int ViewportMouse_y = 0;
    public static long[] ag = new long[1000];
    static int al;
    static int ao;
@@ -11,7 +11,7 @@ public class ix {
    static int au;
    static String hv;
 
-   ix() throws Throwable {
+   ViewportMouse() throws Throwable {
       throw new Error();
    }
 
@@ -22,7 +22,7 @@ public class ix {
    static final void updateInterface(Component[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       for(int var9 = 0; var9 < var0.length; ++var9) {
          Component var10 = var0[var9];
-         if (null != var10 && var1 == var10.parentId * 913615679 && (var10.am() || KeyHandler.getComponentClickMask(var10) != 0 || var10 == Client.pf)) {
+         if (null != var10 && var1 == var10.parentId * 913615679 && (var10.am() || KeyHandler.getComponentClickMask(var10) != 0 || var10 == Client.clickedComponentParent)) {
             if (var10.isIf3) {
                if (pm.isComponentHidden(var10)) {
                   continue;
@@ -42,7 +42,7 @@ public class ix {
                      ClientScriptEvent var11 = new ClientScriptEvent();
                      var11.component = var10;
                      var11.args0 = var10.gw;
-                     Client.rq.addFirst(var11);
+                     Client.clientScriptEvents.addFirst(var11);
                   }
                }
             } else if (883712245 * var10.type == 12 && var10.bu()) {
@@ -88,7 +88,7 @@ public class ix {
                var16 = var18 < var5 ? var18 : var5;
             }
 
-            if (var10 == Client.pr) {
+            if (var10 == Client.clickedComponent) {
                Client.px = true;
                Client.ph = 463567197 * var35;
                Client.pv = 551918419 * var12;
@@ -118,8 +118,8 @@ public class ix {
                if (var10.isIf3) {
                   ClientScriptEvent var37;
                   if (var10.noClickThrough) {
-                     if (-2063363905 * MouseHandler.ay >= var13 && -1224153235 * MouseHandler.ao >= var14 && -2063363905 * MouseHandler.ay < var15 && MouseHandler.ao * -1224153235 < var16) {
-                        for(var37 = (ClientScriptEvent)Client.rq.last(); null != var37; var37 = (ClientScriptEvent)Client.rq.previous()) {
+                     if (-2063363905 * MouseHandler.MouseHandler_x >= var13 && -1224153235 * MouseHandler.MouseHandler_y >= var14 && -2063363905 * MouseHandler.MouseHandler_x < var15 && MouseHandler.MouseHandler_y * -1224153235 < var16) {
+                        for(var37 = (ClientScriptEvent)Client.clientScriptEvents.last(); null != var37; var37 = (ClientScriptEvent)Client.clientScriptEvents.previous()) {
                            if (var37.boolean1) {
                               var37.remove();
                               var37.component.hw = false;
@@ -127,17 +127,17 @@ public class ix {
                         }
 
                         jh.jq_renamed();
-                        if (0 == Formatting.qe * 1993201275) {
-                           Client.pr = null;
-                           Client.pf = null;
+                        if (0 == Formatting.componentDragDuration * 1993201275) {
+                           Client.clickedComponent = null;
+                           Client.clickedComponentParent = null;
                         }
 
                         if (!Client.isMiniMenuOpen) {
                            gr.kw_renamed();
                         }
                      }
-                  } else if (var10.hl && MouseHandler.ay * -2063363905 >= var13 && -1224153235 * MouseHandler.ao >= var14 && MouseHandler.ay * -2063363905 < var15 && -1224153235 * MouseHandler.ao < var16) {
-                     for(var37 = (ClientScriptEvent)Client.rq.last(); null != var37; var37 = (ClientScriptEvent)Client.rq.previous()) {
+                  } else if (var10.hl && MouseHandler.MouseHandler_x * -2063363905 >= var13 && -1224153235 * MouseHandler.MouseHandler_y >= var14 && MouseHandler.MouseHandler_x * -2063363905 < var15 && -1224153235 * MouseHandler.MouseHandler_y < var16) {
+                     for(var37 = (ClientScriptEvent)Client.clientScriptEvents.last(); null != var37; var37 = (ClientScriptEvent)Client.clientScriptEvents.previous()) {
                         if (var37.boolean1 && var37.args0 == var37.component.onScrollWheel) {
                            var37.remove();
                         }
@@ -145,8 +145,8 @@ public class ix {
                   }
                }
 
-               var18 = MouseHandler.ay * -2063363905;
-               var19 = MouseHandler.ao * -1224153235;
+               var18 = MouseHandler.MouseHandler_x * -2063363905;
+               var19 = MouseHandler.MouseHandler_y * -1224153235;
                if (-1222491879 * MouseHandler.MouseHandler_lastButton != 0) {
                   var18 = MouseHandler.MouseHandler_lastPressedX * 2020601481;
                   var19 = MouseHandler.MouseHandler_lastPressedY * 1163896205;
@@ -161,7 +161,7 @@ public class ix {
                   MusicPatchNode.iw_renamed(var10, var35, var12);
                } else {
                   if (1400 == var10.clientCode * 1021339961) {
-                     ey.worldMap0.onCycle(-2063363905 * MouseHandler.ay, MouseHandler.ao * -1224153235, var38, var35, var12, var10.width * -794961409, var10.height * 1473950221);
+                     ey.worldMap0.onCycle(-2063363905 * MouseHandler.MouseHandler_x, MouseHandler.MouseHandler_y * -1224153235, var38, var35, var12, var10.width * -794961409, var10.height * 1473950221);
                   }
 
                   if (!Client.isMiniMenuOpen && var38) {
@@ -185,7 +185,7 @@ public class ix {
                                  var25 = Client.sh.av(var10.en[var21][var24]);
                               }
 
-                              if (do.mz_renamed(var10.en[var21][var24]) || var25) {
+                              if (do_renamed.mz_renamed(var10.en[var21][var24]) || var25) {
                                  var22 = true;
                                  if (null != var10.hs && var10.hs[var21] > -1886224337 * Client.ep) {
                                     break;
@@ -206,9 +206,9 @@ public class ix {
                            } else if (var21 == 10) {
                               gy.kp_renamed();
                               am.kh_renamed(var10.id * 1713081171, 55577617 * var10.childIndex, hc.af_renamed(KeyHandler.getComponentClickMask(var10)), -2006098851 * var10.itemId);
-                              Client.oj = MusicPatchNode.nu_renamed(var10);
-                              if (Client.oj == null) {
-                                 Client.oj = Strings.Strings_null;
+                              Client.selectedSpellActionName = MusicPatchNode.nu_renamed(var10);
+                              if (Client.selectedSpellActionName == null) {
+                                 Client.selectedSpellActionName = Strings.Strings_null;
                               }
 
                               Client.selectedSpellName = var10.opbase + oa.colorStartTag(16777215);
@@ -241,7 +241,7 @@ public class ix {
                   }
 
                   if (var10.isIf3) {
-                     if (-2063363905 * MouseHandler.ay >= var13 && -1224153235 * MouseHandler.ao >= var14 && MouseHandler.ay * -2063363905 < var15 && MouseHandler.ao * -1224153235 < var16) {
+                     if (-2063363905 * MouseHandler.MouseHandler_x >= var13 && -1224153235 * MouseHandler.MouseHandler_y >= var14 && MouseHandler.MouseHandler_x * -2063363905 < var15 && MouseHandler.MouseHandler_y * -1224153235 < var16) {
                         var38 = true;
                      } else {
                         var38 = false;
@@ -258,16 +258,16 @@ public class ix {
                      }
 
                      if (var22) {
-                        ol.mm_renamed(var10, MouseHandler.MouseHandler_lastPressedX * 2020601481 - var35, 1163896205 * MouseHandler.MouseHandler_lastPressedY - var12);
+                        ol.clickComponent(var10, MouseHandler.MouseHandler_lastPressedX * 2020601481 - var35, 1163896205 * MouseHandler.MouseHandler_lastPressedY - var12);
                      }
 
                      if (var10.as()) {
                         if (var22) {
-                           Client.re.addFirst(new hf(0, -2063363905 * MouseHandler.ay - var35, -1224153235 * MouseHandler.ao - var12, var10));
+                           Client.re.addFirst(new hf(0, -2063363905 * MouseHandler.MouseHandler_x - var35, -1224153235 * MouseHandler.MouseHandler_y - var12, var10));
                         }
 
                         if (var39) {
-                           Client.re.addFirst(new hf(1, -2063363905 * MouseHandler.ay - var35, MouseHandler.ao * -1224153235 - var12, var10));
+                           Client.re.addFirst(new hf(1, -2063363905 * MouseHandler.MouseHandler_x - var35, MouseHandler.MouseHandler_y * -1224153235 - var12, var10));
                         }
                      }
 
@@ -275,11 +275,11 @@ public class ix {
                         ey.worldMap0.ac(var18, var19, var38 & var39, var38 & var22);
                      }
 
-                     if (null != Client.pr && var10 != Client.pr && var38 && MusicPatchNode.aw_renamed(KeyHandler.getComponentClickMask(var10))) {
-                        Client.pz = var10;
+                     if (null != Client.clickedComponent && var10 != Client.clickedComponent && var38 && MusicPatchNode.aw_renamed(KeyHandler.getComponentClickMask(var10))) {
+                        Client.componentDragTarget = var10;
                      }
 
-                     if (var10 == Client.pf) {
+                     if (var10 == Client.clickedComponentParent) {
                         Client.pq = true;
                         Client.pi = -1150287901 * var35;
                         Client.pb = 68006725 * var12;
@@ -293,10 +293,10 @@ public class ix {
                            var40.component = var10;
                            var40.mouseY = 835807251 * Client.mouseWheelRotation;
                            var40.args0 = var10.onScrollWheel;
-                           Client.rq.addFirst(var40);
+                           Client.clientScriptEvents.addFirst(var40);
                         }
 
-                        if (null != Client.pr || Client.isMiniMenuOpen) {
+                        if (null != Client.clickedComponent || Client.isMiniMenuOpen) {
                            var22 = false;
                            var39 = false;
                            var38 = false;
@@ -311,7 +311,7 @@ public class ix {
                               var40.mouseX = (MouseHandler.MouseHandler_lastPressedX * 2020601481 - var35) * -2011830585;
                               var40.mouseY = 1126405829 * (MouseHandler.MouseHandler_lastPressedY * 1163896205 - var12);
                               var40.args0 = var10.onClick;
-                              Client.rq.addFirst(var40);
+                              Client.clientScriptEvents.addFirst(var40);
                            }
                         }
 
@@ -319,10 +319,10 @@ public class ix {
                            var40 = new ClientScriptEvent();
                            var40.boolean1 = true;
                            var40.component = var10;
-                           var40.mouseX = (-2063363905 * MouseHandler.ay - var35) * -2011830585;
-                           var40.mouseY = (-1224153235 * MouseHandler.ao - var12) * 1126405829;
+                           var40.mouseX = (-2063363905 * MouseHandler.MouseHandler_x - var35) * -2011830585;
+                           var40.mouseY = (-1224153235 * MouseHandler.MouseHandler_y - var12) * 1126405829;
                            var40.args0 = var10.onClickRepeat;
-                           Client.rq.addFirst(var40);
+                           Client.clientScriptEvents.addFirst(var40);
                         }
 
                         if (var10.hi && !var39) {
@@ -331,8 +331,8 @@ public class ix {
                               var40 = new ClientScriptEvent();
                               var40.boolean1 = true;
                               var40.component = var10;
-                              var40.mouseX = (-2063363905 * MouseHandler.ay - var35) * -2011830585;
-                              var40.mouseY = (MouseHandler.ao * -1224153235 - var12) * 1126405829;
+                              var40.mouseX = (-2063363905 * MouseHandler.MouseHandler_x - var35) * -2011830585;
+                              var40.mouseY = (MouseHandler.MouseHandler_y * -1224153235 - var12) * 1126405829;
                               var40.args0 = var10.onRelease;
                               Client.rp.addFirst(var40);
                            }
@@ -342,10 +342,10 @@ public class ix {
                            var40 = new ClientScriptEvent();
                            var40.boolean1 = true;
                            var40.component = var10;
-                           var40.mouseX = (-2063363905 * MouseHandler.ay - var35) * -2011830585;
-                           var40.mouseY = 1126405829 * (MouseHandler.ao * -1224153235 - var12);
+                           var40.mouseX = (-2063363905 * MouseHandler.MouseHandler_x - var35) * -2011830585;
+                           var40.mouseY = 1126405829 * (MouseHandler.MouseHandler_y * -1224153235 - var12);
                            var40.args0 = var10.onHold;
-                           Client.rq.addFirst(var40);
+                           Client.clientScriptEvents.addFirst(var40);
                         }
 
                         if (!var10.hw && var38) {
@@ -354,10 +354,10 @@ public class ix {
                               var40 = new ClientScriptEvent();
                               var40.boolean1 = true;
                               var40.component = var10;
-                              var40.mouseX = (-2063363905 * MouseHandler.ay - var35) * -2011830585;
-                              var40.mouseY = (MouseHandler.ao * -1224153235 - var12) * 1126405829;
+                              var40.mouseX = (-2063363905 * MouseHandler.MouseHandler_x - var35) * -2011830585;
+                              var40.mouseY = (MouseHandler.MouseHandler_y * -1224153235 - var12) * 1126405829;
                               var40.args0 = var10.onMouseOver;
-                              Client.rq.addFirst(var40);
+                              Client.clientScriptEvents.addFirst(var40);
                            }
                         }
 
@@ -365,10 +365,10 @@ public class ix {
                            var40 = new ClientScriptEvent();
                            var40.boolean1 = true;
                            var40.component = var10;
-                           var40.mouseX = -2011830585 * (-2063363905 * MouseHandler.ay - var35);
-                           var40.mouseY = (MouseHandler.ao * -1224153235 - var12) * 1126405829;
+                           var40.mouseX = -2011830585 * (-2063363905 * MouseHandler.MouseHandler_x - var35);
+                           var40.mouseY = (MouseHandler.MouseHandler_y * -1224153235 - var12) * 1126405829;
                            var40.args0 = var10.onMouseRepeat;
-                           Client.rq.addFirst(var40);
+                           Client.clientScriptEvents.addFirst(var40);
                         }
 
                         if (var10.hw && !var38) {
@@ -377,8 +377,8 @@ public class ix {
                               var40 = new ClientScriptEvent();
                               var40.boolean1 = true;
                               var40.component = var10;
-                              var40.mouseX = -2011830585 * (MouseHandler.ay * -2063363905 - var35);
-                              var40.mouseY = (-1224153235 * MouseHandler.ao - var12) * 1126405829;
+                              var40.mouseX = -2011830585 * (MouseHandler.MouseHandler_x * -2063363905 - var35);
+                              var40.mouseY = (-1224153235 * MouseHandler.MouseHandler_y - var12) * 1126405829;
                               var40.args0 = var10.onMouseLeave;
                               Client.rp.addFirst(var40);
                            }
@@ -405,7 +405,7 @@ public class ix {
                                        var45 = new ClientScriptEvent();
                                        var45.component = var10;
                                        var45.args0 = var10.onVarTransmit;
-                                       Client.rq.addFirst(var45);
+                                       Client.clientScriptEvents.addFirst(var45);
                                        break label965;
                                     }
                                  }
@@ -414,7 +414,7 @@ public class ix {
                               var40 = new ClientScriptEvent();
                               var40.component = var10;
                               var40.args0 = var10.onVarTransmit;
-                              Client.rq.addFirst(var40);
+                              Client.clientScriptEvents.addFirst(var40);
                            }
 
                            var10.hm = Client.qx * 1401123917;
@@ -431,7 +431,7 @@ public class ix {
                                        var45 = new ClientScriptEvent();
                                        var45.component = var10;
                                        var45.args0 = var10.onInvTransmit;
-                                       Client.rq.addFirst(var45);
+                                       Client.clientScriptEvents.addFirst(var45);
                                        break label941;
                                     }
                                  }
@@ -440,7 +440,7 @@ public class ix {
                               var40 = new ClientScriptEvent();
                               var40.component = var10;
                               var40.args0 = var10.onInvTransmit;
-                              Client.rq.addFirst(var40);
+                              Client.clientScriptEvents.addFirst(var40);
                            }
 
                            var10.hu = 1811343363 * Client.qc;
@@ -457,7 +457,7 @@ public class ix {
                                        var45 = new ClientScriptEvent();
                                        var45.component = var10;
                                        var45.args0 = var10.onStatTransmit;
-                                       Client.rq.addFirst(var45);
+                                       Client.clientScriptEvents.addFirst(var45);
                                        break label917;
                                     }
                                  }
@@ -466,77 +466,77 @@ public class ix {
                               var40 = new ClientScriptEvent();
                               var40.component = var10;
                               var40.args0 = var10.onStatTransmit;
-                              Client.rq.addFirst(var40);
+                              Client.clientScriptEvents.addFirst(var40);
                            }
 
                            var10.hx = -1736131311 * Client.qf;
                         }
 
-                        if (-620063003 * Client.qb > -288310997 * var10.hj && null != var10.ft) {
+                        if (-620063003 * Client.qb > -288310997 * var10.hj && null != var10.onChatTransmit) {
                            var40 = new ClientScriptEvent();
                            var40.component = var10;
-                           var40.args0 = var10.ft;
-                           Client.rq.addFirst(var40);
+                           var40.args0 = var10.onChatTransmit;
+                           Client.clientScriptEvents.addFirst(var40);
                         }
 
-                        if (-421621503 * Client.qg > var10.hj * -288310997 && null != var10.onKey) {
-                           var40 = new ClientScriptEvent();
-                           var40.component = var10;
-                           var40.args0 = var10.onKey;
-                           Client.rq.addFirst(var40);
-                        }
-
-                        if (-1685007587 * Client.qd > -288310997 * var10.hj && null != var10.onFriendTransmit) {
+                        if (-421621503 * Client.qg > var10.hj * -288310997 && null != var10.onFriendTransmit) {
                            var40 = new ClientScriptEvent();
                            var40.component = var10;
                            var40.args0 = var10.onFriendTransmit;
-                           Client.rq.addFirst(var40);
+                           Client.clientScriptEvents.addFirst(var40);
+                        }
+
+                        if (-1685007587 * Client.qd > -288310997 * var10.hj && null != var10.onClanTransmit) {
+                           var40 = new ClientScriptEvent();
+                           var40.component = var10;
+                           var40.args0 = var10.onClanTransmit;
+                           Client.clientScriptEvents.addFirst(var40);
                         }
 
                         if (Client.qy * -1127640293 > var10.hj * -288310997 && var10.gg != null) {
                            var40 = new ClientScriptEvent();
                            var40.component = var10;
                            var40.args0 = var10.gg;
-                           Client.rq.addFirst(var40);
+                           Client.clientScriptEvents.addFirst(var40);
                         }
 
                         if (Client.qz * 2059493293 > -288310997 * var10.hj && var10.ge != null) {
                            var40 = new ClientScriptEvent();
                            var40.component = var10;
                            var40.args0 = var10.ge;
-                           Client.rq.addFirst(var40);
+                           Client.clientScriptEvents.addFirst(var40);
                         }
 
-                        if (Client.qq * -1835030315 > var10.hj * -288310997 && null != var10.onSubChange) {
-                           var40 = new ClientScriptEvent();
-                           var40.component = var10;
-                           var40.args0 = var10.onSubChange;
-                           Client.rq.addFirst(var40);
-                        }
-
-                        if (Client.qv * -2057735521 > var10.hj * -288310997 && null != var10.onStockTransmit) {
+                        if (Client.qq * -1835030315 > var10.hj * -288310997 && null != var10.onStockTransmit) {
                            var40 = new ClientScriptEvent();
                            var40.component = var10;
                            var40.args0 = var10.onStockTransmit;
-                           Client.rq.addFirst(var40);
+                           Client.clientScriptEvents.addFirst(var40);
                         }
 
-                        if (Client.qa * -440718331 > var10.hj * -288310997 && var10.onClanTransmit != null) {
+                        if (Client.qv * -2057735521 > var10.hj * -288310997 && null != var10.gd) {
                            var40 = new ClientScriptEvent();
                            var40.component = var10;
-                           var40.args0 = var10.onClanTransmit;
-                           Client.rq.addFirst(var40);
+                           var40.args0 = var10.gd;
+                           Client.clientScriptEvents.addFirst(var40);
+                        }
+
+                        if (Client.qa * -440718331 > var10.hj * -288310997 && var10.onMiscTransmit != null) {
+                           var40 = new ClientScriptEvent();
+                           var40.component = var10;
+                           var40.args0 = var10.onMiscTransmit;
+                           Client.clientScriptEvents.addFirst(var40);
                         }
 
                         var10.hj = -1390983529 * Client.qu;
-                        if (null != var10.onChatTransmit) {
+                        if (null != var10.onKey) {
                            for(var46 = 0; var46 < -1685179677 * Client.sm; ++var46) {
                               ClientScriptEvent var44 = new ClientScriptEvent();
                               var44.component = var10;
                               var44.keyPressed = -422970289 * Client.sz[var46];
                               var44.keyTyped = 1753443767 * Client.sk[var46];
-                              var44.args0 = var10.onChatTransmit;
-                              Client.rq.addFirst(var44);
+                              var44.args0 = var10.onKey;
+                              Client.clientScriptEvents.addFirst(var44);
                            }
                         }
 
@@ -550,7 +550,7 @@ public class ix {
                               var47.component = var10;
                               var47.keyPressed = -422970289 * var48[var24];
                               var47.args0 = var10.gr;
-                              Client.rq.addFirst(var47);
+                              Client.clientScriptEvents.addFirst(var47);
                            }
                         }
 
@@ -562,18 +562,18 @@ public class ix {
                               var47.component = var10;
                               var47.keyPressed = var48[var24] * -422970289;
                               var47.args0 = var10.go;
-                              Client.rq.addFirst(var47);
+                              Client.clientScriptEvents.addFirst(var47);
                            }
                         }
                      }
                   }
 
                   if (!var10.isIf3) {
-                     if (null != Client.pr || Client.isMiniMenuOpen) {
+                     if (null != Client.clickedComponent || Client.isMiniMenuOpen) {
                         continue;
                      }
 
-                     if ((-529297769 * var10.mouseOverRedirect >= 0 || 0 != var10.mouseOverColor * 1614966389) && -2063363905 * MouseHandler.ay >= var13 && MouseHandler.ao * -1224153235 >= var14 && MouseHandler.ay * -2063363905 < var15 && -1224153235 * MouseHandler.ao < var16) {
+                     if ((-529297769 * var10.mouseOverRedirect >= 0 || 0 != var10.mouseOverColor * 1614966389) && -2063363905 * MouseHandler.MouseHandler_x >= var13 && MouseHandler.MouseHandler_y * -1224153235 >= var14 && MouseHandler.MouseHandler_x * -2063363905 < var15 && -1224153235 * MouseHandler.MouseHandler_y < var16) {
                         if (var10.mouseOverRedirect * -529297769 >= 0) {
                            MidiPcmStream.oh = var0[var10.mouseOverRedirect * -529297769];
                         } else {
@@ -581,12 +581,12 @@ public class ix {
                         }
                      }
 
-                     if (8 == 883712245 * var10.type && MouseHandler.ay * -2063363905 >= var13 && MouseHandler.ao * -1224153235 >= var14 && MouseHandler.ay * -2063363905 < var15 && -1224153235 * MouseHandler.ao < var16) {
+                     if (8 == 883712245 * var10.type && MouseHandler.MouseHandler_x * -2063363905 >= var13 && MouseHandler.MouseHandler_y * -1224153235 >= var14 && MouseHandler.MouseHandler_x * -2063363905 < var15 && -1224153235 * MouseHandler.MouseHandler_y < var16) {
                         fe.os = var10;
                      }
 
                      if (var10.scrollHeight * -1273374131 > var10.height * 1473950221) {
-                        gy.ll_renamed(var10, var35 + var10.width * -794961409, var12, var10.height * 1473950221, var10.scrollHeight * -1273374131, -2063363905 * MouseHandler.ay, MouseHandler.ao * -1224153235);
+                        gy.ll_renamed(var10, var35 + var10.width * -794961409, var12, var10.height * 1473950221, var10.scrollHeight * -1273374131, -2063363905 * MouseHandler.MouseHandler_x, MouseHandler.MouseHandler_y * -1224153235);
                      }
                   }
 
@@ -598,17 +598,17 @@ public class ix {
 
                      InterfaceParent var41 = (InterfaceParent)Client.interfaceParents.get((long)(var10.id * 1713081171));
                      if (var41 != null) {
-                        if (0 == -1702664641 * var41.an && -2063363905 * MouseHandler.ay >= var13 && MouseHandler.ao * -1224153235 >= var14 && MouseHandler.ay * -2063363905 < var15 && -1224153235 * MouseHandler.ao < var16 && !Client.isMiniMenuOpen) {
-                           for(ClientScriptEvent var42 = (ClientScriptEvent)Client.rq.last(); null != var42; var42 = (ClientScriptEvent)Client.rq.previous()) {
+                        if (0 == -1702664641 * var41.an && -2063363905 * MouseHandler.MouseHandler_x >= var13 && MouseHandler.MouseHandler_y * -1224153235 >= var14 && MouseHandler.MouseHandler_x * -2063363905 < var15 && -1224153235 * MouseHandler.MouseHandler_y < var16 && !Client.isMiniMenuOpen) {
+                           for(ClientScriptEvent var42 = (ClientScriptEvent)Client.clientScriptEvents.last(); null != var42; var42 = (ClientScriptEvent)Client.clientScriptEvents.previous()) {
                               if (var42.boolean1) {
                                  var42.remove();
                                  var42.component.hw = false;
                               }
                            }
 
-                           if (Formatting.qe * 1993201275 == 0) {
-                              Client.pr = null;
-                              Client.pf = null;
+                           if (Formatting.componentDragDuration * 1993201275 == 0) {
+                              Client.clickedComponent = null;
+                              Client.clickedComponentParent = null;
                            }
 
                            if (!Client.isMiniMenuOpen) {

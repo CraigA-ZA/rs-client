@@ -51,7 +51,7 @@ public class NetCache {
       }
 
       if (null != li.garbageCollector) {
-         long var11 = Formatting.af_renamed();
+         long var11 = Formatting.currentTimeMs();
          long var4 = li.garbageCollector.getCollectionTime();
          if (-3199239881614683375L * GameShell.garbageCollectorLastCollectionTime != -1L) {
             long var6 = var4 - -3199239881614683375L * GameShell.garbageCollectorLastCollectionTime;

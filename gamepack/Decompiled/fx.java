@@ -6,7 +6,7 @@ public class fx extends fb {
    final fa this$0;
 
    static void af_renamed() {
-      Tiles.aw = -256673141;
+      Tiles.Tiles_minPlane = -256673141;
       hu.ac = new short[4][104][104];
       Tiles.au = new short[4][104][104];
       Tiles.ab = new byte[4][104][104];
@@ -17,7 +17,7 @@ public class fx extends fb {
       gm.aa = new int[104];
       Tiles.ay = new int[104];
       kn.ao = new int[104];
-      ej.ax = new int[104];
+      UserComparator4.ax = new int[104];
       bx.ai = new int[104];
    }
 

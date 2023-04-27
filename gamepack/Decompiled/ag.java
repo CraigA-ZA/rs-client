@@ -63,7 +63,7 @@ public class ag {
       LocType.LocType_cached.clear();
       LocType.LocType_cachedUnlitModels.clear();
       LocType.ab.clear();
-      LocType.aq.clear();
+      LocType.LocType_cachedModels.clear();
    }
 
    static void av_renamed(int var0) {
@@ -75,7 +75,7 @@ public class ag {
       if (var0) {
          Client.gh = Login.cd ? fp.an : fp.ac;
       } else {
-         Client.gh = aj.clientPreferences.bk(Login.ca) ? fp.af : fp.aw;
+         Client.gh = aj.clientPreferences.bk(Login.Login_username) ? fp.af : fp.aw;
       }
 
    }

@@ -36,7 +36,7 @@ public class mu {
          } else if (11 == var0) {
             he.ax_renamed(Strings.cp, Strings.cd, Strings.dm);
          } else if (12 == var0) {
-            he.ax_renamed(Strings.dw, Strings.dc, Strings.do);
+            he.ax_renamed(Strings.dw, Strings.dc, Strings.do_renamed);
          } else if (13 == var0) {
             he.ax_renamed(Strings.di, Strings.dr, Strings.dl);
          } else if (14 == var0) {
@@ -77,13 +77,13 @@ public class mu {
          } else {
             if (var0 == 56) {
                he.ax_renamed(Strings.fy, Strings.fw, Strings.fr);
-               fd.hi_renamed(11);
+               fd.updateGameState(11);
                return;
             }
 
             if (var0 == 57) {
                he.ax_renamed(Strings.fv, Strings.fq, Strings.fc);
-               fd.hi_renamed(11);
+               fd.updateGameState(11);
                return;
             }
 
@@ -92,36 +92,36 @@ public class mu {
                ee.ak_renamed(7);
             } else {
                if (var0 == 62) {
-                  fd.hi_renamed(10);
+                  fd.updateGameState(10);
                   ee.ak_renamed(9);
                   he.ax_renamed(Strings.ff, Strings.fj, Strings.fg);
                   return;
                }
 
                if (var0 == 63) {
-                  fd.hi_renamed(10);
+                  fd.updateGameState(10);
                   ee.ak_renamed(9);
                   he.ax_renamed(Strings.fk, Strings.fm, Strings.ft);
                   return;
                }
 
                if (var0 == 65 || var0 == 67) {
-                  fd.hi_renamed(10);
+                  fd.updateGameState(10);
                   ee.ak_renamed(9);
                   he.ax_renamed(Strings.fu, Strings.gr, Strings.go);
                   return;
                }
 
                if (var0 == 71) {
-                  fd.hi_renamed(10);
+                  fd.updateGameState(10);
                   ee.ak_renamed(7);
                   he.ax_renamed("There was a problem updating your DOB.", "Please try again later. If the problem ", "persists, please contact Jagex Support.");
                } else if (73 == var0) {
-                  fd.hi_renamed(10);
+                  fd.updateGameState(10);
                   ee.ak_renamed(6);
                   he.ax_renamed(Strings.mm, Strings.me, Strings.mv);
                } else if (72 == var0) {
-                  fd.hi_renamed(10);
+                  fd.updateGameState(10);
                   ee.ak_renamed(32);
                } else {
                   he.ax_renamed(Strings.gs, Strings.gj, Strings.gg);
@@ -132,7 +132,7 @@ public class mu {
          he.ax_renamed(Strings.cm, Strings.cf, Strings.cl);
       }
 
-      fd.hi_renamed(10);
+      fd.updateGameState(10);
       boolean var3 = var2 != mi.az_renamed();
       if (!var3 && Client.gy.au()) {
          ee.ak_renamed(9);

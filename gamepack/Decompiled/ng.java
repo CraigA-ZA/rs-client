@@ -8,7 +8,7 @@ public class ng {
          bx.hc_renamed();
       } else {
          Client.timer.an();
-         fd.hi_renamed(40);
+         fd.updateGameState(40);
          ml.ic = Client.packetWriter.getSocket();
          Client.packetWriter.ab();
       }

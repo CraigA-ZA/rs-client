@@ -18,12 +18,12 @@ public class Login {
    static int dm;
    static int dp;
    static String Login_loadingText;
-   static String ca;
+   static String Login_username;
    static String Login_response2;
    static String Login_response0;
    static String Login_response3;
    static String Login_response1;
-   static String cu;
+   static String Login_password;
    static String cy;
    static String dc;
    static String dw;
@@ -50,8 +50,8 @@ public class Login {
       Login_response1 = "";
       Login_response2 = "";
       Login_response3 = "";
-      ca = "";
-      cu = "";
+      Login_username = "";
+      Login_password = "";
       cq = 0;
       cm = new String[8];
       cy = "";
@@ -88,14 +88,14 @@ public class Login {
 
       ee.ak_renamed(var2);
       if (var0) {
-         ca = "";
-         cu = "";
+         Login_username = "";
+         Login_password = "";
          hp.ct = 0;
          Messages.cp = "";
       }
 
       WallDecoration.ac_renamed();
-      if (Client.hb && null != ca && ca.length() > 0) {
+      if (Client.hb && null != Login_username && Login_username.length() > 0) {
          dm = 1153152795;
       } else {
          dm = 0;
@@ -114,8 +114,8 @@ public class Login {
 
    static final void nd_renamed() {
       eh.at_renamed();
-      if (null != es.clanChat) {
-         es.clanChat.ag();
+      if (null != UserComparator5.clanChat) {
+         UserComparator5.clanChat.ag();
       }
 
    }

@@ -127,9 +127,9 @@ public class DynamicObject extends Entity {
       if (var0.equalsIgnoreCase("toggleroof")) {
          aj.clientPreferences.au(!aj.clientPreferences.ab());
          if (aj.clientPreferences.ab()) {
-            es.an_renamed(99, "", "Roofs are now all hidden");
+            UserComparator5.an_renamed(99, "", "Roofs are now all hidden");
          } else {
-            es.an_renamed(99, "", "Roofs will only be removed selectively");
+            UserComparator5.an_renamed(99, "", "Roofs will only be removed selectively");
          }
       }
 
@@ -148,14 +148,14 @@ public class DynamicObject extends Entity {
       }
 
       if (var0.equalsIgnoreCase("renderself")) {
-         Client.md = !Client.md;
+         Client.renderSelf = !Client.renderSelf;
       }
 
       if (var0.equalsIgnoreCase("mouseovertext")) {
-         Client.oz = !Client.oz;
+         Client.showMouseOverText = !Client.showMouseOverText;
       }
 
-      if (324465533 * Client.pu >= 2) {
+      if (324465533 * Client.staffModLevel >= 2) {
          if (var0.equalsIgnoreCase("errortest")) {
             throw new RuntimeException();
          }
@@ -202,11 +202,11 @@ public class DynamicObject extends Entity {
             }
 
             int var6;
-            if (Client.oq * -303899309 == 1) {
+            if (Client.isItemSelected * -303899309 == 1) {
                MiniMenuEntry.kz_renamed(Strings.Strings_use, Client.selectedItemName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(16777215) + var5, 14, var1, var2, var3);
             } else if (Client.om) {
                if ((1457791911 * SecureRandomFuture.oo & 8) == 8) {
-                  MiniMenuEntry.kz_renamed(Client.oj, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(16777215) + var5, 15, var1, var2, var3);
+                  MiniMenuEntry.kz_renamed(Client.selectedSpellActionName, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(16777215) + var5, 15, var1, var2, var3);
                }
             } else {
                for(var6 = 7; var6 >= 0; --var6) {
@@ -255,8 +255,8 @@ public class DynamicObject extends Entity {
    static final void nz_renamed(Component var0, int var1, int var2, int var3) {
       SpriteMask var5 = var0.getSpriteMask(false);
       if (var5 != null) {
-         if (Client.tp * 1383336963 < 3) {
-            ChatChannel.jb.be(var1, var2, var5.width * 1484188043, 939947663 * var5.height, 25, 25, 704283033 * Client.kf, 256, var5.xStarts, var5.xWidths);
+         if (Client.minimapState * 1383336963 < 3) {
+            ChatChannel.jb.be(var1, var2, var5.width * 1484188043, 939947663 * var5.height, 25, 25, 704283033 * Client.camAngleY, 256, var5.xStarts, var5.xWidths);
          } else {
             Rasterizer2D.fx(var1, var2, 0, var5.xStarts, var5.xWidths);
          }

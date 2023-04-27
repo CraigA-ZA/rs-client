@@ -11,25 +11,25 @@ public class Timer {
    public boolean aw = false;
 
    public void af() {
-      this.af = Formatting.af_renamed() * 5350971994514083981L;
+      this.af = Formatting.currentTimeMs() * 5350971994514083981L;
    }
 
    public void an() {
       if (this.af * -5348577498961612219L != -1L) {
-         this.au = (Formatting.af_renamed() - -5348577498961612219L * this.af) * 6923964062330699407L;
+         this.au = (Formatting.currentTimeMs() - -5348577498961612219L * this.af) * 6923964062330699407L;
          this.af = -5350971994514083981L;
       }
 
    }
 
    public void aw(int var1) {
-      this.an = Formatting.af_renamed() * 5863289074674602131L;
+      this.an = Formatting.currentTimeMs() * 5863289074674602131L;
       this.aq = var1 * 1375078489;
    }
 
    public void ac() {
       if (-1L != -1205622465697215077L * this.an) {
-         this.ac = (Formatting.af_renamed() - this.an * -1205622465697215077L) * 2956472643969238227L;
+         this.ac = (Formatting.currentTimeMs() - this.an * -1205622465697215077L) * 2956472643969238227L;
          this.an = -5863289074674602131L;
       }
 

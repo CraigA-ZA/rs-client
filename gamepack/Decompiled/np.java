@@ -14,6 +14,6 @@ final class np implements Comparator {
    }
 
    public static NodeDeque jk_renamed() {
-      return Client.rq;
+      return Client.clientScriptEvents;
    }
 }

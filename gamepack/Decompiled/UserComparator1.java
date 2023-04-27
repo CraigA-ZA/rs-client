@@ -1,14 +1,14 @@
 import java.util.Comparator;
 
-public class ty implements Comparator {
+public class UserComparator1 implements Comparator {
    final boolean af;
 
-   public ty(boolean var1) {
+   public UserComparator1(boolean var1) {
       this.af = var1;
    }
 
    int af(User var1, User var2) {
-      return this.af ? var1.username().compareTo0(var2.username()) : var2.username().compareTo0(var1.username());
+      return this.af ? var1.compareTo0(var2) : var2.compareTo0(var1);
    }
 
    public int compare(Object var1, Object var2) {

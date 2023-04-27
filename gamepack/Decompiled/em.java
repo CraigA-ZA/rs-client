@@ -101,23 +101,23 @@ public class em {
       } else if (var0 == 1417) {
          var4.onScrollWheel = var12;
       } else if (var0 == 1418) {
-         var4.ft = var12;
-      } else if (1419 == var0) {
          var4.onChatTransmit = var12;
-      } else if (var0 == 1420) {
+      } else if (1419 == var0) {
          var4.onKey = var12;
-      } else if (1421 == var0) {
+      } else if (var0 == 1420) {
          var4.onFriendTransmit = var12;
-      } else if (1422 == var0) {
+      } else if (1421 == var0) {
          var4.onClanTransmit = var12;
-      } else if (var0 == 1423) {
+      } else if (1422 == var0) {
          var4.onMiscTransmit = var12;
-      } else if (1424 == var0) {
+      } else if (var0 == 1423) {
          var4.onDialogAbort = var12;
-      } else if (1425 == var0) {
+      } else if (1424 == var0) {
          var4.onSubChange = var12;
-      } else if (var0 == 1426) {
+      } else if (1425 == var0) {
          var4.onStockTransmit = var12;
+      } else if (var0 == 1426) {
+         var4.gd = var12;
       } else if (var0 == 1427) {
          var4.gh = var12;
       } else if (1428 == var0) {
@@ -164,11 +164,11 @@ public class em {
       Client.packetWriter.ai = null;
       Client.packetWriter.serverPacket0Length = 0;
       Client.packetWriter.aa = 0;
-      Client.ea = 0;
+      Client.rebootTimer = 0;
       Client.menuOptionsCount = 0;
       Client.isMiniMenuOpen = false;
-      Client.tp = 0;
-      Client.te = 0;
+      Client.minimapState = 0;
+      Client.destinationX = 0;
 
       int var1;
       for(var1 = 0; var1 < 2048; ++var1) {
@@ -186,7 +186,7 @@ public class em {
       }
 
       Inventory.itemContainers = new NodeHashTable(32);
-      fd.hi_renamed(30);
+      fd.updateGameState(30);
 
       for(var1 = 0; var1 < 100; ++var1) {
          Client.rf[var1] = true;

@@ -80,7 +80,7 @@ public class ClientProt implements ClientProt0 {
    public static final ClientProt dk = new ClientProt(85, -1);
    public static final ClientProt dl = new ClientProt(84, -1);
    public static final ClientProt dm = new ClientProt(78, 6);
-   public static final ClientProt do = new ClientProt(81, 7);
+   public static final ClientProt do_renamed = new ClientProt(81, 7);
    public static final ClientProt dp = new ClientProt(92, 8);
    public static final ClientProt dr = new ClientProt(83, 3);
    public static final ClientProt dt = new ClientProt(86, -1);

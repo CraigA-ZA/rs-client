@@ -161,7 +161,7 @@ public class gy {
                JSONObject var5 = var1.getJSONObject(var4);
                gi var6 = new gi(this);
                var6.af = var2.request(new URL(var5.getString("src")));
-               var6.an = ea.as_renamed(var5, "placement");
+               var6.an = UserComparator8.as_renamed(var5, "placement");
                this.ag.add(var6);
             } catch (MalformedURLException var7) {
             }
@@ -199,7 +199,7 @@ public class gy {
 
             var5.aq = 1437150123 * var10;
             var5.al = var4.getInt("font") * -1157447435;
-            var5.au = ea.as_renamed(var4, "placement");
+            var5.au = UserComparator8.as_renamed(var4, "placement");
             this.ah.add(var5);
          }
 
@@ -208,7 +208,7 @@ public class gy {
 
    void ah(JSONObject var1) throws JSONException {
       if (null != var1) {
-         this.ax = ea.as_renamed(var1, "clickbounds");
+         this.ax = UserComparator8.as_renamed(var1, "clickbounds");
          this.ao = var1.getString("endpoint");
          String[] var3 = JSONObject.getNames(var1);
 

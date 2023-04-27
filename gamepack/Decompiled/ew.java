@@ -163,17 +163,17 @@ public class ew {
    }
 
    static final void ai_renamed() {
-      if (!ix.ac) {
+      if (!ViewportMouse.ViewportMouse_false0) {
          int var1 = Scene.Scene_cameraPitchSine;
          int var2 = Scene.Scene_cameraPitchCosine;
          int var3 = Scene.Scene_cameraYawSine;
          int var4 = Scene.Scene_cameraYawCosine;
          int var5 = 50;
          int var6 = 3500;
-         int var7 = (2139535413 * ix.an - TaskHandler.au_renamed()) * var5 / eu.at_renamed();
-         int var8 = (148198745 * ix.aw - ax.ab_renamed()) * var5 / eu.at_renamed();
-         int var9 = (2139535413 * ix.an - TaskHandler.au_renamed()) * var6 / eu.at_renamed();
-         int var10 = (ix.aw * 148198745 - ax.ab_renamed()) * var6 / eu.at_renamed();
+         int var7 = (2139535413 * ViewportMouse.ViewportMouse_x - TaskHandler.au_renamed()) * var5 / UserComparator7.at_renamed();
+         int var8 = (148198745 * ViewportMouse.ViewportMouse_y - ax.ab_renamed()) * var5 / UserComparator7.at_renamed();
+         int var9 = (2139535413 * ViewportMouse.ViewportMouse_x - TaskHandler.au_renamed()) * var6 / UserComparator7.at_renamed();
+         int var10 = (ViewportMouse.ViewportMouse_y * 148198745 - ax.ab_renamed()) * var6 / UserComparator7.at_renamed();
          int var12 = var2 * var8 + var1 * var5 >> 16;
          int var13 = var2 * var5 - var1 * var8 >> 16;
          int var14 = var6 * var1 + var2 * var10 >> 16;
@@ -183,14 +183,14 @@ public class ew {
          var7 = var11;
          var11 = ob.aw_renamed(var9, var15, var4, var3);
          var6 = qv.ac_renamed(var9, var15, var4, var3);
-         ix.au = -1666864639 * ((var7 + var11) / 2);
+         ViewportMouse.au = -1666864639 * ((var7 + var11) / 2);
          lh.ab = -158275257 * ((var12 + var14) / 2);
-         ix.aq = -393366251 * ((var6 + var5) / 2);
-         ix.al = (var11 - var7) / 2 * 1520532401;
-         ea.at = 101851969 * ((var14 - var12) / 2);
+         ViewportMouse.aq = -393366251 * ((var6 + var5) / 2);
+         ViewportMouse.al = (var11 - var7) / 2 * 1520532401;
+         UserComparator8.at = 101851969 * ((var14 - var12) / 2);
          ReflectionCheck.aa = (var6 - var5) / 2 * 1785143657;
-         EnumType.ay = Math.abs(ix.al * 1677061457) * 1650720741;
-         ix.ao = Math.abs(-864785215 * ea.at) * 1274213335;
+         EnumType.ay = Math.abs(ViewportMouse.al * 1677061457) * 1650720741;
+         ViewportMouse.ao = Math.abs(-864785215 * UserComparator8.at) * 1274213335;
          aa.ax = Math.abs(-2085912871 * ReflectionCheck.aa) * 1268910509;
       }
    }

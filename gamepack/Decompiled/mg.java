@@ -62,8 +62,8 @@ public class mg {
 
          return 1;
       } else if (6203 == var0) {
-         if (Client.ps != null) {
-            bt.setViewportShape(0, 0, -794961409 * Client.ps.width, 1473950221 * Client.ps.height, false);
+         if (Client.viewportComponent != null) {
+            bt.setViewportShape(0, 0, -794961409 * Client.viewportComponent.width, 1473950221 * Client.viewportComponent.height, false);
             Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 433849721 * Client.viewportWidth;
             Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.viewportHeight * 2042096749;
          } else {

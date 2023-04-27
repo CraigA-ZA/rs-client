@@ -7,8 +7,8 @@ public abstract class fu extends Node {
       SpriteMask var5 = var0.getSpriteMask(false);
       if (null != var5) {
          Rasterizer2D.Rasterizer2D_setClip(var1, var2, 1484188043 * var5.width + var1, var5.height * 939947663 + var2);
-         if (2 != 1383336963 * Client.tp && Client.tp * 1383336963 != 5) {
-            int var6 = 704283033 * Client.kf & 2047;
+         if (2 != 1383336963 * Client.minimapState && Client.minimapState * 1383336963 != 5) {
+            int var6 = 704283033 * Client.camAngleY & 2047;
             int var7 = 48 + MusicPatchNode.localPlayer.bx * 1144428983 / 32;
             int var8 = 464 - -411750205 * MusicPatchNode.localPlayer.bo / 32;
             UrlRequester.sceneMinimapSprite.be(var1, var2, 1484188043 * var5.width, var5.height * 939947663, var7, var8, var6, 256, var5.xStarts, var5.xWidths);
@@ -35,8 +35,8 @@ public abstract class fu extends Node {
                }
             }
 
-            for(var9 = 0; var9 < 265474485 * Client.iw; ++var9) {
-               Npc var19 = Client.npcs[Client.iy[var9]];
+            for(var9 = 0; var9 < 265474485 * Client.npcCount; ++var9) {
+               Npc var19 = Client.npcs[Client.npcIndices[var9]];
                if (null != var19 && var19.isVisible()) {
                   NPCType var22 = var19.type;
                   if (null != var22 && null != var22.transforms) {
@@ -99,9 +99,9 @@ public abstract class fu extends Node {
                }
             }
 
-            if (1494100363 * Client.te != 0) {
-               var11 = 2 + 1681434156 * Client.te - 1144428983 * MusicPatchNode.localPlayer.bx / 32;
-               var12 = 2 + 1597878452 * Client.th - -411750205 * MusicPatchNode.localPlayer.bo / 32;
+            if (1494100363 * Client.destinationX != 0) {
+               var11 = 2 + 1681434156 * Client.destinationX - 1144428983 * MusicPatchNode.localPlayer.bx / 32;
+               var12 = 2 + 1597878452 * Client.destinationY - -411750205 * MusicPatchNode.localPlayer.bo / 32;
                qc.ns_renamed(var1, var2, var11, var12, ds.mapMarkerSprites[0], var5);
             }
 

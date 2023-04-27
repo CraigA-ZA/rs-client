@@ -1,6 +1,6 @@
 public final class lk {
-   static long af;
-   static long an;
+   static long currentTimeMsLast;
+   static long currentTimeMsOffset;
 
    lk() throws Throwable {
       throw new Error();

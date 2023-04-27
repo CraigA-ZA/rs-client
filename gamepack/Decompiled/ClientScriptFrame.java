@@ -10,11 +10,11 @@ public class ClientScriptFrame {
    }
 
    public static int ab_renamed(int var0) {
-      return NPCType.aq(ix.ag[var0]);
+      return NPCType.aq(ViewportMouse.ag[var0]);
    }
 
    static final void ls_renamed(int var0, int var1, int var2, int var3) {
-      if (-303899309 * Client.oq == 0 && !Client.om) {
+      if (-303899309 * Client.isItemSelected == 0 && !Client.om) {
          MiniMenuEntry.kz_renamed(Strings.Strings_walkHere, "", 23, 0, var0 - var2, var1 - var3);
       }
 
@@ -28,8 +28,8 @@ public class ClientScriptFrame {
             var7 = var10;
             int var12 = FaceNormal.au_renamed(var9);
             int var13 = ab_renamed(var9);
-            int var14 = TextureProvider.al(ix.ag[var9]);
-            int var16 = InterfaceParent.at(ix.ag[var9]);
+            int var14 = TextureProvider.al(ViewportMouse.ag[var9]);
+            int var16 = InterfaceParent.at(ViewportMouse.ag[var9]);
             int var17 = var16;
             int var21;
             int var22;
@@ -52,11 +52,11 @@ public class ClientScriptFrame {
                   }
                }
 
-               if (1 == -303899309 * Client.oq) {
+               if (1 == -303899309 * Client.isItemSelected) {
                   MiniMenuEntry.kz_renamed(Strings.Strings_use, Client.selectedItemName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(65535) + var18.name, 1, var17, var12, var13);
                } else if (Client.om) {
                   if ((SecureRandomFuture.oo * 1457791911 & 4) == 4) {
-                     MiniMenuEntry.kz_renamed(Client.oj, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(65535) + var18.name, 2, var17, var12, var13);
+                     MiniMenuEntry.kz_renamed(Client.selectedSpellActionName, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(65535) + var18.name, 2, var17, var12, var13);
                   }
                } else {
                   String[] var29 = var18.op;
@@ -104,10 +104,10 @@ public class ClientScriptFrame {
                }
 
                if (var25.type.size * 1458410691 == 1 && 64 == (var25.bx * 1144428983 & 127) && 64 == (var25.bo * -411750205 & 127)) {
-                  for(var28 = 0; var28 < 265474485 * Client.iw; ++var28) {
-                     var30 = Client.npcs[Client.iy[var28]];
+                  for(var28 = 0; var28 < 265474485 * Client.npcCount; ++var28) {
+                     var30 = Client.npcs[Client.npcIndices[var28]];
                      if (null != var30 && var25 != var30 && 1458410691 * var30.type.size == 1 && var25.bx * 1144428983 == var30.bx * 1144428983 && -411750205 * var25.bo == -411750205 * var30.bo) {
-                        InvType.lf_renamed(var30, Client.iy[var28], var12, var13);
+                        InvType.addNpcToMenu(var30, Client.npcIndices[var28], var12, var13);
                      }
                   }
 
@@ -122,7 +122,7 @@ public class ClientScriptFrame {
                   }
                }
 
-               InvType.lf_renamed(var25, var17, var12, var13);
+               InvType.addNpcToMenu(var25, var17, var12, var13);
             }
 
             if (0 == var14) {
@@ -132,10 +132,10 @@ public class ClientScriptFrame {
                }
 
                if (64 == (1144428983 * var26.bx & 127) && 64 == (-411750205 * var26.bo & 127)) {
-                  for(var28 = 0; var28 < Client.iw * 265474485; ++var28) {
-                     var30 = Client.npcs[Client.iy[var28]];
+                  for(var28 = 0; var28 < Client.npcCount * 265474485; ++var28) {
+                     var30 = Client.npcs[Client.npcIndices[var28]];
                      if (var30 != null && 1458410691 * var30.type.size == 1 && 1144428983 * var26.bx == var30.bx * 1144428983 && var30.bo * -411750205 == var26.bo * -411750205) {
-                        InvType.lf_renamed(var30, Client.iy[var28], var12, var13);
+                        InvType.addNpcToMenu(var30, Client.npcIndices[var28], var12, var13);
                      }
                   }
 
@@ -162,11 +162,11 @@ public class ClientScriptFrame {
                if (null != var27) {
                   for(Obj var32 = (Obj)var27.first(); null != var32; var32 = (Obj)var27.next()) {
                      ObjType var33 = HeadbarUpdate.getObjType(176307405 * var32.id);
-                     if (1 == Client.oq * -303899309) {
+                     if (1 == Client.isItemSelected * -303899309) {
                         MiniMenuEntry.kz_renamed(Strings.Strings_use, Client.selectedItemName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(16748608) + var33.name, 16, var32.id * 176307405, var12, var13);
                      } else if (Client.om) {
                         if (1 == (1457791911 * SecureRandomFuture.oo & 1)) {
-                           MiniMenuEntry.kz_renamed(Client.oj, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(16748608) + var33.name, 17, 176307405 * var32.id, var12, var13);
+                           MiniMenuEntry.kz_renamed(Client.selectedSpellActionName, Client.selectedSpellName + " " + Formatting.Formatting_rightArrow + " " + oa.colorStartTag(16748608) + var33.name, 17, 176307405 * var32.id, var12, var13);
                         }
                      } else {
                         String[] var34 = var33.op;
@@ -236,7 +236,7 @@ public class ClientScriptFrame {
          if (var0.length() == 0) {
             var4 = var4 + "; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0";
          } else {
-            var4 = var4 + "; Expires=" + fo.af(Formatting.af_renamed() + 94608000000L) + "; Max-Age=" + 94608000L;
+            var4 = var4 + "; Expires=" + fo.af(Formatting.currentTimeMs() + 94608000000L) + "; Max-Age=" + 94608000L;
          }
 
          by.af_renamed(client, "document.cookie=\"" + var4 + "\"");

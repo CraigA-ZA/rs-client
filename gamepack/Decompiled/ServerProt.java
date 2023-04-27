@@ -90,7 +90,7 @@ public class ServerProt {
    public static final ServerProt dl = new ServerProt(84, 0);
    public static final ServerProt dm = new ServerProt(78, -2);
    public static final ServerProt dn = new ServerProt(100, -1);
-   public static final ServerProt do = new ServerProt(81, 4);
+   public static final ServerProt do_renamed = new ServerProt(81, 4);
    public static final ServerProt dp = new ServerProt(92, -2);
    public static final ServerProt dq = new ServerProt(96, 2);
    public static final ServerProt dr = new ServerProt(83, -2);

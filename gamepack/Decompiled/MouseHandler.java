@@ -8,12 +8,12 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
    public static MouseHandler MouseHandler_instance = new MouseHandler();
    public static int MouseHandler_currentButton = 0;
    public static int MouseHandler_lastPressedX = 0;
-   public static int ao = 0;
+   public static int MouseHandler_y = 0;
    public static int MouseHandler_lastButton = 0;
    public static int MouseHandler_lastPressedY = 0;
-   public static int ay = 0;
+   public static int MouseHandler_x = 0;
    public static long MouseHandler_lastPressedTimeMillis = 0L;
-   public static long ax = 0L;
+   public static long MouseHandler_millis = 0L;
    public static volatile int MouseHandler_currentButton0 = 0;
    public static volatile int MouseHandler_lastPressedX0 = 0;
    public static volatile int MouseHandler_lastPressedY0 = 0;
@@ -61,7 +61,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
          MouseHandler_idleCycles = 0;
          MouseHandler_lastPressedX0 = var1.getX() * 394285213;
          MouseHandler_lastPressedY0 = var1.getY() * -1202616623;
-         MouseHandler_lastPressedTimeMillis0 = Formatting.af_renamed() * 4279889128239043159L;
+         MouseHandler_lastPressedTimeMillis0 = Formatting.currentTimeMs() * 4279889128239043159L;
          MouseHandler_lastButton0 = this.getButton(var1) * -528109255;
          if (0 != -1491866359 * MouseHandler_lastButton0) {
             MouseHandler_currentButton0 = -946669631 * MouseHandler_lastButton0;

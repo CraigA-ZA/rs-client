@@ -23,16 +23,16 @@ public class ot extends RuntimeException {
          var9 = var6 * var4 - var5 * var1 >> 16;
          var1 = var1 * var6 + var4 * var5 >> 16;
          if (var1 >= 50) {
-            Client.mz = (433849721 * Client.viewportWidth / 2 + var0 * Client.viewportZoom * -1114517553 / var1) * -846498395;
-            Client.mu = -1610031701 * (Client.viewportHeight * 2042096749 / 2 + var9 * -1114517553 * Client.viewportZoom / var1);
+            Client.viewportTempY = (433849721 * Client.viewportWidth / 2 + var0 * Client.viewportZoom * -1114517553 / var1) * -846498395;
+            Client.viewportTempX = -1610031701 * (Client.viewportHeight * 2042096749 / 2 + var9 * -1114517553 * Client.viewportZoom / var1);
          } else {
-            Client.mz = 846498395;
-            Client.mu = 1610031701;
+            Client.viewportTempY = 846498395;
+            Client.viewportTempX = 1610031701;
          }
 
       } else {
-         Client.mz = 846498395;
-         Client.mu = 1610031701;
+         Client.viewportTempY = 846498395;
+         Client.viewportTempX = 1610031701;
       }
    }
 }

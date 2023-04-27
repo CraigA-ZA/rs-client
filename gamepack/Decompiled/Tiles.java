@@ -9,7 +9,7 @@ public final class Tiles {
    static byte[][][] aq;
    static int ae = ((int)(Math.random() * 17.0) - 8) * 1514061769;
    static int ap = ((int)(Math.random() * 33.0) - 16) * 1193325609;
-   static int aw = -256673141;
+   static int Tiles_minPlane = -256673141;
    static int[] ay;
    static int[][] at;
    static int[][][] Tiles_heights = new int[4][105][105];

@@ -47,11 +47,11 @@ public class ByteArrayPool {
          return var9;
       } else {
          int var3;
-         if (eb.am != null) {
+         if (UserComparator3.am != null) {
             for(var3 = 0; var3 < gj.av.length; ++var3) {
                if ((var0 == gj.av[var3] || var0 < gj.av[var3] && var1) && fo.ar[var3] > 0) {
-                  byte[] var4 = eb.am[var3][--fo.ar[var3]];
-                  eb.am[var3][fo.ar[var3]] = null;
+                  byte[] var4 = UserComparator3.am[var3][--fo.ar[var3]];
+                  UserComparator3.am[var3][fo.ar[var3]] = null;
                   return var4;
                }
             }
@@ -59,7 +59,7 @@ public class ByteArrayPool {
 
          if (var1 && gj.av != null) {
             for(var3 = 0; var3 < gj.av.length; ++var3) {
-               if (var0 <= gj.av[var3] && fo.ar[var3] < eb.am[var3].length) {
+               if (var0 <= gj.av[var3] && fo.ar[var3] < UserComparator3.am[var3].length) {
                   return new byte[gj.av[var3]];
                }
             }

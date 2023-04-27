@@ -34,10 +34,10 @@ public class SoundSystem implements Runnable {
    public static boolean loadInterface(int var0) {
       if (kt.loadedInterfaces[var0]) {
          return true;
-      } else if (!eb.Component_archive.tryLoadGroup(var0)) {
+      } else if (!UserComparator3.Component_archive.tryLoadGroup(var0)) {
          return false;
       } else {
-         int var2 = eb.Component_archive.cq(var0);
+         int var2 = UserComparator3.Component_archive.cq(var0);
          if (0 == var2) {
             kt.loadedInterfaces[var0] = true;
             return true;
@@ -48,7 +48,7 @@ public class SoundSystem implements Runnable {
 
             for(int var3 = 0; var3 < var2; ++var3) {
                if (hn.interfaceComponents[var0][var3] == null) {
-                  byte[] var4 = eb.Component_archive.takeFile(var0, var3);
+                  byte[] var4 = UserComparator3.Component_archive.takeFile(var0, var3);
                   if (var4 != null) {
                      hn.interfaceComponents[var0][var3] = new Component();
                      hn.interfaceComponents[var0][var3].id = (var3 + (var0 << 16)) * 346484955;

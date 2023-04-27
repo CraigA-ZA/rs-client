@@ -28,21 +28,21 @@ public class FriendSystem {
       }
 
       GameShell.al_renamed();
-      if (null != es.clanChat) {
-         es.clanChat.ai();
+      if (null != UserComparator5.clanChat) {
+         UserComparator5.clanChat.ai();
       }
 
    }
 
    final void ac() {
       for(FriendLoginUpdate var2 = (FriendLoginUpdate)this.friendsList.friendLoginUpdates.an(); null != var2; var2 = (FriendLoginUpdate)this.friendsList.friendLoginUpdates.aw()) {
-         if ((long)(var2.time * 761297005) < Formatting.af_renamed() / 1000L - 5L) {
+         if ((long)(var2.time * 761297005) < Formatting.currentTimeMs() / 1000L - 5L) {
             if (var2.world > 0) {
-               es.an_renamed(5, "", var2.username + Strings.Strings_hasLoggedIn);
+               UserComparator5.an_renamed(5, "", var2.username + Strings.Strings_hasLoggedIn);
             }
 
             if (var2.world == 0) {
-               es.an_renamed(5, "", var2.username + Strings.Strings_hasLoggedOut);
+               UserComparator5.an_renamed(5, "", var2.username + Strings.Strings_hasLoggedOut);
             }
 
             var2.remove();
@@ -108,7 +108,7 @@ public class FriendSystem {
             if (this.ag()) {
                hn.at_renamed(Strings.Strings_yourIgnoreListIsFull);
             } else if (MusicPatchNode.localPlayer.username.equals(var3)) {
-               cf.ai_renamed();
+               OwnWorldComparator.ai_renamed();
             } else if (this.aq(var3)) {
                hn.at_renamed(var1 + Strings.hi);
             } else if (this.ab(var3, false)) {
@@ -145,8 +145,8 @@ public class FriendSystem {
             }
 
             GameShell.al_renamed();
-            if (es.clanChat != null) {
-               es.clanChat.ai();
+            if (UserComparator5.clanChat != null) {
+               UserComparator5.clanChat.ai();
             }
 
          }

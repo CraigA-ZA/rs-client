@@ -96,7 +96,7 @@ public class Strings {
    public static String dl = "";
    public static String dm = "";
    public static String dn = "Invalid loginserver requested.";
-   public static String do = "";
+   public static String do_renamed = "";
    public static String dp = "members world and move your character";
    public static String dq = "Please recover your account.";
    public static String dr = "Please try using a different world.";
@@ -217,7 +217,7 @@ public class Strings {
    public static String ic;
    public static String Strings_playersCanAttackEachOther;
    public static String ie;
-   public static String if;
+   public static String if_renamed;
    public static String ig;
    public static String ih;
    public static String ii;
@@ -409,7 +409,7 @@ public class Strings {
       he = "flash2:";
       hf = "flash3:";
       hy = "flash3:";
-      if = "glow1:";
+      if_renamed = "glow1:";
       ia = "glow1:";
       iu = "glow2:";
       iw = "glow2:";

@@ -124,8 +124,8 @@ public class hy implements be {
 
    static final void ay_renamed(int var0, int var1, int var2, int var3, int var4, int var5, Scene var6, CollisionMap var7) {
       if (!Client.isLowDetail || 0 != (Tiles.Tiles_renderFlags[0][var1][var2] & 2) || (Tiles.Tiles_renderFlags[var0][var1][var2] & 16) == 0) {
-         if (var0 < 1401144457 * Tiles.aw) {
-            Tiles.aw = -1087180359 * var0;
+         if (var0 < 1401144457 * Tiles.Tiles_minPlane) {
+            Tiles.Tiles_minPlane = -1087180359 * var0;
          }
 
          LocType var9 = fw.getLocType(var3);

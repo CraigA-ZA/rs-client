@@ -53,7 +53,7 @@ public abstract class Actor extends Entity {
    int dl;
    int dm = 0;
    int dn = 0;
-   int do = 0;
+   int do_renamed = 0;
    int dp = 368061749;
    int dr;
    int dt;
@@ -277,7 +277,7 @@ public abstract class Actor extends Entity {
       tt var7 = (tt)this.dc.get((long)var1);
       if (null != var7) {
          var7.remove();
-         this.do -= -1822461181;
+         this.do_renamed -= -1822461181;
       }
 
       if (65535 != var2 && var2 != -1) {
@@ -287,7 +287,7 @@ public abstract class Actor extends Entity {
          }
 
          this.dc.put(new tt(var2, var3, var6, var8), (long)var1);
-         this.do += -1822461181;
+         this.do_renamed += -1822461181;
       }
    }
 
@@ -302,11 +302,11 @@ public abstract class Actor extends Entity {
          var3.remove();
       }
 
-      this.do = 0;
+      this.do_renamed = 0;
    }
 
    Model cp(Model var1) {
-      if (-500494421 * this.do == 0) {
+      if (-500494421 * this.do_renamed == 0) {
          return var1;
       } else {
          IterableNodeHashTableIterator var3 = new IterableNodeHashTableIterator(this.dc);

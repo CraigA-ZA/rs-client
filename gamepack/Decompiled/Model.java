@@ -11,9 +11,9 @@ public class Model extends Entity {
    static char[][] bh = new char[6000][512];
    static float[] bf = new float[6500];
    static float[] ck = new float[10];
-   static int cf;
-   static int cm;
-   static int cq;
+   static int Model_transformTempZ;
+   static int Model_transformTempY;
+   static int Model_transformTempX;
    static int[] ba = new int[6500];
    static int[] modelViewportXs = new int[6500];
    static int[] bl = new int[6500];
@@ -509,9 +509,9 @@ public class Model extends Entity {
          if (var2 != -1) {
             AnimFrame var3 = var1.frames[var2];
             AnimBase var4 = var3.base;
-            cq = 0;
-            cm = 0;
-            cf = 0;
+            Model_transformTempX = 0;
+            Model_transformTempY = 0;
+            Model_transformTempZ = 0;
 
             for(int var5 = 0; var5 < var3.transformCount; ++var5) {
                int var6 = var3.transforms[var5];
@@ -581,9 +581,9 @@ public class Model extends Entity {
             AnimFrame var6 = var1.frames[var2];
             AnimFrame var7 = var3.frames[var4];
             AnimBase var8 = var6.base;
-            cq = 0;
-            cm = 0;
-            cf = 0;
+            Model_transformTempX = 0;
+            Model_transformTempY = 0;
+            Model_transformTempZ = 0;
             int var9 = 0;
             int var10 = var5[var9++];
 
@@ -598,9 +598,9 @@ public class Model extends Entity {
                }
             }
 
-            cq = 0;
-            cm = 0;
-            cf = 0;
+            Model_transformTempX = 0;
+            Model_transformTempY = 0;
+            Model_transformTempZ = 0;
             byte var14 = 0;
             var9 = var14 + 1;
             var10 = var5[var14];
@@ -644,9 +644,9 @@ public class Model extends Entity {
          AnimBase var6 = var5.base;
          int var7 = 0;
          int var8 = var3[var7++];
-         cq = 0;
-         cm = 0;
-         cf = 0;
+         Model_transformTempX = 0;
+         Model_transformTempY = 0;
+         Model_transformTempZ = 0;
 
          for(int var9 = 0; var9 < var5.transformCount; ++var9) {
             int var10;
@@ -673,9 +673,9 @@ public class Model extends Entity {
       int var12;
       if (var1 == 0) {
          var7 = 0;
-         cq = 0;
-         cm = 0;
-         cf = 0;
+         Model_transformTempX = 0;
+         Model_transformTempY = 0;
+         Model_transformTempZ = 0;
 
          for(var8 = 0; var8 < var6; ++var8) {
             int var24 = var2[var8];
@@ -684,22 +684,22 @@ public class Model extends Entity {
 
                for(var11 = 0; var11 < var25.length; ++var11) {
                   var12 = var25[var11];
-                  cq += this.verticesX[var12];
-                  cm += this.verticesY[var12];
-                  cf += this.verticesZ[var12];
+                  Model_transformTempX += this.verticesX[var12];
+                  Model_transformTempY += this.verticesY[var12];
+                  Model_transformTempZ += this.verticesZ[var12];
                   ++var7;
                }
             }
          }
 
          if (var7 > 0) {
-            cq = cq / var7 + var3;
-            cm = cm / var7 + var4;
-            cf = cf / var7 + var5;
+            Model_transformTempX = Model_transformTempX / var7 + var3;
+            Model_transformTempY = Model_transformTempY / var7 + var4;
+            Model_transformTempZ = Model_transformTempZ / var7 + var5;
          } else {
-            cq = var3;
-            cm = var4;
-            cf = var5;
+            Model_transformTempX = var3;
+            Model_transformTempY = var4;
+            Model_transformTempZ = var5;
          }
 
       } else {
@@ -733,11 +733,11 @@ public class Model extends Entity {
                   for(var10 = 0; var10 < var9.length; ++var10) {
                      var11 = var9[var10];
                      var10000 = this.verticesX;
-                     var10000[var11] -= cq;
+                     var10000[var11] -= Model_transformTempX;
                      var10000 = this.verticesY;
-                     var10000[var11] -= cm;
+                     var10000[var11] -= Model_transformTempY;
                      var10000 = this.verticesZ;
-                     var10000[var11] -= cf;
+                     var10000[var11] -= Model_transformTempZ;
                      var12 = (var3 & 255) * 8;
                      int var13 = (var4 & 255) * 8;
                      int var14 = (var5 & 255) * 8;
@@ -769,11 +769,11 @@ public class Model extends Entity {
                      }
 
                      var10000 = this.verticesX;
-                     var10000[var11] += cq;
+                     var10000[var11] += Model_transformTempX;
                      var10000 = this.verticesY;
-                     var10000[var11] += cm;
+                     var10000[var11] += Model_transformTempY;
                      var10000 = this.verticesZ;
-                     var10000[var11] += cf;
+                     var10000[var11] += Model_transformTempZ;
                   }
                }
             }
@@ -787,20 +787,20 @@ public class Model extends Entity {
                   for(var10 = 0; var10 < var9.length; ++var10) {
                      var11 = var9[var10];
                      var10000 = this.verticesX;
-                     var10000[var11] -= cq;
+                     var10000[var11] -= Model_transformTempX;
                      var10000 = this.verticesY;
-                     var10000[var11] -= cm;
+                     var10000[var11] -= Model_transformTempY;
                      var10000 = this.verticesZ;
-                     var10000[var11] -= cf;
+                     var10000[var11] -= Model_transformTempZ;
                      this.verticesX[var11] = this.verticesX[var11] * var3 / 128;
                      this.verticesY[var11] = this.verticesY[var11] * var4 / 128;
                      this.verticesZ[var11] = this.verticesZ[var11] * var5 / 128;
                      var10000 = this.verticesX;
-                     var10000[var11] += cq;
+                     var10000[var11] += Model_transformTempX;
                      var10000 = this.verticesY;
-                     var10000[var11] += cm;
+                     var10000[var11] += Model_transformTempY;
                      var10000 = this.verticesZ;
-                     var10000[var11] += cf;
+                     var10000[var11] += Model_transformTempZ;
                   }
                }
             }
@@ -942,8 +942,8 @@ public class Model extends Entity {
          var23 = var21 * var17 - var22 * var16 >> 16;
          var22 = var21 * var16 + var22 * var17 >> 16;
          bq[var19] = var22 - var18;
-         modelViewportXs[var19] = var8 + var20 * eu.at_renamed() / var22;
-         modelViewportYs[var19] = var9 + var23 * eu.at_renamed() / var22;
+         modelViewportXs[var19] = var8 + var20 * UserComparator7.at_renamed() / var22;
+         modelViewportYs[var19] = var9 + var23 * UserComparator7.at_renamed() / var22;
          bf[var19] = Npc.au_renamed(var22);
          if (this.ad > 0) {
             ba[var19] = var20;
@@ -1005,8 +1005,8 @@ public class Model extends Entity {
          var24 = var22 * var18 - var23 * var17 >> 16;
          var23 = var22 * var17 + var23 * var18 >> 16;
          bq[var20] = var23 - var19;
-         modelViewportXs[var20] = var9 + var21 * eu.at_renamed() / var8;
-         modelViewportYs[var20] = var10 + var24 * eu.at_renamed() / var8;
+         modelViewportXs[var20] = var9 + var21 * UserComparator7.at_renamed() / var8;
+         modelViewportYs[var20] = var10 + var24 * UserComparator7.at_renamed() / var8;
          bf[var20] = Npc.au_renamed(var8);
          if (this.ad > 0) {
             ba[var20] = var21;
@@ -1034,21 +1034,21 @@ public class Model extends Entity {
       int var14 = var12 + var13;
       if (var14 > 50 && var12 < 3500) {
          int var15 = var8 * var4 + var6 * var5 >> 16;
-         int var16 = (var15 - this.xzRadius) * eu.at_renamed();
+         int var16 = (var15 - this.xzRadius) * UserComparator7.at_renamed();
          if (var16 / var14 < kt.aq_renamed()) {
-            int var17 = (var15 + this.xzRadius) * eu.at_renamed();
+            int var17 = (var15 + this.xzRadius) * UserComparator7.at_renamed();
             int var18 = var17 / var14;
             int var19 = -1346890391 * Rasterizer3D.ab.av;
             if (var18 > var19) {
                int var20 = var7 * var3 - var11 * var2 >> 16;
                int var21 = this.xzRadius * var2 >> 16;
                int var22 = var21 + (this.bottomY * var3 >> 16);
-               int var23 = (var20 + var22) * eu.at_renamed();
+               int var23 = (var20 + var22) * UserComparator7.at_renamed();
                int var24 = var23 / var14;
                int var25 = Rasterizer3D.ab.am * 1380452969;
                if (var24 > var25) {
                   int var26 = var21 + (this.height * 1550732737 * var3 >> 16);
-                  int var27 = (var20 - var26) * eu.at_renamed();
+                  int var27 = (var20 - var26) * UserComparator7.at_renamed();
                   if (var27 / var14 < fa.al_renamed()) {
                      int var28 = var13 + (this.height * 1550732737 * var2 >> 16);
                      boolean var29 = false;
@@ -1059,8 +1059,8 @@ public class Model extends Entity {
 
                      boolean var31 = var30 || this.ad > 0;
                      int var32 = Projectile.ax_renamed();
-                     int var33 = ix.aw * 148198745;
-                     boolean var35 = ix.af;
+                     int var33 = ViewportMouse.ViewportMouse_y * 148198745;
+                     boolean var35 = ViewportMouse.ViewportMouse_isInViewport;
                      boolean var37 = gq.aw(var9);
                      boolean var38 = false;
                      int var40;
@@ -1138,8 +1138,8 @@ public class Model extends Entity {
                         var46 = var45 * var2 + var46 * var3 >> 16;
                         bq[var43] = var46 - var12;
                         if (var46 >= 50) {
-                           modelViewportXs[var43] = var49 + var44 * eu.at_renamed() / var46;
-                           modelViewportYs[var43] = var40 + var47 * eu.at_renamed() / var46;
+                           modelViewportXs[var43] = var49 + var44 * UserComparator7.at_renamed() / var46;
+                           modelViewportYs[var43] = var40 + var47 * UserComparator7.at_renamed() / var46;
                            bf[var43] = Npc.au_renamed(var46);
                         } else {
                            modelViewportXs[var43] = -5000;
@@ -1223,20 +1223,20 @@ public class Model extends Entity {
                      var15 = modelViewportYs[var8];
                      var16 = modelViewportYs[var9];
                      var17 = modelViewportYs[var10];
-                     var18 = 148198745 * ix.aw + var6;
+                     var18 = 148198745 * ViewportMouse.ViewportMouse_y + var6;
                      boolean var14;
                      if (var18 < var15 && var18 < var16 && var18 < var17) {
                         var14 = false;
                      } else {
-                        var18 = ix.aw * 148198745 - var6;
+                        var18 = ViewportMouse.ViewportMouse_y * 148198745 - var6;
                         if (var18 > var15 && var18 > var16 && var18 > var17) {
                            var14 = false;
                         } else {
-                           var18 = var6 + ix.an * 2139535413;
+                           var18 = var6 + ViewportMouse.ViewportMouse_x * 2139535413;
                            if (var18 < var11 && var18 < var12 && var18 < var13) {
                               var14 = false;
                            } else {
-                              var18 = ix.an * 2139535413 - var6;
+                              var18 = ViewportMouse.ViewportMouse_x * 2139535413 - var6;
                               if (var18 > var11 && var18 > var12 && var18 > var13) {
                                  var14 = false;
                               } else {
@@ -1519,16 +1519,16 @@ public class Model extends Entity {
          var13 = this.faceColors1[var1];
          if (var10 >= 50) {
             var14 = (50 - var8) * cb[var10 - var8];
-            cn[var4] = var2 + (var11 + ((ba[var7] - var11) * var14 >> 16)) * eu.at_renamed() / 50;
-            ca[var4] = var3 + (var12 + ((bv[var7] - var12) * var14 >> 16)) * eu.at_renamed() / 50;
+            cn[var4] = var2 + (var11 + ((ba[var7] - var11) * var14 >> 16)) * UserComparator7.at_renamed() / 50;
+            ca[var4] = var3 + (var12 + ((bv[var7] - var12) * var14 >> 16)) * UserComparator7.at_renamed() / 50;
             ck[var4] = cw;
             cu[var4++] = var13 + ((this.faceColors3[var1] - var13) * var14 >> 16);
          }
 
          if (var9 >= 50) {
             var14 = (50 - var8) * cb[var9 - var8];
-            cn[var4] = var2 + (var11 + ((ba[var6] - var11) * var14 >> 16)) * eu.at_renamed() / 50;
-            ca[var4] = var3 + (var12 + ((bv[var6] - var12) * var14 >> 16)) * eu.at_renamed() / 50;
+            cn[var4] = var2 + (var11 + ((ba[var6] - var11) * var14 >> 16)) * UserComparator7.at_renamed() / 50;
+            ca[var4] = var3 + (var12 + ((bv[var6] - var12) * var14 >> 16)) * UserComparator7.at_renamed() / 50;
             ck[var4] = cw;
             cu[var4++] = var13 + ((this.faceColors2[var1] - var13) * var14 >> 16);
          }
@@ -1545,16 +1545,16 @@ public class Model extends Entity {
          var13 = this.faceColors2[var1];
          if (var8 >= 50) {
             var14 = (50 - var9) * cb[var8 - var9];
-            cn[var4] = var2 + (var11 + ((ba[var5] - var11) * var14 >> 16)) * eu.at_renamed() / 50;
-            ca[var4] = var3 + (var12 + ((bv[var5] - var12) * var14 >> 16)) * eu.at_renamed() / 50;
+            cn[var4] = var2 + (var11 + ((ba[var5] - var11) * var14 >> 16)) * UserComparator7.at_renamed() / 50;
+            ca[var4] = var3 + (var12 + ((bv[var5] - var12) * var14 >> 16)) * UserComparator7.at_renamed() / 50;
             ck[var4] = cw;
             cu[var4++] = var13 + ((this.faceColors1[var1] - var13) * var14 >> 16);
          }
 
          if (var10 >= 50) {
             var14 = (50 - var9) * cb[var10 - var9];
-            cn[var4] = var2 + (var11 + ((ba[var7] - var11) * var14 >> 16)) * eu.at_renamed() / 50;
-            ca[var4] = var3 + (var12 + ((bv[var7] - var12) * var14 >> 16)) * eu.at_renamed() / 50;
+            cn[var4] = var2 + (var11 + ((ba[var7] - var11) * var14 >> 16)) * UserComparator7.at_renamed() / 50;
+            ca[var4] = var3 + (var12 + ((bv[var7] - var12) * var14 >> 16)) * UserComparator7.at_renamed() / 50;
             cu[var4++] = var13 + ((this.faceColors3[var1] - var13) * var14 >> 16);
          }
       }
@@ -1570,16 +1570,16 @@ public class Model extends Entity {
          var13 = this.faceColors3[var1];
          if (var9 >= 50) {
             var14 = (50 - var10) * cb[var9 - var10];
-            cn[var4] = var2 + (var11 + ((ba[var6] - var11) * var14 >> 16)) * eu.at_renamed() / 50;
-            ca[var4] = var3 + (var12 + ((bv[var6] - var12) * var14 >> 16)) * eu.at_renamed() / 50;
+            cn[var4] = var2 + (var11 + ((ba[var6] - var11) * var14 >> 16)) * UserComparator7.at_renamed() / 50;
+            ca[var4] = var3 + (var12 + ((bv[var6] - var12) * var14 >> 16)) * UserComparator7.at_renamed() / 50;
             ck[var4] = cw;
             cu[var4++] = var13 + ((this.faceColors2[var1] - var13) * var14 >> 16);
          }
 
          if (var8 >= 50) {
             var14 = (50 - var10) * cb[var8 - var10];
-            cn[var4] = var2 + (var11 + ((ba[var5] - var11) * var14 >> 16)) * eu.at_renamed() / 50;
-            ca[var4] = var3 + (var12 + ((bv[var5] - var12) * var14 >> 16)) * eu.at_renamed() / 50;
+            cn[var4] = var2 + (var11 + ((ba[var5] - var11) * var14 >> 16)) * UserComparator7.at_renamed() / 50;
+            ca[var4] = var3 + (var12 + ((bv[var5] - var12) * var14 >> 16)) * UserComparator7.at_renamed() / 50;
             ck[var4] = cw;
             cu[var4++] = var13 + ((this.faceColors1[var1] - var13) * var14 >> 16);
          }

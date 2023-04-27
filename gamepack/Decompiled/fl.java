@@ -17,10 +17,10 @@ public class fl implements Enumerated {
       if (null != var0 && var1 != null) {
          gj.av = var0;
          fo.ar = new int[var0.length];
-         eb.am = new byte[var0.length][][];
+         UserComparator3.am = new byte[var0.length][][];
 
          for(int var3 = 0; var3 < gj.av.length; ++var3) {
-            eb.am[var3] = new byte[var1[var3]][];
+            UserComparator3.am[var3] = new byte[var1[var3]][];
             ByteArrayPool.as.add(var0[var3]);
          }
 
@@ -28,7 +28,7 @@ public class fl implements Enumerated {
       } else {
          gj.av = null;
          fo.ar = null;
-         eb.am = (byte[][][])null;
+         UserComparator3.am = (byte[][][])null;
          kr.an_renamed();
       }
    }

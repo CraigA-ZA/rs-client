@@ -14,9 +14,9 @@ public class MouseRecorder implements Runnable {
       for(; this.isRunning; PlayerAppearance.af(50L)) {
          synchronized(this.lock) {
             if (this.index * 535437747 < 500) {
-               this.xs[535437747 * this.index] = MouseHandler.ay * -2063363905;
-               this.ys[535437747 * this.index] = -1224153235 * MouseHandler.ao;
-               this.millis[this.index * 535437747] = -1090234605399222665L * MouseHandler.ax;
+               this.xs[535437747 * this.index] = MouseHandler.MouseHandler_x * -2063363905;
+               this.ys[535437747 * this.index] = -1224153235 * MouseHandler.MouseHandler_y;
+               this.millis[this.index * 535437747] = -1090234605399222665L * MouseHandler.MouseHandler_millis;
                this.index += -1762036357;
             }
          }

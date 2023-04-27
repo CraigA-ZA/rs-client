@@ -16,6 +16,6 @@ final class TotalQuantityComparator implements Comparator {
    }
 
    public static void ai_renamed() {
-      PlayerAppearance.ar.clear();
+      PlayerAppearance.PlayerAppearance_cachedModels.clear();
    }
 }

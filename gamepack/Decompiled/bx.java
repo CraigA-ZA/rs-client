@@ -167,7 +167,7 @@ public class bx {
             fw.ma_renamed(var4);
             return 1;
          } else if (1118 == var0) {
-            var4.do = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
+            var4.do_renamed = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
             fw.ma_renamed(var4);
             return 1;
          } else if (var0 == 1119) {
@@ -185,7 +185,7 @@ public class bx {
 
             return 1;
          } else if (var0 == 1121) {
-            do.kf_renamed(1713081171 * var4.id, 55577617 * var4.childIndex);
+            do_renamed.kf_renamed(1713081171 * var4.id, 55577617 * var4.childIndex);
             Client.pg = var4;
             fw.ma_renamed(var4);
             return 1;
@@ -491,6 +491,6 @@ public class bx {
       Client.tz = -1225072817;
       Client.tf = false;
       StructType.af_renamed();
-      fd.hi_renamed(10);
+      fd.updateGameState(10);
    }
 }

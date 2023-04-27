@@ -31,7 +31,7 @@ public class Ignored extends User {
          }
 
          if (bx.an.startsWith("win") && !var2) {
-            cf.an_renamed(var0, 0);
+            OwnWorldComparator.an_renamed(var0, 0);
          } else if (bx.an.startsWith("mac")) {
             ia.aw_renamed(var0, 1, "openjs");
          } else {

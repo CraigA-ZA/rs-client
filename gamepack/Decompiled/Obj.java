@@ -45,7 +45,7 @@ public final class Obj extends Entity {
    }
 
    static void ix_renamed() {
-      if (Client.md) {
+      if (Client.renderSelf) {
          MouseHandler.addPlayerToScene(MusicPatchNode.localPlayer, false);
       }
 

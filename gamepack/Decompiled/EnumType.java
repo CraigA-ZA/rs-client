@@ -107,12 +107,12 @@ public class EnumType extends DualNode {
             }
          }
 
-         if (5 != -1275976559 * Client.dw) {
+         if (5 != -1275976559 * Client.gameState) {
             if (-1L == Login.db * -7899453336143161787L) {
-               Login.db = (Formatting.af_renamed() + 1000L) * -8298737133189264243L;
+               Login.db = (Formatting.currentTimeMs() + 1000L) * -8298737133189264243L;
             }
 
-            long var4 = Formatting.af_renamed();
+            long var4 = Formatting.currentTimeMs();
             boolean var6;
             if (null != Client.archiveLoaders && Client.wy * -397497277 < Client.archiveLoaders.size()) {
                while(true) {
@@ -140,7 +140,7 @@ public class EnumType extends DualNode {
                }
             }
 
-            if (10 == Client.dw * -1275976559 || -1275976559 * Client.dw == 11) {
+            if (10 == Client.gameState * -1275976559 || -1275976559 * Client.gameState == 11) {
                int var8;
                int var9;
                int var40;
@@ -165,8 +165,8 @@ public class EnumType extends DualNode {
                var8 = 2020601481 * MouseHandler.MouseHandler_lastPressedX;
                var9 = MouseHandler.MouseHandler_lastPressedY * 1163896205;
                if (var40 == 0) {
-                  var8 = -2063363905 * MouseHandler.ay;
-                  var9 = MouseHandler.ao * -1224153235;
+                  var8 = -2063363905 * MouseHandler.MouseHandler_x;
+                  var9 = MouseHandler.MouseHandler_y * -1224153235;
                }
 
                if (!su.ev && var40 == 4) {
@@ -194,19 +194,19 @@ public class EnumType extends DualNode {
 
                   var13 = fy.az * 950254081 + 80;
                   if (var40 == 1 && var8 >= var13 - 75 && var8 <= 75 + var13 && var9 >= var44 - 20 && var9 <= 20 + var44 || var75) {
-                     if ((-205173751 * Client.ce & 33554432) != 0) {
+                     if ((-205173751 * Client.worldProperties & 33554432) != 0) {
                         Login.Login_response0 = "";
                         Login.Login_response1 = Strings.Strings_thisIsABetaWorld;
                         Login.Login_response2 = Strings.Strings_yourNormalAccountWillNotBeAffected;
                         Login.Login_response3 = Strings.jq;
                         ee.ak_renamed(1);
-                        if (Client.hb && null != Login.ca && Login.ca.length() > 0) {
+                        if (Client.hb && null != Login.Login_username && Login.Login_username.length() > 0) {
                            Login.dm = 1153152795;
                         } else {
                            Login.dm = 0;
                         }
-                     } else if ((-205173751 * Client.ce & 4) != 0) {
-                        if ((-205173751 * Client.ce & 1024) != 0) {
+                     } else if ((-205173751 * Client.worldProperties & 4) != 0) {
+                        if ((-205173751 * Client.worldProperties & 1024) != 0) {
                            Login.Login_response1 = Strings.Strings_thisIsAHighRiskPvpWorld;
                            Login.Login_response2 = Strings.Strings_playersCanAttackEachOtherAlmostEverywhere;
                            Login.Login_response3 = Strings.Strings_andTheProtectItemPrayerWontWork;
@@ -218,18 +218,18 @@ public class EnumType extends DualNode {
 
                         Login.Login_response0 = Strings.Strings_warning;
                         ee.ak_renamed(1);
-                        if (Client.hb && Login.ca != null && Login.ca.length() > 0) {
+                        if (Client.hb && Login.Login_username != null && Login.Login_username.length() > 0) {
                            Login.dm = 1153152795;
                         } else {
                            Login.dm = 0;
                         }
-                     } else if ((Client.ce * -205173751 & 1024) != 0) {
+                     } else if ((Client.worldProperties * -205173751 & 1024) != 0) {
                         Login.Login_response1 = Strings.Strings_thisIsAHighRiskWorld;
                         Login.Login_response2 = Strings.Strings_theProtectItemPrayerWill;
                         Login.Login_response3 = Strings.Strings_notWorkOnThisWorld;
                         Login.Login_response0 = Strings.Strings_warning;
                         ee.ak_renamed(1);
-                        if (Client.hb && Login.ca != null && Login.ca.length() > 0) {
+                        if (Client.hb && Login.Login_username != null && Login.Login_username.length() > 0) {
                            Login.dm = 1153152795;
                         } else {
                            Login.dm = 0;
@@ -304,28 +304,28 @@ public class EnumType extends DualNode {
                         var13 = fy.az * 950254081 - 80;
                         var44 = 321;
                         if (1 == var40 && var8 >= var13 - 75 && var8 <= 75 + var13 && var9 >= var44 - 20 && var9 <= var44 + 20) {
-                           Login.ca = Login.ca.trim();
-                           if (Login.ca.length() == 0) {
+                           Login.Login_username = Login.Login_username.trim();
+                           if (Login.Login_username.length() == 0) {
                               he.ax_renamed(Strings.em, Strings.Strings_pleaseEnterYourUsername, Strings.ex);
                               return;
                            }
 
-                           if (Login.cu.length() == 0) {
+                           if (Login.Login_password.length() == 0) {
                               he.ax_renamed(Strings.eh, Strings.Strings_pleaseEnterYourPassword, Strings.ey);
                               return;
                            }
 
                            he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
                            ag.hb_renamed(false);
-                           fd.hi_renamed(20);
+                           fd.updateGameState(20);
                            return;
                         }
 
                         var13 = 80 + Login.ak * 678588245 + 180;
                         if (var40 == 1 && var8 >= var13 - 75 && var8 <= var13 + 75 && var9 >= var44 - 20 && var9 <= 20 + var44) {
                            ee.ak_renamed(0);
-                           Login.ca = "";
-                           Login.cu = "";
+                           Login.Login_username = "";
+                           Login.Login_password = "";
                            hp.ct = 0;
                            Messages.cp = "";
                            Login.cd = true;
@@ -347,9 +347,9 @@ public class EnumType extends DualNode {
                         if (1 == var40 && Login.ch) {
                            aj.clientPreferences.aq(!aj.clientPreferences.al());
                            if (!aj.clientPreferences.al()) {
-                              Login.ca = "";
+                              Login.Login_username = "";
                               aj.clientPreferences.ad((String)null);
-                              if (Client.hb && null != Login.ca && Login.ca.length() > 0) {
+                              if (Client.hb && null != Login.Login_username && Login.Login_username.length() > 0) {
                                  Login.dm = 1153152795;
                               } else {
                                  Login.dm = 0;
@@ -376,8 +376,8 @@ public class EnumType extends DualNode {
                                              for(var16 = 0; var16 < Login.dw.length() && var52 != Login.dw.charAt(var16); ++var16) {
                                              }
 
-                                             if (85 == 546317845 * var11.ai && Login.ca.length() > 0) {
-                                                Login.ca = Login.ca.substring(0, Login.ca.length() - 1);
+                                             if (85 == 546317845 * var11.ai && Login.Login_username.length() > 0) {
+                                                Login.Login_username = Login.Login_username.substring(0, Login.Login_username.length() - 1);
                                              }
 
                                              if (84 == 546317845 * var11.ai || 546317845 * var11.ai == 80) {
@@ -386,13 +386,13 @@ public class EnumType extends DualNode {
 
                                              var63 = var11.ax;
                                              boolean var59 = Login.dw.indexOf(var63) != -1;
-                                             if (var59 && Login.ca.length() < 320) {
-                                                Login.ca = Login.ca + var11.ax;
+                                             if (var59 && Login.Login_username.length() < 320) {
+                                                Login.Login_username = Login.Login_username + var11.ax;
                                              }
                                           } else {
                                              ee.ak_renamed(0);
-                                             Login.ca = "";
-                                             Login.cu = "";
+                                             Login.Login_username = "";
+                                             Login.Login_password = "";
                                              hp.ct = 0;
                                              Messages.cp = "";
                                              Login.cd = true;
@@ -403,25 +403,25 @@ public class EnumType extends DualNode {
                                     }
                                  } while(Login.dm * -1232221421 != 1);
 
-                                 if (var11.ai * 546317845 == 85 && Login.cu.length() > 0) {
-                                    Login.cu = Login.cu.substring(0, Login.cu.length() - 1);
+                                 if (var11.ai * 546317845 == 85 && Login.Login_password.length() > 0) {
+                                    Login.Login_password = Login.Login_password.substring(0, Login.Login_password.length() - 1);
                                  } else if (84 == 546317845 * var11.ai || 80 == var11.ai * 546317845) {
                                     Login.dm = 0;
                                     if (546317845 * var11.ai == 84) {
-                                       Login.ca = Login.ca.trim();
-                                       if (Login.ca.length() == 0) {
+                                       Login.Login_username = Login.Login_username.trim();
+                                       if (Login.Login_username.length() == 0) {
                                           he.ax_renamed(Strings.em, Strings.Strings_pleaseEnterYourUsername, Strings.ex);
                                           return;
                                        }
 
-                                       if (Login.cu.length() == 0) {
+                                       if (Login.Login_password.length() == 0) {
                                           he.ax_renamed(Strings.eh, Strings.Strings_pleaseEnterYourPassword, Strings.ey);
                                           return;
                                        }
 
                                        he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
                                        ag.hb_renamed(false);
-                                       fd.hi_renamed(20);
+                                       fd.updateGameState(20);
                                        return;
                                     }
                                  }
@@ -429,15 +429,15 @@ public class EnumType extends DualNode {
                                  if ((var11.av(82) || var11.av(87)) && 67 == var11.ai * 546317845) {
                                     Clipboard var55 = Toolkit.getDefaultToolkit().getSystemClipboard();
                                     var61 = var55.getContents(ClientScriptFrame.client);
-                                    var50 = 20 - Login.cu.length();
+                                    var50 = 20 - Login.Login_password.length();
                                     break;
                                  }
 
                                  if (MouseHandler.an_renamed(var11.ax)) {
                                     var48 = var11.ax;
                                     var47 = Login.dw.indexOf(var48) != -1;
-                                    if (var47 && Login.cu.length() < 20) {
-                                       Login.cu = Login.cu + var11.ax;
+                                    if (var47 && Login.Login_password.length() < 20) {
+                                       Login.Login_password = Login.Login_password + var11.ax;
                                     }
                                  }
                               }
@@ -450,7 +450,7 @@ public class EnumType extends DualNode {
 
                               while(true) {
                                  if (var74 >= var19) {
-                                    Login.cu = Login.cu + var18.substring(0, var19);
+                                    Login.Login_password = Login.Login_password + var18.substring(0, var19);
                                     continue label1654;
                                  }
 
@@ -512,7 +512,7 @@ public class EnumType extends DualNode {
                                  Messages.cp = "";
                                  ag.hb_renamed(true);
                                  he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
-                                 fd.hi_renamed(20);
+                                 fd.updateGameState(20);
                                  return;
                               }
 
@@ -527,8 +527,8 @@ public class EnumType extends DualNode {
                               var12 = 80 + 180 + Login.ak * 678588245;
                               if (1 == var40 && var8 >= var12 - 75 && var8 <= 75 + var12 && var9 >= var13 - 20 && var9 <= var13 + 20) {
                                  ee.ak_renamed(0);
-                                 Login.ca = "";
-                                 Login.cu = "";
+                                 Login.Login_username = "";
+                                 Login.Login_password = "";
                                  hp.ct = 0;
                                  Messages.cp = "";
                               }
@@ -545,8 +545,8 @@ public class EnumType extends DualNode {
 
                                  if (var11.ai * 546317845 == 13) {
                                     ee.ak_renamed(0);
-                                    Login.ca = "";
-                                    Login.cu = "";
+                                    Login.Login_username = "";
+                                    Login.Login_password = "";
                                     hp.ct = 0;
                                     Messages.cp = "";
                                  } else {
@@ -565,7 +565,7 @@ public class EnumType extends DualNode {
                                        Messages.cp = "";
                                        ag.hb_renamed(true);
                                        he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
-                                       fd.hi_renamed(20);
+                                       fd.updateGameState(20);
                                        return;
                                     }
 
@@ -578,8 +578,8 @@ public class EnumType extends DualNode {
                               var12 = 180 + Login.ak * 678588245 - 80;
                               var13 = 321;
                               if (var40 == 1 && var8 >= var12 - 75 && var8 <= 75 + var12 && var9 >= var13 - 20 && var9 <= var13 + 20) {
-                                 Login.ca = Login.ca.trim();
-                                 if (Login.ca.length() == 0) {
+                                 Login.Login_username = Login.Login_username.trim();
+                                 if (Login.Login_username.length() == 0) {
                                     he.ax_renamed(Strings.lu, Strings.lk, Strings.lh);
                                  } else {
                                     long var49 = kt.af_renamed();
@@ -587,7 +587,7 @@ public class EnumType extends DualNode {
                                     if (var49 == 0L) {
                                        var46 = 5;
                                     } else {
-                                       var18 = Login.ca;
+                                       var18 = Login.Login_username;
                                        Random var67 = new Random();
                                        Packet var58 = new Packet(128);
                                        Packet var62 = new Packet(128);
@@ -748,20 +748,20 @@ public class EnumType extends DualNode {
                                  if (546317845 * var11.ai == 13) {
                                     aq.aa_renamed(true);
                                  } else {
-                                    if (85 == 546317845 * var11.ai && Login.ca.length() > 0) {
-                                       Login.ca = Login.ca.substring(0, Login.ca.length() - 1);
+                                    if (85 == 546317845 * var11.ai && Login.Login_username.length() > 0) {
+                                       Login.Login_username = Login.Login_username.substring(0, Login.Login_username.length() - 1);
                                     }
 
                                     if (546317845 * var11.ai == 84) {
-                                       Login.ca = Login.ca.trim();
-                                       if (Login.ca.length() == 0) {
+                                       Login.Login_username = Login.Login_username.trim();
+                                       if (Login.Login_username.length() == 0) {
                                           he.ax_renamed(Strings.lu, Strings.lk, Strings.lh);
                                        } else {
                                           long var17 = kt.af_renamed();
                                           if (var17 == 0L) {
                                              var48 = 5;
                                           } else {
-                                             String var20 = Login.ca;
+                                             String var20 = Login.Login_username;
                                              Random var21 = new Random();
                                              Packet var22 = new Packet(128);
                                              Packet var23 = new Packet(128);
@@ -896,8 +896,8 @@ public class EnumType extends DualNode {
                                        return;
                                     }
 
-                                    if (var47 && Login.ca.length() < 320) {
-                                       Login.ca = Login.ca + var11.ax;
+                                    if (var47 && Login.Login_username.length() < 320) {
+                                       Login.Login_username = Login.Login_username + var11.ax;
                                     }
                                  }
                               }
@@ -980,7 +980,7 @@ public class EnumType extends DualNode {
                                           if (var70 == null) {
                                              var56 = false;
                                           } else {
-                                             var66 = do.al_renamed(var70);
+                                             var66 = do_renamed.al_renamed(var70);
                                              var72 = Varcs.aq_renamed();
                                              var68 = var70.after(var72);
                                              if (!var68) {
@@ -999,7 +999,7 @@ public class EnumType extends DualNode {
                                        }
 
                                        if (var56) {
-                                          fd.hi_renamed(50);
+                                          fd.updateGameState(50);
                                           return;
                                        }
                                     }
@@ -1067,7 +1067,7 @@ public class EnumType extends DualNode {
                                              if (var70 == null) {
                                                 var56 = false;
                                              } else {
-                                                var66 = do.al_renamed(var70);
+                                                var66 = do_renamed.al_renamed(var70);
                                                 var72 = Varcs.aq_renamed();
                                                 var68 = var70.after(var72);
                                                 if (!var68) {
@@ -1086,7 +1086,7 @@ public class EnumType extends DualNode {
                                           }
 
                                           if (var56) {
-                                             fd.hi_renamed(50);
+                                             fd.updateGameState(50);
                                           }
 
                                           return;
@@ -1134,7 +1134,7 @@ public class EnumType extends DualNode {
                                     he.ax_renamed(Strings.jm, Strings.Strings_connectingToServer, Strings.jd);
                                     Client.gy = sr.an;
                                     ag.hb_renamed(false);
-                                    fd.hi_renamed(20);
+                                    fd.updateGameState(20);
                                  }
                               } else if (1145608355 * Login.ce == 12) {
                                  var12 = fy.az * 950254081;
@@ -1261,8 +1261,8 @@ public class EnumType extends DualNode {
    }
 
    static final void ic_renamed() {
-      for(int var1 = 0; var1 < 265474485 * Client.iw; ++var1) {
-         int var2 = Client.iy[var1];
+      for(int var1 = 0; var1 < 265474485 * Client.npcCount; ++var1) {
+         int var2 = Client.npcIndices[var1];
          Npc var3 = Client.npcs[var2];
          if (null != var3) {
             ReflectionCheck.ii_renamed(var3, 1458410691 * var3.type.size);

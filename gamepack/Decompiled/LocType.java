@@ -4,7 +4,7 @@ public class LocType extends DualNode {
    static UnlitModel[] al = new UnlitModel[4];
    static EvictingDualNodeHashTable ab = new EvictingDualNodeHashTable(30);
    static EvictingDualNodeHashTable LocType_cached = new EvictingDualNodeHashTable(4096);
-   static EvictingDualNodeHashTable aq = new EvictingDualNodeHashTable(30);
+   static EvictingDualNodeHashTable LocType_cachedModels = new EvictingDualNodeHashTable(30);
    static AbstractArchive LocType_archive;
    boolean sharelight;
    boolean isSolid;
@@ -411,7 +411,7 @@ public class LocType extends DualNode {
          var8 = (long)((this.id * -1529817365 << 10) + (var1 << 3) + var2);
       }
 
-      Model var10 = (Model)aq.get(var8);
+      Model var10 = (Model)LocType_cachedModels.get(var8);
       if (var10 == null) {
          UnlitModel var11 = this.getUnlitModel(var1, var2);
          if (var11 == null) {
@@ -419,7 +419,7 @@ public class LocType extends DualNode {
          }
 
          var10 = var11.light(this.ambient * 1284125631 + 64, 768 + -18088891 * this.contrast, -50, -10, -50);
-         aq.put(var10, var8);
+         LocType_cachedModels.put(var10, var8);
       }
 
       if (this.hillChange * -1437543955 >= 0) {
@@ -437,7 +437,7 @@ public class LocType extends DualNode {
          var10 = (long)(var2 + (this.id * -1529817365 << 10) + (var1 << 3));
       }
 
-      Model var12 = (Model)aq.get(var10);
+      Model var12 = (Model)LocType_cachedModels.get(var10);
       if (var12 == null) {
          UnlitModel var13 = this.getUnlitModel(var1, var2);
          if (var13 == null) {
@@ -445,7 +445,7 @@ public class LocType extends DualNode {
          }
 
          var12 = var13.light(64 + this.ambient * 1284125631, 768 + this.contrast * -18088891, -50, -10, -50);
-         aq.put(var12, var10);
+         LocType_cachedModels.put(var12, var10);
       }
 
       if (var7 == null && -1 == this.hillChange * -1437543955) {

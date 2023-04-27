@@ -208,15 +208,15 @@ public class bz {
       } else if (var0 < 4000) {
          return am.bx_renamed(var0, var1, var2);
       } else if (var0 < 4100) {
-         return eb.bo_renamed(var0, var1, var2);
+         return UserComparator3.bo_renamed(var0, var1, var2);
       } else if (var0 < 4200) {
          return cm.bz_renamed(var0, var1, var2);
       } else if (var0 < 4300) {
          return MusicPatchPcmStream.bm_renamed(var0, var1, var2);
       } else if (var0 < 5100) {
-         return eg.bd_renamed(var0, var1, var2);
+         return UserComparator6.bd_renamed(var0, var1, var2);
       } else if (var0 < 5400) {
-         return ej.bt_renamed(var0, var1, var2);
+         return UserComparator4.bt_renamed(var0, var1, var2);
       } else if (var0 < 5600) {
          return TaskHandler.bj_renamed(var0, var1, var2);
       } else if (var0 < 5700) {
@@ -232,7 +232,7 @@ public class bz {
       } else if (var0 < 6900) {
          return NetFileRequest.ba_renamed(var0, var1, var2);
       } else if (var0 < 7000) {
-         return eu.bv_renamed(var0, var1, var2);
+         return UserComparator7.bv_renamed(var0, var1, var2);
       } else if (var0 < 7100) {
          return SoundSystem.bl_renamed(var0, var1, var2);
       } else if (var0 < 7200) {
@@ -386,11 +386,11 @@ public class bz {
          if (var0.overheadText != null && (!var9 || !var0.ci && (Client.sj * -1963411823 == 4 || !var0.ce && (0 == -1963411823 * Client.sj || Client.sj * -1963411823 == 3 || Client.sj * -1963411823 == 1 && ((Player)var0).aw())))) {
             var11 = -767387641 * var0.de;
             ot.worldToScreen(var0.bx * 1144428983, -411750205 * var0.bo, var11);
-            if (Client.mz * -1848743379 > -1 && Client.overheadTextCount * 734988573 < 1025553311 * Client.lq) {
+            if (Client.viewportTempY * -1848743379 > -1 && Client.overheadTextCount * 734988573 < 1025553311 * Client.lq) {
                Client.overheadTextXOffsets[734988573 * Client.overheadTextCount] = fx.fontBold12.stringWidth(var0.overheadText) / 2;
                Client.le[Client.overheadTextCount * 734988573] = fx.fontBold12.ascent;
-               Client.lj[734988573 * Client.overheadTextCount] = -1848743379 * Client.mz;
-               Client.ll[Client.overheadTextCount * 734988573] = 318977283 * Client.mu - var10;
+               Client.lj[734988573 * Client.overheadTextCount] = -1848743379 * Client.viewportTempY;
+               Client.ll[Client.overheadTextCount * 734988573] = 318977283 * Client.viewportTempX - var10;
                Client.lx[Client.overheadTextCount * 734988573] = var0.sequence * -1337884343;
                Client.lo[734988573 * Client.overheadTextCount] = var0.sequenceFrame * 819594233;
                Client.lw[Client.overheadTextCount * 734988573] = -536830723 * var0.movementFrameCycle;
@@ -404,7 +404,7 @@ public class bz {
          int var23;
          int var24;
          if (!var0.headbars.at()) {
-            eg.jd_renamed(var0, -767387641 * var0.de + 15);
+            UserComparator6.jd_renamed(var0, -767387641 * var0.de + 15);
 
             for(Headbar var77 = (Headbar)var0.headbars.last(); null != var77; var77 = (Headbar)var0.headbars.previous()) {
                HeadbarUpdate var12 = var77.get(-1886224337 * Client.ep);
@@ -458,8 +458,8 @@ public class bz {
 
                      var22 = var14.subHeight;
                      var10 += var22;
-                     var23 = -1848743379 * Client.mz + var2 - (var16 >> 1);
-                     var24 = Client.mu * 318977283 + var3 - var10;
+                     var23 = -1848743379 * Client.viewportTempY + var2 - (var16 >> 1);
+                     var24 = Client.viewportTempX * 318977283 + var3 - var10;
                      var23 -= var17;
                      if (var18 >= 0 && var18 < 255) {
                         var14.am(var23, var24, var18);
@@ -475,9 +475,9 @@ public class bz {
                      var10 += 2;
                   } else {
                      var10 += 5;
-                     if (-1848743379 * Client.mz > -1) {
-                        var22 = var2 + -1848743379 * Client.mz - (var16 >> 1);
-                        var23 = Client.mu * 318977283 + var3 - var10;
+                     if (-1848743379 * Client.viewportTempY > -1) {
+                        var22 = var2 + -1848743379 * Client.viewportTempY - (var16 >> 1);
+                        var23 = Client.viewportTempX * 318977283 + var3 - var10;
                         Rasterizer2D.Rasterizer2D_fillRectangle(var22, var23, var91, 5, 65280);
                         Rasterizer2D.Rasterizer2D_fillRectangle(var22 + var91, var23, var16 - var91, 5, 16711680);
                      }
@@ -501,7 +501,7 @@ public class bz {
                ot.worldToScreen(1144428983 * var0.bx, -411750205 * var0.bo, var79);
                AbstractFont var81 = (AbstractFont)Client.im.get(FontName.FontName_plain12);
                var10 += 4;
-               var81.drawCentered(var78.username.name(), Client.mz * -1848743379 + var2, Client.mu * 318977283 + var3 - var10, 16777215, 0);
+               var81.drawCentered(var78.username.name(), Client.viewportTempY * -1848743379 + var2, Client.viewportTempX * 318977283 + var3 - var10, 16777215, 0);
                var10 += 18;
             }
          }
@@ -515,15 +515,15 @@ public class bz {
             if (-1 != var78.headIconPk * -1875167049 || -1 != -1905401649 * var78.headIconPrayer) {
                var79 = 15 + -767387641 * var0.de;
                ot.worldToScreen(var0.bx * 1144428983, -411750205 * var0.bo, var79);
-               if (-1848743379 * Client.mz > -1) {
+               if (-1848743379 * Client.viewportTempY > -1) {
                   if (-1875167049 * var78.headIconPk != -1) {
                      var10 += 25;
-                     bt.headIconPkSprites[var78.headIconPk * -1875167049].ax(var2 + Client.mz * -1848743379 - 12, 318977283 * Client.mu + var3 - var10);
+                     bt.headIconPkSprites[var78.headIconPk * -1875167049].ax(var2 + Client.viewportTempY * -1848743379 - 12, 318977283 * Client.viewportTempX + var3 - var10);
                   }
 
                   if (-1905401649 * var78.headIconPrayer != -1) {
                      var10 += 25;
-                     qj.headIconPrayerSprites[-1905401649 * var78.headIconPrayer].ax(Client.mz * -1848743379 + var2 - 12, var3 + Client.mu * 318977283 - var10);
+                     qj.headIconPrayerSprites[-1905401649 * var78.headIconPrayer].ax(Client.viewportTempY * -1848743379 + var2 - 12, var3 + Client.viewportTempX * 318977283 - var10);
                   }
                }
             }
@@ -531,9 +531,9 @@ public class bz {
             if (var1 >= 0 && 10 == 633821975 * Client.eu && Client.eb * 561980131 == var8[var1]) {
                var79 = -767387641 * var0.de + 15;
                ot.worldToScreen(var0.bx * 1144428983, -411750205 * var0.bo, var79);
-               if (-1848743379 * Client.mz > -1) {
+               if (-1848743379 * Client.viewportTempY > -1) {
                   var10 += IDKType.headIconHintSprites[1].subHeight;
-                  IDKType.headIconHintSprites[1].ax(var2 + Client.mz * -1848743379 - 12, 318977283 * Client.mu + var3 - var10);
+                  IDKType.headIconHintSprites[1].ax(var2 + Client.viewportTempY * -1848743379 - 12, 318977283 * Client.viewportTempX + var3 - var10);
                }
             }
          } else {
@@ -547,7 +547,7 @@ public class bz {
                      long var86 = (long)var82[var85] << 8 | (long)var83[var85];
                      Sprite var89 = (Sprite)Client.wx.an(var86);
                      if (var89 == null) {
-                        Sprite[] var90 = eb.an_renamed(rr.archive8, var82[var85], 0);
+                        Sprite[] var90 = UserComparator3.an_renamed(rr.archive8, var82[var85], 0);
                         if (null != var90 && var83[var85] < var90.length) {
                            var89 = var90[var83[var85]];
                            Client.wx.aw(var86, var89);
@@ -555,20 +555,20 @@ public class bz {
                      }
 
                      if (null != var89) {
-                        eg.jd_renamed(var0, var0.de * -767387641 + 15);
-                        if (-1848743379 * Client.mz > -1) {
-                           var89.ax(-1848743379 * Client.mz + var2 - (var89.subWidth >> 1), 318977283 * Client.mu + (var3 - var89.subHeight) - 4);
+                        UserComparator6.jd_renamed(var0, var0.de * -767387641 + 15);
+                        if (-1848743379 * Client.viewportTempY > -1) {
+                           var89.ax(-1848743379 * Client.viewportTempY + var2 - (var89.subWidth >> 1), 318977283 * Client.viewportTempX + (var3 - var89.subHeight) - 4);
                         }
                      }
                   }
                }
             }
 
-            if (1 == Client.eu * 633821975 && 920558921 * Client.es == Client.iy[var1 - var76] && Client.ep * -1886224337 % 20 < 10) {
+            if (1 == Client.eu * 633821975 && 920558921 * Client.es == Client.npcIndices[var1 - var76] && Client.ep * -1886224337 % 20 < 10) {
                var85 = 15 + -767387641 * var0.de;
                ot.worldToScreen(var0.bx * 1144428983, -411750205 * var0.bo, var85);
-               if (-1848743379 * Client.mz > -1) {
-                  IDKType.headIconHintSprites[0].ax(var2 + Client.mz * -1848743379 - 12, 318977283 * Client.mu + var3 - 28);
+               if (-1848743379 * Client.viewportTempY > -1) {
+                  IDKType.headIconHintSprites[0].ax(var2 + Client.viewportTempY * -1848743379 - 12, 318977283 * Client.viewportTempX + var3 - 28);
                }
             }
          }
@@ -609,21 +609,21 @@ public class bz {
                if (null == var87) {
                   var0.hitmarkCycles[var11] = -1;
                } else {
-                  eg.jd_renamed(var0, var0.de * -767387641 / 2);
-                  if (Client.mz * -1848743379 > -1) {
+                  UserComparator6.jd_renamed(var0, var0.de * -767387641 / 2);
+                  if (Client.viewportTempY * -1848743379 > -1) {
                      boolean var92 = true;
                      if (1 == var11) {
-                        Client.mu -= -2135862948;
+                        Client.viewportTempX -= -2135862948;
                      }
 
                      if (var11 == 2) {
-                        Client.mz -= 187425963;
-                        Client.mu -= 1079552174;
+                        Client.viewportTempY -= 187425963;
+                        Client.viewportTempX -= 1079552174;
                      }
 
                      if (3 == var11) {
-                        Client.mz += 187425963;
-                        Client.mu -= 1079552174;
+                        Client.viewportTempY += 187425963;
+                        Client.viewportTempX -= 1079552174;
                      }
 
                      Sprite var96 = null;
@@ -852,8 +852,8 @@ public class bz {
                      var63 = var0.hitmarkCycles[var11] - -1886224337 * Client.ep;
                      int var64 = var87.am * 895105585 - 895105585 * var87.am * var63 / (292771999 * var87.ai);
                      int var65 = 498242719 * var87.as * var63 / (var87.ai * 292771999) + -(var87.as * 498242719);
-                     int var66 = var2 + -1848743379 * Client.mz - (var52 >> 1) + var64;
-                     int var67 = var3 + Client.mu * 318977283 - 12 + var65;
+                     int var66 = var2 + -1848743379 * Client.viewportTempY - (var52 >> 1) + var64;
+                     int var67 = var3 + Client.viewportTempX * 318977283 - 12 + var65;
                      int var68 = var67;
                      int var69 = var67 + var43;
                      int var70 = var67 + 15 + 1785373205 * var87.ad;

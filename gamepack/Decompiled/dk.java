@@ -23,14 +23,14 @@ public class dk implements Enumerated {
    }
 
    static final void kk_renamed(int var0, int var1) {
-      if (730065501 * Client.menuOptionsCount >= 2 || -303899309 * Client.oq != 0 || Client.om) {
-         if (Client.oz) {
+      if (730065501 * Client.menuOptionsCount >= 2 || -303899309 * Client.isItemSelected != 0 || Client.om) {
+         if (Client.showMouseOverText) {
             int var3 = DynamicObject.lm_renamed();
             String var4;
-            if (1 == Client.oq * -303899309 && 730065501 * Client.menuOptionsCount < 2) {
+            if (1 == Client.isItemSelected * -303899309 && 730065501 * Client.menuOptionsCount < 2) {
                var4 = Strings.Strings_use + Strings.Strings_space + Client.selectedItemName + " " + Formatting.Formatting_rightArrow;
             } else if (Client.om && 730065501 * Client.menuOptionsCount < 2) {
-               var4 = Client.oj + Strings.Strings_space + Client.selectedSpellName + " " + Formatting.Formatting_rightArrow;
+               var4 = Client.selectedSpellActionName + Strings.Strings_space + Client.selectedSpellName + " " + Formatting.Formatting_rightArrow;
             } else {
                var4 = Friend.lg_renamed(var3);
             }

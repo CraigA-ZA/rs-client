@@ -124,7 +124,7 @@ public class Decimator {
          } else {
             var5 = var4.getGroupId("sl_back");
             var6 = var4.getFileId(var5, "");
-            var3 = eb.an_renamed(var4, var5, var6);
+            var3 = UserComparator3.an_renamed(var4, var5, var6);
          }
 
          st.dr = var3;
@@ -311,7 +311,7 @@ public class Decimator {
                var21 = var18.at() ? da.an : da.af;
             }
 
-            if (MouseHandler.ay * -2063363905 >= var13 && MouseHandler.ao * -1224153235 >= var12 && -2063363905 * MouseHandler.ay < var13 + var26 && MouseHandler.ao * -1224153235 < var28 + var12 && var19) {
+            if (MouseHandler.MouseHandler_x * -2063363905 >= var13 && MouseHandler.MouseHandler_y * -1224153235 >= var12 && -2063363905 * MouseHandler.MouseHandler_x < var13 + var26 && MouseHandler.MouseHandler_y * -1224153235 < var28 + var12 && var19) {
                Login.de = var17 * -848889613;
                st.dr[1140778173 * var21.av].av(var13, var12, 128, 16777215);
                var15 = true;
@@ -338,14 +338,14 @@ public class Decimator {
          if (var15) {
             var17 = var1.stringWidth(bx.worlds[Login.de * 248569915].activity) + 6;
             int var29 = 8 + var1.ascent;
-            int var30 = MouseHandler.ao * -1224153235 + 25;
+            int var30 = MouseHandler.MouseHandler_y * -1224153235 + 25;
             if (var29 + var30 > 480) {
-               var30 = -1224153235 * MouseHandler.ao - 25 - var29;
+               var30 = -1224153235 * MouseHandler.MouseHandler_y - 25 - var29;
             }
 
-            Rasterizer2D.Rasterizer2D_fillRectangle(MouseHandler.ay * -2063363905 - var17 / 2, var30, var17, var29, 16777120);
-            Rasterizer2D.Rasterizer2D_drawRectangle(MouseHandler.ay * -2063363905 - var17 / 2, var30, var17, var29, 0);
-            var1.drawCentered(bx.worlds[Login.de * 248569915].activity, -2063363905 * MouseHandler.ay, 4 + var1.ascent + var30, 0, -1);
+            Rasterizer2D.Rasterizer2D_fillRectangle(MouseHandler.MouseHandler_x * -2063363905 - var17 / 2, var30, var17, var29, 16777120);
+            Rasterizer2D.Rasterizer2D_drawRectangle(MouseHandler.MouseHandler_x * -2063363905 - var17 / 2, var30, var17, var29, 0);
+            var1.drawCentered(bx.worlds[Login.de * 248569915].activity, -2063363905 * MouseHandler.MouseHandler_x, 4 + var1.ascent + var30, 0, -1);
          }
       }
 
@@ -366,7 +366,7 @@ public class Decimator {
          ClientScriptFrame.client.setMaxCanvasSize(7680, 2160);
       }
 
-      if (-1275976559 * Client.dw >= 25) {
+      if (-1275976559 * Client.gameState >= 25) {
          an.io_renamed();
       }
 
@@ -376,7 +376,7 @@ public class Decimator {
       if (!var2 || 1717695041 * bi.ji != var0 || 583188571 * qj.jg != var1) {
          bi.ji = 1006050753 * var0;
          qj.jg = var1 * -193171501;
-         fd.hi_renamed(25);
+         fd.updateGameState(25);
          jl.ij_renamed(Strings.Strings_loadingPleaseWait, true);
          int var4 = jm.baseX * -1232093375;
          int var5 = 827352769 * Scenery.baseY;
@@ -462,9 +462,9 @@ public class Decimator {
             }
          }
 
-         if (1494100363 * Client.te != 0) {
-            Client.te -= var6 * -1970850269;
-            Client.th -= 875414437 * var7;
+         if (1494100363 * Client.destinationX != 0) {
+            Client.destinationX -= var6 * -1970850269;
+            Client.destinationY -= 875414437 * var7;
          }
 
          Client.soundEffectCount = 0;

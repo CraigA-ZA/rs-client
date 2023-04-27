@@ -9,6 +9,7 @@ import okhttp3.Response;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.util.CheckClassAdapter;
 
 import java.io.*;
 import java.net.URL;
@@ -136,5 +137,26 @@ public class UtilFunctions {
 
         jos.close();
         fos.close();
+    }
+
+    public static void checkClass(ClassNode classNode) {
+        ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_MAXS);
+        CheckClassAdapter checkClassAdapter = new CheckClassAdapter(classWriter, true);
+
+        classNode.accept(checkClassAdapter);
+
+        byte[] bytecode = classWriter.toByteArray();
+        StringWriter stringWriter = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(stringWriter);
+        CheckClassAdapter.verify(new ClassReader(bytecode), false, printWriter);
+
+        String verificationResult = stringWriter.toString();
+        if (verificationResult.isEmpty()) {
+            // The bytecode is valid
+            System.out.println("class is valid");
+        } else {
+            // The bytecode is invalid
+            System.out.println("class is invalid");
+        }
     }
 }

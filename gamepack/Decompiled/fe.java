@@ -40,15 +40,15 @@ final class fe implements ThreadFactory {
             return 1;
          } else if (3305 == var0) {
             var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.ng[var4];
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.currentLevels[var4];
             return 1;
          } else if (3306 == var0) {
             var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.ny[var4];
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.levels[var4];
             return 1;
          } else if (3307 == var0) {
             var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539];
-            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.nu[var4];
+            Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.experience[var4];
             return 1;
          } else {
             int var6;
@@ -71,7 +71,7 @@ final class fe implements ThreadFactory {
                Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var4 & 16383;
                return 1;
             } else if (3312 == var0) {
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.ca ? 1 : 0;
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.isMembersWorld ? 1 : 0;
                return 1;
             } else if (var0 == 3313) {
                Interpreter.Interpreter_intStackSize -= 854271946;
@@ -92,24 +92,24 @@ final class fe implements ThreadFactory {
                Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = BufferedNetSocket.aw_renamed(var4, var5);
                return 1;
             } else if (3316 == var0) {
-               if (Client.pu * 324465533 >= 2) {
-                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.pu * 324465533;
+               if (Client.staffModLevel * 324465533 >= 2) {
+                  Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.staffModLevel * 324465533;
                } else {
                   Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = 0;
                }
 
                return 1;
             } else if (var0 == 3317) {
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.ea * -1496573241;
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.rebootTimer * -1496573241;
                return 1;
             } else if (var0 == 3318) {
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -453810525 * Client.bw;
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -453810525 * Client.worldId;
                return 1;
             } else if (var0 == 3321) {
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -365416549 * Client.pk / 100;
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -365416549 * Client.runEnergy / 100;
                return 1;
             } else if (3322 == var0) {
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.pj * -1940722149;
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.weight * -1940722149;
                return 1;
             } else if (3323 == var0) {
                if (Client.po) {
@@ -120,7 +120,7 @@ final class fe implements ThreadFactory {
 
                return 1;
             } else if (3324 == var0) {
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -205173751 * Client.ce;
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = -205173751 * Client.worldProperties;
                return 1;
             } else if (3325 == var0) {
                Interpreter.Interpreter_intStackSize -= 1708543892;
@@ -140,7 +140,7 @@ final class fe implements ThreadFactory {
                Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.ef * -2076298705;
                return 1;
             } else if (3331 == var0) {
-               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.pk * -365416549;
+               Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = Client.runEnergy * -365416549;
                return 1;
             } else {
                return 2;

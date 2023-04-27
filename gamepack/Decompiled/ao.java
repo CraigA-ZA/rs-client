@@ -103,7 +103,7 @@ class ao implements TlsAuthentication {
 
       for(int var10 = 0; var10 < var0.length; ++var10) {
          Component var11 = var0[var10];
-         if (var11 != null && (var11.parentId * 913615679 == var1 || var1 == -1412584499 && Client.pr == var11)) {
+         if (var11 != null && (var11.parentId * 913615679 == var1 || var1 == -1412584499 && Client.clickedComponent == var11)) {
             int var12;
             if (var8 == -1) {
                Client.rootComponentXs[Client.rr * -356793645] = var6 + 262951665 * var11.x;
@@ -127,7 +127,7 @@ class ao implements TlsAuthentication {
                int var15 = 1634279623 * var11.transparency;
                int var16;
                int var17;
-               if (var11 == Client.pr) {
+               if (var11 == Client.clickedComponent) {
                   if (-1412584499 != var1 && !var11.isDraggable) {
                      WorldMapSection3.qk = var0;
                      id.qp = var6 * -774716861;
@@ -135,25 +135,25 @@ class ao implements TlsAuthentication {
                      continue;
                   }
 
-                  if (Client.pn && Client.pq) {
-                     var16 = -2063363905 * MouseHandler.ay;
-                     var17 = MouseHandler.ao * -1224153235;
-                     var16 -= Client.pd * -1789924433;
-                     var17 -= 1902621241 * Client.pw;
+                  if (Client.isDraggingComponent && Client.pq) {
+                     var16 = -2063363905 * MouseHandler.MouseHandler_x;
+                     var17 = MouseHandler.MouseHandler_y * -1224153235;
+                     var16 -= Client.componentClickX * -1789924433;
+                     var17 -= 1902621241 * Client.componentClickY;
                      if (var16 < 1084046795 * Client.pi) {
                         var16 = Client.pi * 1084046795;
                      }
 
-                     if (var16 + -794961409 * var11.width > -794961409 * Client.pf.width + 1084046795 * Client.pi) {
-                        var16 = 1084046795 * Client.pi + Client.pf.width * -794961409 - var11.width * -794961409;
+                     if (var16 + -794961409 * var11.width > -794961409 * Client.clickedComponentParent.width + 1084046795 * Client.pi) {
+                        var16 = 1084046795 * Client.pi + Client.clickedComponentParent.width * -794961409 - var11.width * -794961409;
                      }
 
                      if (var17 < Client.pb * -746723443) {
                         var17 = Client.pb * -746723443;
                      }
 
-                     if (1473950221 * var11.height + var17 > Client.pf.height * 1473950221 + -746723443 * Client.pb) {
-                        var17 = Client.pf.height * 1473950221 + Client.pb * -746723443 - 1473950221 * var11.height;
+                     if (1473950221 * var11.height + var17 > Client.clickedComponentParent.height * 1473950221 + -746723443 * Client.pb) {
+                        var17 = Client.clickedComponentParent.height * 1473950221 + Client.pb * -746723443 - 1473950221 * var11.height;
                      }
 
                      var13 = var16;
@@ -277,7 +277,7 @@ class ao implements TlsAuthentication {
 
                      InterfaceParent var29 = (InterfaceParent)Client.interfaceParents.get((long)(1713081171 * var11.id));
                      if (null != var29) {
-                        ai.lk_renamed(var29.af * 944864121, var16, var17, var18, var19, var13, var14, var12);
+                        ai.drawInterface0(var29.af * 944864121, var16, var17, var18, var19, var13, var14, var12);
                      }
 
                      Rasterizer2D.Rasterizer2D_setClip(var2, var3, var4, var5);
@@ -295,7 +295,7 @@ class ao implements TlsAuthentication {
                      am.ao_renamed();
                   }
 
-                  if (Client.ro || Client.rw[var12] || -1928160607 * Client.rg > 1) {
+                  if (Client.ro || Client.rw[var12] || -1928160607 * Client.gameDrawingMode > 1) {
                      if (0 == 883712245 * var11.type && !var11.isIf3 && var11.scrollHeight * -1273374131 > var11.height * 1473950221) {
                         da.le_renamed(var13 + var11.width * -794961409, var14, var11.scrollY * 1223232735, 1473950221 * var11.height, -1273374131 * var11.scrollHeight);
                      }

@@ -1,12 +1,12 @@
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-public class eb extends AbstractUserComparator {
+public class UserComparator3 extends AbstractUserComparator {
    public static AbstractArchive Component_archive;
    static byte[][][] am;
    final boolean af;
 
-   public eb(boolean var1) {
+   public UserComparator3(boolean var1) {
       this.af = var1;
    }
 
@@ -374,7 +374,7 @@ public class eb extends AbstractUserComparator {
             Interpreter.Interpreter_intStackSize -= 854271946;
             var12 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539];
             var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize * -964267539 + 1];
-            var6 = ea.an_renamed(var12, var5);
+            var6 = UserComparator8.an_renamed(var12, var5);
             Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize += 427135973) * -964267539 - 1] = var6;
             return 1;
          } else if (var0 == 4035) {

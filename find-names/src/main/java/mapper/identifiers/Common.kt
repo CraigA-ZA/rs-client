@@ -80,8 +80,8 @@ abstract class ByteArrayPoolCount(index: Int) : OrderMapper.InClassInitializer.F
 @DependsOn(Client.friendSystem::class)
 abstract class UserComparatorClass(opcode: Int) : AllUniqueMapper.Class() {
     override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == opcode }
-            .nextWithin(30) { it.isField && it.fieldId == field<Client.friendSystem>().id }
-            .nextWithin(3) { it.opcode == NEW }
+            .nextWithin(50) { it.isField && it.fieldId == field<Client.friendSystem>().id }
+            .nextWithin(10) { it.opcode == NEW }
 }
 
 @DependsOn(Client.Scene_buildVisiblityMap::class)

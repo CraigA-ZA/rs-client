@@ -163,7 +163,7 @@ public final class Projectile extends Entity {
    }
 
    static final int ax_renamed() {
-      return ix.an * 2139535413;
+      return ViewportMouse.ViewportMouse_x * 2139535413;
    }
 
    static long ho_renamed() {

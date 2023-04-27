@@ -149,7 +149,7 @@ public class WorldMap {
    }
 
    public void ac(int var1, int var2, boolean var3, boolean var4) {
-      long var6 = Formatting.af_renamed();
+      long var6 = Formatting.currentTimeMs();
       this.au(var1, var2, var4, var6);
       if (!this.aa() && (var4 || var3) && !InvType.ok_renamed()) {
          if (var4) {
@@ -183,7 +183,7 @@ public class WorldMap {
          this.mouseCoord = this.currentMapArea0.coord(var6 + this.currentMapArea0.minX() * 64, var7 + this.currentMapArea0.minY() * 64);
          if (null != this.mouseCoord && var3) {
             hy var8 = Client.sh;
-            boolean var10 = Client.pu * 324465533 >= 2;
+            boolean var10 = Client.staffModLevel * 324465533 >= 2;
             int var12;
             int var13;
             if (var10 && var8.av(82) && var8.av(81)) {
@@ -259,7 +259,7 @@ public class WorldMap {
    final void al(int var1, int var2, boolean var3) {
       this.ak = -599017385 * var1;
       this.az = var2 * 19712353;
-      Formatting.af_renamed();
+      Formatting.currentTimeMs();
       if (var3) {
          this.at();
       }
@@ -387,7 +387,7 @@ public class WorldMap {
          this.drawLoading(var1, var2, var3, var4, var8);
       } else {
          if (!this.worldMapManager.isLoaded()) {
-            this.worldMapManager.load(this.aq, this.currentMapArea0.archiveName(), Client.ca);
+            this.worldMapManager.load(this.aq, this.currentMapArea0.archiveName(), Client.isMembersWorld);
             if (!this.worldMapManager.isLoaded()) {
                return;
             }
@@ -420,7 +420,7 @@ public class WorldMap {
          }
 
          this.ak(var1, var2, var3, var4, var9, var10);
-         var11 = 324465533 * Client.pu >= 2;
+         var11 = 324465533 * Client.staffModLevel >= 2;
          if (var11 && this.ck && this.mouseCoord != null) {
             this.font.draw("Coord: " + this.mouseCoord, 10 + Rasterizer2D.Rasterizer2D_xClipStart, 20 + Rasterizer2D.Rasterizer2D_yClipStart, 16776960, -1);
          }
@@ -492,7 +492,7 @@ public class WorldMap {
    public void az(int var1, int var2, int var3, int var4) {
       if (this.cacheLoader.isLoaded()) {
          if (!this.worldMapManager.isLoaded()) {
-            this.worldMapManager.load(this.aq, this.currentMapArea0.archiveName(), Client.ca);
+            this.worldMapManager.load(this.aq, this.currentMapArea0.archiveName(), Client.isMembersWorld);
             if (!this.worldMapManager.isLoaded()) {
                return;
             }

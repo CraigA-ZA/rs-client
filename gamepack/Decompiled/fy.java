@@ -48,14 +48,14 @@ public class fy extends fb {
             }
 
             ClientScriptEvent var12;
-            if (var1 == 0 && null != var4.onMiscTransmit) {
+            if (var1 == 0 && null != var4.onDialogAbort) {
                var12 = new ClientScriptEvent();
                var12.component = var4;
-               var12.args0 = var4.onMiscTransmit;
+               var12.args0 = var4.onDialogAbort;
                HeadbarUpdate.runClientScript(var12);
             }
 
-            if (1 == var1 && var4.onDialogAbort != null) {
+            if (1 == var1 && var4.onSubChange != null) {
                if (var4.childIndex * 55577617 >= 0) {
                   Component var13 = gh.getInterfaceComponent(var4.id * 1713081171);
                   if (var13 == null || var13.children == null || var4.childIndex * 55577617 >= var13.children.length || var13.children[55577617 * var4.childIndex] != var4) {
@@ -65,7 +65,7 @@ public class fy extends fb {
 
                var12 = new ClientScriptEvent();
                var12.component = var4;
-               var12.args0 = var4.onDialogAbort;
+               var12.args0 = var4.onSubChange;
                HeadbarUpdate.runClientScript(var12);
             }
          }

@@ -16,7 +16,7 @@ public class hn implements Enumerated {
    }
 
    static final void at_renamed(String var0) {
-      es.an_renamed(30, "", var0);
+      UserComparator5.an_renamed(30, "", var0);
    }
 
    public static int hashString(CharSequence var0) {

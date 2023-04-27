@@ -72,7 +72,7 @@ public final class GraphicsObject extends Entity {
    }
 
    static final void ao(long var0) {
-      ix.ag[(ix.ai += -429048361) * -1048050201 - 1] = var0;
+      ViewportMouse.ag[(ViewportMouse.ViewportMouse_entityCount += -429048361) * -1048050201 - 1] = var0;
    }
 
    static final void is_renamed(int var0, int var1) {

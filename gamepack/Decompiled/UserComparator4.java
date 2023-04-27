@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class ej implements Comparator {
+public class UserComparator4 implements Comparator {
    static int[] ax;
    final boolean af;
 
@@ -13,7 +13,7 @@ public class ej implements Comparator {
       }
    }
 
-   public ej(boolean var1) {
+   public UserComparator4(boolean var1) {
       this.af = var1;
    }
 

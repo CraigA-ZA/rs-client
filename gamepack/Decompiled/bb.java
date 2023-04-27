@@ -265,7 +265,7 @@ public class bb {
             mj.hz_renamed();
             ay.ao_renamed(bx.scene, Client.collisionMaps);
             Language.jv_renamed(true);
-            var22 = Tiles.aw * 1401144457;
+            var22 = Tiles.Tiles_minPlane * 1401144457;
             if (var22 > -1727408401 * GameShell.plane) {
                var22 = -1727408401 * GameShell.plane;
             }
@@ -275,7 +275,7 @@ public class bb {
             }
 
             if (Client.isLowDetail) {
-               bx.scene.init(1401144457 * Tiles.aw);
+               bx.scene.init(1401144457 * Tiles.Tiles_minPlane);
             } else {
                bx.scene.init(0);
             }
@@ -312,7 +312,7 @@ public class bb {
                }
             }
 
-            fd.hi_renamed(30);
+            fd.updateGameState(30);
             mj.hz_renamed();
             Entity.an_renamed();
             var26 = mi.an_renamed(ClientProt.ch, Client.packetWriter.au);

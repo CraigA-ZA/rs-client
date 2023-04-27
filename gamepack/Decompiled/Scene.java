@@ -137,7 +137,7 @@ public class Scene {
 
             for(int var6 = 0; var6 < var5.sceneryCount * -422028371; ++var6) {
                Scenery var7 = var5.scenery[var6];
-               if (eg.an(var7.ax * 5016412888503339625L) && var7.startX * 626811319 == var1 && var7.startY * 2004902003 == var2) {
+               if (UserComparator6.an(var7.ax * 5016412888503339625L) && var7.startX * 626811319 == var1 && var7.startY * 2004902003 == var2) {
                   var7.plane -= -1695101227;
                }
             }
@@ -495,7 +495,7 @@ public class Scene {
       if (var4 != null) {
          for(int var5 = 0; var5 < var4.sceneryCount * -422028371; ++var5) {
             Scenery var6 = var4.scenery[var5];
-            if (eg.an(var6.ax * 5016412888503339625L) && var6.startX * 626811319 == var2 && var6.startY * 2004902003 == var3) {
+            if (UserComparator6.an(var6.ax * 5016412888503339625L) && var6.startX * 626811319 == var2 && var6.startY * 2004902003 == var3) {
                this.removeScenery(var6);
                return;
             }
@@ -535,7 +535,7 @@ public class Scene {
       } else {
          for(int var5 = 0; var5 < var4.sceneryCount * -422028371; ++var5) {
             Scenery var6 = var4.scenery[var5];
-            if (eg.an(var6.ax * 5016412888503339625L) && var6.startX * 626811319 == var2 && var6.startY * 2004902003 == var3) {
+            if (UserComparator6.an(var6.ax * 5016412888503339625L) && var6.startX * 626811319 == var2 && var6.startY * 2004902003 == var3) {
                return var6;
             }
          }
@@ -566,7 +566,7 @@ public class Scene {
       } else {
          for(int var5 = 0; var5 < var4.sceneryCount * -422028371; ++var5) {
             Scenery var6 = var4.scenery[var5];
-            if (eg.an(var6.ax * 5016412888503339625L) && var6.startX * 626811319 == var2 && var6.startY * 2004902003 == var3) {
+            if (UserComparator6.an(var6.ax * 5016412888503339625L) && var6.startX * 626811319 == var2 && var6.startY * 2004902003 == var3) {
                return var6.ax * 5016412888503339625L;
             }
          }
@@ -1677,14 +1677,14 @@ public class Scene {
                var21 = var20 * var4 - var15 * var3 >> 16;
                var15 = var20 * var3 + var15 * var4 >> 16;
                if (var15 >= 50) {
-                  int var22 = TaskHandler.au_renamed() + var10 * eu.at_renamed() / var12;
-                  int var23 = ax.ab_renamed() + var17 * eu.at_renamed() / var12;
-                  int var24 = TaskHandler.au_renamed() + var14 * eu.at_renamed() / var11;
-                  int var25 = ax.ab_renamed() + var18 * eu.at_renamed() / var11;
-                  int var26 = TaskHandler.au_renamed() + var13 * eu.at_renamed() / var16;
-                  int var27 = ax.ab_renamed() + var19 * eu.at_renamed() / var16;
-                  int var28 = TaskHandler.au_renamed() + var9 * eu.at_renamed() / var15;
-                  int var29 = ax.ab_renamed() + var21 * eu.at_renamed() / var15;
+                  int var22 = TaskHandler.au_renamed() + var10 * UserComparator7.at_renamed() / var12;
+                  int var23 = ax.ab_renamed() + var17 * UserComparator7.at_renamed() / var12;
+                  int var24 = TaskHandler.au_renamed() + var14 * UserComparator7.at_renamed() / var11;
+                  int var25 = ax.ab_renamed() + var18 * UserComparator7.at_renamed() / var11;
+                  int var26 = TaskHandler.au_renamed() + var13 * UserComparator7.at_renamed() / var16;
+                  int var27 = ax.ab_renamed() + var19 * UserComparator7.at_renamed() / var16;
+                  int var28 = TaskHandler.au_renamed() + var9 * UserComparator7.at_renamed() / var15;
+                  int var29 = ax.ab_renamed() + var21 * UserComparator7.at_renamed() / var15;
                   float var30 = Npc.au_renamed(var12);
                   float var31 = Npc.au_renamed(var11);
                   float var32 = Npc.au_renamed(var16);
@@ -1777,8 +1777,8 @@ public class Scene {
             TileModel.aj[var9] = var12;
          }
 
-         TileModel.ah[var9] = TaskHandler.au_renamed() + var10 * eu.at_renamed() / var12;
-         TileModel.av[var9] = ax.ab_renamed() + var13 * eu.at_renamed() / var12;
+         TileModel.ah[var9] = TaskHandler.au_renamed() + var10 * UserComparator7.at_renamed() / var12;
+         TileModel.av[var9] = ax.ab_renamed() + var13 * UserComparator7.at_renamed() / var12;
          TileModel.ar[var9] = Npc.au_renamed(var12);
       }
 

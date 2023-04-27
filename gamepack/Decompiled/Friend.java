@@ -6,9 +6,9 @@ public class Friend extends Buddy {
    }
 
    int compareTo00(Friend var1) {
-      if (this.world0 * 177258591 == -453810525 * Client.bw && Client.bw * -453810525 != 177258591 * var1.world0) {
+      if (this.world0 * 177258591 == -453810525 * Client.worldId && Client.worldId * -453810525 != 177258591 * var1.world0) {
          return -1;
-      } else if (-453810525 * Client.bw == 177258591 * var1.world0 && Client.bw * -453810525 != 177258591 * this.world0) {
+      } else if (-453810525 * Client.worldId == 177258591 * var1.world0 && Client.worldId * -453810525 != 177258591 * this.world0) {
          return 1;
       } else if (177258591 * this.world0 != 0 && 0 == var1.world0 * 177258591) {
          return -1;

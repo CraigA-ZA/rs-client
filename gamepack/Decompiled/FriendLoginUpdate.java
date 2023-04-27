@@ -1,5 +1,5 @@
 public class FriendLoginUpdate extends Link {
-   public int time = (int)(Formatting.af_renamed() / 1000L) * -1536274075;
+   public int time = (int)(Formatting.currentTimeMs() / 1000L) * -1536274075;
    public short world;
    public Username username;
 

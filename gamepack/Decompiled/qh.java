@@ -86,7 +86,7 @@ public class qh {
          var1[var0] = var3;
       }
 
-      el.af_renamed();
+      UserComparator9.af_renamed();
    }
 
    qh() throws Throwable {

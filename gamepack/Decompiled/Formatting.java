@@ -1,7 +1,7 @@
 public class Formatting {
    public static String[] ar;
    static int ls;
-   static int qe;
+   static int componentDragDuration;
    static String Formatting_rightArrow = "->";
    static String Formatting_spaceLeftParenthesis = " (";
    static String Formatting_true = "true";
@@ -16,13 +16,13 @@ public class Formatting {
       throw new Error();
    }
 
-   public static final synchronized long af_renamed() {
+   public static final synchronized long currentTimeMs() {
       long var1 = System.currentTimeMillis();
-      if (var1 < lk.af * 1436109859624790083L) {
-         lk.an += 4531959532299302581L * (lk.af * 1436109859624790083L - var1);
+      if (var1 < lk.currentTimeMsLast * 1436109859624790083L) {
+         lk.currentTimeMsOffset += 4531959532299302581L * (lk.currentTimeMsLast * 1436109859624790083L - var1);
       }
 
-      lk.af = -820153132959898517L * var1;
-      return var1 + 5764352098133378973L * lk.an;
+      lk.currentTimeMsLast = -820153132959898517L * var1;
+      return var1 + 5764352098133378973L * lk.currentTimeMsOffset;
    }
 }

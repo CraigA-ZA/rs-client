@@ -26,7 +26,7 @@ abstract class IdentityMapper<T> : Mapper<T>() {
 
     abstract class Class : IdentityMapper<ClassWrapper>(), ElementMatcher.Class {
         override fun options(jar: JarWrapper): Sequence<ClassWrapper> {
-            return jar.classes.filter { it.name.length <= 2 || it.name == "client" }.asSequence()
+            return jar.classes.filter { it.name.length <= 2 || it.name == "client" || it.name.contains("_renamed")}.asSequence()
         }
     }
 

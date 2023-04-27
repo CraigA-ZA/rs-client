@@ -110,8 +110,8 @@ public class FloorOverlayType extends DualNode {
    }
 
    static void ah_renamed(World var0) {
-      if (var0.at() != Client.ca) {
-         Client.ca = var0.at();
+      if (var0.at() != Client.isMembersWorld) {
+         Client.isMembersWorld = var0.at();
          boolean var2 = var0.at();
          if (gm.al != var2) {
             oq.as_renamed();
@@ -119,7 +119,7 @@ public class FloorOverlayType extends DualNode {
          }
       }
 
-      if (-205173751 * Client.ce != 1810954985 * var0.properties) {
+      if (-205173751 * Client.worldProperties != 1810954985 * var0.properties) {
          Archive var8 = rr.archive8;
          int var3 = 1810954985 * var0.properties;
          if ((var3 & 536870912) != 0) {
@@ -133,9 +133,9 @@ public class FloorOverlayType extends DualNode {
          }
       }
 
-      ea.worldHost = var0.host;
-      Client.bw = -2094155673 * var0.id;
-      Client.ce = var0.properties * 702001121;
+      UserComparator8.worldHost = var0.host;
+      Client.worldId = -2094155673 * var0.id;
+      Client.worldProperties = var0.properties * 702001121;
       ClanChat.gw = (0 == -1274626977 * Client.cs ? 'ꩊ' : -2091224171 * var0.id + '鱀') * -1326916691;
       ec.gc = (0 == Client.cs * -1274626977 ? 443 : '썐' + var0.id * -2091224171) * -1927102761;
       Inventory.gf = ClanChat.gw * 518729065;

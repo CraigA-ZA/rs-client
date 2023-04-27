@@ -92,7 +92,7 @@ public class gs extends fb {
       }
 
       if (1337 == 1021339961 * var0.clientCode) {
-         Client.ps = var0;
+         Client.viewportComponent = var0;
       }
 
       if (12 == var0.type * 883712245) {
@@ -103,7 +103,7 @@ public class gs extends fb {
          ClientScriptEvent var7 = new ClientScriptEvent();
          var7.component = var0;
          var7.args0 = var0.gh;
-         Client.rq.addFirst(var7);
+         Client.clientScriptEvents.addFirst(var7);
       }
 
    }

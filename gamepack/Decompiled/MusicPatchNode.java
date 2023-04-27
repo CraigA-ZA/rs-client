@@ -42,7 +42,7 @@ public class MusicPatchNode extends Node {
    }
 
    static final void iw_renamed(Component var0, int var1, int var2) {
-      if (Client.tp * 1383336963 == 0 || 1383336963 * Client.tp == 3) {
+      if (Client.minimapState * 1383336963 == 0 || 1383336963 * Client.minimapState == 3) {
          if (!Client.isMiniMenuOpen && (MouseHandler.MouseHandler_lastButton * -1222491879 == 1 || !su.ev && MouseHandler.MouseHandler_lastButton * -1222491879 == 4)) {
             SpriteMask var4 = var0.getSpriteMask(true);
             if (null == var4) {
@@ -54,7 +54,7 @@ public class MusicPatchNode extends Node {
             if (var4.contains(var5, var6)) {
                var5 -= var4.width * 1484188043 / 2;
                var6 -= var4.height * 939947663 / 2;
-               int var7 = Client.kf * 704283033 & 2047;
+               int var7 = Client.camAngleY * 704283033 & 2047;
                int var8 = Rasterizer3D.Rasterizer3D_sine[var7];
                int var9 = Rasterizer3D.Rasterizer3D_cosine[var7];
                int var10 = var5 * var9 + var6 * var8 >> 11;
@@ -68,7 +68,7 @@ public class MusicPatchNode extends Node {
                var14.bit.du(Client.sh.av(82) ? (Client.sh.av(81) ? 2 : 1) : 0);
                var14.bit.bu(var5);
                var14.bit.bu(var6);
-               var14.bit.p2(704283033 * Client.kf);
+               var14.bit.p2(704283033 * Client.camAngleY);
                var14.bit.bu(57);
                var14.bit.bu(0);
                var14.bit.bu(0);
@@ -77,8 +77,8 @@ public class MusicPatchNode extends Node {
                var14.bit.p2(localPlayer.bo * -411750205);
                var14.bit.bu(63);
                Client.packetWriter.aw(var14);
-               Client.te = var12 * -1970850269;
-               Client.th = 875414437 * var13;
+               Client.destinationX = var12 * -1970850269;
+               Client.destinationY = 875414437 * var13;
             }
          }
 

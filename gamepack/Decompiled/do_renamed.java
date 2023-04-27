@@ -1,8 +1,8 @@
 import java.util.Calendar;
 import java.util.Date;
 
-public class do {
-   do() throws Throwable {
+public class do_renamed {
+   do_renamed() throws Throwable {
       throw new Error();
    }
 

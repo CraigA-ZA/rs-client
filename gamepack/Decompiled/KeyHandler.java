@@ -9,7 +9,7 @@ import java.util.Iterator;
 public class KeyHandler implements KeyListener, FocusListener {
    static int ul;
    be[] ac = new be[3];
-   boolean[] au = new boolean[112];
+   boolean[] KeyHandler_pressedKeys = new boolean[112];
    Collection an = new ArrayList(100);
    Collection aw = new ArrayList(100);
    volatile int ab = 0;
@@ -44,7 +44,7 @@ public class KeyHandler implements KeyListener, FocusListener {
    }
 
    public static int af_renamed() {
-      return -1048050201 * ix.ai;
+      return -1048050201 * ViewportMouse.ViewportMouse_entityCount;
    }
 
    void au() {
@@ -69,7 +69,7 @@ public class KeyHandler implements KeyListener, FocusListener {
          if (var2 >= 0) {
             int var4 = bi.KeyHandler_keyCodes.length;
             if (var2 < var4) {
-               var2 = ix.an_renamed(var2);
+               var2 = ViewportMouse.an_renamed(var2);
                boolean var5 = 0 != (var2 & 128);
                if (var5) {
                   var2 = -1;
@@ -82,7 +82,7 @@ public class KeyHandler implements KeyListener, FocusListener {
       }
 
       if (var2 >= 0) {
-         this.au[var2] = true;
+         this.KeyHandler_pressedKeys[var2] = true;
          this.an.add(new bz(1, var2));
          this.ab = 0;
       }
@@ -97,7 +97,7 @@ public class KeyHandler implements KeyListener, FocusListener {
          if (var2 >= 0) {
             int var4 = bi.KeyHandler_keyCodes.length;
             if (var2 < var4) {
-               var2 = ix.an_renamed(var2) & -129;
+               var2 = ViewportMouse.an_renamed(var2) & -129;
                break label22;
             }
          }
@@ -106,7 +106,7 @@ public class KeyHandler implements KeyListener, FocusListener {
       }
 
       if (var2 >= 0) {
-         this.au[var2] = false;
+         this.KeyHandler_pressedKeys[var2] = false;
          this.an.add(new bz(2, var2));
       }
 
@@ -157,8 +157,8 @@ public class KeyHandler implements KeyListener, FocusListener {
 
    public final synchronized void focusLost(FocusEvent var1) {
       for(int var2 = 0; var2 < 112; ++var2) {
-         if (this.au[var2]) {
-            this.au[var2] = false;
+         if (this.KeyHandler_pressedKeys[var2]) {
+            this.KeyHandler_pressedKeys[var2] = false;
             this.an.add(new bz(2, var2));
          }
       }
@@ -183,7 +183,7 @@ public class KeyHandler implements KeyListener, FocusListener {
          byte[] var5 = var0.takeFileByNames("title.jpg", "");
          ex.at = Strings.imageToSprite(var5);
          ParamType.aa = ex.at.af();
-         int var6 = Client.ce * -205173751;
+         int var6 = Client.worldProperties * -205173751;
          if ((var6 & 536870912) != 0) {
             Canvas.ay = MusicPatchNode2.au_renamed(var1, "logo_deadman_mode", "");
          } else if (0 != (var6 & 1073741824)) {
@@ -209,8 +209,8 @@ public class KeyHandler implements KeyListener, FocusListener {
          FloorUnderlayType.cw = Login.ax.subHeight * 905476585;
          em.av = new dp(py.runeSprites);
          if (var2) {
-            Login.ca = "";
-            Login.cu = "";
+            Login.Login_username = "";
+            Login.Login_password = "";
             Login.cm = new String[8];
             Login.cq = 0;
          }

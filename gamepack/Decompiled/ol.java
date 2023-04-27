@@ -83,8 +83,8 @@ public class ol {
       throw new Error();
    }
 
-   static final void mm_renamed(Component var0, int var1, int var2) {
-      if (Client.pr == null && !Client.isMiniMenuOpen) {
+   static final void clickComponent(Component var0, int var1, int var2) {
+      if (Client.clickedComponent == null && !Client.isMiniMenuOpen) {
          if (var0 != null) {
             Component var6 = var0;
             int var7 = StructType.an_renamed(KeyHandler.getComponentClickMask(var0));
@@ -117,7 +117,7 @@ public class ol {
             }
 
             if (var9 != null) {
-               Client.pr = var0;
+               Client.clickedComponent = var0;
                var6 = var0;
                var7 = StructType.an_renamed(KeyHandler.getComponentClickMask(var0));
                if (0 == var7) {
@@ -146,11 +146,11 @@ public class ol {
                   var9 = var0.parent;
                }
 
-               Client.pf = var9;
-               Client.pd = -489272497 * var1;
-               Client.pw = var2 * 1757453321;
-               Formatting.qe = 0;
-               Client.pn = false;
+               Client.clickedComponentParent = var9;
+               Client.componentClickX = -489272497 * var1;
+               Client.componentClickY = var2 * 1757453321;
+               Formatting.componentDragDuration = 0;
+               Client.isDraggingComponent = false;
                int var10 = DynamicObject.lm_renamed();
                if (var10 != -1) {
                   lm.mv_renamed(var10);

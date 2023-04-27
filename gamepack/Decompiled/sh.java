@@ -262,7 +262,7 @@ public class sh implements Enumerated {
    }
 
    static final void nm_renamed(String var0) {
-      if (es.clanChat != null) {
+      if (UserComparator5.clanChat != null) {
          PacketBitNode var2 = mi.an_renamed(ClientProt.dt, Client.packetWriter.au);
          var2.bit.bu(DynamicObject.bc_renamed(var0));
          var2.bit.bh(var0);

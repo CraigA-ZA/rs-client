@@ -29,7 +29,7 @@ public class ey implements Enumerated {
    static int bh_renamed(int var0, ClientScript var1, boolean var2) {
       if (7463 == var0) {
          boolean var4 = Interpreter.Interpreter_intStack[(Interpreter.Interpreter_intStackSize -= 427135973) * -964267539] == 1;
-         cf.ox_renamed(var4);
+         OwnWorldComparator.ox_renamed(var4);
          return 1;
       } else {
          return 2;

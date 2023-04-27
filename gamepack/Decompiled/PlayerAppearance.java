@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class PlayerAppearance {
    public static short[] ay;
    public static short[][] ao;
-   static EvictingDualNodeHashTable ar;
+   static EvictingDualNodeHashTable PlayerAppearance_cachedModels;
    static final int[] ag;
    boolean isFemale = false;
    gx[] at;
@@ -58,7 +58,7 @@ public class PlayerAppearance {
 
    static {
       ag = new int[]{622494345 * hp.at.ag, hp.ao.ag * 622494345, 622494345 * hp.au.ag, 622494345 * hp.aq.ag, hp.aa.ag * 622494345, 622494345 * hp.al.ag, 622494345 * hp.ay.ag};
-      ar = new EvictingDualNodeHashTable(260);
+      PlayerAppearance_cachedModels = new EvictingDualNodeHashTable(260);
    }
 
    public PlayerAppearance() {
@@ -216,7 +216,7 @@ public class PlayerAppearance {
       this.equipment[5] = var4;
       this.equipment[9] = var5;
       if (var2 != 0L && this.aq * 800274196296009541L != var2 || this.isFemale) {
-         ar.remove(var2);
+         PlayerAppearance_cachedModels.remove(var2);
       }
 
    }
@@ -245,7 +245,7 @@ public class PlayerAppearance {
             }
          }
 
-         Model var21 = (Model)ar.get(var6);
+         Model var21 = (Model)PlayerAppearance_cachedModels.get(var6);
          if (null == var21) {
             boolean var10 = false;
 
@@ -263,7 +263,7 @@ public class PlayerAppearance {
 
             if (var10) {
                if (-1L != 1976929687773021041L * this.al) {
-                  var21 = (Model)ar.get(1976929687773021041L * this.al);
+                  var21 = (Model)PlayerAppearance_cachedModels.get(1976929687773021041L * this.al);
                }
 
                if (null == var21) {
@@ -325,7 +325,7 @@ public class PlayerAppearance {
                }
 
                var21 = var24.light(64, 850, -30, -50, -30);
-               ar.put(var21, var6);
+               PlayerAppearance_cachedModels.put(var21, var6);
                this.al = var6 * 3107045911833599377L;
             }
          }

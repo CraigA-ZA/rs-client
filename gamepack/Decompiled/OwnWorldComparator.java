@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class cf implements Comparator {
+public class OwnWorldComparator implements Comparator {
    boolean af;
 
    static boolean an_renamed(String var0, int var1) {
@@ -29,7 +29,7 @@ public class cf implements Comparator {
       Client.nb = var0;
    }
 
-   cf() {
+   OwnWorldComparator() {
    }
 
    int af(GrandExchangeEvent var1, GrandExchangeEvent var2) {
@@ -37,11 +37,11 @@ public class cf implements Comparator {
          return 0;
       } else {
          if (this.af) {
-            if (-453810525 * Client.bw == var1.world * -39392873) {
+            if (-453810525 * Client.worldId == var1.world * -39392873) {
                return -1;
             }
 
-            if (Client.bw * -453810525 == var2.world * -39392873) {
+            if (Client.worldId * -453810525 == var2.world * -39392873) {
                return 1;
             }
          }
