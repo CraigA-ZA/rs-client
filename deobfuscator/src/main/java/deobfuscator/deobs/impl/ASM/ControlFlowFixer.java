@@ -4,21 +4,18 @@ import deobfuscator.Deobfuscator;
 import deobfuscator.deobs.AbstractDeob;
 import deobfuscator.deobs.impl.Block;
 import deobfuscator.deobs.impl.BlockAnalyzer;
-import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.tree.InsnList;
-import org.objectweb.asm.tree.LabelNode;
-import org.objectweb.asm.tree.MethodNode;
+import org.objectweb.asm.tree.*;
 import org.objectweb.asm.tree.analysis.AnalyzerException;
-
 import java.util.*;
 
 public class ControlFlowFixer extends AbstractDeob {
     public void run() {
         List<ClassNode> classNodes = Deobfuscator.classMapASM.values().stream().toList();
         int blockCount = 0;
+
         for (ClassNode classNode : classNodes) {
             for (MethodNode methodNode : classNode.methods) {
-                if (methodNode.tryCatchBlocks.isEmpty()) {
+                if (methodNode.tryCatchBlocks.isEmpty()) { // && classNode.name.equals("ae") && methodNode.name.equals("ac")
                     BlockAnalyzer analyzer = new BlockAnalyzer();
                     try {
                         analyzer.analyze(classNode.name, methodNode);
@@ -27,11 +24,38 @@ public class ControlFlowFixer extends AbstractDeob {
                     }
                     methodNode.instructions = buildInsnList(methodNode.instructions, analyzer.blocks);
                     blockCount += analyzer.blocks.size();
+//                    printJumpInstructions(methodNode.instructions);
+//                    printLabels(methodNode.instructions);
+
                 }
             }
         }
 
         System.out.println("Blocks reordered: " + blockCount);
+    }
+
+    private void printJumpInstructions(InsnList instructions) {
+        System.out.println("Printing instructions:");
+        for (int i = 0; i < instructions.size(); i++) {
+            AbstractInsnNode insn = instructions.get(i);
+            if(insn instanceof JumpInsnNode) {
+                System.out.println("Jumping to : " + ((JumpInsnNode) insn).label);
+
+//                System.out.println(Arrays.stream(instructions.toArray()).anyMatch(abstractInsnNode -> abstractInsnNode instanceof LabelNode && ((LabelNode) abstractInsnNode).getLabel().equals(((JumpInsnNode) insn).label)));
+            }
+        }
+    }
+
+    private void printLabels(InsnList instructions) {
+        System.out.println("Printing labels:");
+        for (int i = 0; i < instructions.size(); i++) {
+            AbstractInsnNode insn = instructions.get(i);
+            if (insn instanceof LabelNode) {
+                LabelNode label = (LabelNode) insn;
+//                System.out.printf("%d: %s\n", i, label.getLabel().toString());
+                System.out.println(label);
+            }
+        }
     }
 
     private InsnList buildInsnList(InsnList originalInstructions, List<Block> blocks) {

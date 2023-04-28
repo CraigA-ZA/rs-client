@@ -96,7 +96,7 @@ public class OpaquePredicates extends AbstractDeob {
     }
 
     private boolean isConstantOperand(AbstractInsnNode insnNode) {
-        return insnNode.getOpcode() == Opcodes.LDC || (insnNode.getOpcode() >= Opcodes.ICONST_0 && insnNode.getOpcode() <= Opcodes.ICONST_5) || insnNode.getOpcode() == Opcodes.SIPUSH || insnNode.getOpcode() == Opcodes.BIPUSH;
+        return insnNode.getOpcode() == Opcodes.LDC || (insnNode.getOpcode() >= Opcodes.ICONST_M1 && insnNode.getOpcode() <= Opcodes.ICONST_5) || insnNode.getOpcode() == Opcodes.SIPUSH || insnNode.getOpcode() == Opcodes.BIPUSH;
     }
 
     private boolean isIllegalStateException(AbstractInsnNode insnNode) {

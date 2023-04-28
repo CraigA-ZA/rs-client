@@ -1,4 +1,4 @@
-package constants;/*
+package loader.constants;/*
  * Copyright (c) 2018, Psikoi <https://github.com/psikoi>
  * All rights reserved.
  *

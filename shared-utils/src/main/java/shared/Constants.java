@@ -35,4 +35,5 @@ public class Constants {
     public static final Path NAMES_JSON = Path.of(GAMEPACK_OUTPUT_DIR + "names.json");
     public static final String INJECTED_JAR_PATH = GAMEPACK_OUTPUT_DIR + "gamepack_injected.jar";
     public static final String VANILLA_GAMEPACK_DIR = GAMEPACK_OUTPUT_DIR + Constants.OUTPUT_FILE_NAME;
+    public static final String ACCESSOR_PACKAGE = "accessors";
 }

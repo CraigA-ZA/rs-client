@@ -1,3 +1,5 @@
+package loader;
+
 import lombok.RequiredArgsConstructor;
 import shared.Constants;
 

@@ -1,4 +1,4 @@
-/*
+package loader;/*
  * Copyright (c) 2016-2017, Adam <Adam@sigterm.info>
  * All rights reserved.
  *

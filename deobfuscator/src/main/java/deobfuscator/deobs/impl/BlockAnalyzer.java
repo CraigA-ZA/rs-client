@@ -31,7 +31,7 @@ public class BlockAnalyzer extends Analyzer<BasicValue> {
             if (nextInsn instanceof JumpInsnNode ||
                     nextInsn instanceof TableSwitchInsnNode ||
                     nextInsn instanceof LookupSwitchInsnNode ||
-                    nextInsn instanceof InsnNode && (nextInsn.getOpcode() >= Opcodes.IRETURN && nextInsn.getOpcode() <= Opcodes.RETURN || nextInsn.getOpcode() == Opcodes.ATHROW) ||
+//                    nextInsn instanceof InsnNode && (nextInsn.getOpcode() >= Opcodes.IRETURN && nextInsn.getOpcode() <= Opcodes.RETURN || nextInsn.getOpcode() == Opcodes.ATHROW) ||
                     nextInsn instanceof LabelNode) {
                 currentBlock = new Block();
                 currentBlock.instructionsStart = i + 1;

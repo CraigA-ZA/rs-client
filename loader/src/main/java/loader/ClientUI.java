@@ -1,8 +1,10 @@
+package loader;
+
 import com.formdev.flatlaf.FlatDarculaLaf;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import util.ImageUtil;
-import util.SwingUtil;
+import loader.util.ImageUtil;
+import loader.util.SwingUtil;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

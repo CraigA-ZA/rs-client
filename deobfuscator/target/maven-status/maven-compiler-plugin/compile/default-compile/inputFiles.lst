@@ -1,5 +1,17 @@
-E:\Billy\Documents\FunProgramming\rs-client\deobfuscator\src\main\java\deobfuscator\models\FoundMethod.java
-E:\Billy\Documents\FunProgramming\rs-client\deobfuscator\src\main\java\deobfuscator\Deobfuscator.java
-E:\Billy\Documents\FunProgramming\rs-client\deobfuscator\src\main\java\deobfuscator\deobs\AbstractDeob.java
-E:\Billy\Documents\FunProgramming\rs-client\deobfuscator\src\main\java\deobfuscator\deobs\impl\UnusedFields.java
-E:\Billy\Documents\FunProgramming\rs-client\deobfuscator\src\main\java\deobfuscator\deobs\impl\UnusedMethod.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\ASM\UnusedParams.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\javassist\UnusedFields.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\ASM\RemoveEmptyConstructors.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\ASM\UnusedTryCatchRemover.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\Block.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\ASM\ControlFlowFixer.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\Deobfuscator.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\ASM\RemoveUnneccessaryGotos.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\ASM\RenameStaticMethods.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\AbstractDeob.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\ASM\SortMethodsByLineNumber.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\ASM\OpaquePredicates.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\javassist\UnusedMethod.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\ASM\RenameIfJavaKeyword.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\ASM\SortFieldsByModifiers.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\ASMBlock.java
+C:\Users\craig.armstrong\Documents\Dev Projects\rs-client\Deobfuscator\src\main\java\deobfuscator\deobs\impl\BlockAnalyzer.java

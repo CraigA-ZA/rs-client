@@ -23,6 +23,12 @@
             <artifactId>shared-utils</artifactId>
             <version>0.1-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>za.org.secret</groupId>
+            <artifactId>client-api</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>
