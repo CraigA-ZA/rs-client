@@ -11,6 +11,7 @@
         <module>loader</module>
         <module>deobfuscator</module>
         <module>downloader</module>
+        <module>client-api</module>
         <module>shared-utils</module>
         <module>find-names</module>
         <module>updater</module>
@@ -85,7 +86,7 @@
 
         <dependency>
             <groupId>org.ow2.asm</groupId>
-            <artifactId>asm-util</artifactId>
+            <artifactId>asm-loader.util</artifactId>
             <version>${asm.version}</version>
         </dependency>
 

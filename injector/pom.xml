@@ -40,6 +40,13 @@
             <artifactId>shared-utils</artifactId>
             <version>0.1-SNAPSHOT</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.squareup/javapoet -->
+        <dependency>
+            <groupId>com.squareup</groupId>
+            <artifactId>javapoet</artifactId>
+            <version>1.13.0</version>
+        </dependency>
+
     </dependencies>
 
 </project>

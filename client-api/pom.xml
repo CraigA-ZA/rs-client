@@ -9,7 +9,7 @@
         <version>0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>loader</artifactId>
+    <artifactId>client-api</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -21,12 +21,6 @@
         <dependency>
             <groupId>za.org.secret</groupId>
             <artifactId>shared-utils</artifactId>
-            <version>0.1-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>za.org.secret</groupId>
-            <artifactId>client-api</artifactId>
             <version>0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

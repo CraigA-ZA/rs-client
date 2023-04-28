@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.objectweb.asm.MethodVisitor;
+import com.squareup.javapoet.JavaFile;
+import com.squareup.javapoet.TypeSpec;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.*;
@@ -14,8 +15,9 @@ import shared.UtilFunctions;
 import shared.model.IdClass;
 import shared.model.IdField;
 
+import javax.lang.model.element.Modifier;
 import java.io.IOException;
-import java.lang.reflect.Modifier;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
@@ -26,14 +28,16 @@ public class Injector {
             .setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
     public static void main(String[] args) throws IOException {
-        List<IdClass> classes = jsonMapper.readValue(Constants.NAMES_JSON.toFile(), new TypeReference<>(){});
-        Map<String, ClassNode> classNodes = UtilFunctions.loadJarASM(Constants.DEOB_OUTPUT_JAR_PATH);
+        List<IdClass> classes = jsonMapper.readValue(Constants.NAMES_JSON.toFile(), new TypeReference<>() {
+        });
+        Map<String, ClassNode> classNodes = UtilFunctions.loadJarASM(Constants.VANILLA_GAMEPACK_DIR);
 
-        for(IdClass idClass: classes) {
-            ClassNode classNode = classNodes.values().stream().filter(it -> it.name.equals(idClass.name)).findFirst().orElseThrow(() -> new RuntimeException("Class not found"));
+        for (IdClass idClass : classes) {
+            ClassNode classNode = classNodes.values().stream().filter(it -> it.name.equals(toVanilla(idClass.name))).findFirst().orElseThrow(() -> new RuntimeException("Class not found"));
 
-//            classNode.interfaces.add(idClass.className);
-            for(IdField idField: idClass.fields) {
+            writeInterface(idClass);
+            classNode.interfaces.add(Constants.ACCESSOR_PACKAGE + "." + idClass.className);
+            for (IdField idField : idClass.fields) {
                 createGetter(classNode, idClass, idField);
             }
         }
@@ -41,9 +45,30 @@ public class Injector {
         UtilFunctions.writeJarToDiskASM(classNodes, Constants.INJECTED_JAR_PATH);
     }
 
+    private static void writeInterface(IdClass idClass) {
+        TypeSpec interfaceSpec = TypeSpec.interfaceBuilder(idClass.className)
+                .addModifiers(Modifier.PUBLIC)
+                .build();
+
+        JavaFile javaFile = JavaFile.builder(Constants.ACCESSOR_PACKAGE, interfaceSpec)
+                .build();
+
+        try {
+            javaFile.writeTo(Paths.get("client-api/src/"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("Generated interface " + idClass.className + ".java");
+    }
+
+    private static String toVanilla(String name) {
+        return name.equals("Client") ? "client" : name.substring(0, 2);
+    }
+
     private static void createGetter(ClassNode classNode, IdClass idClass, IdField idField) {
 
-        if(!Modifier.isStatic(idField.access)) {
+        if (!java.lang.reflect.Modifier.isStatic(idField.access)) {
             String methodName = "get" + idField.field.substring(0, 1).toUpperCase() + idField.field.substring(1);
 
             MethodNode getterMethod = new MethodNode(Opcodes.ACC_PUBLIC, methodName, "()" + idField.descriptor, null, null);
