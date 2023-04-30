@@ -212,7 +212,6 @@ class Client : IdentityMapper.Class() {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
     }
 
-
     class visibleTiles : StaticField() {
         override val predicate = predicateOf<FieldWrapper> { it.type == BOOLEAN_TYPE.withDimensions(2) }
     }

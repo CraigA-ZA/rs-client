@@ -1,7 +1,9 @@
 package loader;
 
+import accessors.RSClient;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import org.checkerframework.checker.units.qual.C;
 import shared.Constants;
 import shared.UtilFunctions;
 
@@ -48,47 +50,22 @@ public class SpoonsClient {
 
         clientUI.init();
         clientUI.show();
+
+        RSClient client = (RSClient) applet;
+        while(true) {
+//            System.out.println("Moving to - x:" + client.getDestinationX() + " y: " + client.getDestinationY());
+//            System.out.println(String.format("Camera pitch: x: %d, y: %d, z: %d", client.getCameraX(), client.getCameraY(), client.getCameraZ()));
+//            System.out.println(client.getPlayers());
+            System.out.println("Item selected: " + client.getIsItemSelected());
+            System.out.println("Spell selected: " + client.getSelectedSpellName());
+            System.out.println("Is mini menu open: " + client.getIsMiniMenuOpen());
+        }
     }
 
     private static Applet loadClient() {
         try {
-            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-
-            try {
-                // Get all resources in the classpath
-                Enumeration<URL> resources = classLoader.getResources("");
-
-                while (resources.hasMoreElements()) {
-                    URL resource = resources.nextElement();
-                    File file = new File(resource.getFile());
-
-                    if (file.isDirectory()) {
-                        // Get all files in the directory
-                        File[] files = file.listFiles();
-
-                        for (File f : files) {
-                            // Check if it's a class file
-                            if (f.isFile() && f.getName().endsWith(".class")) {
-                                String className = f.getName().substring(0, f.getName().length() - 6);
-                                String packageName = file.getName().replace('/', '.');
-
-                                // Load the class
-                                Class<?> cls = Class.forName(packageName + "." + className);
-
-                                // Check if it's an interface
-                                if (cls.isInterface()) {
-                                    System.out.println("Interface found: " + cls.getName());
-                                }
-                            }
-                        }
-                    }
-                }
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-
-            ClassLoader classLoader2 = new URLClassLoader(new URL[]{new URL("file:" + Constants.INJECTED_JAR_PATH)});
-            Class<?> initialClass = classLoader2.loadClass("client");
+            ClassLoader classLoader = new URLClassLoader(new URL[]{new URL("file:" + Constants.INJECTED_JAR_PATH)});
+            Class<?> initialClass = classLoader.loadClass("client");
             Applet applet = (Applet) initialClass.newInstance();
 
             return applet;
@@ -101,7 +78,7 @@ public class SpoonsClient {
     private static ClassLoader loadClassesFromJar() throws IOException {
         try {
             // Replace the path with the actual path to your Jar file
-            File jarFile =  new File(Constants.INJECTED_JAR_PATH);
+            File jarFile = new File(Constants.INJECTED_JAR_PATH);
             URL jarUrl = jarFile.toURI().toURL();
             URLClassLoader classLoader = URLClassLoader.newInstance(new URL[]{jarUrl});
 

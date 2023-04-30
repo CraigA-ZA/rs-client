@@ -2,7 +2,6 @@ package mapper.identifiers.classes
 
 import mapper.*
 import mapper.abstractclasses.IdentityMapper
-import mapper.abstractclasses.StaticUniqueMapper
 import mapper.annotations.DependsOn
 import mapper.predicateutilities.*
 import mapper.wrappers.ClassWrapper

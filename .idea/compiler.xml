@@ -12,11 +12,11 @@
         <module name="Loader" />
         <module name="Shared-Utils" />
         <module name="Deobfuscator" />
-        <module name="updater" />
-        <module name="deobfuscator" />
+        <module name="gamepack-deobfuscator" />
         <module name="shared-utils" />
         <module name="Updater" />
-        <module name="injector" />
+        <module name="gamepack-injector" />
+        <module name="gamepack-renamer" />
         <module name="client-api" />
         <module name="find-names" />
         <module name="downloader" />
