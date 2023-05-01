@@ -1,6 +1,7 @@
 package shared;
 
 import java.awt.*;
+import java.io.DataOutput;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -36,4 +37,5 @@ public class Constants {
     public static final String INJECTED_JAR_PATH = GAMEPACK_OUTPUT_DIR + "gamepack_injected.jar";
     public static final String VANILLA_GAMEPACK_DIR = GAMEPACK_OUTPUT_DIR + Constants.OUTPUT_FILE_NAME;
     public static final String ACCESSOR_PACKAGE = "accessors";
+    public static final Path MULTIPLIER_JSON = Path.of(GAMEPACK_OUTPUT_DIR + "multipliers.json");
 }

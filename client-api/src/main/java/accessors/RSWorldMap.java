@@ -9,7 +9,7 @@ public interface RSWorldMap {
     boolean getElementsDisabled();
     HashSet getEnabledCategories();
     HashSet getEnabledElements();
-    HashSet getFlashingElementse();
+    HashSet getFlashingElements();
     RSWorldMapArea getMainMapArea();
     HashMap getMapAreas();
     RSCoord getMouseCoord();
