@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 
 public class MultiplierFinderConverted extends AbstractDeob {
     private static ObjectMapper jsonMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
-    
+
     @Override
     public void run() {
         Multipliers multipliers = new Multipliers();
@@ -86,6 +86,7 @@ public class MultiplierFinderConverted extends AbstractDeob {
         }
 
         private void solveOne() {
+            //TODO sus
             Map.Entry<String, Collection<Mul>> e = mulX.asMap().entrySet().stream()
                     .filter(x -> decEncX.stream().noneMatch(y -> y.get.equals(x.getKey()) || y.put.equals(x.getKey())))
                     .findFirst()
@@ -102,7 +103,7 @@ public class MultiplierFinderConverted extends AbstractDeob {
                 return distinct.iterator().next().decoder;
             }
             List<Mul> pairs = distinct.stream()
-                    .filter(a -> a.dec && distinct.stream().anyMatch(b -> !b.dec && Objects.equals(a.decoder, b.decoder)))
+                    .filter(a -> a.dec && distinct.stream().anyMatch(b -> !b.dec && a.decoder.equals(b.decoder)))
                     .collect(Collectors.toList());
             if (!pairs.isEmpty()) {
                 return pairs.iterator().next().decoder;
