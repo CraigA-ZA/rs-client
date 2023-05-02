@@ -1,6 +1,7 @@
 package loader;
 
 import accessors.RSClient;
+import accessors.RSPlayer;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import org.checkerframework.checker.units.qual.C;
@@ -52,14 +53,31 @@ public class SpoonsClient {
         clientUI.show();
 
         RSClient client = (RSClient) applet;
-        while(true) {
 //            System.out.println("Moving to - x:" + client.getDestinationX() + " y: " + client.getDestinationY());
 //            System.out.println(String.format("Camera pitch: x: %d, y: %d, z: %d", client.getCameraX(), client.getCameraY(), client.getCameraZ()));
-//            System.out.println(client.getPlayers());
-            System.out.println("Item selected: " + client.getIsItemSelected());
-            System.out.println("Spell selected: " + client.getSelectedSpellName());
-            System.out.println("Is mini menu open: " + client.getIsMiniMenuOpen());
+
+//            System.out.println(client.getLoginState());
+
+        class SayHello extends TimerTask {
+            public void run() {
+                RSPlayer localPlayer = client.getLocalPlayer();
+                if (localPlayer != null) {
+                    System.out.println("Position - X:" + localPlayer.getTileX() + " Y:" + localPlayer.getTileY());
+
+//                        System.out.println(localPlayer.getActions());
+                    System.out.println(localPlayer.getCombatLevel());
+                    System.out.println(localPlayer.getSkillLevel());
+                }
+            }
         }
+
+        Timer timer = new Timer();
+        timer.schedule(new SayHello(), 0, 5000);
+
+//            System.out.println(client.getPlayers());
+//            System.out.println("Item selected: " + client.getIsItemSelected());
+//            System.out.println("Spell selected: " + client.getSelectedSpellName());
+//            System.out.println("Is mini menu open: " + client.getIsMiniMenuOpen());
     }
 
     private static Applet loadClient() {
@@ -88,7 +106,7 @@ public class SpoonsClient {
                 JarEntry entry = entries.nextElement();
                 String entryName = entry.getName();
                 if (entryName.endsWith(".class")) {
-                    String className = entryName.substring(0, entryName.length() - ".class".length()).replace('/', '.');
+                    String className = entryName.substring(0, entryName.length() - ".class" .length()).replace('/', '.');
                     classLoader.loadClass(className);
                 }
             }

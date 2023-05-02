@@ -32,8 +32,12 @@ public class Injector {
 
     static List<IdClass> identifiedClasses;
 
+    static Map<String, Number> multipliers;
+
     public static void main(String[] args) throws IOException {
         identifiedClasses = jsonMapper.readValue(Constants.NAMES_JSON.toFile(), new TypeReference<>() {
+        });
+        multipliers = jsonMapper.readValue(Constants.MULTIPLIER_JSON.toFile(), new TypeReference<>() {
         });
 
 
@@ -82,9 +86,7 @@ public class Injector {
         String vanillafiedDescriptor = toVanilla(identifiedField.descriptor);
         String vanillafiedFieldName = toVanilla(identifiedField.name);
         String vanillafiedFieldOwner = toVanilla(identifiedField.owner);
-        if (methodName.equals("getScenery")) {
-            System.out.println("poesy");
-        }
+
         String getterReturnType = identifiedClasses.stream()
                 .filter(idClass -> idClass.name.equals(getObjectType(identifiedField.descriptor)))
                 .findFirst()
@@ -96,10 +98,24 @@ public class Injector {
 
         if (!java.lang.reflect.Modifier.isStatic(identifiedField.access)) {
             instructions.add(new VarInsnNode(Opcodes.ALOAD, 0));
-            instructions.add(new FieldInsnNode(Opcodes.GETFIELD, vanillafiedFieldOwner, vanillafiedFieldName, vanillafiedDescriptor)); //toVanilla(getterReturnType)
+            instructions.add(new FieldInsnNode(Opcodes.GETFIELD, vanillafiedFieldOwner, vanillafiedFieldName, vanillafiedDescriptor));
         } else {
             classToWriteTo = classNodes.get("client");
-            instructions.add(new FieldInsnNode(Opcodes.GETSTATIC, vanillafiedFieldOwner, vanillafiedFieldName, vanillafiedDescriptor)); //toVanilla(getterReturnType)
+            instructions.add(new FieldInsnNode(Opcodes.GETSTATIC, vanillafiedFieldOwner, vanillafiedFieldName, vanillafiedDescriptor));
+        }
+        //TODO I might have to also check inheritance and stuff here as well??
+        if(identifiedField.owner.equals("client") && identifiedField.name.equals("te")) {
+            System.out.println("poes");
+        }
+        String key = identifiedField.owner + "." + identifiedField.name;
+        if(multipliers.containsKey(key)) {
+            instructions.add(new LdcInsnNode(multipliers.get(key)));
+            if(multipliers.get(key) instanceof Integer) {
+                instructions.add(new InsnNode(Opcodes.IMUL));
+            } else {
+                instructions.add(new InsnNode(Opcodes.LMUL));
+            }
+
         }
 
         instructions.add(new InsnNode(Type.getType(vanillafiedDescriptor).getOpcode(Opcodes.IRETURN)));
