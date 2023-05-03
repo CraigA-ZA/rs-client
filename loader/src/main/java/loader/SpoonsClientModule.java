@@ -24,10 +24,12 @@ package loader;/*
  */
 
 
+import accessors.RSClient;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import lombok.AllArgsConstructor;
 
+import javax.annotation.Nullable;
 import javax.inject.Singleton;
 import java.applet.Applet;
 import java.util.function.Supplier;
@@ -36,85 +38,9 @@ import java.util.function.Supplier;
 public class SpoonsClientModule extends AbstractModule {
 
     private final Applet applet;
-//	private final Supplier<RuntimeConfig> configSupplier;
-//	private final File config;
 
     @Override
     protected void configure() {
-        // bind properties
-//		Properties properties = RuneLiteProperties.getProperties();
-//		for (String key : properties.stringPropertyNames())
-//		{
-//			String value = properties.getProperty(key);
-//			bindConstant().annotatedWith(Names.named(key)).to(value);
-//		}
-
-        // bind runtime config
-//		RuntimeConfig runtimeConfig = configSupplier.get();
-//		if (runtimeConfig != null && runtimeConfig.getProps() != null)
-//		{
-//			for (Map.Entry<String, ?> entry : runtimeConfig.getProps().entrySet())
-//			{
-//				if (entry.getValue() instanceof String)
-//				{
-//					ConstantBindingBuilder binder = bindConstant().annotatedWith(Names.named(entry.getKey()));
-//					binder.to((String) entry.getValue());
-//				}
-//				else if (entry.getValue() instanceof Double)
-//				{
-//					ConstantBindingBuilder binder = bindConstant().annotatedWith(Names.named(entry.getKey()));
-//					if (DoubleMath.isMathematicalInteger((double) entry.getValue()))
-//					{
-//						binder.to((int) (double) entry.getValue());
-//					}
-//					else
-//					{
-//						binder.to((double) entry.getValue());
-//					}
-//				}
-//				else if (entry.getValue() instanceof Boolean)
-//				{
-//					ConstantBindingBuilder binder = bindConstant().annotatedWith(Names.named(entry.getKey()));
-//					binder.to((boolean) entry.getValue());
-//				}
-//			}
-//		}
-
-//		bind(OptionSet.class).annotatedWith(Names.named("clientArgs")).toInstance(optionSet);
-//		bindConstant().annotatedWith(Names.named("developerMode")).to(developerMode);
-//		bindConstant().annotatedWith(Names.named("safeMode")).to(safeMode);
-//		bind(File.class).annotatedWith(Names.named("sessionfile")).toInstance(sessionfile);
-//		bind(File.class).annotatedWith(Names.named("config")).toInstance(config);
-//		bind(ScheduledExecutorService.class).toInstance(new ExecutorServiceExceptionLogger(Executors.newSingleThreadScheduledExecutor()));
-//		bind(OkHttpClient.class).toInstance(okHttpClient);
-//		bind(MenuManager.class);
-//		bind(ChatMessageManager.class);
-//		bind(ItemManager.class);
-//		bind(Scheduler.class);
-//		bind(PluginManager.class);
-//		bind(SessionManager.class);
-
-//		bind(Gson.class).toInstance(RuneLiteAPI.GSON);
-
-//		bind(Callbacks.class).to(Hooks.class);
-
-//		bind(EventBus.class)
-//				.toInstance(new EventBus());
-
-//		bind(EventBus.class)
-//				.annotatedWith(Names.named("Deferred EventBus"))
-//				.to(DeferredEventBus.class);
-
-//		requestStaticInjection(
-//				Static.class
-//		);
-
-//		Properties unethicaliteProperties = UnethicaliteProperties.getProperties();
-//		for (String key : unethicaliteProperties.stringPropertyNames())
-//		{
-//			String value = unethicaliteProperties.getProperty(key);
-//			bindConstant().annotatedWith(Names.named(key)).to(value);
-//		}
     }
 
     @Provides
@@ -123,12 +49,12 @@ public class SpoonsClientModule extends AbstractModule {
         return applet;
     }
 
-//	@Provides
-//	@Singleton
-//	Client provideClient(@Nullable Applet applet)
-//	{
-//		return applet instanceof Client ? (Client) applet : null;
-//	}
+	@Provides
+	@Singleton
+	RSClient provideClient(@Nullable Applet applet)
+	{
+		return (RSClient) applet;
+	}
 
 //	@Provides
 //	@Singleton

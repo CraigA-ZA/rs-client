@@ -4,6 +4,7 @@ import accessors.RSClient;
 import accessors.RSPlayer;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import loader.logging.Logger;
 import org.checkerframework.checker.units.qual.C;
 import shared.Constants;
 import shared.UtilFunctions;
@@ -24,12 +25,13 @@ public class SpoonsClient {
     @Inject
     private ClientUI clientUI;
 
+    @Inject
+    RSClient client;
+
     private static Injector injector;
 
     public static void main(String[] args) {
         try {
-//            ClassLoader classLoader = loadClassesFromJar();
-
             Map<String, String> config = UtilFunctions.readConfig();
 
             Applet applet = loadClient();
@@ -52,7 +54,7 @@ public class SpoonsClient {
         clientUI.init();
         clientUI.show();
 
-        RSClient client = (RSClient) applet;
+
 //            System.out.println("Moving to - x:" + client.getDestinationX() + " y: " + client.getDestinationY());
 //            System.out.println(String.format("Camera pitch: x: %d, y: %d, z: %d", client.getCameraX(), client.getCameraY(), client.getCameraZ()));
 
@@ -67,12 +69,13 @@ public class SpoonsClient {
 //                        System.out.println(localPlayer.getActions());
                     System.out.println(localPlayer.getCombatLevel());
                     System.out.println(localPlayer.getSkillLevel());
+                    Logger.log("Poes");
                 }
             }
         }
 
         Timer timer = new Timer();
-        timer.schedule(new SayHello(), 0, 5000);
+        timer.schedule(new SayHello(), 0, 500);
 
 //            System.out.println(client.getPlayers());
 //            System.out.println("Item selected: " + client.getIsItemSelected());
@@ -89,31 +92,6 @@ public class SpoonsClient {
             return applet;
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | MalformedURLException ex) {
             ex.printStackTrace();
-            return null;
-        }
-    }
-
-    private static ClassLoader loadClassesFromJar() throws IOException {
-        try {
-            // Replace the path with the actual path to your Jar file
-            File jarFile = new File(Constants.INJECTED_JAR_PATH);
-            URL jarUrl = jarFile.toURI().toURL();
-            URLClassLoader classLoader = URLClassLoader.newInstance(new URL[]{jarUrl});
-
-            JarFile jar = new JarFile(jarFile);
-            Enumeration<JarEntry> entries = jar.entries();
-            while (entries.hasMoreElements()) {
-                JarEntry entry = entries.nextElement();
-                String entryName = entry.getName();
-                if (entryName.endsWith(".class")) {
-                    String className = entryName.substring(0, entryName.length() - ".class" .length()).replace('/', '.');
-                    classLoader.loadClass(className);
-                }
-            }
-
-            return classLoader;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
             return null;
         }
     }
