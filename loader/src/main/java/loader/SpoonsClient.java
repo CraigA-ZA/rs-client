@@ -56,26 +56,26 @@ public class SpoonsClient {
 
 
 //            System.out.println("Moving to - x:" + client.getDestinationX() + " y: " + client.getDestinationY());
-//            System.out.println(String.format("Camera pitch: x: %d, y: %d, z: %d", client.getCameraX(), client.getCameraY(), client.getCameraZ()));
+//        Logger.log(String.format("Camera pitch: x: %d, y: %d, z: %d", client.getCameraX(), client.getCameraY(), client.getCameraZ()));
 
 //            System.out.println(client.getLoginState());
 
         class SayHello extends TimerTask {
             public void run() {
-                RSPlayer localPlayer = client.getLocalPlayer();
-                if (localPlayer != null) {
-                    System.out.println("Position - X:" + localPlayer.getTileX() + " Y:" + localPlayer.getTileY());
+//                RSPlayer localPlayer = client.getLocalPlayer();
+                Logger.log(String.format("Camera pitch: x: %d, y: %d, z: %d", client.getCameraX(), client.getCameraY(), client.getCameraZ()));
+//                if (localPlayer != null) {
+//                    System.out.println("Position - X:" + localPlayer.getTileX() + " Y:" + localPlayer.getTileY());
 
 //                        System.out.println(localPlayer.getActions());
-                    System.out.println(localPlayer.getCombatLevel());
-                    System.out.println(localPlayer.getSkillLevel());
-                    Logger.log("Poes");
-                }
+//                    System.out.println(localPlayer.getCombatLevel());
+//                    System.out.println(localPlayer.getSkillLevel());
+//                }
             }
         }
 
         Timer timer = new Timer();
-        timer.schedule(new SayHello(), 0, 500);
+        timer.schedule(new SayHello(), 0, 300);
 
 //            System.out.println(client.getPlayers());
 //            System.out.println("Item selected: " + client.getIsItemSelected());
