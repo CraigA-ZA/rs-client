@@ -1,13 +1,16 @@
 package loader;
 
+import accessors.RSCanvas;
 import accessors.RSClient;
 import accessors.RSPlayer;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import loader.events.CallbacksImpl;
 import loader.logging.Logger;
 import org.checkerframework.checker.units.qual.C;
 import shared.Constants;
 import shared.UtilFunctions;
+import wrappers.MouseWrapper;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -39,7 +42,6 @@ public class SpoonsClient {
             applet.setStub(new RSAppletStub(config));
 
             injector = Guice.createInjector(new SpoonsClientModule(applet));
-
             injector.getInstance(SpoonsClient.class).start(applet);
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,6 +49,8 @@ public class SpoonsClient {
     }
 
     private void start(Applet applet) throws Exception {
+        MouseWrapper mouseWrapper = new MouseWrapper(client.getMouseHandler_instance(), client, (RSCanvas) client.getCanvas());
+        client.setCallbacks(new CallbacksImpl(client, mouseWrapper));
         applet.setSize(Constants.GAME_FIXED_WIDTH, Constants.GAME_FIXED_HEIGHT);
         applet.init();
         applet.start();
@@ -63,13 +67,17 @@ public class SpoonsClient {
         class SayHello extends TimerTask {
             public void run() {
 //                RSPlayer localPlayer = client.getLocalPlayer();
-                Logger.log(String.format("Camera pitch: x: %d, y: %d, z: %d", client.getCameraX(), client.getCameraY(), client.getCameraZ()));
+//                Logger.log(String.format("Camera pitch: x: %d, y: %d, z: %d", client.getCameraX(), client.getCameraY(), client.getCameraZ()));
 //                if (localPlayer != null) {
 //                    System.out.println("Position - X:" + localPlayer.getTileX() + " Y:" + localPlayer.getTileY());
-
+//
 //                        System.out.println(localPlayer.getActions());
 //                    System.out.println(localPlayer.getCombatLevel());
 //                    System.out.println(localPlayer.getSkillLevel());
+//                }
+//                if(client.getLocalPlayer() != null) {
+//                    System.out.println("Sending click: X:" + client.getLocalPlayer().getTileX() + " Y:" + client.getLocalPlayer().getTileY());
+//                    mouseWrapper.sendClick(client.getLocalPlayer().getTileX(), client.getLocalPlayer().getTileY(), 1);
 //                }
             }
         }

@@ -16,6 +16,7 @@
         <module>find-names</module>
         <module>gamepack-renamer</module>
         <module>gamepack-injector</module>
+        <module>generate-accessors</module>
     </modules>
 
     <properties>

@@ -1,10 +1,15 @@
 package accessors;
 
+import callbacks.Callbacks;
+
 public interface RSClient extends RSGameShell {
     RSPlayer getLocalPlayer();
 
     RSPlayer[] getPlayers();
     RSNpc[] getNPCs();
+
+    Callbacks getCallbacks();
+    void setCallbacks(Callbacks callbacks);
 
     int getCameraX();
 
@@ -82,4 +87,13 @@ public interface RSClient extends RSGameShell {
     int getWeight();
     RSWorldMap getWorldMap0();
     RSWorldMapEvent getWorldMapEvent();
+
+    public int getMouseHandler_x();
+    public int getMouseHandler_y();
+
+    long getMouseHandler_lastPressedTimeMillis();
+
+    int getMouseHandler_lastPressedX();
+
+    int getMouseHandler_lastPressedY();
 }
