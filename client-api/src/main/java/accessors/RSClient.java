@@ -96,4 +96,6 @@ public interface RSClient extends RSGameShell {
     int getMouseHandler_lastPressedX();
 
     int getMouseHandler_lastPressedY();
+
+
 }

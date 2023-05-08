@@ -10,6 +10,7 @@ import lombok.Getter;
 import wrappers.MouseWrapper;
 
 import java.awt.*;
+import java.util.List;
 
 @Getter
 @AllArgsConstructor
@@ -51,6 +52,24 @@ public class CallbacksImpl implements Callbacks {
                 graphics.drawLine(lastMousePressX - 5, lastMousePressY - 5, lastMousePressX + 5, lastMousePressY + 5);
                 graphics.drawLine(lastMousePressX + 5, lastMousePressY - 5, lastMousePressX - 5, lastMousePressY + 5);
             }
+        }
+        graphics.setColor(Color.CYAN);
+        graphics.draw(Viewport.shape);
+        graphics.setColor(Color.BLUE);
+        List<String> strings = List.of(
+                "viewportOffsetX/Y: ${CLIENT.viewportOffsetX}, ${CLIENT.viewportOffsetY}",
+                "viewportWidth/Height: ${CLIENT.viewportWidth}, ${CLIENT.viewportHeight}",
+                "viewportZoom: ${CLIENT.viewportZoom}",
+                "viewportMouseX/Y: ${CLIENT.viewportMouse_x}, ${CLIENT.viewportMouse_y}",
+                "viewportContainsMouse: ${CLIENT.viewportMouse_isInViewport}"
+        );
+        graphics.setFont(Fonts.PLAIN_12);
+        graphics.setColor(Color.WHITE);
+        int x = 20;
+        int y = 40;
+        for(String s: strings) {
+            graphics.drawString(s, x, y);
+            y += graphics.getFont().getSize() + 5;
         }
     }
 }
