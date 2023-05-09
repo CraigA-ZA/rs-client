@@ -68,4 +68,10 @@ public interface RSActor extends RSEntity {
     public int getWalkRightSequence();
 
     public int getWalkSequence();
+
+    int getX();
+
+    int getY();
+
+    int getDefaultHeight();
 }

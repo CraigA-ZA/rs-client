@@ -1,4 +1,4 @@
-package wrappers;
+package api;
 
 import accessors.RSCanvas;
 import accessors.RSClient;
@@ -11,8 +11,7 @@ import java.awt.event.MouseEvent;
 @AllArgsConstructor
 public class MouseWrapper {
     RSMouseHandler mouseHandler;
-    RSClient client;
-    RSCanvas canvas;
+    Client client;
 
     public synchronized void sendClick(int x, int y, int button)
     {

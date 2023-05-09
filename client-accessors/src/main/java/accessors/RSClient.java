@@ -98,4 +98,33 @@ public interface RSClient extends RSGameShell {
     int getMouseHandler_lastPressedY();
 
 
+    int getViewportOffsetX();
+
+    int getViewportOffsetY();
+
+    int getViewportWidth();
+
+    int getViewportHeight();
+
+    int getViewportZoom();
+
+    RSComponent getViewportComponent();
+
+    int getViewportMouse_y();
+
+    int getViewportMouse_x();
+
+    boolean getViewportMouse_isInViewport();
+
+    int getNpcCount();
+
+    int getPlane();
+
+    int getPlayersCount();
+
+    int getPlayers_count();
+
+    int[] getRasterizer3D_sine();
+
+    int[] getRasterizer3D_cosine();
 }
