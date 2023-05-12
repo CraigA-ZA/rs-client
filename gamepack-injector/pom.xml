@@ -55,7 +55,7 @@
 
         <dependency>
             <groupId>za.org.secret</groupId>
-            <artifactId>client-api</artifactId>
+            <artifactId>client-accessors</artifactId>
             <version>0.1-SNAPSHOT</version>
         </dependency>
 

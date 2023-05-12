@@ -74,4 +74,6 @@ public interface RSActor extends RSEntity {
     int getY();
 
     int getDefaultHeight();
+
+    int getOrientation();
 }

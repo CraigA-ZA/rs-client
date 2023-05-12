@@ -5,9 +5,8 @@ import mapper.annotations.DependsOn
 import mapper.predicateutilities.predicateOf
 import mapper.wrappers.ClassWrapper
 
-//TODO
-//@DependsOn(Client.Players_targetIndices::class)
-//class Players : IdentityMapper.Class() {
-//
-//    override val predicate = predicateOf<ClassWrapper> { field<Client.Players_targetIndices>().klass == it }
-//}
+@DependsOn(Client.Players_targetIndices::class)
+class Players : IdentityMapper.Class() {
+
+    override val predicate = predicateOf<ClassWrapper> { field<Client.Players_targetIndices>().klass == it }
+}

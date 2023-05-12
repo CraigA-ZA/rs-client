@@ -112,7 +112,7 @@ public class Injector {
                 .build();
 
         try {
-            javaFile.writeTo(Paths.get("client-api/src/main/java/new"));
+            javaFile.writeTo(Paths.get("client-accessors/src/main/java/new"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -1,16 +1,11 @@
 package injector.callbacks;
 
 import callbacks.Callbacks;
-import deobfuscator.deobs.AbstractDeob;
-import injector.Injector;
 import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.*;
-import shared.Constants;
 import shared.model.IdClass;
 
 import static injector.Injector.classNodes;
-import static injector.Injector.identifiedClasses;
 
 public class OnTickInjector extends AbstractCallbackInjector {
     @Override

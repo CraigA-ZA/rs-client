@@ -1,30 +1,32 @@
-package wrappers.actor;
+package api.actor;
 
 import accessors.RSClient;
 import accessors.RSPlayer;
 import lombok.AllArgsConstructor;
 
+import javax.inject.Inject;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.IntStream;
 
 @AllArgsConstructor
 public class Players {
-    private final RSClient client;
+    private RSClient client;
 
-    public PlayerWrapper get(int index) {
+    public Player get(int index) {
         RSPlayer player = client.getPlayers()[index];
-        return player != null ? new PlayerWrapper(player) : null;
+        return player != null ? new Player(player, client) : null;
     }
 
-    public PlayerWrapper getLocal() {
+    public Player getLocal() {
         RSPlayer player = client.getLocalPlayer();
-        return player != null ? new PlayerWrapper(player) : null;
+        return player != null ? new Player(player, client) : null;
     }
 
-    public List<PlayerWrapper> toList() {
-        System.out.println(size());
-        return IntStream.range(0, size())
+    public List<Player> toList() {
+        int[] playerIndices = client.getPlayers_indices();
+        return Arrays.stream(playerIndices)
                 .mapToObj(this::get)
                 .filter(Objects::nonNull)
                 .toList();

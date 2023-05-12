@@ -1,31 +1,32 @@
 package api.actor;
 
-import accessors.RSNPCType;
+import accessors.RSClient;
 import accessors.RSNpc;
-import runestar.generated.XNpc;
 
-public class NpcWrapper extends ActorWrapper {
+public class Npc extends Actor {
     private final RSNpc rsNpc;
     private final int index;
     private final int plane;
+    private final RSClient client;
 
-    public NpcWrapper(RSNpc rsNpc, int index, int plane) {
-        super(rsNpc);
+    public Npc(RSNpc rsNpc, int index, int plane, RSClient client) {
+        super(rsNpc, client);
         this.rsNpc = rsNpc;
         this.index = index;
         this.plane = plane;
-    }
-
-    public NpcDefinition getType() {
-        return rsNpc.getType() != null ? new NpcDefinition(rsNpc.getType()) : null;
-    }
-
-    public int getIndex() {
-        return index;
+        this.client = client;
     }
 
     @Override
     public int getPlane() {
         return plane;
     }
+
+//    public NpcDefinition getType() {
+//        return rsNpc.getType() != null ? new NpcDefinition(rsNpc.getType()) : null;
+//    }
+//
+//    public int getIndex() {
+//        return index;
+//    }
 }

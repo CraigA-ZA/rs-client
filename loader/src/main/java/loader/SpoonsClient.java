@@ -1,27 +1,26 @@
 package loader;
 
-import accessors.RSCanvas;
 import accessors.RSClient;
-import accessors.RSPlayer;
+import api.Camera;
+import api.Inventory;
+import api.Mouse;
+import api.Viewport;
+import api.actor.Npcs;
+import api.actor.Players;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import loader.events.CallbacksImpl;
-import loader.logging.Logger;
 import org.checkerframework.checker.units.qual.C;
 import shared.Constants;
 import shared.UtilFunctions;
-import wrappers.MouseWrapper;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.applet.Applet;
-import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.*;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
 
 @Singleton
 public class SpoonsClient {
@@ -49,8 +48,13 @@ public class SpoonsClient {
     }
 
     private void start(Applet applet) throws Exception {
-        MouseWrapper mouseWrapper = new MouseWrapper(client.getMouseHandler_instance(), client, (RSCanvas) client.getCanvas());
-        client.setCallbacks(new CallbacksImpl(client, mouseWrapper));
+        Mouse mouse = new Mouse(client);
+        Viewport viewport = new Viewport(client);
+        Players players = new Players(client);
+        Npcs npcs = new Npcs(client);
+        Camera camera = new Camera(client);
+
+        client.setCallbacks(new CallbacksImpl(client, mouse, viewport, players, npcs, camera));
         applet.setSize(Constants.GAME_FIXED_WIDTH, Constants.GAME_FIXED_HEIGHT);
         applet.init();
         applet.start();

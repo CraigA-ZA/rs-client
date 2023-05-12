@@ -1,21 +1,20 @@
 package api.actor;
 
 import accessors.*;
+import api.Position;
 import api.SceneTile;
+import api.utility.Angle;
+import lombok.AllArgsConstructor;
 
-//@AllArgsConstructor
-public abstract class ActorWrapper { //implements ActorTargeting
+@AllArgsConstructor
+public abstract class Actor {
     private final RSActor actor;
-
-    public ActorWrapper(RSActor actor) {
-//        super(actor);
-        this.actor = actor;
-    }
+    private final RSClient client;
 
     public abstract int getPlane();
 
-    public SceneTile getLocation() {
-        return new SceneTile(actor.getPathX()[0], actor.getPathY()[0], getPlane());
+    public SceneTile  getLocation() {
+        return new SceneTile(actor.getPathX()[0], actor.getPathY()[0], getPlane(), client);
     }
 
     public Double getHealth() {
@@ -34,22 +33,20 @@ public abstract class ActorWrapper { //implements ActorTargeting
         return null;
     }
 
-//
+
 //    @Override
 //    public int getNpcTargetIndex() {
 //        int index = actor.getTargetIndex();
 //        return (index >= 0 && index <= 32767) ? index : -1;
 //    }
-//
 //    @Override
 //    public int getPlayerTargetIndex() {
 //        int index = actor.getTargetIndex();
 //        return (index > 32768) ? index - 32768 : -1;
 //    }
-//
-//    public Position getModelPosition() {
-//        return new Position(actor.getX(), actor.getY(), 0, getPlane());
-//    }
+    public Position getModelPosition() {
+        return new Position(actor.getX(), actor.getY(), 0, getPlane(), client);
+    }
 //    public String getOverheadText() {
 //        return actor.getOverheadText();
 //    }
@@ -59,22 +56,13 @@ public abstract class ActorWrapper { //implements ActorTargeting
 //    public int getDefaultHeight() {
 //        return actor.getDefaultHeight();
 //    }
-//
-
-
 //    public Angle getOrientation() {
 //        return Angle.of(actor.getOrientation());
 //    }
-
-
 //    public void setOverheadText(String value) {
 //        actor.setOverheadText(value);
 //    }
-
-
 //    public void setOverheadTextCyclesRemaining(int value) {
 //        actor.setOverheadTextCyclesRemaining(value);
 //    }
-
-
 }

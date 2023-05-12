@@ -3281,22 +3281,28 @@ class Client : IdentityMapper.Class() {
 //    }
 
 
-//    @DependsOn(viewportHeight::class, viewportWidth::class)
-//    class viewportOffsetY : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == RETURN }
-//                .prev { it.opcode == PUTSTATIC && it.fieldId == field<viewportHeight>().id }
-//                .prevWithin(5) { it.opcode == PUTSTATIC && it.fieldId == field<viewportWidth>().id }
-//                .prevWithin(5) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
-//    }
-//
-//    @DependsOn(viewportHeight::class, viewportWidth::class, viewportOffsetY::class)
-//    class viewportOffsetX : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == RETURN }
-//                .prev { it.opcode == PUTSTATIC && it.fieldId == field<viewportHeight>().id }
-//                .prevWithin(5) { it.opcode == PUTSTATIC && it.fieldId == field<viewportWidth>().id }
-//                .prevWithin(5) { it.opcode == PUTSTATIC && it.fieldId == field<viewportOffsetY>().id }
-//                .prevWithin(5) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
-//    }
+    @DependsOn(viewportHeight::class, viewportWidth::class)
+    class viewportOffsetY : StaticUniqueMapper.Field() {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == RETURN }
+                .prevWithin(10) { it.opcode == PUTSTATIC && it.fieldId == field<viewportHeight>().id }
+                .prevWithin(15) { it.opcode == PUTSTATIC && it.fieldId == field<viewportWidth>().id }
+                .prevWithin(15) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
+    }
+
+    @DependsOn(viewportHeight::class, viewportWidth::class, viewportOffsetY::class)
+    class viewportOffsetX : StaticUniqueMapper.Field() {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == RETURN }
+                .prevWithin(10) { it.opcode == PUTSTATIC && it.fieldId == field<viewportHeight>().id }
+                .prevWithin(15) { it.opcode == PUTSTATIC && it.fieldId == field<viewportWidth>().id }
+                .prevWithin(15) { it.opcode == PUTSTATIC && it.fieldId == field<viewportOffsetY>().id }
+                .prevWithin(15) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
+    }
+
+    @DependsOn(worldToScreen::class, Actor::class)
+    class actorToScreen_doNotUse : StaticMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.arguments == listOf(type<Actor>(), INT_TYPE) }
+                .and { it.instructions.any { it.isMethod && it.methodId == method<worldToScreen>().id } }
+    }
 
 //    @DependsOn(MouseHandler_currentButton0::class)
 //    class MouseHandler_millis0 : AllUniqueMapper.Field() {
@@ -3473,24 +3479,31 @@ class Client : IdentityMapper.Class() {
 //    }
 
 
-//    @DependsOn(Players::class)
-//    class Players_indices : OrderMapper.InClassInitializer.Field(Players::class, 0, 6) {
-//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 2048 }
-//                .nextIn(10) { it.opcode == PUTSTATIC && it.fieldType == IntArray::class.type }
-//    }
+    @DependsOn(Players::class)
+    class Players_indices : OrderMapper.InClassInitializer.Field(Players::class, 0, 6) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 2048 }
+                .nextWithin(5) { it.opcode == PUTSTATIC && it.fieldType == IntArray::class.type }
+    }
 
-//    @DependsOn(Players::class)
-//    class Players_count : OrderMapper.InClassInitializer.Field(Players::class, 0, 3) {
-//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == ICONST_0 }
-//                .next { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
-//    }
-//
-//    @DependsOn(Actor::class, Actor.targetIndex::class, Actor.orientation::class)
-//    class Players_targetIndices : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldName == field<Actor.targetIndex>().name && it.fieldOwner == type<Actor>() }
-//                .prevWithin(8) { it.opcode == PUTFIELD && it.fieldName == field<Actor.orientation>().name && it.fieldOwner == type<Actor>() }
-//                .nextWithin(3) { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
-//    }
+    @DependsOn(Players::class)
+    class Players_count : OrderMapper.InClassInitializer.Field(Players::class, 0, 3) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == ICONST_0 }
+                .nextWithin(5) { it.opcode == PUTSTATIC && it.fieldType == INT_TYPE }
+    }
+
+
+    @DependsOn(Player::class, updateExternalPlayer::class)
+    class Players_targetIndices : UniqueMapper.InMethod.Field(updateExternalPlayer::class) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldName == field<Actor.targetIndex>().name && it.fieldOwner == type<Player>() }
+                .prevWithin(15) { it.opcode == PUTFIELD && it.fieldName == field<Actor.orientation>().name && it.fieldOwner == type<Player>() }
+                .nextWithin(10) { it.opcode == GETSTATIC && it.fieldType == IntArray::class.type }
+    }
+
+    @DependsOn(Actor::class)
+    class updateActorSequence : StaticMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.arguments == listOf(type<Actor>(), INT_TYPE) }
+                .and { it.instructions.count() > 300 }
+    }
 
 //    TODO nb
 //    class cycle : StaticUniqueMapper.Field() {

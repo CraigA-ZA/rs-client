@@ -1,4 +1,4 @@
-package wrappers.actor;
+package api.actor;
 
 import accessors.RSNPCType;
 import accessors.RSNpc;

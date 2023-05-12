@@ -1,6 +1,8 @@
 package accessors;
 
 import callbacks.Callbacks;
+import runestar.generated.XCollisionMap;
+import runestar.generated.XNodeHashTable;
 
 public interface RSClient extends RSGameShell {
     RSPlayer getLocalPlayer();
@@ -26,7 +28,7 @@ public interface RSClient extends RSGameShell {
     RSMouseHandler getMouseHandler_instance();
     RSKeyHandler getKeyHandler_instance();
 
-    RSComponent getInterfaceComponents();
+    RSComponent[][] getInterfaceComponents();
 
     int getDestinationX();
 
@@ -127,4 +129,10 @@ public interface RSClient extends RSGameShell {
     int[] getRasterizer3D_sine();
 
     int[] getRasterizer3D_cosine();
+
+    int[] getPlayers_indices();
+
+    RSCollisionMap[] getCollisionMaps();
+
+    RSNodeHashTable getItemContainers();
 }

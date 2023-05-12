@@ -4,10 +4,10 @@ import accessors.RSClient;
 import api.utility.Angle;
 import api.utility.LocalValue;
 
-public class CameraWrapper {
-    Client client;
+public class Camera {
+    RSClient client;
 
-    public CameraWrapper(Client client) {
+    public Camera(RSClient client) {
         this.client = client;
     }
 
@@ -35,14 +35,12 @@ public class CameraWrapper {
         return Angle.of(client.getCameraPitch(), client);
     }
 
-
-
     public Angle getYaw() {
         return Angle.of(client.getCameraYaw(), client);
     }
 
     public Position getPosition() {
-        return new Position(getLocalX(), getLocalY(), getHeight(), getPlane());
+        return new Position(getLocalX(), getLocalY(), getHeight(), getPlane(), client);
     }
 
     @Override

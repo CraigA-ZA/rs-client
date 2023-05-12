@@ -1,16 +1,14 @@
-package wrappers;
+package api;
 
 import accessors.RSClient;
+import com.google.inject.Inject;
 import lombok.AllArgsConstructor;
-import wrappers.utility.Angle;
+import api.utility.Angle;
 
 import java.awt.*;
 
 @AllArgsConstructor
-public class Viewport implements Projection{
-//    public static final int FIXED_ZOOM_DEFAULT = 512;
-//    public static final int FIXED_ZOOM_MIN = 390;
-//    public static final int FIXED_ZOOM_MAX = 1400;
+public class Viewport implements Projection {
     public RSClient client;
 
     public int getX() {
@@ -36,38 +34,22 @@ public class Viewport implements Projection{
     public Rectangle getShape() {
         return new Rectangle(getX(), getY(), getWidth(), getHeight());
     }
-//
-//    public boolean contains(int x, int y) {
-//        return x >= getX() && y >= getY() && x <= (getX() + getWidth()) && y <= (getY() + getHeight());
-//    }
-//
-//    public boolean contains(Point point) {
-//        return contains(point.x, point.y);
-//    }
-//
-//    public ComponentWrapper getComponent() {
-//        if (client.getViewportComponent() != null) {
-//            return new ComponentWrapper(client.getViewportComponent());
-//        } else {
-//            return null;
-//        }
-//    }
-//
+
     public boolean toScreen(int localX, int localY, int height, int plane, int tileHeightLocalX, int tileHeightLocalY, Point result, RSClient client) {
         if (!Position.isLoaded(tileHeightLocalX, tileHeightLocalY, plane)) {
             return false;
         }
         int x1 = localX;
         int y1 = localY;
-        int z1 = SceneWrapper.getTileHeight(tileHeightLocalX, tileHeightLocalY, plane, client) - height;
-        CameraWrapper cameraWrapper = new CameraWrapper(client);
-        x1 -= cameraWrapper.getLocalX();
-        y1 -= cameraWrapper.getLocalY();
-        z1 -= cameraWrapper.getAbsoluteHeight();
-        Angle cameraPitch = cameraWrapper.getPitch();
+        int z1 = Scene.getTileHeight(tileHeightLocalX, tileHeightLocalY, plane, client) - height;
+        Camera camera = new Camera(client);
+        x1 -= camera.getLocalX();
+        y1 -= camera.getLocalY();
+        z1 -= camera.getAbsoluteHeight();
+        Angle cameraPitch = camera.getPitch();
         int sinY = cameraPitch.sinInternal();
         int cosY = cameraPitch.cosInternal();
-        Angle cameraYaw = cameraWrapper.getYaw();
+        Angle cameraYaw = camera.getYaw();
         int sinX = cameraYaw.sinInternal();
         int cosX = cameraYaw.cosInternal();
         int x2 = (y1 * sinX + x1 * cosX) >> 16;
@@ -84,26 +66,53 @@ public class Viewport implements Projection{
         return true;
     }
 
+    public int getMouseX() {
+        return client.getViewportMouse_x();
+    }
+
+    public int getMouseY() {
+        return client.getViewportMouse_y();
+    }
+
+    public boolean containsMouse() {
+        return client.getViewportMouse_isInViewport();
+    }
 
 
-//
-//    public Position toGame(int x, int y) {
-//        // todo
-//        int plane = client.getPlane();
-//        for (int xi = 0; xi < SceneWrapper.SIZE; xi++) {
-//            for (int yi = 0; yi < SceneWrapper.SIZE; yi++) {
-//                SceneTileWrapper tile = new SceneTileWrapper(xi, yi, plane);
-//                Rectangle bounds = (Rectangle) tile.outline(this);
-//                if (bounds.contains(x, y)) {
-//                    return tile.getCenter();
-//                }
-//            }
-//        }
-//        return null;
-//    }
+    public Position toGame(int x, int y) {
+        int plane = client.getPlane();
+        for (int xi = 0; xi < Scene.SIZE; xi++) {
+            for (int yi = 0; yi < Scene.SIZE; yi++) {
+                SceneTile tile = new SceneTile(xi, yi, plane, client);
+                Shape bounds = tile.outline(this);
+                if (bounds.contains(x, y)) {
+                    return tile.getCenter();
+                }
+            }
+        }
+        return null;
+    }
 //
 //    @Override
 //    public String toString() {
 //        return "Viewport(zoom=" + getZoom() + ", shape=" + getShape() + ")";
 //    }
+//
+//
+//    public boolean contains(int x, int y) {
+//        return x >= getX() && y >= getY() && x <= (getX() + getWidth()) && y <= (getY() + getHeight());
+//    }
+//
+//    public boolean contains(Point point) {
+//        return contains(point.x, point.y);
+//    }
+//
+//    public ComponentWrapper getComponent() {
+//        if (client.getViewportComponent() != null) {
+//            return new ComponentWrapper(client.getViewportComponent());
+//        } else {
+//            return null;
+//        }
+//    }
+
 }

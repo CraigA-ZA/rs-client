@@ -11,6 +11,7 @@ import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
 import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
+import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
 import java.lang.reflect.Modifier
@@ -46,31 +47,31 @@ class Actor : IdentityMapper.Class() {
                 .next { it.opcode == PUTFIELD && it.fieldType == IntArray::class.type }
     }
 
-    class targetIndex : OrderMapper.InConstructor.Field(Actor::class, 12) {
+    class targetIndex : OrderMapper.InConstructor.Field(Actor::class, 19) {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
-    class movementFrame : OrderMapper.InConstructor.Field(Actor::class, 15) {
+    class movementFrame : OrderMapper.InConstructor.Field(Actor::class, 24) {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
-    class movementFrameCycle : OrderMapper.InConstructor.Field(Actor::class, 16) {
+    class movementFrameCycle : OrderMapper.InConstructor.Field(Actor::class, 25) {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
-    class sequence : OrderMapper.InConstructor.Field(Actor::class, 17) {
+    class sequence : OrderMapper.InConstructor.Field(Actor::class, 27) {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
-    class sequenceFrame : OrderMapper.InConstructor.Field(Actor::class, 18) {
+    class sequenceFrame : OrderMapper.InConstructor.Field(Actor::class, 28) {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
-    class sequenceFrameCycle : OrderMapper.InConstructor.Field(Actor::class, 19) {
+    class sequenceFrameCycle : OrderMapper.InConstructor.Field(Actor::class, 29) {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
-    class pathLength : OrderMapper.InConstructor.Field(Actor::class, -3) {
+    class pathLength : OrderMapper.InConstructor.Field(Actor::class, -4) {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
@@ -114,33 +115,33 @@ class Actor : IdentityMapper.Class() {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
-    class movementSequence : OrderMapper.InConstructor.Field(Actor::class, 14) {
+    class movementSequence : OrderMapper.InConstructor.Field(Actor::class, 23) {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
-    class sequenceDelay : OrderMapper.InConstructor.Field(Actor::class, 20) {
+    class sequenceDelay : OrderMapper.InConstructor.Field(Actor::class, 30) {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
-    class spotAnimation : OrderMapper.InConstructor.Field(Actor::class, 22) {
+//    class spotAnimation : OrderMapper.InConstructor.Field(Actor::class, 22) {
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+//    }
+//
+//    class spotAnimationFrame : OrderMapper.InConstructor.Field(Actor::class, 23) {
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+//    }
+
+//    class spotAnimationFrameCycle : OrderMapper.InConstructor.Field(Actor::class, 24) {
+//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
+//    }
+
+    class npcCycle : OrderMapper.InConstructor.Field(Actor::class, 33) {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
-    class spotAnimationFrame : OrderMapper.InConstructor.Field(Actor::class, 23) {
-        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
-    }
-
-    class spotAnimationFrameCycle : OrderMapper.InConstructor.Field(Actor::class, 24) {
-        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
-    }
-
-    class npcCycle : OrderMapper.InConstructor.Field(Actor::class, 25) {
-        override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
-    }
 
 
-
-    class overheadTextCyclesRemaining : OrderMapper.InConstructor.Field(Actor::class, 9) {
+    class overheadTextCyclesRemaining : OrderMapper.InConstructor.Field(Actor::class, 16) {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE }
     }
 
@@ -187,28 +188,35 @@ class Actor : IdentityMapper.Class() {
 //                .prevWithin(8) { it.opcode == GETFIELD && it.fieldType == INT_TYPE }
 //    }
 //
-//    @DependsOn(Npc.getModel::class, Npc::class)
-//    class defaultHeight : UniqueMapper.InMethod.Field(Npc.getModel::class) {
-//        override val predicate = predicateOf<Instruction2> { it.opcode == PUTFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<Actor>() }
-//    }
-//
+    @DependsOn(Client.drawActor2d::class, Client.worldToScreen::class)
+    class defaultHeight : OrderMapper.InMethod.Field(Client.drawActor2d::class, 1) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == INVOKESTATIC && it.methodId == method<Client.worldToScreen>().id }
+                .prevWithin(10) { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+                .prevWithin(10) { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+                .prevWithin(10) { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+    }
 
-//    class x : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3308 }
-//                .nextWithin(15) { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
-//    }
-//
-//    @DependsOn(x::class)
-//    class y : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 3308 }
-//                .nextWithin(25) { it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE && it.fieldName != field<x>().name }
-//    }
-    //TODO
+
+    //Instead of using actorToScreen it could just the invocation of worldToScreen that happens in drawActor2d
+    @DependsOn(Client.actorToScreen_doNotUse::class)
+    class x : UniqueMapper.InMethod.Field(Client.actorToScreen_doNotUse::class) {
+        override val predicate = predicateOf<InstructionWrapper> { it.isMethod }
+                .prevWithin(6){ it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+                .prevWithin(6){ it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+    }
+    @DependsOn(Client.actorToScreen_doNotUse::class)
+    class y : UniqueMapper.InMethod.Field(Client.actorToScreen_doNotUse::class) {
+        override val predicate = predicateOf<InstructionWrapper> { it.isMethod }
+                .prevWithin(6){ it.opcode == Opcodes.GETFIELD && it.fieldType == INT_TYPE }
+    }
+
+
 
     //This one is fucked up because orientation is a field in actor, but its only ever assigned from Player.getModel. Im not sure how to tie it back to the Actor class though. The identifier wants to map it to Player because thats the class its called on
 //    @DependsOn(Player.getModel::class, Model.offset::class, Player::class)
-//    class orientation : UniqueMapper.InMethod.Field(Player.getModel::class) {
-//        override val predicate = predicateOf<InstructionWrapper> { it.isMethod && it.methodId == method<Model.offset>().id }
-//                .nextWithin(25) { it.opcode == GETFIELD && it.fieldType == INT_TYPE && it.fieldOwner == type<Player>() }
-//    }
+
+    class orientation : UniqueMapper.InMethod.Field(Client.updateActorSequence::class) {
+        override val predicate = predicateOf<InstructionWrapper> {it.opcode == GETFIELD && it.fieldType == type<MoveSpeed>().withDimensions(1)}
+                .prevWithin(40) {it.opcode == PUTFIELD} //Could probably check for putfield value of 0
+    }
 }

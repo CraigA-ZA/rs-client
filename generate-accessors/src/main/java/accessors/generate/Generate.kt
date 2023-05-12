@@ -77,7 +77,7 @@ class Generate {
 
 
     fun run() {
-        val outputDir = Paths.get("client-api/src/main/java/")
+        val outputDir = Paths.get("client-accessors/src/main/java/")
         hooks.forEach { c ->
             val typeBuilder = TypeSpec.interfaceBuilder(typeTransforms[c.name])
                     .addSuperinterface(ACCESSOR_TYPENAME)

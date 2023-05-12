@@ -1,15 +1,16 @@
 package api.actor;
 
+import accessors.RSClient;
 import accessors.RSPlayer;
-import runestar.generated.XPlayer;
-import api.actor.ActorWrapper;
-import api.actor.NpcWrapper;
 
-public class PlayerWrapper extends ActorWrapper {
+import java.util.Arrays;
+import java.util.List;
+
+public class Player extends Actor {
     private final RSPlayer rsPlayer;
 
-    public PlayerWrapper(RSPlayer rsPlayer) {
-        super(rsPlayer);
+    public Player(RSPlayer rsPlayer, RSClient client) {
+        super(rsPlayer, client);
         this.rsPlayer = rsPlayer;
     }
 
@@ -17,37 +18,29 @@ public class PlayerWrapper extends ActorWrapper {
     public int getPlane() {
         return rsPlayer.getPlane();
     }
-//
-////    public Username getName() {
-////        return rsPlayer.getUsername() != null ? new Username(accessor.getUsername()) : null;
-////    }
-//    //TODO
-//
+
+
+//    public Username getName() {
+//        return rsPlayer.getUsername() != null ? new Username(accessor.getUsername()) : null;
+//    }
 //    public List<String> getActions() {
 //        return Arrays.stream(rsPlayer.getActions()).toList();
 //    }
-//
 //    public int getCombatLevel() {
 //        return rsPlayer.getCombatLevel();
 //    }
-//
 //    public int getHeadIconPrayer() {
 //        return rsPlayer.getHeadIconPrayer();
 //    }
-//
 //    public int getHeadIconPk() {
 //        return rsPlayer.getHeadIconPk();
 //    }
-//
 //    public int getTeam() {
 //        return rsPlayer.getTeam();
 //    }
-//
-//    //TODO
-////    public PlayerAppearance getAppearance() {
-////        return rsPlayer.getAppearance() != null ? new PlayerAppearance(accessor.getAppearance()) : null;
-////    }
-//
+//    public PlayerAppearance getAppearance() {
+//        return rsPlayer.getAppearance() != null ? new PlayerAppearance(accessor.getAppearance()) : null;
+//    }
 //    public static int combatLevel(int attack, int strength, int defence, int ranged, int prayer, int magic, int hitpoints) {
 //        int base = defence + hitpoints + prayer / 2;
 //        int offenseMelee = attack + strength;

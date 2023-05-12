@@ -1,6 +1,6 @@
-package wrappers.utility;
+package api.utility;
 
-import wrappers.SceneWrapper;
+import api.Scene;
 
 public final class LocalValue {
     final int value;
@@ -25,17 +25,16 @@ public final class LocalValue {
         return value;
     }
 
-    //
 //    public LocalValue plus(LocalValue other) {
 //        return new LocalValue(value + other.value);
 //    }
-//
-//    @Override
-//    public String toString() {
-//        return "LocalValue(scene=" + getScene() + ", sub=" + getSub() + ")";
-//    }
-//
+
+    @Override
+    public String toString() {
+        return "LocalValue(scene=" + getScene() + ", sub=" + getSub() + ")";
+    }
+
     public static final int MAX_SUB = 0x7F;
     public static final int MID_SUB = 64;
-    public static final LocalValue MAX = new LocalValue(SceneWrapper.SIZE - 1, MAX_SUB);
+    public static final LocalValue MAX = new LocalValue(Scene.SIZE - 1, MAX_SUB);
 }
