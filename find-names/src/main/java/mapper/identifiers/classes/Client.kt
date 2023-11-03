@@ -10,6 +10,7 @@ import mapper.wrappers.ClassWrapper
 import mapper.wrappers.FieldWrapper
 import mapper.wrappers.InstructionWrapper
 import mapper.wrappers.MethodWrapper
+import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type.*
 import org.objectweb.asm.tree.JumpInsnNode
@@ -3029,7 +3030,6 @@ class Client : IdentityMapper.Class() {
         override val predicate = predicateOf<InstructionWrapper> { it.opcode == LDC && it.ldcCst == "" }
                 .next { it.opcode == PUTSTATIC && it.fieldId == field<Login_username>().id }
                 .nextWithin(10) { it.opcode == LDC && it.ldcCst == "" }
-                .and { println(it); true; }
                 .next { it.opcode == PUTSTATIC && it.fieldType == String::class.type }
     }
 
@@ -3445,12 +3445,6 @@ class Client : IdentityMapper.Class() {
 //        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 5504 }
 //                .nextWithin(18) { it.opcode == GETSTATIC && it.fieldType == BOOLEAN_TYPE }
 //    }
-
-    //    class rootInterface : StaticUniqueMapper.Field() {
-//        override val predicate = predicateOf<InstructionWrapper> { it.opcode == SIPUSH && it.intOperand == 2706 }
-//                .nextWithin(50) { it.isLabel }
-//                .prevWithin(25) { it.opcode == GETSTATIC && it.fieldType == INT_TYPE }
-//    }
 //
 //    //    0 - 27
 //    @DependsOn(Component.swapItems::class)
@@ -3504,6 +3498,22 @@ class Client : IdentityMapper.Class() {
         override val predicate = predicateOf<MethodWrapper> { it.arguments == listOf(type<Actor>(), INT_TYPE) }
                 .and { it.instructions.count() > 300 }
     }
+
+    @DependsOn(doCycleJs5::class)
+    class resizeGame: InstanceMethod() {
+        override val predicate = predicateOf<MethodWrapper> { it.arguments.isEmpty()}
+                .and { it.instructions.count() in 5..50 }
+                .and {it.returnType == VOID_TYPE}
+                .and {it != method<doCycleJs5>() }
+    }
+
+    @DependsOn(resizeGame::class)
+    class rootInterface: UniqueMapper.InMethod.Field(resizeGame::class) {
+        override val predicate = predicateOf<InstructionWrapper> { it.opcode == Opcodes.ICONST_M1 }
+                .nextWithin(5) { it.opcode == GETSTATIC}
+    }
+
+
 
 //    TODO nb
 //    class cycle : StaticUniqueMapper.Field() {

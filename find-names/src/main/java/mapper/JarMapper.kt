@@ -32,12 +32,14 @@ class JarMapper(vararg val classMappers: KClass<out Mapper<ClassWrapper>>) {
                 .filter { it.isSubclassOf(Mapper::class) }
                 .map { it as KClass<out Mapper<*>> }
         orderDependencies(unordered).map { it.createInstance() }.forEach {
-            println(it.javaClass)
             it.context = context
-            it.map(jarWrapper)
+            try {
+                it.map(jarWrapper)
+            } catch (e: Exception) {
+                println(it.javaClass.toString() + " broken");
+            }
             count++;
         }
-        println(count++)
     }
 
     private fun orderDependencies(unordered: Sequence<KClass<out Mapper<*>>>): Sequence<KClass<out Mapper<*>>> {

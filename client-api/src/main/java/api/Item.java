@@ -1,5 +1,11 @@
 package api;
 
+import accessors.RSClient;
+import accessors.RSComponent;
+import accessors.RSInventory;
+
+import java.awt.*;
+
 public class Item {
     private final int id;
     private final int quantity;

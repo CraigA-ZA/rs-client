@@ -14,14 +14,16 @@ public final class ComponentId {
     public int getItf() {
         return packed >> 16;
     }
-
-    public int getComponent() {
+    public  int getComponent() {
         return packed & 0xFFFF;
     }
 
-    @Override
-    public String toString() {
-        return "ComponentId(" + getItf() + ":" + getComponent() + ")";
+    public static int getItf(int packed) {
+        return packed >> 16;
+    }
+
+    public static int getComponent(int packed) {
+        return packed & 0xFFFF;
     }
 
     public static final ComponentId CASTLE_WARS_SARADOMIN_TIME_LEFT = new ComponentId(InterfaceId.CASTLE_WARS_SARADOMIN, 25);

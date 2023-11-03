@@ -59,7 +59,9 @@ public class Injector {
                 createGetterInGamepack(idField);
             }
             for(IdMethod idMethod: identifiedClass.methods) {
-                processInjectionsForMethod(idMethod, identifiedClass);
+                if(idMethod.parameters != null && idMethod.parameters.size() > 0 && !java.lang.reflect.Modifier.isStatic(idMethod.access) && !idMethod.name.equals(idMethod.method)) { //That last check is just my weird way of checking if the method already exists
+                    processInjectionsForMethod(idMethod);
+                }
             }
 //            writeInterface(identifiedClass, methodSpecs); be careful using this. it will overwrite all existing files. should probably add a check to see if the file already exists
         }
@@ -99,7 +101,31 @@ public class Injector {
         }
     }
 
-    private static void processInjectionsForMethod(IdMethod idMethod, IdClass identifiedClass) {
+    private static void processInjectionsForMethod(IdMethod idMethod) {
+        ClassNode classToWriteTo = classNodes.get(toVanilla(idMethod.owner));
+
+        //TODO Might have to have a toVanilla thing on descriptor once I do stuff with static methods (currently i dont have to worry cus only static methods have the _renamed thing)
+        Type methodDescriptor = Type.getType(idMethod.descriptor);
+        String obfuscatedReturnTypeDescriptor = methodDescriptor.getReturnType().getDescriptor();
+        String mappedReturnTypeDescriptor = getMappedReturnType(obfuscatedReturnTypeDescriptor);
+        MethodNode injectedMethod = new MethodNode(Opcodes.ACC_PUBLIC, idMethod.method, idMethod.descriptor.substring(0, idMethod.descriptor.indexOf(")") + 1) + mappedReturnTypeDescriptor, null, null);
+        InsnList instructions = injectedMethod.instructions;
+
+        instructions.add(new VarInsnNode(Opcodes.ALOAD, 0));
+        int localIndex = 1;
+        for (Type argumentType : methodDescriptor.getArgumentTypes()) {
+            instructions.add(new VarInsnNode(argumentType.getOpcode(Opcodes.ILOAD), localIndex));
+            localIndex += argumentType.getSize();
+        }
+
+        instructions.add(new MethodInsnNode(Opcodes.INVOKEVIRTUAL, idMethod.owner, idMethod.name, idMethod.descriptor));
+
+        instructions.add(new InsnNode(Type.getType(obfuscatedReturnTypeDescriptor).getOpcode(Opcodes.IRETURN)));
+
+        //TODO Major. This shouldnt only do rc. But is broken otherwise at the moment
+        if(classToWriteTo.name.equals("rc")) {
+            classToWriteTo.methods.add(injectedMethod);
+        }
     }
 
     private static void writeInterface(IdClass idClass, List<MethodSpec> methodSpecs) {
@@ -133,11 +159,7 @@ public class Injector {
         String vanillafiedFieldName = toVanilla(identifiedField.name);
         String vanillafiedFieldOwner = toVanilla(identifiedField.owner);
 
-        String getterReturnType = identifiedClasses.stream()
-                .filter(idClass -> idClass.name.equals(getObjectType(identifiedField.descriptor)))
-                .findFirst()
-                .map(idClass -> copyDimensions(Type.getObjectType(Constants.ACCESSOR_PACKAGE + "/RS" + idClass.getClassName()), Type.getType(identifiedField.descriptor)).toString())
-                .orElse(identifiedField.descriptor);
+        String getterReturnType = getMappedReturnType(identifiedField.descriptor);
 
         MethodNode getterMethod = new MethodNode(Opcodes.ACC_PUBLIC, methodName, "()" + toVanilla(getterReturnType), null, null);
         InsnList instructions = getterMethod.instructions;
@@ -149,7 +171,7 @@ public class Injector {
             classToWriteTo = classNodes.get("client");
             instructions.add(new FieldInsnNode(Opcodes.GETSTATIC, vanillafiedFieldOwner, vanillafiedFieldName, vanillafiedDescriptor));
         }
-        //TODO I might have to also check inheritance and stuff here as well??
+
         String key = identifiedField.owner + "." + identifiedField.name;
         if(multipliers.containsKey(key)) {
             instructions.add(new LdcInsnNode(multipliers.get(key)));
@@ -163,6 +185,15 @@ public class Injector {
 
         instructions.add(new InsnNode(Type.getType(vanillafiedDescriptor).getOpcode(Opcodes.IRETURN)));
         classToWriteTo.methods.add(getterMethod);
+    }
+
+    private static String getMappedReturnType(String descriptor) {
+        String getterReturnType = identifiedClasses.stream()
+                .filter(idClass -> idClass.name.equals(getObjectType(descriptor)))
+                .findFirst()
+                .map(idClass -> copyDimensions(Type.getObjectType(Constants.ACCESSOR_PACKAGE + "/RS" + idClass.getClassName()), Type.getType(descriptor)).toString())
+                .orElse(descriptor);
+        return getterReturnType;
     }
 
     public static String getObjectType(String descriptor) {

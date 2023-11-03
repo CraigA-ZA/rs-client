@@ -16,7 +16,7 @@ import org.objectweb.asm.Type.INT_TYPE
 import org.objectweb.asm.Type.VOID_TYPE
 
 class CollisionMap : IdentityMapper.Class() {
-    override val predicate = predicateOf<ClassWrapper> { println(it.name); it.superType == Any::class.type }
+    override val predicate = predicateOf<ClassWrapper> { it.superType == Any::class.type }
             .and { it.interfaces.isEmpty() }
             .and { it.instanceFields.count { it.type == INT_TYPE } == 4 }
             .and { it.instanceFields.count { it.type == INT_TYPE.withDimensions(2) } == 1 }

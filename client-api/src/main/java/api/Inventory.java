@@ -1,6 +1,7 @@
 package api;
 
 import accessors.RSClient;
+import accessors.RSInventory;
 import api.enums.ComponentId;
 import api.enums.ItemContainerId;
 
@@ -14,6 +15,11 @@ public class Inventory {
     }
 
     public static ItemContainer getContainer(RSClient client) {
-        return new ItemContainers(client).get(ItemContainerId.INVENTORY);
+        RSInventory inventory = (RSInventory) client.getItemContainers().get(ItemContainerId.INVENTORY);
+        if(inventory != null) {
+            return new ItemContainer(inventory, client, getComponent(client));
+        } else {
+            return null;
+        }
     }
 }

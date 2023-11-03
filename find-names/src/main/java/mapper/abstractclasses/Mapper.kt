@@ -39,18 +39,18 @@ abstract class Mapper<T> : ElementMatcher<T> {
             is ElementMatcher.Class -> {
                 klass as KClass<out Mapper<ClassWrapper>>
                 t as ClassWrapper
-                if(context.classes.inverse().containsKey(t)) {
-                    println(context.classes.inverse().filter { entry -> entry.key == t})
-                }
+//                if(context.classes.inverse().containsKey(t)) {
+//                    println(context.classes.inverse().filter { entry -> entry.key == t})
+//                }
                 check(!context.classes.inverse().containsKey(t))
                 context.classes[klass] = t
             }
             is ElementMatcher.Field -> {
                 klass as KClass<out Mapper<FieldWrapper>>
                 t as FieldWrapper
-                if(context.fields.inverse().containsKey(t)) {
-                    println(context.fields.inverse().filter { entry -> entry.key == t})
-                }
+//                if(context.fields.inverse().containsKey(t)) {
+//                    println(context.fields.inverse().filter { entry -> entry.key == t})
+//                }
                 check(!context.fields.inverse().containsKey(t))
                 context.fields[klass] = t
             }

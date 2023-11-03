@@ -69,40 +69,40 @@ public class CallbacksImpl implements Callbacks {
         }
 
         //Viewport stats debug
-        graphics.setColor(Color.CYAN);
-        graphics.draw(viewport.getShape());
-        List<String> strings = List.of(
-                "viewportOffsetX/Y: " + viewport.getX() + ", " + viewport.getY(),
-                "viewportWidth/Height: " + viewport.getWidth() + ", " + viewport.getHeight(),
-                "viewportZoom: " + viewport.getZoom(),
-                "viewportMouseX/Y: " + viewport.getMouseX() + ", " + viewport.getMouseY(),
-                "mouseHandlerX/Y: " + mouse.getX() + ", " + mouse.getY(),
-                "viewportContainsMouse: " + viewport.containsMouse()
-        );
-        graphics.setColor(Color.WHITE);
-        int x = 20;
-        int y = 40;
-        for (String s : strings) {
-            graphics.drawString(s, x, y);
-            y += graphics.getFont().getSize() + 5;
-        }
+//        graphics.setColor(Color.CYAN);
+//        graphics.draw(viewport.getShape());
+//        List<String> strings = List.of(
+//                "viewportOffsetX/Y: " + viewport.getX() + ", " + viewport.getY(),
+//                "viewportWidth/Height: " + viewport.getWidth() + ", " + viewport.getHeight(),
+//                "viewportZoom: " + viewport.getZoom(),
+//                "viewportMouseX/Y: " + viewport.getMouseX() + ", " + viewport.getMouseY(),
+//                "mouseHandlerX/Y: " + mouse.getX() + ", " + mouse.getY(),
+//                "viewportContainsMouse: " + viewport.containsMouse()
+//        );
+//        graphics.setColor(Color.WHITE);
+//        int x = 20;
+//        int y = 40;
+//        for (String s : strings) {
+//            graphics.drawString(s, x, y);
+//            y += graphics.getFont().getSize() + 5;
+//        }
 
         //Actor health debug
-        graphics.setColor(Color.GREEN);
-
-        List<Actor> actors = new ArrayList<>();
-        actors.addAll(players.toList());
-        actors.addAll(players.toList());
-        for (Actor actor : actors) {
-            SceneTile loc = actor.getLocation();
-            if (!loc.isLoaded()) continue;
-            Point pt = loc.getCenter().toScreen(viewport);
-            if (pt == null) continue;
-            Double health = actor.getHealth();
-            if (health == null) continue;
-            String string = health.toString();
-            graphics.drawString(string, pt.x, pt.y);
-        }
+//        graphics.setColor(Color.GREEN);
+//
+//        List<Actor> actors = new ArrayList<>();
+//        actors.addAll(players.toList());
+//        actors.addAll(players.toList());
+//        for (Actor actor : actors) {
+//            SceneTile loc = actor.getLocation();
+//            if (!loc.isLoaded()) continue;
+//            Point pt = loc.getCenter().toScreen(viewport);
+//            if (pt == null) continue;
+//            Double health = actor.getHealth();
+//            if (health == null) continue;
+//            String string = health.toString();
+//            graphics.drawString(string, pt.x, pt.y);
+//        }
 
         //Draw square around tile under mouse
         Point mousePoint = mouse.getLocation();
@@ -125,24 +125,24 @@ public class CallbacksImpl implements Callbacks {
         }
 
         //Draw all tiles
-        for(SceneTile tile: VisibilityMap.visibleTiles(camera, client)) {
-            graphics.draw(tile.outline(viewport));
-        }
+//        for (SceneTile tile : VisibilityMap.visibleTiles(camera, client)) {
+//            graphics.draw(tile.outline(viewport));
+//        }
 
         //Walk movement debug
         BasicStroke stroke = new BasicStroke(2.0f);
 //        Point mousePoint = mouse.getLocation(); this is already declared above
 //        Position viewportPosition = viewport.toGame(mousePoint); also already defined above
-        if(viewportPosition != null) {
+        if (viewportPosition != null) {
             graphics.setStroke(stroke);
             SceneTile mouseTile = viewportPosition.getSceneTile();
-            for(OctantDirection direction: OctantDirection.values()) {
+            for (OctantDirection direction : OctantDirection.values()) {
                 SceneTile destinationTile = mouseTile.plus(direction);
-                if(!destinationTile.isLoaded()) {
+                if (!destinationTile.isLoaded()) {
                     continue;
                 }
                 Shape outline = destinationTile.outline(viewport);
-                if(Movement.canMove(mouseTile, direction, client)) {
+                if (Movement.canMove(mouseTile, direction, client)) {
                     graphics.setColor(Color.GREEN);
                 } else {
                     graphics.setColor(Color.RED);
@@ -155,12 +155,20 @@ public class CallbacksImpl implements Callbacks {
         int inventoryOutputX = 5;
         int inventoryOutputY = 40;
 
-//        graphics.setColor(Color.WHITE);
+        graphics.setColor(Color.WHITE);
         ItemContainer inventoryContainer = Inventory.getContainer(client);
-//        for(Item item: inventoryContainer.stream().toList()) {
-//            graphics.drawString(item.toString(), inventoryOutputX, inventoryOutputY);
-//            y += graphics.getFont().getSize() + 5;
-//        }
+        if (inventoryContainer != null) {
+            for (ComponentItem item : inventoryContainer.stream().toList()) {
+                Rectangle area = item.getArea();
+//                graphics.drawString(item.toString(), inventoryOutputX, inventoryOutputY);
+                if(item != null && item.getItem() != null) {
+                    graphics.drawString("" + item.getItem().getId(), area.x, area.y);
+                }
+
+//                y += graphics.getFont().getSize() + 5;
+            }
+        }
+
     }
 
     public Shape shapeAt(Point point) {

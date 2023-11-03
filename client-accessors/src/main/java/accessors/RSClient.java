@@ -135,4 +135,9 @@ public interface RSClient extends RSGameShell {
     RSCollisionMap[] getCollisionMaps();
 
     RSNodeHashTable getItemContainers();
+
+    int[] getRootComponentXs();
+    int[] getRootComponentYs();
+
+    int getRootInterface();
 }
